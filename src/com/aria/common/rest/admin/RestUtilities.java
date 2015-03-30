@@ -635,6 +635,39 @@ public class RestUtilities {
         return returnElement;
     }
 
+    public static ArrayList<DiscountBundlesReturnElement> buildDiscountBundlesReturnElement(JSONArray jsonArray) {
+        ArrayList<DiscountBundlesReturnElement> returnElement = new ArrayList<DiscountBundlesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DiscountBundlesReturnElement entity = new DiscountBundlesReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setBundleNo(getLongValue(jsonObject,"bundle_no"));
+            entity.setBundleName(getStringValue(jsonObject,"bundle_name"));
+            entity.setBundleId(getStringValue(jsonObject,"bundle_id"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+
+    public static ArrayList<DiscountRulesReturnElement> buildDiscountRulesReturnElement(JSONArray jsonArray) {
+        ArrayList<DiscountRulesReturnElement> returnElement = new ArrayList<DiscountRulesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DiscountRulesReturnElement entity = new DiscountRulesReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRuleNo(getLongValue(jsonObject,"rule_no"));
+            entity.setRuleId(getStringValue(jsonObject,"rule_id"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
+            entity.setFlatPercentInd(getLongValue(jsonObject,"flat_percent_ind"));
+            entity.setAmount(getDoubleValue(jsonObject,"amount"));
+            entity.setCurrency(getStringValue(jsonObject,"currency"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+
     public static ArrayList<PlansReturnElement> buildPlansReturnElement(JSONArray jsonArray) {
         ArrayList<PlansReturnElement> returnElement = new ArrayList<PlansReturnElement>();
         if (jsonArray == null) return returnElement;

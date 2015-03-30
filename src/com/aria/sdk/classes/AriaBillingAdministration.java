@@ -872,10 +872,7 @@ public interface AriaBillingAdministration {
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   bundle_no - Type: javax.xml.ws.Holder<br>
-    *   bundle_name - Type: javax.xml.ws.Holder<br>
-    *   bundle_id - Type: javax.xml.ws.Holder<br>
-    *   description - Type: javax.xml.ws.Holder<br>
+    *   discount_bundles - Type: ArrayList&#60;DiscountBundlesReturnElement&#62;<br>
     */
     abstract Map<String,Object> getDiscountBundles(Long client_no, String auth_key);
 
@@ -909,13 +906,7 @@ public interface AriaBillingAdministration {
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   rule_no - Type: javax.xml.ws.Holder<br>
-    *   rule_id - Type: javax.xml.ws.Holder<br>
-    *   description - Type: javax.xml.ws.Holder<br>
-    *   ext_description - Type: javax.xml.ws.Holder<br>
-    *   flat_percent_ind - Type: javax.xml.ws.Holder<br>
-    *   amount - Type: javax.xml.ws.Holder<br>
-    *   currency - Type: javax.xml.ws.Holder<br>
+    *   discount_rules - Type: ArrayList&#60;DiscountRulesReturnElement&#62;<br>
     */
     abstract Map<String,Object> getDiscountRules(Long client_no, String auth_key);
 

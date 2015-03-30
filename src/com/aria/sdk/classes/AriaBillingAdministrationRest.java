@@ -1526,14 +1526,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_discount_bundles"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[6];
+        String[] returnValues = new String[3];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "bundle_no";
-        returnValues[3] = "bundle_name";
-        returnValues[4] = "bundle_id";
-        returnValues[5] = "description";
+        returnValues[2] = "discount_bundles";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -1587,17 +1584,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_discount_rules"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[9];
+        String[] returnValues = new String[3];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "rule_no";
-        returnValues[3] = "rule_id";
-        returnValues[4] = "description";
-        returnValues[5] = "ext_description";
-        returnValues[6] = "flat_percent_ind";
-        returnValues[7] = "amount";
-        returnValues[8] = "currency";
+        returnValues[2] = "discount_rules";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
