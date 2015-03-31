@@ -887,13 +887,7 @@ public interface AriaBillingAdministration {
         * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   bundle_no - Type: javax.xml.ws.Holder<br>
-    *   bundle_name - Type: javax.xml.ws.Holder<br>
-    *   bundle_id - Type: javax.xml.ws.Holder<br>
-    *   description - Type: javax.xml.ws.Holder<br>
-    *   allow_overlap_ind - Type: javax.xml.ws.Holder<br>
-    *   rules - Type: ArrayList&#60;RulesReturnElement&#62;<br>
-    *   rule_ids - Type: ArrayList&#60;RuleIdsReturnElement&#62;<br>
+    *   discount_bundles - Type: ArrayList&#60;DiscountBundlesReturnElement&#62;<br>
     */
     abstract Map<String,Object> getDiscountBundleDetails(Long client_no, String auth_key, Long bundle_no, String bundle_id);
 
@@ -921,27 +915,7 @@ public interface AriaBillingAdministration {
         * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   rule_no - Type: javax.xml.ws.Holder<br>
-    *   rule_id - Type: javax.xml.ws.Holder<br>
-    *   description - Type: javax.xml.ws.Holder<br>
-    *   ext_description - Type: javax.xml.ws.Holder<br>
-    *   flat_percent_ind - Type: javax.xml.ws.Holder<br>
-    *   amount - Type: javax.xml.ws.Holder<br>
-    *   currency - Type: javax.xml.ws.Holder<br>
-    *   duration_type_ind - Type: javax.xml.ws.Holder<br>
-    *   max_applicable_months - Type: javax.xml.ws.Holder<br>
-    *   max_applications_per_acct - Type: javax.xml.ws.Holder<br>
-    *   inline_offset_ind - Type: javax.xml.ws.Holder<br>
-    *   service_code_to_use - Type: javax.xml.ws.Holder<br>
-    *   alt_service_no_2_apply - Type: javax.xml.ws.Holder<br>
-    *   alt_service_id_2_apply - Type: javax.xml.ws.Holder<br>
-    *   scope_no - Type: javax.xml.ws.Holder<br>
-    *   plan_no - Type: ArrayList&#60;PlanNoReturnElement&#62;<br>
-    *   client_plan_id - Type: ArrayList&#60;ClientPlanIdReturnElement&#62;<br>
-    *   service_no - Type: ArrayList&#60;ServiceNoReturnElement&#62;<br>
-    *   client_service_id - Type: ArrayList&#60;ClientServiceIdReturnElement&#62;<br>
-    *   item_no - Type: ArrayList&#60;ItemNoReturnElement&#62;<br>
-    *   client_item_id - Type: ArrayList&#60;ClientItemIdReturnElement&#62;<br>
+    *   discount_rules - Type: ArrayList&#60;DiscountRulesReturnElement&#62;<br>
     */
     abstract Map<String,Object> getDiscountRuleDetails(Long client_no, String auth_key, Long rule_no, String client_rule_id);
 

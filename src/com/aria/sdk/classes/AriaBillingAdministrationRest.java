@@ -1552,17 +1552,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_discount_bundle_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[9];
+        String[] returnValues = new String[3];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "bundle_no";
-        returnValues[3] = "bundle_name";
-        returnValues[4] = "bundle_id";
-        returnValues[5] = "description";
-        returnValues[6] = "allow_overlap_ind";
-        returnValues[7] = "rules";
-        returnValues[8] = "rule_ids";
+        returnValues[2] = "discount_bundles";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -1610,31 +1604,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_discount_rule_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[23];
+        String[] returnValues = new String[3];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "rule_no";
-        returnValues[3] = "rule_id";
-        returnValues[4] = "description";
-        returnValues[5] = "ext_description";
-        returnValues[6] = "flat_percent_ind";
-        returnValues[7] = "amount";
-        returnValues[8] = "currency";
-        returnValues[9] = "duration_type_ind";
-        returnValues[10] = "max_applicable_months";
-        returnValues[11] = "max_applications_per_acct";
-        returnValues[12] = "inline_offset_ind";
-        returnValues[13] = "service_code_to_use";
-        returnValues[14] = "alt_service_no_2_apply";
-        returnValues[15] = "alt_service_id_2_apply";
-        returnValues[16] = "scope_no";
-        returnValues[17] = "plan_no";
-        returnValues[18] = "client_plan_id";
-        returnValues[19] = "service_no";
-        returnValues[20] = "client_service_id";
-        returnValues[21] = "item_no";
-        returnValues[22] = "client_item_id";
+        returnValues[2] = "discount_rules";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();

@@ -645,6 +645,15 @@ public class RestUtilities {
             entity.setBundleName(getStringValue(jsonObject,"bundle_name"));
             entity.setBundleId(getStringValue(jsonObject,"bundle_id"));
             entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setAllowOverlapInd(getStringValue(jsonObject,"allow_overlap_ind"));
+                        ArrayList<RulesReturnElement> arrayListRulesReturnElement = buildRulesReturnElement((JSONArray)jsonObject.get("rules"));
+            for (RulesReturnElement element : arrayListRulesReturnElement){
+                entity.getRules().add(element);
+            }
+                        ArrayList<RuleIdsReturnElement> arrayListRuleIdsReturnElement = buildRuleIdsReturnElement((JSONArray)jsonObject.get("rule_ids"));
+            for (RuleIdsReturnElement element : arrayListRuleIdsReturnElement){
+                entity.getRuleIds().add(element);
+            }
             returnElement.add(entity);
         }
         return returnElement;
@@ -663,6 +672,38 @@ public class RestUtilities {
             entity.setFlatPercentInd(getLongValue(jsonObject,"flat_percent_ind"));
             entity.setAmount(getDoubleValue(jsonObject,"amount"));
             entity.setCurrency(getStringValue(jsonObject,"currency"));
+            entity.setDurationTypeInd(getStringValue(jsonObject,"duration_type_ind"));
+            entity.setMaxApplicableMonths(getLongValue(jsonObject,"max_applicable_months"));
+            entity.setMaxApplicationsPerAcct(getLongValue(jsonObject,"max_applications_per_acct"));
+            entity.setInlineOffsetInd(getStringValue(jsonObject,"inline_offset_ind"));
+            entity.setServiceCodeToUse(getLongValue(jsonObject,"service_code_to_use"));
+            entity.setAltServiceNo2Apply(getLongValue(jsonObject,"alt_service_no_2_apply"));
+            entity.setAltServiceId2Apply(getStringValue(jsonObject,"alt_service_id_2_apply"));
+            entity.setScopeNo(getLongValue(jsonObject,"scope_no"));
+                        ArrayList<PlanNoReturnElement> arrayListPlanNoReturnElement = buildPlanNoReturnElement((JSONArray)jsonObject.get("plan_no"));
+            for (PlanNoReturnElement element : arrayListPlanNoReturnElement){
+                entity.getPlanNo().add(element);
+            }
+                        ArrayList<ClientPlanIdReturnElement> arrayListClientPlanIdReturnElement = buildClientPlanIdReturnElement((JSONArray)jsonObject.get("client_plan_id"));
+            for (ClientPlanIdReturnElement element : arrayListClientPlanIdReturnElement){
+                entity.getClientPlanId().add(element);
+            }
+                        ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
+            for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
+                entity.getServiceNo().add(element);
+            }
+                        ArrayList<ClientServiceIdReturnElement> arrayListClientServiceIdReturnElement = buildClientServiceIdReturnElement((JSONArray)jsonObject.get("client_service_id"));
+            for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
+                entity.getClientServiceId().add(element);
+            }
+                        ArrayList<ItemNoReturnElement> arrayListItemNoReturnElement = buildItemNoReturnElement((JSONArray)jsonObject.get("item_no"));
+            for (ItemNoReturnElement element : arrayListItemNoReturnElement){
+                entity.getItemNo().add(element);
+            }
+                        ArrayList<ClientItemIdReturnElement> arrayListClientItemIdReturnElement = buildClientItemIdReturnElement((JSONArray)jsonObject.get("client_item_id"));
+            for (ClientItemIdReturnElement element : arrayListClientItemIdReturnElement){
+                entity.getClientItemId().add(element);
+            }
             returnElement.add(entity);
         }
         return returnElement;
