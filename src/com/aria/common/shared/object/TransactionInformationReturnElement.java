@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "transaction_information_ReturnElement", propOrder = {"ariaEventNo", "transactionDate", "transactionType", "transactionTypeNo", "isChargeType", "typeSpecificId", "acctNo", "userId", "clientAcctId", "amount", "currencyCd", "ariaStatementNo", "totalAmountApplied", "relatedAmountApplied", "updateDate", "voidDate", "fullyAppliedDate", "relatedTransaction"})
+@XmlType(name = "transaction_information_ReturnElement", propOrder = {"ariaEventNo", "transactionDate", "transactionType", "transactionTypeNo", "isChargeType", "typeSpecificId", "acctNo", "userId", "clientAcctId", "amount", "currencyCd", "ariaStatementNo", "totalAmountApplied", "relatedAmountApplied", "updateDate", "voidDate", "fullyAppliedDate", "masterPlanInstanceNo", "relatedTransaction"})
 public class TransactionInformationReturnElement {
 
     @XmlElement(name = "aria_event_no")
@@ -47,6 +47,8 @@ public class TransactionInformationReturnElement {
     protected String voidDate;
     @XmlElement(name = "fully_applied_date")
     protected String fullyAppliedDate;
+    @XmlElement(name = "master_plan_instance_no")
+    protected Long masterPlanInstanceNo;
     @XmlElement(name = "related_transaction")
     protected List<RelatedTransactionReturnElement> relatedTransaction;
     
@@ -184,6 +186,14 @@ public class TransactionInformationReturnElement {
 
     public void setFullyAppliedDate(String value) {
         this.fullyAppliedDate = value;
+    }
+
+    public Long getMasterPlanInstanceNo() {
+        return masterPlanInstanceNo;
+    }
+
+    public void setMasterPlanInstanceNo(Long value) {
+        this.masterPlanInstanceNo = value;
     }
 
     public List<RelatedTransactionReturnElement> getRelatedTransaction() {

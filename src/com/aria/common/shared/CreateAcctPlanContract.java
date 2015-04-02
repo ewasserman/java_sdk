@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planNo",    "typeNo",    "altRecurFee",    "lengthMonths",    "cancelFee",    "createComments",    "startDate",    "doAutoDiscard",    "endDate",    "clientPlanId"})
+    "authKey",    "acctNo",    "planNo",    "lengthMonths",    "clientPlanId",    "typeNo",    "altRecurFee",    "cancelFee",    "createComments",    "startDate",    "doAutoDiscard",    "endDate"})
 @XmlRootElement(name = "create_acct_plan_contract")
 public class CreateAcctPlanContract {
 
@@ -22,12 +22,14 @@ public class CreateAcctPlanContract {
     protected Long acctNo;
         @XmlElement(name = "plan_no")
     protected Long planNo;
+        @XmlElement(name = "length_months")
+    protected Long lengthMonths;
+        @XmlElement(name = "client_plan_id")
+    protected String clientPlanId;
         @XmlElement(name = "type_no")
     protected Long typeNo;
         @XmlElement(name = "alt_recur_fee")
     protected Double altRecurFee;
-        @XmlElement(name = "length_months")
-    protected Long lengthMonths;
         @XmlElement(name = "cancel_fee")
     protected Double cancelFee;
         @XmlElement(name = "create_comments")
@@ -38,8 +40,6 @@ public class CreateAcctPlanContract {
     protected String doAutoDiscard;
         @XmlElement(name = "end_date")
     protected String endDate;
-        @XmlElement(name = "client_plan_id")
-    protected String clientPlanId;
     
     public long getClientNo() {
         return clientNo;
@@ -71,6 +71,20 @@ public class CreateAcctPlanContract {
     public void setPlanNo(Long value) {
         this.planNo = value;
     }
+            public Long getLengthMonths() {
+        return lengthMonths;
+    }
+
+    public void setLengthMonths(Long value) {
+        this.lengthMonths = value;
+    }
+            public String getClientPlanId() {
+        return clientPlanId;
+    }
+
+    public void setClientPlanId(String value) {
+        this.clientPlanId = value;
+    }
             public Long getTypeNo() {
         return typeNo;
     }
@@ -84,13 +98,6 @@ public class CreateAcctPlanContract {
 
     public void setAltRecurFee(Double value) {
         this.altRecurFee = value;
-    }
-            public Long getLengthMonths() {
-        return lengthMonths;
-    }
-
-    public void setLengthMonths(Long value) {
-        this.lengthMonths = value;
     }
             public Double getCancelFee() {
         return cancelFee;
@@ -126,13 +133,6 @@ public class CreateAcctPlanContract {
 
     public void setEndDate(String value) {
         this.endDate = value;
-    }
-            public String getClientPlanId() {
-        return clientPlanId;
-    }
-
-    public void setClientPlanId(String value) {
-        this.clientPlanId = value;
     }
             
 }

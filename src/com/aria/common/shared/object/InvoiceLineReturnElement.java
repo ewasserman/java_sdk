@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_line_ReturnElement", propOrder = {"lineItemNo", "amount", "comments", "planName", "planNo", "serviceName", "serviceNo", "ledgerCode", "coaId", "coaDescription", "usageUnits", "usageRate", "usageTypeNo", "startDate", "endDate", "clientSku", "orderNo", "itemNo", "invoiceLineTax"})
+@XmlType(name = "invoice_line_ReturnElement", propOrder = {"lineItemNo", "amount", "comments", "planName", "planNo", "serviceName", "serviceNo", "ledgerCode", "coaId", "coaDescription", "usageUnits", "usageRate", "usageTypeNo", "startDate", "endDate", "clientSku", "orderNo", "itemNo", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "invoiceLineTax"})
 public class InvoiceLineReturnElement {
 
     @XmlElement(name = "line_item_no")
@@ -49,6 +49,18 @@ public class InvoiceLineReturnElement {
     protected Long orderNo;
     @XmlElement(name = "item_no")
     protected Long itemNo;
+    @XmlElement(name = "base_plan_units")
+    protected Long basePlanUnits;
+    @XmlElement(name = "proration_factor")
+    protected Double prorationFactor;
+    @XmlElement(name = "proration_text")
+    protected String prorationText;
+    @XmlElement(name = "adv_billing_period_total_days")
+    protected Long advBillingPeriodTotalDays;
+    @XmlElement(name = "proration_remaining_days")
+    protected Long prorationRemainingDays;
+    @XmlElement(name = "proration_description")
+    protected String prorationDescription;
     @XmlElement(name = "invoice_line_tax")
     protected List<InvoiceLineTaxReturnElement> invoiceLineTax;
     
@@ -194,6 +206,54 @@ public class InvoiceLineReturnElement {
 
     public void setItemNo(Long value) {
         this.itemNo = value;
+    }
+
+    public Long getBasePlanUnits() {
+        return basePlanUnits;
+    }
+
+    public void setBasePlanUnits(Long value) {
+        this.basePlanUnits = value;
+    }
+
+    public Double getProrationFactor() {
+        return prorationFactor;
+    }
+
+    public void setProrationFactor(Double value) {
+        this.prorationFactor = value;
+    }
+
+    public String getProrationText() {
+        return prorationText;
+    }
+
+    public void setProrationText(String value) {
+        this.prorationText = value;
+    }
+
+    public Long getAdvBillingPeriodTotalDays() {
+        return advBillingPeriodTotalDays;
+    }
+
+    public void setAdvBillingPeriodTotalDays(Long value) {
+        this.advBillingPeriodTotalDays = value;
+    }
+
+    public Long getProrationRemainingDays() {
+        return prorationRemainingDays;
+    }
+
+    public void setProrationRemainingDays(Long value) {
+        this.prorationRemainingDays = value;
+    }
+
+    public String getProrationDescription() {
+        return prorationDescription;
+    }
+
+    public void setProrationDescription(String value) {
+        this.prorationDescription = value;
     }
 
     public List<InvoiceLineTaxReturnElement> getInvoiceLineTax() {

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "transactionId",    "refundCheckNumber",    "acctNo",    "acctUserId",    "clientAcctId"})
+    "authKey",    "acctNo",    "acctUserId",    "clientAcctId",    "transactionId",    "refundCheckNumber"})
 @XmlRootElement(name = "update_refund_check_no")
 public class UpdateRefundCheckNo {
 
@@ -18,16 +18,16 @@ public class UpdateRefundCheckNo {
     protected Long clientNo;
     @XmlElement(name = "auth_key")
     protected String authKey;
-        @XmlElement(name = "transaction_id")
-    protected Long transactionId;
-        @XmlElement(name = "refund_check_number")
-    protected Long refundCheckNumber;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
         @XmlElement(name = "acct_user_id")
     protected String acctUserId;
         @XmlElement(name = "client_acct_id")
     protected String clientAcctId;
+        @XmlElement(name = "transaction_id")
+    protected Long transactionId;
+        @XmlElement(name = "refund_check_number")
+    protected Long refundCheckNumber;
     
     public long getClientNo() {
         return clientNo;
@@ -45,21 +45,7 @@ public class UpdateRefundCheckNo {
         this.authKey = value;
     }
 
-    public Long getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(Long value) {
-        this.transactionId = value;
-    }
-            public Long getRefundCheckNumber() {
-        return refundCheckNumber;
-    }
-
-    public void setRefundCheckNumber(Long value) {
-        this.refundCheckNumber = value;
-    }
-            public Long getAcctNo() {
+    public Long getAcctNo() {
         return acctNo;
     }
 
@@ -79,6 +65,20 @@ public class UpdateRefundCheckNo {
 
     public void setClientAcctId(String value) {
         this.clientAcctId = value;
+    }
+            public Long getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(Long value) {
+        this.transactionId = value;
+    }
+            public Long getRefundCheckNumber() {
+        return refundCheckNumber;
+    }
+
+    public void setRefundCheckNumber(Long value) {
+        this.refundCheckNumber = value;
     }
             
 }

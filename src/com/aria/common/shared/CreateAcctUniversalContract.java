@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "typeNo",    "lengthMonths",    "createComments",    "startDate",    "endDate"})
+    "authKey",    "acctNo",    "lengthMonths",    "endDate",    "typeNo",    "createComments",    "startDate"})
 @XmlRootElement(name = "create_acct_universal_contract")
 public class CreateAcctUniversalContract {
 
@@ -20,16 +20,16 @@ public class CreateAcctUniversalContract {
     protected String authKey;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
-        @XmlElement(name = "type_no")
-    protected Long typeNo;
         @XmlElement(name = "length_months")
     protected Long lengthMonths;
+        @XmlElement(name = "end_date")
+    protected String endDate;
+        @XmlElement(name = "type_no")
+    protected Long typeNo;
         @XmlElement(name = "create_comments")
     protected String createComments;
         @XmlElement(name = "start_date")
     protected String startDate;
-        @XmlElement(name = "end_date")
-    protected String endDate;
     
     public long getClientNo() {
         return clientNo;
@@ -54,19 +54,26 @@ public class CreateAcctUniversalContract {
     public void setAcctNo(Long value) {
         this.acctNo = value;
     }
-            public Long getTypeNo() {
-        return typeNo;
-    }
-
-    public void setTypeNo(Long value) {
-        this.typeNo = value;
-    }
             public Long getLengthMonths() {
         return lengthMonths;
     }
 
     public void setLengthMonths(Long value) {
         this.lengthMonths = value;
+    }
+            public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String value) {
+        this.endDate = value;
+    }
+            public Long getTypeNo() {
+        return typeNo;
+    }
+
+    public void setTypeNo(Long value) {
+        this.typeNo = value;
     }
             public String getCreateComments() {
         return createComments;
@@ -81,13 +88,6 @@ public class CreateAcctUniversalContract {
 
     public void setStartDate(String value) {
         this.startDate = value;
-    }
-            public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String value) {
-        this.endDate = value;
     }
             
 }

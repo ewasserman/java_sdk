@@ -800,7 +800,6 @@ public class RestUtilities {
             entity.setUsageTypeDesc(getStringValue(jsonObject,"usage_type_desc"));
             entity.setUsageUnitType(getStringValue(jsonObject,"usage_unit_type"));
             entity.setUsageTypeName(getStringValue(jsonObject,"usage_type_name"));
-            entity.setUsageTypeCd(getStringValue(jsonObject,"usage_type_cd"));
             entity.setIsEditable(getLongValue(jsonObject,"is_editable"));
             returnElement.add(entity);
         }
@@ -1930,6 +1929,7 @@ public class RestUtilities {
             parameters.add("from["+i+"]", getValue("Long", row.getFrom()));
             parameters.add("to["+i+"]", getValue("Long", row.getTo()));
             parameters.add("rate["+i+"]", getValue("Double", row.getRate()));
+            parameters.add("description["+i+"]", getValue("String", row.getDescription()));
             i++;
         }
     }
@@ -1940,6 +1940,7 @@ public class RestUtilities {
             parameters.add(paramPrefix + "from["+i+"]", getValue("Long", row.getFrom()));
             parameters.add(paramPrefix + "to["+i+"]", getValue("Long", row.getTo()));
             parameters.add(paramPrefix + "rate["+i+"]", getValue("Double", row.getRate()));
+            parameters.add(paramPrefix + "description["+i+"]", getValue("String", row.getDescription()));
             i++;
         }
     }

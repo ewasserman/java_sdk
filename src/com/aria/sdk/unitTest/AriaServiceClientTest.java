@@ -250,6 +250,9 @@ public class AriaServiceClientTest {
         //getAcctServiceOutageCredit();
         //getUsageSummaryByType();
         //getAcctOpenCharges();
+        //modifyAcctPlanUnitInstances();
+        //getAcctPlanUnitInstanceAll();
+        //updateAcctPlanUnitInstance();
         //getInvNoFromBalXfer();
         //voidTransaction();
         //reinstateTransaction();
@@ -871,21 +874,6 @@ public class AriaServiceClientTest {
     }
 
     //@Test
-    public void updateInventoryItemStock() throws Exception {
-        com.aria.common.shared.InventoryItemStockArray inventoryItemStockArray = new com.aria.common.shared.InventoryItemStockArray();
-        
-        hashMapReturnValues = getBaseAriaBilling().updateInventoryItemStock(getClientNo(), getAuthKey()        , inventoryItemStockArray
-        );
-        if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "updateInventoryItemStock - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
-            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
-                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
-            }
-            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
-        }
-    }
-
-    //@Test
     public void getClientCurrencies() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getClientCurrencies(getClientNo(), getAuthKey());
@@ -971,8 +959,8 @@ public class AriaServiceClientTest {
     //@Test
     public void getMasterPlansBySuppField() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getMasterPlansBySuppField(getClientNo(), getAuthKey()        , ""
-                , 1L
+        hashMapReturnValues = getBaseAriaBilling().getMasterPlansBySuppField(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
@@ -987,8 +975,8 @@ public class AriaServiceClientTest {
     //@Test
     public void getSuppPlansBySuppField() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getSuppPlansBySuppField(getClientNo(), getAuthKey()        , ""
-                , 1L
+        hashMapReturnValues = getBaseAriaBilling().getSuppPlansBySuppField(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
@@ -1003,8 +991,8 @@ public class AriaServiceClientTest {
     //@Test
     public void getItemsBySuppField() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getItemsBySuppField(getClientNo(), getAuthKey()        , ""
-                , 1L
+        hashMapReturnValues = getBaseAriaBilling().getItemsBySuppField(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
@@ -1304,9 +1292,9 @@ public class AriaServiceClientTest {
     public void setPayMethodCc() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().setPayMethodCc(getClientNo(), getAuthKey()        , 1L
-                , 1L
-                , 1L
                 , ""
+                , 1L
+                , 1L
                 , ""
                 , ""
                 , ""
@@ -2562,10 +2550,10 @@ public class AriaServiceClientTest {
         hashMapReturnValues = getBaseAriaBilling().createAcctPlanContract(getClientNo(), getAuthKey()        , 1L
                 , 1L
                 , 1L
-                , 1d
+                , ""
                 , 1L
                 , 1d
-                , ""
+                , 1d
                 , ""
                 , ""
                 , ""
@@ -3466,10 +3454,10 @@ public class AriaServiceClientTest {
         com.aria.common.shared.ClientPlanIdArray clientPlanIdArray = new com.aria.common.shared.ClientPlanIdArray();
         
         hashMapReturnValues = getBaseAriaBilling().createAcctMultiplanContract(getClientNo(), getAuthKey()        , 1L
-                , planNoArray
-                , 1L
                 , 1L
                 , ""
+                , planNoArray
+                , 1L
                 , ""
                 , ""
                 , ""
@@ -3545,8 +3533,8 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().createAcctUniversalContract(getClientNo(), getAuthKey()        , 1L
                 , 1L
-                , 1L
                 , ""
+                , 1L
                 , ""
                 , ""
         );
@@ -3643,8 +3631,8 @@ public class AriaServiceClientTest {
     //@Test
     public void setAcctNotifyOverride() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().setAcctNotifyOverride(getClientNo(), getAuthKey()        , ""
-                , 1L
+        hashMapReturnValues = getBaseAriaBilling().setAcctNotifyOverride(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , ""
                 , ""
                 , 1L
@@ -3663,8 +3651,8 @@ public class AriaServiceClientTest {
     //@Test
     public void setAcctNotifyTmpltGrp() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().setAcctNotifyTmpltGrp(getClientNo(), getAuthKey()        , ""
-                , 1L
+        hashMapReturnValues = getBaseAriaBilling().setAcctNotifyTmpltGrp(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , ""
                 , ""
         );
@@ -3827,6 +3815,70 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getAcctOpenCharges - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void modifyAcctPlanUnitInstances() throws Exception {
+        com.aria.common.shared.PlanUnitsArray planUnitsArray = new com.aria.common.shared.PlanUnitsArray();
+        com.aria.common.shared.NewClientPlanUnitInstArray newClientPlanUnitInstArray = new com.aria.common.shared.NewClientPlanUnitInstArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().modifyAcctPlanUnitInstances(getClientNo(), getAuthKey()        , 1L
+                , planUnitsArray
+                , newClientPlanUnitInstArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "modifyAcctPlanUnitInstances - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPlanUnitInstanceAll() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPlanUnitInstanceAll(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPlanUnitInstanceAll - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updateAcctPlanUnitInstance() throws Exception {
+        com.aria.common.shared.PlanUnitInstServicesArray planUnitInstServicesArray = new com.aria.common.shared.PlanUnitInstServicesArray();
+        com.aria.common.shared.PlanUnitInstFieldsArray planUnitInstFieldsArray = new com.aria.common.shared.PlanUnitInstFieldsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().updateAcctPlanUnitInstance(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , planUnitInstServicesArray
+                , planUnitInstFieldsArray
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateAcctPlanUnitInstance - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -4699,10 +4751,10 @@ public class AriaServiceClientTest {
     public void updateRefundCheckNo() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().updateRefundCheckNo(getClientNo(), getAuthKey()        , 1L
-                , 1L
-                , 1L
                 , ""
                 , ""
+                , 1L
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateRefundCheckNo - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";

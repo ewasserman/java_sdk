@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supp_plan_line_items_ReturnElement", propOrder = {"lineNo", "lineType", "serviceNo", "serviceName", "lineUnits", "ratePerUnit", "lineAmount", "lineBaseUnits", "prorationFactor", "description", "dateRangeStart", "dateRangeEnd", "creditCouponCode", "planNo", "planName", "clientServiceId", "clientPlanId"})
+@XmlType(name = "supp_plan_line_items_ReturnElement", propOrder = {"lineNo", "lineType", "serviceNo", "serviceName", "lineUnits", "ratePerUnit", "lineAmount", "lineBaseUnits", "prorationFactor", "description", "dateRangeStart", "dateRangeEnd", "creditCouponCode", "outPlanNo", "planName", "clientServiceId", "outClientPlanId"})
 public class SuppPlanLineItemsReturnElement {
 
     @XmlElement(name = "line_no")
@@ -39,14 +39,14 @@ public class SuppPlanLineItemsReturnElement {
     protected String dateRangeEnd;
     @XmlElement(name = "credit_coupon_code")
     protected String creditCouponCode;
-    @XmlElement(name = "plan_no")
-    protected Long planNo;
+    @XmlElement(name = "out_plan_no")
+    protected Long outPlanNo;
     @XmlElement(name = "plan_name")
     protected String planName;
     @XmlElement(name = "client_service_id")
     protected String clientServiceId;
-    @XmlElement(name = "client_plan_id")
-    protected String clientPlanId;
+    @XmlElement(name = "out_client_plan_id")
+    protected String outClientPlanId;
     
     public Long getLineNo() {
         return lineNo;
@@ -152,12 +152,12 @@ public class SuppPlanLineItemsReturnElement {
         this.creditCouponCode = value;
     }
 
-    public Long getPlanNo() {
-        return planNo;
+    public Long getOutPlanNo() {
+        return outPlanNo;
     }
 
-    public void setPlanNo(Long value) {
-        this.planNo = value;
+    public void setOutPlanNo(Long value) {
+        this.outPlanNo = value;
     }
 
     public String getPlanName() {
@@ -176,12 +176,12 @@ public class SuppPlanLineItemsReturnElement {
         this.clientServiceId = value;
     }
 
-    public String getClientPlanId() {
-        return clientPlanId;
+    public String getOutClientPlanId() {
+        return outClientPlanId;
     }
 
-    public void setClientPlanId(String value) {
-        this.clientPlanId = value;
+    public void setOutClientPlanId(String value) {
+        this.outClientPlanId = value;
     }
 
     

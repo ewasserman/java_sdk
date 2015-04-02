@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "accountNo",    "ccExpireMm",    "ccExpireYyyy",    "ccNumber",    "doCollect",    "changeStatusAfterColl",    "resetDatesAfterStatus",    "clientReceiptId"})
+    "authKey",    "accountNo",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "doCollect",    "changeStatusAfterColl",    "resetDatesAfterStatus",    "clientReceiptId"})
 @XmlRootElement(name = "set_pay_method_cc")
 public class SetPayMethodCc {
 
@@ -20,12 +20,12 @@ public class SetPayMethodCc {
     protected String authKey;
         @XmlElement(name = "account_no")
     protected Long accountNo;
+        @XmlElement(name = "cc_number")
+    protected String ccNumber;
         @XmlElement(name = "cc_expire_mm")
     protected Long ccExpireMm;
         @XmlElement(name = "cc_expire_yyyy")
     protected Long ccExpireYyyy;
-        @XmlElement(name = "cc_number")
-    protected String ccNumber;
         @XmlElement(name = "do_collect")
     protected String doCollect;
         @XmlElement(name = "change_status_after_coll")
@@ -58,6 +58,13 @@ public class SetPayMethodCc {
     public void setAccountNo(Long value) {
         this.accountNo = value;
     }
+            public String getCcNumber() {
+        return ccNumber;
+    }
+
+    public void setCcNumber(String value) {
+        this.ccNumber = value;
+    }
             public Long getCcExpireMm() {
         return ccExpireMm;
     }
@@ -71,13 +78,6 @@ public class SetPayMethodCc {
 
     public void setCcExpireYyyy(Long value) {
         this.ccExpireYyyy = value;
-    }
-            public String getCcNumber() {
-        return ccNumber;
-    }
-
-    public void setCcNumber(String value) {
-        this.ccNumber = value;
     }
             public String getDoCollect() {
         return doCollect;

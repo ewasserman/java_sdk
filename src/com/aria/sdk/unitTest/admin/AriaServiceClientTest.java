@@ -1222,32 +1222,6 @@ public class AriaServiceClientTest {
     }
 
     //@Test
-    public void updateMasterPlan() throws Exception {
-        
-        hashMapReturnValues = getBaseAriaBilling().updateMasterPlan(getClientNo(), getAuthKey());
-        if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "updateMasterPlan - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
-            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
-                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
-            }
-            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
-        }
-    }
-
-    //@Test
-    public void updateSupplementalPlan() throws Exception {
-        
-        hashMapReturnValues = getBaseAriaBilling().updateSupplementalPlan(getClientNo(), getAuthKey());
-        if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "updateSupplementalPlan - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
-            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
-                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
-            }
-            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
-        }
-    }
-
-    //@Test
     public void getPromotions() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getPromotions(getClientNo(), getAuthKey());

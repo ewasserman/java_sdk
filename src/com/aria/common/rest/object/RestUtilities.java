@@ -400,6 +400,12 @@ public class RestUtilities {
             entity.setClientSku(getStringValue(jsonObject,"client_sku"));
             entity.setOrderNo(getLongValue(jsonObject,"order_no"));
             entity.setItemNo(getLongValue(jsonObject,"item_no"));
+            entity.setBasePlanUnits(getLongValue(jsonObject,"base_plan_units"));
+            entity.setProrationFactor(getDoubleValue(jsonObject,"proration_factor"));
+            entity.setProrationText(getStringValue(jsonObject,"proration_text"));
+            entity.setAdvBillingPeriodTotalDays(getLongValue(jsonObject,"adv_billing_period_total_days"));
+            entity.setProrationRemainingDays(getLongValue(jsonObject,"proration_remaining_days"));
+            entity.setProrationDescription(getStringValue(jsonObject,"proration_description"));
                         ArrayList<InvoiceLineTaxReturnElement> arrayListInvoiceLineTaxReturnElement = buildInvoiceLineTaxReturnElement((JSONArray)jsonObject.get("invoice_line_tax"));
             for (InvoiceLineTaxReturnElement element : arrayListInvoiceLineTaxReturnElement){
                 entity.getInvoiceLineTax().add(element);
@@ -472,6 +478,7 @@ public class RestUtilities {
             entity.setUpdateDate(getStringValue(jsonObject,"update_date"));
             entity.setVoidDate(getStringValue(jsonObject,"void_date"));
             entity.setFullyAppliedDate(getStringValue(jsonObject,"fully_applied_date"));
+            entity.setMasterPlanInstanceNo(getLongValue(jsonObject,"master_plan_instance_no"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -500,6 +507,7 @@ public class RestUtilities {
             entity.setUpdateDate(getStringValue(jsonObject,"update_date"));
             entity.setVoidDate(getStringValue(jsonObject,"void_date"));
             entity.setFullyAppliedDate(getStringValue(jsonObject,"fully_applied_date"));
+            entity.setMasterPlanInstanceNo(getLongValue(jsonObject,"master_plan_instance_no"));
                         ArrayList<RelatedTransactionReturnElement> arrayListRelatedTransactionReturnElement = buildRelatedTransactionReturnElement((JSONArray)jsonObject.get("related_transaction"));
             for (RelatedTransactionReturnElement element : arrayListRelatedTransactionReturnElement){
                 entity.getRelatedTransaction().add(element);
@@ -620,6 +628,12 @@ public class RestUtilities {
             entity.setClientSku(getStringValue(jsonObject,"client_sku"));
             entity.setOrderNo(getLongValue(jsonObject,"order_no"));
             entity.setItemNo(getLongValue(jsonObject,"item_no"));
+            entity.setBasePlanUnits(getLongValue(jsonObject,"base_plan_units"));
+            entity.setProrationFactor(getDoubleValue(jsonObject,"proration_factor"));
+            entity.setProrationText(getStringValue(jsonObject,"proration_text"));
+            entity.setAdvBillingPeriodTotalDays(getLongValue(jsonObject,"adv_billing_period_total_days"));
+            entity.setProrationRemainingDays(getLongValue(jsonObject,"proration_remaining_days"));
+            entity.setProrationDescription(getStringValue(jsonObject,"proration_description"));
                         ArrayList<AllInvoiceLineTaxReturnElement> arrayListAllInvoiceLineTaxReturnElement = buildAllInvoiceLineTaxReturnElement((JSONArray)jsonObject.get("all_invoice_line_tax"));
             for (AllInvoiceLineTaxReturnElement element : arrayListAllInvoiceLineTaxReturnElement){
                 entity.getAllInvoiceLineTax().add(element);
@@ -675,6 +689,9 @@ public class RestUtilities {
             entity.setSecondAcctStatementSeqStr(getStringValue(jsonObject,"second_acct_statement_seq_str"));
             entity.setInvoiceLineItems(getStringValue(jsonObject,"invoice_line_items"));
             entity.setVoidingEventNo(getLongValue(jsonObject,"voiding_event_no"));
+            entity.setBillCompanyName(getStringValue(jsonObject,"bill_company_name"));
+            entity.setPayMethodType(getLongValue(jsonObject,"pay_method_type"));
+            entity.setPayMethodName(getStringValue(jsonObject,"pay_method_name"));
             entity.setCustomStatusLabel(getStringValue(jsonObject,"custom_status_label"));
             entity.setClientNotes(getStringValue(jsonObject,"client_notes"));
                         ArrayList<AllInvoiceLineReturnElement> arrayListAllInvoiceLineReturnElement = buildAllInvoiceLineReturnElement((JSONArray)jsonObject.get("all_invoice_line"));

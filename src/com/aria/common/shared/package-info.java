@@ -1,2 +1,2 @@
-@javax.xml.bind.annotation.XmlSchema(namespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.30:aria_complete_api", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@javax.xml.bind.annotation.XmlSchema(namespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.31:aria_complete_api", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.aria.common.shared;

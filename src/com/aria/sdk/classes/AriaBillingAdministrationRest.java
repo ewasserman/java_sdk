@@ -683,7 +683,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plan_service_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[21];
+        String[] returnValues = new String[22];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
@@ -706,6 +706,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         returnValues[18] = "exclusion_plans";
         returnValues[19] = "supplemental_obj_fields";
         returnValues[20] = "commodity_cd";
+        returnValues[21] = "fulfillment_based_ind";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -2059,48 +2060,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 String new_client_plan_id = (String) map.get("new_client_plan_id");
                 
         return copyPlan(client_no, auth_key, plan_no, client_plan_id, plan_name, new_client_plan_id);
-    }
-
-    public Map<String,Object> updateMasterPlan(Long client_no, String auth_key){
-        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
-        addParameters(parameters,"client_no",getValue("Long",client_no));
-        addParameters(parameters,"auth_key",getValue("String",auth_key));
-        
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_master_plan"));
-        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[0];
-
-        
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
-    }
-
-    public Map<String,Object> updateMasterPlan(Map<String,Object> map){
-        Long client_no = (Long) map.get("client_no");
-        String auth_key = (String) map.get("auth_key");
-        
-        return updateMasterPlan(client_no, auth_key);
-    }
-
-    public Map<String,Object> updateSupplementalPlan(Long client_no, String auth_key){
-        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
-        addParameters(parameters,"client_no",getValue("Long",client_no));
-        addParameters(parameters,"auth_key",getValue("String",auth_key));
-        
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_supplemental_plan"));
-        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[0];
-
-        
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
-    }
-
-    public Map<String,Object> updateSupplementalPlan(Map<String,Object> map){
-        Long client_no = (Long) map.get("client_no");
-        String auth_key = (String) map.get("auth_key");
-        
-        return updateSupplementalPlan(client_no, auth_key);
     }
 
     public Map<String,Object> getPromotions(Long client_no, String auth_key){

@@ -401,6 +401,7 @@ public interface AriaBillingAdministration {
     *   exclusion_plans - Type: ArrayList&#60;ExclusionPlansReturnElement&#62;<br>
     *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
     *   commodity_cd - Type: javax.xml.ws.Holder<br>
+    *   fulfillment_based_ind - Type: javax.xml.ws.Holder<br>
     */
     abstract Map<String,Object> getPlanServiceDetails(Long client_no, String auth_key, Long service_no, Long plan_no, String client_service_id, String client_plan_id);
 
@@ -1156,26 +1157,6 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> copyPlan(Long client_no, String auth_key, Long plan_no, String client_plan_id, String plan_name, String new_client_plan_id);
 
     abstract Map<String,Object> copyPlan(Map<String,Object> map);
-
-    /**
-    * updateMasterPlan
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    */
-    abstract Map<String,Object> updateMasterPlan(Long client_no, String auth_key);
-
-    abstract Map<String,Object> updateMasterPlan(Map<String,Object> map);
-
-    /**
-    * updateSupplementalPlan
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    */
-    abstract Map<String,Object> updateSupplementalPlan(Long client_no, String auth_key);
-
-    abstract Map<String,Object> updateSupplementalPlan(Map<String,Object> map);
 
     /**
     * getPromotions

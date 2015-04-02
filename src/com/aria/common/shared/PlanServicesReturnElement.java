@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_services_ReturnElement", propOrder = {"serviceNo", "serviceDesc", "isRecurringInd", "isUsageBasedInd", "usageType", "taxableInd", "isTaxInd", "isArrearsInd", "isSetupInd", "isMiscInd", "isDonationInd", "isOrderBasedInd", "isCancellationInd", "coaId", "ledgerCode", "displayInd", "tieredPricingRule", "isMinFeeInd", "clientServiceId", "usageTypeCd", "coaCode", "planServiceRates"})
+@XmlType(name = "plan_services_ReturnElement", propOrder = {"serviceNo", "serviceDesc", "isRecurringInd", "isUsageBasedInd", "usageType", "taxableInd", "isTaxInd", "isArrearsInd", "isSetupInd", "isMiscInd", "isDonationInd", "isOrderBasedInd", "isCancellationInd", "coaId", "ledgerCode", "displayInd", "tieredPricingRule", "isMinFeeInd", "clientServiceId", "usageTypeCd", "coaCode", "fulfillmentBasedInd", "planServiceRates"})
 public class PlanServicesReturnElement {
 
     @XmlElement(name = "service_no")
@@ -55,6 +55,8 @@ public class PlanServicesReturnElement {
     protected String usageTypeCd;
     @XmlElement(name = "coa_code")
     protected String coaCode;
+    @XmlElement(name = "fulfillment_based_ind")
+    protected Long fulfillmentBasedInd;
     @XmlElement(name = "plan_service_rates")
     protected List<PlanServiceRatesReturnElement> planServiceRates;
     
@@ -224,6 +226,14 @@ public class PlanServicesReturnElement {
 
     public void setCoaCode(String value) {
         this.coaCode = value;
+    }
+
+    public Long getFulfillmentBasedInd() {
+        return fulfillmentBasedInd;
+    }
+
+    public void setFulfillmentBasedInd(Long value) {
+        this.fulfillmentBasedInd = value;
     }
 
     public List<PlanServiceRatesReturnElement> getPlanServiceRates() {

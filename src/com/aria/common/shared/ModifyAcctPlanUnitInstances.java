@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "messageId",    "doEncoding"})
-@XmlRootElement(name = "get_acct_message")
-public class GetAcctMessage {
+    "authKey",    "acctNo",    "planUnits",    "newClientPlanUnitInst"})
+@XmlRootElement(name = "modify_acct_plan_unit_instances")
+public class ModifyAcctPlanUnitInstances {
 
     @XmlElement(name = "client_no")
     protected Long clientNo;
@@ -20,10 +20,10 @@ public class GetAcctMessage {
     protected String authKey;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
-        @XmlElement(name = "message_id")
-    protected Long messageId;
-        @XmlElement(name = "do_encoding")
-    protected String doEncoding;
+        @XmlElement(name = "plan_units")
+    protected PlanUnitsArray planUnits;
+        @XmlElement(name = "new_client_plan_unit_inst")
+    protected NewClientPlanUnitInstArray newClientPlanUnitInst;
     
     public long getClientNo() {
         return clientNo;
@@ -48,19 +48,19 @@ public class GetAcctMessage {
     public void setAcctNo(Long value) {
         this.acctNo = value;
     }
-            public Long getMessageId() {
-        return messageId;
+            public PlanUnitsArray getPlanUnits() {
+        return planUnits;
     }
 
-    public void setMessageId(Long value) {
-        this.messageId = value;
+    public void setPlanUnits(PlanUnitsArray value) {
+        this.planUnits = value;
     }
-            public String getDoEncoding() {
-        return doEncoding;
+            public NewClientPlanUnitInstArray getNewClientPlanUnitInst() {
+        return newClientPlanUnitInst;
     }
 
-    public void setDoEncoding(String value) {
-        this.doEncoding = value;
+    public void setNewClientPlanUnitInst(NewClientPlanUnitInstArray value) {
+        this.newClientPlanUnitInst = value;
     }
             
 }

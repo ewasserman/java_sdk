@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planNo",    "typeNo",    "lengthMonths",    "createComments",    "startDate",    "doAutoDiscard",    "endDate",    "clientPlanId"})
+    "authKey",    "acctNo",    "lengthMonths",    "endDate",    "planNo",    "typeNo",    "createComments",    "startDate",    "doAutoDiscard",    "clientPlanId"})
 @XmlRootElement(name = "create_acct_multiplan_contract")
 public class CreateAcctMultiplanContract {
 
@@ -20,20 +20,20 @@ public class CreateAcctMultiplanContract {
     protected String authKey;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
+        @XmlElement(name = "length_months")
+    protected Long lengthMonths;
+        @XmlElement(name = "end_date")
+    protected String endDate;
         @XmlElement(name = "plan_no")
     protected PlanNoArray planNo;
         @XmlElement(name = "type_no")
     protected Long typeNo;
-        @XmlElement(name = "length_months")
-    protected Long lengthMonths;
         @XmlElement(name = "create_comments")
     protected String createComments;
         @XmlElement(name = "start_date")
     protected String startDate;
         @XmlElement(name = "do_auto_discard")
     protected String doAutoDiscard;
-        @XmlElement(name = "end_date")
-    protected String endDate;
         @XmlElement(name = "client_plan_id")
     protected ClientPlanIdArray clientPlanId;
     
@@ -60,6 +60,20 @@ public class CreateAcctMultiplanContract {
     public void setAcctNo(Long value) {
         this.acctNo = value;
     }
+            public Long getLengthMonths() {
+        return lengthMonths;
+    }
+
+    public void setLengthMonths(Long value) {
+        this.lengthMonths = value;
+    }
+            public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String value) {
+        this.endDate = value;
+    }
             public PlanNoArray getPlanNo() {
         return planNo;
     }
@@ -73,13 +87,6 @@ public class CreateAcctMultiplanContract {
 
     public void setTypeNo(Long value) {
         this.typeNo = value;
-    }
-            public Long getLengthMonths() {
-        return lengthMonths;
-    }
-
-    public void setLengthMonths(Long value) {
-        this.lengthMonths = value;
     }
             public String getCreateComments() {
         return createComments;
@@ -101,13 +108,6 @@ public class CreateAcctMultiplanContract {
 
     public void setDoAutoDiscard(String value) {
         this.doAutoDiscard = value;
-    }
-            public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String value) {
-        this.endDate = value;
     }
             public ClientPlanIdArray getClientPlanId() {
         return clientPlanId;

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "templateClass",    "acctNo",    "acctUserId",    "clientAcctId",    "overrideTemplateNo",    "behavioralOption",    "overrideTemplateOption"})
+    "authKey",    "acctNo",    "acctUserId",    "clientAcctId",    "templateClass",    "overrideTemplateNo",    "behavioralOption",    "overrideTemplateOption"})
 @XmlRootElement(name = "set_acct_notify_override")
 public class SetAcctNotifyOverride {
 
@@ -18,14 +18,14 @@ public class SetAcctNotifyOverride {
     protected Long clientNo;
     @XmlElement(name = "auth_key")
     protected String authKey;
-        @XmlElement(name = "template_class")
-    protected String templateClass;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
         @XmlElement(name = "acct_user_id")
     protected String acctUserId;
         @XmlElement(name = "client_acct_id")
     protected String clientAcctId;
+        @XmlElement(name = "template_class")
+    protected String templateClass;
         @XmlElement(name = "override_template_no")
     protected Long overrideTemplateNo;
         @XmlElement(name = "behavioral_option")
@@ -49,14 +49,7 @@ public class SetAcctNotifyOverride {
         this.authKey = value;
     }
 
-    public String getTemplateClass() {
-        return templateClass;
-    }
-
-    public void setTemplateClass(String value) {
-        this.templateClass = value;
-    }
-            public Long getAcctNo() {
+    public Long getAcctNo() {
         return acctNo;
     }
 
@@ -76,6 +69,13 @@ public class SetAcctNotifyOverride {
 
     public void setClientAcctId(String value) {
         this.clientAcctId = value;
+    }
+            public String getTemplateClass() {
+        return templateClass;
+    }
+
+    public void setTemplateClass(String value) {
+        this.templateClass = value;
     }
             public Long getOverrideTemplateNo() {
         return overrideTemplateNo;

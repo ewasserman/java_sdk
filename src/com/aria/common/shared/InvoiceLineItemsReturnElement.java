@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_line_items_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "units", "ratePerUnit", "amount", "description", "dateRangeStart", "dateRangeEnd", "usageTypeNo", "planNo", "planName", "creditReasonCodeDescription", "csrComments", "clientSku", "orderNo", "itemNo", "clientServiceId", "usageTypeCd", "clientPlanId", "clientItemId"})
+@XmlType(name = "invoice_line_items_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "units", "ratePerUnit", "amount", "description", "dateRangeStart", "dateRangeEnd", "usageTypeNo", "planNo", "planName", "creditReasonCodeDescription", "csrComments", "clientSku", "orderNo", "itemNo", "clientServiceId", "usageTypeCd", "clientPlanId", "clientItemId", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription"})
 public class InvoiceLineItemsReturnElement {
 
     @XmlElement(name = "line_no")
@@ -55,6 +55,18 @@ public class InvoiceLineItemsReturnElement {
     protected String clientPlanId;
     @XmlElement(name = "client_item_id")
     protected String clientItemId;
+    @XmlElement(name = "base_plan_units")
+    protected Long basePlanUnits;
+    @XmlElement(name = "proration_factor")
+    protected Long prorationFactor;
+    @XmlElement(name = "proration_text")
+    protected String prorationText;
+    @XmlElement(name = "adv_billing_period_total_days")
+    protected Long advBillingPeriodTotalDays;
+    @XmlElement(name = "proration_remaining_days")
+    protected Long prorationRemainingDays;
+    @XmlElement(name = "proration_description")
+    protected String prorationDescription;
     
     public Long getLineNo() {
         return lineNo;
@@ -222,6 +234,54 @@ public class InvoiceLineItemsReturnElement {
 
     public void setClientItemId(String value) {
         this.clientItemId = value;
+    }
+
+    public Long getBasePlanUnits() {
+        return basePlanUnits;
+    }
+
+    public void setBasePlanUnits(Long value) {
+        this.basePlanUnits = value;
+    }
+
+    public Long getProrationFactor() {
+        return prorationFactor;
+    }
+
+    public void setProrationFactor(Long value) {
+        this.prorationFactor = value;
+    }
+
+    public String getProrationText() {
+        return prorationText;
+    }
+
+    public void setProrationText(String value) {
+        this.prorationText = value;
+    }
+
+    public Long getAdvBillingPeriodTotalDays() {
+        return advBillingPeriodTotalDays;
+    }
+
+    public void setAdvBillingPeriodTotalDays(Long value) {
+        this.advBillingPeriodTotalDays = value;
+    }
+
+    public Long getProrationRemainingDays() {
+        return prorationRemainingDays;
+    }
+
+    public void setProrationRemainingDays(Long value) {
+        this.prorationRemainingDays = value;
+    }
+
+    public String getProrationDescription() {
+        return prorationDescription;
+    }
+
+    public void setProrationDescription(String value) {
+        this.prorationDescription = value;
     }
 
     

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceLineItems", "isPendingInd", "customStatusLabel", "customStatusDesc", "clientNotes", "invoiceTypeCd"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceLineItems", "isPendingInd", "customStatusLabel", "customStatusDesc", "clientNotes", "invoiceTypeCd", "fromDate", "toDate"})
 @XmlRootElement(name = "get_invoice_detailsResponseElement")
 public class GetInvoiceDetailsResponseElement {
 
@@ -30,6 +30,10 @@ public class GetInvoiceDetailsResponseElement {
     protected String clientNotes;
     @XmlElement(name = "invoice_type_cd")
     protected String invoiceTypeCd;
+    @XmlElement(name = "from_date")
+    protected String fromDate;
+    @XmlElement(name = "to_date")
+    protected String toDate;
     
     public Long getErrorCode() {
         return errorCode;
@@ -90,6 +94,22 @@ public class GetInvoiceDetailsResponseElement {
 
     public void setInvoiceTypeCd(String value) {
         this.invoiceTypeCd = value;
+    }
+
+    public String getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(String value) {
+        this.fromDate = value;
+    }
+
+    public String getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(String value) {
+        this.toDate = value;
     }
 
     

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "usage_types_ReturnElement", propOrder = {"usageTypeNo", "usageTypeDesc", "usageUnitType", "usageTypeName", "usageTypeCd", "isEditable"})
+@XmlType(name = "usage_types_ReturnElement", propOrder = {"usageTypeNo", "usageTypeDesc", "usageUnitType", "usageTypeName", "isEditable"})
 public class UsageTypesReturnElement {
 
     @XmlElement(name = "usage_type_no")
@@ -21,8 +21,6 @@ public class UsageTypesReturnElement {
     protected String usageUnitType;
     @XmlElement(name = "usage_type_name")
     protected String usageTypeName;
-    @XmlElement(name = "usage_type_cd")
-    protected String usageTypeCd;
     @XmlElement(name = "is_editable")
     protected Long isEditable;
     
@@ -56,14 +54,6 @@ public class UsageTypesReturnElement {
 
     public void setUsageTypeName(String value) {
         this.usageTypeName = value;
-    }
-
-    public String getUsageTypeCd() {
-        return usageTypeCd;
-    }
-
-    public void setUsageTypeCd(String value) {
-        this.usageTypeCd = value;
     }
 
     public Long getIsEditable() {
