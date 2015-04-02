@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "templates_by_client_ReturnElement", propOrder = {"templateNo", "templateName", "templateClass", "clientEmailTemplateId"})
+@XmlType(name = "templates_by_client_ReturnElement", propOrder = {"templateNo", "templateName", "templateClass", "clientEmailTemplateId", "globalInd", "defaultInd"})
 public class TemplatesByClientReturnElement {
 
     @XmlElement(name = "template_no")
@@ -21,6 +21,10 @@ public class TemplatesByClientReturnElement {
     protected String templateClass;
     @XmlElement(name = "client_email_template_id")
     protected String clientEmailTemplateId;
+    @XmlElement(name = "global_ind")
+    protected Long globalInd;
+    @XmlElement(name = "default_ind")
+    protected Long defaultInd;
     
     public Long getTemplateNo() {
         return templateNo;
@@ -52,6 +56,22 @@ public class TemplatesByClientReturnElement {
 
     public void setClientEmailTemplateId(String value) {
         this.clientEmailTemplateId = value;
+    }
+
+    public Long getGlobalInd() {
+        return globalInd;
+    }
+
+    public void setGlobalInd(Long value) {
+        this.globalInd = value;
+    }
+
+    public Long getDefaultInd() {
+        return defaultInd;
+    }
+
+    public void setDefaultInd(Long value) {
+        this.defaultInd = value;
     }
 
     

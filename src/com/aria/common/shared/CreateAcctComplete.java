@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "altStartDate",    "clientAcctId",    "userid",    "statusCd",    "masterPlanNo",    "masterPlanUnits",    "suppPlans",    "suppPlanUnits",    "notifyMethod",    "promoCd",    "password",    "secretQuestion",    "secretQuestionAnswer",    "firstName",    "mi",    "lastName",    "companyName",    "address1",    "address2",    "city",    "locality",    "stateProv",    "country",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "email",    "birthdate",    "billFirstName",    "billMi",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billEmail",    "payMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "respLevelCd",    "seniorAcctNo",    "seniorAcctUserId",    "clientSeniorAcctId",    "functionalAcctGroups",    "collectionsAcctGroups",    "suppFieldNames",    "suppFieldValues",    "testAcctInd",    "statusUntilAltStart",    "balanceForward",    "altBillDay",    "doFullInvoicing",    "doProratedInvoicing",    "masterPlanAltRateSchedNo",    "suppPlanAltRateSchedNo",    "clientReceiptId",    "currencyCd",    "cvv",    "taxpayerId",    "billAgreementId",    "retroactiveStartDate",    "couponCodes",    "newAcctCustomRates",    "altMsgTemplateNo",    "seqFuncGroupNo",    "newAcctPlanContracts",    "bankAcctType",    "address3",    "billAddress3",    "usageAccumulationConfig",    "enableUsagePoolingPlanNo",    "clientFuncAcctGroupIds",    "clientCollAcctGroupIds",    "trackData1",    "trackData2",    "doWrite",    "taxExemptionLevel",    "cnAltMsgTemplateNo",    "invoiceApprovalRequired",    "createSession",    "clientMasterPlanId",    "clientSuppPlanIds",    "clientMpAltRateSchedId",    "clientSpAltRateSchedIds",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateNo",    "surchargeNo",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "bkupBillFirstName",    "bkupBillMi",    "bkupBillLastName",    "bkupBillCompanyName",    "bkupBillAddress1",    "bkupBillAddress2",    "bkupBillAddress3",    "bkupBillCity",    "bkupBillLocality",    "bkupBillStateProv",    "bkupBillCountry",    "bkupBillPostalCd",    "bkupBillPhone",    "bkupBillPhoneExt",    "bkupBillCellPhone",    "bkupBillWorkPhone",    "bkupBillWorkPhoneExt",    "bkupBillEmail",    "bkupPayMethod",    "bkupCcNumber",    "bkupCcExpireMm",    "bkupCcExpireYyyy",    "bkupBankAcctNo",    "bkupBankRoutingNo",    "bkupBankAcctType",    "bkupBillAgreementId",    "bkupCvv",    "seqFuncGroupId",    "revrecProfileId",    "revrecClientDefinedId",    "stmntEmailList",    "stmntEmailListCc",    "stmntEmailListBcc"})
+    "authKey",    "masterPlanNo",    "clientMasterPlanId",    "altStartDate",    "clientAcctId",    "userid",    "statusCd",    "masterPlanUnits",    "suppPlans",    "suppPlanUnits",    "notifyMethod",    "promoCd",    "password",    "secretQuestion",    "secretQuestionAnswer",    "firstName",    "mi",    "lastName",    "companyName",    "address1",    "address2",    "city",    "locality",    "stateProv",    "country",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "email",    "birthdate",    "billFirstName",    "billMi",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billEmail",    "payMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "respLevelCd",    "seniorAcctNo",    "seniorAcctUserId",    "clientSeniorAcctId",    "functionalAcctGroups",    "collectionsAcctGroups",    "suppFieldNames",    "suppFieldValues",    "testAcctInd",    "statusUntilAltStart",    "balanceForward",    "altBillDay",    "doFullInvoicing",    "doProratedInvoicing",    "masterPlanAltRateSchedNo",    "suppPlanAltRateSchedNo",    "clientReceiptId",    "currencyCd",    "cvv",    "taxpayerId",    "billAgreementId",    "retroactiveStartDate",    "couponCodes",    "newAcctCustomRates",    "altMsgTemplateNo",    "seqFuncGroupNo",    "newAcctPlanContracts",    "bankAcctType",    "address3",    "billAddress3",    "usageAccumulationConfig",    "enableUsagePoolingPlanNo",    "clientFuncAcctGroupIds",    "clientCollAcctGroupIds",    "trackData1",    "trackData2",    "doWrite",    "taxExemptionLevel",    "cnAltMsgTemplateNo",    "invoiceApprovalRequired",    "createSession",    "clientSuppPlanIds",    "clientMpAltRateSchedId",    "clientSpAltRateSchedIds",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateNo",    "surchargeNo",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "bkupBillFirstName",    "bkupBillMi",    "bkupBillLastName",    "bkupBillCompanyName",    "bkupBillAddress1",    "bkupBillAddress2",    "bkupBillAddress3",    "bkupBillCity",    "bkupBillLocality",    "bkupBillStateProv",    "bkupBillCountry",    "bkupBillPostalCd",    "bkupBillPhone",    "bkupBillPhoneExt",    "bkupBillCellPhone",    "bkupBillWorkPhone",    "bkupBillWorkPhoneExt",    "bkupBillEmail",    "bkupPayMethod",    "bkupCcNumber",    "bkupCcExpireMm",    "bkupCcExpireYyyy",    "bkupBankAcctNo",    "bkupBankRoutingNo",    "bkupBankAcctType",    "bkupBillAgreementId",    "bkupCvv",    "seqFuncGroupId",    "revrecProfileId",    "revrecClientDefinedId",    "stmntEmailList",    "stmntEmailListCc",    "stmntEmailListBcc"})
 @XmlRootElement(name = "create_acct_complete")
 public class CreateAcctComplete {
 
@@ -18,6 +18,10 @@ public class CreateAcctComplete {
     protected Long clientNo;
     @XmlElement(name = "auth_key")
     protected String authKey;
+        @XmlElement(name = "master_plan_no")
+    protected Long masterPlanNo;
+        @XmlElement(name = "client_master_plan_id")
+    protected String clientMasterPlanId;
         @XmlElement(name = "alt_start_date")
     protected String altStartDate;
         @XmlElement(name = "client_acct_id")
@@ -26,8 +30,6 @@ public class CreateAcctComplete {
     protected String userid;
         @XmlElement(name = "status_cd")
     protected Long statusCd;
-        @XmlElement(name = "master_plan_no")
-    protected Long masterPlanNo;
         @XmlElement(name = "master_plan_units")
     protected Long masterPlanUnits;
         @XmlElement(name = "supp_plans")
@@ -208,8 +210,6 @@ public class CreateAcctComplete {
     protected String invoiceApprovalRequired;
         @XmlElement(name = "create_session")
     protected String createSession;
-        @XmlElement(name = "client_master_plan_id")
-    protected String clientMasterPlanId;
         @XmlElement(name = "client_supp_plan_ids")
     protected ClientSuppPlanIdsArray clientSuppPlanIds;
         @XmlElement(name = "client_mp_alt_rate_sched_id")
@@ -319,7 +319,21 @@ public class CreateAcctComplete {
         this.authKey = value;
     }
 
-    public String getAltStartDate() {
+    public Long getMasterPlanNo() {
+        return masterPlanNo;
+    }
+
+    public void setMasterPlanNo(Long value) {
+        this.masterPlanNo = value;
+    }
+            public String getClientMasterPlanId() {
+        return clientMasterPlanId;
+    }
+
+    public void setClientMasterPlanId(String value) {
+        this.clientMasterPlanId = value;
+    }
+            public String getAltStartDate() {
         return altStartDate;
     }
 
@@ -346,13 +360,6 @@ public class CreateAcctComplete {
 
     public void setStatusCd(Long value) {
         this.statusCd = value;
-    }
-            public Long getMasterPlanNo() {
-        return masterPlanNo;
-    }
-
-    public void setMasterPlanNo(Long value) {
-        this.masterPlanNo = value;
     }
             public Long getMasterPlanUnits() {
         return masterPlanUnits;
@@ -983,13 +990,6 @@ public class CreateAcctComplete {
 
     public void setCreateSession(String value) {
         this.createSession = value;
-    }
-            public String getClientMasterPlanId() {
-        return clientMasterPlanId;
-    }
-
-    public void setClientMasterPlanId(String value) {
-        this.clientMasterPlanId = value;
     }
             public ClientSuppPlanIdsArray getClientSuppPlanIds() {
         return clientSuppPlanIds;

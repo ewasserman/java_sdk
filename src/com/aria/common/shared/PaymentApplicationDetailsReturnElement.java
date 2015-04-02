@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "payment_application_details_ReturnElement", propOrder = {"invoiceNo", "invoiceDate", "invoiceFromDate", "invoiceToDate", "invoicePayAppliedAmount", "invoiceOverallPaidAmount", "invoiceCharge", "invoiceCredit", "invoiceBalDue"})
+@XmlType(name = "payment_application_details_ReturnElement", propOrder = {"invoiceNo", "invoiceDate", "invoiceFromDate", "invoiceToDate", "invoicePayAppliedAmount", "invoiceOverallPaidAmount", "invoiceCharge", "invoiceCredit", "invoiceBalDue", "appliedTransactions"})
 public class PaymentApplicationDetailsReturnElement {
 
     @XmlElement(name = "invoice_no")
@@ -31,6 +31,8 @@ public class PaymentApplicationDetailsReturnElement {
     protected Double invoiceCredit;
     @XmlElement(name = "invoice_bal_due")
     protected Double invoiceBalDue;
+    @XmlElement(name = "applied_transactions")
+    protected List<AppliedTransactionsReturnElement> appliedTransactions;
     
     public Long getInvoiceNo() {
         return invoiceNo;
@@ -104,5 +106,10 @@ public class PaymentApplicationDetailsReturnElement {
         this.invoiceBalDue = value;
     }
 
-    
+    public List<AppliedTransactionsReturnElement> getAppliedTransactions() {
+        if (this.appliedTransactions == null) {
+            this.appliedTransactions = new ArrayList<AppliedTransactionsReturnElement>();
+        }
+        return this.appliedTransactions;
+    }
 }

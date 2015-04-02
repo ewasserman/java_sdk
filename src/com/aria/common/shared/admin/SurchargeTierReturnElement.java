@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "surcharge_tier_ReturnElement", propOrder = {"from", "to", "rate"})
+@XmlType(name = "surcharge_tier_ReturnElement", propOrder = {"from", "to", "rate", "description"})
 public class SurchargeTierReturnElement {
 
     @XmlElement(name = "from")
@@ -19,6 +19,8 @@ public class SurchargeTierReturnElement {
     protected Long to;
     @XmlElement(name = "rate")
     protected Double rate;
+    @XmlElement(name = "description")
+    protected String description;
     
     public Long getFrom() {
         return from;
@@ -42,6 +44,14 @@ public class SurchargeTierReturnElement {
 
     public void setRate(Double value) {
         this.rate = value;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String value) {
+        this.description = value;
     }
 
     

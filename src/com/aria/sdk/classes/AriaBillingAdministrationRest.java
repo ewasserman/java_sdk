@@ -1788,7 +1788,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         return getPlanDetails(client_no, auth_key, plan_no, client_plan_id);
     }
 
-    public Map<String,Object> createNewPlan(Long client_no, String auth_key, String plan_name, String plan_type, String currency, String billing_interval, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String usage_billing_interval, Long active, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long initial_free_months, String free_trial_type, String free_trial_duration, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd){
+    public Map<String,Object> createNewPlan(Long client_no, String auth_key, String plan_name, String plan_type, String currency, String billing_interval, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String usage_billing_interval, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long initial_free_months, String free_trial_type, String free_trial_duration, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -1796,12 +1796,14 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         addParameters(parameters,"plan_type",getValue("String", plan_type));
         addParameters(parameters,"currency",getValue("String", currency));
         addParameters(parameters,"billing_interval",getValue("String", billing_interval));
+        addParameters(parameters,"active",getValue("Long", active));
+        RestUtilities.addParameterValuesFromArray(parameters,schedule);
+        RestUtilities.addParameterValuesFromArray(parameters,service);
         addParameters(parameters,"plan_description",getValue("String", plan_description));
         addParameters(parameters,"client_plan_id",getValue("String", client_plan_id));
         RestUtilities.addParameterValuesFromArray(parameters,plan_group);
         RestUtilities.addParameterValuesFromArray(parameters,plan_group_id);
         addParameters(parameters,"usage_billing_interval",getValue("String", usage_billing_interval));
-        addParameters(parameters,"active",getValue("Long", active));
         addParameters(parameters,"rollover_months",getValue("String", rollover_months));
         addParameters(parameters,"rollover_plan_no",getValue("Long", rollover_plan_no));
         addParameters(parameters,"rollover_client_plan_id",getValue("String", rollover_client_plan_id));
@@ -1819,8 +1821,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         addParameters(parameters,"plan_cancel_min_month",getValue("Long", plan_cancel_min_month));
         addParameters(parameters,"apply_minimum_fee",getValue("String", apply_minimum_fee));
         addParameters(parameters,"how_to_apply_min_fee",getValue("String", how_to_apply_min_fee));
-        RestUtilities.addParameterValuesFromArray(parameters,schedule);
-        RestUtilities.addParameterValuesFromArray(parameters,service);
         RestUtilities.addParameterValuesFromArray(parameters,resource);
         addParameters(parameters,"arc_service_no",getValue("Long", arc_service_no));
         RestUtilities.addParameterValuesFromArray(parameters,parent_plans);
@@ -1854,12 +1854,14 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 String plan_type = (String) map.get("plan_type");
                 String currency = (String) map.get("currency");
                 String billing_interval = (String) map.get("billing_interval");
+                Long active = (Long) map.get("active");
+                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
                 String plan_description = (String) map.get("plan_description");
                 String client_plan_id = (String) map.get("client_plan_id");
                 com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
                 com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
                 String usage_billing_interval = (String) map.get("usage_billing_interval");
-                Long active = (Long) map.get("active");
                 String rollover_months = (String) map.get("rollover_months");
                 Long rollover_plan_no = (Long) map.get("rollover_plan_no");
                 String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
@@ -1877,8 +1879,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
                 String apply_minimum_fee = (String) map.get("apply_minimum_fee");
                 String how_to_apply_min_fee = (String) map.get("how_to_apply_min_fee");
-                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
                 com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
                 Long arc_service_no = (Long) map.get("arc_service_no");
                 com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
@@ -1893,10 +1893,10 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
                 String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
                 
-        return createNewPlan(client_no, auth_key, plan_name, plan_type, currency, billing_interval, plan_description, client_plan_id, plan_group, plan_group_id, usage_billing_interval, active, rollover_months, rollover_plan_no, rollover_client_plan_id, initial_free_months, free_trial_type, free_trial_duration, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, dunning_plan_no, dunning_client_plan_id, template_no, client_email_template_id, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, schedule, service, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, template_ind, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd);
+        return createNewPlan(client_no, auth_key, plan_name, plan_type, currency, billing_interval, active, schedule, service, plan_description, client_plan_id, plan_group, plan_group_id, usage_billing_interval, rollover_months, rollover_plan_no, rollover_client_plan_id, initial_free_months, free_trial_type, free_trial_duration, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, dunning_plan_no, dunning_client_plan_id, template_no, client_email_template_id, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, template_ind, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd);
     }
 
-    public Map<String,Object> editPlan(Long client_no, String auth_key, String plan_no, String plan_name, String client_plan_id, Long plan_type, String billing_interval, String currency, Long edit_directives, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long active, String usage_billing_interval, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd){
+    public Map<String,Object> editPlan(Long client_no, String auth_key, String plan_no, String plan_name, String client_plan_id, Long plan_type, Long active, String billing_interval, String currency, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, Long edit_directives, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String usage_billing_interval, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -1904,13 +1904,15 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         addParameters(parameters,"plan_name",getValue("String", plan_name));
         addParameters(parameters,"client_plan_id",getValue("String", client_plan_id));
         addParameters(parameters,"plan_type",getValue("Long", plan_type));
+        addParameters(parameters,"active",getValue("Long", active));
         addParameters(parameters,"billing_interval",getValue("String", billing_interval));
         addParameters(parameters,"currency",getValue("String", currency));
+        RestUtilities.addParameterValuesFromArray(parameters,schedule);
+        RestUtilities.addParameterValuesFromArray(parameters,service);
         addParameters(parameters,"edit_directives",getValue("Long", edit_directives));
         addParameters(parameters,"plan_description",getValue("String", plan_description));
         RestUtilities.addParameterValuesFromArray(parameters,plan_group);
         RestUtilities.addParameterValuesFromArray(parameters,plan_group_id);
-        addParameters(parameters,"active",getValue("Long", active));
         addParameters(parameters,"usage_billing_interval",getValue("String", usage_billing_interval));
         addParameters(parameters,"template_no",getValue("Long", template_no));
         addParameters(parameters,"client_email_template_id",getValue("String", client_email_template_id));
@@ -1928,8 +1930,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         addParameters(parameters,"plan_cancel_min_month",getValue("Long", plan_cancel_min_month));
         addParameters(parameters,"apply_minimum_fee",getValue("String", apply_minimum_fee));
         addParameters(parameters,"how_to_apply_min_fee",getValue("Long", how_to_apply_min_fee));
-        RestUtilities.addParameterValuesFromArray(parameters,schedule);
-        RestUtilities.addParameterValuesFromArray(parameters,service);
         RestUtilities.addParameterValuesFromArray(parameters,resource);
         addParameters(parameters,"arc_service_no",getValue("Long", arc_service_no));
         RestUtilities.addParameterValuesFromArray(parameters,parent_plans);
@@ -1962,13 +1962,15 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 String plan_name = (String) map.get("plan_name");
                 String client_plan_id = (String) map.get("client_plan_id");
                 Long plan_type = (Long) map.get("plan_type");
+                Long active = (Long) map.get("active");
                 String billing_interval = (String) map.get("billing_interval");
                 String currency = (String) map.get("currency");
+                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
                 Long edit_directives = (Long) map.get("edit_directives");
                 String plan_description = (String) map.get("plan_description");
                 com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
                 com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
-                Long active = (Long) map.get("active");
                 String usage_billing_interval = (String) map.get("usage_billing_interval");
                 Long template_no = (Long) map.get("template_no");
                 String client_email_template_id = (String) map.get("client_email_template_id");
@@ -1986,8 +1988,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
                 String apply_minimum_fee = (String) map.get("apply_minimum_fee");
                 Long how_to_apply_min_fee = (Long) map.get("how_to_apply_min_fee");
-                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
                 com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
                 Long arc_service_no = (Long) map.get("arc_service_no");
                 com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
@@ -2001,7 +2001,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
                 String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
                 
-        return editPlan(client_no, auth_key, plan_no, plan_name, client_plan_id, plan_type, billing_interval, currency, edit_directives, plan_description, plan_group, plan_group_id, active, usage_billing_interval, template_no, client_email_template_id, rollover_months, rollover_plan_no, rollover_client_plan_id, dunning_plan_no, dunning_client_plan_id, initial_free_months, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, allow_child_accts, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, schedule, service, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd);
+        return editPlan(client_no, auth_key, plan_no, plan_name, client_plan_id, plan_type, active, billing_interval, currency, schedule, service, edit_directives, plan_description, plan_group, plan_group_id, usage_billing_interval, template_no, client_email_template_id, rollover_months, rollover_plan_no, rollover_client_plan_id, dunning_plan_no, dunning_client_plan_id, initial_free_months, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, allow_child_accts, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd);
     }
 
     public Map<String,Object> deletePlans(Long client_no, String auth_key, com.aria.common.shared.admin.PlanNosArray plan_nos){

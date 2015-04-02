@@ -986,6 +986,8 @@ public class RestUtilities {
             entity.setTemplateName(getStringValue(jsonObject,"template_name"));
             entity.setTemplateClass(getStringValue(jsonObject,"template_class"));
             entity.setClientEmailTemplateId(getStringValue(jsonObject,"client_email_template_id"));
+            entity.setGlobalInd(getLongValue(jsonObject,"global_ind"));
+            entity.setDefaultInd(getLongValue(jsonObject,"default_ind"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -3129,6 +3131,11 @@ public class RestUtilities {
             entity.setReversedLineAmount(getDoubleValue(jsonObject,"reversed_line_amount"));
             entity.setReversedLineStartDate(getStringValue(jsonObject,"reversed_line_start_date"));
             entity.setReversedLineEndDate(getStringValue(jsonObject,"reversed_line_end_date"));
+            entity.setTransactionId(getStringValue(jsonObject,"transaction_id"));
+            entity.setReversalDate(getStringValue(jsonObject,"reversal_date"));
+            entity.setServiceNo(getStringValue(jsonObject,"service_no"));
+            entity.setClientServiceId(getStringValue(jsonObject,"client_service_id"));
+            entity.setTransactionComments(getStringValue(jsonObject,"transaction_comments"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -3243,6 +3250,21 @@ public class RestUtilities {
         return returnElement;
     }
 
+    public static ArrayList<AppliedTransactionsReturnElement> buildAppliedTransactionsReturnElement(JSONArray jsonArray) {
+        ArrayList<AppliedTransactionsReturnElement> returnElement = new ArrayList<AppliedTransactionsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            AppliedTransactionsReturnElement entity = new AppliedTransactionsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setTransactionId(getLongValue(jsonObject,"transaction_id"));
+            entity.setOriginalAmount(getDoubleValue(jsonObject,"original_amount"));
+            entity.setAmountApplied(getDoubleValue(jsonObject,"amount_applied"));
+            entity.setDateApplied(getStringValue(jsonObject,"date_applied"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+
     public static ArrayList<PaymentApplicationDetailsReturnElement> buildPaymentApplicationDetailsReturnElement(JSONArray jsonArray) {
         ArrayList<PaymentApplicationDetailsReturnElement> returnElement = new ArrayList<PaymentApplicationDetailsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -3258,6 +3280,10 @@ public class RestUtilities {
             entity.setInvoiceCharge(getDoubleValue(jsonObject,"invoice_charge"));
             entity.setInvoiceCredit(getDoubleValue(jsonObject,"invoice_credit"));
             entity.setInvoiceBalDue(getDoubleValue(jsonObject,"invoice_bal_due"));
+                        ArrayList<AppliedTransactionsReturnElement> arrayListAppliedTransactionsReturnElement = buildAppliedTransactionsReturnElement((JSONArray)jsonObject.get("applied_transactions"));
+            for (AppliedTransactionsReturnElement element : arrayListAppliedTransactionsReturnElement){
+                entity.getAppliedTransactions().add(element);
+            }
             returnElement.add(entity);
         }
         return returnElement;

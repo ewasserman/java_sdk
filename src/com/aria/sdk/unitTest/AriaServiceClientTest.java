@@ -1007,7 +1007,8 @@ public class AriaServiceClientTest {
     //@Test
     public void getEmailTemplates() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getEmailTemplates(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getEmailTemplates(getClientNo(), getAuthKey()        , ""
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getEmailTemplates - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -1855,11 +1856,11 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().recordStandingUsage(getClientNo(), getAuthKey()        , 1L
                 , 1L
+                , ""
                 , 1d
                 , ""
                 , ""
                 , 1L
-                , ""
                 , ""
                 , ""
                 , ""
@@ -2013,6 +2014,7 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().assignSuppPlan(getClientNo(), getAuthKey()        , 1L
                 , 1L
+                , ""
                 , 1L
                 , 1L
                 , ""
@@ -2035,7 +2037,6 @@ public class AriaServiceClientTest {
                 , 1L
                 , ""
                 , 1L
-                , ""
                 , ""
                 , surchargeNoArray
         );
@@ -2293,10 +2294,11 @@ public class AriaServiceClientTest {
         com.aria.common.shared.ClientSpAltRateSchedIdsArray clientSpAltRateSchedIdsArray = new com.aria.common.shared.ClientSpAltRateSchedIdsArray();
         com.aria.common.shared.SurchargeNoArray surchargeNoArray = new com.aria.common.shared.SurchargeNoArray();
         
-        hashMapReturnValues = getBaseAriaBilling().createAcctComplete(getClientNo(), getAuthKey()        , ""
+        hashMapReturnValues = getBaseAriaBilling().createAcctComplete(getClientNo(), getAuthKey()        , 1L
                 , ""
                 , ""
-                , 1L
+                , ""
+                , ""
                 , 1L
                 , 1L
                 , suppPlansArray
@@ -2386,7 +2388,6 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , 1L
-                , ""
                 , ""
                 , ""
                 , clientSuppPlanIdsArray
@@ -3584,20 +3585,6 @@ public class AriaServiceClientTest {
     }
 
     //@Test
-    public void getAllAcctActiveContracts() throws Exception {
-        
-        hashMapReturnValues = getBaseAriaBilling().getAllAcctActiveContracts(getClientNo(), getAuthKey()        , 1L
-        );
-        if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "getAllAcctActiveContracts - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
-            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
-                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
-            }
-            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
-        }
-    }
-
-    //@Test
     public void getAcctHierarchyDetails() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getAcctHierarchyDetails(getClientNo(), getAuthKey()        , 1L
@@ -4274,10 +4261,11 @@ public class AriaServiceClientTest {
     //@Test
     public void recordUsage() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().recordUsage(getClientNo(), getAuthKey()        , 1d
-                , 1L
+        hashMapReturnValues = getBaseAriaBilling().recordUsage(getClientNo(), getAuthKey()        , 1L
                 , ""
                 , 1L
+                , 1d
+                , ""
                 , ""
                 , 1d
                 , 1d
@@ -4292,7 +4280,6 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
-                , ""
                 , ""
                 , ""
                 , ""

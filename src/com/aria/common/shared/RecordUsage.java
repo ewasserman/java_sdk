@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "usageUnits",    "acctNo",    "userid",    "usageType",    "usageDate",    "billableUnits",    "amt",    "rate",    "telcoFrom",    "telcoTo",    "comments",    "excludeFromBilling",    "exclusionComments",    "qualifier1",    "qualifier2",    "qualifier3",    "qualifier4",    "parentUsageRecNo",    "usageTypeCode",    "clientRecordId",    "callerId",    "clientReceiptId"})
+    "authKey",    "acctNo",    "userid",    "usageType",    "usageUnits",    "usageTypeCode",    "usageDate",    "billableUnits",    "amt",    "rate",    "telcoFrom",    "telcoTo",    "comments",    "excludeFromBilling",    "exclusionComments",    "qualifier1",    "qualifier2",    "qualifier3",    "qualifier4",    "parentUsageRecNo",    "clientRecordId",    "callerId",    "clientReceiptId"})
 @XmlRootElement(name = "record_usage")
 public class RecordUsage {
 
@@ -18,14 +18,16 @@ public class RecordUsage {
     protected Long clientNo;
     @XmlElement(name = "auth_key")
     protected String authKey;
-        @XmlElement(name = "usage_units")
-    protected Double usageUnits;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
         @XmlElement(name = "userid")
     protected String userid;
         @XmlElement(name = "usage_type")
     protected Long usageType;
+        @XmlElement(name = "usage_units")
+    protected Double usageUnits;
+        @XmlElement(name = "usage_type_code")
+    protected String usageTypeCode;
         @XmlElement(name = "usage_date")
     protected String usageDate;
         @XmlElement(name = "billable_units")
@@ -54,8 +56,6 @@ public class RecordUsage {
     protected String qualifier4;
         @XmlElement(name = "parent_usage_rec_no")
     protected Long parentUsageRecNo;
-        @XmlElement(name = "usage_type_code")
-    protected String usageTypeCode;
         @XmlElement(name = "client_record_id")
     protected String clientRecordId;
         @XmlElement(name = "caller_id")
@@ -79,14 +79,7 @@ public class RecordUsage {
         this.authKey = value;
     }
 
-    public Double getUsageUnits() {
-        return usageUnits;
-    }
-
-    public void setUsageUnits(Double value) {
-        this.usageUnits = value;
-    }
-            public Long getAcctNo() {
+    public Long getAcctNo() {
         return acctNo;
     }
 
@@ -106,6 +99,20 @@ public class RecordUsage {
 
     public void setUsageType(Long value) {
         this.usageType = value;
+    }
+            public Double getUsageUnits() {
+        return usageUnits;
+    }
+
+    public void setUsageUnits(Double value) {
+        this.usageUnits = value;
+    }
+            public String getUsageTypeCode() {
+        return usageTypeCode;
+    }
+
+    public void setUsageTypeCode(String value) {
+        this.usageTypeCode = value;
     }
             public String getUsageDate() {
         return usageDate;
@@ -204,13 +211,6 @@ public class RecordUsage {
 
     public void setParentUsageRecNo(Long value) {
         this.parentUsageRecNo = value;
-    }
-            public String getUsageTypeCode() {
-        return usageTypeCode;
-    }
-
-    public void setUsageTypeCode(String value) {
-        this.usageTypeCode = value;
     }
             public String getClientRecordId() {
         return clientRecordId;

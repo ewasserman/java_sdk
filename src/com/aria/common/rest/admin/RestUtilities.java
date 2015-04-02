@@ -287,6 +287,7 @@ public class RestUtilities {
             entity.setFromUnit(getLongValue(jsonObject,"from_unit"));
             entity.setToUnit(getLongValue(jsonObject,"to_unit"));
             entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -880,6 +881,7 @@ public class RestUtilities {
             entity.setFrom(getLongValue(jsonObject,"from"));
             entity.setTo(getLongValue(jsonObject,"to"));
             entity.setRate(getDoubleValue(jsonObject,"rate"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -1599,6 +1601,29 @@ public class RestUtilities {
         }
     }
 
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
+            parameters.add("schedule_name["+i+"]", getValue("String", row.getScheduleName()));
+            parameters.add("currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
+            parameters.add("is_default["+i+"]", getValue("Long", row.getIsDefault()));
+            parameters.add("min_surcharge_to_apply["+i+"]", getValue("Double", row.getMinSurchargeToApply()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
+            parameters.add(paramPrefix + "schedule_name["+i+"]", getValue("String", row.getScheduleName()));
+            parameters.add(paramPrefix + "currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
+            parameters.add(paramPrefix + "is_default["+i+"]", getValue("Long", row.getIsDefault()));
+            parameters.add(paramPrefix + "min_surcharge_to_apply["+i+"]", getValue("Double", row.getMinSurchargeToApply()));
+            i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NotificationsArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -1673,29 +1698,6 @@ public class RestUtilities {
         }
     }
 
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
-            parameters.add("schedule_name["+i+"]", getValue("String", row.getScheduleName()));
-            parameters.add("currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
-            parameters.add("is_default["+i+"]", getValue("Long", row.getIsDefault()));
-            parameters.add("min_surcharge_to_apply["+i+"]", getValue("Double", row.getMinSurchargeToApply()));
-            i++;
-        }
-    }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
-            parameters.add(paramPrefix + "schedule_name["+i+"]", getValue("String", row.getScheduleName()));
-            parameters.add(paramPrefix + "currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
-            parameters.add(paramPrefix + "is_default["+i+"]", getValue("Long", row.getIsDefault()));
-            parameters.add(paramPrefix + "min_surcharge_to_apply["+i+"]", getValue("Double", row.getMinSurchargeToApply()));
-            i++;
-        }
-    }
-
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ResourceArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -1765,7 +1767,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.ExclusionPlansRow row : arrayList.getExclusionPlansRow()){
-            parameters.add("exclusion_plans["+i+"]", getValue("Long", row.getExclusionPlans()));
+            parameters.add("exclusion_plan["+i+"]", getValue("Long", row.getExclusionPlan()));
             i++;
         }
     }
@@ -1773,7 +1775,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.ExclusionPlansRow row : arrayList.getExclusionPlansRow()){
-            parameters.add(paramPrefix + "exclusion_plans["+i+"]", getValue("Long", row.getExclusionPlans()));
+            parameters.add(paramPrefix + "exclusion_plan["+i+"]", getValue("Long", row.getExclusionPlan()));
             i++;
         }
     }

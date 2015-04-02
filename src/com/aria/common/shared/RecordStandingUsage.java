@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "usageType",    "usageUnits",    "nextUsageDate",    "altDesc",    "planNo",    "firstUsageDate",    "recurringInd",    "usageTypeCode",    "clientPlanId"})
+    "authKey",    "acctNo",    "usageType",    "usageTypeCode",    "usageUnits",    "nextUsageDate",    "altDesc",    "planNo",    "firstUsageDate",    "recurringInd",    "clientPlanId"})
 @XmlRootElement(name = "record_standing_usage")
 public class RecordStandingUsage {
 
@@ -22,6 +22,8 @@ public class RecordStandingUsage {
     protected Long acctNo;
         @XmlElement(name = "usage_type")
     protected Long usageType;
+        @XmlElement(name = "usage_type_code")
+    protected String usageTypeCode;
         @XmlElement(name = "usage_units")
     protected Double usageUnits;
         @XmlElement(name = "next_usage_date")
@@ -34,8 +36,6 @@ public class RecordStandingUsage {
     protected String firstUsageDate;
         @XmlElement(name = "recurring_ind")
     protected String recurringInd;
-        @XmlElement(name = "usage_type_code")
-    protected String usageTypeCode;
         @XmlElement(name = "client_plan_id")
     protected String clientPlanId;
     
@@ -68,6 +68,13 @@ public class RecordStandingUsage {
 
     public void setUsageType(Long value) {
         this.usageType = value;
+    }
+            public String getUsageTypeCode() {
+        return usageTypeCode;
+    }
+
+    public void setUsageTypeCode(String value) {
+        this.usageTypeCode = value;
     }
             public Double getUsageUnits() {
         return usageUnits;
@@ -110,13 +117,6 @@ public class RecordStandingUsage {
 
     public void setRecurringInd(String value) {
         this.recurringInd = value;
-    }
-            public String getUsageTypeCode() {
-        return usageTypeCode;
-    }
-
-    public void setUsageTypeCode(String value) {
-        this.usageTypeCode = value;
     }
             public String getClientPlanId() {
         return clientPlanId;

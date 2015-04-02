@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_reversals_ReturnElement", propOrder = {"invoiceNo", "invoiceBillDate", "invoiceLineNo", "totalLineDebit", "reversedLineAmount", "reversedLineStartDate", "reversedLineEndDate"})
+@XmlType(name = "invoice_reversals_ReturnElement", propOrder = {"invoiceNo", "invoiceBillDate", "invoiceLineNo", "totalLineDebit", "reversedLineAmount", "reversedLineStartDate", "reversedLineEndDate", "transactionId", "reversalDate", "serviceNo", "clientServiceId", "transactionComments"})
 public class InvoiceReversalsReturnElement {
 
     @XmlElement(name = "invoice_no")
@@ -27,6 +27,16 @@ public class InvoiceReversalsReturnElement {
     protected String reversedLineStartDate;
     @XmlElement(name = "reversed_line_end_date")
     protected String reversedLineEndDate;
+    @XmlElement(name = "transaction_id")
+    protected String transactionId;
+    @XmlElement(name = "reversal_date")
+    protected String reversalDate;
+    @XmlElement(name = "service_no")
+    protected String serviceNo;
+    @XmlElement(name = "client_service_id")
+    protected String clientServiceId;
+    @XmlElement(name = "transaction_comments")
+    protected String transactionComments;
     
     public Long getInvoiceNo() {
         return invoiceNo;
@@ -82,6 +92,46 @@ public class InvoiceReversalsReturnElement {
 
     public void setReversedLineEndDate(String value) {
         this.reversedLineEndDate = value;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(String value) {
+        this.transactionId = value;
+    }
+
+    public String getReversalDate() {
+        return reversalDate;
+    }
+
+    public void setReversalDate(String value) {
+        this.reversalDate = value;
+    }
+
+    public String getServiceNo() {
+        return serviceNo;
+    }
+
+    public void setServiceNo(String value) {
+        this.serviceNo = value;
+    }
+
+    public String getClientServiceId() {
+        return clientServiceId;
+    }
+
+    public void setClientServiceId(String value) {
+        this.clientServiceId = value;
+    }
+
+    public String getTransactionComments() {
+        return transactionComments;
+    }
+
+    public void setTransactionComments(String value) {
+        this.transactionComments = value;
     }
 
     

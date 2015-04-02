@@ -1057,10 +1057,10 @@ public class AriaServiceClientTest {
 
     //@Test
     public void createNewPlan() throws Exception {
-        com.aria.common.shared.admin.PlanGroupArray planGroupArray = new com.aria.common.shared.admin.PlanGroupArray();
-        com.aria.common.shared.admin.PlanGroupIdArray planGroupIdArray = new com.aria.common.shared.admin.PlanGroupIdArray();
         com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
         com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
+        com.aria.common.shared.admin.PlanGroupArray planGroupArray = new com.aria.common.shared.admin.PlanGroupArray();
+        com.aria.common.shared.admin.PlanGroupIdArray planGroupIdArray = new com.aria.common.shared.admin.PlanGroupIdArray();
         com.aria.common.shared.admin.ResourceArray resourceArray = new com.aria.common.shared.admin.ResourceArray();
         com.aria.common.shared.admin.ParentPlansArray parentPlansArray = new com.aria.common.shared.admin.ParentPlansArray();
         com.aria.common.shared.admin.ParentClientPlanIdsArray parentClientPlanIdsArray = new com.aria.common.shared.admin.ParentClientPlanIdsArray();
@@ -1074,12 +1074,14 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , 1L
+                , scheduleArray
+                , serviceArray
                 , ""
                 , ""
                 , planGroupArray
                 , planGroupIdArray
                 , ""
-                , 1L
                 , ""
                 , 1L
                 , ""
@@ -1097,8 +1099,6 @@ public class AriaServiceClientTest {
                 , 1L
                 , ""
                 , ""
-                , scheduleArray
-                , serviceArray
                 , resourceArray
                 , 1L
                 , parentPlansArray
@@ -1124,10 +1124,10 @@ public class AriaServiceClientTest {
 
     //@Test
     public void editPlan() throws Exception {
-        com.aria.common.shared.admin.PlanGroupArray planGroupArray = new com.aria.common.shared.admin.PlanGroupArray();
-        com.aria.common.shared.admin.PlanGroupIdArray planGroupIdArray = new com.aria.common.shared.admin.PlanGroupIdArray();
         com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
         com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
+        com.aria.common.shared.admin.PlanGroupArray planGroupArray = new com.aria.common.shared.admin.PlanGroupArray();
+        com.aria.common.shared.admin.PlanGroupIdArray planGroupIdArray = new com.aria.common.shared.admin.PlanGroupIdArray();
         com.aria.common.shared.admin.ResourceArray resourceArray = new com.aria.common.shared.admin.ResourceArray();
         com.aria.common.shared.admin.ParentPlansArray parentPlansArray = new com.aria.common.shared.admin.ParentPlansArray();
         com.aria.common.shared.admin.ParentClientPlanIdsArray parentClientPlanIdsArray = new com.aria.common.shared.admin.ParentClientPlanIdsArray();
@@ -1141,13 +1141,15 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
+                , 1L
                 , ""
                 , ""
+                , scheduleArray
+                , serviceArray
                 , 1L
                 , ""
                 , planGroupArray
                 , planGroupIdArray
-                , 1L
                 , ""
                 , 1L
                 , ""
@@ -1165,8 +1167,6 @@ public class AriaServiceClientTest {
                 , 1L
                 , ""
                 , 1L
-                , scheduleArray
-                , serviceArray
                 , resourceArray
                 , 1L
                 , parentPlansArray

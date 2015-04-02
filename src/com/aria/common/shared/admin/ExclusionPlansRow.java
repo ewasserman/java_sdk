@@ -8,18 +8,18 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "exclusion_plans_row", propOrder = {
-    "exclusionPlans"
+    "exclusionPlan"
     })
 public class ExclusionPlansRow {
 
-    @XmlElement(name = "exclusion_plans")
-    protected Long exclusionPlans;
-    public Long getExclusionPlans() {
-        return exclusionPlans;
+    @XmlElement(name = "exclusion_plan")
+    protected Long exclusionPlan;
+    public Long getExclusionPlan() {
+        return exclusionPlan;
     }
 
-    public void setExclusionPlans(Long value) {
-        this.exclusionPlans = value;
+    public void setExclusionPlan(Long value) {
+        this.exclusionPlan = value;
     }
 
     

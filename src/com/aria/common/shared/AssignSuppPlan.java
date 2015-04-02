@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "suppPlanNo",    "altRateScheduleNo",    "numPlanUnits",    "couponCode",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "contractTypeNo",    "contractAltRecurFee",    "contractLengthMonths",    "contractCancelFee",    "contractComments",    "contractStartDate",    "offsetMonths",    "autoOffsetMonthsOption",    "altProrationStartDate",    "altClientAcctGroupId",    "newAcctCustomRates",    "effectiveDate",    "offsetInterval",    "contractEndDate",    "syncMstrBillDatesOverride",    "clientSuppPlanId",    "clientAltRateScheduleId",    "surchargeNo"})
+    "authKey",    "acctNo",    "suppPlanNo",    "clientSuppPlanId",    "altRateScheduleNo",    "numPlanUnits",    "couponCode",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "contractTypeNo",    "contractAltRecurFee",    "contractLengthMonths",    "contractCancelFee",    "contractComments",    "contractStartDate",    "offsetMonths",    "autoOffsetMonthsOption",    "altProrationStartDate",    "altClientAcctGroupId",    "newAcctCustomRates",    "effectiveDate",    "offsetInterval",    "contractEndDate",    "syncMstrBillDatesOverride",    "clientAltRateScheduleId",    "surchargeNo"})
 @XmlRootElement(name = "assign_supp_plan")
 public class AssignSuppPlan {
 
@@ -22,6 +22,8 @@ public class AssignSuppPlan {
     protected Long acctNo;
         @XmlElement(name = "supp_plan_no")
     protected Long suppPlanNo;
+        @XmlElement(name = "client_supp_plan_id")
+    protected String clientSuppPlanId;
         @XmlElement(name = "alt_rate_schedule_no")
     protected Long altRateScheduleNo;
         @XmlElement(name = "num_plan_units")
@@ -66,8 +68,6 @@ public class AssignSuppPlan {
     protected String contractEndDate;
         @XmlElement(name = "sync_mstr_bill_dates_override")
     protected Long syncMstrBillDatesOverride;
-        @XmlElement(name = "client_supp_plan_id")
-    protected String clientSuppPlanId;
         @XmlElement(name = "client_alt_rate_schedule_id")
     protected String clientAltRateScheduleId;
         @XmlElement(name = "surcharge_no")
@@ -102,6 +102,13 @@ public class AssignSuppPlan {
 
     public void setSuppPlanNo(Long value) {
         this.suppPlanNo = value;
+    }
+            public String getClientSuppPlanId() {
+        return clientSuppPlanId;
+    }
+
+    public void setClientSuppPlanId(String value) {
+        this.clientSuppPlanId = value;
     }
             public Long getAltRateScheduleNo() {
         return altRateScheduleNo;
@@ -256,13 +263,6 @@ public class AssignSuppPlan {
 
     public void setSyncMstrBillDatesOverride(Long value) {
         this.syncMstrBillDatesOverride = value;
-    }
-            public String getClientSuppPlanId() {
-        return clientSuppPlanId;
-    }
-
-    public void setClientSuppPlanId(String value) {
-        this.clientSuppPlanId = value;
     }
             public String getClientAltRateScheduleId() {
         return clientAltRateScheduleId;
