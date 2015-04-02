@@ -193,6 +193,9 @@ public class RestUtilities {
             entity.setResources(getLongValue(jsonObject,"resources"));
             entity.setResourceTypeNo(getLongValue(jsonObject,"resource_type_no"));
             entity.setResourceUnits(getLongValue(jsonObject,"resource_units"));
+            entity.setExpireOnPaidThrough(getLongValue(jsonObject,"expire_on_paid_through"));
+            entity.setResetOnUpdate(getLongValue(jsonObject,"reset_on_update"));
+            entity.setAddDaysToExpiry(getLongValue(jsonObject,"add_days_to_expiry"));
             entity.setResourceName(getStringValue(jsonObject,"resource_name"));
             returnElement.add(entity);
         }
@@ -380,8 +383,8 @@ public class RestUtilities {
             CouponsReturnElement entity = new CouponsReturnElement();
             JSONObject jsonObject = (JSONObject)jsonArray.get(i);
             entity.setCouponCd(getStringValue(jsonObject,"coupon_cd"));
-            entity.setCouponDesc(getStringValue(jsonObject,"coupon_desc"));
             entity.setCouponMsg(getStringValue(jsonObject,"coupon_msg"));
+            entity.setCouponDesc(getStringValue(jsonObject,"coupon_desc"));
             entity.setStatusInd(getLongValue(jsonObject,"status_ind"));
             entity.setNoOfUses(getLongValue(jsonObject,"no_of_uses"));
             entity.setStartDate(getStringValue(jsonObject,"start_date"));

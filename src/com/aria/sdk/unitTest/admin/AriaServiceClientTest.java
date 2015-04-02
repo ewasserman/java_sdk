@@ -141,27 +141,11 @@ public class AriaServiceClientTest {
         //editSurcharge();
         //deleteSurcharge();
         //validateAdminSession();
-        //createChannel();
-        //copyClient();
         //getRevrecProfiles();
         //getRevrecProfileDetails();
         //createRevrecProfile();
         //updateRevrecProfile();
         //deleteRevrecProfile();
-        //viewProcessorConfig();
-        //editProcessorConfig();
-        //deleteProcessorConfig();
-        //addProcessorConfig();
-        //sitesRequestSiteBuild();
-        //sitesRequestSitePublish();
-        //sitesGetBaseUrl();
-        //sitesGetSites();
-        //sitesBuildSite();
-        //sitesPublishSite();
-        //sitesUnpublishSite();
-        //sitesDeleteSite();
-        //sitesEditSite();
-        //sitesListClasses();
             }
 
     //@Test
@@ -801,6 +785,7 @@ public class AriaServiceClientTest {
                 , 1d
                 , 1L
                 , 1L
+                , ""
                 , 1L
                 , ""
                 , 1L
@@ -837,6 +822,7 @@ public class AriaServiceClientTest {
                 , 1d
                 , 1L
                 , 1L
+                , ""
                 , ""
                 , 1L
                 , ""
@@ -1748,53 +1734,6 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "validateAdminSession - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
-            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
-                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
-            }
-            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
-        }
-    }
-
-    //@Test
-    public void createChannel() throws Exception {
-        
-        hashMapReturnValues = getBaseAriaBilling().createChannel(getClientNo(), getAuthKey()        , 1L
-                , ""
-                , ""
-                , 1L
-                , ""
-                , ""
-                , ""
-                , ""
-                , ""
-                , ""
-                , ""
-        );
-        if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "createChannel - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
-            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
-                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
-            }
-            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
-        }
-    }
-
-    //@Test
-    public void copyClient() throws Exception {
-        
-        hashMapReturnValues = getBaseAriaBilling().copyClient(getClientNo(), getAuthKey()        , 1L
-                , ""
-                , ""
-                , ""
-                , ""
-                , ""
-                , ""
-                , ""
-                , ""
-                , ""
-        );
-        if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "copyClient - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }

@@ -1583,6 +1583,7 @@ public interface AriaBillingComplete {
     *   bkup_billing_work_phone_nxx - Type: javax.xml.ws.Holder<br>
     *   bkup_billing_work_phone_suffix - Type: javax.xml.ws.Holder<br>
     *   stmnt_email_list - Type: javax.xml.ws.Holder<br>
+    *   invoice_approval_required - Type: javax.xml.ws.Holder<br>
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     */
@@ -2551,12 +2552,13 @@ public interface AriaBillingComplete {
     * @param transaction_id - Type: Long
     * @param invoice_no - Type: Long
     * @param invoice_line_item - Type: Long
+    * @param retrieve_excluded_usage - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   usage_history_records - Type: ArrayList&#60;UsageHistoryRecordsReturnElement&#62;<br>
     */
-    abstract Map<String,Object> getUsageHistory(Long client_no, String auth_key, Long acct_no, Long specified_usage_type_no, String date_range_start, String date_range_end, String specified_usage_type_code, com.aria.common.shared.UsageQualifier1Array usage_qualifier_1, com.aria.common.shared.UsageQualifier2Array usage_qualifier_2, com.aria.common.shared.UsageQualifier3Array usage_qualifier_3, com.aria.common.shared.UsageQualifier4Array usage_qualifier_4, Long limit, Long offset, Long transaction_id, Long invoice_no, Long invoice_line_item);
+    abstract Map<String,Object> getUsageHistory(Long client_no, String auth_key, Long acct_no, Long specified_usage_type_no, String date_range_start, String date_range_end, String specified_usage_type_code, com.aria.common.shared.UsageQualifier1Array usage_qualifier_1, com.aria.common.shared.UsageQualifier2Array usage_qualifier_2, com.aria.common.shared.UsageQualifier3Array usage_qualifier_3, com.aria.common.shared.UsageQualifier4Array usage_qualifier_4, Long limit, Long offset, Long transaction_id, Long invoice_no, Long invoice_line_item, String retrieve_excluded_usage);
 
     abstract Map<String,Object> getUsageHistory(Map<String,Object> map);
 
@@ -3300,6 +3302,7 @@ public interface AriaBillingComplete {
     * @param plan_no - Type: Long
     * @param usage_type_no - Type: Long
     * @param usage_type_code - Type: String
+    * @param retrieve_excluded_usage - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
@@ -3325,7 +3328,7 @@ public interface AriaBillingComplete {
     *   unbilled_usage_recs - Type: ArrayList&#60;UnbilledUsageRecsReturnElement&#62;<br>
     *   unit_threshold_details - Type: ArrayList&#60;UnitThresholdDetailsReturnElement&#62;<br>
     */
-    abstract Map<String,Object> getUnbilledUsageSummary(Long client_no, String auth_key, Long acct_no, String usage_details_flag, String include_all_usage_unit_thresholds, Long plan_no, Long usage_type_no, String usage_type_code);
+    abstract Map<String,Object> getUnbilledUsageSummary(Long client_no, String auth_key, Long acct_no, String usage_details_flag, String include_all_usage_unit_thresholds, Long plan_no, Long usage_type_no, String usage_type_code, String retrieve_excluded_usage);
 
     abstract Map<String,Object> getUnbilledUsageSummary(Map<String,Object> map);
 
@@ -3800,6 +3803,7 @@ public interface AriaBillingComplete {
     * @param usage_qualifier_3 - Type: com.aria.common.shared.UsageQualifier3Array
     * @param usage_qualifier_4 - Type: com.aria.common.shared.UsageQualifier4Array
     * @param usage_type_cd_filter - Type: String
+    * @param retrieve_excluded_usage - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
@@ -3809,7 +3813,7 @@ public interface AriaBillingComplete {
     *   end_time - Type: javax.xml.ws.Holder<br>
     *   usage_summary_records - Type: ArrayList&#60;UsageSummaryRecordsReturnElement&#62;<br>
     */
-    abstract Map<String,Object> getUsageSummaryByType(Long client_no, String auth_key, Long acct_no, String user_id, Long usage_type_filter, String date_filter_start_date, String date_filter_start_time, String date_filter_end_date, String date_filter_end_time, Long billed_filter, Long billing_period_flag, com.aria.common.shared.UsageQualifier1Array usage_qualifier_1, com.aria.common.shared.UsageQualifier2Array usage_qualifier_2, com.aria.common.shared.UsageQualifier3Array usage_qualifier_3, com.aria.common.shared.UsageQualifier4Array usage_qualifier_4, String usage_type_cd_filter);
+    abstract Map<String,Object> getUsageSummaryByType(Long client_no, String auth_key, Long acct_no, String user_id, Long usage_type_filter, String date_filter_start_date, String date_filter_start_time, String date_filter_end_date, String date_filter_end_time, Long billed_filter, Long billing_period_flag, com.aria.common.shared.UsageQualifier1Array usage_qualifier_1, com.aria.common.shared.UsageQualifier2Array usage_qualifier_2, com.aria.common.shared.UsageQualifier3Array usage_qualifier_3, com.aria.common.shared.UsageQualifier4Array usage_qualifier_4, String usage_type_cd_filter, String retrieve_excluded_usage);
 
     abstract Map<String,Object> getUsageSummaryByType(Map<String,Object> map);
 
@@ -3852,12 +3856,13 @@ public interface AriaBillingComplete {
     * @param reason_code - Type: Long
     * @param comments - Type: String
     * @param client_receipt_id - Type: String
+    * @param discard_invoice_usage - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   new_transaction_id - Type: javax.xml.ws.Holder<br>
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> voidTransaction(Long client_no, String auth_key, Long account_no, Long transaction_id, Long reason_code, String comments, String client_receipt_id);
+    abstract Map<String,Object> voidTransaction(Long client_no, String auth_key, Long account_no, Long transaction_id, Long reason_code, String comments, String client_receipt_id, String discard_invoice_usage);
 
     abstract Map<String,Object> voidTransaction(Map<String,Object> map);
 

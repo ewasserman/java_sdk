@@ -649,15 +649,15 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         returnValues[6] = "gl_cd";
         returnValues[7] = "taxable_ind";
         returnValues[8] = "tax_group";
-        returnValues[9] = "client_tax_group_id";
-        returnValues[10] = "usage_type";
-        returnValues[11] = "rev_rec_ind";
-        returnValues[12] = "ar_ind";
-        returnValues[13] = "ar_gl_cd";
-        returnValues[14] = "def_ind";
-        returnValues[15] = "def_gl_cd";
-        returnValues[16] = "supplemental_obj_fields";
-        returnValues[17] = "commodity_cd";
+        returnValues[9] = "usage_type";
+        returnValues[10] = "rev_rec_ind";
+        returnValues[11] = "ar_ind";
+        returnValues[12] = "ar_gl_cd";
+        returnValues[13] = "def_ind";
+        returnValues[14] = "def_gl_cd";
+        returnValues[15] = "supplemental_obj_fields";
+        returnValues[16] = "commodity_cd";
+        returnValues[17] = "client_tax_group_id";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -1267,7 +1267,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         return getRecurringCreditTemplateDetails(client_no, auth_key, credit_template_no, client_credit_template_id);
     }
 
-    public Map<String,Object> createCreditTemplate(Long client_no, String auth_key, String credit_template_name, Long discount_type, Double discount_amt, Long no_of_credits, Long credit_interval_months, Long eligible_plan_no, String eligible_client_plan_id, Long eligible_service_no, String eligible_client_service_id, com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types, Long percentage_plan_no, String percentage_client_plan_id, Long percentage_service_no, String percentage_client_service_id, Long alt_service_no, String alt_client_service_id, String client_credit_template_id, com.aria.common.shared.admin.CouponArray coupon, com.aria.common.shared.admin.ExistingCouponArray existing_coupon){
+    public Map<String,Object> createCreditTemplate(Long client_no, String auth_key, String credit_template_name, Long discount_type, Double discount_amt, Long no_of_credits, Long credit_interval_months, String currency_cd, Long eligible_plan_no, String eligible_client_plan_id, Long eligible_service_no, String eligible_client_service_id, com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types, Long percentage_plan_no, String percentage_client_plan_id, Long percentage_service_no, String percentage_client_service_id, Long alt_service_no, String alt_client_service_id, String client_credit_template_id, com.aria.common.shared.admin.CouponArray coupon, com.aria.common.shared.admin.ExistingCouponArray existing_coupon){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -1276,6 +1276,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         addParameters(parameters,"discount_amt",getValue("Double", discount_amt));
         addParameters(parameters,"no_of_credits",getValue("Long", no_of_credits));
         addParameters(parameters,"credit_interval_months",getValue("Long", credit_interval_months));
+        addParameters(parameters,"currency_cd",getValue("String", currency_cd));
         addParameters(parameters,"eligible_plan_no",getValue("Long", eligible_plan_no));
         addParameters(parameters,"eligible_client_plan_id",getValue("String", eligible_client_plan_id));
         addParameters(parameters,"eligible_service_no",getValue("Long", eligible_service_no));
@@ -1311,6 +1312,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 Double discount_amt = (Double) map.get("discount_amt");
                 Long no_of_credits = (Long) map.get("no_of_credits");
                 Long credit_interval_months = (Long) map.get("credit_interval_months");
+                String currency_cd = (String) map.get("currency_cd");
                 Long eligible_plan_no = (Long) map.get("eligible_plan_no");
                 String eligible_client_plan_id = (String) map.get("eligible_client_plan_id");
                 Long eligible_service_no = (Long) map.get("eligible_service_no");
@@ -1326,10 +1328,10 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 com.aria.common.shared.admin.CouponArray coupon = (com.aria.common.shared.admin.CouponArray) map.get("coupon");
                 com.aria.common.shared.admin.ExistingCouponArray existing_coupon = (com.aria.common.shared.admin.ExistingCouponArray) map.get("existing_coupon");
                 
-        return createCreditTemplate(client_no, auth_key, credit_template_name, discount_type, discount_amt, no_of_credits, credit_interval_months, eligible_plan_no, eligible_client_plan_id, eligible_service_no, eligible_client_service_id, eligible_service_types, percentage_plan_no, percentage_client_plan_id, percentage_service_no, percentage_client_service_id, alt_service_no, alt_client_service_id, client_credit_template_id, coupon, existing_coupon);
+        return createCreditTemplate(client_no, auth_key, credit_template_name, discount_type, discount_amt, no_of_credits, credit_interval_months, currency_cd, eligible_plan_no, eligible_client_plan_id, eligible_service_no, eligible_client_service_id, eligible_service_types, percentage_plan_no, percentage_client_plan_id, percentage_service_no, percentage_client_service_id, alt_service_no, alt_client_service_id, client_credit_template_id, coupon, existing_coupon);
     }
 
-    public Map<String,Object> updateCreditTemplate(Long client_no, String auth_key, String credit_template_no, String credit_template_name, Long discount_type, Double discount_amt, Long no_of_credits, Long credit_interval_months, String client_credit_template_id, Long eligible_plan_no, String eligible_client_plan_id, Long eligible_service_no, String eligible_client_service_id, com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types, Long percentage_plan_no, String percentage_client_plan_id, Long percentage_service_no, String percentage_client_service_id, Long alt_service_no, String alt_client_service_id, com.aria.common.shared.admin.CouponArray coupon, com.aria.common.shared.admin.ExistingCouponArray existing_coupon){
+    public Map<String,Object> updateCreditTemplate(Long client_no, String auth_key, String credit_template_no, String credit_template_name, Long discount_type, Double discount_amt, Long no_of_credits, Long credit_interval_months, String client_credit_template_id, String currency_cd, Long eligible_plan_no, String eligible_client_plan_id, Long eligible_service_no, String eligible_client_service_id, com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types, Long percentage_plan_no, String percentage_client_plan_id, Long percentage_service_no, String percentage_client_service_id, Long alt_service_no, String alt_client_service_id, com.aria.common.shared.admin.CouponArray coupon, com.aria.common.shared.admin.ExistingCouponArray existing_coupon){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -1340,6 +1342,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         addParameters(parameters,"no_of_credits",getValue("Long", no_of_credits));
         addParameters(parameters,"credit_interval_months",getValue("Long", credit_interval_months));
         addParameters(parameters,"client_credit_template_id",getValue("String", client_credit_template_id));
+        addParameters(parameters,"currency_cd",getValue("String", currency_cd));
         addParameters(parameters,"eligible_plan_no",getValue("Long", eligible_plan_no));
         addParameters(parameters,"eligible_client_plan_id",getValue("String", eligible_client_plan_id));
         addParameters(parameters,"eligible_service_no",getValue("Long", eligible_service_no));
@@ -1376,6 +1379,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 Long no_of_credits = (Long) map.get("no_of_credits");
                 Long credit_interval_months = (Long) map.get("credit_interval_months");
                 String client_credit_template_id = (String) map.get("client_credit_template_id");
+                String currency_cd = (String) map.get("currency_cd");
                 Long eligible_plan_no = (Long) map.get("eligible_plan_no");
                 String eligible_client_plan_id = (String) map.get("eligible_client_plan_id");
                 Long eligible_service_no = (Long) map.get("eligible_service_no");
@@ -1390,7 +1394,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
                 com.aria.common.shared.admin.CouponArray coupon = (com.aria.common.shared.admin.CouponArray) map.get("coupon");
                 com.aria.common.shared.admin.ExistingCouponArray existing_coupon = (com.aria.common.shared.admin.ExistingCouponArray) map.get("existing_coupon");
                 
-        return updateCreditTemplate(client_no, auth_key, credit_template_no, credit_template_name, discount_type, discount_amt, no_of_credits, credit_interval_months, client_credit_template_id, eligible_plan_no, eligible_client_plan_id, eligible_service_no, eligible_client_service_id, eligible_service_types, percentage_plan_no, percentage_client_plan_id, percentage_service_no, percentage_client_service_id, alt_service_no, alt_client_service_id, coupon, existing_coupon);
+        return updateCreditTemplate(client_no, auth_key, credit_template_no, credit_template_name, discount_type, discount_amt, no_of_credits, credit_interval_months, client_credit_template_id, currency_cd, eligible_plan_no, eligible_client_plan_id, eligible_service_no, eligible_client_service_id, eligible_service_types, percentage_plan_no, percentage_client_plan_id, percentage_service_no, percentage_client_service_id, alt_service_no, alt_client_service_id, coupon, existing_coupon);
     }
 
     public Map<String,Object> deleteTemplates(Long client_no, String auth_key, com.aria.common.shared.admin.TemplateNosArray template_nos){
@@ -1732,10 +1736,10 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         returnValues[1] = "error_msg";
         returnValues[2] = "plan_no";
         returnValues[3] = "client_plan_id";
-        returnValues[4] = "plan_name";
-        returnValues[5] = "plan_level";
-        returnValues[6] = "plan_type";
-        returnValues[7] = "plan_description";
+        returnValues[4] = "plan_level";
+        returnValues[5] = "plan_type";
+        returnValues[6] = "plan_name";
+        returnValues[7] = "plan_desc";
         returnValues[8] = "plan_groups";
         returnValues[9] = "plan_group_ids";
         returnValues[10] = "currency_cd";
@@ -1748,22 +1752,22 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         returnValues[17] = "allow_child_accounts";
         returnValues[18] = "dunning_plan_no";
         returnValues[19] = "dunning_client_plan_id";
-        returnValues[20] = "free_trial_type";
-        returnValues[21] = "free_trial_duration";
+        returnValues[20] = "free_trial_duration";
+        returnValues[21] = "free_trial_type";
         returnValues[22] = "initial_free_months";
         returnValues[23] = "acct_status_cd";
-        returnValues[24] = "rollover_status_days";
-        returnValues[25] = "rollover_status_cd";
+        returnValues[24] = "rollover_acct_status_days";
+        returnValues[25] = "rollover_acct_status_cd";
         returnValues[26] = "template_no";
         returnValues[27] = "template_id";
         returnValues[28] = "plan_cancel_min_month";
         returnValues[29] = "how_to_apply_min_fee";
         returnValues[30] = "is_deletable";
         returnValues[31] = "services";
-        returnValues[32] = "resources";
-        returnValues[33] = "parent_plans";
-        returnValues[34] = "parent_plan_ids";
-        returnValues[35] = "exclusion_plans";
+        returnValues[32] = "parent_plans";
+        returnValues[33] = "parent_plan_ids";
+        returnValues[34] = "exclusion_plans";
+        returnValues[35] = "resources";
         returnValues[36] = "supplemental_obj_fields";
         returnValues[37] = "surcharges";
         returnValues[38] = "proration_invoice_timing_cd";
@@ -3054,97 +3058,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         String session_id = (String) map.get("session_id");
                 
         return validateAdminSession(client_no, auth_key, session_id);
-    }
-
-    public Map<String,Object> createChannel(Long client_no, String auth_key, Long source_client_no, String target_client_name, String destination_email, Long acct_template_no, String user_id, String first_name, String last_name, String users_email, String users_password_first, String users_secret_question, String users_secret_question_answer){
-        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
-        addParameters(parameters,"client_no",getValue("Long",client_no));
-        addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"source_client_no",getValue("Long", source_client_no));
-        addParameters(parameters,"target_client_name",getValue("String", target_client_name));
-        addParameters(parameters,"destination_email",getValue("String", destination_email));
-        addParameters(parameters,"acct_template_no",getValue("Long", acct_template_no));
-        addParameters(parameters,"user_id",getValue("String", user_id));
-        addParameters(parameters,"first_name",getValue("String", first_name));
-        addParameters(parameters,"last_name",getValue("String", last_name));
-        addParameters(parameters,"users_email",getValue("String", users_email));
-        addParameters(parameters,"users_password_first",getValue("String", users_password_first));
-        addParameters(parameters,"users_secret_question",getValue("String", users_secret_question));
-        addParameters(parameters,"users_secret_question_answer",getValue("String", users_secret_question_answer));
-        
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_channel"));
-        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[4];
-
-        returnValues[0] = "error_code";
-        returnValues[1] = "error_msg";
-        returnValues[2] = "client_no";
-        returnValues[3] = "acct_no";
-        
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
-    }
-
-    public Map<String,Object> createChannel(Map<String,Object> map){
-        Long client_no = (Long) map.get("client_no");
-        String auth_key = (String) map.get("auth_key");
-        Long source_client_no = (Long) map.get("source_client_no");
-                String target_client_name = (String) map.get("target_client_name");
-                String destination_email = (String) map.get("destination_email");
-                Long acct_template_no = (Long) map.get("acct_template_no");
-                String user_id = (String) map.get("user_id");
-                String first_name = (String) map.get("first_name");
-                String last_name = (String) map.get("last_name");
-                String users_email = (String) map.get("users_email");
-                String users_password_first = (String) map.get("users_password_first");
-                String users_secret_question = (String) map.get("users_secret_question");
-                String users_secret_question_answer = (String) map.get("users_secret_question_answer");
-                
-        return createChannel(client_no, auth_key, source_client_no, target_client_name, destination_email, acct_template_no, user_id, first_name, last_name, users_email, users_password_first, users_secret_question, users_secret_question_answer);
-    }
-
-    public Map<String,Object> copyClient(Long client_no, String auth_key, Long source_client_no, String target_client_name, String destination_email, String user_id, String first_name, String last_name, String users_email, String users_password_first, String users_secret_question, String users_secret_question_answer){
-        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
-        addParameters(parameters,"client_no",getValue("Long",client_no));
-        addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"source_client_no",getValue("Long", source_client_no));
-        addParameters(parameters,"target_client_name",getValue("String", target_client_name));
-        addParameters(parameters,"destination_email",getValue("String", destination_email));
-        addParameters(parameters,"user_id",getValue("String", user_id));
-        addParameters(parameters,"first_name",getValue("String", first_name));
-        addParameters(parameters,"last_name",getValue("String", last_name));
-        addParameters(parameters,"users_email",getValue("String", users_email));
-        addParameters(parameters,"users_password_first",getValue("String", users_password_first));
-        addParameters(parameters,"users_secret_question",getValue("String", users_secret_question));
-        addParameters(parameters,"users_secret_question_answer",getValue("String", users_secret_question_answer));
-        
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("copy_client"));
-        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[3];
-
-        returnValues[0] = "error_code";
-        returnValues[1] = "error_msg";
-        returnValues[2] = "client_no";
-        
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
-    }
-
-    public Map<String,Object> copyClient(Map<String,Object> map){
-        Long client_no = (Long) map.get("client_no");
-        String auth_key = (String) map.get("auth_key");
-        Long source_client_no = (Long) map.get("source_client_no");
-                String target_client_name = (String) map.get("target_client_name");
-                String destination_email = (String) map.get("destination_email");
-                String user_id = (String) map.get("user_id");
-                String first_name = (String) map.get("first_name");
-                String last_name = (String) map.get("last_name");
-                String users_email = (String) map.get("users_email");
-                String users_password_first = (String) map.get("users_password_first");
-                String users_secret_question = (String) map.get("users_secret_question");
-                String users_secret_question_answer = (String) map.get("users_secret_question_answer");
-                
-        return copyClient(client_no, auth_key, source_client_no, target_client_name, destination_email, user_id, first_name, last_name, users_email, users_password_first, users_secret_question, users_secret_question_answer);
     }
 
     public Map<String,Object> getRevrecProfiles(Long client_no, String auth_key){

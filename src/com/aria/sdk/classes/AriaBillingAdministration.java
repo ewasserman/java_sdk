@@ -357,7 +357,6 @@ public interface AriaBillingAdministration {
     *   gl_cd - Type: javax.xml.ws.Holder<br>
     *   taxable_ind - Type: javax.xml.ws.Holder<br>
     *   tax_group - Type: javax.xml.ws.Holder<br>
-    *   client_tax_group_id - Type: javax.xml.ws.Holder<br>
     *   usage_type - Type: javax.xml.ws.Holder<br>
     *   rev_rec_ind - Type: javax.xml.ws.Holder<br>
     *   ar_ind - Type: javax.xml.ws.Holder<br>
@@ -366,6 +365,7 @@ public interface AriaBillingAdministration {
     *   def_gl_cd - Type: javax.xml.ws.Holder<br>
     *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
     *   commodity_cd - Type: javax.xml.ws.Holder<br>
+    *   client_tax_group_id - Type: javax.xml.ws.Holder<br>
     */
     abstract Map<String,Object> getServiceDetails(Long client_no, String auth_key, Long service_no, String client_service_id);
 
@@ -727,6 +727,7 @@ public interface AriaBillingAdministration {
     * @param discount_amt - Type: java.lang.Double
     * @param no_of_credits - Type: Long
     * @param credit_interval_months - Type: Long
+    * @param currency_cd - Type: String
     * @param eligible_plan_no - Type: Long
     * @param eligible_client_plan_id - Type: String
     * @param eligible_service_no - Type: Long
@@ -746,7 +747,7 @@ public interface AriaBillingAdministration {
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   credit_template_no - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> createCreditTemplate(Long client_no, String auth_key, String credit_template_name, Long discount_type, java.lang.Double discount_amt, Long no_of_credits, Long credit_interval_months, Long eligible_plan_no, String eligible_client_plan_id, Long eligible_service_no, String eligible_client_service_id, com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types, Long percentage_plan_no, String percentage_client_plan_id, Long percentage_service_no, String percentage_client_service_id, Long alt_service_no, String alt_client_service_id, String client_credit_template_id, com.aria.common.shared.admin.CouponArray coupon, com.aria.common.shared.admin.ExistingCouponArray existing_coupon);
+    abstract Map<String,Object> createCreditTemplate(Long client_no, String auth_key, String credit_template_name, Long discount_type, java.lang.Double discount_amt, Long no_of_credits, Long credit_interval_months, String currency_cd, Long eligible_plan_no, String eligible_client_plan_id, Long eligible_service_no, String eligible_client_service_id, com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types, Long percentage_plan_no, String percentage_client_plan_id, Long percentage_service_no, String percentage_client_service_id, Long alt_service_no, String alt_client_service_id, String client_credit_template_id, com.aria.common.shared.admin.CouponArray coupon, com.aria.common.shared.admin.ExistingCouponArray existing_coupon);
 
     abstract Map<String,Object> createCreditTemplate(Map<String,Object> map);
 
@@ -761,6 +762,7 @@ public interface AriaBillingAdministration {
     * @param no_of_credits - Type: Long
     * @param credit_interval_months - Type: Long
     * @param client_credit_template_id - Type: String
+    * @param currency_cd - Type: String
     * @param eligible_plan_no - Type: Long
     * @param eligible_client_plan_id - Type: String
     * @param eligible_service_no - Type: Long
@@ -779,7 +781,7 @@ public interface AriaBillingAdministration {
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   credit_template_no - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> updateCreditTemplate(Long client_no, String auth_key, String credit_template_no, String credit_template_name, Long discount_type, java.lang.Double discount_amt, Long no_of_credits, Long credit_interval_months, String client_credit_template_id, Long eligible_plan_no, String eligible_client_plan_id, Long eligible_service_no, String eligible_client_service_id, com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types, Long percentage_plan_no, String percentage_client_plan_id, Long percentage_service_no, String percentage_client_service_id, Long alt_service_no, String alt_client_service_id, com.aria.common.shared.admin.CouponArray coupon, com.aria.common.shared.admin.ExistingCouponArray existing_coupon);
+    abstract Map<String,Object> updateCreditTemplate(Long client_no, String auth_key, String credit_template_no, String credit_template_name, Long discount_type, java.lang.Double discount_amt, Long no_of_credits, Long credit_interval_months, String client_credit_template_id, String currency_cd, Long eligible_plan_no, String eligible_client_plan_id, Long eligible_service_no, String eligible_client_service_id, com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types, Long percentage_plan_no, String percentage_client_plan_id, Long percentage_service_no, String percentage_client_service_id, Long alt_service_no, String alt_client_service_id, com.aria.common.shared.admin.CouponArray coupon, com.aria.common.shared.admin.ExistingCouponArray existing_coupon);
 
     abstract Map<String,Object> updateCreditTemplate(Map<String,Object> map);
 
@@ -972,10 +974,10 @@ public interface AriaBillingAdministration {
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   plan_no - Type: javax.xml.ws.Holder<br>
     *   client_plan_id - Type: javax.xml.ws.Holder<br>
-    *   plan_name - Type: javax.xml.ws.Holder<br>
     *   plan_level - Type: javax.xml.ws.Holder<br>
     *   plan_type - Type: javax.xml.ws.Holder<br>
-    *   plan_description - Type: javax.xml.ws.Holder<br>
+    *   plan_name - Type: javax.xml.ws.Holder<br>
+    *   plan_desc - Type: javax.xml.ws.Holder<br>
     *   plan_groups - Type: ArrayList&#60;PlanGroupsReturnElement&#62;<br>
     *   plan_group_ids - Type: ArrayList&#60;PlanGroupIdsReturnElement&#62;<br>
     *   currency_cd - Type: javax.xml.ws.Holder<br>
@@ -988,22 +990,22 @@ public interface AriaBillingAdministration {
     *   allow_child_accounts - Type: javax.xml.ws.Holder<br>
     *   dunning_plan_no - Type: javax.xml.ws.Holder<br>
     *   dunning_client_plan_id - Type: javax.xml.ws.Holder<br>
-    *   free_trial_type - Type: javax.xml.ws.Holder<br>
     *   free_trial_duration - Type: javax.xml.ws.Holder<br>
+    *   free_trial_type - Type: javax.xml.ws.Holder<br>
     *   initial_free_months - Type: javax.xml.ws.Holder<br>
     *   acct_status_cd - Type: javax.xml.ws.Holder<br>
-    *   rollover_status_days - Type: javax.xml.ws.Holder<br>
-    *   rollover_status_cd - Type: javax.xml.ws.Holder<br>
+    *   rollover_acct_status_days - Type: javax.xml.ws.Holder<br>
+    *   rollover_acct_status_cd - Type: javax.xml.ws.Holder<br>
     *   template_no - Type: javax.xml.ws.Holder<br>
     *   template_id - Type: javax.xml.ws.Holder<br>
     *   plan_cancel_min_month - Type: javax.xml.ws.Holder<br>
     *   how_to_apply_min_fee - Type: javax.xml.ws.Holder<br>
     *   is_deletable - Type: javax.xml.ws.Holder<br>
     *   services - Type: ArrayList&#60;ServicesReturnElement&#62;<br>
-    *   resources - Type: ArrayList&#60;ResourcesReturnElement&#62;<br>
     *   parent_plans - Type: ArrayList&#60;ParentPlansReturnElement&#62;<br>
     *   parent_plan_ids - Type: ArrayList&#60;ParentPlanIdsReturnElement&#62;<br>
     *   exclusion_plans - Type: ArrayList&#60;ExclusionPlansReturnElement&#62;<br>
+    *   resources - Type: ArrayList&#60;ResourcesReturnElement&#62;<br>
     *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
     *   surcharges - Type: ArrayList&#60;SurchargesReturnElement&#62;<br>
     *   proration_invoice_timing_cd - Type: javax.xml.ws.Holder<br>
@@ -1703,54 +1705,6 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> validateAdminSession(Long client_no, String auth_key, String session_id);
 
     abstract Map<String,Object> validateAdminSession(Map<String,Object> map);
-
-    /**
-    * createChannel
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param source_client_no - Type: Long
-    * @param target_client_name - Type: String
-    * @param destination_email - Type: String
-    * @param acct_template_no - Type: Long
-    * @param user_id - Type: String
-    * @param first_name - Type: String
-    * @param last_name - Type: String
-    * @param users_email - Type: String
-    * @param users_password_first - Type: String
-    * @param users_secret_question - Type: String
-    * @param users_secret_question_answer - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   client_no - Type: javax.xml.ws.Holder<br>
-    *   acct_no - Type: javax.xml.ws.Holder<br>
-    */
-    abstract Map<String,Object> createChannel(Long client_no, String auth_key, Long source_client_no, String target_client_name, String destination_email, Long acct_template_no, String user_id, String first_name, String last_name, String users_email, String users_password_first, String users_secret_question, String users_secret_question_answer);
-
-    abstract Map<String,Object> createChannel(Map<String,Object> map);
-
-    /**
-    * copyClient
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param source_client_no - Type: Long
-    * @param target_client_name - Type: String
-    * @param destination_email - Type: String
-    * @param user_id - Type: String
-    * @param first_name - Type: String
-    * @param last_name - Type: String
-    * @param users_email - Type: String
-    * @param users_password_first - Type: String
-    * @param users_secret_question - Type: String
-    * @param users_secret_question_answer - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   client_no - Type: javax.xml.ws.Holder<br>
-    */
-    abstract Map<String,Object> copyClient(Long client_no, String auth_key, Long source_client_no, String target_client_name, String destination_email, String user_id, String first_name, String last_name, String users_email, String users_password_first, String users_secret_question, String users_secret_question_answer);
-
-    abstract Map<String,Object> copyClient(Map<String,Object> map);
 
     /**
     * getRevrecProfiles

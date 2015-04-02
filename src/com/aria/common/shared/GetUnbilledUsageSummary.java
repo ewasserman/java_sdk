@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "usageDetailsFlag",    "includeAllUsageUnitThresholds",    "planNo",    "usageTypeNo",    "usageTypeCode"})
+    "authKey",    "acctNo",    "usageDetailsFlag",    "includeAllUsageUnitThresholds",    "planNo",    "usageTypeNo",    "usageTypeCode",    "retrieveExcludedUsage"})
 @XmlRootElement(name = "get_unbilled_usage_summary")
 public class GetUnbilledUsageSummary {
 
@@ -30,6 +30,8 @@ public class GetUnbilledUsageSummary {
     protected Long usageTypeNo;
         @XmlElement(name = "usage_type_code")
     protected String usageTypeCode;
+        @XmlElement(name = "retrieve_excluded_usage")
+    protected String retrieveExcludedUsage;
     
     public long getClientNo() {
         return clientNo;
@@ -88,6 +90,13 @@ public class GetUnbilledUsageSummary {
 
     public void setUsageTypeCode(String value) {
         this.usageTypeCode = value;
+    }
+            public String getRetrieveExcludedUsage() {
+        return retrieveExcludedUsage;
+    }
+
+    public void setRetrieveExcludedUsage(String value) {
+        this.retrieveExcludedUsage = value;
     }
             
 }
