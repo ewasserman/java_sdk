@@ -10,18 +10,38 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supplemental_obj_fields_ReturnElement", propOrder = {"supplementalObjField"})
+@XmlType(name = "supplemental_obj_fields_ReturnElement", propOrder = {"fieldNo", "fieldValue", "fieldName"})
 public class SupplementalObjFieldsReturnElement {
 
-    @XmlElement(name = "supplemental_obj_field")
-    protected String supplementalObjField;
+    @XmlElement(name = "field_no")
+    protected Long fieldNo;
+    @XmlElement(name = "field_value")
+    protected String fieldValue;
+    @XmlElement(name = "field_name")
+    protected String fieldName;
     
-    public String getSupplementalObjField() {
-        return supplementalObjField;
+    public Long getFieldNo() {
+        return fieldNo;
     }
 
-    public void setSupplementalObjField(String value) {
-        this.supplementalObjField = value;
+    public void setFieldNo(Long value) {
+        this.fieldNo = value;
+    }
+
+    public String getFieldValue() {
+        return fieldValue;
+    }
+
+    public void setFieldValue(String value) {
+        this.fieldValue = value;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public void setFieldName(String value) {
+        this.fieldName = value;
     }
 
     

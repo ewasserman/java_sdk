@@ -10,17 +10,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "usage_types_ReturnElement", propOrder = {"usageTypeNo", "usageTypeName", "usageTypeDesc", "unitType", "usageTypeCd", "isEditable"})
+@XmlType(name = "usage_types_ReturnElement", propOrder = {"usageTypeNo", "usageTypeDesc", "usageUnitType", "usageTypeName", "usageTypeCd", "isEditable"})
 public class UsageTypesReturnElement {
 
     @XmlElement(name = "usage_type_no")
     protected Long usageTypeNo;
-    @XmlElement(name = "usage_type_name")
-    protected String usageTypeName;
     @XmlElement(name = "usage_type_desc")
     protected String usageTypeDesc;
-    @XmlElement(name = "unit_type")
-    protected String unitType;
+    @XmlElement(name = "usage_unit_type")
+    protected String usageUnitType;
+    @XmlElement(name = "usage_type_name")
+    protected String usageTypeName;
     @XmlElement(name = "usage_type_cd")
     protected String usageTypeCd;
     @XmlElement(name = "is_editable")
@@ -34,14 +34,6 @@ public class UsageTypesReturnElement {
         this.usageTypeNo = value;
     }
 
-    public String getUsageTypeName() {
-        return usageTypeName;
-    }
-
-    public void setUsageTypeName(String value) {
-        this.usageTypeName = value;
-    }
-
     public String getUsageTypeDesc() {
         return usageTypeDesc;
     }
@@ -50,12 +42,20 @@ public class UsageTypesReturnElement {
         this.usageTypeDesc = value;
     }
 
-    public String getUnitType() {
-        return unitType;
+    public String getUsageUnitType() {
+        return usageUnitType;
     }
 
-    public void setUnitType(String value) {
-        this.unitType = value;
+    public void setUsageUnitType(String value) {
+        this.usageUnitType = value;
+    }
+
+    public String getUsageTypeName() {
+        return usageTypeName;
+    }
+
+    public void setUsageTypeName(String value) {
+        this.usageTypeName = value;
     }
 
     public String getUsageTypeCd() {

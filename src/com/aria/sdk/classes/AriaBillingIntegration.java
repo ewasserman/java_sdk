@@ -14,10 +14,10 @@ public interface AriaBillingIntegration {
     * getAccountDetails
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -32,10 +32,10 @@ public interface AriaBillingIntegration {
     * getAccountStatusHistory
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -50,10 +50,10 @@ public interface AriaBillingIntegration {
     * getAccountPlanHistory
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -68,10 +68,10 @@ public interface AriaBillingIntegration {
     * getPaymentDetails
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -86,10 +86,10 @@ public interface AriaBillingIntegration {
     * getOrderDetails
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -104,10 +104,10 @@ public interface AriaBillingIntegration {
     * getInvoiceInformation
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -122,10 +122,10 @@ public interface AriaBillingIntegration {
     * getTransactionInformation
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -140,10 +140,10 @@ public interface AriaBillingIntegration {
     * getRefundInformation
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -158,10 +158,10 @@ public interface AriaBillingIntegration {
     * getCouponHistory
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-        * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -176,10 +176,10 @@ public interface AriaBillingIntegration {
     * listTransactionTypes
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param limit - Type: Long
-            * @param offset - Type: Long
-            * @param query_string - Type: String
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @param query_string - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -194,10 +194,10 @@ public interface AriaBillingIntegration {
     * listPaymentMethods
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param limit - Type: Long
-            * @param offset - Type: Long
-            * @param query_string - Type: String
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @param query_string - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -212,10 +212,10 @@ public interface AriaBillingIntegration {
     * listPaymentProcessors
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param limit - Type: Long
-            * @param offset - Type: Long
-            * @param query_string - Type: String
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @param query_string - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>
@@ -230,10 +230,10 @@ public interface AriaBillingIntegration {
     * getAllInvoiceInformation
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-                * @param query_string - Type: String
-            * @param limit - Type: Long
-            * @param offset - Type: Long
-        * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    * @param query_string - Type: String
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   starting_record - Type: javax.xml.ws.Holder<br>

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "specifiedUsageTypeNo",    "dateRangeStart",    "dateRangeEnd",    "specifiedUsageTypeCode",    "usageQualifier1",    "usageQualifier2",    "usageQualifier3",    "usageQualifier4",    "limit",    "offset",    "transactionId",    "invoiceNo",    "invoiceLineItem",    "retrieveExcludedUsage"})
+    "authKey",    "acctNo",    "specifiedUsageTypeNo",    "dateRangeStart",    "dateRangeEnd",    "specifiedUsageTypeCode",    "usageQualifier1",    "usageQualifier2",    "usageQualifier3",    "usageQualifier4",    "limit",    "offset",    "transactionId",    "invoiceNo",    "invoiceLineItem"})
 @XmlRootElement(name = "get_usage_history")
 public class GetUsageHistory {
 
@@ -46,8 +46,6 @@ public class GetUsageHistory {
     protected Long invoiceNo;
         @XmlElement(name = "invoice_line_item")
     protected Long invoiceLineItem;
-        @XmlElement(name = "retrieve_excluded_usage")
-    protected String retrieveExcludedUsage;
     
     public long getClientNo() {
         return clientNo;
@@ -162,13 +160,6 @@ public class GetUsageHistory {
 
     public void setInvoiceLineItem(Long value) {
         this.invoiceLineItem = value;
-    }
-            public String getRetrieveExcludedUsage() {
-        return retrieveExcludedUsage;
-    }
-
-    public void setRetrieveExcludedUsage(String value) {
-        this.retrieveExcludedUsage = value;
     }
             
 }

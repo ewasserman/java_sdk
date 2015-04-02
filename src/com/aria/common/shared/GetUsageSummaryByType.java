@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "userId",    "usageTypeFilter",    "dateFilterStartDate",    "dateFilterStartTime",    "dateFilterEndDate",    "dateFilterEndTime",    "billedFilter",    "billingPeriodFlag",    "usageQualifier1",    "usageQualifier2",    "usageQualifier3",    "usageQualifier4",    "usageTypeCdFilter",    "retrieveExcludedUsage"})
+    "authKey",    "acctNo",    "userId",    "usageTypeFilter",    "dateFilterStartDate",    "dateFilterStartTime",    "dateFilterEndDate",    "dateFilterEndTime",    "billedFilter",    "billingPeriodFlag",    "usageQualifier1",    "usageQualifier2",    "usageQualifier3",    "usageQualifier4",    "usageTypeCdFilter"})
 @XmlRootElement(name = "get_usage_summary_by_type")
 public class GetUsageSummaryByType {
 
@@ -46,8 +46,6 @@ public class GetUsageSummaryByType {
     protected UsageQualifier4Array usageQualifier4;
         @XmlElement(name = "usage_type_cd_filter")
     protected String usageTypeCdFilter;
-        @XmlElement(name = "retrieve_excluded_usage")
-    protected String retrieveExcludedUsage;
     
     public long getClientNo() {
         return clientNo;
@@ -162,13 +160,6 @@ public class GetUsageSummaryByType {
 
     public void setUsageTypeCdFilter(String value) {
         this.usageTypeCdFilter = value;
-    }
-            public String getRetrieveExcludedUsage() {
-        return retrieveExcludedUsage;
-    }
-
-    public void setRetrieveExcludedUsage(String value) {
-        this.retrieveExcludedUsage = value;
     }
             
 }

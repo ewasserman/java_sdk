@@ -8,18 +8,40 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "supplemental_obj_field_row", propOrder = {
-    "supplementalObjField"
+    "fieldNo",
+    "fieldName",
+    "fieldValue"
     })
 public class SupplementalObjFieldRow {
 
-    @XmlElement(name = "supplemental_obj_field")
-    protected String supplementalObjField;
-    public String getSupplementalObjField() {
-        return supplementalObjField;
+    @XmlElement(name = "field_no")
+    protected Long fieldNo;
+    @XmlElement(name = "field_name")
+    protected String fieldName;
+    @XmlElement(name = "field_value")
+    protected com.aria.common.shared.admin.FieldValueArray fieldValue;
+    public Long getFieldNo() {
+        return fieldNo;
     }
 
-    public void setSupplementalObjField(String value) {
-        this.supplementalObjField = value;
+    public void setFieldNo(Long value) {
+        this.fieldNo = value;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public void setFieldName(String value) {
+        this.fieldName = value;
+    }
+
+    public com.aria.common.shared.admin.FieldValueArray getFieldValue() {
+        return fieldValue;
+    }
+
+    public void setFieldValue(com.aria.common.shared.admin.FieldValueArray value) {
+        this.fieldValue = value;
     }
 
     

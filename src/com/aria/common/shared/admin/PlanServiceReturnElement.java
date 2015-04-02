@@ -14,25 +14,31 @@ import javax.xml.bind.annotation.XmlType;
 public class PlanServiceReturnElement {
 
     @XmlElement(name = "plan_no")
-    protected List<PlanNoReturnElement> planNo;
+    protected Long planNo;
     @XmlElement(name = "client_plan_id")
-    protected List<ClientPlanIdReturnElement> clientPlanId;
+    protected String clientPlanId;
     @XmlElement(name = "service_no")
     protected List<ServiceNoReturnElement> serviceNo;
     @XmlElement(name = "client_service_id")
     protected List<ClientServiceIdReturnElement> clientServiceId;
     
-    public List<PlanNoReturnElement> getPlanNo() {
-        if (this.planNo == null) {
-            this.planNo = new ArrayList<PlanNoReturnElement>();
-        }
-        return this.planNo;
-    }public List<ClientPlanIdReturnElement> getClientPlanId() {
-        if (this.clientPlanId == null) {
-            this.clientPlanId = new ArrayList<ClientPlanIdReturnElement>();
-        }
-        return this.clientPlanId;
-    }public List<ServiceNoReturnElement> getServiceNo() {
+    public Long getPlanNo() {
+        return planNo;
+    }
+
+    public void setPlanNo(Long value) {
+        this.planNo = value;
+    }
+
+    public String getClientPlanId() {
+        return clientPlanId;
+    }
+
+    public void setClientPlanId(String value) {
+        this.clientPlanId = value;
+    }
+
+    public List<ServiceNoReturnElement> getServiceNo() {
         if (this.serviceNo == null) {
             this.serviceNo = new ArrayList<ServiceNoReturnElement>();
         }

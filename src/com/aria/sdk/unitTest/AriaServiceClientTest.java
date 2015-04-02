@@ -2633,7 +2633,6 @@ public class AriaServiceClientTest {
                 , 1L
                 , 1L
                 , 1L
-                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getUsageHistory - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3327,7 +3326,6 @@ public class AriaServiceClientTest {
                 , 1L
                 , 1L
                 , ""
-                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getUnbilledUsageSummary - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3798,7 +3796,6 @@ public class AriaServiceClientTest {
                 , usageQualifier3Array
                 , usageQualifier4Array
                 , ""
-                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getUsageSummaryByType - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3843,7 +3840,6 @@ public class AriaServiceClientTest {
         hashMapReturnValues = getBaseAriaBilling().voidTransaction(getClientNo(), getAuthKey()        , 1L
                 , 1L
                 , 1L
-                , ""
                 , ""
                 , ""
         );

@@ -10,13 +10,13 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "pricing_ReturnElement", propOrder = {"currencyCd", "itemPrice", "pricePerUnit"})
+@XmlType(name = "pricing_ReturnElement", propOrder = {"currencyCd", "price", "pricePerUnit"})
 public class PricingReturnElement {
 
     @XmlElement(name = "currency_cd")
     protected String currencyCd;
-    @XmlElement(name = "item_price")
-    protected Double itemPrice;
+    @XmlElement(name = "price")
+    protected Double price;
     @XmlElement(name = "price_per_unit")
     protected Double pricePerUnit;
     
@@ -28,12 +28,12 @@ public class PricingReturnElement {
         this.currencyCd = value;
     }
 
-    public Double getItemPrice() {
-        return itemPrice;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setItemPrice(Double value) {
-        this.itemPrice = value;
+    public void setPrice(Double value) {
+        this.price = value;
     }
 
     public Double getPricePerUnit() {
