@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "forcePending",    "clientReceiptId",    "altBillDay"})
+    "authKey",    "acctNo",    "forcePending",    "clientReceiptId",    "altBillDay",    "invoiceMode"})
 @XmlRootElement(name = "gen_invoice")
 public class GenInvoice {
 
@@ -26,6 +26,8 @@ public class GenInvoice {
     protected String clientReceiptId;
         @XmlElement(name = "alt_bill_day")
     protected Long altBillDay;
+        @XmlElement(name = "invoice_mode")
+    protected Long invoiceMode;
     
     public long getClientNo() {
         return clientNo;
@@ -70,6 +72,13 @@ public class GenInvoice {
 
     public void setAltBillDay(Long value) {
         this.altBillDay = value;
+    }
+            public Long getInvoiceMode() {
+        return invoiceMode;
+    }
+
+    public void setInvoiceMode(Long value) {
+        this.invoiceMode = value;
     }
             
 }

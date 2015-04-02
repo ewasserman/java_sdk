@@ -20,9 +20,9 @@ public class RateInfoReturnElement {
     @XmlElement(name = "client_rate_schedule_id")
     protected String clientRateScheduleId;
     @XmlElement(name = "from_unit")
-    protected String fromUnit;
+    protected Long fromUnit;
     @XmlElement(name = "to_unit")
-    protected String toUnit;
+    protected Long toUnit;
     @XmlElement(name = "rate_per_unit")
     protected Double ratePerUnit;
     
@@ -50,19 +50,19 @@ public class RateInfoReturnElement {
         this.clientRateScheduleId = value;
     }
 
-    public String getFromUnit() {
+    public Long getFromUnit() {
         return fromUnit;
     }
 
-    public void setFromUnit(String value) {
+    public void setFromUnit(Long value) {
         this.fromUnit = value;
     }
 
-    public String getToUnit() {
+    public Long getToUnit() {
         return toUnit;
     }
 
-    public void setToUnit(String value) {
+    public void setToUnit(Long value) {
         this.toUnit = value;
     }
 

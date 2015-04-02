@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"firstName", "mi", "lastName", "userid", "birthdate", "jobTitle", "salutation", "seniorAcctNo", "clientAcctId", "respLevelCd", "isTestAcct", "altEmail", "address1", "address2", "city", "stateProv", "locality", "postalCode", "country", "companyName", "cellPhoneNpa", "cellPhoneNxx", "cellPhoneSuffix", "faxPhone", "intlCellPhone", "intlPhone", "phoneExtension", "phoneNpa", "phoneNxx", "phoneSuffix", "workPhone", "workPhoneExtension", "workPhoneNpa", "workPhoneNxx", "workPhoneSuffix", "billDay", "created", "dateToExpire", "dateToSuspend", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "statusDegradeDate", "statusCd", "statusLabel", "planNo", "planName", "planUnits", "notifyMethod", "notifyMethodName", "password", "pin", "secretQuestion", "secretQuestionAnswer", "payMethod", "payMethodName", "currencyCd", "taxId", "billingEmail", "billingFirstName", "billingMiddleInitial", "billingLastName", "billingAddress1", "billingAddress2", "billingCity", "billingState", "billingLocality", "billingZip", "billingCountry", "ccSuffix", "ccExpireMm", "ccExpireYyyy", "ccId", "bankAcctSuffix", "bankRoutingNo", "billingCellPhone", "billingCellPhoneNpa", "billingCellPhoneNxx", "billingCellPhoneSuffix", "billingCompanyName", "billingIntlPhone", "billingPhoneExtension", "billingPhoneNpa", "billingPhoneNxx", "billingPhoneSuffix", "billingWorkPhone", "billingWorkPhoneExtension", "billingWorkPhoneNpa", "billingWorkPhoneNxx", "billingWorkPhoneSuffix", "balance", "acctCreateClientReceiptId", "planClientReceiptId", "statusClientReceiptId", "taxpayerId", "altMsgTemplateNo", "seqFuncGroupNo", "promoCd", "address3", "billingAddress3", "addressVerificationCode", "addressMatchScore", "billingAddressVerificationCode", "billingAddressMatchScore", "clientPlanId", "clientAltMsgTemplateId", "bkupPayMethod", "bkupBillingEmail", "bkupBillingFirstName", "bkupBillingMiddleInitial", "bkupBillingLastName", "bkupBillingAddress1", "bkupBillingAddress2", "bkupBillingCity", "bkupBillingState", "bkupBillingLocality", "bkupBillingZip", "bkupBillingCountry", "bkupCcSuffix", "bkupCcExpireMm", "bkupCcExpireYyyy", "bkupCcId", "bkupBankAcctSuffix", "bkupBankRoutingNo", "bkupBillingCellPhone", "bkupBillingCellPhoneNpa", "bkupBillingCellPhoneNxx", "bkupBillingCellPhoneSuffix", "bkupBillingCompanyName", "bkupBillingIntlPhone", "bkupBillingPhoneExtension", "bkupBillingWorkPhone", "bkupBillingWorkPhoneExtension", "bkupBillingWorkPhoneNpa", "bkupBillingWorkPhoneNxx", "bkupBillingWorkPhoneSuffix", "stmntEmailList", "invoiceApprovalRequired", "errorCode", "errorMsg"})
+@XmlType(name = "", propOrder = {"firstName", "mi", "lastName", "userid", "birthdate", "jobTitle", "salutation", "seniorAcctNo", "clientAcctId", "respLevelCd", "isTestAcct", "altEmail", "address1", "address2", "city", "stateProv", "locality", "postalCode", "country", "companyName", "cellPhoneNpa", "cellPhoneNxx", "cellPhoneSuffix", "faxPhone", "intlCellPhone", "intlPhone", "phoneExtension", "phoneNpa", "phoneNxx", "phoneSuffix", "workPhone", "workPhoneExtension", "workPhoneNpa", "workPhoneNxx", "workPhoneSuffix", "billDay", "created", "dateToExpire", "dateToSuspend", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "statusDegradeDate", "statusCd", "statusLabel", "planNo", "planName", "planUnits", "notifyMethod", "notifyMethodName", "password", "pin", "secretQuestion", "secretQuestionAnswer", "payMethod", "payMethodName", "currencyCd", "taxId", "billingEmail", "billingFirstName", "billingMiddleInitial", "billingLastName", "billingAddress1", "billingAddress2", "billingCity", "billingState", "billingLocality", "billingZip", "billingCountry", "ccSuffix", "ccExpireMm", "ccExpireYyyy", "ccId", "bankAcctSuffix", "bankRoutingNo", "billingCellPhone", "billingCellPhoneNpa", "billingCellPhoneNxx", "billingCellPhoneSuffix", "billingCompanyName", "billingIntlPhone", "billingPhoneExtension", "billingPhoneNpa", "billingPhoneNxx", "billingPhoneSuffix", "billingWorkPhone", "billingWorkPhoneExtension", "billingWorkPhoneNpa", "billingWorkPhoneNxx", "billingWorkPhoneSuffix", "balance", "acctCreateClientReceiptId", "planClientReceiptId", "statusClientReceiptId", "taxpayerId", "altMsgTemplateNo", "seqFuncGroupNo", "promoCd", "address3", "billingAddress3", "addressVerificationCode", "addressMatchScore", "billingAddressVerificationCode", "billingAddressMatchScore", "clientPlanId", "clientAltMsgTemplateId", "bkupPayMethod", "bkupBillingEmail", "bkupBillingFirstName", "bkupBillingMiddleInitial", "bkupBillingLastName", "bkupBillingAddress1", "bkupBillingAddress2", "bkupBillingCity", "bkupBillingState", "bkupBillingLocality", "bkupBillingZip", "bkupBillingCountry", "bkupCcSuffix", "bkupCcExpireMm", "bkupCcExpireYyyy", "bkupCcId", "bkupBankAcctSuffix", "bkupBankRoutingNo", "bkupBillingCellPhone", "bkupBillingCellPhoneNpa", "bkupBillingCellPhoneNxx", "bkupBillingCellPhoneSuffix", "bkupBillingCompanyName", "bkupBillingIntlPhone", "bkupBillingPhoneExtension", "bkupBillingWorkPhone", "bkupBillingWorkPhoneExtension", "bkupBillingWorkPhoneNpa", "bkupBillingWorkPhoneNxx", "bkupBillingWorkPhoneSuffix", "stmntEmailList", "stmntEmailListCc", "stmntEmailListBcc", "invoiceApprovalRequired", "errorCode", "errorMsg"})
 @XmlRootElement(name = "get_acct_details_allResponseElement")
 public class GetAcctDetailsAllResponseElement {
 
@@ -294,6 +294,10 @@ public class GetAcctDetailsAllResponseElement {
     protected String bkupBillingWorkPhoneSuffix;
     @XmlElement(name = "stmnt_email_list")
     protected String stmntEmailList;
+    @XmlElement(name = "stmnt_email_list_cc")
+    protected String stmntEmailListCc;
+    @XmlElement(name = "stmnt_email_list_bcc")
+    protected String stmntEmailListBcc;
     @XmlElement(name = "invoice_approval_required")
     protected Long invoiceApprovalRequired;
     @XmlElement(name = "error_code")
@@ -1419,6 +1423,22 @@ public class GetAcctDetailsAllResponseElement {
 
     public void setStmntEmailList(String value) {
         this.stmntEmailList = value;
+    }
+
+    public String getStmntEmailListCc() {
+        return stmntEmailListCc;
+    }
+
+    public void setStmntEmailListCc(String value) {
+        this.stmntEmailListCc = value;
+    }
+
+    public String getStmntEmailListBcc() {
+        return stmntEmailListBcc;
+    }
+
+    public void setStmntEmailListBcc(String value) {
+        this.stmntEmailListBcc = value;
     }
 
     public Long getInvoiceApprovalRequired() {

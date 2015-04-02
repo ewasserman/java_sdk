@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "invoiceNo",    "acctNo",    "actionDirective",    "billSeq",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "altCollectOnApprove",    "altSendStatementOnApprove",    "cancelOrdersOnDiscard",    "billAddress3",    "trackData1",    "trackData2",    "clientReceiptId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "customStatusLabel",    "clientNotes"})
+    "authKey",    "invoiceNo",    "acctNo",    "actionDirective",    "billSeq",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "altCollectOnApprove",    "altSendStatementOnApprove",    "cancelOrdersOnDiscard",    "bankAcctType",    "billAddress3",    "trackData1",    "trackData2",    "clientReceiptId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "customStatusLabel",    "clientNotes"})
 @XmlRootElement(name = "manage_pending_invoice")
 public class ManagePendingInvoice {
 
@@ -80,6 +80,8 @@ public class ManagePendingInvoice {
     protected String altSendStatementOnApprove;
         @XmlElement(name = "cancel_orders_on_discard")
     protected String cancelOrdersOnDiscard;
+        @XmlElement(name = "bank_acct_type")
+    protected String bankAcctType;
         @XmlElement(name = "bill_address3")
     protected String billAddress3;
         @XmlElement(name = "track_data1")
@@ -339,6 +341,13 @@ public class ManagePendingInvoice {
 
     public void setCancelOrdersOnDiscard(String value) {
         this.cancelOrdersOnDiscard = value;
+    }
+            public String getBankAcctType() {
+        return bankAcctType;
+    }
+
+    public void setBankAcctType(String value) {
+        this.bankAcctType = value;
     }
             public String getBillAddress3() {
         return billAddress3;

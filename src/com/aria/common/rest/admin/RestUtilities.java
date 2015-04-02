@@ -284,8 +284,8 @@ public class RestUtilities {
             entity.setScheduleNo(getLongValue(jsonObject,"schedule_no"));
             entity.setScheduleName(getStringValue(jsonObject,"schedule_name"));
             entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
-            entity.setFromUnit(getStringValue(jsonObject,"from_unit"));
-            entity.setToUnit(getStringValue(jsonObject,"to_unit"));
+            entity.setFromUnit(getLongValue(jsonObject,"from_unit"));
+            entity.setToUnit(getLongValue(jsonObject,"to_unit"));
             entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
             returnElement.add(entity);
         }
@@ -362,15 +362,15 @@ public class RestUtilities {
         return returnElement;
     }
 
-    public static ArrayList<FieldOptionsReturnElement> buildFieldOptionsReturnElement(JSONArray jsonArray) {
-        ArrayList<FieldOptionsReturnElement> returnElement = new ArrayList<FieldOptionsReturnElement>();
+    public static ArrayList<SelOptionsReturnElement> buildSelOptionsReturnElement(JSONArray jsonArray) {
+        ArrayList<SelOptionsReturnElement> returnElement = new ArrayList<SelOptionsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            FieldOptionsReturnElement entity = new FieldOptionsReturnElement();
+            SelOptionsReturnElement entity = new SelOptionsReturnElement();
             JSONObject jsonObject = (JSONObject)jsonArray.get(i);
             entity.setDisplayText(getStringValue(jsonObject,"display_text"));
             entity.setOptionValue(getStringValue(jsonObject,"option_value"));
-            entity.setFieldOrder(getLongValue(jsonObject,"field_order"));
+            entity.setOptionValueOrder(getLongValue(jsonObject,"option_value_order"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -844,20 +844,6 @@ public class RestUtilities {
         return returnElement;
     }
 
-    public static ArrayList<PlanGroupReturnElement> buildPlanGroupReturnElement(JSONArray jsonArray) {
-        ArrayList<PlanGroupReturnElement> returnElement = new ArrayList<PlanGroupReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            PlanGroupReturnElement entity = new PlanGroupReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setGroupNo(getLongValue(jsonObject,"group_no"));
-            entity.setGroupName(getStringValue(jsonObject,"group_name"));
-            entity.setGroupDesc(getStringValue(jsonObject,"group_desc"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
     public static ArrayList<CoaListReturnElement> buildCoaListReturnElement(JSONArray jsonArray) {
         ArrayList<CoaListReturnElement> returnElement = new ArrayList<CoaListReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -1280,6 +1266,7 @@ public class RestUtilities {
             parameters.add("percentage_client_service_id["+i+"]", getValue("String", row.getPercentageClientServiceId()));
             parameters.add("alt_service_no["+i+"]", getValue("Long", row.getAltServiceNo()));
             parameters.add("alt_client_service_id["+i+"]", getValue("String", row.getAltClientServiceId()));
+            parameters.add("currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
             i++;
         }
     }
@@ -1304,6 +1291,7 @@ public class RestUtilities {
             parameters.add(paramPrefix + "percentage_client_service_id["+i+"]", getValue("String", row.getPercentageClientServiceId()));
             parameters.add(paramPrefix + "alt_service_no["+i+"]", getValue("Long", row.getAltServiceNo()));
             parameters.add(paramPrefix + "alt_client_service_id["+i+"]", getValue("String", row.getAltClientServiceId()));
+            parameters.add(paramPrefix + "currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
             i++;
         }
     }

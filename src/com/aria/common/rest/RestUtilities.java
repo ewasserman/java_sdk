@@ -2641,6 +2641,8 @@ public class RestUtilities {
                 entity.getThisAcctSuppFields().add(element);
             }
             entity.setStmntEmailList(getStringValue(jsonObject,"stmnt_email_list"));
+            entity.setStmntEmailListCc(getStringValue(jsonObject,"stmnt_email_list_cc"));
+            entity.setStmntEmailListBcc(getStringValue(jsonObject,"stmnt_email_list_bcc"));
             returnElement.add(entity);
         }
         return returnElement;

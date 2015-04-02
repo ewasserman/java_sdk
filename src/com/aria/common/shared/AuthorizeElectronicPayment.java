@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "accountNumber",    "amount",    "paymentSource",    "cvv",    "billSeq",    "intrackingnumber",    "inauthvalue",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "recordCcOnAuthFailure",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd"})
+    "authKey",    "accountNumber",    "amount",    "paymentSource",    "cvv",    "billSeq",    "intrackingnumber",    "inauthvalue",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "bankAcctType",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "recordCcOnAuthFailure",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd"})
 @XmlRootElement(name = "authorize_electronic_payment")
 public class AuthorizeElectronicPayment {
 
@@ -50,6 +50,8 @@ public class AuthorizeElectronicPayment {
     protected String bankRoutingNum;
         @XmlElement(name = "bank_acct_num")
     protected String bankAcctNum;
+        @XmlElement(name = "bank_acct_type")
+    protected String bankAcctType;
         @XmlElement(name = "bill_company_name")
     protected String billCompanyName;
         @XmlElement(name = "bill_first_name")
@@ -230,6 +232,13 @@ public class AuthorizeElectronicPayment {
 
     public void setBankAcctNum(String value) {
         this.bankAcctNum = value;
+    }
+            public String getBankAcctType() {
+        return bankAcctType;
+    }
+
+    public void setBankAcctType(String value) {
+        this.bankAcctType = value;
     }
             public String getBillCompanyName() {
         return billCompanyName;

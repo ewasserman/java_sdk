@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "accountNo",    "orderLineItems",    "billImmediately",    "billSeq",    "clientOrderId",    "clientReceiptId",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "billAddress3",    "doWrite",    "couponCd",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "altInvTemplateNo",    "clientAltInvTemplateId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "statementMessage",    "fulfilledDate",    "orderComments"})
+    "authKey",    "accountNo",    "orderLineItems",    "billImmediately",    "billSeq",    "clientOrderId",    "clientReceiptId",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "doWrite",    "couponCd",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "altInvTemplateNo",    "clientAltInvTemplateId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "statementMessage",    "fulfilledDate",    "orderComments"})
 @XmlRootElement(name = "create_order")
 public class CreateOrder {
 
@@ -78,6 +78,8 @@ public class CreateOrder {
     protected String billWorkPhoneExtension;
         @XmlElement(name = "cvv")
     protected String cvv;
+        @XmlElement(name = "bank_acct_type")
+    protected String bankAcctType;
         @XmlElement(name = "bill_address3")
     protected String billAddress3;
         @XmlElement(name = "do_write")
@@ -340,6 +342,13 @@ public class CreateOrder {
 
     public void setCvv(String value) {
         this.cvv = value;
+    }
+            public String getBankAcctType() {
+        return bankAcctType;
+    }
+
+    public void setBankAcctType(String value) {
+        this.bankAcctType = value;
     }
             public String getBillAddress3() {
         return billAddress3;

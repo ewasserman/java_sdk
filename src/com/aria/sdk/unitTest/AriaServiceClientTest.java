@@ -1289,6 +1289,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "setPayMethodBankDraft - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1502,6 +1503,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
                 , 1L
                 , ""
                 , ""
@@ -1537,6 +1539,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , 1L
+                , ""
                 , ""
                 , ""
                 , ""
@@ -2385,6 +2388,7 @@ public class AriaServiceClientTest {
                 , newAcctPlanContractsArray
                 , ""
                 , ""
+                , ""
                 , usageAccumulationConfigArray
                 , enableUsagePoolingPlanNoArray
                 , clientFuncAcctGroupIdsArray
@@ -2437,7 +2441,10 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
                 , 1L
+                , ""
+                , ""
                 , ""
                 , ""
         );
@@ -2798,6 +2805,7 @@ public class AriaServiceClientTest {
                 , 1L
                 , ""
                 , ""
+                , ""
                 , usageAccumulationConfigArray
                 , enableUsagePoolingPlanNoArray
                 , disableUsagePoolingPlanNoArray
@@ -2851,7 +2859,10 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
                 , 1L
+                , ""
+                , ""
                 , ""
                 , ""
         );
@@ -3928,6 +3939,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
                 , 1L
                 , ""
                 , ""
@@ -3985,6 +3997,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
                 , 1L
                 , ""
                 , ""
@@ -4014,6 +4027,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , 1L
+                , ""
                 , ""
                 , ""
                 , ""
@@ -4353,6 +4367,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "genInvoice - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -4510,6 +4525,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
                 , 1L
                 , ""
                 , ""
@@ -4578,6 +4594,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , 1L
+                , ""
                 , ""
                 , ""
                 , ""

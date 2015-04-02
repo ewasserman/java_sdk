@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "accountNo",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "billAddress3",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "forceBalanceScope",    "clientReceiptId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd"})
+    "authKey",    "accountNo",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "forceBalanceScope",    "clientReceiptId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd"})
 @XmlRootElement(name = "settle_account_balance")
 public class SettleAccountBalance {
 
@@ -68,6 +68,8 @@ public class SettleAccountBalance {
     protected String billWorkPhoneExtension;
         @XmlElement(name = "cvv")
     protected String cvv;
+        @XmlElement(name = "bank_acct_type")
+    protected String bankAcctType;
         @XmlElement(name = "bill_address3")
     protected String billAddress3;
         @XmlElement(name = "alt_client_acct_group_id")
@@ -285,6 +287,13 @@ public class SettleAccountBalance {
 
     public void setCvv(String value) {
         this.cvv = value;
+    }
+            public String getBankAcctType() {
+        return bankAcctType;
+    }
+
+    public void setBankAcctType(String value) {
+        this.bankAcctType = value;
     }
             public String getBillAddress3() {
         return billAddress3;

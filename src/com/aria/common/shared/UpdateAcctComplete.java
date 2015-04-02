@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "firstName",    "lastName",    "middleInitial",    "companyName",    "address1",    "address2",    "city",    "locality",    "stateProv",    "country",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "email",    "birthdate",    "billFirstName",    "billLastName",    "billMiddleInitial",    "billCompanyName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billEmail",    "payMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "masterPlanNo",    "masterPlanAltRateSchedNo",    "masterPlanUnits",    "masterPlanAssignDirective",    "updateAcctSuppField",    "updateAcctFuncGroup",    "updateAcctCollGroup",    "statusCd",    "notifyMethod",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "testAcctInd",    "respLevelCd",    "seniorAcctNo",    "seniorAcctUserId",    "clientSeniorAcctId",    "clientAcctId",    "doCollect",    "changeStatusAfterColl",    "resetDatesAfterStatus",    "clientReceiptId",    "altDoDunning",    "forceCurrencyChange",    "cvv",    "taxpayerId",    "billAgreementId",    "autoCancelSuppPlans",    "offsetMonths",    "altProrationStartDate",    "altMsgTemplateNo",    "seqFuncGroupNo",    "address3",    "billAddress3",    "usageAccumulationConfig",    "enableUsagePoolingPlanNo",    "disableUsagePoolingPlanNo",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "offsetInterval",    "taxExemptionLevel",    "cnAltMsgTemplateNo",    "promoCd",    "invoiceUnbilledUsage",    "couponCode",    "userid",    "invoiceApprovalRequired",    "clientMasterPlanId",    "clientMpAltRateSchedId",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "updateSurcharge",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "bkupBillFirstName",    "bkupBillMi",    "bkupBillLastName",    "bkupBillCompanyName",    "bkupBillAddress1",    "bkupBillAddress2",    "bkupBillAddress3",    "bkupBillCity",    "bkupBillLocality",    "bkupBillStateProv",    "bkupBillCountry",    "bkupBillPostalCd",    "bkupBillPhone",    "bkupBillPhoneExt",    "bkupBillCellPhone",    "bkupBillWorkPhone",    "bkupBillWorkPhoneExt",    "bkupBillEmail",    "bkupPayMethod",    "bkupCcNumber",    "bkupCcExpireMm",    "bkupCcExpireYyyy",    "bkupBankAcctNo",    "bkupBankRoutingNo",    "bkupBillAgreementId",    "bkupCvv",    "seqFuncGroupId",    "revrecProfileId",    "revrecClientDefinedId",    "stmntEmailList"})
+    "authKey",    "acctNo",    "firstName",    "lastName",    "middleInitial",    "companyName",    "address1",    "address2",    "city",    "locality",    "stateProv",    "country",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "email",    "birthdate",    "billFirstName",    "billLastName",    "billMiddleInitial",    "billCompanyName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billEmail",    "payMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "masterPlanNo",    "masterPlanAltRateSchedNo",    "masterPlanUnits",    "masterPlanAssignDirective",    "updateAcctSuppField",    "updateAcctFuncGroup",    "updateAcctCollGroup",    "statusCd",    "notifyMethod",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "testAcctInd",    "respLevelCd",    "seniorAcctNo",    "seniorAcctUserId",    "clientSeniorAcctId",    "clientAcctId",    "doCollect",    "changeStatusAfterColl",    "resetDatesAfterStatus",    "clientReceiptId",    "altDoDunning",    "forceCurrencyChange",    "cvv",    "taxpayerId",    "billAgreementId",    "autoCancelSuppPlans",    "offsetMonths",    "altProrationStartDate",    "altMsgTemplateNo",    "seqFuncGroupNo",    "bankAcctType",    "address3",    "billAddress3",    "usageAccumulationConfig",    "enableUsagePoolingPlanNo",    "disableUsagePoolingPlanNo",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "offsetInterval",    "taxExemptionLevel",    "cnAltMsgTemplateNo",    "promoCd",    "invoiceUnbilledUsage",    "couponCode",    "userid",    "invoiceApprovalRequired",    "clientMasterPlanId",    "clientMpAltRateSchedId",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "updateSurcharge",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "bkupBillFirstName",    "bkupBillMi",    "bkupBillLastName",    "bkupBillCompanyName",    "bkupBillAddress1",    "bkupBillAddress2",    "bkupBillAddress3",    "bkupBillCity",    "bkupBillLocality",    "bkupBillStateProv",    "bkupBillCountry",    "bkupBillPostalCd",    "bkupBillPhone",    "bkupBillPhoneExt",    "bkupBillCellPhone",    "bkupBillWorkPhone",    "bkupBillWorkPhoneExt",    "bkupBillEmail",    "bkupPayMethod",    "bkupCcNumber",    "bkupCcExpireMm",    "bkupCcExpireYyyy",    "bkupBankAcctNo",    "bkupBankRoutingNo",    "bkupBankAcctType",    "bkupBillAgreementId",    "bkupCvv",    "seqFuncGroupId",    "revrecProfileId",    "revrecClientDefinedId",    "stmntEmailList",    "stmntEmailListCc",    "stmntEmailListBcc"})
 @XmlRootElement(name = "update_acct_complete")
 public class UpdateAcctComplete {
 
@@ -168,6 +168,8 @@ public class UpdateAcctComplete {
     protected Long altMsgTemplateNo;
         @XmlElement(name = "seq_func_group_no")
     protected Long seqFuncGroupNo;
+        @XmlElement(name = "bank_acct_type")
+    protected String bankAcctType;
         @XmlElement(name = "address3")
     protected String address3;
         @XmlElement(name = "bill_address3")
@@ -272,6 +274,8 @@ public class UpdateAcctComplete {
     protected String bkupBankAcctNo;
         @XmlElement(name = "bkup_bank_routing_no")
     protected String bkupBankRoutingNo;
+        @XmlElement(name = "bkup_bank_acct_type")
+    protected String bkupBankAcctType;
         @XmlElement(name = "bkup_bill_agreement_id")
     protected String bkupBillAgreementId;
         @XmlElement(name = "bkup_cvv")
@@ -284,6 +288,10 @@ public class UpdateAcctComplete {
     protected String revrecClientDefinedId;
         @XmlElement(name = "stmnt_email_list")
     protected String stmntEmailList;
+        @XmlElement(name = "stmnt_email_list_cc")
+    protected String stmntEmailListCc;
+        @XmlElement(name = "stmnt_email_list_bcc")
+    protected String stmntEmailListBcc;
     
     public long getClientNo() {
         return clientNo;
@@ -826,6 +834,13 @@ public class UpdateAcctComplete {
     public void setSeqFuncGroupNo(Long value) {
         this.seqFuncGroupNo = value;
     }
+            public String getBankAcctType() {
+        return bankAcctType;
+    }
+
+    public void setBankAcctType(String value) {
+        this.bankAcctType = value;
+    }
             public String getAddress3() {
         return address3;
     }
@@ -1190,6 +1205,13 @@ public class UpdateAcctComplete {
     public void setBkupBankRoutingNo(String value) {
         this.bkupBankRoutingNo = value;
     }
+            public String getBkupBankAcctType() {
+        return bkupBankAcctType;
+    }
+
+    public void setBkupBankAcctType(String value) {
+        this.bkupBankAcctType = value;
+    }
             public String getBkupBillAgreementId() {
         return bkupBillAgreementId;
     }
@@ -1231,6 +1253,20 @@ public class UpdateAcctComplete {
 
     public void setStmntEmailList(String value) {
         this.stmntEmailList = value;
+    }
+            public String getStmntEmailListCc() {
+        return stmntEmailListCc;
+    }
+
+    public void setStmntEmailListCc(String value) {
+        this.stmntEmailListCc = value;
+    }
+            public String getStmntEmailListBcc() {
+        return stmntEmailListBcc;
+    }
+
+    public void setStmntEmailListBcc(String value) {
+        this.stmntEmailListBcc = value;
     }
             
 }
