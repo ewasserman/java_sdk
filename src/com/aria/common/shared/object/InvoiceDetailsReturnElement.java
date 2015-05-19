@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_details_ReturnElement", propOrder = {"invoiceNo", "acctNo", "userId", "debit", "credit", "billDate", "dueDate", "paidDate", "notifyDate", "fromDate", "toDate", "currencyCd", "balanceForward", "statementBalanceForward", "totalDue", "comments", "additionalComments", "transactionType", "lastUpdated", "ariaEventNo", "ariaStatementNo", "acctStatementSeqStr", "secondAcctStatementSeqStr", "voidingEventNo", "customStatusLabel", "clientNotes", "invoiceTypeCd", "invoiceLine"})
+@XmlType(name = "invoice_details_ReturnElement", propOrder = {"invoiceNo", "acctNo", "userId", "debit", "credit", "billDate", "dueDate", "paidDate", "notifyDate", "fromDate", "toDate", "currencyCd", "balanceForward", "statementBalanceForward", "totalDue", "comments", "additionalComments", "transactionType", "lastUpdated", "ariaEventNo", "ariaStatementNo", "acctStatementSeqStr", "secondAcctStatementSeqStr", "voidingEventNo", "customStatusLabel", "clientNotes", "invoiceTypeCd", "postingStatusCd", "postingDate", "postingUser", "invoiceLine"})
 public class InvoiceDetailsReturnElement {
 
     @XmlElement(name = "invoice_no")
@@ -67,6 +67,12 @@ public class InvoiceDetailsReturnElement {
     protected String clientNotes;
     @XmlElement(name = "invoice_type_cd")
     protected String invoiceTypeCd;
+    @XmlElement(name = "posting_status_cd")
+    protected Long postingStatusCd;
+    @XmlElement(name = "posting_date")
+    protected String postingDate;
+    @XmlElement(name = "posting_user")
+    protected String postingUser;
     @XmlElement(name = "invoice_line")
     protected List<InvoiceLineReturnElement> invoiceLine;
     
@@ -284,6 +290,30 @@ public class InvoiceDetailsReturnElement {
 
     public void setInvoiceTypeCd(String value) {
         this.invoiceTypeCd = value;
+    }
+
+    public Long getPostingStatusCd() {
+        return postingStatusCd;
+    }
+
+    public void setPostingStatusCd(Long value) {
+        this.postingStatusCd = value;
+    }
+
+    public String getPostingDate() {
+        return postingDate;
+    }
+
+    public void setPostingDate(String value) {
+        this.postingDate = value;
+    }
+
+    public String getPostingUser() {
+        return postingUser;
+    }
+
+    public void setPostingUser(String value) {
+        this.postingUser = value;
     }
 
     public List<InvoiceLineReturnElement> getInvoiceLine() {

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "userId",    "startBillDate",    "endBillDate",    "includeVoided"})
+    "authKey",    "acctNo",    "userId",    "startBillDate",    "endBillDate",    "includeVoided",    "postingStatusCd",    "postingUser"})
 @XmlRootElement(name = "get_acct_invoice_history")
 public class GetAcctInvoiceHistory {
 
@@ -28,6 +28,10 @@ public class GetAcctInvoiceHistory {
     protected String endBillDate;
         @XmlElement(name = "include_voided")
     protected String includeVoided;
+        @XmlElement(name = "posting_status_cd")
+    protected Long postingStatusCd;
+        @XmlElement(name = "posting_user")
+    protected String postingUser;
     
     public long getClientNo() {
         return clientNo;
@@ -79,6 +83,20 @@ public class GetAcctInvoiceHistory {
 
     public void setIncludeVoided(String value) {
         this.includeVoided = value;
+    }
+            public Long getPostingStatusCd() {
+        return postingStatusCd;
+    }
+
+    public void setPostingStatusCd(Long value) {
+        this.postingStatusCd = value;
+    }
+            public String getPostingUser() {
+        return postingUser;
+    }
+
+    public void setPostingUser(String value) {
+        this.postingUser = value;
     }
             
 }

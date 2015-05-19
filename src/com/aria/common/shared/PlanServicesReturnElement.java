@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_services_ReturnElement", propOrder = {"serviceNo", "serviceDesc", "isRecurringInd", "isUsageBasedInd", "usageType", "taxableInd", "isTaxInd", "isArrearsInd", "isSetupInd", "isMiscInd", "isDonationInd", "isOrderBasedInd", "isCancellationInd", "coaId", "ledgerCode", "displayInd", "tieredPricingRule", "isMinFeeInd", "clientServiceId", "usageTypeCd", "coaCode", "fulfillmentBasedInd", "planServiceRates"})
+@XmlType(name = "plan_services_ReturnElement", propOrder = {"serviceNo", "serviceDesc", "isRecurringInd", "isUsageBasedInd", "usageType", "taxableInd", "isTaxInd", "isArrearsInd", "isSetupInd", "isMiscInd", "isDonationInd", "isOrderBasedInd", "isCancellationInd", "coaId", "ledgerCode", "clientCoaCode", "displayInd", "tieredPricingRule", "isMinFeeInd", "clientServiceId", "usageTypeCd", "allServiceSuppFields", "fulfillmentBasedInd", "planServiceRates", "allPlanServiceRates", "usageTypeName", "usageTypeDesc", "usageTypeCode", "usageUnitLabel"})
 public class PlanServicesReturnElement {
 
     @XmlElement(name = "service_no")
@@ -43,6 +43,8 @@ public class PlanServicesReturnElement {
     protected String coaId;
     @XmlElement(name = "ledger_code")
     protected String ledgerCode;
+    @XmlElement(name = "client_coa_code")
+    protected String clientCoaCode;
     @XmlElement(name = "display_ind")
     protected Long displayInd;
     @XmlElement(name = "tiered_pricing_rule")
@@ -53,12 +55,22 @@ public class PlanServicesReturnElement {
     protected String clientServiceId;
     @XmlElement(name = "usage_type_cd")
     protected String usageTypeCd;
-    @XmlElement(name = "coa_code")
-    protected String coaCode;
+    @XmlElement(name = "all_service_supp_fields")
+    protected List<AllServiceSuppFieldsReturnElement> allServiceSuppFields;
     @XmlElement(name = "fulfillment_based_ind")
     protected Long fulfillmentBasedInd;
     @XmlElement(name = "plan_service_rates")
     protected List<PlanServiceRatesReturnElement> planServiceRates;
+    @XmlElement(name = "all_plan_service_rates")
+    protected List<AllPlanServiceRatesReturnElement> allPlanServiceRates;
+    @XmlElement(name = "usage_type_name")
+    protected String usageTypeName;
+    @XmlElement(name = "usage_type_desc")
+    protected String usageTypeDesc;
+    @XmlElement(name = "usage_type_code")
+    protected String usageTypeCode;
+    @XmlElement(name = "usage_unit_label")
+    protected String usageUnitLabel;
     
     public Long getServiceNo() {
         return serviceNo;
@@ -180,6 +192,14 @@ public class PlanServicesReturnElement {
         this.ledgerCode = value;
     }
 
+    public String getClientCoaCode() {
+        return clientCoaCode;
+    }
+
+    public void setClientCoaCode(String value) {
+        this.clientCoaCode = value;
+    }
+
     public Long getDisplayInd() {
         return displayInd;
     }
@@ -220,15 +240,12 @@ public class PlanServicesReturnElement {
         this.usageTypeCd = value;
     }
 
-    public String getCoaCode() {
-        return coaCode;
-    }
-
-    public void setCoaCode(String value) {
-        this.coaCode = value;
-    }
-
-    public Long getFulfillmentBasedInd() {
+    public List<AllServiceSuppFieldsReturnElement> getAllServiceSuppFields() {
+        if (this.allServiceSuppFields == null) {
+            this.allServiceSuppFields = new ArrayList<AllServiceSuppFieldsReturnElement>();
+        }
+        return this.allServiceSuppFields;
+    }public Long getFulfillmentBasedInd() {
         return fulfillmentBasedInd;
     }
 
@@ -241,5 +258,42 @@ public class PlanServicesReturnElement {
             this.planServiceRates = new ArrayList<PlanServiceRatesReturnElement>();
         }
         return this.planServiceRates;
+    }public List<AllPlanServiceRatesReturnElement> getAllPlanServiceRates() {
+        if (this.allPlanServiceRates == null) {
+            this.allPlanServiceRates = new ArrayList<AllPlanServiceRatesReturnElement>();
+        }
+        return this.allPlanServiceRates;
+    }public String getUsageTypeName() {
+        return usageTypeName;
     }
+
+    public void setUsageTypeName(String value) {
+        this.usageTypeName = value;
+    }
+
+    public String getUsageTypeDesc() {
+        return usageTypeDesc;
+    }
+
+    public void setUsageTypeDesc(String value) {
+        this.usageTypeDesc = value;
+    }
+
+    public String getUsageTypeCode() {
+        return usageTypeCode;
+    }
+
+    public void setUsageTypeCode(String value) {
+        this.usageTypeCode = value;
+    }
+
+    public String getUsageUnitLabel() {
+        return usageUnitLabel;
+    }
+
+    public void setUsageUnitLabel(String value) {
+        this.usageUnitLabel = value;
+    }
+
+    
 }

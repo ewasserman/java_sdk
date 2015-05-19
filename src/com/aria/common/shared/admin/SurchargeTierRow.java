@@ -10,8 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "surcharge_tier_row", propOrder = {
     "from",
     "to",
-    "rate",
-    "description"
+    "rate"
     })
 public class SurchargeTierRow {
 
@@ -21,8 +20,6 @@ public class SurchargeTierRow {
     protected Long to;
     @XmlElement(name = "rate")
     protected Double rate;
-    @XmlElement(name = "description")
-    protected String description;
     public Long getFrom() {
         return from;
     }
@@ -45,14 +42,6 @@ public class SurchargeTierRow {
 
     public void setRate(Double value) {
         this.rate = value;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String value) {
-        this.description = value;
     }
 
     

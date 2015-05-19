@@ -10,29 +10,23 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "discount_rule_ReturnElement", propOrder = {"ruleNo", "ruleName", "ruleId", "description", "extDescription", "discountType", "flatPercentInd", "amount", "currency", "applicableTransScope", "durationTypeInd", "maxApplicableMonths", "maxApplicationsPerAcct", "inlineOffsetInd", "serviceCodeToUse", "altServiceNo2Apply", "altServiceId2Apply", "scopeNo", "planNo", "clientPlanId", "serviceNo", "clientServiceId", "itemNo", "clientItemId"})
+@XmlType(name = "discount_rule_ReturnElement", propOrder = {"ruleNo", "ruleId", "description", "extDescription", "flatPercentInd", "amount", "currency", "durationTypeInd", "maxApplicableMonths", "maxApplicationsPerAcct", "inlineOffsetInd", "serviceCodeToUse", "altServiceNo2Apply", "altServiceId2Apply", "scopeNo", "planNo", "clientPlanId", "serviceNo", "clientServiceId", "itemNo", "clientItemId"})
 public class DiscountRuleReturnElement {
 
     @XmlElement(name = "rule_no")
     protected Long ruleNo;
-    @XmlElement(name = "rule_name")
-    protected String ruleName;
     @XmlElement(name = "rule_id")
     protected String ruleId;
     @XmlElement(name = "description")
     protected String description;
     @XmlElement(name = "ext_description")
     protected String extDescription;
-    @XmlElement(name = "discount_type")
-    protected String discountType;
     @XmlElement(name = "flat_percent_ind")
     protected Long flatPercentInd;
     @XmlElement(name = "amount")
     protected Double amount;
     @XmlElement(name = "currency")
     protected String currency;
-    @XmlElement(name = "applicable_trans_scope")
-    protected String applicableTransScope;
     @XmlElement(name = "duration_type_ind")
     protected String durationTypeInd;
     @XmlElement(name = "max_applicable_months")
@@ -70,14 +64,6 @@ public class DiscountRuleReturnElement {
         this.ruleNo = value;
     }
 
-    public String getRuleName() {
-        return ruleName;
-    }
-
-    public void setRuleName(String value) {
-        this.ruleName = value;
-    }
-
     public String getRuleId() {
         return ruleId;
     }
@@ -102,14 +88,6 @@ public class DiscountRuleReturnElement {
         this.extDescription = value;
     }
 
-    public String getDiscountType() {
-        return discountType;
-    }
-
-    public void setDiscountType(String value) {
-        this.discountType = value;
-    }
-
     public Long getFlatPercentInd() {
         return flatPercentInd;
     }
@@ -132,14 +110,6 @@ public class DiscountRuleReturnElement {
 
     public void setCurrency(String value) {
         this.currency = value;
-    }
-
-    public String getApplicableTransScope() {
-        return applicableTransScope;
-    }
-
-    public void setApplicableTransScope(String value) {
-        this.applicableTransScope = value;
     }
 
     public String getDurationTypeInd() {

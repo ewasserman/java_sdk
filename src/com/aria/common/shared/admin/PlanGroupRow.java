@@ -8,18 +8,18 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "plan_group_row", propOrder = {
-    "planGroups"
+    "planGroup"
     })
 public class PlanGroupRow {
 
-    @XmlElement(name = "plan_groups")
-    protected Long planGroups;
-    public Long getPlanGroups() {
-        return planGroups;
+    @XmlElement(name = "plan_group")
+    protected Long planGroup;
+    public Long getPlanGroup() {
+        return planGroup;
     }
 
-    public void setPlanGroups(Long value) {
-        this.planGroups = value;
+    public void setPlanGroup(Long value) {
+        this.planGroup = value;
     }
 
     

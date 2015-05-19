@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "rate_info_ReturnElement", propOrder = {"scheduleNo", "scheduleName", "clientRateScheduleId", "fromUnit", "toUnit", "ratePerUnit", "description"})
+@XmlType(name = "rate_info_ReturnElement", propOrder = {"scheduleNo", "scheduleName", "clientRateScheduleId", "fromUnit", "toUnit", "ratePerUnit"})
 public class RateInfoReturnElement {
 
     @XmlElement(name = "schedule_no")
@@ -20,13 +20,11 @@ public class RateInfoReturnElement {
     @XmlElement(name = "client_rate_schedule_id")
     protected String clientRateScheduleId;
     @XmlElement(name = "from_unit")
-    protected Long fromUnit;
+    protected String fromUnit;
     @XmlElement(name = "to_unit")
-    protected Long toUnit;
+    protected String toUnit;
     @XmlElement(name = "rate_per_unit")
     protected Double ratePerUnit;
-    @XmlElement(name = "description")
-    protected String description;
     
     public Long getScheduleNo() {
         return scheduleNo;
@@ -52,19 +50,19 @@ public class RateInfoReturnElement {
         this.clientRateScheduleId = value;
     }
 
-    public Long getFromUnit() {
+    public String getFromUnit() {
         return fromUnit;
     }
 
-    public void setFromUnit(Long value) {
+    public void setFromUnit(String value) {
         this.fromUnit = value;
     }
 
-    public Long getToUnit() {
+    public String getToUnit() {
         return toUnit;
     }
 
-    public void setToUnit(Long value) {
+    public void setToUnit(String value) {
         this.toUnit = value;
     }
 
@@ -74,14 +72,6 @@ public class RateInfoReturnElement {
 
     public void setRatePerUnit(Double value) {
         this.ratePerUnit = value;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String value) {
-        this.description = value;
     }
 
     

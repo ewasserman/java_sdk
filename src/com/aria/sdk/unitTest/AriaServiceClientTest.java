@@ -2436,6 +2436,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "createAcctComplete - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -2552,10 +2553,10 @@ public class AriaServiceClientTest {
                 , 1L
                 , 1L
                 , ""
+                , ""
                 , 1L
                 , 1d
                 , 1d
-                , ""
                 , ""
                 , ""
                 , ""
@@ -2854,6 +2855,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateAcctComplete - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3143,6 +3145,8 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
+                , 1L
                 , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
@@ -4437,6 +4441,7 @@ public class AriaServiceClientTest {
     public void getStatementForInvoice() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getStatementForInvoice(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , 1L
                 , ""
         );
@@ -4453,6 +4458,7 @@ public class AriaServiceClientTest {
     public void getStatementForInvSize() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getStatementForInvSize(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , 1L
                 , ""
         );
@@ -4995,6 +5001,7 @@ public class AriaServiceClientTest {
                 , 1L
                 , ""
                 , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateAcctInvoice - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";

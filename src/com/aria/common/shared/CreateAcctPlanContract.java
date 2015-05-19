@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planNo",    "lengthMonths",    "clientPlanId",    "typeNo",    "altRecurFee",    "cancelFee",    "createComments",    "startDate",    "doAutoDiscard",    "endDate"})
+    "authKey",    "acctNo",    "planNo",    "lengthMonths",    "endDate",    "clientPlanId",    "typeNo",    "altRecurFee",    "cancelFee",    "createComments",    "startDate",    "doAutoDiscard"})
 @XmlRootElement(name = "create_acct_plan_contract")
 public class CreateAcctPlanContract {
 
@@ -24,6 +24,8 @@ public class CreateAcctPlanContract {
     protected Long planNo;
         @XmlElement(name = "length_months")
     protected Long lengthMonths;
+        @XmlElement(name = "end_date")
+    protected String endDate;
         @XmlElement(name = "client_plan_id")
     protected String clientPlanId;
         @XmlElement(name = "type_no")
@@ -38,8 +40,6 @@ public class CreateAcctPlanContract {
     protected String startDate;
         @XmlElement(name = "do_auto_discard")
     protected String doAutoDiscard;
-        @XmlElement(name = "end_date")
-    protected String endDate;
     
     public long getClientNo() {
         return clientNo;
@@ -77,6 +77,13 @@ public class CreateAcctPlanContract {
 
     public void setLengthMonths(Long value) {
         this.lengthMonths = value;
+    }
+            public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String value) {
+        this.endDate = value;
     }
             public String getClientPlanId() {
         return clientPlanId;
@@ -126,13 +133,6 @@ public class CreateAcctPlanContract {
 
     public void setDoAutoDiscard(String value) {
         this.doAutoDiscard = value;
-    }
-            public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String value) {
-        this.endDate = value;
     }
             
 }

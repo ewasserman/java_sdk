@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_history_ReturnElement", propOrder = {"invoiceNo", "masterPlanNo", "masterPlanName", "currencyCd", "billDate", "paidDate", "debit", "credit", "recurringBillFrom", "recurringBillThru", "usageBillFrom", "usageBillThru", "isVoidedInd", "clientMasterPlanId", "invoiceTypeCd"})
+@XmlType(name = "invoice_history_ReturnElement", propOrder = {"invoiceNo", "masterPlanNo", "masterPlanName", "currencyCd", "billDate", "paidDate", "debit", "credit", "recurringBillFrom", "recurringBillThru", "usageBillFrom", "usageBillThru", "isVoidedInd", "clientMasterPlanId", "invoiceTypeCd", "postingStatusCd", "postingUser", "postingDate"})
 public class InvoiceHistoryReturnElement {
 
     @XmlElement(name = "invoice_no")
@@ -43,6 +43,12 @@ public class InvoiceHistoryReturnElement {
     protected String clientMasterPlanId;
     @XmlElement(name = "invoice_type_cd")
     protected String invoiceTypeCd;
+    @XmlElement(name = "posting_status_cd")
+    protected Long postingStatusCd;
+    @XmlElement(name = "posting_user")
+    protected String postingUser;
+    @XmlElement(name = "posting_date")
+    protected String postingDate;
     
     public Long getInvoiceNo() {
         return invoiceNo;
@@ -162,6 +168,30 @@ public class InvoiceHistoryReturnElement {
 
     public void setInvoiceTypeCd(String value) {
         this.invoiceTypeCd = value;
+    }
+
+    public Long getPostingStatusCd() {
+        return postingStatusCd;
+    }
+
+    public void setPostingStatusCd(Long value) {
+        this.postingStatusCd = value;
+    }
+
+    public String getPostingUser() {
+        return postingUser;
+    }
+
+    public void setPostingUser(String value) {
+        this.postingUser = value;
+    }
+
+    public String getPostingDate() {
+        return postingDate;
+    }
+
+    public void setPostingDate(String value) {
+        this.postingDate = value;
     }
 
     

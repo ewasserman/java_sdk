@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_invoice_details_ReturnElement", propOrder = {"invoiceNo", "acctNo", "userId", "invoiceType", "fromDate", "toDate", "usageBillFromDate", "usageBillThruDate", "taxedEmail", "taxedFirstName", "taxedMiddleInitial", "taxedLastName", "taxedAddress1", "taxedAddress2", "taxedAddress3", "taxedCity", "taxedState", "taxedLocality", "taxedZip", "taxedCountry", "debit", "credit", "billDate", "dueDate", "paidDate", "notifyDate", "currencyCd", "balanceForward", "statementBalanceForward", "totalDue", "comments", "additionalComments", "transactionType", "lastUpdated", "ariaEventNo", "ariaStatementNo", "acctStatementSeqStr", "secondAcctStatementSeqStr", "invoiceLineItems", "voidingEventNo", "billCompanyName", "payMethodType", "payMethodName", "customStatusLabel", "clientNotes", "allInvoiceLine"})
+@XmlType(name = "all_invoice_details_ReturnElement", propOrder = {"invoiceNo", "acctNo", "userId", "invoiceType", "fromDate", "toDate", "usageBillFromDate", "usageBillThruDate", "taxedEmail", "taxedFirstName", "taxedMiddleInitial", "taxedLastName", "taxedAddress1", "taxedAddress2", "taxedAddress3", "taxedCity", "taxedState", "taxedLocality", "taxedZip", "taxedCountry", "debit", "credit", "billDate", "dueDate", "paidDate", "notifyDate", "currencyCd", "balanceForward", "statementBalanceForward", "totalDue", "comments", "additionalComments", "transactionType", "lastUpdated", "ariaEventNo", "ariaStatementNo", "acctStatementSeqStr", "secondAcctStatementSeqStr", "invoiceLineItems", "voidingEventNo", "billCompanyName", "payMethodType", "payMethodName", "customStatusLabel", "clientNotes", "postingStatusCd", "postingDate", "postingUser", "allInvoiceLine"})
 public class AllInvoiceDetailsReturnElement {
 
     @XmlElement(name = "invoice_no")
@@ -103,6 +103,12 @@ public class AllInvoiceDetailsReturnElement {
     protected String customStatusLabel;
     @XmlElement(name = "client_notes")
     protected String clientNotes;
+    @XmlElement(name = "posting_status_cd")
+    protected Long postingStatusCd;
+    @XmlElement(name = "posting_date")
+    protected String postingDate;
+    @XmlElement(name = "posting_user")
+    protected String postingUser;
     @XmlElement(name = "all_invoice_line")
     protected List<AllInvoiceLineReturnElement> allInvoiceLine;
     
@@ -464,6 +470,30 @@ public class AllInvoiceDetailsReturnElement {
 
     public void setClientNotes(String value) {
         this.clientNotes = value;
+    }
+
+    public Long getPostingStatusCd() {
+        return postingStatusCd;
+    }
+
+    public void setPostingStatusCd(Long value) {
+        this.postingStatusCd = value;
+    }
+
+    public String getPostingDate() {
+        return postingDate;
+    }
+
+    public void setPostingDate(String value) {
+        this.postingDate = value;
+    }
+
+    public String getPostingUser() {
+        return postingUser;
+    }
+
+    public void setPostingUser(String value) {
+        this.postingUser = value;
     }
 
     public List<AllInvoiceLineReturnElement> getAllInvoiceLine() {

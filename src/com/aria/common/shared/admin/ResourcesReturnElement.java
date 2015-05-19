@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "resources_ReturnElement", propOrder = {"resources", "resourceTypeNo", "resourceUnits", "expireOnPaidThrough", "resetOnUpdate", "addDaysToExpiry", "resourceName"})
+@XmlType(name = "resources_ReturnElement", propOrder = {"resources", "resourceTypeNo", "resourceUnits", "resourceName"})
 public class ResourcesReturnElement {
 
     @XmlElement(name = "resources")
@@ -19,12 +19,6 @@ public class ResourcesReturnElement {
     protected Long resourceTypeNo;
     @XmlElement(name = "resource_units")
     protected Long resourceUnits;
-    @XmlElement(name = "expire_on_paid_through")
-    protected Long expireOnPaidThrough;
-    @XmlElement(name = "reset_on_update")
-    protected Long resetOnUpdate;
-    @XmlElement(name = "add_days_to_expiry")
-    protected Long addDaysToExpiry;
     @XmlElement(name = "resource_name")
     protected String resourceName;
     
@@ -50,30 +44,6 @@ public class ResourcesReturnElement {
 
     public void setResourceUnits(Long value) {
         this.resourceUnits = value;
-    }
-
-    public Long getExpireOnPaidThrough() {
-        return expireOnPaidThrough;
-    }
-
-    public void setExpireOnPaidThrough(Long value) {
-        this.expireOnPaidThrough = value;
-    }
-
-    public Long getResetOnUpdate() {
-        return resetOnUpdate;
-    }
-
-    public void setResetOnUpdate(Long value) {
-        this.resetOnUpdate = value;
-    }
-
-    public Long getAddDaysToExpiry() {
-        return addDaysToExpiry;
-    }
-
-    public void setAddDaysToExpiry(Long value) {
-        this.addDaysToExpiry = value;
     }
 
     public String getResourceName() {

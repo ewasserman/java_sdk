@@ -153,6 +153,7 @@ public class RestUtilities {
             entity.setToUnit(getDoubleValue(jsonObject,"to_unit"));
             entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
             entity.setMonthlyFee(getDoubleValue(jsonObject,"monthly_fee"));
+            entity.setRateTierDescription(getStringValue(jsonObject,"rate_tier_description"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -211,17 +212,29 @@ public class RestUtilities {
             entity.setIsCancellationInd(getLongValue(jsonObject,"is_cancellation_ind"));
             entity.setCoaId(getStringValue(jsonObject,"coa_id"));
             entity.setLedgerCode(getStringValue(jsonObject,"ledger_code"));
+            entity.setClientCoaCode(getStringValue(jsonObject,"client_coa_code"));
             entity.setDisplayInd(getLongValue(jsonObject,"display_ind"));
             entity.setTieredPricingRule(getLongValue(jsonObject,"tiered_pricing_rule"));
             entity.setIsMinFeeInd(getLongValue(jsonObject,"is_min_fee_ind"));
             entity.setClientServiceId(getStringValue(jsonObject,"client_service_id"));
             entity.setUsageTypeCd(getStringValue(jsonObject,"usage_type_cd"));
-            entity.setCoaCode(getStringValue(jsonObject,"coa_code"));
+                        ArrayList<AllServiceSuppFieldsReturnElement> arrayListAllServiceSuppFieldsReturnElement = buildAllServiceSuppFieldsReturnElement((JSONArray)jsonObject.get("all_service_supp_fields"));
+            for (AllServiceSuppFieldsReturnElement element : arrayListAllServiceSuppFieldsReturnElement){
+                entity.getAllServiceSuppFields().add(element);
+            }
             entity.setFulfillmentBasedInd(getLongValue(jsonObject,"fulfillment_based_ind"));
                         ArrayList<PlanServiceRatesReturnElement> arrayListPlanServiceRatesReturnElement = buildPlanServiceRatesReturnElement((JSONArray)jsonObject.get("plan_service_rates"));
             for (PlanServiceRatesReturnElement element : arrayListPlanServiceRatesReturnElement){
                 entity.getPlanServiceRates().add(element);
             }
+                        ArrayList<AllPlanServiceRatesReturnElement> arrayListAllPlanServiceRatesReturnElement = buildAllPlanServiceRatesReturnElement((JSONArray)jsonObject.get("all_plan_service_rates"));
+            for (AllPlanServiceRatesReturnElement element : arrayListAllPlanServiceRatesReturnElement){
+                entity.getAllPlanServiceRates().add(element);
+            }
+            entity.setUsageTypeName(getStringValue(jsonObject,"usage_type_name"));
+            entity.setUsageTypeDesc(getStringValue(jsonObject,"usage_type_desc"));
+            entity.setUsageTypeCode(getStringValue(jsonObject,"usage_type_code"));
+            entity.setUsageUnitLabel(getStringValue(jsonObject,"usage_unit_label"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -1165,6 +1178,11 @@ public class RestUtilities {
             entity.setRecurDiscountPct(getDoubleValue(jsonObject,"recur_discount_pct"));
             entity.setOneTimeDiscountPct(getDoubleValue(jsonObject,"one_time_discount_pct"));
             entity.setStatusInd(getLongValue(jsonObject,"status_ind"));
+            entity.setGroupNo(getLongValue(jsonObject,"group_no"));
+            entity.setClientGroupId(getStringValue(jsonObject,"client_group_id"));
+            entity.setGroupName(getStringValue(jsonObject,"group_name"));
+            entity.setGroupDescription(getStringValue(jsonObject,"group_description"));
+            entity.setGroupPrecedence(getLongValue(jsonObject,"group_precedence"));
                         ArrayList<CreditTemplatesReturnElement> arrayListCreditTemplatesReturnElement = buildCreditTemplatesReturnElement((JSONArray)jsonObject.get("credit_templates"));
             for (CreditTemplatesReturnElement element : arrayListCreditTemplatesReturnElement){
                 entity.getCreditTemplates().add(element);
@@ -2308,6 +2326,9 @@ public class RestUtilities {
             entity.setIsVoidedInd(getLongValue(jsonObject,"is_voided_ind"));
             entity.setClientMasterPlanId(getStringValue(jsonObject,"client_master_plan_id"));
             entity.setInvoiceTypeCd(getStringValue(jsonObject,"invoice_type_cd"));
+            entity.setPostingStatusCd(getLongValue(jsonObject,"posting_status_cd"));
+            entity.setPostingUser(getStringValue(jsonObject,"posting_user"));
+            entity.setPostingDate(getStringValue(jsonObject,"posting_date"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -3305,6 +3326,13 @@ public class RestUtilities {
             entity.setPaymentAmountLeftToApply(getDoubleValue(jsonObject,"payment_amount_left_to_apply"));
             entity.setVoidingEventNo(getLongValue(jsonObject,"voiding_event_no"));
             entity.setVoidableFlag(getLongValue(jsonObject,"voidable_flag"));
+            entity.setLast4(getLongValue(jsonObject,"last_4"));
+            entity.setPaymentMethodType(getStringValue(jsonObject,"payment_method_type"));
+            entity.setPaymentMethod(getLongValue(jsonObject,"payment_method"));
+            entity.setPaymentProcessorResultCode(getLongValue(jsonObject,"payment_processor_result_code"));
+            entity.setProcessorPaymentId(getStringValue(jsonObject,"processor_payment_id"));
+            entity.setPaymentProcessorApprovalCode(getStringValue(jsonObject,"payment_processor_approval_code"));
+            entity.setPaymentTimestamp(getStringValue(jsonObject,"payment_timestamp"));
                         ArrayList<PaymentApplicationDetailsReturnElement> arrayListPaymentApplicationDetailsReturnElement = buildPaymentApplicationDetailsReturnElement((JSONArray)jsonObject.get("payment_application_details"));
             for (PaymentApplicationDetailsReturnElement element : arrayListPaymentApplicationDetailsReturnElement){
                 entity.getPaymentApplicationDetails().add(element);

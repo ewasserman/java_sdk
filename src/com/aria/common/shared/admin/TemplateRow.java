@@ -24,8 +24,7 @@ import javax.xml.bind.annotation.XmlType;
     "percentageServiceNo",
     "percentageClientServiceId",
     "altServiceNo",
-    "altClientServiceId",
-    "currencyCd"
+    "altClientServiceId"
     })
 public class TemplateRow {
 
@@ -63,8 +62,6 @@ public class TemplateRow {
     protected Long altServiceNo;
     @XmlElement(name = "alt_client_service_id")
     protected String altClientServiceId;
-    @XmlElement(name = "currency_cd")
-    protected String currencyCd;
     public String getCreditTemplateName() {
         return creditTemplateName;
     }
@@ -199,14 +196,6 @@ public class TemplateRow {
 
     public void setAltClientServiceId(String value) {
         this.altClientServiceId = value;
-    }
-
-    public String getCurrencyCd() {
-        return currencyCd;
-    }
-
-    public void setCurrencyCd(String value) {
-        this.currencyCd = value;
     }
 
     

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceLineItems", "isPendingInd", "customStatusLabel", "customStatusDesc", "clientNotes", "invoiceTypeCd", "fromDate", "toDate"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceLineItems", "isPendingInd", "customStatusLabel", "customStatusDesc", "clientNotes", "invoiceTypeCd", "fromDate", "toDate", "postingStatusCd", "postingUser", "postingDate"})
 @XmlRootElement(name = "get_invoice_detailsResponseElement")
 public class GetInvoiceDetailsResponseElement {
 
@@ -34,6 +34,12 @@ public class GetInvoiceDetailsResponseElement {
     protected String fromDate;
     @XmlElement(name = "to_date")
     protected String toDate;
+    @XmlElement(name = "posting_status_cd")
+    protected Long postingStatusCd;
+    @XmlElement(name = "posting_user")
+    protected String postingUser;
+    @XmlElement(name = "posting_date")
+    protected String postingDate;
     
     public Long getErrorCode() {
         return errorCode;
@@ -110,6 +116,30 @@ public class GetInvoiceDetailsResponseElement {
 
     public void setToDate(String value) {
         this.toDate = value;
+    }
+
+    public Long getPostingStatusCd() {
+        return postingStatusCd;
+    }
+
+    public void setPostingStatusCd(Long value) {
+        this.postingStatusCd = value;
+    }
+
+    public String getPostingUser() {
+        return postingUser;
+    }
+
+    public void setPostingUser(String value) {
+        this.postingUser = value;
+    }
+
+    public String getPostingDate() {
+        return postingDate;
+    }
+
+    public void setPostingDate(String value) {
+        this.postingDate = value;
     }
 
     

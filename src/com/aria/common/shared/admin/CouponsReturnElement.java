@@ -10,15 +10,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "coupons_ReturnElement", propOrder = {"couponCd", "couponMsg", "couponDesc", "statusInd", "noOfUses", "startDate", "endDate", "expiresDesc", "couponNo"})
+@XmlType(name = "coupons_ReturnElement", propOrder = {"couponCd", "couponDesc", "couponMsg", "statusInd", "noOfUses", "startDate", "endDate", "expiresDesc", "couponNo"})
 public class CouponsReturnElement {
 
     @XmlElement(name = "coupon_cd")
     protected String couponCd;
-    @XmlElement(name = "coupon_msg")
-    protected String couponMsg;
     @XmlElement(name = "coupon_desc")
     protected String couponDesc;
+    @XmlElement(name = "coupon_msg")
+    protected String couponMsg;
     @XmlElement(name = "status_ind")
     protected Long statusInd;
     @XmlElement(name = "no_of_uses")
@@ -40,20 +40,20 @@ public class CouponsReturnElement {
         this.couponCd = value;
     }
 
-    public String getCouponMsg() {
-        return couponMsg;
-    }
-
-    public void setCouponMsg(String value) {
-        this.couponMsg = value;
-    }
-
     public String getCouponDesc() {
         return couponDesc;
     }
 
     public void setCouponDesc(String value) {
         this.couponDesc = value;
+    }
+
+    public String getCouponMsg() {
+        return couponMsg;
+    }
+
+    public void setCouponMsg(String value) {
+        this.couponMsg = value;
     }
 
     public Long getStatusInd() {

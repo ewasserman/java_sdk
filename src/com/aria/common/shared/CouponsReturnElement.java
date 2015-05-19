@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "coupons_ReturnElement", propOrder = {"outCouponCd", "description", "startDate", "expDate", "maxUses", "totalUses", "currencyCd", "recurDiscountFlatAmt", "oneTimeDiscountFlatAmt", "recurDiscountPct", "oneTimeDiscountPct", "statusInd", "creditTemplates", "discountRules", "discountBundles"})
+@XmlType(name = "coupons_ReturnElement", propOrder = {"outCouponCd", "description", "startDate", "expDate", "maxUses", "totalUses", "currencyCd", "recurDiscountFlatAmt", "oneTimeDiscountFlatAmt", "recurDiscountPct", "oneTimeDiscountPct", "statusInd", "groupNo", "clientGroupId", "groupName", "groupDescription", "groupPrecedence", "creditTemplates", "discountRules", "discountBundles"})
 public class CouponsReturnElement {
 
     @XmlElement(name = "out_coupon_cd")
@@ -37,6 +37,16 @@ public class CouponsReturnElement {
     protected Double oneTimeDiscountPct;
     @XmlElement(name = "status_ind")
     protected Long statusInd;
+    @XmlElement(name = "group_no")
+    protected Long groupNo;
+    @XmlElement(name = "client_group_id")
+    protected String clientGroupId;
+    @XmlElement(name = "group_name")
+    protected String groupName;
+    @XmlElement(name = "group_description")
+    protected String groupDescription;
+    @XmlElement(name = "group_precedence")
+    protected Long groupPrecedence;
     @XmlElement(name = "credit_templates")
     protected List<CreditTemplatesReturnElement> creditTemplates;
     @XmlElement(name = "discount_rules")
@@ -138,6 +148,46 @@ public class CouponsReturnElement {
 
     public void setStatusInd(Long value) {
         this.statusInd = value;
+    }
+
+    public Long getGroupNo() {
+        return groupNo;
+    }
+
+    public void setGroupNo(Long value) {
+        this.groupNo = value;
+    }
+
+    public String getClientGroupId() {
+        return clientGroupId;
+    }
+
+    public void setClientGroupId(String value) {
+        this.clientGroupId = value;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String value) {
+        this.groupName = value;
+    }
+
+    public String getGroupDescription() {
+        return groupDescription;
+    }
+
+    public void setGroupDescription(String value) {
+        this.groupDescription = value;
+    }
+
+    public Long getGroupPrecedence() {
+        return groupPrecedence;
+    }
+
+    public void setGroupPrecedence(Long value) {
+        this.groupPrecedence = value;
     }
 
     public List<CreditTemplatesReturnElement> getCreditTemplates() {

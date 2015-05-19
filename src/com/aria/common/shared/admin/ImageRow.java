@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "image_row", propOrder = {
-    "defaultImageUrl",
+    "mainImageUrl",
     "thumbnailImageUrl",
     "imageText",
     "defaultInd",
@@ -16,8 +16,8 @@ import javax.xml.bind.annotation.XmlType;
     })
 public class ImageRow {
 
-    @XmlElement(name = "default_image_url")
-    protected String defaultImageUrl;
+    @XmlElement(name = "main_image_url")
+    protected String mainImageUrl;
     @XmlElement(name = "thumbnail_image_url")
     protected String thumbnailImageUrl;
     @XmlElement(name = "image_text")
@@ -26,12 +26,12 @@ public class ImageRow {
     protected Long defaultInd;
     @XmlElement(name = "active")
     protected Long active;
-    public String getDefaultImageUrl() {
-        return defaultImageUrl;
+    public String getMainImageUrl() {
+        return mainImageUrl;
     }
 
-    public void setDefaultImageUrl(String value) {
-        this.defaultImageUrl = value;
+    public void setMainImageUrl(String value) {
+        this.mainImageUrl = value;
     }
 
     public String getThumbnailImageUrl() {

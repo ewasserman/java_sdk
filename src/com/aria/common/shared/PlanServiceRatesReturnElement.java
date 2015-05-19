@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_service_rates_ReturnElement", propOrder = {"rateSeqNo", "fromUnit", "toUnit", "ratePerUnit", "monthlyFee"})
+@XmlType(name = "plan_service_rates_ReturnElement", propOrder = {"rateSeqNo", "fromUnit", "toUnit", "ratePerUnit", "monthlyFee", "rateTierDescription"})
 public class PlanServiceRatesReturnElement {
 
     @XmlElement(name = "rate_seq_no")
@@ -23,6 +23,8 @@ public class PlanServiceRatesReturnElement {
     protected Double ratePerUnit;
     @XmlElement(name = "monthly_fee")
     protected Double monthlyFee;
+    @XmlElement(name = "rate_tier_description")
+    protected String rateTierDescription;
     
     public Long getRateSeqNo() {
         return rateSeqNo;
@@ -62,6 +64,14 @@ public class PlanServiceRatesReturnElement {
 
     public void setMonthlyFee(Double value) {
         this.monthlyFee = value;
+    }
+
+    public String getRateTierDescription() {
+        return rateTierDescription;
+    }
+
+    public void setRateTierDescription(String value) {
+        this.rateTierDescription = value;
     }
 
     

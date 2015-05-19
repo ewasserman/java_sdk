@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "payment_history_ReturnElement", propOrder = {"transactionId", "paymentSource", "paymentStatus", "paymentDate", "paymentTransType", "paymentCurrency", "paymentAmount", "paymentAmountLeftToApply", "voidingEventNo", "voidableFlag", "paymentApplicationDetails"})
+@XmlType(name = "payment_history_ReturnElement", propOrder = {"transactionId", "paymentSource", "paymentStatus", "paymentDate", "paymentTransType", "paymentCurrency", "paymentAmount", "paymentAmountLeftToApply", "voidingEventNo", "voidableFlag", "last4", "paymentMethodType", "paymentMethod", "paymentProcessorResultCode", "processorPaymentId", "paymentProcessorApprovalCode", "paymentTimestamp", "paymentApplicationDetails"})
 public class PaymentHistoryReturnElement {
 
     @XmlElement(name = "transaction_id")
@@ -33,6 +33,20 @@ public class PaymentHistoryReturnElement {
     protected Long voidingEventNo;
     @XmlElement(name = "voidable_flag")
     protected Long voidableFlag;
+    @XmlElement(name = "last_4")
+    protected Long last4;
+    @XmlElement(name = "payment_method_type")
+    protected String paymentMethodType;
+    @XmlElement(name = "payment_method")
+    protected Long paymentMethod;
+    @XmlElement(name = "payment_processor_result_code")
+    protected Long paymentProcessorResultCode;
+    @XmlElement(name = "processor_payment_id")
+    protected String processorPaymentId;
+    @XmlElement(name = "payment_processor_approval_code")
+    protected String paymentProcessorApprovalCode;
+    @XmlElement(name = "payment_timestamp")
+    protected String paymentTimestamp;
     @XmlElement(name = "payment_application_details")
     protected List<PaymentApplicationDetailsReturnElement> paymentApplicationDetails;
     
@@ -114,6 +128,62 @@ public class PaymentHistoryReturnElement {
 
     public void setVoidableFlag(Long value) {
         this.voidableFlag = value;
+    }
+
+    public Long getLast4() {
+        return last4;
+    }
+
+    public void setLast4(Long value) {
+        this.last4 = value;
+    }
+
+    public String getPaymentMethodType() {
+        return paymentMethodType;
+    }
+
+    public void setPaymentMethodType(String value) {
+        this.paymentMethodType = value;
+    }
+
+    public Long getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(Long value) {
+        this.paymentMethod = value;
+    }
+
+    public Long getPaymentProcessorResultCode() {
+        return paymentProcessorResultCode;
+    }
+
+    public void setPaymentProcessorResultCode(Long value) {
+        this.paymentProcessorResultCode = value;
+    }
+
+    public String getProcessorPaymentId() {
+        return processorPaymentId;
+    }
+
+    public void setProcessorPaymentId(String value) {
+        this.processorPaymentId = value;
+    }
+
+    public String getPaymentProcessorApprovalCode() {
+        return paymentProcessorApprovalCode;
+    }
+
+    public void setPaymentProcessorApprovalCode(String value) {
+        this.paymentProcessorApprovalCode = value;
+    }
+
+    public String getPaymentTimestamp() {
+        return paymentTimestamp;
+    }
+
+    public void setPaymentTimestamp(String value) {
+        this.paymentTimestamp = value;
     }
 
     public List<PaymentApplicationDetailsReturnElement> getPaymentApplicationDetails() {

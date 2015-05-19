@@ -242,6 +242,7 @@ public class RestUtilities {
             for (SuppPlanReturnElement element : arrayListSuppPlanReturnElement){
                 entity.getSuppPlan().add(element);
             }
+            entity.setInvoicePostingMethodCd(getLongValue(jsonObject,"invoice_posting_method_cd"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -448,6 +449,9 @@ public class RestUtilities {
             entity.setCustomStatusLabel(getStringValue(jsonObject,"custom_status_label"));
             entity.setClientNotes(getStringValue(jsonObject,"client_notes"));
             entity.setInvoiceTypeCd(getStringValue(jsonObject,"invoice_type_cd"));
+            entity.setPostingStatusCd(getLongValue(jsonObject,"posting_status_cd"));
+            entity.setPostingDate(getStringValue(jsonObject,"posting_date"));
+            entity.setPostingUser(getStringValue(jsonObject,"posting_user"));
                         ArrayList<InvoiceLineReturnElement> arrayListInvoiceLineReturnElement = buildInvoiceLineReturnElement((JSONArray)jsonObject.get("invoice_line"));
             for (InvoiceLineReturnElement element : arrayListInvoiceLineReturnElement){
                 entity.getInvoiceLine().add(element);
@@ -694,6 +698,9 @@ public class RestUtilities {
             entity.setPayMethodName(getStringValue(jsonObject,"pay_method_name"));
             entity.setCustomStatusLabel(getStringValue(jsonObject,"custom_status_label"));
             entity.setClientNotes(getStringValue(jsonObject,"client_notes"));
+            entity.setPostingStatusCd(getLongValue(jsonObject,"posting_status_cd"));
+            entity.setPostingDate(getStringValue(jsonObject,"posting_date"));
+            entity.setPostingUser(getStringValue(jsonObject,"posting_user"));
                         ArrayList<AllInvoiceLineReturnElement> arrayListAllInvoiceLineReturnElement = buildAllInvoiceLineReturnElement((JSONArray)jsonObject.get("all_invoice_line"));
             for (AllInvoiceLineReturnElement element : arrayListAllInvoiceLineReturnElement){
                 entity.getAllInvoiceLine().add(element);
