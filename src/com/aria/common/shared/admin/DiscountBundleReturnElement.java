@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "discount_bundle_ReturnElement", propOrder = {"bundleNo", "bundleName", "bundleId", "description", "allowOverlapInd", "rules", "ruleIds"})
+@XmlType(name = "discount_bundle_ReturnElement", propOrder = {"bundleNo", "bundleName", "bundleId", "description", "rules", "ruleIds", "allowOverlapInd"})
 public class DiscountBundleReturnElement {
 
     @XmlElement(name = "bundle_no")
@@ -21,12 +21,12 @@ public class DiscountBundleReturnElement {
     protected String bundleId;
     @XmlElement(name = "description")
     protected String description;
-    @XmlElement(name = "allow_overlap_ind")
-    protected String allowOverlapInd;
     @XmlElement(name = "rules")
     protected List<RulesReturnElement> rules;
     @XmlElement(name = "rule_ids")
     protected List<RuleIdsReturnElement> ruleIds;
+    @XmlElement(name = "allow_overlap_ind")
+    protected String allowOverlapInd;
     
     public Long getBundleNo() {
         return bundleNo;
@@ -60,14 +60,6 @@ public class DiscountBundleReturnElement {
         this.description = value;
     }
 
-    public String getAllowOverlapInd() {
-        return allowOverlapInd;
-    }
-
-    public void setAllowOverlapInd(String value) {
-        this.allowOverlapInd = value;
-    }
-
     public List<RulesReturnElement> getRules() {
         if (this.rules == null) {
             this.rules = new ArrayList<RulesReturnElement>();
@@ -78,5 +70,13 @@ public class DiscountBundleReturnElement {
             this.ruleIds = new ArrayList<RuleIdsReturnElement>();
         }
         return this.ruleIds;
+    }public String getAllowOverlapInd() {
+        return allowOverlapInd;
     }
+
+    public void setAllowOverlapInd(String value) {
+        this.allowOverlapInd = value;
+    }
+
+    
 }

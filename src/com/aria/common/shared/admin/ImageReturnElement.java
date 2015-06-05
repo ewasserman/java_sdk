@@ -10,13 +10,11 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "image_ReturnElement", propOrder = {"thumbnailImageUrl", "mainImageUrl", "imageText", "defaultInd", "imageClassSeqNo", "active"})
+@XmlType(name = "image_ReturnElement", propOrder = {"thumbnailImageUrl", "imageText", "defaultInd", "imageClassSeqNo", "active", "mainImageUrl"})
 public class ImageReturnElement {
 
     @XmlElement(name = "thumbnail_image_url")
     protected String thumbnailImageUrl;
-    @XmlElement(name = "main_image_url")
-    protected String mainImageUrl;
     @XmlElement(name = "image_text")
     protected String imageText;
     @XmlElement(name = "default_ind")
@@ -25,6 +23,8 @@ public class ImageReturnElement {
     protected Long imageClassSeqNo;
     @XmlElement(name = "active")
     protected Long active;
+    @XmlElement(name = "main_image_url")
+    protected String mainImageUrl;
     
     public String getThumbnailImageUrl() {
         return thumbnailImageUrl;
@@ -32,14 +32,6 @@ public class ImageReturnElement {
 
     public void setThumbnailImageUrl(String value) {
         this.thumbnailImageUrl = value;
-    }
-
-    public String getMainImageUrl() {
-        return mainImageUrl;
-    }
-
-    public void setMainImageUrl(String value) {
-        this.mainImageUrl = value;
     }
 
     public String getImageText() {
@@ -72,6 +64,14 @@ public class ImageReturnElement {
 
     public void setActive(Long value) {
         this.active = value;
+    }
+
+    public String getMainImageUrl() {
+        return mainImageUrl;
+    }
+
+    public void setMainImageUrl(String value) {
+        this.mainImageUrl = value;
     }
 
     

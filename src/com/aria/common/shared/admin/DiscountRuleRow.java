@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
     "maxApplicableMonths",
     "maxApplicationsPerAcct",
     "inlineOffsetInd",
+    "discountBehaviorTypeInd",
     "serviceCodeToUse",
     "altServiceNo2Apply",
     "altServiceId2Apply",
@@ -56,6 +57,8 @@ public class DiscountRuleRow {
     protected Long maxApplicationsPerAcct;
     @XmlElement(name = "inline_offset_ind")
     protected String inlineOffsetInd;
+    @XmlElement(name = "discount_behavior_type_ind")
+    protected String discountBehaviorTypeInd;
     @XmlElement(name = "service_code_to_use")
     protected Long serviceCodeToUse;
     @XmlElement(name = "alt_service_no_2_apply")
@@ -166,6 +169,14 @@ public class DiscountRuleRow {
 
     public void setInlineOffsetInd(String value) {
         this.inlineOffsetInd = value;
+    }
+
+    public String getDiscountBehaviorTypeInd() {
+        return discountBehaviorTypeInd;
+    }
+
+    public void setDiscountBehaviorTypeInd(String value) {
+        this.discountBehaviorTypeInd = value;
     }
 
     public Long getServiceCodeToUse() {

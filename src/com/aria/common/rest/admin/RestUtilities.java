@@ -134,37 +134,1158 @@ public class RestUtilities {
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             PromoPlanSetReturnElement entity = new PromoPlanSetReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setPromoPlanSetNo(getLongValue(jsonObject,"promo_plan_set_no"));
             entity.setPromoPlanSetName(getStringValue(jsonObject,"promo_plan_set_name"));
             entity.setPromoPlanSetDesc(getStringValue(jsonObject,"promo_plan_set_desc"));
             entity.setClientPlanTypeId(getStringValue(jsonObject,"client_plan_type_id"));
+            entity.setPlanGroup(getLongValue(jsonObject,"plan_group"));
+            entity.setGroupNo(getLongValue(jsonObject,"group_no"));
+            entity.setGroupName(getStringValue(jsonObject,"group_name"));
+            entity.setGroupDesc(getStringValue(jsonObject,"group_desc"));
+            entity.setClientPlanChangeGroupId(getStringValue(jsonObject,"client_plan_change_group_id"));
+            entity.setGroupUsage(getStringValue(jsonObject,"group_usage"));
+            entity.setGroupPlansCount(getLongValue(jsonObject,"group_plans_count"));
+            } else {
+                        try {
+                entity.setPromoPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPromoPlanSetNo(null);
+            }
+            entity.setPromoPlanSetName(jsonArray.get(i).toString());
+            entity.setPromoPlanSetDesc(jsonArray.get(i).toString());
+            entity.setClientPlanTypeId(jsonArray.get(i).toString());
+                        try {
+                entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanGroup(null);
+            }
+                        try {
+                entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setGroupNo(null);
+            }
+            entity.setGroupName(jsonArray.get(i).toString());
+            entity.setGroupDesc(jsonArray.get(i).toString());
+            entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
+            entity.setGroupUsage(jsonArray.get(i).toString());
+                        try {
+                entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setGroupPlansCount(null);
+            }
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<PlanReturnElement> buildPlanReturnElement(JSONArray jsonArray) {
         ArrayList<PlanReturnElement> returnElement = new ArrayList<PlanReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             PlanReturnElement entity = new PlanReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
             entity.setPlanName(getStringValue(jsonObject,"plan_name"));
             entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
             entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
+            } else {
+                        try {
+                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanNo(null);
+            }
+            entity.setPlanName(jsonArray.get(i).toString());
+            entity.setPlanDesc(jsonArray.get(i).toString());
+            entity.setClientPlanId(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
+    public static ArrayList<InventoryItemsReturnElement> buildInventoryItemsReturnElement(JSONArray jsonArray) {
+        ArrayList<InventoryItemsReturnElement> returnElement = new ArrayList<InventoryItemsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            InventoryItemsReturnElement entity = new InventoryItemsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setItemNo(getLongValue(jsonObject,"item_no"));
+            entity.setItemName(getStringValue(jsonObject,"item_name"));
+            entity.setItemType(getLongValue(jsonObject,"item_type"));
+            entity.setClientSku(getStringValue(jsonObject,"client_sku"));
+            entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
+            entity.setStockLevel(getDoubleValue(jsonObject,"stock_level"));
+            entity.setClientItemId(getStringValue(jsonObject,"client_item_id"));
+            } else {
+                        try {
+                entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setItemNo(null);
+            }
+            entity.setItemName(jsonArray.get(i).toString());
+                        try {
+                entity.setItemType(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setItemType(null);
+            }
+            entity.setClientSku(jsonArray.get(i).toString());
+                        try {
+                entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setActiveInd(null);
+            }
+                        try {
+                entity.setStockLevel(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setStockLevel(null);
+            }
+            entity.setClientItemId(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ResourcesReturnElement> buildResourcesReturnElement(JSONArray jsonArray) {
+        ArrayList<ResourcesReturnElement> returnElement = new ArrayList<ResourcesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ResourcesReturnElement entity = new ResourcesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setResources(getLongValue(jsonObject,"resources"));
+            entity.setResourceTypeNo(getLongValue(jsonObject,"resource_type_no"));
+            entity.setResourceUnits(getLongValue(jsonObject,"resource_units"));
+            entity.setExpireOnPaidThrough(getLongValue(jsonObject,"expire_on_paid_through"));
+            entity.setResetOnUpdate(getLongValue(jsonObject,"reset_on_update"));
+            entity.setAddDaysToExpiry(getLongValue(jsonObject,"add_days_to_expiry"));
+            entity.setResourceName(getStringValue(jsonObject,"resource_name"));
+            } else {
+                        try {
+                entity.setResources(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setResources(null);
+            }
+                        try {
+                entity.setResourceTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setResourceTypeNo(null);
+            }
+                        try {
+                entity.setResourceUnits(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setResourceUnits(null);
+            }
+                        try {
+                entity.setExpireOnPaidThrough(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setExpireOnPaidThrough(null);
+            }
+                        try {
+                entity.setResetOnUpdate(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setResetOnUpdate(null);
+            }
+                        try {
+                entity.setAddDaysToExpiry(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setAddDaysToExpiry(null);
+            }
+            entity.setResourceName(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PricingReturnElement> buildPricingReturnElement(JSONArray jsonArray) {
+        ArrayList<PricingReturnElement> returnElement = new ArrayList<PricingReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PricingReturnElement entity = new PricingReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
+            entity.setPrice(getDoubleValue(jsonObject,"price"));
+            entity.setPricePerUnit(getDoubleValue(jsonObject,"price_per_unit"));
+            } else {
+            entity.setCurrencyCd(jsonArray.get(i).toString());
+                        try {
+                entity.setPrice(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setPrice(null);
+            }
+                        try {
+                entity.setPricePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setPricePerUnit(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ImageReturnElement> buildImageReturnElement(JSONArray jsonArray) {
+        ArrayList<ImageReturnElement> returnElement = new ArrayList<ImageReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ImageReturnElement entity = new ImageReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setThumbnailImageUrl(getStringValue(jsonObject,"thumbnail_image_url"));
+            entity.setImageText(getStringValue(jsonObject,"image_text"));
+            entity.setDefaultInd(getLongValue(jsonObject,"default_ind"));
+            entity.setImageClassSeqNo(getLongValue(jsonObject,"image_class_seq_no"));
+            entity.setActive(getLongValue(jsonObject,"active"));
+            entity.setMainImageUrl(getStringValue(jsonObject,"main_image_url"));
+            } else {
+            entity.setThumbnailImageUrl(jsonArray.get(i).toString());
+            entity.setImageText(jsonArray.get(i).toString());
+                        try {
+                entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDefaultInd(null);
+            }
+                        try {
+                entity.setImageClassSeqNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setImageClassSeqNo(null);
+            }
+                        try {
+                entity.setActive(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setActive(null);
+            }
+            entity.setMainImageUrl(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<SupplementalObjFieldsReturnElement> buildSupplementalObjFieldsReturnElement(JSONArray jsonArray) {
+        ArrayList<SupplementalObjFieldsReturnElement> returnElement = new ArrayList<SupplementalObjFieldsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SupplementalObjFieldsReturnElement entity = new SupplementalObjFieldsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setFieldNo(getLongValue(jsonObject,"field_no"));
+            entity.setFieldValue(getStringValue(jsonObject,"field_value"));
+            entity.setFieldName(getStringValue(jsonObject,"field_name"));
+            } else {
+                        try {
+                entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setFieldNo(null);
+            }
+            entity.setFieldValue(jsonArray.get(i).toString());
+            entity.setFieldName(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ServiceTypesReturnElement> buildServiceTypesReturnElement(JSONArray jsonArray) {
+        ArrayList<ServiceTypesReturnElement> returnElement = new ArrayList<ServiceTypesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ServiceTypesReturnElement entity = new ServiceTypesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setServiceTypeName(getStringValue(jsonObject,"service_type_name"));
+            entity.setServiceDesc(getStringValue(jsonObject,"service_desc"));
+            } else {
+            entity.setServiceTypeName(jsonArray.get(i).toString());
+            entity.setServiceDesc(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ServicesReturnElement> buildServicesReturnElement(JSONArray jsonArray) {
+        ArrayList<ServicesReturnElement> returnElement = new ArrayList<ServicesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ServicesReturnElement entity = new ServicesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setServiceNo(getLongValue(jsonObject,"service_no"));
+            entity.setClientServiceId(getStringValue(jsonObject,"client_service_id"));
+            entity.setServiceName(getStringValue(jsonObject,"service_name"));
+            entity.setServiceType(getStringValue(jsonObject,"service_type"));
+            } else {
+                        try {
+                entity.setServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setServiceNo(null);
+            }
+            entity.setClientServiceId(jsonArray.get(i).toString());
+            entity.setServiceName(jsonArray.get(i).toString());
+            entity.setServiceType(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RateInfoReturnElement> buildRateInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<RateInfoReturnElement> returnElement = new ArrayList<RateInfoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RateInfoReturnElement entity = new RateInfoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setScheduleNo(getLongValue(jsonObject,"schedule_no"));
+            entity.setScheduleName(getStringValue(jsonObject,"schedule_name"));
+            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
+            entity.setFromUnit(getLongValue(jsonObject,"from_unit"));
+            entity.setToUnit(getLongValue(jsonObject,"to_unit"));
+            entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            } else {
+                        try {
+                entity.setScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setScheduleNo(null);
+            }
+            entity.setScheduleName(jsonArray.get(i).toString());
+            entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                        try {
+                entity.setFromUnit(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setFromUnit(null);
+            }
+                        try {
+                entity.setToUnit(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setToUnit(null);
+            }
+                        try {
+                entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setRatePerUnit(null);
+            }
+            entity.setDescription(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RateSchedulesReturnElement> buildRateSchedulesReturnElement(JSONArray jsonArray) {
+        ArrayList<RateSchedulesReturnElement> returnElement = new ArrayList<RateSchedulesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RateSchedulesReturnElement entity = new RateSchedulesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setCurrency(getStringValue(jsonObject,"currency"));
+                        ArrayList<RateInfoReturnElement> arrayListRateInfoReturnElement = buildRateInfoReturnElement((JSONArray)jsonObject.get("rate_info"));
+            for (RateInfoReturnElement element : arrayListRateInfoReturnElement){
+                entity.getRateInfo().add(element);
+            }
+            entity.setIsDefault(getLongValue(jsonObject,"is_default"));
+            entity.setFromUnit(getStringValue(jsonObject,"from_unit"));
+            entity.setToUnit(getStringValue(jsonObject,"to_unit"));
+            entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
+            } else {
+            entity.setCurrency(jsonArray.get(i).toString());
+                        try {
+                entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setIsDefault(null);
+            }
+            entity.setFromUnit(jsonArray.get(i).toString());
+            entity.setToUnit(jsonArray.get(i).toString());
+                        try {
+                entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setRatePerUnit(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ParentPlansReturnElement> buildParentPlansReturnElement(JSONArray jsonArray) {
+        ArrayList<ParentPlansReturnElement> returnElement = new ArrayList<ParentPlansReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ParentPlansReturnElement entity = new ParentPlansReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setParentPlan(getLongValue(jsonObject,"parent_plan"));
+            } else {
+                        try {
+                entity.setParentPlan(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setParentPlan(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ParentPlanIdsReturnElement> buildParentPlanIdsReturnElement(JSONArray jsonArray) {
+        ArrayList<ParentPlanIdsReturnElement> returnElement = new ArrayList<ParentPlanIdsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ParentPlanIdsReturnElement entity = new ParentPlanIdsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setParentPlanId(getStringValue(jsonObject,"parent_plan_id"));
+            } else {
+            entity.setParentPlanId(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ExclusionPlansReturnElement> buildExclusionPlansReturnElement(JSONArray jsonArray) {
+        ArrayList<ExclusionPlansReturnElement> returnElement = new ArrayList<ExclusionPlansReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ExclusionPlansReturnElement entity = new ExclusionPlansReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setExclusionPlan(getLongValue(jsonObject,"exclusion_plan"));
+            } else {
+                        try {
+                entity.setExclusionPlan(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setExclusionPlan(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<SuppFieldsReturnElement> buildSuppFieldsReturnElement(JSONArray jsonArray) {
+        ArrayList<SuppFieldsReturnElement> returnElement = new ArrayList<SuppFieldsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SuppFieldsReturnElement entity = new SuppFieldsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setFieldName(getStringValue(jsonObject,"field_name"));
+            entity.setFieldDesc(getStringValue(jsonObject,"field_desc"));
+            entity.setFieldOrder(getLongValue(jsonObject,"field_order"));
+            } else {
+            entity.setFieldName(jsonArray.get(i).toString());
+            entity.setFieldDesc(jsonArray.get(i).toString());
+                        try {
+                entity.setFieldOrder(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setFieldOrder(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<SelOptionsReturnElement> buildSelOptionsReturnElement(JSONArray jsonArray) {
+        ArrayList<SelOptionsReturnElement> returnElement = new ArrayList<SelOptionsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SelOptionsReturnElement entity = new SelOptionsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setDisplayText(getStringValue(jsonObject,"display_text"));
+            entity.setOptionValue(getStringValue(jsonObject,"option_value"));
+            entity.setOptionValueOrder(getLongValue(jsonObject,"option_value_order"));
+            } else {
+            entity.setDisplayText(jsonArray.get(i).toString());
+            entity.setOptionValue(jsonArray.get(i).toString());
+                        try {
+                entity.setOptionValueOrder(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setOptionValueOrder(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<CouponsReturnElement> buildCouponsReturnElement(JSONArray jsonArray) {
+        ArrayList<CouponsReturnElement> returnElement = new ArrayList<CouponsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            CouponsReturnElement entity = new CouponsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setCouponCd(getStringValue(jsonObject,"coupon_cd"));
+            } else {
+            entity.setCouponCd(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RulesReturnElement> buildRulesReturnElement(JSONArray jsonArray) {
+        ArrayList<RulesReturnElement> returnElement = new ArrayList<RulesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RulesReturnElement entity = new RulesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRule(getLongValue(jsonObject,"rule"));
+            } else {
+                        try {
+                entity.setRule(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setRule(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RuleIdsReturnElement> buildRuleIdsReturnElement(JSONArray jsonArray) {
+        ArrayList<RuleIdsReturnElement> returnElement = new ArrayList<RuleIdsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RuleIdsReturnElement entity = new RuleIdsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRule(getStringValue(jsonObject,"rule"));
+            } else {
+            entity.setRule(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PlanNoReturnElement> buildPlanNoReturnElement(JSONArray jsonArray) {
+        ArrayList<PlanNoReturnElement> returnElement = new ArrayList<PlanNoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlanNoReturnElement entity = new PlanNoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanNos(getLongValue(jsonObject,"plan_nos"));
+            } else {
+                        try {
+                entity.setPlanNos(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanNos(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ClientPlanIdReturnElement> buildClientPlanIdReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientPlanIdReturnElement> returnElement = new ArrayList<ClientPlanIdReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ClientPlanIdReturnElement entity = new ClientPlanIdReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setClientPlanIds(getStringValue(jsonObject,"client_plan_ids"));
+            } else {
+            entity.setClientPlanIds(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ServiceNoReturnElement> buildServiceNoReturnElement(JSONArray jsonArray) {
+        ArrayList<ServiceNoReturnElement> returnElement = new ArrayList<ServiceNoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ServiceNoReturnElement entity = new ServiceNoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setServiceNos(getLongValue(jsonObject,"service_nos"));
+            } else {
+                        try {
+                entity.setServiceNos(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setServiceNos(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ClientServiceIdReturnElement> buildClientServiceIdReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientServiceIdReturnElement> returnElement = new ArrayList<ClientServiceIdReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ClientServiceIdReturnElement entity = new ClientServiceIdReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setClientServiceIds(getStringValue(jsonObject,"client_service_ids"));
+            } else {
+            entity.setClientServiceIds(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ItemNoReturnElement> buildItemNoReturnElement(JSONArray jsonArray) {
+        ArrayList<ItemNoReturnElement> returnElement = new ArrayList<ItemNoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ItemNoReturnElement entity = new ItemNoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setItemNos(getLongValue(jsonObject,"item_nos"));
+            } else {
+                        try {
+                entity.setItemNos(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setItemNos(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ClientItemIdReturnElement> buildClientItemIdReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientItemIdReturnElement> returnElement = new ArrayList<ClientItemIdReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ClientItemIdReturnElement entity = new ClientItemIdReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setClientItemIds(getStringValue(jsonObject,"client_item_ids"));
+            entity.setItemIds(getStringValue(jsonObject,"item_ids"));
+            } else {
+            entity.setClientItemIds(jsonArray.get(i).toString());
+            entity.setItemIds(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<EligibleServiceTypesReturnElement> buildEligibleServiceTypesReturnElement(JSONArray jsonArray) {
+        ArrayList<EligibleServiceTypesReturnElement> returnElement = new ArrayList<EligibleServiceTypesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            EligibleServiceTypesReturnElement entity = new EligibleServiceTypesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setEligibleServiceType(getStringValue(jsonObject,"eligible_service_type"));
+            } else {
+            entity.setEligibleServiceType(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<CreditTemplateReturnElement> buildCreditTemplateReturnElement(JSONArray jsonArray) {
+        ArrayList<CreditTemplateReturnElement> returnElement = new ArrayList<CreditTemplateReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            CreditTemplateReturnElement entity = new CreditTemplateReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setCreditTemplateNo(getLongValue(jsonObject,"credit_template_no"));
+            entity.setCreditTemplateId(getStringValue(jsonObject,"credit_template_id"));
+            entity.setCreditTemplateName(getStringValue(jsonObject,"credit_template_name"));
+            entity.setClientCreditTemplateId(getStringValue(jsonObject,"client_credit_template_id"));
+            entity.setEligiblePlanNo(getLongValue(jsonObject,"eligible_plan_no"));
+            entity.setEligibleClientPlanId(getStringValue(jsonObject,"eligible_client_plan_id"));
+            entity.setEligibleServiceNo(getLongValue(jsonObject,"eligible_service_no"));
+            entity.setEligibleClientServiceId(getStringValue(jsonObject,"eligible_client_service_id"));
+            entity.setNoOfCredits(getLongValue(jsonObject,"no_of_credits"));
+            entity.setTimeBetweenCredits(getLongValue(jsonObject,"time_between_credits"));
+            entity.setDiscountType(getLongValue(jsonObject,"discount_type"));
+            entity.setDiscountAmt(getDoubleValue(jsonObject,"discount_amt"));
+            entity.setPercentagePlanNo(getLongValue(jsonObject,"percentage_plan_no"));
+            entity.setPercentageClientPlanId(getStringValue(jsonObject,"percentage_client_plan_id"));
+            entity.setPercentageServiceNo(getLongValue(jsonObject,"percentage_service_no"));
+            entity.setPercentageClientServiceId(getStringValue(jsonObject,"percentage_client_service_id"));
+            entity.setAltServiceNo(getLongValue(jsonObject,"alt_service_no"));
+            entity.setAltClientServiceId(getStringValue(jsonObject,"alt_client_service_id"));
+                        ArrayList<EligibleServiceTypesReturnElement> arrayListEligibleServiceTypesReturnElement = buildEligibleServiceTypesReturnElement((JSONArray)jsonObject.get("eligible_service_types"));
+            for (EligibleServiceTypesReturnElement element : arrayListEligibleServiceTypesReturnElement){
+                entity.getEligibleServiceTypes().add(element);
+            }
+            } else {
+                        try {
+                entity.setCreditTemplateNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setCreditTemplateNo(null);
+            }
+            entity.setCreditTemplateId(jsonArray.get(i).toString());
+            entity.setCreditTemplateName(jsonArray.get(i).toString());
+            entity.setClientCreditTemplateId(jsonArray.get(i).toString());
+                        try {
+                entity.setEligiblePlanNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setEligiblePlanNo(null);
+            }
+            entity.setEligibleClientPlanId(jsonArray.get(i).toString());
+                        try {
+                entity.setEligibleServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setEligibleServiceNo(null);
+            }
+            entity.setEligibleClientServiceId(jsonArray.get(i).toString());
+                        try {
+                entity.setNoOfCredits(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setNoOfCredits(null);
+            }
+                        try {
+                entity.setTimeBetweenCredits(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setTimeBetweenCredits(null);
+            }
+                        try {
+                entity.setDiscountType(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDiscountType(null);
+            }
+                        try {
+                entity.setDiscountAmt(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setDiscountAmt(null);
+            }
+                        try {
+                entity.setPercentagePlanNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPercentagePlanNo(null);
+            }
+            entity.setPercentageClientPlanId(jsonArray.get(i).toString());
+                        try {
+                entity.setPercentageServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPercentageServiceNo(null);
+            }
+            entity.setPercentageClientServiceId(jsonArray.get(i).toString());
+                        try {
+                entity.setAltServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setAltServiceNo(null);
+            }
+            entity.setAltClientServiceId(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<DiscountRuleReturnElement> buildDiscountRuleReturnElement(JSONArray jsonArray) {
+        ArrayList<DiscountRuleReturnElement> returnElement = new ArrayList<DiscountRuleReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DiscountRuleReturnElement entity = new DiscountRuleReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRuleNo(getLongValue(jsonObject,"rule_no"));
+            entity.setRuleName(getStringValue(jsonObject,"rule_name"));
+            entity.setRuleId(getStringValue(jsonObject,"rule_id"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
+            entity.setDiscountType(getStringValue(jsonObject,"discount_type"));
+            entity.setFlatPercentInd(getLongValue(jsonObject,"flat_percent_ind"));
+            entity.setAmount(getDoubleValue(jsonObject,"amount"));
+            entity.setCurrency(getStringValue(jsonObject,"currency"));
+            entity.setApplicableTransScope(getStringValue(jsonObject,"applicable_trans_scope"));
+            entity.setDurationTypeInd(getStringValue(jsonObject,"duration_type_ind"));
+            entity.setMaxApplicableMonths(getLongValue(jsonObject,"max_applicable_months"));
+            entity.setMaxApplicationsPerAcct(getLongValue(jsonObject,"max_applications_per_acct"));
+            entity.setInlineOffsetInd(getStringValue(jsonObject,"inline_offset_ind"));
+            entity.setServiceCodeToUse(getLongValue(jsonObject,"service_code_to_use"));
+            entity.setAltServiceNo2Apply(getLongValue(jsonObject,"alt_service_no_2_apply"));
+            entity.setAltServiceId2Apply(getStringValue(jsonObject,"alt_service_id_2_apply"));
+            entity.setScopeNo(getLongValue(jsonObject,"scope_no"));
+                        ArrayList<PlanNoReturnElement> arrayListPlanNoReturnElement = buildPlanNoReturnElement((JSONArray)jsonObject.get("plan_no"));
+            for (PlanNoReturnElement element : arrayListPlanNoReturnElement){
+                entity.getPlanNo().add(element);
+            }
+                        ArrayList<ClientPlanIdReturnElement> arrayListClientPlanIdReturnElement = buildClientPlanIdReturnElement((JSONArray)jsonObject.get("client_plan_id"));
+            for (ClientPlanIdReturnElement element : arrayListClientPlanIdReturnElement){
+                entity.getClientPlanId().add(element);
+            }
+                        ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
+            for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
+                entity.getServiceNo().add(element);
+            }
+                        ArrayList<ClientServiceIdReturnElement> arrayListClientServiceIdReturnElement = buildClientServiceIdReturnElement((JSONArray)jsonObject.get("client_service_id"));
+            for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
+                entity.getClientServiceId().add(element);
+            }
+                        ArrayList<ItemNoReturnElement> arrayListItemNoReturnElement = buildItemNoReturnElement((JSONArray)jsonObject.get("item_no"));
+            for (ItemNoReturnElement element : arrayListItemNoReturnElement){
+                entity.getItemNo().add(element);
+            }
+                        ArrayList<ClientItemIdReturnElement> arrayListClientItemIdReturnElement = buildClientItemIdReturnElement((JSONArray)jsonObject.get("client_item_id"));
+            for (ClientItemIdReturnElement element : arrayListClientItemIdReturnElement){
+                entity.getClientItemId().add(element);
+            }
+            } else {
+                        try {
+                entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setRuleNo(null);
+            }
+            entity.setRuleName(jsonArray.get(i).toString());
+            entity.setRuleId(jsonArray.get(i).toString());
+            entity.setDescription(jsonArray.get(i).toString());
+            entity.setExtDescription(jsonArray.get(i).toString());
+            entity.setDiscountType(jsonArray.get(i).toString());
+                        try {
+                entity.setFlatPercentInd(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setFlatPercentInd(null);
+            }
+                        try {
+                entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setAmount(null);
+            }
+            entity.setCurrency(jsonArray.get(i).toString());
+            entity.setApplicableTransScope(jsonArray.get(i).toString());
+            entity.setDurationTypeInd(jsonArray.get(i).toString());
+                        try {
+                entity.setMaxApplicableMonths(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setMaxApplicableMonths(null);
+            }
+                        try {
+                entity.setMaxApplicationsPerAcct(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setMaxApplicationsPerAcct(null);
+            }
+            entity.setInlineOffsetInd(jsonArray.get(i).toString());
+                        try {
+                entity.setServiceCodeToUse(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setServiceCodeToUse(null);
+            }
+                        try {
+                entity.setAltServiceNo2Apply(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setAltServiceNo2Apply(null);
+            }
+            entity.setAltServiceId2Apply(jsonArray.get(i).toString());
+                        try {
+                entity.setScopeNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setScopeNo(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<DiscountBundleReturnElement> buildDiscountBundleReturnElement(JSONArray jsonArray) {
+        ArrayList<DiscountBundleReturnElement> returnElement = new ArrayList<DiscountBundleReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DiscountBundleReturnElement entity = new DiscountBundleReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setBundleNo(getLongValue(jsonObject,"bundle_no"));
+            entity.setBundleName(getStringValue(jsonObject,"bundle_name"));
+            entity.setBundleId(getStringValue(jsonObject,"bundle_id"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+                        ArrayList<RulesReturnElement> arrayListRulesReturnElement = buildRulesReturnElement((JSONArray)jsonObject.get("rules"));
+            for (RulesReturnElement element : arrayListRulesReturnElement){
+                entity.getRules().add(element);
+            }
+                        ArrayList<RuleIdsReturnElement> arrayListRuleIdsReturnElement = buildRuleIdsReturnElement((JSONArray)jsonObject.get("rule_ids"));
+            for (RuleIdsReturnElement element : arrayListRuleIdsReturnElement){
+                entity.getRuleIds().add(element);
+            }
+            entity.setAllowOverlapInd(getStringValue(jsonObject,"allow_overlap_ind"));
+            } else {
+                        try {
+                entity.setBundleNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setBundleNo(null);
+            }
+            entity.setBundleName(jsonArray.get(i).toString());
+            entity.setBundleId(jsonArray.get(i).toString());
+            entity.setDescription(jsonArray.get(i).toString());
+            entity.setAllowOverlapInd(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<CreditTemplatesReturnElement> buildCreditTemplatesReturnElement(JSONArray jsonArray) {
+        ArrayList<CreditTemplatesReturnElement> returnElement = new ArrayList<CreditTemplatesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            CreditTemplatesReturnElement entity = new CreditTemplatesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRecurringCreditTemplateNo(getLongValue(jsonObject,"recurring_credit_template_no"));
+            entity.setCreditTemplateName(getStringValue(jsonObject,"credit_template_name"));
+            entity.setClientCreditTemplateId(getStringValue(jsonObject,"client_credit_template_id"));
+            } else {
+                        try {
+                entity.setRecurringCreditTemplateNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setRecurringCreditTemplateNo(null);
+            }
+            entity.setCreditTemplateName(jsonArray.get(i).toString());
+            entity.setClientCreditTemplateId(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<DiscountBundlesReturnElement> buildDiscountBundlesReturnElement(JSONArray jsonArray) {
+        ArrayList<DiscountBundlesReturnElement> returnElement = new ArrayList<DiscountBundlesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DiscountBundlesReturnElement entity = new DiscountBundlesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setBundleNo(getLongValue(jsonObject,"bundle_no"));
+            entity.setBundleName(getStringValue(jsonObject,"bundle_name"));
+            entity.setBundleId(getStringValue(jsonObject,"bundle_id"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setAllowOverlapInd(getStringValue(jsonObject,"allow_overlap_ind"));
+                        ArrayList<RulesReturnElement> arrayListRulesReturnElement = buildRulesReturnElement((JSONArray)jsonObject.get("rules"));
+            for (RulesReturnElement element : arrayListRulesReturnElement){
+                entity.getRules().add(element);
+            }
+                        ArrayList<RuleIdsReturnElement> arrayListRuleIdsReturnElement = buildRuleIdsReturnElement((JSONArray)jsonObject.get("rule_ids"));
+            for (RuleIdsReturnElement element : arrayListRuleIdsReturnElement){
+                entity.getRuleIds().add(element);
+            }
+            } else {
+                        try {
+                entity.setBundleNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setBundleNo(null);
+            }
+            entity.setBundleName(jsonArray.get(i).toString());
+            entity.setBundleId(jsonArray.get(i).toString());
+            entity.setDescription(jsonArray.get(i).toString());
+            entity.setAllowOverlapInd(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<DiscountRulesReturnElement> buildDiscountRulesReturnElement(JSONArray jsonArray) {
+        ArrayList<DiscountRulesReturnElement> returnElement = new ArrayList<DiscountRulesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DiscountRulesReturnElement entity = new DiscountRulesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRuleNo(getLongValue(jsonObject,"rule_no"));
+            entity.setRuleName(getStringValue(jsonObject,"rule_name"));
+            entity.setRuleId(getStringValue(jsonObject,"rule_id"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
+            entity.setDiscountType(getStringValue(jsonObject,"discount_type"));
+            entity.setAmount(getDoubleValue(jsonObject,"amount"));
+            entity.setCurrency(getStringValue(jsonObject,"currency"));
+            entity.setApplicableTransScope(getStringValue(jsonObject,"applicable_trans_scope"));
+            entity.setDurationTypeInd(getStringValue(jsonObject,"duration_type_ind"));
+            entity.setMaxApplicableMonths(getLongValue(jsonObject,"max_applicable_months"));
+            entity.setMaxApplicationsPerAcct(getLongValue(jsonObject,"max_applications_per_acct"));
+            entity.setInlineOffsetInd(getStringValue(jsonObject,"inline_offset_ind"));
+            entity.setServiceCodeToUse(getLongValue(jsonObject,"service_code_to_use"));
+            entity.setAltServiceNo2Apply(getLongValue(jsonObject,"alt_service_no_2_apply"));
+            entity.setAltServiceId2Apply(getStringValue(jsonObject,"alt_service_id_2_apply"));
+            entity.setScopeNo(getLongValue(jsonObject,"scope_no"));
+            entity.setDiscountBehaviorTypeInd(getValue(jsonObject,"discount_behavior_type_ind"));
+                        ArrayList<PlanNoReturnElement> arrayListPlanNoReturnElement = buildPlanNoReturnElement((JSONArray)jsonObject.get("plan_no"));
+            for (PlanNoReturnElement element : arrayListPlanNoReturnElement){
+                entity.getPlanNo().add(element);
+            }
+                        ArrayList<ClientPlanIdReturnElement> arrayListClientPlanIdReturnElement = buildClientPlanIdReturnElement((JSONArray)jsonObject.get("client_plan_id"));
+            for (ClientPlanIdReturnElement element : arrayListClientPlanIdReturnElement){
+                entity.getClientPlanId().add(element);
+            }
+                        ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
+            for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
+                entity.getServiceNo().add(element);
+            }
+                        ArrayList<ClientServiceIdReturnElement> arrayListClientServiceIdReturnElement = buildClientServiceIdReturnElement((JSONArray)jsonObject.get("client_service_id"));
+            for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
+                entity.getClientServiceId().add(element);
+            }
+                        ArrayList<ItemNoReturnElement> arrayListItemNoReturnElement = buildItemNoReturnElement((JSONArray)jsonObject.get("item_no"));
+            for (ItemNoReturnElement element : arrayListItemNoReturnElement){
+                entity.getItemNo().add(element);
+            }
+                        ArrayList<ClientItemIdReturnElement> arrayListClientItemIdReturnElement = buildClientItemIdReturnElement((JSONArray)jsonObject.get("client_item_id"));
+            for (ClientItemIdReturnElement element : arrayListClientItemIdReturnElement){
+                entity.getClientItemId().add(element);
+            }
+            entity.setUseAllOrNthSubsRule(getStringValue(jsonObject,"use_all_or_nth_subs_rule"));
+            } else {
+                        try {
+                entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setRuleNo(null);
+            }
+            entity.setRuleName(jsonArray.get(i).toString());
+            entity.setRuleId(jsonArray.get(i).toString());
+            entity.setDescription(jsonArray.get(i).toString());
+            entity.setExtDescription(jsonArray.get(i).toString());
+            entity.setDiscountType(jsonArray.get(i).toString());
+                        try {
+                entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setAmount(null);
+            }
+            entity.setCurrency(jsonArray.get(i).toString());
+            entity.setApplicableTransScope(jsonArray.get(i).toString());
+            entity.setDurationTypeInd(jsonArray.get(i).toString());
+                        try {
+                entity.setMaxApplicableMonths(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setMaxApplicableMonths(null);
+            }
+                        try {
+                entity.setMaxApplicationsPerAcct(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setMaxApplicationsPerAcct(null);
+            }
+            entity.setInlineOffsetInd(jsonArray.get(i).toString());
+                        try {
+                entity.setServiceCodeToUse(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setServiceCodeToUse(null);
+            }
+                        try {
+                entity.setAltServiceNo2Apply(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setAltServiceNo2Apply(null);
+            }
+            entity.setAltServiceId2Apply(jsonArray.get(i).toString());
+                        try {
+                entity.setScopeNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setScopeNo(null);
+            }
+            entity.setUseAllOrNthSubsRule(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PlansReturnElement> buildPlansReturnElement(JSONArray jsonArray) {
+        ArrayList<PlansReturnElement> returnElement = new ArrayList<PlansReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlansReturnElement entity = new PlansReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
+            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
+            entity.setPlanLevel(getLongValue(jsonObject,"plan_level"));
+            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
+            entity.setBillingInterval(getLongValue(jsonObject,"billing_interval"));
+            entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
+            } else {
+            entity.setPlanName(jsonArray.get(i).toString());
+            entity.setPlanDesc(jsonArray.get(i).toString());
+                        try {
+                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanNo(null);
+            }
+                        try {
+                entity.setPlanLevel(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanLevel(null);
+            }
+            entity.setClientPlanId(jsonArray.get(i).toString());
+                        try {
+                entity.setBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setBillingInterval(null);
+            }
+                        try {
+                entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setActiveInd(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<SurchargeNoReturnElement> buildSurchargeNoReturnElement(JSONArray jsonArray) {
+        ArrayList<SurchargeNoReturnElement> returnElement = new ArrayList<SurchargeNoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SurchargeNoReturnElement entity = new SurchargeNoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setSurchargeNos(getLongValue(jsonObject,"surcharge_nos"));
+            } else {
+                        try {
+                entity.setSurchargeNos(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setSurchargeNos(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ClientSurchargeIdReturnElement> buildClientSurchargeIdReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientSurchargeIdReturnElement> returnElement = new ArrayList<ClientSurchargeIdReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ClientSurchargeIdReturnElement entity = new ClientSurchargeIdReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setClientSurchargeIds(getStringValue(jsonObject,"client_surcharge_ids"));
+            } else {
+            entity.setClientSurchargeIds(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<PlanGroupsReturnElement> buildPlanGroupsReturnElement(JSONArray jsonArray) {
         ArrayList<PlanGroupsReturnElement> returnElement = new ArrayList<PlanGroupsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             PlanGroupsReturnElement entity = new PlanGroupsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setGroupNo(getLongValue(jsonObject,"group_no"));
             entity.setGroupName(getStringValue(jsonObject,"group_name"));
             entity.setPlanSetNo(getLongValue(jsonObject,"plan_set_no"));
@@ -176,599 +1297,63 @@ public class RestUtilities {
             entity.setClientPlanChangeGroupId(getStringValue(jsonObject,"client_plan_change_group_id"));
             entity.setGroupUsage(getStringValue(jsonObject,"group_usage"));
             entity.setGroupPlansCount(getLongValue(jsonObject,"group_plans_count"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<InventoryItemsReturnElement> buildInventoryItemsReturnElement(JSONArray jsonArray) {
-        ArrayList<InventoryItemsReturnElement> returnElement = new ArrayList<InventoryItemsReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            InventoryItemsReturnElement entity = new InventoryItemsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setItemNo(getLongValue(jsonObject,"item_no"));
-            entity.setItemName(getStringValue(jsonObject,"item_name"));
-            entity.setItemType(getLongValue(jsonObject,"item_type"));
-            entity.setClientSku(getStringValue(jsonObject,"client_sku"));
-            entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
-            entity.setClientItemId(getStringValue(jsonObject,"client_item_id"));
-            entity.setStockLevel(getDoubleValue(jsonObject,"stock_level"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<PricingReturnElement> buildPricingReturnElement(JSONArray jsonArray) {
-        ArrayList<PricingReturnElement> returnElement = new ArrayList<PricingReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            PricingReturnElement entity = new PricingReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
-            entity.setItemPrice(getDoubleValue(jsonObject,"item_price"));
-            entity.setPricePerUnit(getDoubleValue(jsonObject,"price_per_unit"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ResourcesReturnElement> buildResourcesReturnElement(JSONArray jsonArray) {
-        ArrayList<ResourcesReturnElement> returnElement = new ArrayList<ResourcesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ResourcesReturnElement entity = new ResourcesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setResources(getLongValue(jsonObject,"resources"));
-            entity.setResourceTypeNo(getLongValue(jsonObject,"resource_type_no"));
-            entity.setResourceUnits(getLongValue(jsonObject,"resource_units"));
-            entity.setResourceName(getStringValue(jsonObject,"resource_name"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ImageReturnElement> buildImageReturnElement(JSONArray jsonArray) {
-        ArrayList<ImageReturnElement> returnElement = new ArrayList<ImageReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ImageReturnElement entity = new ImageReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setThumbnailImageUrl(getStringValue(jsonObject,"thumbnail_image_url"));
-            entity.setMainImageUrl(getStringValue(jsonObject,"main_image_url"));
-            entity.setImageText(getStringValue(jsonObject,"image_text"));
-            entity.setDefaultInd(getLongValue(jsonObject,"default_ind"));
-            entity.setImageClassSeqNo(getLongValue(jsonObject,"image_class_seq_no"));
-            entity.setActive(getLongValue(jsonObject,"active"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<SupplementalObjFieldsReturnElement> buildSupplementalObjFieldsReturnElement(JSONArray jsonArray) {
-        ArrayList<SupplementalObjFieldsReturnElement> returnElement = new ArrayList<SupplementalObjFieldsReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            SupplementalObjFieldsReturnElement entity = new SupplementalObjFieldsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setSupplementalObjField(getStringValue(jsonObject,"supplemental_obj_field"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ServiceTypesReturnElement> buildServiceTypesReturnElement(JSONArray jsonArray) {
-        ArrayList<ServiceTypesReturnElement> returnElement = new ArrayList<ServiceTypesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ServiceTypesReturnElement entity = new ServiceTypesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setServiceTypeName(getStringValue(jsonObject,"service_type_name"));
-            entity.setServiceDesc(getStringValue(jsonObject,"service_desc"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ServicesReturnElement> buildServicesReturnElement(JSONArray jsonArray) {
-        ArrayList<ServicesReturnElement> returnElement = new ArrayList<ServicesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ServicesReturnElement entity = new ServicesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setServiceNo(getLongValue(jsonObject,"service_no"));
-            entity.setClientServiceId(getStringValue(jsonObject,"client_service_id"));
-            entity.setServiceName(getStringValue(jsonObject,"service_name"));
-            entity.setServiceType(getStringValue(jsonObject,"service_type"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<RateInfoReturnElement> buildRateInfoReturnElement(JSONArray jsonArray) {
-        ArrayList<RateInfoReturnElement> returnElement = new ArrayList<RateInfoReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            RateInfoReturnElement entity = new RateInfoReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setScheduleNo(getLongValue(jsonObject,"schedule_no"));
-            entity.setScheduleName(getStringValue(jsonObject,"schedule_name"));
-            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
-            entity.setFromUnit(getStringValue(jsonObject,"from_unit"));
-            entity.setToUnit(getStringValue(jsonObject,"to_unit"));
-            entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<RateSchedulesReturnElement> buildRateSchedulesReturnElement(JSONArray jsonArray) {
-        ArrayList<RateSchedulesReturnElement> returnElement = new ArrayList<RateSchedulesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            RateSchedulesReturnElement entity = new RateSchedulesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setCurrency(getStringValue(jsonObject,"currency"));
-                        ArrayList<RateInfoReturnElement> arrayListRateInfoReturnElement = buildRateInfoReturnElement((JSONArray)jsonObject.get("rate_info"));
-            for (RateInfoReturnElement element : arrayListRateInfoReturnElement){
-                entity.getRateInfo().add(element);
+            } else {
+                        try {
+                entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setGroupNo(null);
             }
-            entity.setIsDefault(getLongValue(jsonObject,"is_default"));
-            entity.setFromUnit(getStringValue(jsonObject,"from_unit"));
-            entity.setToUnit(getStringValue(jsonObject,"to_unit"));
-            entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ParentPlansReturnElement> buildParentPlansReturnElement(JSONArray jsonArray) {
-        ArrayList<ParentPlansReturnElement> returnElement = new ArrayList<ParentPlansReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ParentPlansReturnElement entity = new ParentPlansReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setParentPlan(getLongValue(jsonObject,"parent_plan"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ParentPlanIdsReturnElement> buildParentPlanIdsReturnElement(JSONArray jsonArray) {
-        ArrayList<ParentPlanIdsReturnElement> returnElement = new ArrayList<ParentPlanIdsReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ParentPlanIdsReturnElement entity = new ParentPlanIdsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setParentPlanId(getStringValue(jsonObject,"parent_plan_id"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ExclusionPlansReturnElement> buildExclusionPlansReturnElement(JSONArray jsonArray) {
-        ArrayList<ExclusionPlansReturnElement> returnElement = new ArrayList<ExclusionPlansReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ExclusionPlansReturnElement entity = new ExclusionPlansReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setExclusionPlan(getLongValue(jsonObject,"exclusion_plan"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<SuppFieldsReturnElement> buildSuppFieldsReturnElement(JSONArray jsonArray) {
-        ArrayList<SuppFieldsReturnElement> returnElement = new ArrayList<SuppFieldsReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            SuppFieldsReturnElement entity = new SuppFieldsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setFieldName(getStringValue(jsonObject,"field_name"));
-            entity.setFieldDesc(getStringValue(jsonObject,"field_desc"));
-            entity.setFieldOrder(getLongValue(jsonObject,"field_order"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<FieldOptionsReturnElement> buildFieldOptionsReturnElement(JSONArray jsonArray) {
-        ArrayList<FieldOptionsReturnElement> returnElement = new ArrayList<FieldOptionsReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            FieldOptionsReturnElement entity = new FieldOptionsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setDisplayText(getStringValue(jsonObject,"display_text"));
-            entity.setOptionValue(getStringValue(jsonObject,"option_value"));
-            entity.setFieldOrder(getLongValue(jsonObject,"field_order"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<CouponsReturnElement> buildCouponsReturnElement(JSONArray jsonArray) {
-        ArrayList<CouponsReturnElement> returnElement = new ArrayList<CouponsReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            CouponsReturnElement entity = new CouponsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setCouponCd(getStringValue(jsonObject,"coupon_cd"));
-            entity.setCouponDesc(getStringValue(jsonObject,"coupon_desc"));
-            entity.setCouponMsg(getStringValue(jsonObject,"coupon_msg"));
-            entity.setStatusInd(getLongValue(jsonObject,"status_ind"));
-            entity.setNoOfUses(getLongValue(jsonObject,"no_of_uses"));
-            entity.setStartDate(getStringValue(jsonObject,"start_date"));
-            entity.setEndDate(getStringValue(jsonObject,"end_date"));
-            entity.setExpiresDesc(getStringValue(jsonObject,"expires_desc"));
-            entity.setCouponNo(getLongValue(jsonObject,"coupon_no"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<RulesReturnElement> buildRulesReturnElement(JSONArray jsonArray) {
-        ArrayList<RulesReturnElement> returnElement = new ArrayList<RulesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            RulesReturnElement entity = new RulesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRule(getLongValue(jsonObject,"rule"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<RuleIdsReturnElement> buildRuleIdsReturnElement(JSONArray jsonArray) {
-        ArrayList<RuleIdsReturnElement> returnElement = new ArrayList<RuleIdsReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            RuleIdsReturnElement entity = new RuleIdsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRule(getStringValue(jsonObject,"rule"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<PlanNoReturnElement> buildPlanNoReturnElement(JSONArray jsonArray) {
-        ArrayList<PlanNoReturnElement> returnElement = new ArrayList<PlanNoReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            PlanNoReturnElement entity = new PlanNoReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setPlanNos(getLongValue(jsonObject,"plan_nos"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ClientPlanIdReturnElement> buildClientPlanIdReturnElement(JSONArray jsonArray) {
-        ArrayList<ClientPlanIdReturnElement> returnElement = new ArrayList<ClientPlanIdReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ClientPlanIdReturnElement entity = new ClientPlanIdReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setClientPlanIds(getStringValue(jsonObject,"client_plan_ids"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ServiceNoReturnElement> buildServiceNoReturnElement(JSONArray jsonArray) {
-        ArrayList<ServiceNoReturnElement> returnElement = new ArrayList<ServiceNoReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ServiceNoReturnElement entity = new ServiceNoReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setServiceNos(getLongValue(jsonObject,"service_nos"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ClientServiceIdReturnElement> buildClientServiceIdReturnElement(JSONArray jsonArray) {
-        ArrayList<ClientServiceIdReturnElement> returnElement = new ArrayList<ClientServiceIdReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ClientServiceIdReturnElement entity = new ClientServiceIdReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setClientServiceIds(getStringValue(jsonObject,"client_service_ids"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ItemNoReturnElement> buildItemNoReturnElement(JSONArray jsonArray) {
-        ArrayList<ItemNoReturnElement> returnElement = new ArrayList<ItemNoReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ItemNoReturnElement entity = new ItemNoReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setItemNos(getLongValue(jsonObject,"item_nos"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ClientItemIdReturnElement> buildClientItemIdReturnElement(JSONArray jsonArray) {
-        ArrayList<ClientItemIdReturnElement> returnElement = new ArrayList<ClientItemIdReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ClientItemIdReturnElement entity = new ClientItemIdReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setClientItemIds(getStringValue(jsonObject,"client_item_ids"));
-            entity.setItemIds(getStringValue(jsonObject,"item_ids"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<EligibleServiceTypesReturnElement> buildEligibleServiceTypesReturnElement(JSONArray jsonArray) {
-        ArrayList<EligibleServiceTypesReturnElement> returnElement = new ArrayList<EligibleServiceTypesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            EligibleServiceTypesReturnElement entity = new EligibleServiceTypesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setEligibleServiceType(getStringValue(jsonObject,"eligible_service_type"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<CreditTemplateReturnElement> buildCreditTemplateReturnElement(JSONArray jsonArray) {
-        ArrayList<CreditTemplateReturnElement> returnElement = new ArrayList<CreditTemplateReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            CreditTemplateReturnElement entity = new CreditTemplateReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setCreditTemplateNo(getLongValue(jsonObject,"credit_template_no"));
-            entity.setCreditTemplateName(getStringValue(jsonObject,"credit_template_name"));
-            entity.setClientCreditTemplateId(getStringValue(jsonObject,"client_credit_template_id"));
-            entity.setEligiblePlanNo(getLongValue(jsonObject,"eligible_plan_no"));
-            entity.setEligibleClientPlanId(getStringValue(jsonObject,"eligible_client_plan_id"));
-            entity.setEligibleServiceNo(getLongValue(jsonObject,"eligible_service_no"));
-            entity.setEligibleClientServiceId(getStringValue(jsonObject,"eligible_client_service_id"));
-                        ArrayList<EligibleServiceTypesReturnElement> arrayListEligibleServiceTypesReturnElement = buildEligibleServiceTypesReturnElement((JSONArray)jsonObject.get("eligible_service_types"));
-            for (EligibleServiceTypesReturnElement element : arrayListEligibleServiceTypesReturnElement){
-                entity.getEligibleServiceTypes().add(element);
+            entity.setGroupName(jsonArray.get(i).toString());
+                        try {
+                entity.setPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanSetNo(null);
             }
-            entity.setNoOfCredits(getLongValue(jsonObject,"no_of_credits"));
-            entity.setTimeBetweenCredits(getLongValue(jsonObject,"time_between_credits"));
-            entity.setDiscountType(getLongValue(jsonObject,"discount_type"));
-            entity.setDiscountAmt(getDoubleValue(jsonObject,"discount_amt"));
-            entity.setPercentagePlanNo(getLongValue(jsonObject,"percentage_plan_no"));
-            entity.setPercentageClientPlanId(getStringValue(jsonObject,"percentage_client_plan_id"));
-            entity.setPercentageServiceNo(getLongValue(jsonObject,"percentage_service_no"));
-            entity.setPercentageClientServiceId(getStringValue(jsonObject,"percentage_client_service_id"));
-            entity.setAltServiceNo(getLongValue(jsonObject,"alt_service_no"));
-            entity.setAltClientServiceId(getStringValue(jsonObject,"alt_client_service_id"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<DiscountRuleReturnElement> buildDiscountRuleReturnElement(JSONArray jsonArray) {
-        ArrayList<DiscountRuleReturnElement> returnElement = new ArrayList<DiscountRuleReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            DiscountRuleReturnElement entity = new DiscountRuleReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRuleNo(getLongValue(jsonObject,"rule_no"));
-            entity.setRuleId(getStringValue(jsonObject,"rule_id"));
-            entity.setDescription(getStringValue(jsonObject,"description"));
-            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
-            entity.setFlatPercentInd(getLongValue(jsonObject,"flat_percent_ind"));
-            entity.setAmount(getDoubleValue(jsonObject,"amount"));
-            entity.setCurrency(getStringValue(jsonObject,"currency"));
-            entity.setDurationTypeInd(getStringValue(jsonObject,"duration_type_ind"));
-            entity.setMaxApplicableMonths(getLongValue(jsonObject,"max_applicable_months"));
-            entity.setMaxApplicationsPerAcct(getLongValue(jsonObject,"max_applications_per_acct"));
-            entity.setInlineOffsetInd(getStringValue(jsonObject,"inline_offset_ind"));
-            entity.setServiceCodeToUse(getLongValue(jsonObject,"service_code_to_use"));
-            entity.setAltServiceNo2Apply(getLongValue(jsonObject,"alt_service_no_2_apply"));
-            entity.setAltServiceId2Apply(getStringValue(jsonObject,"alt_service_id_2_apply"));
-            entity.setScopeNo(getLongValue(jsonObject,"scope_no"));
-                        ArrayList<PlanNoReturnElement> arrayListPlanNoReturnElement = buildPlanNoReturnElement((JSONArray)jsonObject.get("plan_no"));
-            for (PlanNoReturnElement element : arrayListPlanNoReturnElement){
-                entity.getPlanNo().add(element);
+            entity.setSetName(jsonArray.get(i).toString());
+            entity.setSetDescription(jsonArray.get(i).toString());
+            entity.setClientPlanTypeId(jsonArray.get(i).toString());
+                        try {
+                entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanGroup(null);
             }
-                        ArrayList<ClientPlanIdReturnElement> arrayListClientPlanIdReturnElement = buildClientPlanIdReturnElement((JSONArray)jsonObject.get("client_plan_id"));
-            for (ClientPlanIdReturnElement element : arrayListClientPlanIdReturnElement){
-                entity.getClientPlanId().add(element);
+            entity.setGroupDesc(jsonArray.get(i).toString());
+            entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
+            entity.setGroupUsage(jsonArray.get(i).toString());
+                        try {
+                entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setGroupPlansCount(null);
             }
-                        ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
-            for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
-                entity.getServiceNo().add(element);
-            }
-                        ArrayList<ClientServiceIdReturnElement> arrayListClientServiceIdReturnElement = buildClientServiceIdReturnElement((JSONArray)jsonObject.get("client_service_id"));
-            for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
-                entity.getClientServiceId().add(element);
-            }
-                        ArrayList<ItemNoReturnElement> arrayListItemNoReturnElement = buildItemNoReturnElement((JSONArray)jsonObject.get("item_no"));
-            for (ItemNoReturnElement element : arrayListItemNoReturnElement){
-                entity.getItemNo().add(element);
-            }
-                        ArrayList<ClientItemIdReturnElement> arrayListClientItemIdReturnElement = buildClientItemIdReturnElement((JSONArray)jsonObject.get("client_item_id"));
-            for (ClientItemIdReturnElement element : arrayListClientItemIdReturnElement){
-                entity.getClientItemId().add(element);
             }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
-    public static ArrayList<DiscountBundleReturnElement> buildDiscountBundleReturnElement(JSONArray jsonArray) {
-        ArrayList<DiscountBundleReturnElement> returnElement = new ArrayList<DiscountBundleReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            DiscountBundleReturnElement entity = new DiscountBundleReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setBundleNo(getLongValue(jsonObject,"bundle_no"));
-            entity.setBundleName(getStringValue(jsonObject,"bundle_name"));
-            entity.setBundleId(getStringValue(jsonObject,"bundle_id"));
-            entity.setDescription(getStringValue(jsonObject,"description"));
-            entity.setAllowOverlapInd(getStringValue(jsonObject,"allow_overlap_ind"));
-                        ArrayList<RulesReturnElement> arrayListRulesReturnElement = buildRulesReturnElement((JSONArray)jsonObject.get("rules"));
-            for (RulesReturnElement element : arrayListRulesReturnElement){
-                entity.getRules().add(element);
-            }
-                        ArrayList<RuleIdsReturnElement> arrayListRuleIdsReturnElement = buildRuleIdsReturnElement((JSONArray)jsonObject.get("rule_ids"));
-            for (RuleIdsReturnElement element : arrayListRuleIdsReturnElement){
-                entity.getRuleIds().add(element);
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<CreditTemplatesReturnElement> buildCreditTemplatesReturnElement(JSONArray jsonArray) {
-        ArrayList<CreditTemplatesReturnElement> returnElement = new ArrayList<CreditTemplatesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            CreditTemplatesReturnElement entity = new CreditTemplatesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRecurringCreditTemplateNo(getLongValue(jsonObject,"recurring_credit_template_no"));
-            entity.setCreditTemplateName(getStringValue(jsonObject,"credit_template_name"));
-            entity.setClientCreditTemplateId(getStringValue(jsonObject,"client_credit_template_id"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<DiscountBundlesReturnElement> buildDiscountBundlesReturnElement(JSONArray jsonArray) {
-        ArrayList<DiscountBundlesReturnElement> returnElement = new ArrayList<DiscountBundlesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            DiscountBundlesReturnElement entity = new DiscountBundlesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setBundleNo(getLongValue(jsonObject,"bundle_no"));
-            entity.setBundleName(getStringValue(jsonObject,"bundle_name"));
-            entity.setBundleId(getStringValue(jsonObject,"bundle_id"));
-            entity.setDescription(getStringValue(jsonObject,"description"));
-            entity.setAllowOverlapInd(getStringValue(jsonObject,"allow_overlap_ind"));
-                        ArrayList<RulesReturnElement> arrayListRulesReturnElement = buildRulesReturnElement((JSONArray)jsonObject.get("rules"));
-            for (RulesReturnElement element : arrayListRulesReturnElement){
-                entity.getRules().add(element);
-            }
-                        ArrayList<RuleIdsReturnElement> arrayListRuleIdsReturnElement = buildRuleIdsReturnElement((JSONArray)jsonObject.get("rule_ids"));
-            for (RuleIdsReturnElement element : arrayListRuleIdsReturnElement){
-                entity.getRuleIds().add(element);
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<DiscountRulesReturnElement> buildDiscountRulesReturnElement(JSONArray jsonArray) {
-        ArrayList<DiscountRulesReturnElement> returnElement = new ArrayList<DiscountRulesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            DiscountRulesReturnElement entity = new DiscountRulesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRuleNo(getLongValue(jsonObject,"rule_no"));
-            entity.setRuleId(getStringValue(jsonObject,"rule_id"));
-            entity.setDescription(getStringValue(jsonObject,"description"));
-            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
-            entity.setFlatPercentInd(getLongValue(jsonObject,"flat_percent_ind"));
-            entity.setAmount(getDoubleValue(jsonObject,"amount"));
-            entity.setCurrency(getStringValue(jsonObject,"currency"));
-            entity.setDurationTypeInd(getStringValue(jsonObject,"duration_type_ind"));
-            entity.setMaxApplicableMonths(getLongValue(jsonObject,"max_applicable_months"));
-            entity.setMaxApplicationsPerAcct(getLongValue(jsonObject,"max_applications_per_acct"));
-            entity.setInlineOffsetInd(getStringValue(jsonObject,"inline_offset_ind"));
-            entity.setServiceCodeToUse(getLongValue(jsonObject,"service_code_to_use"));
-            entity.setAltServiceNo2Apply(getLongValue(jsonObject,"alt_service_no_2_apply"));
-            entity.setAltServiceId2Apply(getStringValue(jsonObject,"alt_service_id_2_apply"));
-            entity.setScopeNo(getLongValue(jsonObject,"scope_no"));
-                        ArrayList<PlanNoReturnElement> arrayListPlanNoReturnElement = buildPlanNoReturnElement((JSONArray)jsonObject.get("plan_no"));
-            for (PlanNoReturnElement element : arrayListPlanNoReturnElement){
-                entity.getPlanNo().add(element);
-            }
-                        ArrayList<ClientPlanIdReturnElement> arrayListClientPlanIdReturnElement = buildClientPlanIdReturnElement((JSONArray)jsonObject.get("client_plan_id"));
-            for (ClientPlanIdReturnElement element : arrayListClientPlanIdReturnElement){
-                entity.getClientPlanId().add(element);
-            }
-                        ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
-            for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
-                entity.getServiceNo().add(element);
-            }
-                        ArrayList<ClientServiceIdReturnElement> arrayListClientServiceIdReturnElement = buildClientServiceIdReturnElement((JSONArray)jsonObject.get("client_service_id"));
-            for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
-                entity.getClientServiceId().add(element);
-            }
-                        ArrayList<ItemNoReturnElement> arrayListItemNoReturnElement = buildItemNoReturnElement((JSONArray)jsonObject.get("item_no"));
-            for (ItemNoReturnElement element : arrayListItemNoReturnElement){
-                entity.getItemNo().add(element);
-            }
-                        ArrayList<ClientItemIdReturnElement> arrayListClientItemIdReturnElement = buildClientItemIdReturnElement((JSONArray)jsonObject.get("client_item_id"));
-            for (ClientItemIdReturnElement element : arrayListClientItemIdReturnElement){
-                entity.getClientItemId().add(element);
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<PlansReturnElement> buildPlansReturnElement(JSONArray jsonArray) {
-        ArrayList<PlansReturnElement> returnElement = new ArrayList<PlansReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            PlansReturnElement entity = new PlansReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
-            entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
-            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
-            entity.setPlanLevel(getLongValue(jsonObject,"plan_level"));
-            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
-            entity.setBillingInterval(getLongValue(jsonObject,"billing_interval"));
-            entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<SurchargeNoReturnElement> buildSurchargeNoReturnElement(JSONArray jsonArray) {
-        ArrayList<SurchargeNoReturnElement> returnElement = new ArrayList<SurchargeNoReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            SurchargeNoReturnElement entity = new SurchargeNoReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setSurchargeNos(getLongValue(jsonObject,"surcharge_nos"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
-    public static ArrayList<ClientSurchargeIdReturnElement> buildClientSurchargeIdReturnElement(JSONArray jsonArray) {
-        ArrayList<ClientSurchargeIdReturnElement> returnElement = new ArrayList<ClientSurchargeIdReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ClientSurchargeIdReturnElement entity = new ClientSurchargeIdReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setClientSurchargeIds(getStringValue(jsonObject,"client_surcharge_ids"));
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-
     public static ArrayList<PlanGroupIdsReturnElement> buildPlanGroupIdsReturnElement(JSONArray jsonArray) {
         ArrayList<PlanGroupIdsReturnElement> returnElement = new ArrayList<PlanGroupIdsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             PlanGroupIdsReturnElement entity = new PlanGroupIdsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setPlanGroupId(getStringValue(jsonObject,"plan_group_id"));
+            } else {
+            entity.setPlanGroupId(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<SurchargesReturnElement> buildSurchargesReturnElement(JSONArray jsonArray) {
         ArrayList<SurchargesReturnElement> returnElement = new ArrayList<SurchargesReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             SurchargesReturnElement entity = new SurchargesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setSurchargeNo(getLongValue(jsonObject,"surcharge_no"));
             entity.setClientSurchargeId(getStringValue(jsonObject,"client_surcharge_id"));
             entity.setSurchargeName(getStringValue(jsonObject,"surcharge_name"));
@@ -776,122 +1361,221 @@ public class RestUtilities {
             entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
             entity.setScopeLabel(getStringValue(jsonObject,"scope_label"));
             entity.setDeleteable(getStringValue(jsonObject,"deleteable"));
+            } else {
+                        try {
+                entity.setSurchargeNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setSurchargeNo(null);
+            }
+            entity.setClientSurchargeId(jsonArray.get(i).toString());
+            entity.setSurchargeName(jsonArray.get(i).toString());
+            entity.setSurchargeTypeCd(jsonArray.get(i).toString());
+            entity.setCurrencyCd(jsonArray.get(i).toString());
+            entity.setScopeLabel(jsonArray.get(i).toString());
+            entity.setDeleteable(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<PromotionsReturnElement> buildPromotionsReturnElement(JSONArray jsonArray) {
         ArrayList<PromotionsReturnElement> returnElement = new ArrayList<PromotionsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             PromotionsReturnElement entity = new PromotionsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setPromoCd(getStringValue(jsonObject,"promo_cd"));
             entity.setPromoDesc(getStringValue(jsonObject,"promo_desc"));
             entity.setExpiresAfter(getStringValue(jsonObject,"expires_after"));
+            } else {
+            entity.setPromoCd(jsonArray.get(i).toString());
+            entity.setPromoDesc(jsonArray.get(i).toString());
+            entity.setExpiresAfter(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<UsageTypesReturnElement> buildUsageTypesReturnElement(JSONArray jsonArray) {
         ArrayList<UsageTypesReturnElement> returnElement = new ArrayList<UsageTypesReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             UsageTypesReturnElement entity = new UsageTypesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setUsageTypeNo(getLongValue(jsonObject,"usage_type_no"));
-            entity.setUsageTypeName(getStringValue(jsonObject,"usage_type_name"));
             entity.setUsageTypeDesc(getStringValue(jsonObject,"usage_type_desc"));
-            entity.setUnitType(getStringValue(jsonObject,"unit_type"));
-            entity.setUsageTypeCd(getStringValue(jsonObject,"usage_type_cd"));
+            entity.setUsageUnitType(getStringValue(jsonObject,"usage_unit_type"));
+            entity.setUsageTypeName(getStringValue(jsonObject,"usage_type_name"));
             entity.setIsEditable(getLongValue(jsonObject,"is_editable"));
+            } else {
+                        try {
+                entity.setUsageTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setUsageTypeNo(null);
+            }
+            entity.setUsageTypeDesc(jsonArray.get(i).toString());
+            entity.setUsageUnitType(jsonArray.get(i).toString());
+            entity.setUsageTypeName(jsonArray.get(i).toString());
+                        try {
+                entity.setIsEditable(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setIsEditable(null);
+            }
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<UsageUnitTypesReturnElement> buildUsageUnitTypesReturnElement(JSONArray jsonArray) {
         ArrayList<UsageUnitTypesReturnElement> returnElement = new ArrayList<UsageUnitTypesReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             UsageUnitTypesReturnElement entity = new UsageUnitTypesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setUsageUnitTypeNo(getLongValue(jsonObject,"usage_unit_type_no"));
             entity.setUsageUnitTypeDesc(getStringValue(jsonObject,"usage_unit_type_desc"));
-            entity.setClientUsageUnitTypeId(getStringValue(jsonObject,"client_usage_unit_type_id"));
+            } else {
+                        try {
+                entity.setUsageUnitTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setUsageUnitTypeNo(null);
+            }
+            entity.setUsageUnitTypeDesc(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<AllowedValuesReturnElement> buildAllowedValuesReturnElement(JSONArray jsonArray) {
         ArrayList<AllowedValuesReturnElement> returnElement = new ArrayList<AllowedValuesReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             AllowedValuesReturnElement entity = new AllowedValuesReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setValue(getStringValue(jsonObject,"value"));
+            } else {
+            entity.setValue(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<AssociatedObjectsReturnElement> buildAssociatedObjectsReturnElement(JSONArray jsonArray) {
         ArrayList<AssociatedObjectsReturnElement> returnElement = new ArrayList<AssociatedObjectsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             AssociatedObjectsReturnElement entity = new AssociatedObjectsReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setAssociatedObject(getStringValue(jsonObject,"associated_object"));
+            } else {
+            entity.setAssociatedObject(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<CoaListReturnElement> buildCoaListReturnElement(JSONArray jsonArray) {
         ArrayList<CoaListReturnElement> returnElement = new ArrayList<CoaListReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             CoaListReturnElement entity = new CoaListReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setCoaId(getLongValue(jsonObject,"coa_id"));
             entity.setCoaCode(getStringValue(jsonObject,"coa_code"));
             entity.setCoaDescription(getStringValue(jsonObject,"coa_description"));
+            } else {
+                        try {
+                entity.setCoaId(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setCoaId(null);
+            }
+            entity.setCoaCode(jsonArray.get(i).toString());
+            entity.setCoaDescription(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
     public static ArrayList<CoaReturnElement> buildCoaReturnElement(JSONArray jsonArray) {
         ArrayList<CoaReturnElement> returnElement = new ArrayList<CoaReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             CoaReturnElement entity = new CoaReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
             entity.setCoaId(getLongValue(jsonObject,"coa_id"));
             entity.setCoaCode(getStringValue(jsonObject,"coa_code"));
             entity.setCoaDescription(getStringValue(jsonObject,"coa_description"));
+            } else {
+                        try {
+                entity.setCoaId(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setCoaId(null);
+            }
+            entity.setCoaCode(jsonArray.get(i).toString());
+            entity.setCoaDescription(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
+    public static ArrayList<SurchargeTierReturnElement> buildSurchargeTierReturnElement(JSONArray jsonArray) {
+        ArrayList<SurchargeTierReturnElement> returnElement = new ArrayList<SurchargeTierReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SurchargeTierReturnElement entity = new SurchargeTierReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setFrom(getLongValue(jsonObject,"from"));
+            entity.setTo(getLongValue(jsonObject,"to"));
+            entity.setRate(getDoubleValue(jsonObject,"rate"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            } else {
+                        try {
+                entity.setFrom(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setFrom(null);
+            }
+                        try {
+                entity.setTo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setTo(null);
+            }
+                        try {
+                entity.setRate(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+            } catch (NumberFormatException e) {
+                entity.setRate(null);
+            }
+            entity.setDescription(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<PlanServiceReturnElement> buildPlanServiceReturnElement(JSONArray jsonArray) {
         ArrayList<PlanServiceReturnElement> returnElement = new ArrayList<PlanServiceReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
             PlanServiceReturnElement entity = new PlanServiceReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-                        ArrayList<PlanNoReturnElement> arrayListPlanNoReturnElement = buildPlanNoReturnElement((JSONArray)jsonObject.get("plan_no"));
-            for (PlanNoReturnElement element : arrayListPlanNoReturnElement){
-                entity.getPlanNo().add(element);
-            }
-                        ArrayList<ClientPlanIdReturnElement> arrayListClientPlanIdReturnElement = buildClientPlanIdReturnElement((JSONArray)jsonObject.get("client_plan_id"));
-            for (ClientPlanIdReturnElement element : arrayListClientPlanIdReturnElement){
-                entity.getClientPlanId().add(element);
-            }
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
+            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
                         ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
             for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
                 entity.getServiceNo().add(element);
@@ -900,28 +1584,96 @@ public class RestUtilities {
             for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
                 entity.getClientServiceId().add(element);
             }
+            } else {
+                        try {
+                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanNo(null);
+            }
+            entity.setClientPlanId(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
-    public static ArrayList<SurchargeTierReturnElement> buildSurchargeTierReturnElement(JSONArray jsonArray) {
-        ArrayList<SurchargeTierReturnElement> returnElement = new ArrayList<SurchargeTierReturnElement>();
+    public static ArrayList<ProfilesReturnElement> buildProfilesReturnElement(JSONArray jsonArray) {
+        ArrayList<ProfilesReturnElement> returnElement = new ArrayList<ProfilesReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            SurchargeTierReturnElement entity = new SurchargeTierReturnElement();
-            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setFrom(getLongValue(jsonObject,"from"));
-            entity.setTo(getLongValue(jsonObject,"to"));
-            entity.setRate(getDoubleValue(jsonObject,"rate"));
+            ProfilesReturnElement entity = new ProfilesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setProfileId(getLongValue(jsonObject,"profile_id"));
+            entity.setClientProfileId(getStringValue(jsonObject,"client_profile_id"));
+            entity.setProfileName(getStringValue(jsonObject,"profile_name"));
+            entity.setProfileDesc(getStringValue(jsonObject,"profile_desc"));
+            } else {
+                        try {
+                entity.setProfileId(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setProfileId(null);
+            }
+            entity.setClientProfileId(jsonArray.get(i).toString());
+            entity.setProfileName(jsonArray.get(i).toString());
+            entity.setProfileDesc(jsonArray.get(i).toString());
+            }
             returnElement.add(entity);
         }
         return returnElement;
     }
-
+    public static ArrayList<CouponGroupsReturnElement> buildCouponGroupsReturnElement(JSONArray jsonArray) {
+        ArrayList<CouponGroupsReturnElement> returnElement = new ArrayList<CouponGroupsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            CouponGroupsReturnElement entity = new CouponGroupsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setGroupNo(getLongValue(jsonObject,"group_no"));
+            entity.setClientDefinedId(getStringValue(jsonObject,"client_defined_id"));
+            entity.setGroupName(getStringValue(jsonObject,"group_name"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setPrecedence(getStringValue(jsonObject,"precedence"));
+                        ArrayList<CouponsReturnElement> arrayListCouponsReturnElement = buildCouponsReturnElement((JSONArray)jsonObject.get("coupons"));
+            for (CouponsReturnElement element : arrayListCouponsReturnElement){
+                entity.getCoupons().add(element);
+            }
+            } else {
+                        try {
+                entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setGroupNo(null);
+            }
+            entity.setClientDefinedId(jsonArray.get(i).toString());
+            entity.setGroupName(jsonArray.get(i).toString());
+            entity.setDescription(jsonArray.get(i).toString());
+            entity.setPrecedence(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     /* ****************** END - SPECIFIC METHODS FOR EACH RETURN ELEMENT (build<#name#>) **************************************** */
 
     /* ****************** ARRAY TO PARAM METHODS FOR EACH ARRAY ELEMENT ********************************************** */
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldValueArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.FieldValueRow row : arrayList.getFieldValueRow()){
+            parameters.add("field_value["+i+"]", getValue("String", row.getFieldValue()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldValueArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.FieldValueRow row : arrayList.getFieldValueRow()){
+            parameters.add(paramPrefix + "field_value["+i+"]", getValue("String", row.getFieldValue()));
+            i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PriceArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -945,6 +1697,7 @@ public class RestUtilities {
         for (com.aria.common.shared.admin.TierRow row : arrayList.getTierRow()){
             parameters.add("from["+i+"]", getValue("Long", row.getFrom()));
             parameters.add("to["+i+"]", getValue("Long", row.getTo()));
+            parameters.add("description["+i+"]", getValue("String", row.getDescription()));
                         addParameterValuesFromArray(parameters, row.getPrice(), "price["+i+"]");
             i++;
         }
@@ -955,6 +1708,7 @@ public class RestUtilities {
         for (com.aria.common.shared.admin.TierRow row : arrayList.getTierRow()){
             parameters.add(paramPrefix + "from["+i+"]", getValue("Long", row.getFrom()));
             parameters.add(paramPrefix + "to["+i+"]", getValue("Long", row.getTo()));
+            parameters.add(paramPrefix + "description["+i+"]", getValue("String", row.getDescription()));
                         addParameterValuesFromArray(parameters, row.getPrice(), paramPrefix + "price["+i+"]");
             i++;
         }
@@ -965,21 +1719,24 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.admin.ServiceRow row : arrayList.getServiceRow()){
             parameters.add("service_no["+i+"]", getValue("Long", row.getServiceNo()));
+            parameters.add("name["+i+"]", getValue("String", row.getName()));
+            parameters.add("client_service_id["+i+"]", getValue("String", row.getClientServiceId()));
+            parameters.add("service_type["+i+"]", getValue("String", row.getServiceType()));
+            parameters.add("gl_cd["+i+"]", getValue("String", row.getGlCd()));
+            parameters.add("taxable_ind["+i+"]", getValue("String", row.getTaxableInd()));
+            parameters.add("tax_group["+i+"]", getValue("String", row.getTaxGroup()));
+            parameters.add("usage_type["+i+"]", getValue("Long", row.getUsageType()));
+            parameters.add("commodity_cd["+i+"]", getValue("String", row.getCommodityCd()));
+            parameters.add("rate_type["+i+"]", getValue("String", row.getRateType()));
             parameters.add("pricing_rule["+i+"]", getValue("String", row.getPricingRule()));
             parameters.add("high_water["+i+"]", getValue("String", row.getHighWater()));
             parameters.add("billing_option["+i+"]", getValue("Long", row.getBillingOption()));
             parameters.add("threshold["+i+"]", getValue("Long", row.getThreshold()));
-            parameters.add("client_service_id["+i+"]", getValue("String", row.getClientServiceId()));
-            parameters.add("name["+i+"]", getValue("String", row.getName()));
-            parameters.add("gl_cd["+i+"]", getValue("String", row.getGlCd()));
-            parameters.add("taxable["+i+"]", getValue("String", row.getTaxable()));
-            parameters.add("taxable_ind["+i+"]", getValue("String", row.getTaxableInd()));
-            parameters.add("tax_group["+i+"]", getValue("String", row.getTaxGroup()));
-            parameters.add("service_type["+i+"]", getValue("String", row.getServiceType()));
-            parameters.add("usage_type["+i+"]", getValue("Long", row.getUsageType()));
-            parameters.add("rate_type["+i+"]", getValue("String", row.getRateType()));
             parameters.add("tax_inclusive_ind["+i+"]", getValue("Long", row.getTaxInclusiveInd()));
+            parameters.add("taxable["+i+"]", getValue("String", row.getTaxable()));
+                        addParameterValuesFromArray(parameters, row.getUsageThreshold(), "usage_threshold["+i+"]");
                         addParameterValuesFromArray(parameters, row.getTier(), "tier["+i+"]");
+            parameters.add("fulfillment_based_ind["+i+"]", getValue("Long", row.getFulfillmentBasedInd()));
             i++;
         }
     }
@@ -988,21 +1745,24 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.admin.ServiceRow row : arrayList.getServiceRow()){
             parameters.add(paramPrefix + "service_no["+i+"]", getValue("Long", row.getServiceNo()));
+            parameters.add(paramPrefix + "name["+i+"]", getValue("String", row.getName()));
+            parameters.add(paramPrefix + "client_service_id["+i+"]", getValue("String", row.getClientServiceId()));
+            parameters.add(paramPrefix + "service_type["+i+"]", getValue("String", row.getServiceType()));
+            parameters.add(paramPrefix + "gl_cd["+i+"]", getValue("String", row.getGlCd()));
+            parameters.add(paramPrefix + "taxable_ind["+i+"]", getValue("String", row.getTaxableInd()));
+            parameters.add(paramPrefix + "tax_group["+i+"]", getValue("String", row.getTaxGroup()));
+            parameters.add(paramPrefix + "usage_type["+i+"]", getValue("Long", row.getUsageType()));
+            parameters.add(paramPrefix + "commodity_cd["+i+"]", getValue("String", row.getCommodityCd()));
+            parameters.add(paramPrefix + "rate_type["+i+"]", getValue("String", row.getRateType()));
             parameters.add(paramPrefix + "pricing_rule["+i+"]", getValue("String", row.getPricingRule()));
             parameters.add(paramPrefix + "high_water["+i+"]", getValue("String", row.getHighWater()));
             parameters.add(paramPrefix + "billing_option["+i+"]", getValue("Long", row.getBillingOption()));
             parameters.add(paramPrefix + "threshold["+i+"]", getValue("Long", row.getThreshold()));
-            parameters.add(paramPrefix + "client_service_id["+i+"]", getValue("String", row.getClientServiceId()));
-            parameters.add(paramPrefix + "name["+i+"]", getValue("String", row.getName()));
-            parameters.add(paramPrefix + "gl_cd["+i+"]", getValue("String", row.getGlCd()));
-            parameters.add(paramPrefix + "taxable["+i+"]", getValue("String", row.getTaxable()));
-            parameters.add(paramPrefix + "taxable_ind["+i+"]", getValue("String", row.getTaxableInd()));
-            parameters.add(paramPrefix + "tax_group["+i+"]", getValue("String", row.getTaxGroup()));
-            parameters.add(paramPrefix + "service_type["+i+"]", getValue("String", row.getServiceType()));
-            parameters.add(paramPrefix + "usage_type["+i+"]", getValue("Long", row.getUsageType()));
-            parameters.add(paramPrefix + "rate_type["+i+"]", getValue("String", row.getRateType()));
             parameters.add(paramPrefix + "tax_inclusive_ind["+i+"]", getValue("Long", row.getTaxInclusiveInd()));
+            parameters.add(paramPrefix + "taxable["+i+"]", getValue("String", row.getTaxable()));
+                        addParameterValuesFromArray(parameters, row.getUsageThreshold(), paramPrefix + "usage_threshold["+i+"]");
                         addParameterValuesFromArray(parameters, row.getTier(), paramPrefix + "tier["+i+"]");
+            parameters.add(paramPrefix + "fulfillment_based_ind["+i+"]", getValue("Long", row.getFulfillmentBasedInd()));
             i++;
         }
     }
@@ -1011,7 +1771,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.ImageRow row : arrayList.getImageRow()){
-            parameters.add("main_image_url["+i+"]", getValue("String", row.getMainImageUrl()));
+            parameters.add("default_image_url["+i+"]", getValue("String", row.getDefaultImageUrl()));
             parameters.add("thumbnail_image_url["+i+"]", getValue("String", row.getThumbnailImageUrl()));
             parameters.add("image_text["+i+"]", getValue("String", row.getImageText()));
             parameters.add("default_ind["+i+"]", getValue("Long", row.getDefaultInd()));
@@ -1023,7 +1783,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.ImageRow row : arrayList.getImageRow()){
-            parameters.add(paramPrefix + "main_image_url["+i+"]", getValue("String", row.getMainImageUrl()));
+            parameters.add(paramPrefix + "default_image_url["+i+"]", getValue("String", row.getDefaultImageUrl()));
             parameters.add(paramPrefix + "thumbnail_image_url["+i+"]", getValue("String", row.getThumbnailImageUrl()));
             parameters.add(paramPrefix + "image_text["+i+"]", getValue("String", row.getImageText()));
             parameters.add(paramPrefix + "default_ind["+i+"]", getValue("Long", row.getDefaultInd()));
@@ -1053,7 +1813,9 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.SupplementalObjFieldRow row : arrayList.getSupplementalObjFieldRow()){
-            parameters.add("supplemental_obj_field["+i+"]", getValue("String", row.getSupplementalObjField()));
+            parameters.add("field_no["+i+"]", getValue("Long", row.getFieldNo()));
+            parameters.add("field_name["+i+"]", getValue("String", row.getFieldName()));
+                        addParameterValuesFromArray(parameters, row.getFieldValue(), "field_value["+i+"]");
             i++;
         }
     }
@@ -1061,7 +1823,9 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.SupplementalObjFieldRow row : arrayList.getSupplementalObjFieldRow()){
-            parameters.add(paramPrefix + "supplemental_obj_field["+i+"]", getValue("String", row.getSupplementalObjField()));
+            parameters.add(paramPrefix + "field_no["+i+"]", getValue("Long", row.getFieldNo()));
+            parameters.add(paramPrefix + "field_name["+i+"]", getValue("String", row.getFieldName()));
+                        addParameterValuesFromArray(parameters, row.getFieldValue(), paramPrefix + "field_value["+i+"]");
             i++;
         }
     }
@@ -1242,6 +2006,7 @@ public class RestUtilities {
             parameters.add("percentage_client_service_id["+i+"]", getValue("String", row.getPercentageClientServiceId()));
             parameters.add("alt_service_no["+i+"]", getValue("Long", row.getAltServiceNo()));
             parameters.add("alt_client_service_id["+i+"]", getValue("String", row.getAltClientServiceId()));
+            parameters.add("currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
             i++;
         }
     }
@@ -1266,6 +2031,7 @@ public class RestUtilities {
             parameters.add(paramPrefix + "percentage_client_service_id["+i+"]", getValue("String", row.getPercentageClientServiceId()));
             parameters.add(paramPrefix + "alt_service_no["+i+"]", getValue("Long", row.getAltServiceNo()));
             parameters.add(paramPrefix + "alt_client_service_id["+i+"]", getValue("String", row.getAltClientServiceId()));
+            parameters.add(paramPrefix + "currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
             i++;
         }
     }
@@ -1319,6 +2085,7 @@ public class RestUtilities {
             parameters.add("max_applicable_months["+i+"]", getValue("Long", row.getMaxApplicableMonths()));
             parameters.add("max_applications_per_acct["+i+"]", getValue("Long", row.getMaxApplicationsPerAcct()));
             parameters.add("inline_offset_ind["+i+"]", getValue("String", row.getInlineOffsetInd()));
+            parameters.add("discount_behavior_type_ind["+i+"]", getValue("String", row.getDiscountBehaviorTypeInd()));
             parameters.add("service_code_to_use["+i+"]", getValue("Long", row.getServiceCodeToUse()));
             parameters.add("alt_service_no_2_apply["+i+"]", getValue("Long", row.getAltServiceNo2Apply()));
             parameters.add("alt_service_id_2_apply["+i+"]", getValue("String", row.getAltServiceId2Apply()));
@@ -1349,6 +2116,7 @@ public class RestUtilities {
             parameters.add(paramPrefix + "max_applicable_months["+i+"]", getValue("Long", row.getMaxApplicableMonths()));
             parameters.add(paramPrefix + "max_applications_per_acct["+i+"]", getValue("Long", row.getMaxApplicationsPerAcct()));
             parameters.add(paramPrefix + "inline_offset_ind["+i+"]", getValue("String", row.getInlineOffsetInd()));
+            parameters.add(paramPrefix + "discount_behavior_type_ind["+i+"]", getValue("String", row.getDiscountBehaviorTypeInd()));
             parameters.add(paramPrefix + "service_code_to_use["+i+"]", getValue("Long", row.getServiceCodeToUse()));
             parameters.add(paramPrefix + "alt_service_no_2_apply["+i+"]", getValue("Long", row.getAltServiceNo2Apply()));
             parameters.add(paramPrefix + "alt_service_id_2_apply["+i+"]", getValue("String", row.getAltServiceId2Apply()));
@@ -1464,7 +2232,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.CouponNosRow row : arrayList.getCouponNosRow()){
-            parameters.add("coupon_nos["+i+"]", getValue("Long", row.getCouponNos()));
+            parameters.add("coupon_no["+i+"]", getValue("Long", row.getCouponNo()));
             i++;
         }
     }
@@ -1472,7 +2240,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.CouponNosRow row : arrayList.getCouponNosRow()){
-            parameters.add(paramPrefix + "coupon_nos["+i+"]", getValue("Long", row.getCouponNos()));
+            parameters.add(paramPrefix + "coupon_no["+i+"]", getValue("Long", row.getCouponNo()));
             i++;
         }
     }
@@ -1574,11 +2342,53 @@ public class RestUtilities {
         }
     }
 
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
+            parameters.add("schedule_name["+i+"]", getValue("String", row.getScheduleName()));
+            parameters.add("currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
+            parameters.add("is_default["+i+"]", getValue("Long", row.getIsDefault()));
+            parameters.add("min_surcharge_to_apply["+i+"]", getValue("Double", row.getMinSurchargeToApply()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
+            parameters.add(paramPrefix + "schedule_name["+i+"]", getValue("String", row.getScheduleName()));
+            parameters.add(paramPrefix + "currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
+            parameters.add(paramPrefix + "is_default["+i+"]", getValue("Long", row.getIsDefault()));
+            parameters.add(paramPrefix + "min_surcharge_to_apply["+i+"]", getValue("Double", row.getMinSurchargeToApply()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.UsageThresholdArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.UsageThresholdRow row : arrayList.getUsageThresholdRow()){
+            parameters.add("notice_dest_type["+i+"]", getValue("String", row.getNoticeDestType()));
+            parameters.add("notice_balance_type["+i+"]", getValue("String", row.getNoticeBalanceType()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.UsageThresholdArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.UsageThresholdRow row : arrayList.getUsageThresholdRow()){
+            parameters.add(paramPrefix + "notice_dest_type["+i+"]", getValue("String", row.getNoticeDestType()));
+            parameters.add(paramPrefix + "notice_balance_type["+i+"]", getValue("String", row.getNoticeBalanceType()));
+            i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanGroupArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.PlanGroupRow row : arrayList.getPlanGroupRow()){
-            parameters.add("plan_group["+i+"]", getValue("Long", row.getPlanGroup()));
+            parameters.add("plan_groups["+i+"]", getValue("Long", row.getPlanGroups()));
             i++;
         }
     }
@@ -1586,7 +2396,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.PlanGroupRow row : arrayList.getPlanGroupRow()){
-            parameters.add(paramPrefix + "plan_group["+i+"]", getValue("Long", row.getPlanGroup()));
+            parameters.add(paramPrefix + "plan_groups["+i+"]", getValue("Long", row.getPlanGroups()));
             i++;
         }
     }
@@ -1604,31 +2414,6 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.admin.PlanGroupIdRow row : arrayList.getPlanGroupIdRow()){
             parameters.add(paramPrefix + "plan_group_id["+i+"]", getValue("String", row.getPlanGroupId()));
-            i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
-            parameters.add("schedule_no["+i+"]", getValue("Long", row.getScheduleNo()));
-            parameters.add("schedule_name["+i+"]", getValue("String", row.getScheduleName()));
-            parameters.add("client_rate_schedule_id["+i+"]", getValue("String", row.getClientRateScheduleId()));
-            parameters.add("currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
-            parameters.add("is_default["+i+"]", getValue("Long", row.getIsDefault()));
-            i++;
-        }
-    }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
-            parameters.add(paramPrefix + "schedule_no["+i+"]", getValue("Long", row.getScheduleNo()));
-            parameters.add(paramPrefix + "schedule_name["+i+"]", getValue("String", row.getScheduleName()));
-            parameters.add(paramPrefix + "client_rate_schedule_id["+i+"]", getValue("String", row.getClientRateScheduleId()));
-            parameters.add(paramPrefix + "currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
-            parameters.add(paramPrefix + "is_default["+i+"]", getValue("Long", row.getIsDefault()));
             i++;
         }
     }
@@ -1702,7 +2487,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.ExclusionPlansRow row : arrayList.getExclusionPlansRow()){
-            parameters.add("exclusion_plans["+i+"]", getValue("Long", row.getExclusionPlans()));
+            parameters.add("exclusion_plan["+i+"]", getValue("Long", row.getExclusionPlan()));
             i++;
         }
     }
@@ -1710,7 +2495,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.ExclusionPlansRow row : arrayList.getExclusionPlansRow()){
-            parameters.add(paramPrefix + "exclusion_plans["+i+"]", getValue("Long", row.getExclusionPlans()));
+            parameters.add(paramPrefix + "exclusion_plan["+i+"]", getValue("Long", row.getExclusionPlan()));
             i++;
         }
     }
@@ -1783,6 +2568,82 @@ public class RestUtilities {
         }
     }
 
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.AssignFieldCategoriesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.AssignFieldCategoriesRow row : arrayList.getAssignFieldCategoriesRow()){
+            parameters.add("field_category_no["+i+"]", getValue("Long", row.getFieldCategoryNo()));
+            parameters.add("field_category_name["+i+"]", getValue("String", row.getFieldCategoryName()));
+            parameters.add("field_category_directive["+i+"]", getValue("Long", row.getFieldCategoryDirective()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.AssignFieldCategoriesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.AssignFieldCategoriesRow row : arrayList.getAssignFieldCategoriesRow()){
+            parameters.add(paramPrefix + "field_category_no["+i+"]", getValue("Long", row.getFieldCategoryNo()));
+            parameters.add(paramPrefix + "field_category_name["+i+"]", getValue("String", row.getFieldCategoryName()));
+            parameters.add(paramPrefix + "field_category_directive["+i+"]", getValue("Long", row.getFieldCategoryDirective()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ObjectTypeArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ObjectTypeRow row : arrayList.getObjectTypeRow()){
+            parameters.add("object_type["+i+"]", getValue("String", row.getObjectType()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ObjectTypeArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ObjectTypeRow row : arrayList.getObjectTypeRow()){
+            parameters.add(paramPrefix + "object_type["+i+"]", getValue("String", row.getObjectType()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldSelectionArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.FieldSelectionRow row : arrayList.getFieldSelectionRow()){
+            parameters.add("field_no["+i+"]", getValue("Long", row.getFieldNo()));
+            parameters.add("field_name["+i+"]", getValue("String", row.getFieldName()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldSelectionArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.FieldSelectionRow row : arrayList.getFieldSelectionRow()){
+            parameters.add(paramPrefix + "field_no["+i+"]", getValue("Long", row.getFieldNo()));
+            parameters.add(paramPrefix + "field_name["+i+"]", getValue("String", row.getFieldName()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldCategoriesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.FieldCategoriesRow row : arrayList.getFieldCategoriesRow()){
+            parameters.add("field_category_no["+i+"]", getValue("Long", row.getFieldCategoryNo()));
+            parameters.add("field_category_name["+i+"]", getValue("String", row.getFieldCategoryName()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldCategoriesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.FieldCategoriesRow row : arrayList.getFieldCategoriesRow()){
+            parameters.add(paramPrefix + "field_category_no["+i+"]", getValue("Long", row.getFieldCategoryNo()));
+            parameters.add(paramPrefix + "field_category_name["+i+"]", getValue("String", row.getFieldCategoryName()));
+            i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.SurchargeTierArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -1790,6 +2651,7 @@ public class RestUtilities {
             parameters.add("from["+i+"]", getValue("Long", row.getFrom()));
             parameters.add("to["+i+"]", getValue("Long", row.getTo()));
             parameters.add("rate["+i+"]", getValue("Double", row.getRate()));
+            parameters.add("description["+i+"]", getValue("String", row.getDescription()));
             i++;
         }
     }
@@ -1800,6 +2662,24 @@ public class RestUtilities {
             parameters.add(paramPrefix + "from["+i+"]", getValue("Long", row.getFrom()));
             parameters.add(paramPrefix + "to["+i+"]", getValue("Long", row.getTo()));
             parameters.add(paramPrefix + "rate["+i+"]", getValue("Double", row.getRate()));
+            parameters.add(paramPrefix + "description["+i+"]", getValue("String", row.getDescription()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.CouponsArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.CouponsRow row : arrayList.getCouponsRow()){
+            parameters.add("coupon_cd["+i+"]", getValue("String", row.getCouponCd()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.CouponsArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.CouponsRow row : arrayList.getCouponsRow()){
+            parameters.add(paramPrefix + "coupon_cd["+i+"]", getValue("String", row.getCouponCd()));
             i++;
         }
     }

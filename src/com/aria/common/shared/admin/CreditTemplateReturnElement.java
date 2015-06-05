@@ -10,11 +10,13 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "credit_template_ReturnElement", propOrder = {"creditTemplateNo", "creditTemplateName", "clientCreditTemplateId", "eligiblePlanNo", "eligibleClientPlanId", "eligibleServiceNo", "eligibleClientServiceId", "eligibleServiceTypes", "noOfCredits", "timeBetweenCredits", "discountType", "discountAmt", "percentagePlanNo", "percentageClientPlanId", "percentageServiceNo", "percentageClientServiceId", "altServiceNo", "altClientServiceId"})
+@XmlType(name = "credit_template_ReturnElement", propOrder = {"creditTemplateNo", "creditTemplateId", "creditTemplateName", "clientCreditTemplateId", "eligiblePlanNo", "eligibleClientPlanId", "eligibleServiceNo", "eligibleClientServiceId", "noOfCredits", "timeBetweenCredits", "discountType", "discountAmt", "percentagePlanNo", "percentageClientPlanId", "percentageServiceNo", "percentageClientServiceId", "altServiceNo", "altClientServiceId", "eligibleServiceTypes"})
 public class CreditTemplateReturnElement {
 
     @XmlElement(name = "credit_template_no")
     protected Long creditTemplateNo;
+    @XmlElement(name = "credit_template_id")
+    protected String creditTemplateId;
     @XmlElement(name = "credit_template_name")
     protected String creditTemplateName;
     @XmlElement(name = "client_credit_template_id")
@@ -27,8 +29,6 @@ public class CreditTemplateReturnElement {
     protected Long eligibleServiceNo;
     @XmlElement(name = "eligible_client_service_id")
     protected String eligibleClientServiceId;
-    @XmlElement(name = "eligible_service_types")
-    protected List<EligibleServiceTypesReturnElement> eligibleServiceTypes;
     @XmlElement(name = "no_of_credits")
     protected Long noOfCredits;
     @XmlElement(name = "time_between_credits")
@@ -49,6 +49,8 @@ public class CreditTemplateReturnElement {
     protected Long altServiceNo;
     @XmlElement(name = "alt_client_service_id")
     protected String altClientServiceId;
+    @XmlElement(name = "eligible_service_types")
+    protected List<EligibleServiceTypesReturnElement> eligibleServiceTypes;
     
     public Long getCreditTemplateNo() {
         return creditTemplateNo;
@@ -56,6 +58,14 @@ public class CreditTemplateReturnElement {
 
     public void setCreditTemplateNo(Long value) {
         this.creditTemplateNo = value;
+    }
+
+    public String getCreditTemplateId() {
+        return creditTemplateId;
+    }
+
+    public void setCreditTemplateId(String value) {
+        this.creditTemplateId = value;
     }
 
     public String getCreditTemplateName() {
@@ -106,12 +116,7 @@ public class CreditTemplateReturnElement {
         this.eligibleClientServiceId = value;
     }
 
-    public List<EligibleServiceTypesReturnElement> getEligibleServiceTypes() {
-        if (this.eligibleServiceTypes == null) {
-            this.eligibleServiceTypes = new ArrayList<EligibleServiceTypesReturnElement>();
-        }
-        return this.eligibleServiceTypes;
-    }public Long getNoOfCredits() {
+    public Long getNoOfCredits() {
         return noOfCredits;
     }
 
@@ -191,5 +196,10 @@ public class CreditTemplateReturnElement {
         this.altClientServiceId = value;
     }
 
-    
+    public List<EligibleServiceTypesReturnElement> getEligibleServiceTypes() {
+        if (this.eligibleServiceTypes == null) {
+            this.eligibleServiceTypes = new ArrayList<EligibleServiceTypesReturnElement>();
+        }
+        return this.eligibleServiceTypes;
+    }
 }

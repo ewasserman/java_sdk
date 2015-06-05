@@ -10,23 +10,27 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "discount_rules_ReturnElement", propOrder = {"ruleNo", "ruleId", "description", "extDescription", "flatPercentInd", "amount", "currency", "durationTypeInd", "maxApplicableMonths", "maxApplicationsPerAcct", "inlineOffsetInd", "serviceCodeToUse", "altServiceNo2Apply", "altServiceId2Apply", "scopeNo", "planNo", "clientPlanId", "serviceNo", "clientServiceId", "itemNo", "clientItemId"})
+@XmlType(name = "discount_rules_ReturnElement", propOrder = {"ruleNo", "ruleName", "ruleId", "description", "extDescription", "discountType", "amount", "currency", "applicableTransScope", "durationTypeInd", "maxApplicableMonths", "maxApplicationsPerAcct", "inlineOffsetInd", "serviceCodeToUse", "altServiceNo2Apply", "altServiceId2Apply", "scopeNo", "discountBehaviorTypeInd", "planNo", "clientPlanId", "serviceNo", "clientServiceId", "itemNo", "clientItemId", "useAllOrNthSubsRule"})
 public class DiscountRulesReturnElement {
 
     @XmlElement(name = "rule_no")
     protected Long ruleNo;
+    @XmlElement(name = "rule_name")
+    protected String ruleName;
     @XmlElement(name = "rule_id")
     protected String ruleId;
     @XmlElement(name = "description")
     protected String description;
     @XmlElement(name = "ext_description")
     protected String extDescription;
-    @XmlElement(name = "flat_percent_ind")
-    protected Long flatPercentInd;
+    @XmlElement(name = "discount_type")
+    protected String discountType;
     @XmlElement(name = "amount")
     protected Double amount;
     @XmlElement(name = "currency")
     protected String currency;
+    @XmlElement(name = "applicable_trans_scope")
+    protected String applicableTransScope;
     @XmlElement(name = "duration_type_ind")
     protected String durationTypeInd;
     @XmlElement(name = "max_applicable_months")
@@ -43,6 +47,8 @@ public class DiscountRulesReturnElement {
     protected String altServiceId2Apply;
     @XmlElement(name = "scope_no")
     protected Long scopeNo;
+    @XmlElement(name = "discount_behavior_type_ind")
+    protected  discountBehaviorTypeInd;
     @XmlElement(name = "plan_no")
     protected List<PlanNoReturnElement> planNo;
     @XmlElement(name = "client_plan_id")
@@ -55,6 +61,8 @@ public class DiscountRulesReturnElement {
     protected List<ItemNoReturnElement> itemNo;
     @XmlElement(name = "client_item_id")
     protected List<ClientItemIdReturnElement> clientItemId;
+    @XmlElement(name = "use_all_or_nth_subs_rule")
+    protected String useAllOrNthSubsRule;
     
     public Long getRuleNo() {
         return ruleNo;
@@ -62,6 +70,14 @@ public class DiscountRulesReturnElement {
 
     public void setRuleNo(Long value) {
         this.ruleNo = value;
+    }
+
+    public String getRuleName() {
+        return ruleName;
+    }
+
+    public void setRuleName(String value) {
+        this.ruleName = value;
     }
 
     public String getRuleId() {
@@ -88,12 +104,12 @@ public class DiscountRulesReturnElement {
         this.extDescription = value;
     }
 
-    public Long getFlatPercentInd() {
-        return flatPercentInd;
+    public String getDiscountType() {
+        return discountType;
     }
 
-    public void setFlatPercentInd(Long value) {
-        this.flatPercentInd = value;
+    public void setDiscountType(String value) {
+        this.discountType = value;
     }
 
     public Double getAmount() {
@@ -110,6 +126,14 @@ public class DiscountRulesReturnElement {
 
     public void setCurrency(String value) {
         this.currency = value;
+    }
+
+    public String getApplicableTransScope() {
+        return applicableTransScope;
+    }
+
+    public void setApplicableTransScope(String value) {
+        this.applicableTransScope = value;
     }
 
     public String getDurationTypeInd() {
@@ -176,6 +200,14 @@ public class DiscountRulesReturnElement {
         this.scopeNo = value;
     }
 
+    public  getDiscountBehaviorTypeInd() {
+        return discountBehaviorTypeInd;
+    }
+
+    public void setDiscountBehaviorTypeInd( value) {
+        this.discountBehaviorTypeInd = value;
+    }
+
     public List<PlanNoReturnElement> getPlanNo() {
         if (this.planNo == null) {
             this.planNo = new ArrayList<PlanNoReturnElement>();
@@ -206,5 +238,13 @@ public class DiscountRulesReturnElement {
             this.clientItemId = new ArrayList<ClientItemIdReturnElement>();
         }
         return this.clientItemId;
+    }public String getUseAllOrNthSubsRule() {
+        return useAllOrNthSubsRule;
     }
+
+    public void setUseAllOrNthSubsRule(String value) {
+        this.useAllOrNthSubsRule = value;
+    }
+
+    
 }

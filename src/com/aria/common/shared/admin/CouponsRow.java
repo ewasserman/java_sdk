@@ -7,19 +7,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "coupon_nos_row", propOrder = {
-    "couponNo"
+@XmlType(name = "coupons_row", propOrder = {
+    "couponCd"
     })
-public class CouponNosRow {
+public class CouponsRow {
 
-    @XmlElement(name = "coupon_no")
-    protected Long couponNo;
-    public Long getCouponNo() {
-        return couponNo;
+    @XmlElement(name = "coupon_cd")
+    protected String couponCd;
+    public String getCouponCd() {
+        return couponCd;
     }
 
-    public void setCouponNo(Long value) {
-        this.couponNo = value;
+    public void setCouponCd(String value) {
+        this.couponCd = value;
     }
 
     
