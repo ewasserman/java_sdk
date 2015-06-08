@@ -159,7 +159,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<SuppFieldReturnElement> buildSuppFieldReturnElement(JSONArray jsonArray) {
         ArrayList<SuppFieldReturnElement> returnElement = new ArrayList<SuppFieldReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -172,7 +171,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<SuppPlanReturnElement> buildSuppPlanReturnElement(JSONArray jsonArray) {
         ArrayList<SuppPlanReturnElement> returnElement = new ArrayList<SuppPlanReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -185,7 +183,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<AccountDetailsReturnElement> buildAccountDetailsReturnElement(JSONArray jsonArray) {
         ArrayList<AccountDetailsReturnElement> returnElement = new ArrayList<AccountDetailsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -247,7 +244,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<AccountStatusHistoryReturnElement> buildAccountStatusHistoryReturnElement(JSONArray jsonArray) {
         ArrayList<AccountStatusHistoryReturnElement> returnElement = new ArrayList<AccountStatusHistoryReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -271,7 +267,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<AccountPlanHistoryReturnElement> buildAccountPlanHistoryReturnElement(JSONArray jsonArray) {
         ArrayList<AccountPlanHistoryReturnElement> returnElement = new ArrayList<AccountPlanHistoryReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -294,7 +289,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<PaymentDetailsReturnElement> buildPaymentDetailsReturnElement(JSONArray jsonArray) {
         ArrayList<PaymentDetailsReturnElement> returnElement = new ArrayList<PaymentDetailsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -319,7 +313,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<OrderItemReturnElement> buildOrderItemReturnElement(JSONArray jsonArray) {
         ArrayList<OrderItemReturnElement> returnElement = new ArrayList<OrderItemReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -335,7 +328,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<OrderDetailsReturnElement> buildOrderDetailsReturnElement(JSONArray jsonArray) {
         ArrayList<OrderDetailsReturnElement> returnElement = new ArrayList<OrderDetailsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -359,7 +351,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<InvoiceLineTaxReturnElement> buildInvoiceLineTaxReturnElement(JSONArray jsonArray) {
         ArrayList<InvoiceLineTaxReturnElement> returnElement = new ArrayList<InvoiceLineTaxReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -376,7 +367,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<InvoiceLineReturnElement> buildInvoiceLineReturnElement(JSONArray jsonArray) {
         ArrayList<InvoiceLineReturnElement> returnElement = new ArrayList<InvoiceLineReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -415,7 +405,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<InvoiceDetailsReturnElement> buildInvoiceDetailsReturnElement(JSONArray jsonArray) {
         ArrayList<InvoiceDetailsReturnElement> returnElement = new ArrayList<InvoiceDetailsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -460,7 +449,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<RelatedTransactionReturnElement> buildRelatedTransactionReturnElement(JSONArray jsonArray) {
         ArrayList<RelatedTransactionReturnElement> returnElement = new ArrayList<RelatedTransactionReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -487,7 +475,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<TransactionInformationReturnElement> buildTransactionInformationReturnElement(JSONArray jsonArray) {
         ArrayList<TransactionInformationReturnElement> returnElement = new ArrayList<TransactionInformationReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -520,7 +507,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<RefundInformationReturnElement> buildRefundInformationReturnElement(JSONArray jsonArray) {
         ArrayList<RefundInformationReturnElement> returnElement = new ArrayList<RefundInformationReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -556,7 +542,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<CouponHistoryReturnElement> buildCouponHistoryReturnElement(JSONArray jsonArray) {
         ArrayList<CouponHistoryReturnElement> returnElement = new ArrayList<CouponHistoryReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -575,7 +560,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<MapRecordReturnElement> buildMapRecordReturnElement(JSONArray jsonArray) {
         ArrayList<MapRecordReturnElement> returnElement = new ArrayList<MapRecordReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -588,7 +572,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<AllInvoiceLineTaxReturnElement> buildAllInvoiceLineTaxReturnElement(JSONArray jsonArray) {
         ArrayList<AllInvoiceLineTaxReturnElement> returnElement = new ArrayList<AllInvoiceLineTaxReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -605,7 +588,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<AllInvoiceLineReturnElement> buildAllInvoiceLineReturnElement(JSONArray jsonArray) {
         ArrayList<AllInvoiceLineReturnElement> returnElement = new ArrayList<AllInvoiceLineReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -646,7 +628,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     public static ArrayList<AllInvoiceDetailsReturnElement> buildAllInvoiceDetailsReturnElement(JSONArray jsonArray) {
         ArrayList<AllInvoiceDetailsReturnElement> returnElement = new ArrayList<AllInvoiceDetailsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -709,7 +690,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-
     /* ****************** END - SPECIFIC METHODS FOR EACH RETURN ELEMENT (build<#name#>) **************************************** */
 
     /* ****************** ARRAY TO PARAM METHODS FOR EACH ARRAY ELEMENT ********************************************** */

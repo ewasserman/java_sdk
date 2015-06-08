@@ -14,7 +14,8 @@ import javax.xml.bind.annotation.XmlType;
     "statusInd",
     "noOfUses",
     "startDate",
-    "endDate"
+    "endDate",
+    "couponScope"
     })
 public class CouponRow {
 
@@ -32,6 +33,8 @@ public class CouponRow {
     protected String startDate;
     @XmlElement(name = "end_date")
     protected String endDate;
+    @XmlElement(name = "coupon_scope")
+    protected Long couponScope;
     public String getCouponCd() {
         return couponCd;
     }
@@ -86,6 +89,14 @@ public class CouponRow {
 
     public void setEndDate(String value) {
         this.endDate = value;
+    }
+
+    public Long getCouponScope() {
+        return couponScope;
+    }
+
+    public void setCouponScope(Long value) {
+        this.couponScope = value;
     }
 
     

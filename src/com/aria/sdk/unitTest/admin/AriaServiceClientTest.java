@@ -104,7 +104,9 @@ public class AriaServiceClientTest {
         //deleteRules();
         //deleteBundles();
         //getPlans();
+        //getPlansM();
         //getPlanDetails();
+        //getPlanDetailsM();
         //createPlan();
         //createNewPlan();
         //createNewPlanM();
@@ -154,6 +156,7 @@ public class AriaServiceClientTest {
         //updateCouponGroup();
         //getCouponGroups();
         //getCouponGroupDetails();
+        //getClientPaymentMethod();
         //viewProcessorConfig();
         //editProcessorConfig();
         //deleteProcessorConfig();
@@ -705,6 +708,7 @@ public class AriaServiceClientTest {
                 , discountBundleArray
                 , existingDiscountBundleArray
                 , existingDiscountBundleIdArray
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "createCoupon - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -743,6 +747,7 @@ public class AriaServiceClientTest {
                 , discountBundleArray
                 , existingDiscountBundleArray
                 , existingDiscountBundleIdArray
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateCoupon - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -897,7 +902,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
-                , 1L
+                , ""
                 , 1d
                 , ""
                 , ""
@@ -1048,6 +1053,20 @@ public class AriaServiceClientTest {
     }
 
     //@Test
+    public void getPlansM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getPlansM(getClientNo(), getAuthKey()        , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getPlansM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
     public void getPlanDetails() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getPlanDetails(getClientNo(), getAuthKey()        , 1L
@@ -1055,6 +1074,22 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getPlanDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getPlanDetailsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getPlanDetailsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getPlanDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -1143,6 +1178,7 @@ public class AriaServiceClientTest {
         com.aria.common.shared.admin.ChildPlansArray childPlansArray = new com.aria.common.shared.admin.ChildPlansArray();
         com.aria.common.shared.admin.SurchargeNoArray surchargeNoArray = new com.aria.common.shared.admin.SurchargeNoArray();
         com.aria.common.shared.admin.ClientSurchargeIdArray clientSurchargeIdArray = new com.aria.common.shared.admin.ClientSurchargeIdArray();
+        com.aria.common.shared.admin.AssignFieldCategoriesArray assignFieldCategoriesArray = new com.aria.common.shared.admin.AssignFieldCategoriesArray();
         
         hashMapReturnValues = getBaseAriaBilling().createNewPlanM(getClientNo(), getAuthKey()        , ""
                 , ""
@@ -1184,6 +1220,8 @@ public class AriaServiceClientTest {
                 , surchargeNoArray
                 , clientSurchargeIdArray
                 , ""
+                , 1L
+                , assignFieldCategoriesArray
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "createNewPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1196,10 +1234,10 @@ public class AriaServiceClientTest {
 
     //@Test
     public void editPlan() throws Exception {
-        com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
-        com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
         com.aria.common.shared.admin.PlanGroupArray planGroupArray = new com.aria.common.shared.admin.PlanGroupArray();
         com.aria.common.shared.admin.PlanGroupIdArray planGroupIdArray = new com.aria.common.shared.admin.PlanGroupIdArray();
+        com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
+        com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
         com.aria.common.shared.admin.ResourceArray resourceArray = new com.aria.common.shared.admin.ResourceArray();
         com.aria.common.shared.admin.ParentPlansArray parentPlansArray = new com.aria.common.shared.admin.ParentPlansArray();
         com.aria.common.shared.admin.ParentClientPlanIdsArray parentClientPlanIdsArray = new com.aria.common.shared.admin.ParentClientPlanIdsArray();
@@ -1212,16 +1250,13 @@ public class AriaServiceClientTest {
         hashMapReturnValues = getBaseAriaBilling().editPlan(getClientNo(), getAuthKey()        , ""
                 , ""
                 , ""
-                , 1L
-                , 1L
-                , ""
-                , ""
-                , scheduleArray
-                , serviceArray
-                , 1L
                 , ""
                 , planGroupArray
                 , planGroupIdArray
+                , 1L
+                , 1L
+                , ""
+                , ""
                 , ""
                 , 1L
                 , ""
@@ -1239,6 +1274,8 @@ public class AriaServiceClientTest {
                 , 1L
                 , ""
                 , 1L
+                , scheduleArray
+                , serviceArray
                 , resourceArray
                 , 1L
                 , parentPlansArray
@@ -1251,6 +1288,7 @@ public class AriaServiceClientTest {
                 , surchargeNoArray
                 , clientSurchargeIdArray
                 , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "editPlan - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1263,10 +1301,10 @@ public class AriaServiceClientTest {
 
     //@Test
     public void editPlanM() throws Exception {
-        com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
-        com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
         com.aria.common.shared.admin.PlanGroupArray planGroupArray = new com.aria.common.shared.admin.PlanGroupArray();
         com.aria.common.shared.admin.PlanGroupIdArray planGroupIdArray = new com.aria.common.shared.admin.PlanGroupIdArray();
+        com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
+        com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
         com.aria.common.shared.admin.ResourceArray resourceArray = new com.aria.common.shared.admin.ResourceArray();
         com.aria.common.shared.admin.ParentPlansArray parentPlansArray = new com.aria.common.shared.admin.ParentPlansArray();
         com.aria.common.shared.admin.ParentClientPlanIdsArray parentClientPlanIdsArray = new com.aria.common.shared.admin.ParentClientPlanIdsArray();
@@ -1275,35 +1313,35 @@ public class AriaServiceClientTest {
         com.aria.common.shared.admin.ChildPlansArray childPlansArray = new com.aria.common.shared.admin.ChildPlansArray();
         com.aria.common.shared.admin.SurchargeNoArray surchargeNoArray = new com.aria.common.shared.admin.SurchargeNoArray();
         com.aria.common.shared.admin.ClientSurchargeIdArray clientSurchargeIdArray = new com.aria.common.shared.admin.ClientSurchargeIdArray();
+        com.aria.common.shared.admin.AssignFieldCategoriesArray assignFieldCategoriesArray = new com.aria.common.shared.admin.AssignFieldCategoriesArray();
         
         hashMapReturnValues = getBaseAriaBilling().editPlanM(getClientNo(), getAuthKey()        , ""
                 , ""
                 , ""
-                , 1L
-                , 1L
-                , ""
-                , scheduleArray
-                , serviceArray
-                , 1L
                 , ""
                 , planGroupArray
                 , planGroupIdArray
                 , 1L
-                , ""
-                , ""
                 , 1L
                 , ""
                 , 1L
                 , ""
-                , 1L
-                , 1L
-                , 1L
-                , 1L
+                , ""
                 , 1L
                 , ""
                 , 1L
                 , ""
                 , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , scheduleArray
+                , serviceArray
                 , resourceArray
                 , 1L
                 , parentPlansArray
@@ -1316,6 +1354,9 @@ public class AriaServiceClientTest {
                 , surchargeNoArray
                 , clientSurchargeIdArray
                 , ""
+                , 1L
+                , assignFieldCategoriesArray
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "editPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -2058,6 +2099,19 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getCouponGroupDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getClientPaymentMethod() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getClientPaymentMethod(getClientNo(), getAuthKey());
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getClientPaymentMethod - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }

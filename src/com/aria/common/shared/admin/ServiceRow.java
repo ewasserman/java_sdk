@@ -23,7 +23,6 @@ import javax.xml.bind.annotation.XmlType;
     "billingOption",
     "threshold",
     "taxInclusiveInd",
-    "taxable",
     "usageThreshold",
     "tier",
     "fulfillmentBasedInd"
@@ -60,8 +59,6 @@ public class ServiceRow {
     protected Long threshold;
     @XmlElement(name = "tax_inclusive_ind")
     protected Long taxInclusiveInd;
-    @XmlElement(name = "taxable")
-    protected String taxable;
     @XmlElement(name = "usage_threshold")
     protected com.aria.common.shared.admin.UsageThresholdArray usageThreshold;
     @XmlElement(name = "tier")
@@ -186,14 +183,6 @@ public class ServiceRow {
 
     public void setTaxInclusiveInd(Long value) {
         this.taxInclusiveInd = value;
-    }
-
-    public String getTaxable() {
-        return taxable;
-    }
-
-    public void setTaxable(String value) {
-        this.taxable = value;
     }
 
     public com.aria.common.shared.admin.UsageThresholdArray getUsageThreshold() {

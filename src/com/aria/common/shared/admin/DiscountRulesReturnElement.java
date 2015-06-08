@@ -48,7 +48,7 @@ public class DiscountRulesReturnElement {
     @XmlElement(name = "scope_no")
     protected Long scopeNo;
     @XmlElement(name = "discount_behavior_type_ind")
-    protected  discountBehaviorTypeInd;
+    protected String discountBehaviorTypeInd;
     @XmlElement(name = "plan_no")
     protected List<PlanNoReturnElement> planNo;
     @XmlElement(name = "client_plan_id")
@@ -200,11 +200,11 @@ public class DiscountRulesReturnElement {
         this.scopeNo = value;
     }
 
-    public  getDiscountBehaviorTypeInd() {
+    public String getDiscountBehaviorTypeInd() {
         return discountBehaviorTypeInd;
     }
 
-    public void setDiscountBehaviorTypeInd( value) {
+    public void setDiscountBehaviorTypeInd(String value) {
         this.discountBehaviorTypeInd = value;
     }
 

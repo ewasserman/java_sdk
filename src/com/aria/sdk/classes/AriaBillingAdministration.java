@@ -603,6 +603,7 @@ public interface AriaBillingAdministration {
     *   group_name - Type: javax.xml.ws.Holder<br>
     *   group_description - Type: javax.xml.ws.Holder<br>
     *   precedence - Type: javax.xml.ws.Holder<br>
+    *   coupon_scope - Type: javax.xml.ws.Holder<br>
     */
     abstract Map<String,Object> getCouponDetails(Long client_no, String auth_key, String coupon_cd);
 
@@ -628,12 +629,13 @@ public interface AriaBillingAdministration {
     * @param discount_bundle - Type: com.aria.common.shared.admin.DiscountBundleArray
     * @param existing_discount_bundle - Type: com.aria.common.shared.admin.ExistingDiscountBundleArray
     * @param existing_discount_bundle_id - Type: com.aria.common.shared.admin.ExistingDiscountBundleIdArray
+    * @param coupon_scope - Type: Long
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   coupon_cd - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> createCoupon(Long client_no, String auth_key, String coupon_cd, Long status_ind, String start_date, String end_date, String coupon_desc, String coupon_msg, Long no_of_uses, com.aria.common.shared.admin.TemplateArray template, com.aria.common.shared.admin.ExistingTemplateArray existing_template, com.aria.common.shared.admin.ExistingTemplateIdArray existing_template_id, com.aria.common.shared.admin.DiscountRuleArray discount_rule, com.aria.common.shared.admin.ExistingDiscountRuleArray existing_discount_rule, com.aria.common.shared.admin.ExistingDiscountRuleIdArray existing_discount_rule_id, com.aria.common.shared.admin.DiscountBundleArray discount_bundle, com.aria.common.shared.admin.ExistingDiscountBundleArray existing_discount_bundle, com.aria.common.shared.admin.ExistingDiscountBundleIdArray existing_discount_bundle_id);
+    abstract Map<String,Object> createCoupon(Long client_no, String auth_key, String coupon_cd, Long status_ind, String start_date, String end_date, String coupon_desc, String coupon_msg, Long no_of_uses, com.aria.common.shared.admin.TemplateArray template, com.aria.common.shared.admin.ExistingTemplateArray existing_template, com.aria.common.shared.admin.ExistingTemplateIdArray existing_template_id, com.aria.common.shared.admin.DiscountRuleArray discount_rule, com.aria.common.shared.admin.ExistingDiscountRuleArray existing_discount_rule, com.aria.common.shared.admin.ExistingDiscountRuleIdArray existing_discount_rule_id, com.aria.common.shared.admin.DiscountBundleArray discount_bundle, com.aria.common.shared.admin.ExistingDiscountBundleArray existing_discount_bundle, com.aria.common.shared.admin.ExistingDiscountBundleIdArray existing_discount_bundle_id, Long coupon_scope);
 
     abstract Map<String,Object> createCoupon(Map<String,Object> map);
 
@@ -657,12 +659,13 @@ public interface AriaBillingAdministration {
     * @param discount_bundle - Type: com.aria.common.shared.admin.DiscountBundleArray
     * @param existing_discount_bundle - Type: com.aria.common.shared.admin.ExistingDiscountBundleArray
     * @param existing_discount_bundle_id - Type: com.aria.common.shared.admin.ExistingDiscountBundleIdArray
+    * @param coupon_scope - Type: Long
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   coupon_cd - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> updateCoupon(Long client_no, String auth_key, String coupon_cd, Long status_ind, String start_date, String end_date, String coupon_desc, String coupon_msg, Long no_of_uses, com.aria.common.shared.admin.TemplateArray template, com.aria.common.shared.admin.ExistingTemplateArray existing_template, com.aria.common.shared.admin.ExistingTemplateIdArray existing_template_id, com.aria.common.shared.admin.DiscountRuleArray discount_rule, com.aria.common.shared.admin.ExistingDiscountRuleArray existing_discount_rule, com.aria.common.shared.admin.ExistingDiscountRuleIdArray existing_discount_rule_id, com.aria.common.shared.admin.DiscountBundleArray discount_bundle, com.aria.common.shared.admin.ExistingDiscountBundleArray existing_discount_bundle, com.aria.common.shared.admin.ExistingDiscountBundleIdArray existing_discount_bundle_id);
+    abstract Map<String,Object> updateCoupon(Long client_no, String auth_key, String coupon_cd, Long status_ind, String start_date, String end_date, String coupon_desc, String coupon_msg, Long no_of_uses, com.aria.common.shared.admin.TemplateArray template, com.aria.common.shared.admin.ExistingTemplateArray existing_template, com.aria.common.shared.admin.ExistingTemplateIdArray existing_template_id, com.aria.common.shared.admin.DiscountRuleArray discount_rule, com.aria.common.shared.admin.ExistingDiscountRuleArray existing_discount_rule, com.aria.common.shared.admin.ExistingDiscountRuleIdArray existing_discount_rule_id, com.aria.common.shared.admin.DiscountBundleArray discount_bundle, com.aria.common.shared.admin.ExistingDiscountBundleArray existing_discount_bundle, com.aria.common.shared.admin.ExistingDiscountBundleIdArray existing_discount_bundle_id, Long coupon_scope);
 
     abstract Map<String,Object> updateCoupon(Map<String,Object> map);
 
@@ -814,7 +817,7 @@ public interface AriaBillingAdministration {
     * @param rule_id - Type: String
     * @param description - Type: String
     * @param ext_description - Type: String
-    * @param flat_percent_ind - Type: Long
+    * @param flat_percent_ind - Type: String
     * @param amount - Type: Double
     * @param currency - Type: String
     * @param duration_type_ind - Type: String
@@ -839,7 +842,7 @@ public interface AriaBillingAdministration {
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   rule_no - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> createDiscountRule(Long client_no, String auth_key, String label, String rule_id, String description, String ext_description, Long flat_percent_ind, Double amount, String currency, String duration_type_ind, String inline_offset_ind, String discount_behavior_type_ind, Long service_code_to_use, Long scope_no, Long max_applicable_months, Long max_applications_per_acct, Long alt_service_no_2_apply, String alt_service_id_2_apply, String applicable_trans_scope, com.aria.common.shared.admin.PlanNoArray plan_no, com.aria.common.shared.admin.ClientPlanIdArray client_plan_id, com.aria.common.shared.admin.ServiceNoArray service_no, com.aria.common.shared.admin.ClientServiceIdArray client_service_id, com.aria.common.shared.admin.ItemNoArray item_no, com.aria.common.shared.admin.ClientItemIdArray client_item_id, String use_all_or_nth_subs_rule);
+    abstract Map<String,Object> createDiscountRule(Long client_no, String auth_key, String label, String rule_id, String description, String ext_description, String flat_percent_ind, Double amount, String currency, String duration_type_ind, String inline_offset_ind, String discount_behavior_type_ind, Long service_code_to_use, Long scope_no, Long max_applicable_months, Long max_applications_per_acct, Long alt_service_no_2_apply, String alt_service_id_2_apply, String applicable_trans_scope, com.aria.common.shared.admin.PlanNoArray plan_no, com.aria.common.shared.admin.ClientPlanIdArray client_plan_id, com.aria.common.shared.admin.ServiceNoArray service_no, com.aria.common.shared.admin.ClientServiceIdArray client_service_id, com.aria.common.shared.admin.ItemNoArray item_no, com.aria.common.shared.admin.ClientItemIdArray client_item_id, String use_all_or_nth_subs_rule);
 
     abstract Map<String,Object> createDiscountRule(Map<String,Object> map);
 
@@ -959,6 +962,20 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> getPlans(Map<String,Object> map);
 
     /**
+    * getPlansM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plans - Type: ArrayList&#60;PlansReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getPlansM(Long client_no, String auth_key, String include_rs_summary);
+
+    abstract Map<String,Object> getPlansM(Map<String,Object> map);
+
+    /**
     * getPlanDetails
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -1008,6 +1025,57 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> getPlanDetails(Long client_no, String auth_key, Long plan_no, String client_plan_id);
 
     abstract Map<String,Object> getPlanDetails(Map<String,Object> map);
+
+    /**
+    * getPlanDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param plan_no - Type: Long
+    * @param client_plan_id - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plan_no - Type: javax.xml.ws.Holder<br>
+    *   client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   plan_level - Type: javax.xml.ws.Holder<br>
+    *   plan_type - Type: javax.xml.ws.Holder<br>
+    *   plan_name - Type: javax.xml.ws.Holder<br>
+    *   plan_desc - Type: javax.xml.ws.Holder<br>
+    *   plan_groups - Type: ArrayList&#60;PlanGroupsReturnElement&#62;<br>
+    *   plan_group_ids - Type: ArrayList&#60;PlanGroupIdsReturnElement&#62;<br>
+    *   currency_cd - Type: javax.xml.ws.Holder<br>
+    *   active_ind - Type: javax.xml.ws.Holder<br>
+    *   rollover_months - Type: javax.xml.ws.Holder<br>
+    *   rollover_plan_no - Type: javax.xml.ws.Holder<br>
+    *   rollover_client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   allow_child_accounts - Type: javax.xml.ws.Holder<br>
+    *   dunning_plan_no - Type: javax.xml.ws.Holder<br>
+    *   dunning_client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   free_trial_duration - Type: javax.xml.ws.Holder<br>
+    *   free_trial_type - Type: javax.xml.ws.Holder<br>
+    *   initial_free_months - Type: javax.xml.ws.Holder<br>
+    *   acct_status_cd - Type: javax.xml.ws.Holder<br>
+    *   rollover_acct_status_days - Type: javax.xml.ws.Holder<br>
+    *   rollover_acct_status_cd - Type: javax.xml.ws.Holder<br>
+    *   template_no - Type: javax.xml.ws.Holder<br>
+    *   template_id - Type: javax.xml.ws.Holder<br>
+    *   plan_cancel_min_months - Type: javax.xml.ws.Holder<br>
+    *   how_to_apply_min_fee - Type: javax.xml.ws.Holder<br>
+    *   is_deletable - Type: javax.xml.ws.Holder<br>
+    *   services - Type: ArrayList&#60;ServicesReturnElement&#62;<br>
+    *   parent_plans - Type: ArrayList&#60;ParentPlansReturnElement&#62;<br>
+    *   parent_plan_ids - Type: ArrayList&#60;ParentPlanIdsReturnElement&#62;<br>
+    *   exclusion_plans - Type: ArrayList&#60;ExclusionPlansReturnElement&#62;<br>
+    *   resources - Type: ArrayList&#60;ResourcesReturnElement&#62;<br>
+    *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
+    *   surcharges - Type: ArrayList&#60;SurchargesReturnElement&#62;<br>
+    *   proration_invoice_timing_cd - Type: javax.xml.ws.Holder<br>
+    *   rate_sched - Type: ArrayList&#60;RateSchedReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getPlanDetailsM(Long client_no, String auth_key, Long plan_no, String client_plan_id, String include_rs_summary);
+
+    abstract Map<String,Object> getPlanDetailsM(Map<String,Object> map);
 
     /**
     * createNewPlan
@@ -1108,12 +1176,14 @@ public interface AriaBillingAdministration {
     * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
     * @param client_surcharge_id - Type: com.aria.common.shared.admin.ClientSurchargeIdArray
     * @param proration_invoice_timing_cd - Type: String
+    * @param plan_instance_status_cd - Type: Long
+    * @param assign_field_categories - Type: com.aria.common.shared.admin.AssignFieldCategoriesArray
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   plan_no - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long initial_free_months, String free_trial_type, String free_trial_duration, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd);
+    abstract Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long initial_free_months, String free_trial_type, String free_trial_duration, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories);
 
     abstract Map<String,Object> createNewPlanM(Map<String,Object> map);
 
@@ -1122,19 +1192,16 @@ public interface AriaBillingAdministration {
     * @param client_no - Type: Long
     * @param auth_key - Type: String
     * @param plan_no - Type: String
-    * @param plan_name - Type: String
     * @param client_plan_id - Type: String
-    * @param plan_type - Type: Long
-    * @param active - Type: Long
-    * @param billing_interval - Type: String
-    * @param currency - Type: String
-    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
-    * @param service - Type: com.aria.common.shared.admin.ServiceArray
-    * @param edit_directives - Type: Long
+    * @param plan_name - Type: String
     * @param plan_description - Type: String
     * @param plan_group - Type: com.aria.common.shared.admin.PlanGroupArray
     * @param plan_group_id - Type: com.aria.common.shared.admin.PlanGroupIdArray
+    * @param plan_type - Type: Long
+    * @param active - Type: Long
+    * @param billing_interval - Type: String
     * @param usage_billing_interval - Type: String
+    * @param currency - Type: String
     * @param template_no - Type: Long
     * @param client_email_template_id - Type: String
     * @param rollover_months - Type: String
@@ -1151,6 +1218,8 @@ public interface AriaBillingAdministration {
     * @param plan_cancel_min_month - Type: Long
     * @param apply_minimum_fee - Type: String
     * @param how_to_apply_min_fee - Type: Long
+    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
+    * @param service - Type: com.aria.common.shared.admin.ServiceArray
     * @param resource - Type: com.aria.common.shared.admin.ResourceArray
     * @param arc_service_no - Type: Long
     * @param parent_plans - Type: com.aria.common.shared.admin.ParentPlansArray
@@ -1163,12 +1232,13 @@ public interface AriaBillingAdministration {
     * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
     * @param client_surcharge_id - Type: com.aria.common.shared.admin.ClientSurchargeIdArray
     * @param proration_invoice_timing_cd - Type: String
+    * @param edit_directives - Type: Long
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   plan_no - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> editPlan(Long client_no, String auth_key, String plan_no, String plan_name, String client_plan_id, Long plan_type, Long active, String billing_interval, String currency, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, Long edit_directives, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String usage_billing_interval, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd);
+    abstract Map<String,Object> editPlan(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String billing_interval, String usage_billing_interval, String currency, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long edit_directives);
 
     abstract Map<String,Object> editPlan(Map<String,Object> map);
 
@@ -1177,17 +1247,14 @@ public interface AriaBillingAdministration {
     * @param client_no - Type: Long
     * @param auth_key - Type: String
     * @param plan_no - Type: String
-    * @param plan_name - Type: String
     * @param client_plan_id - Type: String
-    * @param plan_type - Type: Long
-    * @param active - Type: Long
-    * @param currency - Type: String
-    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
-    * @param service - Type: com.aria.common.shared.admin.ServiceArray
-    * @param edit_directives - Type: Long
+    * @param plan_name - Type: String
     * @param plan_description - Type: String
     * @param plan_group - Type: com.aria.common.shared.admin.PlanGroupArray
     * @param plan_group_id - Type: com.aria.common.shared.admin.PlanGroupIdArray
+    * @param plan_type - Type: Long
+    * @param active - Type: Long
+    * @param currency - Type: String
     * @param template_no - Type: Long
     * @param client_email_template_id - Type: String
     * @param rollover_months - Type: String
@@ -1204,6 +1271,8 @@ public interface AriaBillingAdministration {
     * @param plan_cancel_min_month - Type: Long
     * @param apply_minimum_fee - Type: String
     * @param how_to_apply_min_fee - Type: Long
+    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
+    * @param service - Type: com.aria.common.shared.admin.ServiceArray
     * @param resource - Type: com.aria.common.shared.admin.ResourceArray
     * @param arc_service_no - Type: Long
     * @param parent_plans - Type: com.aria.common.shared.admin.ParentPlansArray
@@ -1216,12 +1285,15 @@ public interface AriaBillingAdministration {
     * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
     * @param client_surcharge_id - Type: com.aria.common.shared.admin.ClientSurchargeIdArray
     * @param proration_invoice_timing_cd - Type: String
+    * @param plan_instance_status_cd - Type: Long
+    * @param assign_field_categories - Type: com.aria.common.shared.admin.AssignFieldCategoriesArray
+    * @param edit_directives - Type: Long
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   plan_no - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String plan_name, String client_plan_id, Long plan_type, Long active, String currency, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, Long edit_directives, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd);
+    abstract Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives);
 
     abstract Map<String,Object> editPlanM(Map<String,Object> map);
 
@@ -1483,6 +1555,8 @@ public interface AriaBillingAdministration {
     *   form_input_type - Type: javax.xml.ws.Holder<br>
     *   allowed_values - Type: ArrayList&#60;AllowedValuesReturnElement&#62;<br>
     *   associated_objects - Type: ArrayList&#60;AssociatedObjectsReturnElement&#62;<br>
+    *   field_categories - Type: ArrayList&#60;FieldCategoriesReturnElement&#62;<br>
+    *   allow_instance_override - Type: javax.xml.ws.Holder<br>
     */
     abstract Map<String,Object> getSuppObjFields(Long client_no, String auth_key, Long field_no);
 
@@ -1986,6 +2060,19 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> getCouponGroupDetails(Long client_no, String auth_key, String group_no, String client_defined_id);
 
     abstract Map<String,Object> getCouponGroupDetails(Map<String,Object> map);
+
+    /**
+    * getClientPaymentMethod
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   all_pay_methods - Type: ArrayList&#60;AllPayMethodsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getClientPaymentMethod(Long client_no, String auth_key);
+
+    abstract Map<String,Object> getClientPaymentMethod(Map<String,Object> map);
 
     /********************************** END - METHODS ***********************************************/
 }

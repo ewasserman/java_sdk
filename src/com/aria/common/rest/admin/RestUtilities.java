@@ -141,15 +141,8 @@ public class RestUtilities {
             entity.setPromoPlanSetName(getStringValue(jsonObject,"promo_plan_set_name"));
             entity.setPromoPlanSetDesc(getStringValue(jsonObject,"promo_plan_set_desc"));
             entity.setClientPlanTypeId(getStringValue(jsonObject,"client_plan_type_id"));
-            entity.setPlanGroup(getLongValue(jsonObject,"plan_group"));
-            entity.setGroupNo(getLongValue(jsonObject,"group_no"));
-            entity.setGroupName(getStringValue(jsonObject,"group_name"));
-            entity.setGroupDesc(getStringValue(jsonObject,"group_desc"));
-            entity.setClientPlanChangeGroupId(getStringValue(jsonObject,"client_plan_change_group_id"));
-            entity.setGroupUsage(getStringValue(jsonObject,"group_usage"));
-            entity.setGroupPlansCount(getLongValue(jsonObject,"group_plans_count"));
             } else {
-                        try {
+            try {
                 entity.setPromoPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setPromoPlanSetNo(null);
@@ -157,25 +150,6 @@ public class RestUtilities {
             entity.setPromoPlanSetName(jsonArray.get(i).toString());
             entity.setPromoPlanSetDesc(jsonArray.get(i).toString());
             entity.setClientPlanTypeId(jsonArray.get(i).toString());
-                        try {
-                entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
-            } catch (NumberFormatException e) {
-                entity.setPlanGroup(null);
-            }
-                        try {
-                entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
-            } catch (NumberFormatException e) {
-                entity.setGroupNo(null);
-            }
-            entity.setGroupName(jsonArray.get(i).toString());
-            entity.setGroupDesc(jsonArray.get(i).toString());
-            entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
-            entity.setGroupUsage(jsonArray.get(i).toString());
-                        try {
-                entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
-            } catch (NumberFormatException e) {
-                entity.setGroupPlansCount(null);
-            }
             }
             returnElement.add(entity);
         }
@@ -194,7 +168,7 @@ public class RestUtilities {
             entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
             entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
             } else {
-                        try {
+            try {
                 entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setPlanNo(null);
@@ -223,24 +197,24 @@ public class RestUtilities {
             entity.setStockLevel(getDoubleValue(jsonObject,"stock_level"));
             entity.setClientItemId(getStringValue(jsonObject,"client_item_id"));
             } else {
-                        try {
+            try {
                 entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setItemNo(null);
             }
             entity.setItemName(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setItemType(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setItemType(null);
             }
             entity.setClientSku(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setActiveInd(null);
             }
-                        try {
+            try {
                 entity.setStockLevel(Double.parseDouble(jsonArray.get(i).toString()+".0"));
             } catch (NumberFormatException e) {
                 entity.setStockLevel(null);
@@ -265,39 +239,37 @@ public class RestUtilities {
             entity.setExpireOnPaidThrough(getLongValue(jsonObject,"expire_on_paid_through"));
             entity.setResetOnUpdate(getLongValue(jsonObject,"reset_on_update"));
             entity.setAddDaysToExpiry(getLongValue(jsonObject,"add_days_to_expiry"));
-            entity.setResourceName(getStringValue(jsonObject,"resource_name"));
             } else {
-                        try {
+            try {
                 entity.setResources(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setResources(null);
             }
-                        try {
+            try {
                 entity.setResourceTypeNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setResourceTypeNo(null);
             }
-                        try {
+            try {
                 entity.setResourceUnits(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setResourceUnits(null);
             }
-                        try {
+            try {
                 entity.setExpireOnPaidThrough(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setExpireOnPaidThrough(null);
             }
-                        try {
+            try {
                 entity.setResetOnUpdate(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setResetOnUpdate(null);
             }
-                        try {
+            try {
                 entity.setAddDaysToExpiry(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setAddDaysToExpiry(null);
             }
-            entity.setResourceName(jsonArray.get(i).toString());
             }
             returnElement.add(entity);
         }
@@ -316,12 +288,12 @@ public class RestUtilities {
             entity.setPricePerUnit(getDoubleValue(jsonObject,"price_per_unit"));
             } else {
             entity.setCurrencyCd(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setPrice(Double.parseDouble(jsonArray.get(i).toString()+".0"));
             } catch (NumberFormatException e) {
                 entity.setPrice(null);
             }
-                        try {
+            try {
                 entity.setPricePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
             } catch (NumberFormatException e) {
                 entity.setPricePerUnit(null);
@@ -348,17 +320,17 @@ public class RestUtilities {
             } else {
             entity.setThumbnailImageUrl(jsonArray.get(i).toString());
             entity.setImageText(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setDefaultInd(null);
             }
-                        try {
+            try {
                 entity.setImageClassSeqNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setImageClassSeqNo(null);
             }
-                        try {
+            try {
                 entity.setActive(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setActive(null);
@@ -381,7 +353,7 @@ public class RestUtilities {
             entity.setFieldValue(getStringValue(jsonObject,"field_value"));
             entity.setFieldName(getStringValue(jsonObject,"field_name"));
             } else {
-                        try {
+            try {
                 entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setFieldNo(null);
@@ -421,17 +393,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setServiceNo(getLongValue(jsonObject,"service_no"));
             entity.setClientServiceId(getStringValue(jsonObject,"client_service_id"));
-            entity.setServiceName(getStringValue(jsonObject,"service_name"));
-            entity.setServiceType(getStringValue(jsonObject,"service_type"));
             } else {
-                        try {
+            try {
                 entity.setServiceNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setServiceNo(null);
             }
             entity.setClientServiceId(jsonArray.get(i).toString());
-            entity.setServiceName(jsonArray.get(i).toString());
-            entity.setServiceType(jsonArray.get(i).toString());
             }
             returnElement.add(entity);
         }
@@ -453,24 +421,24 @@ public class RestUtilities {
             entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
             entity.setDescription(getStringValue(jsonObject,"description"));
             } else {
-                        try {
+            try {
                 entity.setScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setScheduleNo(null);
             }
             entity.setScheduleName(jsonArray.get(i).toString());
             entity.setClientRateScheduleId(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setFromUnit(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setFromUnit(null);
             }
-                        try {
+            try {
                 entity.setToUnit(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setToUnit(null);
             }
-                        try {
+            try {
                 entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
             } catch (NumberFormatException e) {
                 entity.setRatePerUnit(null);
@@ -495,22 +463,12 @@ public class RestUtilities {
                 entity.getRateInfo().add(element);
             }
             entity.setIsDefault(getLongValue(jsonObject,"is_default"));
-            entity.setFromUnit(getStringValue(jsonObject,"from_unit"));
-            entity.setToUnit(getStringValue(jsonObject,"to_unit"));
-            entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
             } else {
             entity.setCurrency(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setIsDefault(null);
-            }
-            entity.setFromUnit(jsonArray.get(i).toString());
-            entity.setToUnit(jsonArray.get(i).toString());
-                        try {
-                entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
-            } catch (NumberFormatException e) {
-                entity.setRatePerUnit(null);
             }
             }
             returnElement.add(entity);
@@ -527,7 +485,7 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setParentPlan(getLongValue(jsonObject,"parent_plan"));
             } else {
-                        try {
+            try {
                 entity.setParentPlan(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setParentPlan(null);
@@ -563,7 +521,7 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setExclusionPlan(getLongValue(jsonObject,"exclusion_plan"));
             } else {
-                        try {
+            try {
                 entity.setExclusionPlan(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setExclusionPlan(null);
@@ -587,7 +545,7 @@ public class RestUtilities {
             } else {
             entity.setFieldName(jsonArray.get(i).toString());
             entity.setFieldDesc(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setFieldOrder(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setFieldOrder(null);
@@ -611,7 +569,7 @@ public class RestUtilities {
             } else {
             entity.setDisplayText(jsonArray.get(i).toString());
             entity.setOptionValue(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setOptionValueOrder(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setOptionValueOrder(null);
@@ -647,7 +605,7 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setRule(getLongValue(jsonObject,"rule"));
             } else {
-                        try {
+            try {
                 entity.setRule(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setRule(null);
@@ -683,7 +641,7 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setPlanNos(getLongValue(jsonObject,"plan_nos"));
             } else {
-                        try {
+            try {
                 entity.setPlanNos(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setPlanNos(null);
@@ -719,7 +677,7 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setServiceNos(getLongValue(jsonObject,"service_nos"));
             } else {
-                        try {
+            try {
                 entity.setServiceNos(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setServiceNos(null);
@@ -755,7 +713,7 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setItemNos(getLongValue(jsonObject,"item_nos"));
             } else {
-                        try {
+            try {
                 entity.setItemNos(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setItemNos(null);
@@ -774,10 +732,8 @@ public class RestUtilities {
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setClientItemIds(getStringValue(jsonObject,"client_item_ids"));
-            entity.setItemIds(getStringValue(jsonObject,"item_ids"));
             } else {
             entity.setClientItemIds(jsonArray.get(i).toString());
-            entity.setItemIds(jsonArray.get(i).toString());
             }
             returnElement.add(entity);
         }
@@ -830,7 +786,7 @@ public class RestUtilities {
                 entity.getEligibleServiceTypes().add(element);
             }
             } else {
-                        try {
+            try {
                 entity.setCreditTemplateNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setCreditTemplateNo(null);
@@ -838,51 +794,51 @@ public class RestUtilities {
             entity.setCreditTemplateId(jsonArray.get(i).toString());
             entity.setCreditTemplateName(jsonArray.get(i).toString());
             entity.setClientCreditTemplateId(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setEligiblePlanNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setEligiblePlanNo(null);
             }
             entity.setEligibleClientPlanId(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setEligibleServiceNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setEligibleServiceNo(null);
             }
             entity.setEligibleClientServiceId(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setNoOfCredits(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setNoOfCredits(null);
             }
-                        try {
+            try {
                 entity.setTimeBetweenCredits(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setTimeBetweenCredits(null);
             }
-                        try {
+            try {
                 entity.setDiscountType(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setDiscountType(null);
             }
-                        try {
+            try {
                 entity.setDiscountAmt(Double.parseDouble(jsonArray.get(i).toString()+".0"));
             } catch (NumberFormatException e) {
                 entity.setDiscountAmt(null);
             }
-                        try {
+            try {
                 entity.setPercentagePlanNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setPercentagePlanNo(null);
             }
             entity.setPercentageClientPlanId(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setPercentageServiceNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setPercentageServiceNo(null);
             }
             entity.setPercentageClientServiceId(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setAltServiceNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setAltServiceNo(null);
@@ -944,7 +900,7 @@ public class RestUtilities {
                 entity.getClientItemId().add(element);
             }
             } else {
-                        try {
+            try {
                 entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setRuleNo(null);
@@ -954,12 +910,12 @@ public class RestUtilities {
             entity.setDescription(jsonArray.get(i).toString());
             entity.setExtDescription(jsonArray.get(i).toString());
             entity.setDiscountType(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setFlatPercentInd(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setFlatPercentInd(null);
             }
-                        try {
+            try {
                 entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
             } catch (NumberFormatException e) {
                 entity.setAmount(null);
@@ -967,29 +923,29 @@ public class RestUtilities {
             entity.setCurrency(jsonArray.get(i).toString());
             entity.setApplicableTransScope(jsonArray.get(i).toString());
             entity.setDurationTypeInd(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setMaxApplicableMonths(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setMaxApplicableMonths(null);
             }
-                        try {
+            try {
                 entity.setMaxApplicationsPerAcct(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setMaxApplicationsPerAcct(null);
             }
             entity.setInlineOffsetInd(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setServiceCodeToUse(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setServiceCodeToUse(null);
             }
-                        try {
+            try {
                 entity.setAltServiceNo2Apply(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setAltServiceNo2Apply(null);
             }
             entity.setAltServiceId2Apply(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setScopeNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setScopeNo(null);
@@ -1021,7 +977,7 @@ public class RestUtilities {
             }
             entity.setAllowOverlapInd(getStringValue(jsonObject,"allow_overlap_ind"));
             } else {
-                        try {
+            try {
                 entity.setBundleNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setBundleNo(null);
@@ -1047,7 +1003,7 @@ public class RestUtilities {
             entity.setCreditTemplateName(getStringValue(jsonObject,"credit_template_name"));
             entity.setClientCreditTemplateId(getStringValue(jsonObject,"client_credit_template_id"));
             } else {
-                        try {
+            try {
                 entity.setRecurringCreditTemplateNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setRecurringCreditTemplateNo(null);
@@ -1081,7 +1037,7 @@ public class RestUtilities {
                 entity.getRuleIds().add(element);
             }
             } else {
-                        try {
+            try {
                 entity.setBundleNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setBundleNo(null);
@@ -1120,7 +1076,7 @@ public class RestUtilities {
             entity.setAltServiceNo2Apply(getLongValue(jsonObject,"alt_service_no_2_apply"));
             entity.setAltServiceId2Apply(getStringValue(jsonObject,"alt_service_id_2_apply"));
             entity.setScopeNo(getLongValue(jsonObject,"scope_no"));
-            entity.setDiscountBehaviorTypeInd(getValue(jsonObject,"discount_behavior_type_ind"));
+            entity.setDiscountBehaviorTypeInd(getStringValue(jsonObject,"discount_behavior_type_ind"));
                         ArrayList<PlanNoReturnElement> arrayListPlanNoReturnElement = buildPlanNoReturnElement((JSONArray)jsonObject.get("plan_no"));
             for (PlanNoReturnElement element : arrayListPlanNoReturnElement){
                 entity.getPlanNo().add(element);
@@ -1147,7 +1103,7 @@ public class RestUtilities {
             }
             entity.setUseAllOrNthSubsRule(getStringValue(jsonObject,"use_all_or_nth_subs_rule"));
             } else {
-                        try {
+            try {
                 entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setRuleNo(null);
@@ -1157,7 +1113,7 @@ public class RestUtilities {
             entity.setDescription(jsonArray.get(i).toString());
             entity.setExtDescription(jsonArray.get(i).toString());
             entity.setDiscountType(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
             } catch (NumberFormatException e) {
                 entity.setAmount(null);
@@ -1165,33 +1121,34 @@ public class RestUtilities {
             entity.setCurrency(jsonArray.get(i).toString());
             entity.setApplicableTransScope(jsonArray.get(i).toString());
             entity.setDurationTypeInd(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setMaxApplicableMonths(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setMaxApplicableMonths(null);
             }
-                        try {
+            try {
                 entity.setMaxApplicationsPerAcct(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setMaxApplicationsPerAcct(null);
             }
             entity.setInlineOffsetInd(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setServiceCodeToUse(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setServiceCodeToUse(null);
             }
-                        try {
+            try {
                 entity.setAltServiceNo2Apply(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setAltServiceNo2Apply(null);
             }
             entity.setAltServiceId2Apply(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setScopeNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setScopeNo(null);
             }
+            entity.setDiscountBehaviorTypeInd(jsonArray.get(i).toString());
             entity.setUseAllOrNthSubsRule(jsonArray.get(i).toString());
             }
             returnElement.add(entity);
@@ -1206,36 +1163,58 @@ public class RestUtilities {
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
             entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
-            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
-            entity.setPlanLevel(getLongValue(jsonObject,"plan_level"));
-            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
-            entity.setBillingInterval(getLongValue(jsonObject,"billing_interval"));
-            entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
             } else {
-            entity.setPlanName(jsonArray.get(i).toString());
             entity.setPlanDesc(jsonArray.get(i).toString());
-                        try {
-                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
-            } catch (NumberFormatException e) {
-                entity.setPlanNo(null);
             }
-                        try {
-                entity.setPlanLevel(Long.parseLong(jsonArray.get(i).toString()));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RateSchedReturnElement> buildRateSchedReturnElement(JSONArray jsonArray) {
+        ArrayList<RateSchedReturnElement> returnElement = new ArrayList<RateSchedReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RateSchedReturnElement entity = new RateSchedReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setScheduleNo(getLongValue(jsonObject,"schedule_no"));
+            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
+            entity.setScheduleName(getStringValue(jsonObject,"schedule_name"));
+            entity.setScheduleCurrency(getStringValue(jsonObject,"schedule_currency"));
+            entity.setRecurringBillingInterval(getLongValue(jsonObject,"recurring_billing_interval"));
+            entity.setUsageBillingInterval(getLongValue(jsonObject,"usage_billing_interval"));
+            entity.setDefaultInd(getLongValue(jsonObject,"default_ind"));
+            entity.setDefaultIndCurr(getLongValue(jsonObject,"default_ind_curr"));
+            } else {
+            try {
+                entity.setScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
-                entity.setPlanLevel(null);
+                entity.setScheduleNo(null);
             }
-            entity.setClientPlanId(jsonArray.get(i).toString());
-                        try {
-                entity.setBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
+            entity.setClientRateScheduleId(jsonArray.get(i).toString());
+            entity.setScheduleName(jsonArray.get(i).toString());
+            entity.setScheduleCurrency(jsonArray.get(i).toString());
+            try {
+                entity.setRecurringBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
-                entity.setBillingInterval(null);
+                entity.setRecurringBillingInterval(null);
             }
-                        try {
-                entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+            try {
+                entity.setUsageBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
-                entity.setActiveInd(null);
+                entity.setUsageBillingInterval(null);
+            }
+            try {
+                entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDefaultInd(null);
+            }
+            try {
+                entity.setDefaultIndCurr(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDefaultIndCurr(null);
             }
             }
             returnElement.add(entity);
@@ -1252,7 +1231,7 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setSurchargeNos(getLongValue(jsonObject,"surcharge_nos"));
             } else {
-                        try {
+            try {
                 entity.setSurchargeNos(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setSurchargeNos(null);
@@ -1288,43 +1267,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setGroupNo(getLongValue(jsonObject,"group_no"));
             entity.setGroupName(getStringValue(jsonObject,"group_name"));
-            entity.setPlanSetNo(getLongValue(jsonObject,"plan_set_no"));
-            entity.setSetName(getStringValue(jsonObject,"set_name"));
-            entity.setSetDescription(getStringValue(jsonObject,"set_description"));
-            entity.setClientPlanTypeId(getStringValue(jsonObject,"client_plan_type_id"));
-            entity.setPlanGroup(getLongValue(jsonObject,"plan_group"));
-            entity.setGroupDesc(getStringValue(jsonObject,"group_desc"));
-            entity.setClientPlanChangeGroupId(getStringValue(jsonObject,"client_plan_change_group_id"));
-            entity.setGroupUsage(getStringValue(jsonObject,"group_usage"));
-            entity.setGroupPlansCount(getLongValue(jsonObject,"group_plans_count"));
             } else {
-                        try {
+            try {
                 entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setGroupNo(null);
             }
             entity.setGroupName(jsonArray.get(i).toString());
-                        try {
-                entity.setPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
-            } catch (NumberFormatException e) {
-                entity.setPlanSetNo(null);
-            }
-            entity.setSetName(jsonArray.get(i).toString());
-            entity.setSetDescription(jsonArray.get(i).toString());
-            entity.setClientPlanTypeId(jsonArray.get(i).toString());
-                        try {
-                entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
-            } catch (NumberFormatException e) {
-                entity.setPlanGroup(null);
-            }
-            entity.setGroupDesc(jsonArray.get(i).toString());
-            entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
-            entity.setGroupUsage(jsonArray.get(i).toString());
-                        try {
-                entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
-            } catch (NumberFormatException e) {
-                entity.setGroupPlansCount(null);
-            }
             }
             returnElement.add(entity);
         }
@@ -1362,7 +1311,7 @@ public class RestUtilities {
             entity.setScopeLabel(getStringValue(jsonObject,"scope_label"));
             entity.setDeleteable(getStringValue(jsonObject,"deleteable"));
             } else {
-                        try {
+            try {
                 entity.setSurchargeNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setSurchargeNo(null);
@@ -1412,7 +1361,7 @@ public class RestUtilities {
             entity.setUsageTypeName(getStringValue(jsonObject,"usage_type_name"));
             entity.setIsEditable(getLongValue(jsonObject,"is_editable"));
             } else {
-                        try {
+            try {
                 entity.setUsageTypeNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setUsageTypeNo(null);
@@ -1420,7 +1369,7 @@ public class RestUtilities {
             entity.setUsageTypeDesc(jsonArray.get(i).toString());
             entity.setUsageUnitType(jsonArray.get(i).toString());
             entity.setUsageTypeName(jsonArray.get(i).toString());
-                        try {
+            try {
                 entity.setIsEditable(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setIsEditable(null);
@@ -1441,7 +1390,7 @@ public class RestUtilities {
             entity.setUsageUnitTypeNo(getLongValue(jsonObject,"usage_unit_type_no"));
             entity.setUsageUnitTypeDesc(getStringValue(jsonObject,"usage_unit_type_desc"));
             } else {
-                        try {
+            try {
                 entity.setUsageUnitTypeNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setUsageUnitTypeNo(null);
@@ -1484,6 +1433,28 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<FieldCategoriesReturnElement> buildFieldCategoriesReturnElement(JSONArray jsonArray) {
+        ArrayList<FieldCategoriesReturnElement> returnElement = new ArrayList<FieldCategoriesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            FieldCategoriesReturnElement entity = new FieldCategoriesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setFieldCategoryNo(getLongValue(jsonObject,"field_category_no"));
+            entity.setFieldCategoryName(getStringValue(jsonObject,"field_category_name"));
+            } else {
+            try {
+                entity.setFieldCategoryNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setFieldCategoryNo(null);
+            }
+            entity.setFieldCategoryName(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<CoaListReturnElement> buildCoaListReturnElement(JSONArray jsonArray) {
         ArrayList<CoaListReturnElement> returnElement = new ArrayList<CoaListReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -1496,7 +1467,7 @@ public class RestUtilities {
             entity.setCoaCode(getStringValue(jsonObject,"coa_code"));
             entity.setCoaDescription(getStringValue(jsonObject,"coa_description"));
             } else {
-                        try {
+            try {
                 entity.setCoaId(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setCoaId(null);
@@ -1520,7 +1491,7 @@ public class RestUtilities {
             entity.setCoaCode(getStringValue(jsonObject,"coa_code"));
             entity.setCoaDescription(getStringValue(jsonObject,"coa_description"));
             } else {
-                        try {
+            try {
                 entity.setCoaId(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setCoaId(null);
@@ -1545,17 +1516,17 @@ public class RestUtilities {
             entity.setRate(getDoubleValue(jsonObject,"rate"));
             entity.setDescription(getStringValue(jsonObject,"description"));
             } else {
-                        try {
+            try {
                 entity.setFrom(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setFrom(null);
             }
-                        try {
+            try {
                 entity.setTo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setTo(null);
             }
-                        try {
+            try {
                 entity.setRate(Double.parseDouble(jsonArray.get(i).toString()+".0"));
             } catch (NumberFormatException e) {
                 entity.setRate(null);
@@ -1585,7 +1556,7 @@ public class RestUtilities {
                 entity.getClientServiceId().add(element);
             }
             } else {
-                        try {
+            try {
                 entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setPlanNo(null);
@@ -1609,7 +1580,7 @@ public class RestUtilities {
             entity.setProfileName(getStringValue(jsonObject,"profile_name"));
             entity.setProfileDesc(getStringValue(jsonObject,"profile_desc"));
             } else {
-                        try {
+            try {
                 entity.setProfileId(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setProfileId(null);
@@ -1640,7 +1611,7 @@ public class RestUtilities {
                 entity.getCoupons().add(element);
             }
             } else {
-                        try {
+            try {
                 entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setGroupNo(null);
@@ -1649,6 +1620,46 @@ public class RestUtilities {
             entity.setGroupName(jsonArray.get(i).toString());
             entity.setDescription(jsonArray.get(i).toString());
             entity.setPrecedence(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<AllPayMethodsReturnElement> buildAllPayMethodsReturnElement(JSONArray jsonArray) {
+        ArrayList<AllPayMethodsReturnElement> returnElement = new ArrayList<AllPayMethodsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            AllPayMethodsReturnElement entity = new AllPayMethodsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPayMethodType(getLongValue(jsonObject,"pay_method_type"));
+            entity.setPayMethodName(getStringValue(jsonObject,"pay_method_name"));
+            entity.setDaysUntilPaymentReminder01(getLongValue(jsonObject,"days_until_payment_reminder_01"));
+            entity.setDaysUntilPaymentReminder02(getLongValue(jsonObject,"days_until_payment_reminder_02"));
+            entity.setDaysUntilPaymentReminder03(getLongValue(jsonObject,"days_until_payment_reminder_03"));
+            } else {
+            try {
+                entity.setPayMethodType(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPayMethodType(null);
+            }
+            entity.setPayMethodName(jsonArray.get(i).toString());
+            try {
+                entity.setDaysUntilPaymentReminder01(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDaysUntilPaymentReminder01(null);
+            }
+            try {
+                entity.setDaysUntilPaymentReminder02(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDaysUntilPaymentReminder02(null);
+            }
+            try {
+                entity.setDaysUntilPaymentReminder03(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDaysUntilPaymentReminder03(null);
+            }
             }
             returnElement.add(entity);
         }
@@ -1733,7 +1744,6 @@ public class RestUtilities {
             parameters.add("billing_option["+i+"]", getValue("Long", row.getBillingOption()));
             parameters.add("threshold["+i+"]", getValue("Long", row.getThreshold()));
             parameters.add("tax_inclusive_ind["+i+"]", getValue("Long", row.getTaxInclusiveInd()));
-            parameters.add("taxable["+i+"]", getValue("String", row.getTaxable()));
                         addParameterValuesFromArray(parameters, row.getUsageThreshold(), "usage_threshold["+i+"]");
                         addParameterValuesFromArray(parameters, row.getTier(), "tier["+i+"]");
             parameters.add("fulfillment_based_ind["+i+"]", getValue("Long", row.getFulfillmentBasedInd()));
@@ -1759,7 +1769,6 @@ public class RestUtilities {
             parameters.add(paramPrefix + "billing_option["+i+"]", getValue("Long", row.getBillingOption()));
             parameters.add(paramPrefix + "threshold["+i+"]", getValue("Long", row.getThreshold()));
             parameters.add(paramPrefix + "tax_inclusive_ind["+i+"]", getValue("Long", row.getTaxInclusiveInd()));
-            parameters.add(paramPrefix + "taxable["+i+"]", getValue("String", row.getTaxable()));
                         addParameterValuesFromArray(parameters, row.getUsageThreshold(), paramPrefix + "usage_threshold["+i+"]");
                         addParameterValuesFromArray(parameters, row.getTier(), paramPrefix + "tier["+i+"]");
             parameters.add(paramPrefix + "fulfillment_based_ind["+i+"]", getValue("Long", row.getFulfillmentBasedInd()));
@@ -1852,7 +1861,6 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.admin.RuleIdsRow row : arrayList.getRuleIdsRow()){
             parameters.add("rule_id["+i+"]", getValue("String", row.getRuleId()));
-            parameters.add("rule["+i+"]", getValue("String", row.getRule()));
             i++;
         }
     }
@@ -1861,7 +1869,6 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.admin.RuleIdsRow row : arrayList.getRuleIdsRow()){
             parameters.add(paramPrefix + "rule_id["+i+"]", getValue("String", row.getRuleId()));
-            parameters.add(paramPrefix + "rule["+i+"]", getValue("String", row.getRule()));
             i++;
         }
     }
@@ -2078,7 +2085,7 @@ public class RestUtilities {
             parameters.add("rule_id["+i+"]", getValue("String", row.getRuleId()));
             parameters.add("description["+i+"]", getValue("String", row.getDescription()));
             parameters.add("ext_description["+i+"]", getValue("String", row.getExtDescription()));
-            parameters.add("flat_percent_ind["+i+"]", getValue("Long", row.getFlatPercentInd()));
+            parameters.add("flat_percent_ind["+i+"]", getValue("String", row.getFlatPercentInd()));
             parameters.add("amount["+i+"]", getValue("Double", row.getAmount()));
             parameters.add("currency["+i+"]", getValue("String", row.getCurrency()));
             parameters.add("duration_type_ind["+i+"]", getValue("String", row.getDurationTypeInd()));
@@ -2109,7 +2116,7 @@ public class RestUtilities {
             parameters.add(paramPrefix + "rule_id["+i+"]", getValue("String", row.getRuleId()));
             parameters.add(paramPrefix + "description["+i+"]", getValue("String", row.getDescription()));
             parameters.add(paramPrefix + "ext_description["+i+"]", getValue("String", row.getExtDescription()));
-            parameters.add(paramPrefix + "flat_percent_ind["+i+"]", getValue("Long", row.getFlatPercentInd()));
+            parameters.add(paramPrefix + "flat_percent_ind["+i+"]", getValue("String", row.getFlatPercentInd()));
             parameters.add(paramPrefix + "amount["+i+"]", getValue("Double", row.getAmount()));
             parameters.add(paramPrefix + "currency["+i+"]", getValue("String", row.getCurrency()));
             parameters.add(paramPrefix + "duration_type_ind["+i+"]", getValue("String", row.getDurationTypeInd()));
@@ -2256,6 +2263,7 @@ public class RestUtilities {
             parameters.add("no_of_uses["+i+"]", getValue("Long", row.getNoOfUses()));
             parameters.add("start_date["+i+"]", getValue("String", row.getStartDate()));
             parameters.add("end_date["+i+"]", getValue("String", row.getEndDate()));
+            parameters.add("coupon_scope["+i+"]", getValue("Long", row.getCouponScope()));
             i++;
         }
     }
@@ -2270,6 +2278,7 @@ public class RestUtilities {
             parameters.add(paramPrefix + "no_of_uses["+i+"]", getValue("Long", row.getNoOfUses()));
             parameters.add(paramPrefix + "start_date["+i+"]", getValue("String", row.getStartDate()));
             parameters.add(paramPrefix + "end_date["+i+"]", getValue("String", row.getEndDate()));
+            parameters.add(paramPrefix + "coupon_scope["+i+"]", getValue("Long", row.getCouponScope()));
             i++;
         }
     }
@@ -2551,23 +2560,6 @@ public class RestUtilities {
         }
     }
 
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanNosArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.PlanNosRow row : arrayList.getPlanNosRow()){
-            parameters.add("plan_nos["+i+"]", getValue("Long", row.getPlanNos()));
-            i++;
-        }
-    }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanNosArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.PlanNosRow row : arrayList.getPlanNosRow()){
-            parameters.add(paramPrefix + "plan_nos["+i+"]", getValue("Long", row.getPlanNos()));
-            i++;
-        }
-    }
-
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.AssignFieldCategoriesArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -2585,6 +2577,23 @@ public class RestUtilities {
             parameters.add(paramPrefix + "field_category_no["+i+"]", getValue("Long", row.getFieldCategoryNo()));
             parameters.add(paramPrefix + "field_category_name["+i+"]", getValue("String", row.getFieldCategoryName()));
             parameters.add(paramPrefix + "field_category_directive["+i+"]", getValue("Long", row.getFieldCategoryDirective()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanNosArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.PlanNosRow row : arrayList.getPlanNosRow()){
+            parameters.add("plan_nos["+i+"]", getValue("Long", row.getPlanNos()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanNosArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.PlanNosRow row : arrayList.getPlanNosRow()){
+            parameters.add(paramPrefix + "plan_nos["+i+"]", getValue("Long", row.getPlanNos()));
             i++;
         }
     }

@@ -44,7 +44,7 @@ public class DiscountRuleRow {
     @XmlElement(name = "ext_description")
     protected String extDescription;
     @XmlElement(name = "flat_percent_ind")
-    protected Long flatPercentInd;
+    protected String flatPercentInd;
     @XmlElement(name = "amount")
     protected Double amount;
     @XmlElement(name = "currency")
@@ -115,11 +115,11 @@ public class DiscountRuleRow {
         this.extDescription = value;
     }
 
-    public Long getFlatPercentInd() {
+    public String getFlatPercentInd() {
         return flatPercentInd;
     }
 
-    public void setFlatPercentInd(Long value) {
+    public void setFlatPercentInd(String value) {
         this.flatPercentInd = value;
     }
 
