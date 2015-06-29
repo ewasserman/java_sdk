@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "revrecProfileNo", "clientRevrecId", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurcharges", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "acctCoupons", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "consumerAcctInd", "errorCode", "errorMsg"})
+@XmlType(name = "", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "revrecProfileNo", "clientRevrecId", "invoiceApprovalRequired", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurcharges", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "acctCoupons", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "consumerAcctInd", "errorCode", "errorMsg"})
 @XmlRootElement(name = "get_acct_details_all_mResponseElement")
 public class GetAcctDetailsAllMResponseElement {
 
@@ -90,6 +90,8 @@ public class GetAcctDetailsAllMResponseElement {
     protected Long revrecProfileNo;
     @XmlElement(name = "client_revrec_id")
     protected String clientRevrecId;
+    @XmlElement(name = "invoice_approval_required")
+    protected Long invoiceApprovalRequired;
     @XmlElement(name = "functional_acct_group")
     protected List<FunctionalAcctGroupReturnElement> functionalAcctGroup;
     @XmlElement(name = "collection_acct_group")
@@ -427,6 +429,14 @@ public class GetAcctDetailsAllMResponseElement {
 
     public void setClientRevrecId(String value) {
         this.clientRevrecId = value;
+    }
+
+    public Long getInvoiceApprovalRequired() {
+        return invoiceApprovalRequired;
+    }
+
+    public void setInvoiceApprovalRequired(Long value) {
+        this.invoiceApprovalRequired = value;
     }
 
     public List<FunctionalAcctGroupReturnElement> getFunctionalAcctGroup() {

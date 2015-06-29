@@ -1518,7 +1518,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "basic_plans";
+        returnValues[2] = "plan_details";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -7547,7 +7547,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_details_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[55];
+        String[] returnValues = new String[56];
 
         returnValues[0] = "acct_no";
         returnValues[1] = "client_acct_id";
@@ -7587,23 +7587,24 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[35] = "client_cn_alt_msg_template_id";
         returnValues[36] = "revrec_profile_no";
         returnValues[37] = "client_revrec_id";
-        returnValues[38] = "functional_acct_group";
-        returnValues[39] = "collection_acct_group";
-        returnValues[40] = "supp_field";
-        returnValues[41] = "acct_surcharges";
-        returnValues[42] = "acct_currency";
-        returnValues[43] = "acct_balance";
-        returnValues[44] = "address_verification_code";
-        returnValues[45] = "address_match_score";
-        returnValues[46] = "acct_create_client_receipt_id";
-        returnValues[47] = "status_client_receipt_id";
-        returnValues[48] = "acct_coupons";
-        returnValues[49] = "billing_groups_info";
-        returnValues[50] = "payment_methods_info";
-        returnValues[51] = "master_plans_info";
-        returnValues[52] = "consumer_acct_ind";
-        returnValues[53] = "error_code";
-        returnValues[54] = "error_msg";
+        returnValues[38] = "invoice_approval_required";
+        returnValues[39] = "functional_acct_group";
+        returnValues[40] = "collection_acct_group";
+        returnValues[41] = "supp_field";
+        returnValues[42] = "acct_surcharges";
+        returnValues[43] = "acct_currency";
+        returnValues[44] = "acct_balance";
+        returnValues[45] = "address_verification_code";
+        returnValues[46] = "address_match_score";
+        returnValues[47] = "acct_create_client_receipt_id";
+        returnValues[48] = "status_client_receipt_id";
+        returnValues[49] = "acct_coupons";
+        returnValues[50] = "billing_groups_info";
+        returnValues[51] = "payment_methods_info";
+        returnValues[52] = "master_plans_info";
+        returnValues[53] = "consumer_acct_ind";
+        returnValues[54] = "error_code";
+        returnValues[55] = "error_msg";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -7620,7 +7621,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         return getAcctDetailsAllM(client_no, auth_key, acct_no, include_supp_plans, include_billing_groups, include_payment_methods);
     }
 
-    public Map<String,Object> updateAcctCompleteM(Long client_no, String auth_key, String client_receipt_id, Long acct_no, String client_acct_id, String userid, String password, String secret_question, String secret_question_answer, String pin, String first_name, String mi, String last_name, String company_name, String address1, String address2, String address3, String city, String locality, String state_prov, String country_cd, String postal_cd, String phone, String phone_ext, String cell_phone, String work_phone, String work_phone_ext, String fax, String email, String birthdate, Long status_cd, Long notify_method, Long senior_acct_no, String senior_acct_userid, String senior_client_acct_id, Long test_acct_ind, String taxpayer_id, String alt_client_acct_group_id, com.aria.common.shared.AcctCouponsArray acct_coupons, String acct_start_date, Long alt_msg_template_no, Long cn_alt_msg_template_no, Long seq_func_group_no, Long client_seq_func_group_id, Long tax_exemption_level, String client_alt_msg_template_id, String client_cn_alt_msg_template_id, String reset_dates_after_status, String new_client_acct_id, Long invoicing_option, String alt_start_date, Long alt_bill_day, String retroactive_start_date, com.aria.common.shared.FunctionalAcctGroupsArray functional_acct_groups, com.aria.common.shared.CollectionAcctGroupsArray collection_acct_groups, com.aria.common.shared.AcctSuppFieldsArray acct_supp_fields, com.aria.common.shared.AcctSurchargesArray acct_surcharges, String client_master_plan_instance_id, Long master_plan_instance_no, String new_client_master_plan_instance_id, String client_master_plan_id, Long master_plan_no, String master_plan_instance_desc, Long dunning_group_no, String client_dunning_group_id, Long mp_billing_group_no, String client_mp_billing_group_id, Long master_plan_instance_status, Long master_plan_units, Long resp_level_cd, Long parent_master_plan_inst_no, Long alt_rate_schedule_no, String client_alt_rate_schedule_id, String promo_cd, com.aria.common.shared.MpCouponsArray mp_coupons, Long master_plan_assign_directive, Long offset_months, Long offset_interval, String invoice_unbilled_usage, String invoice_approval_required, String status_degrade_date, com.aria.common.shared.MasterPlanProductFieldsArray master_plan_product_fields, com.aria.common.shared.NewAcctCustomRatesArray new_acct_custom_rates, com.aria.common.shared.BillingGroupsArrayArray billing_groups_array, com.aria.common.shared.PaymentMethodsArrayArray payment_methods_array, Long revrec_profile_no, String client_revrec_id){
+    public Map<String,Object> updateAcctCompleteM(Long client_no, String auth_key, String client_receipt_id, Long acct_no, String client_acct_id, String userid, String password, String secret_question, String secret_question_answer, String pin, String first_name, String mi, String last_name, String company_name, String address1, String address2, String address3, String city, String locality, String state_prov, String country_cd, String postal_cd, String phone, String phone_ext, String cell_phone, String work_phone, String work_phone_ext, String fax, String email, String birthdate, Long status_cd, Long notify_method, Long senior_acct_no, String senior_acct_userid, String senior_client_acct_id, Long test_acct_ind, String taxpayer_id, String alt_client_acct_group_id, com.aria.common.shared.AcctCouponsArray acct_coupons, String acct_start_date, Long alt_msg_template_no, Long cn_alt_msg_template_no, Long seq_func_group_no, Long client_seq_func_group_id, Long tax_exemption_level, String client_alt_msg_template_id, String client_cn_alt_msg_template_id, String reset_dates_after_status, String new_client_acct_id, Long invoicing_option, String alt_start_date, Long alt_bill_day, String retroactive_start_date, com.aria.common.shared.FunctionalAcctGroupsArray functional_acct_groups, com.aria.common.shared.CollectionAcctGroupsArray collection_acct_groups, com.aria.common.shared.AcctSuppFieldsArray acct_supp_fields, com.aria.common.shared.AcctSurchargesArray acct_surcharges, String client_master_plan_instance_id, Long master_plan_instance_no, String new_client_master_plan_instance_id, String client_master_plan_id, Long master_plan_no, String master_plan_instance_desc, Long dunning_group_no, String client_dunning_group_id, Long mp_billing_group_no, String client_mp_billing_group_id, Long master_plan_instance_status, Long master_plan_units, Long resp_level_cd, Long parent_master_plan_inst_no, Long alt_rate_schedule_no, String client_alt_rate_schedule_id, String promo_cd, com.aria.common.shared.MpCouponsArray mp_coupons, Long master_plan_assign_directive, Long offset_months, Long offset_interval, String invoice_unbilled_usage, String invoice_approval_required, String status_degrade_date, com.aria.common.shared.MasterPlanProductFieldsArray master_plan_product_fields, com.aria.common.shared.UpdateAcctCustomRatesArray update_acct_custom_rates, com.aria.common.shared.BillingGroupsArrayArray billing_groups_array, com.aria.common.shared.PaymentMethodsArrayArray payment_methods_array, Long revrec_profile_no, String client_revrec_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -7704,7 +7705,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"invoice_approval_required",getValue("String", invoice_approval_required));
         addParameters(parameters,"status_degrade_date",getValue("String", status_degrade_date));
         RestUtilities.addParameterValuesFromArray(parameters,master_plan_product_fields);
-        RestUtilities.addParameterValuesFromArray(parameters,new_acct_custom_rates);
+        RestUtilities.addParameterValuesFromArray(parameters,update_acct_custom_rates);
         RestUtilities.addParameterValuesFromArray(parameters,billing_groups_array);
         RestUtilities.addParameterValuesFromArray(parameters,payment_methods_array);
         addParameters(parameters,"revrec_profile_no",getValue("Long", revrec_profile_no));
@@ -7842,13 +7843,13 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 String invoice_approval_required = (String) map.get("invoice_approval_required");
                 String status_degrade_date = (String) map.get("status_degrade_date");
                 com.aria.common.shared.MasterPlanProductFieldsArray master_plan_product_fields = (com.aria.common.shared.MasterPlanProductFieldsArray) map.get("master_plan_product_fields");
-                com.aria.common.shared.NewAcctCustomRatesArray new_acct_custom_rates = (com.aria.common.shared.NewAcctCustomRatesArray) map.get("new_acct_custom_rates");
+                com.aria.common.shared.UpdateAcctCustomRatesArray update_acct_custom_rates = (com.aria.common.shared.UpdateAcctCustomRatesArray) map.get("update_acct_custom_rates");
                 com.aria.common.shared.BillingGroupsArrayArray billing_groups_array = (com.aria.common.shared.BillingGroupsArrayArray) map.get("billing_groups_array");
                 com.aria.common.shared.PaymentMethodsArrayArray payment_methods_array = (com.aria.common.shared.PaymentMethodsArrayArray) map.get("payment_methods_array");
                 Long revrec_profile_no = (Long) map.get("revrec_profile_no");
                 String client_revrec_id = (String) map.get("client_revrec_id");
                 
-        return updateAcctCompleteM(client_no, auth_key, client_receipt_id, acct_no, client_acct_id, userid, password, secret_question, secret_question_answer, pin, first_name, mi, last_name, company_name, address1, address2, address3, city, locality, state_prov, country_cd, postal_cd, phone, phone_ext, cell_phone, work_phone, work_phone_ext, fax, email, birthdate, status_cd, notify_method, senior_acct_no, senior_acct_userid, senior_client_acct_id, test_acct_ind, taxpayer_id, alt_client_acct_group_id, acct_coupons, acct_start_date, alt_msg_template_no, cn_alt_msg_template_no, seq_func_group_no, client_seq_func_group_id, tax_exemption_level, client_alt_msg_template_id, client_cn_alt_msg_template_id, reset_dates_after_status, new_client_acct_id, invoicing_option, alt_start_date, alt_bill_day, retroactive_start_date, functional_acct_groups, collection_acct_groups, acct_supp_fields, acct_surcharges, client_master_plan_instance_id, master_plan_instance_no, new_client_master_plan_instance_id, client_master_plan_id, master_plan_no, master_plan_instance_desc, dunning_group_no, client_dunning_group_id, mp_billing_group_no, client_mp_billing_group_id, master_plan_instance_status, master_plan_units, resp_level_cd, parent_master_plan_inst_no, alt_rate_schedule_no, client_alt_rate_schedule_id, promo_cd, mp_coupons, master_plan_assign_directive, offset_months, offset_interval, invoice_unbilled_usage, invoice_approval_required, status_degrade_date, master_plan_product_fields, new_acct_custom_rates, billing_groups_array, payment_methods_array, revrec_profile_no, client_revrec_id);
+        return updateAcctCompleteM(client_no, auth_key, client_receipt_id, acct_no, client_acct_id, userid, password, secret_question, secret_question_answer, pin, first_name, mi, last_name, company_name, address1, address2, address3, city, locality, state_prov, country_cd, postal_cd, phone, phone_ext, cell_phone, work_phone, work_phone_ext, fax, email, birthdate, status_cd, notify_method, senior_acct_no, senior_acct_userid, senior_client_acct_id, test_acct_ind, taxpayer_id, alt_client_acct_group_id, acct_coupons, acct_start_date, alt_msg_template_no, cn_alt_msg_template_no, seq_func_group_no, client_seq_func_group_id, tax_exemption_level, client_alt_msg_template_id, client_cn_alt_msg_template_id, reset_dates_after_status, new_client_acct_id, invoicing_option, alt_start_date, alt_bill_day, retroactive_start_date, functional_acct_groups, collection_acct_groups, acct_supp_fields, acct_surcharges, client_master_plan_instance_id, master_plan_instance_no, new_client_master_plan_instance_id, client_master_plan_id, master_plan_no, master_plan_instance_desc, dunning_group_no, client_dunning_group_id, mp_billing_group_no, client_mp_billing_group_id, master_plan_instance_status, master_plan_units, resp_level_cd, parent_master_plan_inst_no, alt_rate_schedule_no, client_alt_rate_schedule_id, promo_cd, mp_coupons, master_plan_assign_directive, offset_months, offset_interval, invoice_unbilled_usage, invoice_approval_required, status_degrade_date, master_plan_product_fields, update_acct_custom_rates, billing_groups_array, payment_methods_array, revrec_profile_no, client_revrec_id);
     }
 
     public Map<String,Object> getAcctBalanceM(Long client_no, String auth_key, Long acct_no){
@@ -8162,11 +8163,12 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         return createAcctBillingGroupM(client_no, auth_key, acct_no, billing_group_name, billing_group_description, client_billing_group_id, notify_method, notify_template_group, statement_template, credit_note_template, primary_payment_method_no, client_primary_payment_method_id, backup_payment_method_no, client_backup_payment_method_id, stmt_first_name, stmt_mi, stmt_last_name, stmt_company_name, stmt_address1, stmt_address2, stmt_address3, stmt_city, stmt_locality, stmt_state_prov, stmt_country, stmt_postal_cd, stmt_phone, stmt_phone_ext, stmt_cell_phone, stmt_work_phone, stmt_work_phone_ext, stmt_fax, stmt_email, stmt_birthdate, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, pay_method_name, client_payment_method_id, pay_method_description, pay_method_type, cc_num, cc_expire_mm, cc_expire_yyyy, bank_acct_num, bank_routing_num, cvv, track_data1, track_data2, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, master_plans_summary, client_receipt_id);
     }
 
-    public Map<String,Object> getAcctBillingGroupDetailsM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long billing_group_no, String client_billing_group_id, String client_receipt_id){
+    public Map<String,Object> getAcctBillingGroupDetailsM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long plan_instance_no, String client_plan_instance_id, Long billing_group_no, String client_billing_group_id, String client_receipt_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no",getValue("Long", acct_no));
+        addParameters(parameters,"client_acct_id",getValue("String", client_acct_id));
         addParameters(parameters,"plan_instance_no",getValue("Long", plan_instance_no));
         addParameters(parameters,"client_plan_instance_id",getValue("String", client_plan_instance_id));
         addParameters(parameters,"billing_group_no",getValue("Long", billing_group_no));
@@ -8175,43 +8177,12 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_billing_group_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[35];
+        String[] returnValues = new String[4];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "billing_group_name";
-        returnValues[3] = "billing_group_description";
-        returnValues[4] = "out_client_billing_group_id";
-        returnValues[5] = "notify_method";
-        returnValues[6] = "notify_template_group";
-        returnValues[7] = "statement_template";
-        returnValues[8] = "credit_note_template";
-        returnValues[9] = "primary_payment_method_id";
-        returnValues[10] = "client_primary_payment_method_id";
-        returnValues[11] = "backup_payment_method_id";
-        returnValues[12] = "client_backup_payment_method_id";
-        returnValues[13] = "stmt_first_name";
-        returnValues[14] = "stmt_mi";
-        returnValues[15] = "stmt_last_name";
-        returnValues[16] = "stmt_company_name";
-        returnValues[17] = "stmt_address1";
-        returnValues[18] = "stmt_address2";
-        returnValues[19] = "stmt_address3";
-        returnValues[20] = "stmt_city";
-        returnValues[21] = "stmt_locality";
-        returnValues[22] = "stmt_state_prov";
-        returnValues[23] = "stmt_country";
-        returnValues[24] = "stmt_postal_cd";
-        returnValues[25] = "stmt_phone";
-        returnValues[26] = "stmt_phone_ext";
-        returnValues[27] = "stmt_cell_phone";
-        returnValues[28] = "stmt_work_phone";
-        returnValues[29] = "stmt_work_phone_ext";
-        returnValues[30] = "stmt_fax";
-        returnValues[31] = "stmt_email";
-        returnValues[32] = "stmt_birthdate";
-        returnValues[33] = "payment_methods_summary";
-        returnValues[34] = "master_plans_summary";
+        returnValues[2] = "billing_groups";
+        returnValues[3] = "payment_methods_summary";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -8221,16 +8192,17 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long acct_no = (Long) map.get("acct_no");
+                String client_acct_id = (String) map.get("client_acct_id");
                 Long plan_instance_no = (Long) map.get("plan_instance_no");
                 String client_plan_instance_id = (String) map.get("client_plan_instance_id");
                 Long billing_group_no = (Long) map.get("billing_group_no");
                 String client_billing_group_id = (String) map.get("client_billing_group_id");
                 String client_receipt_id = (String) map.get("client_receipt_id");
                 
-        return getAcctBillingGroupDetailsM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, billing_group_no, client_billing_group_id, client_receipt_id);
+        return getAcctBillingGroupDetailsM(client_no, auth_key, acct_no, client_acct_id, plan_instance_no, client_plan_instance_id, billing_group_no, client_billing_group_id, client_receipt_id);
     }
 
-    public Map<String,Object> assignAcctPlanM(Long client_no, String auth_key, Long acct_no, Long new_plan_no, String new_client_plan_id, String client_plan_instance_id, Long existing_billing_group_no, String existing_client_billing_group_id, String billing_group_name, String billing_group_description, String client_def_billing_group_id, Long notify_method, Long notify_template_group, Long statement_template, Long credit_note_template, Long existing_primary_payment_method_no, String existing_client_primary_payment_method_id, Long existing_backup_payment_method_no, String existing_client_backup_payment_method_id, String stmt_first_name, String stmt_mi, String stmt_last_name, String stmt_company_name, String stmt_address1, String stmt_address2, String stmt_address3, String stmt_city, String stmt_locality, String stmt_state_prov, String stmt_country, String stmt_postal_cd, String stmt_phone, String stmt_phone_ext, String stmt_cell_phone, String stmt_work_phone, String stmt_work_phone_ext, String stmt_fax, String stmt_email, String stmt_birthdate, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_fax, String bill_email, String bill_birthdate, String primary_pay_method_name, String primary_pay_method_cdid, String primary_pay_method_description, Long primary_pay_method_type, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_no, String bank_routing_no, String cvv, String track_data1, String track_data2, String bill_agreement_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, Long existing_dunning_group_no, String existing_client_def_dunning_group_id, String dunning_group_name, String dunning_group_description, String client_dunning_group_id, String dunning_process, String alt_start_date, Long status_until_alt_start, Long alt_bill_day, Long invoicing_option, String retroactive_start_date, Double balance_forward, Long resp_level_cd, Long parent_acct_master_plan_inst_id, Long parent_plan_instance_no, String client_parent_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, Long offset_months, String alt_proration_start_date, Long auto_offset_months_option, String alt_client_acct_group_id, com.aria.common.shared.NewAcctPlanCustomRatesArray new_acct_plan_custom_rates, String effective_date, Long offset_interval, Long force_supp_bill_date_reset, String client_alt_rate_schedule_id){
+    public Map<String,Object> assignAcctPlanM(Long client_no, String auth_key, Long acct_no, Long new_plan_no, String new_client_plan_id, String client_plan_instance_id, Long existing_billing_group_no, String existing_client_billing_group_id, String billing_group_name, String billing_group_description, String client_def_billing_group_id, Long notify_method, Long notify_template_group, Long statement_template, Long credit_note_template, Long existing_primary_payment_method_no, String existing_client_primary_payment_method_id, Long existing_backup_payment_method_no, String existing_client_backup_payment_method_id, String stmt_first_name, String stmt_mi, String stmt_last_name, String stmt_company_name, String stmt_address1, String stmt_address2, String stmt_address3, String stmt_city, String stmt_locality, String stmt_state_prov, String stmt_country, String stmt_postal_cd, String stmt_phone, String stmt_phone_ext, String stmt_cell_phone, String stmt_work_phone, String stmt_work_phone_ext, String stmt_fax, String stmt_email, String stmt_birthdate, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_fax, String bill_email, String bill_birthdate, String primary_pay_method_name, String primary_pay_method_cdid, String primary_pay_method_description, Long primary_pay_method_type, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_no, String bank_routing_no, String cvv, String track_data1, String track_data2, String bill_agreement_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, Long existing_dunning_group_no, String existing_client_def_dunning_group_id, String dunning_group_name, String dunning_group_description, String client_dunning_group_id, String dunning_process, String alt_start_date, Long status_until_alt_start, Long alt_bill_day, Long invoicing_option, String retroactive_start_date, Double balance_forward, Long resp_level_cd, Long parent_acct_master_plan_inst_id, Long parent_plan_instance_no, String client_parent_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, Long offset_months, String alt_proration_start_date, Long auto_offset_months_option, String alt_client_acct_group_id, com.aria.common.shared.CustomRatesArray custom_rates, String effective_date, Long offset_interval, Long force_supp_bill_date_reset, String client_alt_rate_schedule_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -8342,7 +8314,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"alt_proration_start_date",getValue("String", alt_proration_start_date));
         addParameters(parameters,"auto_offset_months_option",getValue("Long", auto_offset_months_option));
         addParameters(parameters,"alt_client_acct_group_id",getValue("String", alt_client_acct_group_id));
-        RestUtilities.addParameterValuesFromArray(parameters,new_acct_plan_custom_rates);
+        RestUtilities.addParameterValuesFromArray(parameters,custom_rates);
         addParameters(parameters,"effective_date",getValue("String", effective_date));
         addParameters(parameters,"offset_interval",getValue("Long", offset_interval));
         addParameters(parameters,"force_supp_bill_date_reset",getValue("Long", force_supp_bill_date_reset));
@@ -8350,7 +8322,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("assign_acct_plan_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[29];
+        String[] returnValues = new String[31];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
@@ -8380,7 +8352,9 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[25] = "total_credit_before_tax";
         returnValues[26] = "total";
         returnValues[27] = "proration_tax_amount";
-        returnValues[28] = "plan_instance_no";
+        returnValues[28] = "proration_credit_result_amount";
+        returnValues[29] = "proration_credit_amount";
+        returnValues[30] = "plan_instance_no";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -8497,13 +8471,13 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 String alt_proration_start_date = (String) map.get("alt_proration_start_date");
                 Long auto_offset_months_option = (Long) map.get("auto_offset_months_option");
                 String alt_client_acct_group_id = (String) map.get("alt_client_acct_group_id");
-                com.aria.common.shared.NewAcctPlanCustomRatesArray new_acct_plan_custom_rates = (com.aria.common.shared.NewAcctPlanCustomRatesArray) map.get("new_acct_plan_custom_rates");
+                com.aria.common.shared.CustomRatesArray custom_rates = (com.aria.common.shared.CustomRatesArray) map.get("custom_rates");
                 String effective_date = (String) map.get("effective_date");
                 Long offset_interval = (Long) map.get("offset_interval");
                 Long force_supp_bill_date_reset = (Long) map.get("force_supp_bill_date_reset");
                 String client_alt_rate_schedule_id = (String) map.get("client_alt_rate_schedule_id");
                 
-        return assignAcctPlanM(client_no, auth_key, acct_no, new_plan_no, new_client_plan_id, client_plan_instance_id, existing_billing_group_no, existing_client_billing_group_id, billing_group_name, billing_group_description, client_def_billing_group_id, notify_method, notify_template_group, statement_template, credit_note_template, existing_primary_payment_method_no, existing_client_primary_payment_method_id, existing_backup_payment_method_no, existing_client_backup_payment_method_id, stmt_first_name, stmt_mi, stmt_last_name, stmt_company_name, stmt_address1, stmt_address2, stmt_address3, stmt_city, stmt_locality, stmt_state_prov, stmt_country, stmt_postal_cd, stmt_phone, stmt_phone_ext, stmt_cell_phone, stmt_work_phone, stmt_work_phone_ext, stmt_fax, stmt_email, stmt_birthdate, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, primary_pay_method_name, primary_pay_method_cdid, primary_pay_method_description, primary_pay_method_type, cc_number, cc_expire_mm, cc_expire_yyyy, bank_acct_no, bank_routing_no, cvv, track_data1, track_data2, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, existing_dunning_group_no, existing_client_def_dunning_group_id, dunning_group_name, dunning_group_description, client_dunning_group_id, dunning_process, alt_start_date, status_until_alt_start, alt_bill_day, invoicing_option, retroactive_start_date, balance_forward, resp_level_cd, parent_acct_master_plan_inst_id, parent_plan_instance_no, client_parent_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, plan_status, plan_instance_description, plan_instance_fields, assignment_directive, comments, do_write, client_receipt_id, offset_months, alt_proration_start_date, auto_offset_months_option, alt_client_acct_group_id, new_acct_plan_custom_rates, effective_date, offset_interval, force_supp_bill_date_reset, client_alt_rate_schedule_id);
+        return assignAcctPlanM(client_no, auth_key, acct_no, new_plan_no, new_client_plan_id, client_plan_instance_id, existing_billing_group_no, existing_client_billing_group_id, billing_group_name, billing_group_description, client_def_billing_group_id, notify_method, notify_template_group, statement_template, credit_note_template, existing_primary_payment_method_no, existing_client_primary_payment_method_id, existing_backup_payment_method_no, existing_client_backup_payment_method_id, stmt_first_name, stmt_mi, stmt_last_name, stmt_company_name, stmt_address1, stmt_address2, stmt_address3, stmt_city, stmt_locality, stmt_state_prov, stmt_country, stmt_postal_cd, stmt_phone, stmt_phone_ext, stmt_cell_phone, stmt_work_phone, stmt_work_phone_ext, stmt_fax, stmt_email, stmt_birthdate, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, primary_pay_method_name, primary_pay_method_cdid, primary_pay_method_description, primary_pay_method_type, cc_number, cc_expire_mm, cc_expire_yyyy, bank_acct_no, bank_routing_no, cvv, track_data1, track_data2, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, existing_dunning_group_no, existing_client_def_dunning_group_id, dunning_group_name, dunning_group_description, client_dunning_group_id, dunning_process, alt_start_date, status_until_alt_start, alt_bill_day, invoicing_option, retroactive_start_date, balance_forward, resp_level_cd, parent_acct_master_plan_inst_id, parent_plan_instance_no, client_parent_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, plan_status, plan_instance_description, plan_instance_fields, assignment_directive, comments, do_write, client_receipt_id, offset_months, alt_proration_start_date, auto_offset_months_option, alt_client_acct_group_id, custom_rates, effective_date, offset_interval, force_supp_bill_date_reset, client_alt_rate_schedule_id);
     }
 
     public Map<String,Object> cancelAcctPlanM(Long client_no, String auth_key, Long acct_no, String client_receipt_id, Long plan_instance_no, String client_plan_instance_id, Long assignment_directive, String comments, String alt_proration_start_date, String effective_date, Long offset_interval, String invoice_unbilled_usage, String do_write){
@@ -8602,7 +8576,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         return createAcctDunningGroupM(client_no, auth_key, acct_no, dunning_group_name, dunning_group_description, client_dunning_group_id, dunning_process, master_plans_summary, client_receipt_id);
     }
 
-    public Map<String,Object> updateAcctPlanM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, com.aria.common.shared.CustomRateArray custom_rate, String effective_date, Long offset_interval, Long force_master_bill_date_reset, String client_alt_rate_schedule_id, Long new_client_plan_inst_id, String dunning_state, String degrade_date, Long resp_level_cd, String parent_acct_master_plan_inst_id){
+    public Map<String,Object> updateAcctPlanM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, com.aria.common.shared.CustomRatesArray custom_rates, String effective_date, Long offset_interval, Long force_master_bill_date_reset, String client_alt_rate_schedule_id, Long new_client_plan_inst_id, String dunning_state, String degrade_date, Long resp_level_cd, String parent_acct_master_plan_inst_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -8620,7 +8594,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"comments",getValue("String", comments));
         addParameters(parameters,"do_write",getValue("String", do_write));
         addParameters(parameters,"client_receipt_id",getValue("String", client_receipt_id));
-        RestUtilities.addParameterValuesFromArray(parameters,custom_rate);
+        RestUtilities.addParameterValuesFromArray(parameters,custom_rates);
         addParameters(parameters,"effective_date",getValue("String", effective_date));
         addParameters(parameters,"offset_interval",getValue("Long", offset_interval));
         addParameters(parameters,"force_master_bill_date_reset",getValue("Long", force_master_bill_date_reset));
@@ -8633,7 +8607,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_plan_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[28];
+        String[] returnValues = new String[30];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
@@ -8663,6 +8637,8 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[25] = "total_credit_before_tax";
         returnValues[26] = "total";
         returnValues[27] = "proration_tax_amount";
+        returnValues[28] = "proration_credit_result_amount";
+        returnValues[29] = "proration_credit_amount";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -8685,7 +8661,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 String comments = (String) map.get("comments");
                 String do_write = (String) map.get("do_write");
                 String client_receipt_id = (String) map.get("client_receipt_id");
-                com.aria.common.shared.CustomRateArray custom_rate = (com.aria.common.shared.CustomRateArray) map.get("custom_rate");
+                com.aria.common.shared.CustomRatesArray custom_rates = (com.aria.common.shared.CustomRatesArray) map.get("custom_rates");
                 String effective_date = (String) map.get("effective_date");
                 Long offset_interval = (Long) map.get("offset_interval");
                 Long force_master_bill_date_reset = (Long) map.get("force_master_bill_date_reset");
@@ -8696,10 +8672,10 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 Long resp_level_cd = (Long) map.get("resp_level_cd");
                 String parent_acct_master_plan_inst_id = (String) map.get("parent_acct_master_plan_inst_id");
                 
-        return updateAcctPlanM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, plan_status, plan_instance_description, plan_instance_fields, assignment_directive, comments, do_write, client_receipt_id, custom_rate, effective_date, offset_interval, force_master_bill_date_reset, client_alt_rate_schedule_id, new_client_plan_inst_id, dunning_state, degrade_date, resp_level_cd, parent_acct_master_plan_inst_id);
+        return updateAcctPlanM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, plan_status, plan_instance_description, plan_instance_fields, assignment_directive, comments, do_write, client_receipt_id, custom_rates, effective_date, offset_interval, force_master_bill_date_reset, client_alt_rate_schedule_id, new_client_plan_inst_id, dunning_state, degrade_date, resp_level_cd, parent_acct_master_plan_inst_id);
     }
 
-    public Map<String,Object> updateAcctBillingGroupM(Long client_no, String auth_key, Long acct_no, Long billing_group_no, String billing_group_name, String billing_group_description, String client_billing_group_id, String new_client_billing_group_id, Long notify_method, Long notify_template_group, Long statement_template, Long credit_note_template, Long primary_payment_method_id, String client_primary_payment_method_id, Long backup_payment_method_id, String client_backup_payment_method_id, String stmt_first_name, String stmt_mi, String stmt_last_name, String stmt_company_name, String stmt_address1, String stmt_address2, String stmt_address3, String stmt_city, String stmt_locality, String stmt_state_prov, String stmt_country, String stmt_postal_cd, String stmt_phone, String stmt_phone_ext, String stmt_cell_phone, String stmt_work_phone, String stmt_work_phone_ext, String stmt_fax, String stmt_email, String stmt_birthdate, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_fax, String bill_email, String bill_birthdate, String pay_method_name, String client_pay_method_id, String pay_method_description, Long pay_method_type, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_no, String bank_routing_no, String cvv, String track_data1, String track_data2, String bill_agreement_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, Long billing_group_directive, com.aria.common.shared.MasterPlansSummaryArray master_plans_summary, String client_receipt_id){
+    public Map<String,Object> updateAcctBillingGroupM(Long client_no, String auth_key, Long acct_no, Long billing_group_no, String billing_group_name, String billing_group_description, String client_billing_group_id, String new_client_billing_group_id, Long notify_method, Long notify_template_group, Long statement_template, Long credit_note_template, Long primary_payment_method_no, String client_primary_payment_method_id, Long backup_payment_method_no, String client_backup_payment_method_id, String stmt_first_name, String stmt_mi, String stmt_last_name, String stmt_company_name, String stmt_address1, String stmt_address2, String stmt_address3, String stmt_city, String stmt_locality, String stmt_state_prov, String stmt_country, String stmt_postal_cd, String stmt_phone, String stmt_phone_ext, String stmt_cell_phone, String stmt_work_phone, String stmt_work_phone_ext, String stmt_fax, String stmt_email, String stmt_birthdate, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_fax, String bill_email, String bill_birthdate, String pay_method_name, String client_payment_method_id, String pay_method_description, Long pay_method_type, String cc_num, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_num, String bank_routing_num, String cvv, String track_data1, String track_data2, String bill_agreement_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, Long billing_group_directive, com.aria.common.shared.MasterPlansSummaryArray master_plans_summary, String client_receipt_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -8713,9 +8689,9 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"notify_template_group",getValue("Long", notify_template_group));
         addParameters(parameters,"statement_template",getValue("Long", statement_template));
         addParameters(parameters,"credit_note_template",getValue("Long", credit_note_template));
-        addParameters(parameters,"primary_payment_method_id",getValue("Long", primary_payment_method_id));
+        addParameters(parameters,"primary_payment_method_no",getValue("Long", primary_payment_method_no));
         addParameters(parameters,"client_primary_payment_method_id",getValue("String", client_primary_payment_method_id));
-        addParameters(parameters,"backup_payment_method_id",getValue("Long", backup_payment_method_id));
+        addParameters(parameters,"backup_payment_method_no",getValue("Long", backup_payment_method_no));
         addParameters(parameters,"client_backup_payment_method_id",getValue("String", client_backup_payment_method_id));
         addParameters(parameters,"stmt_first_name",getValue("String", stmt_first_name));
         addParameters(parameters,"stmt_mi",getValue("String", stmt_mi));
@@ -8758,14 +8734,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bill_email",getValue("String", bill_email));
         addParameters(parameters,"bill_birthdate",getValue("String", bill_birthdate));
         addParameters(parameters,"pay_method_name",getValue("String", pay_method_name));
-        addParameters(parameters,"client_pay_method_id",getValue("String", client_pay_method_id));
+        addParameters(parameters,"client_payment_method_id",getValue("String", client_payment_method_id));
         addParameters(parameters,"pay_method_description",getValue("String", pay_method_description));
         addParameters(parameters,"pay_method_type",getValue("Long", pay_method_type));
-        addParameters(parameters,"cc_number",getValue("String", cc_number));
+        addParameters(parameters,"cc_num",getValue("String", cc_num));
         addParameters(parameters,"cc_expire_mm",getValue("Long", cc_expire_mm));
         addParameters(parameters,"cc_expire_yyyy",getValue("Long", cc_expire_yyyy));
-        addParameters(parameters,"bank_acct_no",getValue("String", bank_acct_no));
-        addParameters(parameters,"bank_routing_no",getValue("String", bank_routing_no));
+        addParameters(parameters,"bank_acct_num",getValue("String", bank_acct_num));
+        addParameters(parameters,"bank_routing_num",getValue("String", bank_routing_num));
         addParameters(parameters,"cvv",getValue("String", cvv));
         addParameters(parameters,"track_data1",getValue("String", track_data1));
         addParameters(parameters,"track_data2",getValue("String", track_data2));
@@ -8813,9 +8789,9 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 Long notify_template_group = (Long) map.get("notify_template_group");
                 Long statement_template = (Long) map.get("statement_template");
                 Long credit_note_template = (Long) map.get("credit_note_template");
-                Long primary_payment_method_id = (Long) map.get("primary_payment_method_id");
+                Long primary_payment_method_no = (Long) map.get("primary_payment_method_no");
                 String client_primary_payment_method_id = (String) map.get("client_primary_payment_method_id");
-                Long backup_payment_method_id = (Long) map.get("backup_payment_method_id");
+                Long backup_payment_method_no = (Long) map.get("backup_payment_method_no");
                 String client_backup_payment_method_id = (String) map.get("client_backup_payment_method_id");
                 String stmt_first_name = (String) map.get("stmt_first_name");
                 String stmt_mi = (String) map.get("stmt_mi");
@@ -8858,14 +8834,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 String bill_email = (String) map.get("bill_email");
                 String bill_birthdate = (String) map.get("bill_birthdate");
                 String pay_method_name = (String) map.get("pay_method_name");
-                String client_pay_method_id = (String) map.get("client_pay_method_id");
+                String client_payment_method_id = (String) map.get("client_payment_method_id");
                 String pay_method_description = (String) map.get("pay_method_description");
                 Long pay_method_type = (Long) map.get("pay_method_type");
-                String cc_number = (String) map.get("cc_number");
+                String cc_num = (String) map.get("cc_num");
                 Long cc_expire_mm = (Long) map.get("cc_expire_mm");
                 Long cc_expire_yyyy = (Long) map.get("cc_expire_yyyy");
-                String bank_acct_no = (String) map.get("bank_acct_no");
-                String bank_routing_no = (String) map.get("bank_routing_no");
+                String bank_acct_num = (String) map.get("bank_acct_num");
+                String bank_routing_num = (String) map.get("bank_routing_num");
                 String cvv = (String) map.get("cvv");
                 String track_data1 = (String) map.get("track_data1");
                 String track_data2 = (String) map.get("track_data2");
@@ -8881,10 +8857,10 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 com.aria.common.shared.MasterPlansSummaryArray master_plans_summary = (com.aria.common.shared.MasterPlansSummaryArray) map.get("master_plans_summary");
                 String client_receipt_id = (String) map.get("client_receipt_id");
                 
-        return updateAcctBillingGroupM(client_no, auth_key, acct_no, billing_group_no, billing_group_name, billing_group_description, client_billing_group_id, new_client_billing_group_id, notify_method, notify_template_group, statement_template, credit_note_template, primary_payment_method_id, client_primary_payment_method_id, backup_payment_method_id, client_backup_payment_method_id, stmt_first_name, stmt_mi, stmt_last_name, stmt_company_name, stmt_address1, stmt_address2, stmt_address3, stmt_city, stmt_locality, stmt_state_prov, stmt_country, stmt_postal_cd, stmt_phone, stmt_phone_ext, stmt_cell_phone, stmt_work_phone, stmt_work_phone_ext, stmt_fax, stmt_email, stmt_birthdate, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, pay_method_name, client_pay_method_id, pay_method_description, pay_method_type, cc_number, cc_expire_mm, cc_expire_yyyy, bank_acct_no, bank_routing_no, cvv, track_data1, track_data2, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, billing_group_directive, master_plans_summary, client_receipt_id);
+        return updateAcctBillingGroupM(client_no, auth_key, acct_no, billing_group_no, billing_group_name, billing_group_description, client_billing_group_id, new_client_billing_group_id, notify_method, notify_template_group, statement_template, credit_note_template, primary_payment_method_no, client_primary_payment_method_id, backup_payment_method_no, client_backup_payment_method_id, stmt_first_name, stmt_mi, stmt_last_name, stmt_company_name, stmt_address1, stmt_address2, stmt_address3, stmt_city, stmt_locality, stmt_state_prov, stmt_country, stmt_postal_cd, stmt_phone, stmt_phone_ext, stmt_cell_phone, stmt_work_phone, stmt_work_phone_ext, stmt_fax, stmt_email, stmt_birthdate, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, pay_method_name, client_payment_method_id, pay_method_description, pay_method_type, cc_num, cc_expire_mm, cc_expire_yyyy, bank_acct_num, bank_routing_num, cvv, track_data1, track_data2, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, billing_group_directive, master_plans_summary, client_receipt_id);
     }
 
-    public Map<String,Object> replaceAcctPlanM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long new_plan_no, String new_client_plan_id, String new_client_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, Long offset_months, String alt_proration_start_date, Long auto_offset_months_option, String alt_client_acct_group_id, com.aria.common.shared.CustomRateArray custom_rate, String effective_date, Long offset_interval, String invoice_unbilled_usage, Long force_supp_bill_date_reset, Long force_master_bill_date_reset, String client_alt_rate_schedule_id, Long usage_accumulation_reset_months, String usage_pooling, String usage_threshold_applicability){
+    public Map<String,Object> replaceAcctPlanM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long new_plan_no, String new_client_plan_id, String new_client_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, Long offset_months, String alt_proration_start_date, Long auto_offset_months_option, String alt_client_acct_group_id, com.aria.common.shared.CustomRatesArray custom_rates, String effective_date, Long offset_interval, String invoice_unbilled_usage, Long force_supp_bill_date_reset, Long force_master_bill_date_reset, String client_alt_rate_schedule_id, Long usage_accumulation_reset_months, String usage_pooling, String usage_threshold_applicability){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -8909,7 +8885,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"alt_proration_start_date",getValue("String", alt_proration_start_date));
         addParameters(parameters,"auto_offset_months_option",getValue("Long", auto_offset_months_option));
         addParameters(parameters,"alt_client_acct_group_id",getValue("String", alt_client_acct_group_id));
-        RestUtilities.addParameterValuesFromArray(parameters,custom_rate);
+        RestUtilities.addParameterValuesFromArray(parameters,custom_rates);
         addParameters(parameters,"effective_date",getValue("String", effective_date));
         addParameters(parameters,"offset_interval",getValue("Long", offset_interval));
         addParameters(parameters,"invoice_unbilled_usage",getValue("String", invoice_unbilled_usage));
@@ -8984,7 +8960,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 String alt_proration_start_date = (String) map.get("alt_proration_start_date");
                 Long auto_offset_months_option = (Long) map.get("auto_offset_months_option");
                 String alt_client_acct_group_id = (String) map.get("alt_client_acct_group_id");
-                com.aria.common.shared.CustomRateArray custom_rate = (com.aria.common.shared.CustomRateArray) map.get("custom_rate");
+                com.aria.common.shared.CustomRatesArray custom_rates = (com.aria.common.shared.CustomRatesArray) map.get("custom_rates");
                 String effective_date = (String) map.get("effective_date");
                 Long offset_interval = (Long) map.get("offset_interval");
                 String invoice_unbilled_usage = (String) map.get("invoice_unbilled_usage");
@@ -8995,7 +8971,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
                 String usage_pooling = (String) map.get("usage_pooling");
                 String usage_threshold_applicability = (String) map.get("usage_threshold_applicability");
                 
-        return replaceAcctPlanM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, new_plan_no, new_client_plan_id, new_client_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, plan_status, plan_instance_description, plan_instance_fields, assignment_directive, comments, do_write, client_receipt_id, offset_months, alt_proration_start_date, auto_offset_months_option, alt_client_acct_group_id, custom_rate, effective_date, offset_interval, invoice_unbilled_usage, force_supp_bill_date_reset, force_master_bill_date_reset, client_alt_rate_schedule_id, usage_accumulation_reset_months, usage_pooling, usage_threshold_applicability);
+        return replaceAcctPlanM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, new_plan_no, new_client_plan_id, new_client_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, plan_status, plan_instance_description, plan_instance_fields, assignment_directive, comments, do_write, client_receipt_id, offset_months, alt_proration_start_date, auto_offset_months_option, alt_client_acct_group_id, custom_rates, effective_date, offset_interval, invoice_unbilled_usage, force_supp_bill_date_reset, force_master_bill_date_reset, client_alt_rate_schedule_id, usage_accumulation_reset_months, usage_pooling, usage_threshold_applicability);
     }
 
     public Map<String,Object> getAcctPlanBalanceM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id){
@@ -9135,11 +9111,12 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         return removeAcctPlanCustomRatesM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id);
     }
 
-    public Map<String,Object> getAcctDunningGroupDetailsM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long dunning_group_no, String client_dunning_group_id){
+    public Map<String,Object> getAcctDunningGroupDetailsM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long plan_instance_no, String client_plan_instance_id, Long dunning_group_no, String client_dunning_group_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no",getValue("Long", acct_no));
+        addParameters(parameters,"client_acct_id",getValue("String", client_acct_id));
         addParameters(parameters,"plan_instance_no",getValue("Long", plan_instance_no));
         addParameters(parameters,"client_plan_instance_id",getValue("String", client_plan_instance_id));
         addParameters(parameters,"dunning_group_no",getValue("Long", dunning_group_no));
@@ -9147,15 +9124,11 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_dunning_group_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[7];
+        String[] returnValues = new String[3];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "dunning_group_name";
-        returnValues[3] = "dunning_group_description";
-        returnValues[4] = "out_client_dunning_group_id";
-        returnValues[5] = "dunning_process";
-        returnValues[6] = "master_plans_summary";
+        returnValues[2] = "dunning_groups";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -9165,12 +9138,13 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long acct_no = (Long) map.get("acct_no");
+                String client_acct_id = (String) map.get("client_acct_id");
                 Long plan_instance_no = (Long) map.get("plan_instance_no");
                 String client_plan_instance_id = (String) map.get("client_plan_instance_id");
                 Long dunning_group_no = (Long) map.get("dunning_group_no");
                 String client_dunning_group_id = (String) map.get("client_dunning_group_id");
                 
-        return getAcctDunningGroupDetailsM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, dunning_group_no, client_dunning_group_id);
+        return getAcctDunningGroupDetailsM(client_no, auth_key, acct_no, client_acct_id, plan_instance_no, client_plan_instance_id, dunning_group_no, client_dunning_group_id);
     }
 
     public Map<String,Object> updateAcctDunningGroupM(Long client_no, String auth_key, Long acct_no, Long dunning_group_no, String client_dunning_group_id, String new_client_dunning_group_id, String dunning_group_name, String dunning_group_description, String dunning_process, Long dunning_group_directive, com.aria.common.shared.MasterPlansSummaryArray master_plans_summary){
@@ -10107,7 +10081,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "plan_dts";
+        returnValues[2] = "plan_details";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -10135,7 +10109,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "all_plan_dts";
+        returnValues[2] = "all_plan_details";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -10265,7 +10239,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
-        returnValues[2] = "all_plans_dtls";
+        returnValues[2] = "all_plan_details";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -10449,12 +10423,12 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
-        returnValues[0] = "error_code";
-        returnValues[1] = "error_msg";
-        returnValues[2] = "acct_no";
-        returnValues[3] = "client_acct_id";
-        returnValues[4] = "master_plan_instance_id";
-        returnValues[5] = "client_master_plan_instance_id";
+        returnValues[0] = "acct_no";
+        returnValues[1] = "client_acct_id";
+        returnValues[2] = "master_plan_instance_id";
+        returnValues[3] = "client_master_plan_instance_id";
+        returnValues[4] = "error_code";
+        returnValues[5] = "error_msg";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -10489,12 +10463,12 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
-        returnValues[0] = "error_code";
-        returnValues[1] = "error_msg";
-        returnValues[2] = "acct_no";
-        returnValues[3] = "client_acct_id";
-        returnValues[4] = "master_plan_instance_id";
-        returnValues[5] = "client_master_plan_instance_id";
+        returnValues[0] = "acct_no";
+        returnValues[1] = "client_acct_id";
+        returnValues[2] = "master_plan_instance_id";
+        returnValues[3] = "client_master_plan_instance_id";
+        returnValues[4] = "error_code";
+        returnValues[5] = "error_msg";
         
         buildHashMapReturnValues(ret,returnValues);
         return getHashMapReturnValues();
@@ -10648,13 +10622,13 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         return getAcctCouponDetailsM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, coupon_cd);
     }
 
-    public Map<String,Object> deleteAcctCouponM(Long client_no, String auth_key, Long acct_no, String coupon_cd, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id){
+    public Map<String,Object> deleteAcctCouponM(Long client_no, String auth_key, Long acct_no, String client_acct_id, String coupon_cd, Long master_plan_instance_no, String client_master_plan_instance_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no",getValue("Long", acct_no));
-        addParameters(parameters,"coupon_cd",getValue("String", coupon_cd));
         addParameters(parameters,"client_acct_id",getValue("String", client_acct_id));
+        addParameters(parameters,"coupon_cd",getValue("String", coupon_cd));
         addParameters(parameters,"master_plan_instance_no",getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id",getValue("String", client_master_plan_instance_id));
         
@@ -10673,12 +10647,12 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long acct_no = (Long) map.get("acct_no");
-                String coupon_cd = (String) map.get("coupon_cd");
                 String client_acct_id = (String) map.get("client_acct_id");
+                String coupon_cd = (String) map.get("coupon_cd");
                 Long master_plan_instance_no = (Long) map.get("master_plan_instance_no");
                 String client_master_plan_instance_id = (String) map.get("client_master_plan_instance_id");
                 
-        return deleteAcctCouponM(client_no, auth_key, acct_no, coupon_cd, client_acct_id, master_plan_instance_no, client_master_plan_instance_id);
+        return deleteAcctCouponM(client_no, auth_key, acct_no, client_acct_id, coupon_cd, master_plan_instance_no, client_master_plan_instance_id);
     }
 
     public Map<String,Object> modifyAcctPlanUnitInstancesM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long plan_inst_no, String client_plan_inst_id, com.aria.common.shared.RemovePlanUnitsArray remove_plan_units, Long assignment_directive, Double new_plan_units, com.aria.common.shared.NewClientPlanUnitInstArray new_client_plan_unit_inst){

@@ -10,15 +10,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_plan_unit_instances_ReturnElement", propOrder = {"outQueuedInd", "outPlanNo", "outClientPlanId", "planName", "planType", "planUnitInstance"})
+@XmlType(name = "all_plan_unit_instances_ReturnElement", propOrder = {"queuedInd", "planNo", "clientPlanId", "planName", "planType", "planUnitInstance"})
 public class AllPlanUnitInstancesReturnElement {
 
-    @XmlElement(name = "out_queued_ind")
-    protected String outQueuedInd;
-    @XmlElement(name = "out_plan_no")
-    protected Long outPlanNo;
-    @XmlElement(name = "out_client_plan_id")
-    protected String outClientPlanId;
+    @XmlElement(name = "queued_ind")
+    protected String queuedInd;
+    @XmlElement(name = "plan_no")
+    protected Long planNo;
+    @XmlElement(name = "client_plan_id")
+    protected String clientPlanId;
     @XmlElement(name = "plan_name")
     protected String planName;
     @XmlElement(name = "plan_type")
@@ -26,28 +26,28 @@ public class AllPlanUnitInstancesReturnElement {
     @XmlElement(name = "plan_unit_instance")
     protected List<PlanUnitInstanceReturnElement> planUnitInstance;
     
-    public String getOutQueuedInd() {
-        return outQueuedInd;
+    public String getQueuedInd() {
+        return queuedInd;
     }
 
-    public void setOutQueuedInd(String value) {
-        this.outQueuedInd = value;
+    public void setQueuedInd(String value) {
+        this.queuedInd = value;
     }
 
-    public Long getOutPlanNo() {
-        return outPlanNo;
+    public Long getPlanNo() {
+        return planNo;
     }
 
-    public void setOutPlanNo(Long value) {
-        this.outPlanNo = value;
+    public void setPlanNo(Long value) {
+        this.planNo = value;
     }
 
-    public String getOutClientPlanId() {
-        return outClientPlanId;
+    public String getClientPlanId() {
+        return clientPlanId;
     }
 
-    public void setOutClientPlanId(String value) {
-        this.outClientPlanId = value;
+    public void setClientPlanId(String value) {
+        this.clientPlanId = value;
     }
 
     public String getPlanName() {

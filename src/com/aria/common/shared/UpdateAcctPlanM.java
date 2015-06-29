@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRate",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId"})
 @XmlRootElement(name = "update_acct_plan_m")
 public class UpdateAcctPlanM {
 
@@ -46,8 +46,8 @@ public class UpdateAcctPlanM {
     protected String doWrite;
         @XmlElement(name = "client_receipt_id")
     protected String clientReceiptId;
-        @XmlElement(name = "custom_rate")
-    protected CustomRateArray customRate;
+        @XmlElement(name = "custom_rates")
+    protected CustomRatesArray customRates;
         @XmlElement(name = "effective_date")
     protected String effectiveDate;
         @XmlElement(name = "offset_interval")
@@ -181,12 +181,12 @@ public class UpdateAcctPlanM {
     public void setClientReceiptId(String value) {
         this.clientReceiptId = value;
     }
-            public CustomRateArray getCustomRate() {
-        return customRate;
+            public CustomRatesArray getCustomRates() {
+        return customRates;
     }
 
-    public void setCustomRate(CustomRateArray value) {
-        this.customRate = value;
+    public void setCustomRates(CustomRatesArray value) {
+        this.customRates = value;
     }
             public String getEffectiveDate() {
         return effectiveDate;

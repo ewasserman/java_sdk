@@ -10,17 +10,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_plan_instances_ReturnElement", propOrder = {"outQueuedInd", "outPlanInstanceNo", "parentPlanInstanceNo", "outClientInstancePlanId", "planName", "planType", "planUnitInstance"})
+@XmlType(name = "all_plan_instances_ReturnElement", propOrder = {"queuedInd", "planInstanceNo", "clientPlanInstanceId", "parentPlanInstanceNo", "planName", "planType", "planUnitInstance"})
 public class AllPlanInstancesReturnElement {
 
-    @XmlElement(name = "out_queued_ind")
-    protected String outQueuedInd;
-    @XmlElement(name = "out_plan_instance_no")
-    protected Long outPlanInstanceNo;
+    @XmlElement(name = "queued_ind")
+    protected String queuedInd;
+    @XmlElement(name = "plan_instance_no")
+    protected Long planInstanceNo;
+    @XmlElement(name = "client_plan_instance_id")
+    protected String clientPlanInstanceId;
     @XmlElement(name = "parent_plan_instance_no")
     protected Long parentPlanInstanceNo;
-    @XmlElement(name = "out_client_instance_plan_id")
-    protected String outClientInstancePlanId;
     @XmlElement(name = "plan_name")
     protected String planName;
     @XmlElement(name = "plan_type")
@@ -28,20 +28,28 @@ public class AllPlanInstancesReturnElement {
     @XmlElement(name = "plan_unit_instance")
     protected List<PlanUnitInstanceReturnElement> planUnitInstance;
     
-    public String getOutQueuedInd() {
-        return outQueuedInd;
+    public String getQueuedInd() {
+        return queuedInd;
     }
 
-    public void setOutQueuedInd(String value) {
-        this.outQueuedInd = value;
+    public void setQueuedInd(String value) {
+        this.queuedInd = value;
     }
 
-    public Long getOutPlanInstanceNo() {
-        return outPlanInstanceNo;
+    public Long getPlanInstanceNo() {
+        return planInstanceNo;
     }
 
-    public void setOutPlanInstanceNo(Long value) {
-        this.outPlanInstanceNo = value;
+    public void setPlanInstanceNo(Long value) {
+        this.planInstanceNo = value;
+    }
+
+    public String getClientPlanInstanceId() {
+        return clientPlanInstanceId;
+    }
+
+    public void setClientPlanInstanceId(String value) {
+        this.clientPlanInstanceId = value;
     }
 
     public Long getParentPlanInstanceNo() {
@@ -50,14 +58,6 @@ public class AllPlanInstancesReturnElement {
 
     public void setParentPlanInstanceNo(Long value) {
         this.parentPlanInstanceNo = value;
-    }
-
-    public String getOutClientInstancePlanId() {
-        return outClientInstancePlanId;
-    }
-
-    public void setOutClientInstancePlanId(String value) {
-        this.outClientInstancePlanId = value;
     }
 
     public String getPlanName() {

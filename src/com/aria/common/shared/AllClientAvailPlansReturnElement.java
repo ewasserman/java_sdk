@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_avail_plans_ReturnElement", propOrder = {"parentPlanInstanceNo", "parentClientPlanInstanceId", "planNo", "clientPlanId", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "clientRolloverPlanId", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDays", "initFreeMonths", "plan2AssignOnSusp", "clientPlan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "planRateSchedulesDts"})
+@XmlType(name = "all_client_avail_plans_ReturnElement", propOrder = {"parentPlanInstanceNo", "parentClientPlanInstanceId", "planNo", "clientPlanId", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "clientRolloverPlanId", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDays", "initFreeMonths", "plan2AssignOnSusp", "clientPlan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "planRateSchedulesDetails"})
 public class AllClientAvailPlansReturnElement {
 
     @XmlElement(name = "parent_plan_instance_no")
@@ -59,8 +59,8 @@ public class AllClientAvailPlansReturnElement {
     protected Long prepaidInd;
     @XmlElement(name = "currency_cd")
     protected String currencyCd;
-    @XmlElement(name = "plan_rate_schedules_dts")
-    protected List<PlanRateSchedulesDtsReturnElement> planRateSchedulesDts;
+    @XmlElement(name = "plan_rate_schedules_details")
+    protected List<PlanRateSchedulesDetailsReturnElement> planRateSchedulesDetails;
     
     public Long getParentPlanInstanceNo() {
         return parentPlanInstanceNo;
@@ -246,10 +246,10 @@ public class AllClientAvailPlansReturnElement {
         this.currencyCd = value;
     }
 
-    public List<PlanRateSchedulesDtsReturnElement> getPlanRateSchedulesDts() {
-        if (this.planRateSchedulesDts == null) {
-            this.planRateSchedulesDts = new ArrayList<PlanRateSchedulesDtsReturnElement>();
+    public List<PlanRateSchedulesDetailsReturnElement> getPlanRateSchedulesDetails() {
+        if (this.planRateSchedulesDetails == null) {
+            this.planRateSchedulesDetails = new ArrayList<PlanRateSchedulesDetailsReturnElement>();
         }
-        return this.planRateSchedulesDts;
+        return this.planRateSchedulesDetails;
     }
 }

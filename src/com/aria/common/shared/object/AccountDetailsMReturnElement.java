@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "account_details_m_ReturnElement", propOrder = {"acctNo", "clientAcctId", "userId", "firstName", "mi", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCode", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "functionalAcctGroups", "collectionAcctGroups", "acctSuppFields", "surchargeNo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "billingGroups", "masterPlanInstances", "consumerAcctInd"})
+@XmlType(name = "account_details_m_ReturnElement", propOrder = {"acctNo", "clientAcctId", "userId", "firstName", "mi", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "functionalAcctGroups", "collectionAcctGroups", "acctSuppFields", "surchargeNo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "billingGroups", "masterPlanInstances", "consumerAcctInd"})
 public class AccountDetailsMReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -41,20 +41,20 @@ public class AccountDetailsMReturnElement {
     protected String stateProv;
     @XmlElement(name = "country_cd")
     protected String countryCd;
-    @XmlElement(name = "postal_code")
-    protected String postalCode;
+    @XmlElement(name = "postal_cd")
+    protected String postalCd;
     @XmlElement(name = "phone")
-    protected Long phone;
+    protected String phone;
     @XmlElement(name = "phone_ext")
     protected String phoneExt;
     @XmlElement(name = "cell_phone")
-    protected Long cellPhone;
+    protected String cellPhone;
     @XmlElement(name = "work_phone")
-    protected Long workPhone;
+    protected String workPhone;
     @XmlElement(name = "work_phone_ext")
     protected String workPhoneExt;
     @XmlElement(name = "fax")
-    protected Long fax;
+    protected String fax;
     @XmlElement(name = "email")
     protected String email;
     @XmlElement(name = "birthdate")
@@ -220,19 +220,19 @@ public class AccountDetailsMReturnElement {
         this.countryCd = value;
     }
 
-    public String getPostalCode() {
-        return postalCode;
+    public String getPostalCd() {
+        return postalCd;
     }
 
-    public void setPostalCode(String value) {
-        this.postalCode = value;
+    public void setPostalCd(String value) {
+        this.postalCd = value;
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Long value) {
+    public void setPhone(String value) {
         this.phone = value;
     }
 
@@ -244,19 +244,19 @@ public class AccountDetailsMReturnElement {
         this.phoneExt = value;
     }
 
-    public Long getCellPhone() {
+    public String getCellPhone() {
         return cellPhone;
     }
 
-    public void setCellPhone(Long value) {
+    public void setCellPhone(String value) {
         this.cellPhone = value;
     }
 
-    public Long getWorkPhone() {
+    public String getWorkPhone() {
         return workPhone;
     }
 
-    public void setWorkPhone(Long value) {
+    public void setWorkPhone(String value) {
         this.workPhone = value;
     }
 
@@ -268,11 +268,11 @@ public class AccountDetailsMReturnElement {
         this.workPhoneExt = value;
     }
 
-    public Long getFax() {
+    public String getFax() {
         return fax;
     }
 
-    public void setFax(Long value) {
+    public void setFax(String value) {
         this.fax = value;
     }
 

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "planServices", "planRateSchedulesDts", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlanNo"})
+@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "planServices", "planRateSchedulesDetails", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlanNo"})
 public class AllClientPlanDtlsReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -59,8 +59,8 @@ public class AllClientPlanDtlsReturnElement {
     protected String prorationInvoiceTimingCd;
     @XmlElement(name = "plan_services")
     protected List<PlanServicesReturnElement> planServices;
-    @XmlElement(name = "plan_rate_schedules_dts")
-    protected List<PlanRateSchedulesDtsReturnElement> planRateSchedulesDts;
+    @XmlElement(name = "plan_rate_schedules_details")
+    protected List<PlanRateSchedulesDetailsReturnElement> planRateSchedulesDetails;
     @XmlElement(name = "plan_groups")
     protected List<PlanGroupsReturnElement> planGroups;
     @XmlElement(name = "promotional_plan_sets")
@@ -255,11 +255,11 @@ public class AllClientPlanDtlsReturnElement {
             this.planServices = new ArrayList<PlanServicesReturnElement>();
         }
         return this.planServices;
-    }public List<PlanRateSchedulesDtsReturnElement> getPlanRateSchedulesDts() {
-        if (this.planRateSchedulesDts == null) {
-            this.planRateSchedulesDts = new ArrayList<PlanRateSchedulesDtsReturnElement>();
+    }public List<PlanRateSchedulesDetailsReturnElement> getPlanRateSchedulesDetails() {
+        if (this.planRateSchedulesDetails == null) {
+            this.planRateSchedulesDetails = new ArrayList<PlanRateSchedulesDetailsReturnElement>();
         }
-        return this.planRateSchedulesDts;
+        return this.planRateSchedulesDetails;
     }public List<PlanGroupsReturnElement> getPlanGroups() {
         if (this.planGroups == null) {
             this.planGroups = new ArrayList<PlanGroupsReturnElement>();

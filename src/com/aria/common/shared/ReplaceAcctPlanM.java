@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "newPlanNo",    "newClientPlanId",    "newClientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRate",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "forceSuppBillDateReset",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "newPlanNo",    "newClientPlanId",    "newClientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "forceSuppBillDateReset",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
 @XmlRootElement(name = "replace_acct_plan_m")
 public class ReplaceAcctPlanM {
 
@@ -60,8 +60,8 @@ public class ReplaceAcctPlanM {
     protected Long autoOffsetMonthsOption;
         @XmlElement(name = "alt_client_acct_group_id")
     protected String altClientAcctGroupId;
-        @XmlElement(name = "custom_rate")
-    protected CustomRateArray customRate;
+        @XmlElement(name = "custom_rates")
+    protected CustomRatesArray customRates;
         @XmlElement(name = "effective_date")
     protected String effectiveDate;
         @XmlElement(name = "offset_interval")
@@ -244,12 +244,12 @@ public class ReplaceAcctPlanM {
     public void setAltClientAcctGroupId(String value) {
         this.altClientAcctGroupId = value;
     }
-            public CustomRateArray getCustomRate() {
-        return customRate;
+            public CustomRatesArray getCustomRates() {
+        return customRates;
     }
 
-    public void setCustomRate(CustomRateArray value) {
-        this.customRate = value;
+    public void setCustomRates(CustomRatesArray value) {
+        this.customRates = value;
     }
             public String getEffectiveDate() {
         return effectiveDate;

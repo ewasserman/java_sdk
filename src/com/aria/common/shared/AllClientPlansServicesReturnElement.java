@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_plans_services_ReturnElement", propOrder = {"parentPlanInstanceNo", "parentClientPlanInstanceId", "planNo", "clientPlanId", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "clientRolloverPlanId", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDays", "initFreeMonths", "plan2AssignOnSusp", "clientPlan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "planServices", "planRateSchedulesDts"})
+@XmlType(name = "all_client_plans_services_ReturnElement", propOrder = {"parentPlanInstanceNo", "parentClientPlanInstanceId", "planNo", "clientPlanId", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "clientRolloverPlanId", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDays", "initFreeMonths", "plan2AssignOnSusp", "clientPlan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "planServices", "planRateSchedulesDetails"})
 public class AllClientPlansServicesReturnElement {
 
     @XmlElement(name = "parent_plan_instance_no")
@@ -63,8 +63,8 @@ public class AllClientPlansServicesReturnElement {
     protected String currencyCd;
     @XmlElement(name = "plan_services")
     protected List<PlanServicesReturnElement> planServices;
-    @XmlElement(name = "plan_rate_schedules_dts")
-    protected List<PlanRateSchedulesDtsReturnElement> planRateSchedulesDts;
+    @XmlElement(name = "plan_rate_schedules_details")
+    protected List<PlanRateSchedulesDetailsReturnElement> planRateSchedulesDetails;
     
     public Long getParentPlanInstanceNo() {
         return parentPlanInstanceNo;
@@ -263,10 +263,10 @@ public class AllClientPlansServicesReturnElement {
             this.planServices = new ArrayList<PlanServicesReturnElement>();
         }
         return this.planServices;
-    }public List<PlanRateSchedulesDtsReturnElement> getPlanRateSchedulesDts() {
-        if (this.planRateSchedulesDts == null) {
-            this.planRateSchedulesDts = new ArrayList<PlanRateSchedulesDtsReturnElement>();
+    }public List<PlanRateSchedulesDetailsReturnElement> getPlanRateSchedulesDetails() {
+        if (this.planRateSchedulesDetails == null) {
+            this.planRateSchedulesDetails = new ArrayList<PlanRateSchedulesDetailsReturnElement>();
         }
-        return this.planRateSchedulesDts;
+        return this.planRateSchedulesDetails;
     }
 }

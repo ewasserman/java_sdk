@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_rate_schedules_dts_ReturnElement", propOrder = {"scheduleNo", "clientRateScheduleId", "scheduleName", "scheduleCurrency", "recurringBillingInterval", "usageBillingInterval", "defaultInd", "defaultIndCurr", "scheduleDisplayInd"})
-public class PlanRateSchedulesDtsReturnElement {
+@XmlType(name = "plan_rate_schedules_details_ReturnElement", propOrder = {"scheduleNo", "clientRateScheduleId", "scheduleName", "scheduleCurrency", "recurringBillingInterval", "usageBillingInterval", "defaultInd", "defaultIndCurr", "scheduleDisplayInd"})
+public class PlanRateSchedulesDetailsReturnElement {
 
     @XmlElement(name = "schedule_no")
     protected Long scheduleNo;

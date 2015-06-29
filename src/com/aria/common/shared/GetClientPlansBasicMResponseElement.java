@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "basicPlans"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "planDetails"})
 @XmlRootElement(name = "get_client_plans_basic_mResponseElement")
 public class GetClientPlansBasicMResponseElement {
 
@@ -18,8 +18,8 @@ public class GetClientPlansBasicMResponseElement {
     protected Long errorCode;
     @XmlElement(name = "error_msg")
     protected String errorMsg;
-    @XmlElement(name = "basic_plans")
-    protected List<BasicPlansReturnElement> basicPlans;
+    @XmlElement(name = "plan_details")
+    protected List<PlanDetailsReturnElement> planDetails;
     
     public Long getErrorCode() {
         return errorCode;
@@ -37,10 +37,10 @@ public class GetClientPlansBasicMResponseElement {
         this.errorMsg = value;
     }
 
-    public List<BasicPlansReturnElement> getBasicPlans() {
-        if (this.basicPlans == null) {
-            this.basicPlans = new ArrayList<BasicPlansReturnElement>();
+    public List<PlanDetailsReturnElement> getPlanDetails() {
+        if (this.planDetails == null) {
+            this.planDetails = new ArrayList<PlanDetailsReturnElement>();
         }
-        return this.basicPlans;
+        return this.planDetails;
     }
 }

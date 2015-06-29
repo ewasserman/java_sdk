@@ -7,15 +7,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "custom_rate_row", propOrder = {
+@XmlType(name = "update_acct_custom_rates_row", propOrder = {
     "customRateServiceNo",
     "customRateSeqNo",
     "customRateFromUnit",
     "customRateToUnit",
     "customRatePerUnit",
-    "clientCustomRateServiceId"
+    "customRateClientServiceId"
     })
-public class CustomRateRow {
+public class UpdateAcctCustomRatesRow {
 
     @XmlElement(name = "custom_rate_service_no")
     protected Long customRateServiceNo;
@@ -27,8 +27,8 @@ public class CustomRateRow {
     protected Long customRateToUnit;
     @XmlElement(name = "custom_rate_per_unit")
     protected Double customRatePerUnit;
-    @XmlElement(name = "client_custom_rate_service_id")
-    protected String clientCustomRateServiceId;
+    @XmlElement(name = "custom_rate_client_service_id")
+    protected String customRateClientServiceId;
     public Long getCustomRateServiceNo() {
         return customRateServiceNo;
     }
@@ -69,12 +69,12 @@ public class CustomRateRow {
         this.customRatePerUnit = value;
     }
 
-    public String getClientCustomRateServiceId() {
-        return clientCustomRateServiceId;
+    public String getCustomRateClientServiceId() {
+        return customRateClientServiceId;
     }
 
-    public void setClientCustomRateServiceId(String value) {
-        this.clientCustomRateServiceId = value;
+    public void setCustomRateClientServiceId(String value) {
+        this.customRateClientServiceId = value;
     }
 
     

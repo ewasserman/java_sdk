@@ -4262,7 +4262,7 @@ public class AriaServiceClientTest {
         com.aria.common.shared.AcctSurchargesArray acctSurchargesArray = new com.aria.common.shared.AcctSurchargesArray();
         com.aria.common.shared.MpCouponsArray mpCouponsArray = new com.aria.common.shared.MpCouponsArray();
         com.aria.common.shared.MasterPlanProductFieldsArray masterPlanProductFieldsArray = new com.aria.common.shared.MasterPlanProductFieldsArray();
-        com.aria.common.shared.NewAcctCustomRatesArray newAcctCustomRatesArray = new com.aria.common.shared.NewAcctCustomRatesArray();
+        com.aria.common.shared.UpdateAcctCustomRatesArray updateAcctCustomRatesArray = new com.aria.common.shared.UpdateAcctCustomRatesArray();
         com.aria.common.shared.BillingGroupsArrayArray billingGroupsArrayArray = new com.aria.common.shared.BillingGroupsArrayArray();
         com.aria.common.shared.PaymentMethodsArrayArray paymentMethodsArrayArray = new com.aria.common.shared.PaymentMethodsArrayArray();
         
@@ -4346,7 +4346,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , masterPlanProductFieldsArray
-                , newAcctCustomRatesArray
+                , updateAcctCustomRatesArray
                 , billingGroupsArrayArray
                 , paymentMethodsArrayArray
                 , 1L
@@ -4520,6 +4520,7 @@ public class AriaServiceClientTest {
     public void getAcctBillingGroupDetailsM() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getAcctBillingGroupDetailsM(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , 1L
                 , ""
                 , 1L
@@ -4539,7 +4540,7 @@ public class AriaServiceClientTest {
     public void assignAcctPlanM() throws Exception {
         com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
         com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
-        com.aria.common.shared.NewAcctPlanCustomRatesArray newAcctPlanCustomRatesArray = new com.aria.common.shared.NewAcctPlanCustomRatesArray();
+        com.aria.common.shared.CustomRatesArray customRatesArray = new com.aria.common.shared.CustomRatesArray();
         
         hashMapReturnValues = getBaseAriaBilling().assignAcctPlanM(getClientNo(), getAuthKey()        , 1L
                 , 1L
@@ -4649,7 +4650,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , ""
-                , newAcctPlanCustomRatesArray
+                , customRatesArray
                 , ""
                 , 1L
                 , 1L
@@ -4713,7 +4714,7 @@ public class AriaServiceClientTest {
     public void updateAcctPlanM() throws Exception {
         com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
         com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
-        com.aria.common.shared.CustomRateArray customRateArray = new com.aria.common.shared.CustomRateArray();
+        com.aria.common.shared.CustomRatesArray customRatesArray = new com.aria.common.shared.CustomRatesArray();
         
         hashMapReturnValues = getBaseAriaBilling().updateAcctPlanM(getClientNo(), getAuthKey()        , 1L
                 , 1L
@@ -4729,7 +4730,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
-                , customRateArray
+                , customRatesArray
                 , ""
                 , 1L
                 , 1L
@@ -4844,7 +4845,7 @@ public class AriaServiceClientTest {
     public void replaceAcctPlanM() throws Exception {
         com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
         com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
-        com.aria.common.shared.CustomRateArray customRateArray = new com.aria.common.shared.CustomRateArray();
+        com.aria.common.shared.CustomRatesArray customRatesArray = new com.aria.common.shared.CustomRatesArray();
         
         hashMapReturnValues = getBaseAriaBilling().replaceAcctPlanM(getClientNo(), getAuthKey()        , 1L
                 , 1L
@@ -4867,7 +4868,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , ""
-                , customRateArray
+                , customRatesArray
                 , ""
                 , 1L
                 , ""
@@ -4963,6 +4964,7 @@ public class AriaServiceClientTest {
     public void getAcctDunningGroupDetailsM() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getAcctDunningGroupDetailsM(getClientNo(), getAuthKey()        , 1L
+                , ""
                 , 1L
                 , ""
                 , 1L

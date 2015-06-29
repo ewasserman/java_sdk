@@ -943,13 +943,13 @@ public class RestUtilities {
             entity.setLocality(getStringValue(jsonObject,"locality"));
             entity.setStateProv(getStringValue(jsonObject,"state_prov"));
             entity.setCountryCd(getStringValue(jsonObject,"country_cd"));
-            entity.setPostalCode(getStringValue(jsonObject,"postal_code"));
-            entity.setPhone(getLongValue(jsonObject,"phone"));
+            entity.setPostalCd(getStringValue(jsonObject,"postal_cd"));
+            entity.setPhone(getStringValue(jsonObject,"phone"));
             entity.setPhoneExt(getStringValue(jsonObject,"phone_ext"));
-            entity.setCellPhone(getLongValue(jsonObject,"cell_phone"));
-            entity.setWorkPhone(getLongValue(jsonObject,"work_phone"));
+            entity.setCellPhone(getStringValue(jsonObject,"cell_phone"));
+            entity.setWorkPhone(getStringValue(jsonObject,"work_phone"));
             entity.setWorkPhoneExt(getStringValue(jsonObject,"work_phone_ext"));
-            entity.setFax(getLongValue(jsonObject,"fax"));
+            entity.setFax(getStringValue(jsonObject,"fax"));
             entity.setEmail(getStringValue(jsonObject,"email"));
             entity.setBirthdate(getStringValue(jsonObject,"birthdate"));
             entity.setStatusCd(getStringValue(jsonObject,"status_cd"));

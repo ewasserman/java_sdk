@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "prorationResultAmount", "collectionErrorCode", "collectionErrorMsg", "statementErrorCode", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceNo", "expectdActivationFee", "expectdMthlyRecurringCost", "expectdAnnuRecurringCost", "acctPlanLineItems", "totalChargesBeforeTax", "totalTaxCharges", "totalChargesAfterTax", "totalCredit", "totalTaxCredit", "totalCreditBeforeTax", "total", "prorationTaxAmount", "planInstanceNo"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "prorationResultAmount", "collectionErrorCode", "collectionErrorMsg", "statementErrorCode", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceNo", "expectdActivationFee", "expectdMthlyRecurringCost", "expectdAnnuRecurringCost", "acctPlanLineItems", "totalChargesBeforeTax", "totalTaxCharges", "totalChargesAfterTax", "totalCredit", "totalTaxCredit", "totalCreditBeforeTax", "total", "prorationTaxAmount", "prorationCreditResultAmount", "prorationCreditAmount", "planInstanceNo"})
 @XmlRootElement(name = "assign_acct_plan_mResponseElement")
 public class AssignAcctPlanMResponseElement {
 
@@ -70,6 +70,10 @@ public class AssignAcctPlanMResponseElement {
     protected Double total;
     @XmlElement(name = "proration_tax_amount")
     protected Double prorationTaxAmount;
+    @XmlElement(name = "proration_credit_result_amount")
+    protected Double prorationCreditResultAmount;
+    @XmlElement(name = "proration_credit_amount")
+    protected Double prorationCreditAmount;
     @XmlElement(name = "plan_instance_no")
     protected Long planInstanceNo;
     
@@ -292,6 +296,22 @@ public class AssignAcctPlanMResponseElement {
 
     public void setProrationTaxAmount(Double value) {
         this.prorationTaxAmount = value;
+    }
+
+    public Double getProrationCreditResultAmount() {
+        return prorationCreditResultAmount;
+    }
+
+    public void setProrationCreditResultAmount(Double value) {
+        this.prorationCreditResultAmount = value;
+    }
+
+    public Double getProrationCreditAmount() {
+        return prorationCreditAmount;
+    }
+
+    public void setProrationCreditAmount(Double value) {
+        this.prorationCreditAmount = value;
     }
 
     public Long getPlanInstanceNo() {

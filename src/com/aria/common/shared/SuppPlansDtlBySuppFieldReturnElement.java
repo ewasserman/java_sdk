@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supp_plans_dtl_by_supp_field_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "planRateSchedulesDts"})
+@XmlType(name = "supp_plans_dtl_by_supp_field_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "planRateSchedulesDetails"})
 public class SuppPlansDtlBySuppFieldReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -43,8 +43,8 @@ public class SuppPlansDtlBySuppFieldReturnElement {
     protected String clientPlanId2AssignOnSusp;
     @XmlElement(name = "proration_invoice_timing_cd")
     protected String prorationInvoiceTimingCd;
-    @XmlElement(name = "plan_rate_schedules_dts")
-    protected List<PlanRateSchedulesDtsReturnElement> planRateSchedulesDts;
+    @XmlElement(name = "plan_rate_schedules_details")
+    protected List<PlanRateSchedulesDetailsReturnElement> planRateSchedulesDetails;
     
     public Long getPlanNo() {
         return planNo;
@@ -166,10 +166,10 @@ public class SuppPlansDtlBySuppFieldReturnElement {
         this.prorationInvoiceTimingCd = value;
     }
 
-    public List<PlanRateSchedulesDtsReturnElement> getPlanRateSchedulesDts() {
-        if (this.planRateSchedulesDts == null) {
-            this.planRateSchedulesDts = new ArrayList<PlanRateSchedulesDtsReturnElement>();
+    public List<PlanRateSchedulesDetailsReturnElement> getPlanRateSchedulesDetails() {
+        if (this.planRateSchedulesDetails == null) {
+            this.planRateSchedulesDetails = new ArrayList<PlanRateSchedulesDetailsReturnElement>();
         }
-        return this.planRateSchedulesDts;
+        return this.planRateSchedulesDetails;
     }
 }

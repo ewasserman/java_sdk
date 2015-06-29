@@ -10,13 +10,13 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_unit_instance_ReturnElement", propOrder = {"outPlanUnitInstNo", "outClientPlanUnitInstId", "planUnitInstStatus", "planUnitInstServices", "planUnitInstFields"})
+@XmlType(name = "plan_unit_instance_ReturnElement", propOrder = {"planUnitInstNo", "clientPlanUnitInstId", "planUnitInstStatus", "planUnitInstServices", "planUnitInstFields"})
 public class PlanUnitInstanceReturnElement {
 
-    @XmlElement(name = "out_plan_unit_inst_no")
-    protected Long outPlanUnitInstNo;
-    @XmlElement(name = "out_client_plan_unit_inst_id")
-    protected String outClientPlanUnitInstId;
+    @XmlElement(name = "plan_unit_inst_no")
+    protected Long planUnitInstNo;
+    @XmlElement(name = "client_plan_unit_inst_id")
+    protected String clientPlanUnitInstId;
     @XmlElement(name = "plan_unit_inst_status")
     protected String planUnitInstStatus;
     @XmlElement(name = "plan_unit_inst_services")
@@ -24,20 +24,20 @@ public class PlanUnitInstanceReturnElement {
     @XmlElement(name = "plan_unit_inst_fields")
     protected List<PlanUnitInstFieldsReturnElement> planUnitInstFields;
     
-    public Long getOutPlanUnitInstNo() {
-        return outPlanUnitInstNo;
+    public Long getPlanUnitInstNo() {
+        return planUnitInstNo;
     }
 
-    public void setOutPlanUnitInstNo(Long value) {
-        this.outPlanUnitInstNo = value;
+    public void setPlanUnitInstNo(Long value) {
+        this.planUnitInstNo = value;
     }
 
-    public String getOutClientPlanUnitInstId() {
-        return outClientPlanUnitInstId;
+    public String getClientPlanUnitInstId() {
+        return clientPlanUnitInstId;
     }
 
-    public void setOutClientPlanUnitInstId(String value) {
-        this.outClientPlanUnitInstId = value;
+    public void setClientPlanUnitInstId(String value) {
+        this.clientPlanUnitInstId = value;
     }
 
     public String getPlanUnitInstStatus() {

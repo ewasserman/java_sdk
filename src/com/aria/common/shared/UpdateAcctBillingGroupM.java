@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "billingGroupNo",    "billingGroupName",    "billingGroupDescription",    "clientBillingGroupId",    "newClientBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "primaryPaymentMethodId",    "clientPrimaryPaymentMethodId",    "backupPaymentMethodId",    "clientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "payMethodName",    "clientPayMethodId",    "payMethodDescription",    "payMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "billingGroupDirective",    "masterPlansSummary",    "clientReceiptId"})
+    "authKey",    "acctNo",    "billingGroupNo",    "billingGroupName",    "billingGroupDescription",    "clientBillingGroupId",    "newClientBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "primaryPaymentMethodNo",    "clientPrimaryPaymentMethodId",    "backupPaymentMethodNo",    "clientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "payMethodName",    "clientPaymentMethodId",    "payMethodDescription",    "payMethodType",    "ccNum",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNum",    "bankRoutingNum",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "billingGroupDirective",    "masterPlansSummary",    "clientReceiptId"})
 @XmlRootElement(name = "update_acct_billing_group_m")
 public class UpdateAcctBillingGroupM {
 
@@ -38,12 +38,12 @@ public class UpdateAcctBillingGroupM {
     protected Long statementTemplate;
         @XmlElement(name = "credit_note_template")
     protected Long creditNoteTemplate;
-        @XmlElement(name = "primary_payment_method_id")
-    protected Long primaryPaymentMethodId;
+        @XmlElement(name = "primary_payment_method_no")
+    protected Long primaryPaymentMethodNo;
         @XmlElement(name = "client_primary_payment_method_id")
     protected String clientPrimaryPaymentMethodId;
-        @XmlElement(name = "backup_payment_method_id")
-    protected Long backupPaymentMethodId;
+        @XmlElement(name = "backup_payment_method_no")
+    protected Long backupPaymentMethodNo;
         @XmlElement(name = "client_backup_payment_method_id")
     protected String clientBackupPaymentMethodId;
         @XmlElement(name = "stmt_first_name")
@@ -128,22 +128,22 @@ public class UpdateAcctBillingGroupM {
     protected String billBirthdate;
         @XmlElement(name = "pay_method_name")
     protected String payMethodName;
-        @XmlElement(name = "client_pay_method_id")
-    protected String clientPayMethodId;
+        @XmlElement(name = "client_payment_method_id")
+    protected String clientPaymentMethodId;
         @XmlElement(name = "pay_method_description")
     protected String payMethodDescription;
         @XmlElement(name = "pay_method_type")
     protected Long payMethodType;
-        @XmlElement(name = "cc_number")
-    protected String ccNumber;
+        @XmlElement(name = "cc_num")
+    protected String ccNum;
         @XmlElement(name = "cc_expire_mm")
     protected Long ccExpireMm;
         @XmlElement(name = "cc_expire_yyyy")
     protected Long ccExpireYyyy;
-        @XmlElement(name = "bank_acct_no")
-    protected String bankAcctNo;
-        @XmlElement(name = "bank_routing_no")
-    protected String bankRoutingNo;
+        @XmlElement(name = "bank_acct_num")
+    protected String bankAcctNum;
+        @XmlElement(name = "bank_routing_num")
+    protected String bankRoutingNum;
         @XmlElement(name = "cvv")
     protected String cvv;
         @XmlElement(name = "track_data1")
@@ -259,12 +259,12 @@ public class UpdateAcctBillingGroupM {
     public void setCreditNoteTemplate(Long value) {
         this.creditNoteTemplate = value;
     }
-            public Long getPrimaryPaymentMethodId() {
-        return primaryPaymentMethodId;
+            public Long getPrimaryPaymentMethodNo() {
+        return primaryPaymentMethodNo;
     }
 
-    public void setPrimaryPaymentMethodId(Long value) {
-        this.primaryPaymentMethodId = value;
+    public void setPrimaryPaymentMethodNo(Long value) {
+        this.primaryPaymentMethodNo = value;
     }
             public String getClientPrimaryPaymentMethodId() {
         return clientPrimaryPaymentMethodId;
@@ -273,12 +273,12 @@ public class UpdateAcctBillingGroupM {
     public void setClientPrimaryPaymentMethodId(String value) {
         this.clientPrimaryPaymentMethodId = value;
     }
-            public Long getBackupPaymentMethodId() {
-        return backupPaymentMethodId;
+            public Long getBackupPaymentMethodNo() {
+        return backupPaymentMethodNo;
     }
 
-    public void setBackupPaymentMethodId(Long value) {
-        this.backupPaymentMethodId = value;
+    public void setBackupPaymentMethodNo(Long value) {
+        this.backupPaymentMethodNo = value;
     }
             public String getClientBackupPaymentMethodId() {
         return clientBackupPaymentMethodId;
@@ -574,12 +574,12 @@ public class UpdateAcctBillingGroupM {
     public void setPayMethodName(String value) {
         this.payMethodName = value;
     }
-            public String getClientPayMethodId() {
-        return clientPayMethodId;
+            public String getClientPaymentMethodId() {
+        return clientPaymentMethodId;
     }
 
-    public void setClientPayMethodId(String value) {
-        this.clientPayMethodId = value;
+    public void setClientPaymentMethodId(String value) {
+        this.clientPaymentMethodId = value;
     }
             public String getPayMethodDescription() {
         return payMethodDescription;
@@ -595,12 +595,12 @@ public class UpdateAcctBillingGroupM {
     public void setPayMethodType(Long value) {
         this.payMethodType = value;
     }
-            public String getCcNumber() {
-        return ccNumber;
+            public String getCcNum() {
+        return ccNum;
     }
 
-    public void setCcNumber(String value) {
-        this.ccNumber = value;
+    public void setCcNum(String value) {
+        this.ccNum = value;
     }
             public Long getCcExpireMm() {
         return ccExpireMm;
@@ -616,19 +616,19 @@ public class UpdateAcctBillingGroupM {
     public void setCcExpireYyyy(Long value) {
         this.ccExpireYyyy = value;
     }
-            public String getBankAcctNo() {
-        return bankAcctNo;
+            public String getBankAcctNum() {
+        return bankAcctNum;
     }
 
-    public void setBankAcctNo(String value) {
-        this.bankAcctNo = value;
+    public void setBankAcctNum(String value) {
+        this.bankAcctNum = value;
     }
-            public String getBankRoutingNo() {
-        return bankRoutingNo;
+            public String getBankRoutingNum() {
+        return bankRoutingNum;
     }
 
-    public void setBankRoutingNo(String value) {
-        this.bankRoutingNo = value;
+    public void setBankRoutingNum(String value) {
+        this.bankRoutingNum = value;
     }
             public String getCvv() {
         return cvv;

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "payment_methods_summary_ReturnElement", propOrder = {"billFirstName", "billMiddleInitial", "billLastName", "billCompanyName", "billAddress1", "billAddress2", "billAddress3", "billCity", "billLocality", "billStateProv", "billCountry", "billPostalCd", "billPhone", "billPhoneExt", "billCellPhone", "billWorkPhone", "billWorkPhoneExt", "billFax", "billEmail", "billBirthdate", "payMethodName", "clientPayMethodId", "payMethodDescription", "payMethodType", "ccExpireMm", "ccExpireYyyy", "billAgreementId", "bankSwiftCd", "bankCountryCd", "mandateId", "bankIdCd", "bankBranchCd", "suffix"})
+@XmlType(name = "payment_methods_summary_ReturnElement", propOrder = {"billFirstName", "billMiddleInitial", "billLastName", "billCompanyName", "billAddress1", "billAddress2", "billAddress3", "billCity", "billLocality", "billStateProv", "billCountry", "billPostalCd", "billPhone", "billPhoneExt", "billCellPhone", "billWorkPhone", "billWorkPhoneExt", "billFax", "billEmail", "billBirthdate", "billAddressVerificationCode", "billAddressMatchScore", "payMethodName", "paymentMethodNo", "clientPaymentMethodId", "payMethodDescription", "payMethodType", "ccExpireMm", "ccExpireYyyy", "billAgreementId", "bankSwiftCd", "bankCountryCd", "mandateId", "bankIdCd", "bankBranchCd", "suffix"})
 public class PaymentMethodsSummaryReturnElement {
 
     @XmlElement(name = "bill_first_name")
@@ -53,10 +53,16 @@ public class PaymentMethodsSummaryReturnElement {
     protected String billEmail;
     @XmlElement(name = "bill_birthdate")
     protected String billBirthdate;
+    @XmlElement(name = "bill_address_verification_code")
+    protected String billAddressVerificationCode;
+    @XmlElement(name = "bill_address_match_score")
+    protected Double billAddressMatchScore;
     @XmlElement(name = "pay_method_name")
     protected String payMethodName;
-    @XmlElement(name = "client_pay_method_id")
-    protected String clientPayMethodId;
+    @XmlElement(name = "payment_method_no")
+    protected Long paymentMethodNo;
+    @XmlElement(name = "client_payment_method_id")
+    protected String clientPaymentMethodId;
     @XmlElement(name = "pay_method_description")
     protected String payMethodDescription;
     @XmlElement(name = "pay_method_type")
@@ -240,6 +246,22 @@ public class PaymentMethodsSummaryReturnElement {
         this.billBirthdate = value;
     }
 
+    public String getBillAddressVerificationCode() {
+        return billAddressVerificationCode;
+    }
+
+    public void setBillAddressVerificationCode(String value) {
+        this.billAddressVerificationCode = value;
+    }
+
+    public Double getBillAddressMatchScore() {
+        return billAddressMatchScore;
+    }
+
+    public void setBillAddressMatchScore(Double value) {
+        this.billAddressMatchScore = value;
+    }
+
     public String getPayMethodName() {
         return payMethodName;
     }
@@ -248,12 +270,20 @@ public class PaymentMethodsSummaryReturnElement {
         this.payMethodName = value;
     }
 
-    public String getClientPayMethodId() {
-        return clientPayMethodId;
+    public Long getPaymentMethodNo() {
+        return paymentMethodNo;
     }
 
-    public void setClientPayMethodId(String value) {
-        this.clientPayMethodId = value;
+    public void setPaymentMethodNo(Long value) {
+        this.paymentMethodNo = value;
+    }
+
+    public String getClientPaymentMethodId() {
+        return clientPaymentMethodId;
+    }
+
+    public void setClientPaymentMethodId(String value) {
+        this.clientPaymentMethodId = value;
     }
 
     public String getPayMethodDescription() {

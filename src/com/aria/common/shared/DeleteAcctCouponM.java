@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "couponCd",    "clientAcctId",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId"})
+    "authKey",    "acctNo",    "clientAcctId",    "couponCd",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId"})
 @XmlRootElement(name = "delete_acct_coupon_m")
 public class DeleteAcctCouponM {
 
@@ -20,10 +20,10 @@ public class DeleteAcctCouponM {
     protected String authKey;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
-        @XmlElement(name = "coupon_cd")
-    protected String couponCd;
         @XmlElement(name = "client_acct_id")
     protected String clientAcctId;
+        @XmlElement(name = "coupon_cd")
+    protected String couponCd;
         @XmlElement(name = "master_plan_instance_no")
     protected Long masterPlanInstanceNo;
         @XmlElement(name = "client_master_plan_instance_id")
@@ -52,19 +52,19 @@ public class DeleteAcctCouponM {
     public void setAcctNo(Long value) {
         this.acctNo = value;
     }
-            public String getCouponCd() {
-        return couponCd;
-    }
-
-    public void setCouponCd(String value) {
-        this.couponCd = value;
-    }
             public String getClientAcctId() {
         return clientAcctId;
     }
 
     public void setClientAcctId(String value) {
         this.clientAcctId = value;
+    }
+            public String getCouponCd() {
+        return couponCd;
+    }
+
+    public void setCouponCd(String value) {
+        this.couponCd = value;
     }
             public Long getMasterPlanInstanceNo() {
         return masterPlanInstanceNo;
