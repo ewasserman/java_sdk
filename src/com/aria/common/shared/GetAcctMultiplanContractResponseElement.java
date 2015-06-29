@@ -41,7 +41,7 @@ public class GetAcctMultiplanContractResponseElement {
     @XmlElement(name = "plan_name")
     protected List<PlanNameReturnElement> planName;
     @XmlElement(name = "client_plan_id")
-    protected String clientPlanId;
+    protected List<ClientPlanIdReturnElement> clientPlanId;
     
     public Long getErrorCode() {
         return errorCode;
@@ -141,13 +141,10 @@ public class GetAcctMultiplanContractResponseElement {
             this.planName = new ArrayList<PlanNameReturnElement>();
         }
         return this.planName;
-    }public String getClientPlanId() {
-        return clientPlanId;
+    }public List<ClientPlanIdReturnElement> getClientPlanId() {
+        if (this.clientPlanId == null) {
+            this.clientPlanId = new ArrayList<ClientPlanIdReturnElement>();
+        }
+        return this.clientPlanId;
     }
-
-    public void setClientPlanId(String value) {
-        this.clientPlanId = value;
-    }
-
-    
 }

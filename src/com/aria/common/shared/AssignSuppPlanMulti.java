@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "suppPlansToAssign",    "assignmentDirective",    "doWrite",    "comments",    "clientReceiptId",    "altProrationStartDate",    "couponCodes",    "effectiveDate",    "syncMstrBillDatesOverride",    "suppPlanSurcharges"})
+    "authKey",    "acctNo",    "suppPlansToAssign",    "assignmentDirective",    "doWrite",    "comments",    "clientReceiptId",    "altProrationStartDate",    "couponCodes",    "effectiveDate",    "syncMstrBillDatesOverride",    "suppPlanSurcharges",    "newAcctCustomRates"})
 @XmlRootElement(name = "assign_supp_plan_multi")
 public class AssignSuppPlanMulti {
 
@@ -40,6 +40,8 @@ public class AssignSuppPlanMulti {
     protected Long syncMstrBillDatesOverride;
         @XmlElement(name = "supp_plan_surcharges")
     protected SuppPlanSurchargesArray suppPlanSurcharges;
+        @XmlElement(name = "new_acct_custom_rates")
+    protected NewAcctCustomRatesArray newAcctCustomRates;
     
     public long getClientNo() {
         return clientNo;
@@ -133,6 +135,13 @@ public class AssignSuppPlanMulti {
 
     public void setSuppPlanSurcharges(SuppPlanSurchargesArray value) {
         this.suppPlanSurcharges = value;
+    }
+            public NewAcctCustomRatesArray getNewAcctCustomRates() {
+        return newAcctCustomRates;
+    }
+
+    public void setNewAcctCustomRates(NewAcctCustomRatesArray value) {
+        this.newAcctCustomRates = value;
     }
             
 }

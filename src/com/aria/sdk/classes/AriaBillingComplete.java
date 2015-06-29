@@ -780,6 +780,79 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> getAcctSurcharges(Map<String,Object> map);
 
     /**
+    * getClientPlansAllM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param plan_no - Type: Long
+    * @param acct_no - Type: Long
+    * @param promo_code - Type: String
+    * @param parent_plan_no - Type: Long
+    * @param supp_field_names - Type: com.aria.common.shared.SuppFieldNamesArray
+    * @param supp_field_values - Type: com.aria.common.shared.SuppFieldValuesArray
+    * @param include_all_rate_schedules - Type: String
+    * @param include_plan_hierarchy - Type: String
+    * @param client_plan_id - Type: String
+    * @param client_parent_plan_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   all_client_plan_dtls - Type: ArrayList&#60;AllClientPlanDtlsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getClientPlansAllM(Long client_no, String auth_key, Long plan_no, Long acct_no, String promo_code, Long parent_plan_no, com.aria.common.shared.SuppFieldNamesArray supp_field_names, com.aria.common.shared.SuppFieldValuesArray supp_field_values, String include_all_rate_schedules, String include_plan_hierarchy, String client_plan_id, String client_parent_plan_id);
+
+    abstract Map<String,Object> getClientPlansAllM(Map<String,Object> map);
+
+    /**
+    * getClientPlansBasicM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param plan_no - Type: Long
+    * @param client_plan_id - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   basic_plans - Type: ArrayList&#60;BasicPlansReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getClientPlansBasicM(Long client_no, String auth_key, Long plan_no, String client_plan_id, String include_rs_summary);
+
+    abstract Map<String,Object> getClientPlansBasicM(Map<String,Object> map);
+
+    /**
+    * getMasterPlansBySuppFieldM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param field_val - Type: String
+    * @param field_no - Type: Long
+    * @param field_name - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   master_plans_dtl_by_supp_field - Type: ArrayList&#60;MasterPlansDtlBySuppFieldReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getMasterPlansBySuppFieldM(Long client_no, String auth_key, String field_val, Long field_no, String field_name, String include_rs_summary);
+
+    abstract Map<String,Object> getMasterPlansBySuppFieldM(Map<String,Object> map);
+
+    /**
+    * getSuppPlansBySuppFieldM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param field_val - Type: String
+    * @param field_no - Type: Long
+    * @param field_name - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   supp_plans_dtl_by_supp_field - Type: ArrayList&#60;SuppPlansDtlBySuppFieldReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getSuppPlansBySuppFieldM(Long client_no, String auth_key, String field_val, Long field_no, String field_name, String include_rs_summary);
+
+    abstract Map<String,Object> getSuppPlansBySuppFieldM(Map<String,Object> map);
+
+    /**
     * getCouponDetails
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -1296,6 +1369,73 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> authorizeElectronicPayment(Map<String,Object> map);
 
     /**
+    * authorizeElectronicPaymentM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param amount - Type: Double
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param billing_group_no - Type: Long
+    * @param client_billing_group_id - Type: String
+    * @param payment_source - Type: Long
+    * @param CVV - Type: String
+    * @param bill_seq - Type: Long
+    * @param inTrackingNumber - Type: String
+    * @param inAuthValue - Type: String
+    * @param alt_client_acct_group_id - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param alt_pay_method - Type: Long
+    * @param cc_number - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param bank_routing_num - Type: String
+    * @param bank_acct_num - Type: String
+    * @param bank_acct_type - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_address3 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_zip - Type: String
+    * @param bill_country - Type: String
+    * @param bill_email - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_extension - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_extension - Type: String
+    * @param record_cc_on_auth_failure - Type: String
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> authorizeElectronicPaymentM(Long client_no, String auth_key, Long acct_no, Double amount, Long plan_instance_no, String client_plan_instance_id, Long billing_group_no, String client_billing_group_id, Long payment_source, String CVV, Long bill_seq, String inTrackingNumber, String inAuthValue, String alt_client_acct_group_id, String track_data1, String track_data2, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, String bank_acct_type, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, String record_cc_on_auth_failure, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd);
+
+    abstract Map<String,Object> authorizeElectronicPaymentM(Map<String,Object> map);
+
+    /**
     * getQueuedServicePlans
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -1577,6 +1717,7 @@ public interface AriaBillingComplete {
     *   stmnt_email_list_cc - Type: javax.xml.ws.Holder<br>
     *   stmnt_email_list_bcc - Type: javax.xml.ws.Holder<br>
     *   invoice_posting_method_cd - Type: javax.xml.ws.Holder<br>
+    *   acct_start_date - Type: javax.xml.ws.Holder<br>
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     */
@@ -2346,6 +2487,7 @@ public interface AriaBillingComplete {
     * @param stmnt_email_list_cc - Type: String
     * @param stmnt_email_list_bcc - Type: String
     * @param invoice_posting_method_cd - Type: Long
+    * @param acct_start_date - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
@@ -2372,7 +2514,7 @@ public interface AriaBillingComplete {
     *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
     *   session_id - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> createAcctComplete(Long client_no, String auth_key, Long master_plan_no, String client_master_plan_id, String alt_start_date, String client_acct_id, String userid, Long status_cd, Long master_plan_units, com.aria.common.shared.SuppPlansArray supp_plans, com.aria.common.shared.SuppPlanUnitsArray supp_plan_units, Long notify_method, String promo_cd, String password, String secret_question, String secret_question_answer, String first_name, String mi, String last_name, String company_name, String address1, String address2, String city, String locality, String state_prov, String country, String postal_cd, String phone, String phone_ext, String cell_phone, String work_phone, String work_phone_ext, String email, String birthdate, String bill_first_name, String bill_mi, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_email, Long pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_no, String bank_routing_no, Long resp_level_cd, Long senior_acct_no, String senior_acct_user_id, String client_senior_acct_id, com.aria.common.shared.FunctionalAcctGroupsArray functional_acct_groups, com.aria.common.shared.CollectionsAcctGroupsArray collections_acct_groups, com.aria.common.shared.SuppFieldNamesArray supp_field_names, com.aria.common.shared.SuppFieldValuesArray supp_field_values, Long test_acct_ind, Long status_until_alt_start, Double balance_forward, Long alt_bill_day, String do_full_invoicing, String do_prorated_invoicing, Long master_plan_alt_rate_sched_no, com.aria.common.shared.SuppPlanAltRateSchedNoArray supp_plan_alt_rate_sched_no, String client_receipt_id, String currency_cd, String cvv, String taxpayer_id, String bill_agreement_id, String retroactive_start_date, com.aria.common.shared.CouponCodesArray coupon_codes, com.aria.common.shared.NewAcctCustomRatesArray new_acct_custom_rates, Long alt_msg_template_no, Long seq_func_group_no, com.aria.common.shared.NewAcctPlanContractsArray new_acct_plan_contracts, String bank_acct_type, String address3, String bill_address3, com.aria.common.shared.UsageAccumulationConfigArray usage_accumulation_config, com.aria.common.shared.EnableUsagePoolingPlanNoArray enable_usage_pooling_plan_no, com.aria.common.shared.ClientFuncAcctGroupIdsArray client_func_acct_group_ids, com.aria.common.shared.ClientCollAcctGroupIdsArray client_coll_acct_group_ids, String track_data1, String track_data2, String do_write, Long tax_exemption_level, Long cn_alt_msg_template_no, String invoice_approval_required, String create_session, com.aria.common.shared.ClientSuppPlanIdsArray client_supp_plan_ids, String client_mp_alt_rate_sched_id, com.aria.common.shared.ClientSpAltRateSchedIdsArray client_sp_alt_rate_sched_ids, String client_alt_msg_template_id, String client_cn_alt_msg_template_no, com.aria.common.shared.SurchargeNoArray surcharge_no, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, String bkup_bill_first_name, String bkup_bill_mi, String bkup_bill_last_name, String bkup_bill_company_name, String bkup_bill_address1, String bkup_bill_address2, String bkup_bill_address3, String bkup_bill_city, String bkup_bill_locality, String bkup_bill_state_prov, String bkup_bill_country, String bkup_bill_postal_cd, String bkup_bill_phone, String bkup_bill_phone_ext, String bkup_bill_cell_phone, String bkup_bill_work_phone, String bkup_bill_work_phone_ext, String bkup_bill_email, Long bkup_pay_method, String bkup_cc_number, Long bkup_cc_expire_mm, Long bkup_cc_expire_yyyy, String bkup_bank_acct_no, String bkup_bank_routing_no, String bkup_bank_acct_type, String bkup_bill_agreement_id, String bkup_cvv, String seq_func_group_id, Long revrec_profile_id, String revrec_client_defined_id, String stmnt_email_list, String stmnt_email_list_cc, String stmnt_email_list_bcc, Long invoice_posting_method_cd);
+    abstract Map<String,Object> createAcctComplete(Long client_no, String auth_key, Long master_plan_no, String client_master_plan_id, String alt_start_date, String client_acct_id, String userid, Long status_cd, Long master_plan_units, com.aria.common.shared.SuppPlansArray supp_plans, com.aria.common.shared.SuppPlanUnitsArray supp_plan_units, Long notify_method, String promo_cd, String password, String secret_question, String secret_question_answer, String first_name, String mi, String last_name, String company_name, String address1, String address2, String city, String locality, String state_prov, String country, String postal_cd, String phone, String phone_ext, String cell_phone, String work_phone, String work_phone_ext, String email, String birthdate, String bill_first_name, String bill_mi, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_email, Long pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_no, String bank_routing_no, Long resp_level_cd, Long senior_acct_no, String senior_acct_user_id, String client_senior_acct_id, com.aria.common.shared.FunctionalAcctGroupsArray functional_acct_groups, com.aria.common.shared.CollectionsAcctGroupsArray collections_acct_groups, com.aria.common.shared.SuppFieldNamesArray supp_field_names, com.aria.common.shared.SuppFieldValuesArray supp_field_values, Long test_acct_ind, Long status_until_alt_start, Double balance_forward, Long alt_bill_day, String do_full_invoicing, String do_prorated_invoicing, Long master_plan_alt_rate_sched_no, com.aria.common.shared.SuppPlanAltRateSchedNoArray supp_plan_alt_rate_sched_no, String client_receipt_id, String currency_cd, String cvv, String taxpayer_id, String bill_agreement_id, String retroactive_start_date, com.aria.common.shared.CouponCodesArray coupon_codes, com.aria.common.shared.NewAcctCustomRatesArray new_acct_custom_rates, Long alt_msg_template_no, Long seq_func_group_no, com.aria.common.shared.NewAcctPlanContractsArray new_acct_plan_contracts, String bank_acct_type, String address3, String bill_address3, com.aria.common.shared.UsageAccumulationConfigArray usage_accumulation_config, com.aria.common.shared.EnableUsagePoolingPlanNoArray enable_usage_pooling_plan_no, com.aria.common.shared.ClientFuncAcctGroupIdsArray client_func_acct_group_ids, com.aria.common.shared.ClientCollAcctGroupIdsArray client_coll_acct_group_ids, String track_data1, String track_data2, String do_write, Long tax_exemption_level, Long cn_alt_msg_template_no, String invoice_approval_required, String create_session, com.aria.common.shared.ClientSuppPlanIdsArray client_supp_plan_ids, String client_mp_alt_rate_sched_id, com.aria.common.shared.ClientSpAltRateSchedIdsArray client_sp_alt_rate_sched_ids, String client_alt_msg_template_id, String client_cn_alt_msg_template_no, com.aria.common.shared.SurchargeNoArray surcharge_no, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, String bkup_bill_first_name, String bkup_bill_mi, String bkup_bill_last_name, String bkup_bill_company_name, String bkup_bill_address1, String bkup_bill_address2, String bkup_bill_address3, String bkup_bill_city, String bkup_bill_locality, String bkup_bill_state_prov, String bkup_bill_country, String bkup_bill_postal_cd, String bkup_bill_phone, String bkup_bill_phone_ext, String bkup_bill_cell_phone, String bkup_bill_work_phone, String bkup_bill_work_phone_ext, String bkup_bill_email, Long bkup_pay_method, String bkup_cc_number, Long bkup_cc_expire_mm, Long bkup_cc_expire_yyyy, String bkup_bank_acct_no, String bkup_bank_routing_no, String bkup_bank_acct_type, String bkup_bill_agreement_id, String bkup_cvv, String seq_func_group_id, Long revrec_profile_id, String revrec_client_defined_id, String stmnt_email_list, String stmnt_email_list_cc, String stmnt_email_list_bcc, Long invoice_posting_method_cd, String acct_start_date);
 
     abstract Map<String,Object> createAcctComplete(Map<String,Object> map);
 
@@ -2794,6 +2936,7 @@ public interface AriaBillingComplete {
     * @param stmnt_email_list_cc - Type: String
     * @param stmnt_email_list_bcc - Type: String
     * @param invoice_posting_method_cd - Type: Long
+    * @param acct_start_date - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
@@ -2820,7 +2963,7 @@ public interface AriaBillingComplete {
     *   cancelled_supp_plans - Type: ArrayList&#60;CancelledSuppPlansReturnElement&#62;<br>
     *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
     */
-    abstract Map<String,Object> updateAcctComplete(Long client_no, String auth_key, Long acct_no, String first_name, String last_name, String middle_initial, String company_name, String address1, String address2, String city, String locality, String state_prov, String country, String postal_cd, String phone, String phone_ext, String cell_phone, String work_phone, String work_phone_ext, String email, String birthdate, String bill_first_name, String bill_last_name, String bill_middle_initial, String bill_company_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_email, Long pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, Long master_plan_no, Long master_plan_alt_rate_sched_no, Long master_plan_units, Long master_plan_assign_directive, com.aria.common.shared.UpdateAcctSuppFieldArray update_acct_supp_field, com.aria.common.shared.UpdateAcctFuncGroupArray update_acct_func_group, com.aria.common.shared.UpdateAcctCollGroupArray update_acct_coll_group, Long status_cd, Long notify_method, String password, String secret_question, String secret_question_answer, String pin, Long test_acct_ind, Long resp_level_cd, Long senior_acct_no, String senior_acct_user_id, String client_senior_acct_id, String client_acct_id, String do_collect, String change_status_after_coll, String reset_dates_after_status, String client_receipt_id, String alt_do_dunning, String force_currency_change, String cvv, String taxpayer_id, String bill_agreement_id, String auto_cancel_supp_plans, Long offset_months, String alt_proration_start_date, Long alt_msg_template_no, Long seq_func_group_no, String bank_acct_type, String address3, String bill_address3, com.aria.common.shared.UsageAccumulationConfigArray usage_accumulation_config, com.aria.common.shared.EnableUsagePoolingPlanNoArray enable_usage_pooling_plan_no, com.aria.common.shared.DisableUsagePoolingPlanNoArray disable_usage_pooling_plan_no, String alt_client_acct_group_id, String track_data1, String track_data2, Long offset_interval, Long tax_exemption_level, Long cn_alt_msg_template_no, String promo_cd, String invoice_unbilled_usage, String coupon_code, String userid, String invoice_approval_required, String client_master_plan_id, String client_mp_alt_rate_sched_id, String client_alt_msg_template_id, String client_cn_alt_msg_template_id, com.aria.common.shared.UpdateSurchargeArray update_surcharge, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, String bkup_bill_first_name, String bkup_bill_mi, String bkup_bill_last_name, String bkup_bill_company_name, String bkup_bill_address1, String bkup_bill_address2, String bkup_bill_address3, String bkup_bill_city, String bkup_bill_locality, String bkup_bill_state_prov, String bkup_bill_country, String bkup_bill_postal_cd, String bkup_bill_phone, String bkup_bill_phone_ext, String bkup_bill_cell_phone, String bkup_bill_work_phone, String bkup_bill_work_phone_ext, String bkup_bill_email, Long bkup_pay_method, String bkup_cc_number, Long bkup_cc_expire_mm, Long bkup_cc_expire_yyyy, String bkup_bank_acct_no, String bkup_bank_routing_no, String bkup_bank_acct_type, String bkup_bill_agreement_id, String bkup_cvv, String seq_func_group_id, Long revrec_profile_id, String revrec_client_defined_id, String stmnt_email_list, String stmnt_email_list_cc, String stmnt_email_list_bcc, Long invoice_posting_method_cd);
+    abstract Map<String,Object> updateAcctComplete(Long client_no, String auth_key, Long acct_no, String first_name, String last_name, String middle_initial, String company_name, String address1, String address2, String city, String locality, String state_prov, String country, String postal_cd, String phone, String phone_ext, String cell_phone, String work_phone, String work_phone_ext, String email, String birthdate, String bill_first_name, String bill_last_name, String bill_middle_initial, String bill_company_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_email, Long pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, Long master_plan_no, Long master_plan_alt_rate_sched_no, Long master_plan_units, Long master_plan_assign_directive, com.aria.common.shared.UpdateAcctSuppFieldArray update_acct_supp_field, com.aria.common.shared.UpdateAcctFuncGroupArray update_acct_func_group, com.aria.common.shared.UpdateAcctCollGroupArray update_acct_coll_group, Long status_cd, Long notify_method, String password, String secret_question, String secret_question_answer, String pin, Long test_acct_ind, Long resp_level_cd, Long senior_acct_no, String senior_acct_user_id, String client_senior_acct_id, String client_acct_id, String do_collect, String change_status_after_coll, String reset_dates_after_status, String client_receipt_id, String alt_do_dunning, String force_currency_change, String cvv, String taxpayer_id, String bill_agreement_id, String auto_cancel_supp_plans, Long offset_months, String alt_proration_start_date, Long alt_msg_template_no, Long seq_func_group_no, String bank_acct_type, String address3, String bill_address3, com.aria.common.shared.UsageAccumulationConfigArray usage_accumulation_config, com.aria.common.shared.EnableUsagePoolingPlanNoArray enable_usage_pooling_plan_no, com.aria.common.shared.DisableUsagePoolingPlanNoArray disable_usage_pooling_plan_no, String alt_client_acct_group_id, String track_data1, String track_data2, Long offset_interval, Long tax_exemption_level, Long cn_alt_msg_template_no, String promo_cd, String invoice_unbilled_usage, String coupon_code, String userid, String invoice_approval_required, String client_master_plan_id, String client_mp_alt_rate_sched_id, String client_alt_msg_template_id, String client_cn_alt_msg_template_id, com.aria.common.shared.UpdateSurchargeArray update_surcharge, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, String bkup_bill_first_name, String bkup_bill_mi, String bkup_bill_last_name, String bkup_bill_company_name, String bkup_bill_address1, String bkup_bill_address2, String bkup_bill_address3, String bkup_bill_city, String bkup_bill_locality, String bkup_bill_state_prov, String bkup_bill_country, String bkup_bill_postal_cd, String bkup_bill_phone, String bkup_bill_phone_ext, String bkup_bill_cell_phone, String bkup_bill_work_phone, String bkup_bill_work_phone_ext, String bkup_bill_email, Long bkup_pay_method, String bkup_cc_number, Long bkup_cc_expire_mm, Long bkup_cc_expire_yyyy, String bkup_bank_acct_no, String bkup_bank_routing_no, String bkup_bank_acct_type, String bkup_bill_agreement_id, String bkup_cvv, String seq_func_group_id, Long revrec_profile_id, String revrec_client_defined_id, String stmnt_email_list, String stmnt_email_list_cc, String stmnt_email_list_bcc, Long invoice_posting_method_cd, String acct_start_date);
 
     abstract Map<String,Object> updateAcctComplete(Map<String,Object> map);
 
@@ -3030,12 +3173,13 @@ public interface AriaBillingComplete {
     * @param date_range_start - Type: String
     * @param date_range_end - Type: String
     * @param do_url_encoding - Type: String
+    * @param filter_application_id - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   acct_comments - Type: ArrayList&#60;AcctCommentsReturnElement&#62;<br>
     */
-    abstract Map<String,Object> getAcctComments(Long client_no, String auth_key, Long acct_no, String date_range_start, String date_range_end, String do_url_encoding);
+    abstract Map<String,Object> getAcctComments(Long client_no, String auth_key, Long acct_no, String date_range_start, String date_range_end, String do_url_encoding, String filter_application_id);
 
     abstract Map<String,Object> getAcctComments(Map<String,Object> map);
 
@@ -3085,6 +3229,27 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> getAcctStatementHistory(Long client_no, String auth_key, Long acct_no, String user_id, String start_date, String end_date, String include_invoice_activity_eligibility);
 
     abstract Map<String,Object> getAcctStatementHistory(Map<String,Object> map);
+
+    /**
+    * getAcctStatementHistoryM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param user_id - Type: String
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param start_date - Type: String
+    * @param end_date - Type: String
+    * @param include_invoice_activity_eligibility - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   statements_history - Type: ArrayList&#60;StatementsHistoryReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctStatementHistoryM(Long client_no, String auth_key, Long acct_no, String user_id, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, String start_date, String end_date, String include_invoice_activity_eligibility);
+
+    abstract Map<String,Object> getAcctStatementHistoryM(Map<String,Object> map);
 
     /**
     * getAcctInvoiceHistory
@@ -3189,6 +3354,7 @@ public interface AriaBillingComplete {
     * @param effective_date - Type: String
     * @param sync_mstr_bill_dates_override - Type: Long
     * @param supp_plan_surcharges - Type: com.aria.common.shared.SuppPlanSurchargesArray
+    * @param new_acct_custom_rates - Type: com.aria.common.shared.NewAcctCustomRatesArray
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
@@ -3219,7 +3385,7 @@ public interface AriaBillingComplete {
     *   expectd_annu_recurring_cost - Type: javax.xml.ws.Holder<br>
     *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
     */
-    abstract Map<String,Object> assignSuppPlanMulti(Long client_no, String auth_key, Long acct_no, com.aria.common.shared.SuppPlansToAssignArray supp_plans_to_assign, Long assignment_directive, String do_write, String comments, String client_receipt_id, String alt_proration_start_date, com.aria.common.shared.CouponCodesArray coupon_codes, String effective_date, Long sync_mstr_bill_dates_override, com.aria.common.shared.SuppPlanSurchargesArray supp_plan_surcharges);
+    abstract Map<String,Object> assignSuppPlanMulti(Long client_no, String auth_key, Long acct_no, com.aria.common.shared.SuppPlansToAssignArray supp_plans_to_assign, Long assignment_directive, String do_write, String comments, String client_receipt_id, String alt_proration_start_date, com.aria.common.shared.CouponCodesArray coupon_codes, String effective_date, Long sync_mstr_bill_dates_override, com.aria.common.shared.SuppPlanSurchargesArray supp_plan_surcharges, com.aria.common.shared.NewAcctCustomRatesArray new_acct_custom_rates);
 
     abstract Map<String,Object> assignSuppPlanMulti(Map<String,Object> map);
 
@@ -3253,6 +3419,25 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> genStatement(Long client_no, String auth_key, Long acct_no, String send_email);
 
     abstract Map<String,Object> genStatement(Map<String,Object> map);
+
+    /**
+    * genStatementM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param send_email - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   statement_no - Type: javax.xml.ws.Holder<br>
+    *   seq_statement_id - Type: javax.xml.ws.Holder<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> genStatementM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, String send_email);
+
+    abstract Map<String,Object> genStatementM(Map<String,Object> map);
 
     /**
     * cancelUnconsumedCredit
@@ -3429,6 +3614,7 @@ public interface AriaBillingComplete {
     * @param auth_key - Type: String
     * @param acct_no - Type: Long
     * @param contract_no - Type: Long
+    * @param exclude_terminated_plans - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
@@ -3443,9 +3629,9 @@ public interface AriaBillingComplete {
     *   status_code - Type: javax.xml.ws.Holder<br>
     *   plan_no - Type: ArrayList&#60;PlanNoReturnElement&#62;<br>
     *   plan_name - Type: ArrayList&#60;PlanNameReturnElement&#62;<br>
-    *   client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   client_plan_id - Type: ArrayList&#60;ClientPlanIdReturnElement&#62;<br>
     */
-    abstract Map<String,Object> getAcctMultiplanContract(Long client_no, String auth_key, Long acct_no, Long contract_no);
+    abstract Map<String,Object> getAcctMultiplanContract(Long client_no, String auth_key, Long acct_no, Long contract_no, String exclude_terminated_plans);
 
     abstract Map<String,Object> getAcctMultiplanContract(Map<String,Object> map);
 
@@ -3526,6 +3712,7 @@ public interface AriaBillingComplete {
     *   start_date - Type: javax.xml.ws.Holder<br>
     *   end_date - Type: javax.xml.ws.Holder<br>
     *   status_code - Type: javax.xml.ws.Holder<br>
+    *   contract_no - Type: javax.xml.ws.Holder<br>
     */
     abstract Map<String,Object> getAcctUniversalContract(Long client_no, String auth_key, Long acct_no);
 
@@ -3606,12 +3793,13 @@ public interface AriaBillingComplete {
     * @param auth_key - Type: String
     * @param acct_no - Type: Long
     * @param filter_status_code - Type: Long
+    * @param exclude_terminated_plans - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   all_acct_contracts - Type: ArrayList&#60;AllAcctContractsReturnElement&#62;<br>
     */
-    abstract Map<String,Object> getAllAcctContracts(Long client_no, String auth_key, Long acct_no, Long filter_status_code);
+    abstract Map<String,Object> getAllAcctContracts(Long client_no, String auth_key, Long acct_no, Long filter_status_code, String exclude_terminated_plans);
 
     abstract Map<String,Object> getAllAcctContracts(Map<String,Object> map);
 
@@ -3738,6 +3926,24 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> savePaypalBillAgreement(Map<String,Object> map);
 
     /**
+    * savePaypalBillAgreementM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param billing_group_no - Type: Long
+    * @param client_billing_group_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param token - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> savePaypalBillAgreementM(Long client_no, String auth_key, Long acct_no, Long billing_group_no, String client_billing_group_id, Long master_plan_instance_no, String client_master_plan_instance_id, String token);
+
+    abstract Map<String,Object> savePaypalBillAgreementM(Map<String,Object> map);
+
+    /**
     * initPaypalBillAgreement
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -3822,6 +4028,1229 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> getAcctOpenCharges(Long client_no, String auth_key, Long acct_no);
 
     abstract Map<String,Object> getAcctOpenCharges(Map<String,Object> map);
+
+    /**
+    * createAcctCompleteM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param do_write - Type: String
+    * @param client_receipt_id - Type: String
+    * @param acct - Type: com.aria.common.shared.AcctArray
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   out_acct - Type: ArrayList&#60;OutAcctReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> createAcctCompleteM(Long client_no, String auth_key, String do_write, String client_receipt_id, com.aria.common.shared.AcctArray acct);
+
+    abstract Map<String,Object> createAcctCompleteM(Map<String,Object> map);
+
+    /**
+    * acctPlanInstallCompleteM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param install_complete_ind - Type: String
+    * @param comments - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> acctPlanInstallCompleteM(Long client_no, String auth_key, Long acct_no, Long master_plan_instance_no, String client_master_plan_instance_id, String install_complete_ind, String comments);
+
+    abstract Map<String,Object> acctPlanInstallCompleteM(Map<String,Object> map);
+
+    /**
+    * getAcctPaymentMethodsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param payment_method_no - Type: Long
+    * @param filter_status - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   account_payment_methods - Type: ArrayList&#60;AccountPaymentMethodsReturnElement&#62;<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getAcctPaymentMethodsM(Long client_no, String auth_key, Long acct_no, Long payment_method_no, Long filter_status);
+
+    abstract Map<String,Object> getAcctPaymentMethodsM(Map<String,Object> map);
+
+    /**
+    * updatePaymentMethodM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param payment_method_no - Type: Long
+    * @param client_payment_method_id - Type: String
+    * @param disabled_ind - Type: Long
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_address3 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_country - Type: String
+    * @param bill_postal_cd - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_ext - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_ext - Type: String
+    * @param bill_fax - Type: String
+    * @param bill_email - Type: String
+    * @param bill_birthdate - Type: String
+    * @param pay_method_name - Type: String
+    * @param pay_method_description - Type: String
+    * @param pay_method_type - Type: Long
+    * @param cc_num - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param cvv - Type: String
+    * @param bank_acct_num - Type: String
+    * @param bank_routing_num - Type: String
+    * @param bill_agreement_id - Type: String
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @param do_collect - Type: String
+    * @param change_status_after_coll - Type: String
+    * @param reset_dates_after_status - Type: String
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   seq_no - Type: javax.xml.ws.Holder<br>
+    *   collection_info - Type: ArrayList&#60;CollectionInfoReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> updatePaymentMethodM(Long client_no, String auth_key, Long acct_no, Long payment_method_no, String client_payment_method_id, Long disabled_ind, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_fax, String bill_email, String bill_birthdate, String pay_method_name, String pay_method_description, Long pay_method_type, String cc_num, Long cc_expire_mm, Long cc_expire_yyyy, String cvv, String bank_acct_num, String bank_routing_num, String bill_agreement_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, String do_collect, String change_status_after_coll, String reset_dates_after_status, String client_receipt_id);
+
+    abstract Map<String,Object> updatePaymentMethodM(Map<String,Object> map);
+
+    /**
+    * getAcctHierarchyDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param hierarchy_filter - Type: Long
+    * @param include_current_acct - Type: Long
+    * @param include_supp_plans - Type: Long
+    * @param include_billing_groups - Type: Long
+    * @param include_payment_methods - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   acct_hierarchy_dtls - Type: ArrayList&#60;AcctHierarchyDtlsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctHierarchyDetailsM(Long client_no, String auth_key, Long acct_no, Long hierarchy_filter, Long include_current_acct, Long include_supp_plans, Long include_billing_groups, Long include_payment_methods);
+
+    abstract Map<String,Object> getAcctHierarchyDetailsM(Map<String,Object> map);
+
+    /**
+    * getAcctDetailsAllM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param include_supp_plans - Type: Long
+    * @param include_billing_groups - Type: Long
+    * @param include_payment_methods - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   acct_no - Type: javax.xml.ws.Holder<br>
+    *   client_acct_id - Type: javax.xml.ws.Holder<br>
+    *   userid - Type: javax.xml.ws.Holder<br>
+    *   first_name - Type: javax.xml.ws.Holder<br>
+    *   middle_initial - Type: javax.xml.ws.Holder<br>
+    *   last_name - Type: javax.xml.ws.Holder<br>
+    *   company_name - Type: javax.xml.ws.Holder<br>
+    *   address1 - Type: javax.xml.ws.Holder<br>
+    *   address2 - Type: javax.xml.ws.Holder<br>
+    *   address3 - Type: javax.xml.ws.Holder<br>
+    *   city - Type: javax.xml.ws.Holder<br>
+    *   locality - Type: javax.xml.ws.Holder<br>
+    *   state_prov - Type: javax.xml.ws.Holder<br>
+    *   country_cd - Type: javax.xml.ws.Holder<br>
+    *   postal_cd - Type: javax.xml.ws.Holder<br>
+    *   phone - Type: javax.xml.ws.Holder<br>
+    *   phone_ext - Type: javax.xml.ws.Holder<br>
+    *   cell_phone - Type: javax.xml.ws.Holder<br>
+    *   work_phone - Type: javax.xml.ws.Holder<br>
+    *   work_phone_ext - Type: javax.xml.ws.Holder<br>
+    *   fax - Type: javax.xml.ws.Holder<br>
+    *   email - Type: javax.xml.ws.Holder<br>
+    *   birthdate - Type: javax.xml.ws.Holder<br>
+    *   status_cd - Type: javax.xml.ws.Holder<br>
+    *   notify_method - Type: javax.xml.ws.Holder<br>
+    *   senior_acct_no - Type: javax.xml.ws.Holder<br>
+    *   senior_acct_user_id - Type: javax.xml.ws.Holder<br>
+    *   senior_client_acct_id - Type: javax.xml.ws.Holder<br>
+    *   test_acct_ind - Type: javax.xml.ws.Holder<br>
+    *   taxpayer_id - Type: javax.xml.ws.Holder<br>
+    *   acct_start_date - Type: javax.xml.ws.Holder<br>
+    *   alt_msg_template_no - Type: javax.xml.ws.Holder<br>
+    *   seq_func_group_no - Type: javax.xml.ws.Holder<br>
+    *   tax_exemption_level - Type: javax.xml.ws.Holder<br>
+    *   client_alt_msg_template_id - Type: javax.xml.ws.Holder<br>
+    *   client_cn_alt_msg_template_id - Type: javax.xml.ws.Holder<br>
+    *   revrec_profile_no - Type: javax.xml.ws.Holder<br>
+    *   client_revrec_id - Type: javax.xml.ws.Holder<br>
+    *   functional_acct_group - Type: ArrayList&#60;FunctionalAcctGroupReturnElement&#62;<br>
+    *   collection_acct_group - Type: ArrayList&#60;CollectionAcctGroupReturnElement&#62;<br>
+    *   supp_field - Type: ArrayList&#60;SuppFieldReturnElement&#62;<br>
+    *   acct_surcharges - Type: ArrayList&#60;AcctSurchargesReturnElement&#62;<br>
+    *   acct_currency - Type: javax.xml.ws.Holder<br>
+    *   acct_balance - Type: javax.xml.ws.Holder<br>
+    *   address_verification_code - Type: javax.xml.ws.Holder<br>
+    *   address_match_score - Type: javax.xml.ws.Holder<br>
+    *   acct_create_client_receipt_id - Type: javax.xml.ws.Holder<br>
+    *   status_client_receipt_id - Type: javax.xml.ws.Holder<br>
+    *   acct_coupons - Type: ArrayList&#60;AcctCouponsReturnElement&#62;<br>
+    *   billing_groups_info - Type: ArrayList&#60;BillingGroupsInfoReturnElement&#62;<br>
+    *   payment_methods_info - Type: ArrayList&#60;PaymentMethodsInfoReturnElement&#62;<br>
+    *   master_plans_info - Type: ArrayList&#60;MasterPlansInfoReturnElement&#62;<br>
+    *   consumer_acct_ind - Type: javax.xml.ws.Holder<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getAcctDetailsAllM(Long client_no, String auth_key, Long acct_no, Long include_supp_plans, Long include_billing_groups, Long include_payment_methods);
+
+    abstract Map<String,Object> getAcctDetailsAllM(Map<String,Object> map);
+
+    /**
+    * updateAcctCompleteM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param client_receipt_id - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param userid - Type: String
+    * @param password - Type: String
+    * @param secret_question - Type: String
+    * @param secret_question_answer - Type: String
+    * @param pin - Type: String
+    * @param first_name - Type: String
+    * @param mi - Type: String
+    * @param last_name - Type: String
+    * @param company_name - Type: String
+    * @param address1 - Type: String
+    * @param address2 - Type: String
+    * @param address3 - Type: String
+    * @param city - Type: String
+    * @param locality - Type: String
+    * @param state_prov - Type: String
+    * @param country_cd - Type: String
+    * @param postal_cd - Type: String
+    * @param phone - Type: String
+    * @param phone_ext - Type: String
+    * @param cell_phone - Type: String
+    * @param work_phone - Type: String
+    * @param work_phone_ext - Type: String
+    * @param fax - Type: String
+    * @param email - Type: String
+    * @param birthdate - Type: String
+    * @param status_cd - Type: Long
+    * @param notify_method - Type: Long
+    * @param senior_acct_no - Type: Long
+    * @param senior_acct_userid - Type: String
+    * @param senior_client_acct_id - Type: String
+    * @param test_acct_ind - Type: Long
+    * @param taxpayer_id - Type: String
+    * @param alt_client_acct_group_id - Type: String
+    * @param acct_coupons - Type: com.aria.common.shared.AcctCouponsArray
+    * @param acct_start_date - Type: String
+    * @param alt_msg_template_no - Type: Long
+    * @param cn_alt_msg_template_no - Type: Long
+    * @param seq_func_group_no - Type: Long
+    * @param client_seq_func_group_id - Type: Long
+    * @param tax_exemption_level - Type: Long
+    * @param client_alt_msg_template_id - Type: String
+    * @param client_cn_alt_msg_template_id - Type: String
+    * @param reset_dates_after_status - Type: String
+    * @param new_client_acct_id - Type: String
+    * @param invoicing_option - Type: Long
+    * @param alt_start_date - Type: String
+    * @param alt_bill_day - Type: Long
+    * @param retroactive_start_date - Type: String
+    * @param functional_acct_groups - Type: com.aria.common.shared.FunctionalAcctGroupsArray
+    * @param collection_acct_groups - Type: com.aria.common.shared.CollectionAcctGroupsArray
+    * @param acct_supp_fields - Type: com.aria.common.shared.AcctSuppFieldsArray
+    * @param acct_surcharges - Type: com.aria.common.shared.AcctSurchargesArray
+    * @param client_master_plan_instance_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param new_client_master_plan_instance_id - Type: String
+    * @param client_master_plan_id - Type: String
+    * @param master_plan_no - Type: Long
+    * @param master_plan_instance_desc - Type: String
+    * @param dunning_group_no - Type: Long
+    * @param client_dunning_group_id - Type: String
+    * @param mp_billing_group_no - Type: Long
+    * @param client_mp_billing_group_id - Type: String
+    * @param master_plan_instance_status - Type: Long
+    * @param master_plan_units - Type: Long
+    * @param resp_level_cd - Type: Long
+    * @param parent_master_plan_inst_no - Type: Long
+    * @param alt_rate_schedule_no - Type: Long
+    * @param client_alt_rate_schedule_id - Type: String
+    * @param promo_cd - Type: String
+    * @param mp_coupons - Type: com.aria.common.shared.MpCouponsArray
+    * @param master_plan_assign_directive - Type: Long
+    * @param offset_months - Type: Long
+    * @param offset_interval - Type: Long
+    * @param invoice_unbilled_usage - Type: String
+    * @param invoice_approval_required - Type: String
+    * @param status_degrade_date - Type: String
+    * @param master_plan_product_fields - Type: com.aria.common.shared.MasterPlanProductFieldsArray
+    * @param new_acct_custom_rates - Type: com.aria.common.shared.NewAcctCustomRatesArray
+    * @param billing_groups_array - Type: com.aria.common.shared.BillingGroupsArrayArray
+    * @param payment_methods_array - Type: com.aria.common.shared.PaymentMethodsArrayArray
+    * @param revrec_profile_no - Type: Long
+    * @param client_revrec_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   collection_error_code - Type: javax.xml.ws.Holder<br>
+    *   collection_error_msg - Type: javax.xml.ws.Holder<br>
+    *   parent_child_sync_error_code - Type: javax.xml.ws.Holder<br>
+    *   parent_child_sync_error_msg - Type: javax.xml.ws.Holder<br>
+    *   master_plan_error_code - Type: javax.xml.ws.Holder<br>
+    *   master_plan_error_msg - Type: javax.xml.ws.Holder<br>
+    *   master_plan_coll_error_code - Type: javax.xml.ws.Holder<br>
+    *   master_plan_coll_error_msg - Type: javax.xml.ws.Holder<br>
+    *   master_plan_stmt_error_code - Type: javax.xml.ws.Holder<br>
+    *   master_plan_stmt_error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
+    *   master_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    *   out_client_mp_instance_id - Type: javax.xml.ws.Holder<br>
+    *   out_master_plan_no - Type: javax.xml.ws.Holder<br>
+    *   out_client_master_plan_id - Type: javax.xml.ws.Holder<br>
+    *   out_master_plan_instance_description - Type: javax.xml.ws.Holder<br>
+    *   master_plan_proration_result_total_amount - Type: javax.xml.ws.Holder<br>
+    *   master_plan_proration_amount - Type: javax.xml.ws.Holder<br>
+    *   master_plan_proration_tax_amount - Type: javax.xml.ws.Holder<br>
+    *   master_plan_proration_surcharge_amount - Type: javax.xml.ws.Holder<br>
+    *   master_plan_proration_credit_amount - Type: javax.xml.ws.Holder<br>
+    *   supp_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    *   out_client_supp_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    *   supp_plan_proration_amount - Type: javax.xml.ws.Holder<br>
+    *   supp_plan_proration_tax_amount - Type: javax.xml.ws.Holder<br>
+    *   supp_plan_proration_surcharge_amount - Type: javax.xml.ws.Holder<br>
+    *   supp_plan_proration_credit_amount - Type: javax.xml.ws.Holder<br>
+    *   out_invoice_no - Type: javax.xml.ws.Holder<br>
+    *   out_billing_group_no - Type: javax.xml.ws.Holder<br>
+    *   out_client_billing_group_id - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> updateAcctCompleteM(Long client_no, String auth_key, String client_receipt_id, Long acct_no, String client_acct_id, String userid, String password, String secret_question, String secret_question_answer, String pin, String first_name, String mi, String last_name, String company_name, String address1, String address2, String address3, String city, String locality, String state_prov, String country_cd, String postal_cd, String phone, String phone_ext, String cell_phone, String work_phone, String work_phone_ext, String fax, String email, String birthdate, Long status_cd, Long notify_method, Long senior_acct_no, String senior_acct_userid, String senior_client_acct_id, Long test_acct_ind, String taxpayer_id, String alt_client_acct_group_id, com.aria.common.shared.AcctCouponsArray acct_coupons, String acct_start_date, Long alt_msg_template_no, Long cn_alt_msg_template_no, Long seq_func_group_no, Long client_seq_func_group_id, Long tax_exemption_level, String client_alt_msg_template_id, String client_cn_alt_msg_template_id, String reset_dates_after_status, String new_client_acct_id, Long invoicing_option, String alt_start_date, Long alt_bill_day, String retroactive_start_date, com.aria.common.shared.FunctionalAcctGroupsArray functional_acct_groups, com.aria.common.shared.CollectionAcctGroupsArray collection_acct_groups, com.aria.common.shared.AcctSuppFieldsArray acct_supp_fields, com.aria.common.shared.AcctSurchargesArray acct_surcharges, String client_master_plan_instance_id, Long master_plan_instance_no, String new_client_master_plan_instance_id, String client_master_plan_id, Long master_plan_no, String master_plan_instance_desc, Long dunning_group_no, String client_dunning_group_id, Long mp_billing_group_no, String client_mp_billing_group_id, Long master_plan_instance_status, Long master_plan_units, Long resp_level_cd, Long parent_master_plan_inst_no, Long alt_rate_schedule_no, String client_alt_rate_schedule_id, String promo_cd, com.aria.common.shared.MpCouponsArray mp_coupons, Long master_plan_assign_directive, Long offset_months, Long offset_interval, String invoice_unbilled_usage, String invoice_approval_required, String status_degrade_date, com.aria.common.shared.MasterPlanProductFieldsArray master_plan_product_fields, com.aria.common.shared.NewAcctCustomRatesArray new_acct_custom_rates, com.aria.common.shared.BillingGroupsArrayArray billing_groups_array, com.aria.common.shared.PaymentMethodsArrayArray payment_methods_array, Long revrec_profile_no, String client_revrec_id);
+
+    abstract Map<String,Object> updateAcctCompleteM(Map<String,Object> map);
+
+    /**
+    * getAcctBalanceM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   currency_cd - Type: javax.xml.ws.Holder<br>
+    *   acct_balance - Type: javax.xml.ws.Holder<br>
+    *   master_plan_instances - Type: ArrayList&#60;MasterPlanInstancesReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctBalanceM(Long client_no, String auth_key, Long acct_no);
+
+    abstract Map<String,Object> getAcctBalanceM(Map<String,Object> map);
+
+    /**
+    * updateContactM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param contact_ind - Type: Long
+    * @param billing_group_no - Type: Long
+    * @param client_billing_group_id - Type: String
+    * @param first_name - Type: String
+    * @param middle_initial - Type: String
+    * @param last_name - Type: String
+    * @param company_name - Type: String
+    * @param address1 - Type: String
+    * @param address2 - Type: String
+    * @param address3 - Type: String
+    * @param city - Type: String
+    * @param locality - Type: String
+    * @param state_prov - Type: String
+    * @param country_cd - Type: String
+    * @param postal_cd - Type: String
+    * @param phone - Type: String
+    * @param phone_ext - Type: String
+    * @param cell_phone - Type: String
+    * @param work_phone - Type: String
+    * @param work_phone_ext - Type: String
+    * @param fax - Type: String
+    * @param email - Type: String
+    * @param birthdate - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> updateContactM(Long client_no, String auth_key, Long acct_no, Long contact_ind, Long billing_group_no, String client_billing_group_id, String first_name, String middle_initial, String last_name, String company_name, String address1, String address2, String address3, String city, String locality, String state_prov, String country_cd, String postal_cd, String phone, String phone_ext, String cell_phone, String work_phone, String work_phone_ext, String fax, String email, String birthdate);
+
+    abstract Map<String,Object> updateContactM(Map<String,Object> map);
+
+    /**
+    * getAcctContactsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param billing_group_no - Type: Long
+    * @param client_billing_group_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   account_contact - Type: ArrayList&#60;AccountContactReturnElement&#62;<br>
+    *   billing_contacts - Type: ArrayList&#60;BillingContactsReturnElement&#62;<br>
+    *   backup_contacts - Type: ArrayList&#60;BackupContactsReturnElement&#62;<br>
+    *   statement_contacts - Type: ArrayList&#60;StatementContactsReturnElement&#62;<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getAcctContactsM(Long client_no, String auth_key, Long acct_no, Long billing_group_no, String client_billing_group_id);
+
+    abstract Map<String,Object> getAcctContactsM(Map<String,Object> map);
+
+    /**
+    * createAcctBillingGroupM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param billing_group_name - Type: String
+    * @param billing_group_description - Type: String
+    * @param client_billing_group_id - Type: String
+    * @param notify_method - Type: Long
+    * @param notify_template_group - Type: Long
+    * @param statement_template - Type: Long
+    * @param credit_note_template - Type: Long
+    * @param primary_payment_method_no - Type: Long
+    * @param client_primary_payment_method_id - Type: String
+    * @param backup_payment_method_no - Type: Long
+    * @param client_backup_payment_method_id - Type: String
+    * @param stmt_first_name - Type: String
+    * @param stmt_mi - Type: String
+    * @param stmt_last_name - Type: String
+    * @param stmt_company_name - Type: String
+    * @param stmt_address1 - Type: String
+    * @param stmt_address2 - Type: String
+    * @param stmt_address3 - Type: String
+    * @param stmt_city - Type: String
+    * @param stmt_locality - Type: String
+    * @param stmt_state_prov - Type: String
+    * @param stmt_country - Type: String
+    * @param stmt_postal_cd - Type: String
+    * @param stmt_phone - Type: String
+    * @param stmt_phone_ext - Type: String
+    * @param stmt_cell_phone - Type: String
+    * @param stmt_work_phone - Type: String
+    * @param stmt_work_phone_ext - Type: String
+    * @param stmt_fax - Type: String
+    * @param stmt_email - Type: String
+    * @param stmt_birthdate - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_address3 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_country - Type: String
+    * @param bill_postal_cd - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_ext - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_ext - Type: String
+    * @param bill_fax - Type: String
+    * @param bill_email - Type: String
+    * @param bill_birthdate - Type: String
+    * @param pay_method_name - Type: String
+    * @param client_payment_method_id - Type: String
+    * @param pay_method_description - Type: String
+    * @param pay_method_type - Type: Long
+    * @param cc_num - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param bank_acct_num - Type: String
+    * @param bank_routing_num - Type: String
+    * @param cvv - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param bill_agreement_id - Type: String
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @param master_plans_summary - Type: com.aria.common.shared.MasterPlansSummaryArray
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> createAcctBillingGroupM(Long client_no, String auth_key, Long acct_no, String billing_group_name, String billing_group_description, String client_billing_group_id, Long notify_method, Long notify_template_group, Long statement_template, Long credit_note_template, Long primary_payment_method_no, String client_primary_payment_method_id, Long backup_payment_method_no, String client_backup_payment_method_id, String stmt_first_name, String stmt_mi, String stmt_last_name, String stmt_company_name, String stmt_address1, String stmt_address2, String stmt_address3, String stmt_city, String stmt_locality, String stmt_state_prov, String stmt_country, String stmt_postal_cd, String stmt_phone, String stmt_phone_ext, String stmt_cell_phone, String stmt_work_phone, String stmt_work_phone_ext, String stmt_fax, String stmt_email, String stmt_birthdate, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_fax, String bill_email, String bill_birthdate, String pay_method_name, String client_payment_method_id, String pay_method_description, Long pay_method_type, String cc_num, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_num, String bank_routing_num, String cvv, String track_data1, String track_data2, String bill_agreement_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, com.aria.common.shared.MasterPlansSummaryArray master_plans_summary, String client_receipt_id);
+
+    abstract Map<String,Object> createAcctBillingGroupM(Map<String,Object> map);
+
+    /**
+    * getAcctBillingGroupDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param billing_group_no - Type: Long
+    * @param client_billing_group_id - Type: String
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   billing_group_name - Type: javax.xml.ws.Holder<br>
+    *   billing_group_description - Type: javax.xml.ws.Holder<br>
+    *   out_client_billing_group_id - Type: javax.xml.ws.Holder<br>
+    *   notify_method - Type: javax.xml.ws.Holder<br>
+    *   notify_template_group - Type: javax.xml.ws.Holder<br>
+    *   statement_template - Type: javax.xml.ws.Holder<br>
+    *   credit_note_template - Type: javax.xml.ws.Holder<br>
+    *   primary_payment_method_id - Type: javax.xml.ws.Holder<br>
+    *   client_primary_payment_method_id - Type: javax.xml.ws.Holder<br>
+    *   backup_payment_method_id - Type: javax.xml.ws.Holder<br>
+    *   client_backup_payment_method_id - Type: javax.xml.ws.Holder<br>
+    *   stmt_first_name - Type: javax.xml.ws.Holder<br>
+    *   stmt_mi - Type: javax.xml.ws.Holder<br>
+    *   stmt_last_name - Type: javax.xml.ws.Holder<br>
+    *   stmt_company_name - Type: javax.xml.ws.Holder<br>
+    *   stmt_address1 - Type: javax.xml.ws.Holder<br>
+    *   stmt_address2 - Type: javax.xml.ws.Holder<br>
+    *   stmt_address3 - Type: javax.xml.ws.Holder<br>
+    *   stmt_city - Type: javax.xml.ws.Holder<br>
+    *   stmt_locality - Type: javax.xml.ws.Holder<br>
+    *   stmt_state_prov - Type: javax.xml.ws.Holder<br>
+    *   stmt_country - Type: javax.xml.ws.Holder<br>
+    *   stmt_postal_cd - Type: javax.xml.ws.Holder<br>
+    *   stmt_phone - Type: javax.xml.ws.Holder<br>
+    *   stmt_phone_ext - Type: javax.xml.ws.Holder<br>
+    *   stmt_cell_phone - Type: javax.xml.ws.Holder<br>
+    *   stmt_work_phone - Type: javax.xml.ws.Holder<br>
+    *   stmt_work_phone_ext - Type: javax.xml.ws.Holder<br>
+    *   stmt_fax - Type: javax.xml.ws.Holder<br>
+    *   stmt_email - Type: javax.xml.ws.Holder<br>
+    *   stmt_birthdate - Type: javax.xml.ws.Holder<br>
+    *   payment_methods_summary - Type: ArrayList&#60;PaymentMethodsSummaryReturnElement&#62;<br>
+    *   master_plans_summary - Type: ArrayList&#60;MasterPlansSummaryReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctBillingGroupDetailsM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long billing_group_no, String client_billing_group_id, String client_receipt_id);
+
+    abstract Map<String,Object> getAcctBillingGroupDetailsM(Map<String,Object> map);
+
+    /**
+    * assignAcctPlanM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param new_plan_no - Type: Long
+    * @param new_client_plan_id - Type: String
+    * @param client_plan_instance_id - Type: String
+    * @param existing_billing_group_no - Type: Long
+    * @param existing_client_billing_group_id - Type: String
+    * @param billing_group_name - Type: String
+    * @param billing_group_description - Type: String
+    * @param client_def_billing_group_id - Type: String
+    * @param notify_method - Type: Long
+    * @param notify_template_group - Type: Long
+    * @param statement_template - Type: Long
+    * @param credit_note_template - Type: Long
+    * @param existing_primary_payment_method_no - Type: Long
+    * @param existing_client_primary_payment_method_id - Type: String
+    * @param existing_backup_payment_method_no - Type: Long
+    * @param existing_client_backup_payment_method_id - Type: String
+    * @param stmt_first_name - Type: String
+    * @param stmt_mi - Type: String
+    * @param stmt_last_name - Type: String
+    * @param stmt_company_name - Type: String
+    * @param stmt_address1 - Type: String
+    * @param stmt_address2 - Type: String
+    * @param stmt_address3 - Type: String
+    * @param stmt_city - Type: String
+    * @param stmt_locality - Type: String
+    * @param stmt_state_prov - Type: String
+    * @param stmt_country - Type: String
+    * @param stmt_postal_cd - Type: String
+    * @param stmt_phone - Type: String
+    * @param stmt_phone_ext - Type: String
+    * @param stmt_cell_phone - Type: String
+    * @param stmt_work_phone - Type: String
+    * @param stmt_work_phone_ext - Type: String
+    * @param stmt_fax - Type: String
+    * @param stmt_email - Type: String
+    * @param stmt_birthdate - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_address3 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_country - Type: String
+    * @param bill_postal_cd - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_ext - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_ext - Type: String
+    * @param bill_fax - Type: String
+    * @param bill_email - Type: String
+    * @param bill_birthdate - Type: String
+    * @param primary_pay_method_name - Type: String
+    * @param primary_pay_method_cdid - Type: String
+    * @param primary_pay_method_description - Type: String
+    * @param primary_pay_method_type - Type: Long
+    * @param cc_number - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param bank_acct_no - Type: String
+    * @param bank_routing_no - Type: String
+    * @param cvv - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param bill_agreement_id - Type: String
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @param existing_dunning_group_no - Type: Long
+    * @param existing_client_def_dunning_group_id - Type: String
+    * @param dunning_group_name - Type: String
+    * @param dunning_group_description - Type: String
+    * @param client_dunning_group_id - Type: String
+    * @param dunning_process - Type: String
+    * @param alt_start_date - Type: String
+    * @param status_until_alt_start - Type: Long
+    * @param alt_bill_day - Type: Long
+    * @param invoicing_option - Type: Long
+    * @param retroactive_start_date - Type: String
+    * @param balance_forward - Type: Double
+    * @param resp_level_cd - Type: Long
+    * @param parent_acct_master_plan_inst_id - Type: Long
+    * @param parent_plan_instance_no - Type: Long
+    * @param client_parent_plan_instance_id - Type: String
+    * @param alt_rate_schedule_no - Type: Long
+    * @param plan_units - Type: Double
+    * @param coupon_codes - Type: com.aria.common.shared.CouponCodesArray
+    * @param promo_cd - Type: String
+    * @param plan_status - Type: Long
+    * @param plan_instance_description - Type: String
+    * @param plan_instance_fields - Type: com.aria.common.shared.PlanInstanceFieldsArray
+    * @param assignment_directive - Type: Long
+    * @param comments - Type: String
+    * @param do_write - Type: String
+    * @param client_receipt_id - Type: String
+    * @param offset_months - Type: Long
+    * @param alt_proration_start_date - Type: String
+    * @param auto_offset_months_option - Type: Long
+    * @param alt_client_acct_group_id - Type: String
+    * @param new_acct_plan_custom_rates - Type: com.aria.common.shared.NewAcctPlanCustomRatesArray
+    * @param effective_date - Type: String
+    * @param offset_interval - Type: Long
+    * @param force_supp_bill_date_reset - Type: Long
+    * @param client_alt_rate_schedule_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   proration_result_amount - Type: javax.xml.ws.Holder<br>
+    *   collection_error_code - Type: javax.xml.ws.Holder<br>
+    *   collection_error_msg - Type: javax.xml.ws.Holder<br>
+    *   statement_error_code - Type: javax.xml.ws.Holder<br>
+    *   statement_error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   expectd_activation_fee - Type: javax.xml.ws.Holder<br>
+    *   expectd_mthly_recurring_cost - Type: javax.xml.ws.Holder<br>
+    *   expectd_annu_recurring_cost - Type: javax.xml.ws.Holder<br>
+    *   acct_plan_line_items - Type: ArrayList&#60;AcctPlanLineItemsReturnElement&#62;<br>
+    *   total_charges_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total_tax_charges - Type: javax.xml.ws.Holder<br>
+    *   total_charges_after_tax - Type: javax.xml.ws.Holder<br>
+    *   total_credit - Type: javax.xml.ws.Holder<br>
+    *   total_tax_credit - Type: javax.xml.ws.Holder<br>
+    *   total_credit_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total - Type: javax.xml.ws.Holder<br>
+    *   proration_tax_amount - Type: javax.xml.ws.Holder<br>
+    *   plan_instance_no - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> assignAcctPlanM(Long client_no, String auth_key, Long acct_no, Long new_plan_no, String new_client_plan_id, String client_plan_instance_id, Long existing_billing_group_no, String existing_client_billing_group_id, String billing_group_name, String billing_group_description, String client_def_billing_group_id, Long notify_method, Long notify_template_group, Long statement_template, Long credit_note_template, Long existing_primary_payment_method_no, String existing_client_primary_payment_method_id, Long existing_backup_payment_method_no, String existing_client_backup_payment_method_id, String stmt_first_name, String stmt_mi, String stmt_last_name, String stmt_company_name, String stmt_address1, String stmt_address2, String stmt_address3, String stmt_city, String stmt_locality, String stmt_state_prov, String stmt_country, String stmt_postal_cd, String stmt_phone, String stmt_phone_ext, String stmt_cell_phone, String stmt_work_phone, String stmt_work_phone_ext, String stmt_fax, String stmt_email, String stmt_birthdate, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_fax, String bill_email, String bill_birthdate, String primary_pay_method_name, String primary_pay_method_cdid, String primary_pay_method_description, Long primary_pay_method_type, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_no, String bank_routing_no, String cvv, String track_data1, String track_data2, String bill_agreement_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, Long existing_dunning_group_no, String existing_client_def_dunning_group_id, String dunning_group_name, String dunning_group_description, String client_dunning_group_id, String dunning_process, String alt_start_date, Long status_until_alt_start, Long alt_bill_day, Long invoicing_option, String retroactive_start_date, Double balance_forward, Long resp_level_cd, Long parent_acct_master_plan_inst_id, Long parent_plan_instance_no, String client_parent_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, Long offset_months, String alt_proration_start_date, Long auto_offset_months_option, String alt_client_acct_group_id, com.aria.common.shared.NewAcctPlanCustomRatesArray new_acct_plan_custom_rates, String effective_date, Long offset_interval, Long force_supp_bill_date_reset, String client_alt_rate_schedule_id);
+
+    abstract Map<String,Object> assignAcctPlanM(Map<String,Object> map);
+
+    /**
+    * cancelAcctPlanM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_receipt_id - Type: String
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param assignment_directive - Type: Long
+    * @param comments - Type: String
+    * @param alt_proration_start_date - Type: String
+    * @param effective_date - Type: String
+    * @param offset_interval - Type: Long
+    * @param invoice_unbilled_usage - Type: String
+    * @param do_write - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   proration_result_amount - Type: javax.xml.ws.Holder<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   acct_plan_line_items - Type: ArrayList&#60;AcctPlanLineItemsReturnElement&#62;<br>
+    *   total_charges_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total_tax_charges - Type: javax.xml.ws.Holder<br>
+    *   total_charges_after_tax - Type: javax.xml.ws.Holder<br>
+    *   total_credit - Type: javax.xml.ws.Holder<br>
+    *   total_tax_credit - Type: javax.xml.ws.Holder<br>
+    *   total_credit_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total - Type: javax.xml.ws.Holder<br>
+    *   proration_credit_result_amount - Type: javax.xml.ws.Holder<br>
+    *   proration_credit_amount - Type: javax.xml.ws.Holder<br>
+    *   proration_tax_amount - Type: javax.xml.ws.Holder<br>
+    *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> cancelAcctPlanM(Long client_no, String auth_key, Long acct_no, String client_receipt_id, Long plan_instance_no, String client_plan_instance_id, Long assignment_directive, String comments, String alt_proration_start_date, String effective_date, Long offset_interval, String invoice_unbilled_usage, String do_write);
+
+    abstract Map<String,Object> cancelAcctPlanM(Map<String,Object> map);
+
+    /**
+    * createAcctDunningGroupM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param dunning_group_name - Type: String
+    * @param dunning_group_description - Type: String
+    * @param client_dunning_group_id - Type: String
+    * @param dunning_process - Type: String
+    * @param master_plans_summary - Type: com.aria.common.shared.MasterPlansSummaryArray
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> createAcctDunningGroupM(Long client_no, String auth_key, Long acct_no, String dunning_group_name, String dunning_group_description, String client_dunning_group_id, String dunning_process, com.aria.common.shared.MasterPlansSummaryArray master_plans_summary, String client_receipt_id);
+
+    abstract Map<String,Object> createAcctDunningGroupM(Map<String,Object> map);
+
+    /**
+    * updateAcctPlanM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param alt_rate_schedule_no - Type: Long
+    * @param plan_units - Type: Double
+    * @param coupon_codes - Type: com.aria.common.shared.CouponCodesArray
+    * @param promo_cd - Type: String
+    * @param plan_status - Type: Long
+    * @param plan_instance_description - Type: String
+    * @param plan_instance_fields - Type: com.aria.common.shared.PlanInstanceFieldsArray
+    * @param assignment_directive - Type: Long
+    * @param comments - Type: String
+    * @param do_write - Type: String
+    * @param client_receipt_id - Type: String
+    * @param custom_rate - Type: com.aria.common.shared.CustomRateArray
+    * @param effective_date - Type: String
+    * @param offset_interval - Type: Long
+    * @param force_master_bill_date_reset - Type: Long
+    * @param client_alt_rate_schedule_id - Type: String
+    * @param new_client_plan_inst_id - Type: Long
+    * @param dunning_state - Type: String
+    * @param degrade_date - Type: String
+    * @param resp_level_cd - Type: Long
+    * @param parent_acct_master_plan_inst_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   proration_result_amount - Type: javax.xml.ws.Holder<br>
+    *   collection_error_code - Type: javax.xml.ws.Holder<br>
+    *   collection_error_msg - Type: javax.xml.ws.Holder<br>
+    *   statement_error_code - Type: javax.xml.ws.Holder<br>
+    *   statement_error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   expectd_activation_fee - Type: javax.xml.ws.Holder<br>
+    *   expectd_mthly_recurring_cost - Type: javax.xml.ws.Holder<br>
+    *   expectd_annu_recurring_cost - Type: javax.xml.ws.Holder<br>
+    *   acct_plan_line_items - Type: ArrayList&#60;AcctPlanLineItemsReturnElement&#62;<br>
+    *   total_charges_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total_tax_charges - Type: javax.xml.ws.Holder<br>
+    *   total_charges_after_tax - Type: javax.xml.ws.Holder<br>
+    *   total_credit - Type: javax.xml.ws.Holder<br>
+    *   total_tax_credit - Type: javax.xml.ws.Holder<br>
+    *   total_credit_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total - Type: javax.xml.ws.Holder<br>
+    *   proration_tax_amount - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> updateAcctPlanM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, com.aria.common.shared.CustomRateArray custom_rate, String effective_date, Long offset_interval, Long force_master_bill_date_reset, String client_alt_rate_schedule_id, Long new_client_plan_inst_id, String dunning_state, String degrade_date, Long resp_level_cd, String parent_acct_master_plan_inst_id);
+
+    abstract Map<String,Object> updateAcctPlanM(Map<String,Object> map);
+
+    /**
+    * updateAcctBillingGroupM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param billing_group_no - Type: Long
+    * @param billing_group_name - Type: String
+    * @param billing_group_description - Type: String
+    * @param client_billing_group_id - Type: String
+    * @param new_client_billing_group_id - Type: String
+    * @param notify_method - Type: Long
+    * @param notify_template_group - Type: Long
+    * @param statement_template - Type: Long
+    * @param credit_note_template - Type: Long
+    * @param primary_payment_method_id - Type: Long
+    * @param client_primary_payment_method_id - Type: String
+    * @param backup_payment_method_id - Type: Long
+    * @param client_backup_payment_method_id - Type: String
+    * @param stmt_first_name - Type: String
+    * @param stmt_mi - Type: String
+    * @param stmt_last_name - Type: String
+    * @param stmt_company_name - Type: String
+    * @param stmt_address1 - Type: String
+    * @param stmt_address2 - Type: String
+    * @param stmt_address3 - Type: String
+    * @param stmt_city - Type: String
+    * @param stmt_locality - Type: String
+    * @param stmt_state_prov - Type: String
+    * @param stmt_country - Type: String
+    * @param stmt_postal_cd - Type: String
+    * @param stmt_phone - Type: String
+    * @param stmt_phone_ext - Type: String
+    * @param stmt_cell_phone - Type: String
+    * @param stmt_work_phone - Type: String
+    * @param stmt_work_phone_ext - Type: String
+    * @param stmt_fax - Type: String
+    * @param stmt_email - Type: String
+    * @param stmt_birthdate - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_address3 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_country - Type: String
+    * @param bill_postal_cd - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_ext - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_ext - Type: String
+    * @param bill_fax - Type: String
+    * @param bill_email - Type: String
+    * @param bill_birthdate - Type: String
+    * @param pay_method_name - Type: String
+    * @param client_pay_method_id - Type: String
+    * @param pay_method_description - Type: String
+    * @param pay_method_type - Type: Long
+    * @param cc_number - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param bank_acct_no - Type: String
+    * @param bank_routing_no - Type: String
+    * @param cvv - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param bill_agreement_id - Type: String
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @param billing_group_directive - Type: Long
+    * @param master_plans_summary - Type: com.aria.common.shared.MasterPlansSummaryArray
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> updateAcctBillingGroupM(Long client_no, String auth_key, Long acct_no, Long billing_group_no, String billing_group_name, String billing_group_description, String client_billing_group_id, String new_client_billing_group_id, Long notify_method, Long notify_template_group, Long statement_template, Long credit_note_template, Long primary_payment_method_id, String client_primary_payment_method_id, Long backup_payment_method_id, String client_backup_payment_method_id, String stmt_first_name, String stmt_mi, String stmt_last_name, String stmt_company_name, String stmt_address1, String stmt_address2, String stmt_address3, String stmt_city, String stmt_locality, String stmt_state_prov, String stmt_country, String stmt_postal_cd, String stmt_phone, String stmt_phone_ext, String stmt_cell_phone, String stmt_work_phone, String stmt_work_phone_ext, String stmt_fax, String stmt_email, String stmt_birthdate, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_company_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_country, String bill_postal_cd, String bill_phone, String bill_phone_ext, String bill_cell_phone, String bill_work_phone, String bill_work_phone_ext, String bill_fax, String bill_email, String bill_birthdate, String pay_method_name, String client_pay_method_id, String pay_method_description, Long pay_method_type, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_acct_no, String bank_routing_no, String cvv, String track_data1, String track_data2, String bill_agreement_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, Long billing_group_directive, com.aria.common.shared.MasterPlansSummaryArray master_plans_summary, String client_receipt_id);
+
+    abstract Map<String,Object> updateAcctBillingGroupM(Map<String,Object> map);
+
+    /**
+    * replaceAcctPlanM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param new_plan_no - Type: Long
+    * @param new_client_plan_id - Type: String
+    * @param new_client_plan_instance_id - Type: String
+    * @param alt_rate_schedule_no - Type: Long
+    * @param plan_units - Type: Double
+    * @param coupon_codes - Type: com.aria.common.shared.CouponCodesArray
+    * @param promo_cd - Type: String
+    * @param plan_status - Type: Long
+    * @param plan_instance_description - Type: String
+    * @param plan_instance_fields - Type: com.aria.common.shared.PlanInstanceFieldsArray
+    * @param assignment_directive - Type: Long
+    * @param comments - Type: String
+    * @param do_write - Type: String
+    * @param client_receipt_id - Type: String
+    * @param offset_months - Type: Long
+    * @param alt_proration_start_date - Type: String
+    * @param auto_offset_months_option - Type: Long
+    * @param alt_client_acct_group_id - Type: String
+    * @param custom_rate - Type: com.aria.common.shared.CustomRateArray
+    * @param effective_date - Type: String
+    * @param offset_interval - Type: Long
+    * @param invoice_unbilled_usage - Type: String
+    * @param force_supp_bill_date_reset - Type: Long
+    * @param force_master_bill_date_reset - Type: Long
+    * @param client_alt_rate_schedule_id - Type: String
+    * @param usage_accumulation_reset_months - Type: Long
+    * @param usage_pooling - Type: String
+    * @param usage_threshold_applicability - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   proration_result_amount - Type: javax.xml.ws.Holder<br>
+    *   collection_error_code - Type: javax.xml.ws.Holder<br>
+    *   collection_error_msg - Type: javax.xml.ws.Holder<br>
+    *   statement_error_code - Type: javax.xml.ws.Holder<br>
+    *   statement_error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   expectd_activation_fee - Type: javax.xml.ws.Holder<br>
+    *   expectd_mthly_recurring_cost - Type: javax.xml.ws.Holder<br>
+    *   expectd_annu_recurring_cost - Type: javax.xml.ws.Holder<br>
+    *   acct_plan_line_items - Type: ArrayList&#60;AcctPlanLineItemsReturnElement&#62;<br>
+    *   total_charges_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total_tax_charges - Type: javax.xml.ws.Holder<br>
+    *   total_charges_after_tax - Type: javax.xml.ws.Holder<br>
+    *   total_credit - Type: javax.xml.ws.Holder<br>
+    *   total_tax_credit - Type: javax.xml.ws.Holder<br>
+    *   total_credit_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total - Type: javax.xml.ws.Holder<br>
+    *   proration_credit_result_amount - Type: javax.xml.ws.Holder<br>
+    *   proration_credit_amount - Type: javax.xml.ws.Holder<br>
+    *   proration_tax_amount - Type: javax.xml.ws.Holder<br>
+    *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> replaceAcctPlanM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long new_plan_no, String new_client_plan_id, String new_client_plan_instance_id, Long alt_rate_schedule_no, Double plan_units, com.aria.common.shared.CouponCodesArray coupon_codes, String promo_cd, Long plan_status, String plan_instance_description, com.aria.common.shared.PlanInstanceFieldsArray plan_instance_fields, Long assignment_directive, String comments, String do_write, String client_receipt_id, Long offset_months, String alt_proration_start_date, Long auto_offset_months_option, String alt_client_acct_group_id, com.aria.common.shared.CustomRateArray custom_rate, String effective_date, Long offset_interval, String invoice_unbilled_usage, Long force_supp_bill_date_reset, Long force_master_bill_date_reset, String client_alt_rate_schedule_id, Long usage_accumulation_reset_months, String usage_pooling, String usage_threshold_applicability);
+
+    abstract Map<String,Object> replaceAcctPlanM(Map<String,Object> map);
+
+    /**
+    * getAcctPlanBalanceM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   currency_cd - Type: javax.xml.ws.Holder<br>
+    *   current_balance_due - Type: javax.xml.ws.Holder<br>
+    *   total_balance_due - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getAcctPlanBalanceM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id);
+
+    abstract Map<String,Object> getAcctPlanBalanceM(Map<String,Object> map);
+
+    /**
+    * getAcctPlanNotifyMethodM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param billing_group_no - Type: Long
+    * @param client_def_billing_group_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   notify_method - Type: javax.xml.ws.Holder<br>
+    *   notify_method_name - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getAcctPlanNotifyMethodM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long billing_group_no, String client_def_billing_group_id);
+
+    abstract Map<String,Object> getAcctPlanNotifyMethodM(Map<String,Object> map);
+
+    /**
+    * setPaymentResponsibilityM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param account_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param resp_level_cd - Type: Long
+    * @param senior_acct_no - Type: Long
+    * @param senior_acct_user_id - Type: String
+    * @param client_senior_acct_id - Type: String
+    * @param senior_plan_instance_no - Type: Long
+    * @param client_senior_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> setPaymentResponsibilityM(Long client_no, String auth_key, Long account_no, Long plan_instance_no, String client_plan_instance_id, Long resp_level_cd, Long senior_acct_no, String senior_acct_user_id, String client_senior_acct_id, Long senior_plan_instance_no, String client_senior_plan_instance_id);
+
+    abstract Map<String,Object> setPaymentResponsibilityM(Map<String,Object> map);
+
+    /**
+    * removeAcctPlanCustomRatesM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> removeAcctPlanCustomRatesM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id);
+
+    abstract Map<String,Object> removeAcctPlanCustomRatesM(Map<String,Object> map);
+
+    /**
+    * getAcctDunningGroupDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param dunning_group_no - Type: Long
+    * @param client_dunning_group_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   dunning_group_name - Type: javax.xml.ws.Holder<br>
+    *   dunning_group_description - Type: javax.xml.ws.Holder<br>
+    *   out_client_dunning_group_id - Type: javax.xml.ws.Holder<br>
+    *   dunning_process - Type: javax.xml.ws.Holder<br>
+    *   master_plans_summary - Type: ArrayList&#60;MasterPlansSummaryReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctDunningGroupDetailsM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long dunning_group_no, String client_dunning_group_id);
+
+    abstract Map<String,Object> getAcctDunningGroupDetailsM(Map<String,Object> map);
+
+    /**
+    * updateAcctDunningGroupM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param dunning_group_no - Type: Long
+    * @param client_dunning_group_id - Type: String
+    * @param new_client_dunning_group_id - Type: String
+    * @param dunning_group_name - Type: String
+    * @param dunning_group_description - Type: String
+    * @param dunning_process - Type: String
+    * @param dunning_group_directive - Type: Long
+    * @param master_plans_summary - Type: com.aria.common.shared.MasterPlansSummaryArray
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> updateAcctDunningGroupM(Long client_no, String auth_key, Long acct_no, Long dunning_group_no, String client_dunning_group_id, String new_client_dunning_group_id, String dunning_group_name, String dunning_group_description, String dunning_process, Long dunning_group_directive, com.aria.common.shared.MasterPlansSummaryArray master_plans_summary);
+
+    abstract Map<String,Object> updateAcctDunningGroupM(Map<String,Object> map);
+
+    /**
+    * updateAcctPlanStatusM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param status_cd - Type: Long
+    * @param dunning_state - Type: String
+    * @param degrade_date - Type: String
+    * @param queue_days - Type: Long
+    * @param queue_date - Type: String
+    * @param force_bill_date_reset - Type: Long
+    * @param comments - Type: String
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> updateAcctPlanStatusM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, Long status_cd, String dunning_state, String degrade_date, Long queue_days, String queue_date, Long force_bill_date_reset, String comments, String client_receipt_id);
+
+    abstract Map<String,Object> updateAcctPlanStatusM(Map<String,Object> map);
+
+    /**
+    * cancelQueuedAcctPlanChangeM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_to_remove - Type: com.aria.common.shared.PlanInstanceToRemoveArray
+    * @param queue_id_to_remove - Type: com.aria.common.shared.QueueIdToRemoveArray
+    * @param remove_all_queued_plans - Type: String
+    * @param remove_terminate_pending - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> cancelQueuedAcctPlanChangeM(Long client_no, String auth_key, Long acct_no, com.aria.common.shared.PlanInstanceToRemoveArray plan_instance_to_remove, com.aria.common.shared.QueueIdToRemoveArray queue_id_to_remove, String remove_all_queued_plans, String remove_terminate_pending);
+
+    abstract Map<String,Object> cancelQueuedAcctPlanChangeM(Map<String,Object> map);
+
+    /**
+    * adjustAcctPlanBillingDatesM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param billing_dates - Type: com.aria.common.shared.BillingDatesArray
+    * @param comments - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> adjustAcctPlanBillingDatesM(Long client_no, String auth_key, Long acct_no, com.aria.common.shared.BillingDatesArray billing_dates, String comments);
+
+    abstract Map<String,Object> adjustAcctPlanBillingDatesM(Map<String,Object> map);
+
+    /**
+    * getAvailPlansForAcctM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param promo_cd - Type: String
+    * @param include_full_plan_hierarchy_plans - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   all_client_avail_plans - Type: ArrayList&#60;AllClientAvailPlansReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAvailPlansForAcctM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, String promo_cd, String include_full_plan_hierarchy_plans, String include_rs_summary);
+
+    abstract Map<String,Object> getAvailPlansForAcctM(Map<String,Object> map);
+
+    /**
+    * getAvailPlansForAcctAllM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param promo_cd - Type: String
+    * @param include_full_plan_hierarchy_plans - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   all_client_plans_services - Type: ArrayList&#60;AllClientPlansServicesReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAvailPlansForAcctAllM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, String promo_cd, String include_full_plan_hierarchy_plans, String include_rs_summary);
+
+    abstract Map<String,Object> getAvailPlansForAcctAllM(Map<String,Object> map);
+
+    /**
+    * getAcctPlansM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   acct_plans_m - Type: ArrayList&#60;AcctPlansMReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctPlansM(Long client_no, String auth_key, Long acct_no);
+
+    abstract Map<String,Object> getAcctPlansM(Map<String,Object> map);
+
+    /**
+    * getAcctPlansAllM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   all_acct_plans_m - Type: ArrayList&#60;AllAcctPlansMReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctPlansAllM(Long client_no, String auth_key, Long acct_no);
+
+    abstract Map<String,Object> getAcctPlansAllM(Map<String,Object> map);
 
     /**
     * modifyAcctPlanUnitInstances
@@ -3928,6 +5357,671 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> updateAcctPlanUnitInstance(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long plan_unit_inst_no, String client_plan_unit_inst_id, String new_client_plan_unit_inst_id, com.aria.common.shared.PlanUnitInstServicesArray plan_unit_inst_services, com.aria.common.shared.PlanUnitInstFieldsArray plan_unit_inst_fields, String do_write);
 
     abstract Map<String,Object> updateAcctPlanUnitInstance(Map<String,Object> map);
+
+    /**
+    * assignCustomAcctPlanRatesM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param custom_acct_rates - Type: com.aria.common.shared.CustomAcctRatesArray
+    * @param service_no - Type: Long
+    * @param client_service_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> assignCustomAcctPlanRatesM(Long client_no, String auth_key, Long acct_no, Long plan_instance_no, String client_plan_instance_id, com.aria.common.shared.CustomAcctRatesArray custom_acct_rates, Long service_no, String client_service_id);
+
+    abstract Map<String,Object> assignCustomAcctPlanRatesM(Map<String,Object> map);
+
+    /**
+    * getQueuedAcctPlansM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param account_number - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   queued_plans - Type: ArrayList&#60;QueuedPlansReturnElement&#62;<br>
+    *   current_rate_schedule_no - Type: javax.xml.ws.Holder<br>
+    *   client_current_rate_schedule_id - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getQueuedAcctPlansM(Long client_no, String auth_key, Long account_number);
+
+    abstract Map<String,Object> getQueuedAcctPlansM(Map<String,Object> map);
+
+    /**
+    * getInvoiceHistoryM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_id - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param user_id - Type: String
+    * @param start_bill_date - Type: String
+    * @param end_bill_date - Type: String
+    * @param include_voided - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   invoice_hist - Type: ArrayList&#60;InvoiceHistReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getInvoiceHistoryM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_id, String client_master_plan_instance_id, String user_id, String start_bill_date, String end_bill_date, String include_voided);
+
+    abstract Map<String,Object> getInvoiceHistoryM(Map<String,Object> map);
+
+    /**
+    * getPendingInvoiceNoM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   pending_invoice - Type: ArrayList&#60;PendingInvoiceReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getPendingInvoiceNoM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> getPendingInvoiceNoM(Map<String,Object> map);
+
+    /**
+    * getUnappliedServiceCreditsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   unapplied_service_credits_details - Type: ArrayList&#60;UnappliedServiceCreditsDetailsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getUnappliedServiceCreditsM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> getUnappliedServiceCreditsM(Map<String,Object> map);
+
+    /**
+    * getAcctCreditsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param limit_records - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   all_credits - Type: ArrayList&#60;AllCreditsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctCreditsM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Long limit_records);
+
+    abstract Map<String,Object> getAcctCreditsM(Map<String,Object> map);
+
+    /**
+    * getRecurringCreditInfoM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param filter_credit_no - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   recurring_credits_details - Type: ArrayList&#60;RecurringCreditsDetailsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getRecurringCreditInfoM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Long filter_credit_no);
+
+    abstract Map<String,Object> getRecurringCreditInfoM(Map<String,Object> map);
+
+    /**
+    * createAdvancedServiceCreditM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param amount - Type: Double
+    * @param reason_code - Type: Long
+    * @param comments - Type: String
+    * @param eligible_plan_no - Type: Long
+    * @param eligible_service_no - Type: Long
+    * @param alt_service_no_to_apply - Type: Long
+    * @param frequency_no - Type: Long
+    * @param frequency_interval_months - Type: Long
+    * @param initial_credit_date - Type: String
+    * @param percent_amount - Type: Double
+    * @param percent_eval_plan_no - Type: Long
+    * @param percent_eval_service_no - Type: Long
+    * @param eligible_service_types - Type: com.aria.common.shared.EligibleServiceTypesArray
+    * @param client_eligible_plan_id - Type: String
+    * @param client_eligible_service_id - Type: String
+    * @param client_alt_service_id_to_apply - Type: String
+    * @param client_percent_eval_plan_id - Type: String
+    * @param client_percent_eval_service_id - Type: String
+    * @param credit_expiry_type_ind - Type: String
+    * @param credit_expiry_months - Type: Long
+    * @param credit_expiry_date - Type: String
+    * @param eligible_service_plans - Type: com.aria.common.shared.EligibleServicePlansArray
+    * @param client_eligible_service_plan_ids - Type: com.aria.common.shared.ClientEligibleServicePlanIdsArray
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> createAdvancedServiceCreditM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Double amount, Long reason_code, String comments, Long eligible_plan_no, Long eligible_service_no, Long alt_service_no_to_apply, Long frequency_no, Long frequency_interval_months, String initial_credit_date, Double percent_amount, Long percent_eval_plan_no, Long percent_eval_service_no, com.aria.common.shared.EligibleServiceTypesArray eligible_service_types, String client_eligible_plan_id, String client_eligible_service_id, String client_alt_service_id_to_apply, String client_percent_eval_plan_id, String client_percent_eval_service_id, String credit_expiry_type_ind, Long credit_expiry_months, String credit_expiry_date, com.aria.common.shared.EligibleServicePlansArray eligible_service_plans, com.aria.common.shared.ClientEligibleServicePlanIdsArray client_eligible_service_plan_ids);
+
+    abstract Map<String,Object> createAdvancedServiceCreditM(Map<String,Object> map);
+
+    /**
+    * getAcctServiceOutageCreditM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param outage_start_date - Type: String
+    * @param outage_end_date - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param outage_start_time - Type: String
+    * @param outage_end_time - Type: String
+    * @param plans_to_get_outage - Type: com.aria.common.shared.PlansToGetOutageArray
+    * @param adjust_percent - Type: Double
+    * @param client_plan_ids_to_get_outage - Type: com.aria.common.shared.ClientPlanIdsToGetOutageArray
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   acct_no - Type: javax.xml.ws.Holder<br>
+    *   service_outage_line_items - Type: ArrayList&#60;ServiceOutageLineItemsReturnElement&#62;<br>
+    *   total_outage_credit - Type: javax.xml.ws.Holder<br>
+    *   adjusted_outage_credit - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getAcctServiceOutageCreditM(Long client_no, String auth_key, Long acct_no, String client_acct_id, String outage_start_date, String outage_end_date, Long master_plan_instance_no, String client_master_plan_instance_id, String outage_start_time, String outage_end_time, com.aria.common.shared.PlansToGetOutageArray plans_to_get_outage, Double adjust_percent, com.aria.common.shared.ClientPlanIdsToGetOutageArray client_plan_ids_to_get_outage);
+
+    abstract Map<String,Object> getAcctServiceOutageCreditM(Map<String,Object> map);
+
+    /**
+    * getCreditDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param credit_no - Type: Long
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   created_by - Type: javax.xml.ws.Holder<br>
+    *   created_date - Type: javax.xml.ws.Holder<br>
+    *   amount - Type: javax.xml.ws.Holder<br>
+    *   credit_type - Type: javax.xml.ws.Holder<br>
+    *   applied_amount - Type: javax.xml.ws.Holder<br>
+    *   unapplied_amount - Type: javax.xml.ws.Holder<br>
+    *   reason_code - Type: javax.xml.ws.Holder<br>
+    *   reason_text - Type: javax.xml.ws.Holder<br>
+    *   comments - Type: javax.xml.ws.Holder<br>
+    *   transaction_id - Type: javax.xml.ws.Holder<br>
+    *   void_transaction_id - Type: javax.xml.ws.Holder<br>
+    *   credit_expiry_type_ind - Type: javax.xml.ws.Holder<br>
+    *   credit_expiry_months - Type: javax.xml.ws.Holder<br>
+    *   credit_expiry_date - Type: javax.xml.ws.Holder<br>
+    *   eligible_service_plan_details - Type: ArrayList&#60;EligibleServicePlanDetailsReturnElement&#62;<br>
+    *   out_acct_no - Type: javax.xml.ws.Holder<br>
+    *   out_master_plan_instance_no - Type: javax.xml.ws.Holder<br>
+    *   out_client_mp_instance_id - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getCreditDetailsM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long credit_no, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> getCreditDetailsM(Map<String,Object> map);
+
+    /**
+    * cancelUnappliedServiceCreditsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param credit_ids - Type: com.aria.common.shared.CreditIdsArray
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> cancelUnappliedServiceCreditsM(Long client_no, String auth_key, com.aria.common.shared.CreditIdsArray credit_ids, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> cancelUnappliedServiceCreditsM(Map<String,Object> map);
+
+    /**
+    * getAcctTransHistoryM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param account_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param transaction_type - Type: Long
+    * @param start_date - Type: String
+    * @param end_date - Type: String
+    * @param record_limit - Type: Long
+    * @param filter_statement_no - Type: Long
+    * @param include_void_transactions - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   history - Type: ArrayList&#60;HistoryReturnElement&#62;<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getAcctTransHistoryM(Long client_no, String auth_key, Long account_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Long transaction_type, String start_date, String end_date, Long record_limit, Long filter_statement_no, String include_void_transactions);
+
+    abstract Map<String,Object> getAcctTransHistoryM(Map<String,Object> map);
+
+    /**
+    * getPlansByPromoCodeM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param promo_code - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plan_dts - Type: ArrayList&#60;PlanDtsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getPlansByPromoCodeM(Long client_no, String auth_key, String promo_code, String include_rs_summary);
+
+    abstract Map<String,Object> getPlansByPromoCodeM(Map<String,Object> map);
+
+    /**
+    * getPlansByPromoCodeAllM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param promo_code - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   all_plan_dts - Type: ArrayList&#60;AllPlanDtsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getPlansByPromoCodeAllM(Long client_no, String auth_key, String promo_code, String include_rs_summary);
+
+    abstract Map<String,Object> getPlansByPromoCodeAllM(Map<String,Object> map);
+
+    /**
+    * getRateSchedulesForPlanM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param plan_no - Type: Long
+    * @param currency_cd - Type: String
+    * @param client_plan_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   rate_scheds - Type: ArrayList&#60;RateSchedsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getRateSchedulesForPlanM(Long client_no, String auth_key, Long plan_no, String currency_cd, String client_plan_id);
+
+    abstract Map<String,Object> getRateSchedulesForPlanM(Map<String,Object> map);
+
+    /**
+    * getFamilyTransHistoryM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param parent_acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param do_multi_level - Type: String
+    * @param trans_type - Type: Long
+    * @param start_date - Type: String
+    * @param end_date - Type: String
+    * @param record_limit - Type: Long
+    * @param include_void_transactions - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   fam_transactions - Type: ArrayList&#60;FamTransactionsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getFamilyTransHistoryM(Long client_no, String auth_key, Long parent_acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, String do_multi_level, Long trans_type, String start_date, String end_date, Long record_limit, String include_void_transactions);
+
+    abstract Map<String,Object> getFamilyTransHistoryM(Map<String,Object> map);
+
+    /**
+    * getSuppPlansByPromoCodeM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param promo_code - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plans_details - Type: ArrayList&#60;PlansDetailsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getSuppPlansByPromoCodeM(Long client_no, String auth_key, String promo_code, String include_rs_summary);
+
+    abstract Map<String,Object> getSuppPlansByPromoCodeM(Map<String,Object> map);
+
+    /**
+    * getSuppPlansByPromoCodeAllM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param promo_code - Type: String
+    * @param include_rs_summary - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   all_plans_dtls - Type: ArrayList&#60;AllPlansDtlsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getSuppPlansByPromoCodeAllM(Long client_no, String auth_key, String promo_code, String include_rs_summary);
+
+    abstract Map<String,Object> getSuppPlansByPromoCodeAllM(Map<String,Object> map);
+
+    /**
+    * getAcctPlanHistoryM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param filter_plan_instance_no - Type: Long
+    * @param filter_client_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plan_history - Type: ArrayList&#60;PlanHistoryReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctPlanHistoryM(Long client_no, String auth_key, Long acct_no, Long filter_plan_instance_no, String filter_client_plan_instance_id);
+
+    abstract Map<String,Object> getAcctPlanHistoryM(Map<String,Object> map);
+
+    /**
+    * getUsageSummaryByTypeM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param user_id - Type: String
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param usage_type_filter - Type: Long
+    * @param date_filter_start_date - Type: String
+    * @param date_filter_start_time - Type: String
+    * @param date_filter_end_date - Type: String
+    * @param date_filter_end_time - Type: String
+    * @param billed_filter - Type: Long
+    * @param billing_period_flag - Type: Long
+    * @param usage_qualifier_1 - Type: com.aria.common.shared.UsageQualifier1Array
+    * @param usage_qualifier_2 - Type: com.aria.common.shared.UsageQualifier2Array
+    * @param usage_qualifier_3 - Type: com.aria.common.shared.UsageQualifier3Array
+    * @param usage_qualifier_4 - Type: com.aria.common.shared.UsageQualifier4Array
+    * @param usage_type_cd_filter - Type: String
+    * @param retrieve_excluded_usage - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   start_date - Type: javax.xml.ws.Holder<br>
+    *   start_time - Type: javax.xml.ws.Holder<br>
+    *   end_date - Type: javax.xml.ws.Holder<br>
+    *   end_time - Type: javax.xml.ws.Holder<br>
+    *   usage_summary_recs - Type: ArrayList&#60;UsageSummaryRecsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getUsageSummaryByTypeM(Long client_no, String auth_key, Long acct_no, String user_id, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Long usage_type_filter, String date_filter_start_date, String date_filter_start_time, String date_filter_end_date, String date_filter_end_time, Long billed_filter, Long billing_period_flag, com.aria.common.shared.UsageQualifier1Array usage_qualifier_1, com.aria.common.shared.UsageQualifier2Array usage_qualifier_2, com.aria.common.shared.UsageQualifier3Array usage_qualifier_3, com.aria.common.shared.UsageQualifier4Array usage_qualifier_4, String usage_type_cd_filter, String retrieve_excluded_usage);
+
+    abstract Map<String,Object> getUsageSummaryByTypeM(Map<String,Object> map);
+
+    /**
+    * getUsageHistoryM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param specified_usage_type_no - Type: Long
+    * @param date_range_start - Type: String
+    * @param date_range_end - Type: String
+    * @param specified_usage_type_code - Type: String
+    * @param usage_qualifier_1 - Type: com.aria.common.shared.UsageQualifier1Array
+    * @param usage_qualifier_2 - Type: com.aria.common.shared.UsageQualifier2Array
+    * @param usage_qualifier_3 - Type: com.aria.common.shared.UsageQualifier3Array
+    * @param usage_qualifier_4 - Type: com.aria.common.shared.UsageQualifier4Array
+    * @param limit - Type: Long
+    * @param offset - Type: Long
+    * @param invoice_no - Type: Long
+    * @param invoice_line_item - Type: Long
+    * @param retrieve_excluded_usage - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   usage_history_recs - Type: ArrayList&#60;UsageHistoryRecsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getUsageHistoryM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Long specified_usage_type_no, String date_range_start, String date_range_end, String specified_usage_type_code, com.aria.common.shared.UsageQualifier1Array usage_qualifier_1, com.aria.common.shared.UsageQualifier2Array usage_qualifier_2, com.aria.common.shared.UsageQualifier3Array usage_qualifier_3, com.aria.common.shared.UsageQualifier4Array usage_qualifier_4, Long limit, Long offset, Long invoice_no, Long invoice_line_item, String retrieve_excluded_usage);
+
+    abstract Map<String,Object> getUsageHistoryM(Map<String,Object> map);
+
+    /**
+    * setMonetaryUsgThresholdM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param threshold_scope - Type: Long
+    * @param threshold_category - Type: Long
+    * @param amount - Type: Long
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_id - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param usage_unit_thresholds - Type: com.aria.common.shared.UsageUnitThresholdsArray
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   acct_no - Type: javax.xml.ws.Holder<br>
+    *   client_acct_id - Type: javax.xml.ws.Holder<br>
+    *   master_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    *   client_master_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> setMonetaryUsgThresholdM(Long client_no, String auth_key, Long threshold_scope, Long threshold_category, Long amount, Long acct_no, String client_acct_id, Long master_plan_instance_id, String client_master_plan_instance_id, com.aria.common.shared.UsageUnitThresholdsArray usage_unit_thresholds);
+
+    abstract Map<String,Object> setMonetaryUsgThresholdM(Map<String,Object> map);
+
+    /**
+    * setUsgMtdPtdBalM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param threshold_category - Type: Long
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_id - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   acct_no - Type: javax.xml.ws.Holder<br>
+    *   client_acct_id - Type: javax.xml.ws.Holder<br>
+    *   master_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    *   client_master_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> setUsgMtdPtdBalM(Long client_no, String auth_key, Long threshold_category, Long acct_no, String client_acct_id, Long master_plan_instance_id, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> setUsgMtdPtdBalM(Map<String,Object> map);
+
+    /**
+    * getUnbilledUsageSummaryM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_id - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param usage_details_flag - Type: String
+    * @param include_all_usage_unit_thresholds - Type: String
+    * @param plan_no - Type: Long
+    * @param usage_type_no - Type: Long
+    * @param usage_type_cd - Type: String
+    * @param retrieve_excluded_usage - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   currency_cd - Type: javax.xml.ws.Holder<br>
+    *   currency_name - Type: javax.xml.ws.Holder<br>
+    *   acct_no - Type: javax.xml.ws.Holder<br>
+    *   client_acct_id - Type: javax.xml.ws.Holder<br>
+    *   master_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    *   client_master_plan_instance_id - Type: javax.xml.ws.Holder<br>
+    *   mpi_mtd_threshold_amount - Type: javax.xml.ws.Holder<br>
+    *   mpi_ptd_threshold_amount - Type: javax.xml.ws.Holder<br>
+    *   client_mtd_threshold_amount - Type: javax.xml.ws.Holder<br>
+    *   client_ptd_threshold_amount - Type: javax.xml.ws.Holder<br>
+    *   mtd_balance_amount - Type: javax.xml.ws.Holder<br>
+    *   ptd_balance_amount - Type: javax.xml.ws.Holder<br>
+    *   mpi_mtd_delta_sign - Type: javax.xml.ws.Holder<br>
+    *   mpi_mtd_delta_amount - Type: javax.xml.ws.Holder<br>
+    *   mpi_ptd_delta_sign - Type: javax.xml.ws.Holder<br>
+    *   mpi_ptd_delta_amount - Type: javax.xml.ws.Holder<br>
+    *   client_mtd_delta_sign - Type: javax.xml.ws.Holder<br>
+    *   client_mtd_delta_amount - Type: javax.xml.ws.Holder<br>
+    *   client_ptd_delta_sign - Type: javax.xml.ws.Holder<br>
+    *   client_ptd_delta_amount - Type: javax.xml.ws.Holder<br>
+    *   unapp_svc_credit_bal_amount - Type: javax.xml.ws.Holder<br>
+    *   unapp_svc_credit_delta_sign - Type: javax.xml.ws.Holder<br>
+    *   unapp_svc_credit_delta_amount - Type: javax.xml.ws.Holder<br>
+    *   unbilled_usage_rec - Type: ArrayList&#60;UnbilledUsageRecReturnElement&#62;<br>
+    *   unit_threshold_details - Type: ArrayList&#60;UnitThresholdDetailsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getUnbilledUsageSummaryM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_id, String client_master_plan_instance_id, String usage_details_flag, String include_all_usage_unit_thresholds, Long plan_no, Long usage_type_no, String usage_type_cd, String retrieve_excluded_usage);
+
+    abstract Map<String,Object> getUnbilledUsageSummaryM(Map<String,Object> map);
+
+    /**
+    * applyCouponToAcctM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param coupon_code - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   user_success_msg - Type: javax.xml.ws.Holder<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> applyCouponToAcctM(Long client_no, String auth_key, String coupon_code, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> applyCouponToAcctM(Map<String,Object> map);
+
+    /**
+    * getAcctCouponDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param coupon_cd - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   coupons_detail - Type: ArrayList&#60;CouponsDetailReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctCouponDetailsM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, String coupon_cd);
+
+    abstract Map<String,Object> getAcctCouponDetailsM(Map<String,Object> map);
+
+    /**
+    * deleteAcctCouponM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param coupon_cd - Type: String
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> deleteAcctCouponM(Long client_no, String auth_key, Long acct_no, String coupon_cd, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> deleteAcctCouponM(Map<String,Object> map);
+
+    /**
+    * modifyAcctPlanUnitInstancesM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param plan_inst_no - Type: Long
+    * @param client_plan_inst_id - Type: String
+    * @param remove_plan_units - Type: com.aria.common.shared.RemovePlanUnitsArray
+    * @param assignment_directive - Type: Long
+    * @param new_plan_units - Type: Double
+    * @param new_client_plan_unit_inst - Type: com.aria.common.shared.NewClientPlanUnitInstArray
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   proration_result_amount - Type: javax.xml.ws.Holder<br>
+    *   collection_error_code - Type: javax.xml.ws.Holder<br>
+    *   collection_error_msg - Type: javax.xml.ws.Holder<br>
+    *   statement_error_code - Type: javax.xml.ws.Holder<br>
+    *   statement_error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   cancelled_supp_plans - Type: ArrayList&#60;CancelledSuppPlansReturnElement&#62;<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   expectd_activation_fee - Type: javax.xml.ws.Holder<br>
+    *   expectd_mthly_recurring_cost - Type: javax.xml.ws.Holder<br>
+    *   expectd_annu_recurring_cost - Type: javax.xml.ws.Holder<br>
+    *   invoice_line_item - Type: ArrayList&#60;InvoiceLineItemReturnElement&#62;<br>
+    *   total_charges_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total_tax_charges - Type: javax.xml.ws.Holder<br>
+    *   total_charges_after_tax - Type: javax.xml.ws.Holder<br>
+    *   total_credit - Type: javax.xml.ws.Holder<br>
+    *   total_tax_credit - Type: javax.xml.ws.Holder<br>
+    *   total_credit_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total - Type: javax.xml.ws.Holder<br>
+    *   proration_credit_result_amount - Type: javax.xml.ws.Holder<br>
+    *   proration_credit_amount - Type: javax.xml.ws.Holder<br>
+    *   proration_tax_amount - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> modifyAcctPlanUnitInstancesM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long plan_inst_no, String client_plan_inst_id, com.aria.common.shared.RemovePlanUnitsArray remove_plan_units, Long assignment_directive, Double new_plan_units, com.aria.common.shared.NewClientPlanUnitInstArray new_client_plan_unit_inst);
+
+    abstract Map<String,Object> modifyAcctPlanUnitInstancesM(Map<String,Object> map);
+
+    /**
+    * getAcctPlanUnitInstanceAllM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param queued_ind - Type: Long
+    * @param plan_unit_inst_no - Type: Long
+    * @param client_plan_unit_inst_id - Type: String
+    * @param status_cd - Type: Long
+    * @param plan_unit_inst_status_cd - Type: Long
+    * @param fulfillment_only - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   acct_no - Type: javax.xml.ws.Holder<br>
+    *   client_acct_id - Type: javax.xml.ws.Holder<br>
+    *   all_plan_instances - Type: ArrayList&#60;AllPlanInstancesReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctPlanUnitInstanceAllM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long plan_instance_no, String client_plan_instance_id, Long queued_ind, Long plan_unit_inst_no, String client_plan_unit_inst_id, Long status_cd, Long plan_unit_inst_status_cd, Long fulfillment_only);
+
+    abstract Map<String,Object> getAcctPlanUnitInstanceAllM(Map<String,Object> map);
 
     /**
     * getInvNoFromBalXfer
@@ -4519,6 +6613,26 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> getAcctPreviewStatement(Map<String,Object> map);
 
     /**
+    * getAcctPreviewStatementM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param alt_stmt_template_no - Type: Double
+    * @param auto_skip_to_next_bill_date - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   out_statement - Type: javax.xml.ws.Holder<br>
+    *   mime_type - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getAcctPreviewStatementM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Double alt_stmt_template_no, Long auto_skip_to_next_bill_date);
+
+    abstract Map<String,Object> getAcctPreviewStatementM(Map<String,Object> map);
+
+    /**
     * getStatementForInvoice
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -4926,6 +7040,55 @@ public interface AriaBillingComplete {
     abstract Map<String,Object> getAcctPaymentHistory(Map<String,Object> map);
 
     /**
+    * updateCcBlacklist
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param cc_num - Type: String
+    * @param assignment_directive - Type: Long
+    * @param notes - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> updateCcBlacklist(Long client_no, String auth_key, String cc_num, Long assignment_directive, String notes);
+
+    abstract Map<String,Object> updateCcBlacklist(Map<String,Object> map);
+
+    /**
+    * compareAgainstCcBlacklist
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param cc_num - Type: String
+    * @param include_details - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   cc_num_blacklisted - Type: javax.xml.ws.Holder<br>
+    *   notes - Type: javax.xml.ws.Holder<br>
+    *   date_added - Type: javax.xml.ws.Holder<br>
+    *   date_removed - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> compareAgainstCcBlacklist(Long client_no, String auth_key, String cc_num, Long include_details);
+
+    abstract Map<String,Object> compareAgainstCcBlacklist(Map<String,Object> map);
+
+    /**
+    * getCcVelocityInfo
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param cc_num - Type: String
+    * @param start_date - Type: String
+    * @param end_date - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   velocity_data - Type: ArrayList&#60;VelocityDataReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getCcVelocityInfo(Long client_no, String auth_key, String cc_num, String start_date, String end_date);
+
+    abstract Map<String,Object> getCcVelocityInfo(Map<String,Object> map);
+
+    /**
     * getPaymentApplicationDtls
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -5164,13 +7327,767 @@ public interface AriaBillingComplete {
     * @param custom_status_label - Type: String
     * @param client_notes - Type: String
     * @param posting_status_cd - Type: Long
+    * @param posting_user - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> updateAcctInvoice(Long client_no, String auth_key, Long account_no, Long src_transaction_id, String custom_status_label, String client_notes, Long posting_status_cd);
+    abstract Map<String,Object> updateAcctInvoice(Long client_no, String auth_key, Long account_no, Long src_transaction_id, String custom_status_label, String client_notes, Long posting_status_cd, String posting_user);
 
     abstract Map<String,Object> updateAcctInvoice(Map<String,Object> map);
+
+    /**
+    * createOrderM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param client_plan_instance_id - Type: String
+    * @param plan_instance_no - Type: Long
+    * @param order_line_items - Type: com.aria.common.shared.OrderLineItemsArray
+    * @param bill_immediately - Type: Long
+    * @param bill_seq - Type: Long
+    * @param client_order_id - Type: String
+    * @param client_receipt_id - Type: String
+    * @param alt_pay_method - Type: Long
+    * @param cc_number - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param bank_routing_num - Type: String
+    * @param bank_acct_num - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_zip - Type: String
+    * @param bill_country - Type: String
+    * @param bill_email - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_extension - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_extension - Type: String
+    * @param cvv - Type: String
+    * @param bank_acct_type - Type: String
+    * @param bill_address3 - Type: String
+    * @param do_write - Type: String
+    * @param coupon_cd - Type: String
+    * @param alt_client_acct_group_id - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param alt_inv_template_no - Type: Long
+    * @param client_alt_inv_template_id - Type: String
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @param statement_message - Type: String
+    * @param fulfilled_date - Type: String
+    * @param order_comments - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   order_no - Type: javax.xml.ws.Holder<br>
+    *   transaction_id - Type: javax.xml.ws.Holder<br>
+    *   invoicing_error_code - Type: javax.xml.ws.Holder<br>
+    *   invoicing_error_msg - Type: javax.xml.ws.Holder<br>
+    *   statement_error_cd - Type: javax.xml.ws.Holder<br>
+    *   statement_error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   total_charges_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total_tax_charges - Type: javax.xml.ws.Holder<br>
+    *   total_charges_after_tax - Type: javax.xml.ws.Holder<br>
+    *   total_credit - Type: javax.xml.ws.Holder<br>
+    *   cart_invoice_line_items - Type: ArrayList&#60;CartInvoiceLineItemsReturnElement&#62;<br>
+    *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> createOrderM(Long client_no, String auth_key, Long acct_no, String client_acct_id, String client_plan_instance_id, Long plan_instance_no, com.aria.common.shared.OrderLineItemsArray order_line_items, Long bill_immediately, Long bill_seq, String client_order_id, String client_receipt_id, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, String cvv, String bank_acct_type, String bill_address3, String do_write, String coupon_cd, String alt_client_acct_group_id, String track_data1, String track_data2, Long alt_inv_template_no, String client_alt_inv_template_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, String statement_message, String fulfilled_date, String order_comments);
+
+    abstract Map<String,Object> createOrderM(Map<String,Object> map);
+
+    /**
+    * getInvoiceDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param invoice_no - Type: Long
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   invoice_line_details - Type: ArrayList&#60;InvoiceLineDetailsReturnElement&#62;<br>
+    *   is_pending_ind - Type: javax.xml.ws.Holder<br>
+    *   custom_status_label - Type: javax.xml.ws.Holder<br>
+    *   custom_status_desc - Type: javax.xml.ws.Holder<br>
+    *   client_notes - Type: javax.xml.ws.Holder<br>
+    *   invoice_type_cd - Type: javax.xml.ws.Holder<br>
+    *   from_date - Type: javax.xml.ws.Holder<br>
+    *   to_date - Type: javax.xml.ws.Holder<br>
+    *   billing_group_no - Type: javax.xml.ws.Holder<br>
+    *   client_billing_group_no - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getInvoiceDetailsM(Long client_no, String auth_key, Long invoice_no, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> getInvoiceDetailsM(Map<String,Object> map);
+
+    /**
+    * getInvNoFromBalXferM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param transaction_id - Type: Long
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   outacct_no - Type: javax.xml.ws.Holder<br>
+    *   outclient_acct_id - Type: javax.xml.ws.Holder<br>
+    *   billing_group_no - Type: javax.xml.ws.Holder<br>
+    *   client_billing_group_id - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> getInvNoFromBalXferM(Long client_no, String auth_key, Long transaction_id, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> getInvNoFromBalXferM(Map<String,Object> map);
+
+    /**
+    * getRefundablePaymentsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   refundable_payments - Type: ArrayList&#60;RefundablePaymentsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getRefundablePaymentsM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> getRefundablePaymentsM(Map<String,Object> map);
+
+    /**
+    * applyServiceCreditM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param credit_amount - Type: Double
+    * @param credit_reason_code - Type: Long
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param comments - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   credit_id - Type: javax.xml.ws.Holder<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> applyServiceCreditM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Double credit_amount, Long credit_reason_code, Long master_plan_instance_no, String client_master_plan_instance_id, String comments);
+
+    abstract Map<String,Object> applyServiceCreditM(Map<String,Object> map);
+
+    /**
+    * cancelRecurringCreditsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param userid - Type: String
+    * @param client_acct_id - Type: String
+    * @param recurring_credit_no - Type: com.aria.common.shared.RecurringCreditNoArray
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param cancel_comments - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   error_codes - Type: ArrayList&#60;ErrorCodesReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> cancelRecurringCreditsM(Long client_no, String auth_key, Long acct_no, String userid, String client_acct_id, com.aria.common.shared.RecurringCreditNoArray recurring_credit_no, Long master_plan_instance_no, String client_master_plan_instance_id, String cancel_comments);
+
+    abstract Map<String,Object> cancelRecurringCreditsM(Map<String,Object> map);
+
+    /**
+    * getInvoicesToWriteoffOrDisputeM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   invoice_details - Type: ArrayList&#60;InvoiceDetailsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getInvoicesToWriteoffOrDisputeM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id);
+
+    abstract Map<String,Object> getInvoicesToWriteoffOrDisputeM(Map<String,Object> map);
+
+    /**
+    * getOrderM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param order_no - Type: Long
+    * @param client_order_id - Type: String
+    * @param limit_records - Type: Long
+    * @param details_flag - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   orders - Type: ArrayList&#60;OrdersReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getOrderM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long order_no, String client_order_id, Long limit_records, Long details_flag);
+
+    abstract Map<String,Object> getOrderM(Map<String,Object> map);
+
+    /**
+    * getWriteoffDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param writeoff_transaction_id - Type: Long
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   writeoff_detail - Type: ArrayList&#60;WriteoffDetailReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getWriteoffDetailsM(Long client_no, String auth_key, Long writeoff_transaction_id, Long acct_no, String client_acct_id);
+
+    abstract Map<String,Object> getWriteoffDetailsM(Map<String,Object> map);
+
+    /**
+    * getReversibleInvsByPaymentM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param payment_transaction_id - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   reversible_inv_trans - Type: ArrayList&#60;ReversibleInvTransReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getReversibleInvsByPaymentM(Long client_no, String auth_key, Long acct_no, Long payment_transaction_id);
+
+    abstract Map<String,Object> getReversibleInvsByPaymentM(Map<String,Object> map);
+
+    /**
+    * issueRefundToAcctM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param payment_transaction_id - Type: Long
+    * @param reason_code - Type: Long
+    * @param total_refund_amount - Type: Double
+    * @param refund_check_number - Type: String
+    * @param comments - Type: String
+    * @param do_write - Type: String
+    * @param auto_calc_refund - Type: String
+    * @param invoices_to_reverse - Type: com.aria.common.shared.InvoicesToReverseArray
+    * @param client_receipt_id - Type: String
+    * @param is_unlinked_refund - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   applied_total_refund_amount - Type: javax.xml.ws.Holder<br>
+    *   applied_total_reversal_amount - Type: javax.xml.ws.Holder<br>
+    *   out_transaction_id - Type: javax.xml.ws.Holder<br>
+    *   reversed_invoice_transactions - Type: ArrayList&#60;ReversedInvoiceTransactionsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> issueRefundToAcctM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long payment_transaction_id, Long reason_code, Double total_refund_amount, String refund_check_number, String comments, String do_write, String auto_calc_refund, com.aria.common.shared.InvoicesToReverseArray invoices_to_reverse, String client_receipt_id, String is_unlinked_refund);
+
+    abstract Map<String,Object> issueRefundToAcctM(Map<String,Object> map);
+
+    /**
+    * voidInvoiceM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param invoice_no - Type: Long
+    * @param reason_code - Type: Long
+    * @param client_receipt_id - Type: String
+    * @param comments - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   void_transactions - Type: ArrayList&#60;VoidTransactionsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> voidInvoiceM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long invoice_no, Long reason_code, String client_receipt_id, String comments);
+
+    abstract Map<String,Object> voidInvoiceM(Map<String,Object> map);
+
+    /**
+    * createWriteoffOrDisputeM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param invoice_no - Type: Long
+    * @param reason_code - Type: Long
+    * @param comments - Type: String
+    * @param writeoff_date - Type: String
+    * @param do_dispute - Type: Long
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   writeoff_transactions - Type: ArrayList&#60;WriteoffTransactionsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> createWriteoffOrDisputeM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long invoice_no, Long reason_code, String comments, String writeoff_date, Long do_dispute, String client_receipt_id);
+
+    abstract Map<String,Object> createWriteoffOrDisputeM(Map<String,Object> map);
+
+    /**
+    * settleAccountBalanceM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param payment_method_no - Type: Long
+    * @param client_payment_method_id - Type: String
+    * @param alt_pay_method - Type: Long
+    * @param cc_number - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param bank_routing_num - Type: String
+    * @param bank_acct_num - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_zip - Type: String
+    * @param bill_country - Type: String
+    * @param bill_email - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_extension - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_extension - Type: String
+    * @param cvv - Type: String
+    * @param bank_acct_type - Type: String
+    * @param bill_address3 - Type: String
+    * @param alt_client_acct_group_id - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param force_balance_scope - Type: String
+    * @param client_receipt_id - Type: String
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   transaction_id - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> settleAccountBalanceM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Long payment_method_no, String client_payment_method_id, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, String cvv, String bank_acct_type, String bill_address3, String alt_client_acct_group_id, String track_data1, String track_data2, String force_balance_scope, String client_receipt_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd);
+
+    abstract Map<String,Object> settleAccountBalanceM(Map<String,Object> map);
+
+    /**
+    * collectFromAccountM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param amount_to_collect - Type: Double
+    * @param payment_method_no - Type: Long
+    * @param client_payment_method_id - Type: String
+    * @param client_receipt_id - Type: String
+    * @param specific_charge_transaction_id - Type: com.aria.common.shared.SpecificChargeTransactionIdArray
+    * @param alt_pay_method - Type: Long
+    * @param cc_number - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param bank_routing_num - Type: String
+    * @param bank_acct_num - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_zip - Type: String
+    * @param bill_country - Type: String
+    * @param bill_email - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_extension - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_extension - Type: String
+    * @param cvv - Type: String
+    * @param bank_acct_type - Type: String
+    * @param bill_address3 - Type: String
+    * @param alt_client_acct_group_id - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param payment_application_method - Type: Long
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   transaction_id - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> collectFromAccountM(Long client_no, String auth_key, Long acct_no, Double amount_to_collect, Long payment_method_no, String client_payment_method_id, String client_receipt_id, com.aria.common.shared.SpecificChargeTransactionIdArray specific_charge_transaction_id, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, String cvv, String bank_acct_type, String bill_address3, String alt_client_acct_group_id, String track_data1, String track_data2, Long payment_application_method, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd);
+
+    abstract Map<String,Object> collectFromAccountM(Map<String,Object> map);
+
+    /**
+    * getAcctPaymentHistoryM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param start_date - Type: String
+    * @param end_date - Type: String
+    * @param limit_records - Type: Long
+    * @param details_flag - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   payment_history - Type: ArrayList&#60;PaymentHistoryReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getAcctPaymentHistoryM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, String start_date, String end_date, Long limit_records, Long details_flag);
+
+    abstract Map<String,Object> getAcctPaymentHistoryM(Map<String,Object> map);
+
+    /**
+    * getPaymentsOnInvoiceM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param invoice_no - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   invoice_payments - Type: ArrayList&#60;InvoicePaymentsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getPaymentsOnInvoiceM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long invoice_no);
+
+    abstract Map<String,Object> getPaymentsOnInvoiceM(Map<String,Object> map);
+
+    /**
+    * getUnappliedCreditsPaymentsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   unapplied_payments - Type: ArrayList&#60;UnappliedPaymentsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getUnappliedCreditsPaymentsM(Long client_no, String auth_key, Long acct_no, String client_acct_id);
+
+    abstract Map<String,Object> getUnappliedCreditsPaymentsM(Map<String,Object> map);
+
+    /**
+    * recordUsageM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param usage_units - Type: Double
+    * @param acct_no - Type: Long
+    * @param userid - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param plan_instance_no - Type: Long
+    * @param usage_type - Type: Long
+    * @param usage_date - Type: String
+    * @param billable_units - Type: Double
+    * @param amt - Type: Double
+    * @param rate - Type: Double
+    * @param telco_from - Type: String
+    * @param telco_to - Type: String
+    * @param comments - Type: String
+    * @param exclude_from_billing - Type: String
+    * @param exclusion_comments - Type: String
+    * @param qualifier_1 - Type: String
+    * @param qualifier_2 - Type: String
+    * @param qualifier_3 - Type: String
+    * @param qualifier_4 - Type: String
+    * @param parent_usage_rec_no - Type: Long
+    * @param usage_type_code - Type: String
+    * @param client_record_id - Type: String
+    * @param caller_id - Type: String
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   usage_rec_no - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> recordUsageM(Long client_no, String auth_key, Double usage_units, Long acct_no, String userid, Long master_plan_instance_no, String client_master_plan_instance_id, Long plan_instance_no, Long usage_type, String usage_date, Double billable_units, Double amt, Double rate, String telco_from, String telco_to, String comments, String exclude_from_billing, String exclusion_comments, String qualifier_1, String qualifier_2, String qualifier_3, String qualifier_4, Long parent_usage_rec_no, String usage_type_code, String client_record_id, String caller_id, String client_receipt_id);
+
+    abstract Map<String,Object> recordUsageM(Map<String,Object> map);
+
+    /**
+    * bulkRecordUsageM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param usage_recs - Type: com.aria.common.shared.UsageRecsArray
+    * @param client_receipt_id - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   error_records - Type: ArrayList&#60;ErrorRecordsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> bulkRecordUsageM(Long client_no, String auth_key, com.aria.common.shared.UsageRecsArray usage_recs, String client_receipt_id);
+
+    abstract Map<String,Object> bulkRecordUsageM(Map<String,Object> map);
+
+    /**
+    * genInvoiceM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param billing_group_no - Type: Long
+    * @param client_billing_group_id - Type: String
+    * @param force_pending - Type: String
+    * @param client_receipt_id - Type: String
+    * @param alt_bill_day - Type: Long
+    * @param invoice_mode - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   out_acct_no - Type: javax.xml.ws.Holder<br>
+    *   out_client_acct_id - Type: javax.xml.ws.Holder<br>
+    *   out_billing_group_no - Type: javax.xml.ws.Holder<br>
+    *   out_client_billing_group_id - Type: javax.xml.ws.Holder<br>
+    *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> genInvoiceM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Long billing_group_no, String client_billing_group_id, String force_pending, String client_receipt_id, Long alt_bill_day, Long invoice_mode);
+
+    abstract Map<String,Object> genInvoiceM(Map<String,Object> map);
+
+    /**
+    * managePendingInvoiceM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param invoice_no - Type: Long
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param master_plan_instance_no - Type: Long
+    * @param client_master_plan_instance_id - Type: String
+    * @param action_directive - Type: Long
+    * @param bill_seq - Type: Long
+    * @param alt_pay_method - Type: Long
+    * @param cc_number - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param bank_routing_num - Type: String
+    * @param bank_acct_num - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_zip - Type: String
+    * @param bill_country - Type: String
+    * @param bill_email - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_extension - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_extension - Type: String
+    * @param cvv - Type: String
+    * @param alt_collect_on_approve - Type: String
+    * @param alt_send_statement_on_approve - Type: String
+    * @param cancel_orders_on_discard - Type: String
+    * @param bank_acct_type - Type: String
+    * @param bill_address3 - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param client_receipt_id - Type: String
+    * @param iban - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @param custom_status_label - Type: String
+    * @param client_notes - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   new_invoice_no - Type: javax.xml.ws.Holder<br>
+    *   out_acct_no - Type: javax.xml.ws.Holder<br>
+    *   out_client_acct_id - Type: javax.xml.ws.Holder<br>
+    *   out_billing_group_no - Type: javax.xml.ws.Holder<br>
+    *   out_client_billing_group_id - Type: javax.xml.ws.Holder<br>
+    *   collection_error_code - Type: javax.xml.ws.Holder<br>
+    *   collection_error_msg - Type: javax.xml.ws.Holder<br>
+    *   statement_error_code - Type: javax.xml.ws.Holder<br>
+    *   statement_error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> managePendingInvoiceM(Long client_no, String auth_key, Long invoice_no, Long acct_no, String client_acct_id, Long master_plan_instance_no, String client_master_plan_instance_id, Long action_directive, Long bill_seq, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, String cvv, String alt_collect_on_approve, String alt_send_statement_on_approve, String cancel_orders_on_discard, String bank_acct_type, String bill_address3, String track_data1, String track_data2, String client_receipt_id, String iban, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String mandate_id, String bank_id_cd, String bank_branch_cd, String custom_status_label, String client_notes);
+
+    abstract Map<String,Object> managePendingInvoiceM(Map<String,Object> map);
+
+    /**
+    * createOrderWithPlanM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param acct_no - Type: Long
+    * @param client_acct_id - Type: String
+    * @param order_line_items - Type: com.aria.common.shared.OrderLineItemsArray
+    * @param parent_plan_instance_no - Type: Long
+    * @param client_parent_plan_instance_id - Type: String
+    * @param supp_plan_instance_no - Type: Long
+    * @param client_plan_instance_id - Type: String
+    * @param supp_plan_no - Type: Long
+    * @param client_supp_plan_id - Type: String
+    * @param supp_plan_units - Type: Long
+    * @param assignment_directive - Type: Long
+    * @param bill_immediately - Type: Long
+    * @param bill_seq - Type: Long
+    * @param client_order_id - Type: String
+    * @param client_receipt_id - Type: String
+    * @param alt_pay_method - Type: Long
+    * @param cc_number - Type: String
+    * @param cc_expire_mm - Type: Long
+    * @param cc_expire_yyyy - Type: Long
+    * @param cvv - Type: String
+    * @param bank_routing_num - Type: String
+    * @param bank_acct_num - Type: String
+    * @param bank_check_digit - Type: Long
+    * @param bank_swift_cd - Type: String
+    * @param bank_country_cd - Type: String
+    * @param bank_id_cd - Type: String
+    * @param bank_branch_cd - Type: String
+    * @param mandate_id - Type: String
+    * @param iban - Type: String
+    * @param bill_company_name - Type: String
+    * @param bill_first_name - Type: String
+    * @param bill_middle_initial - Type: String
+    * @param bill_last_name - Type: String
+    * @param bill_address1 - Type: String
+    * @param bill_address2 - Type: String
+    * @param bill_address3 - Type: String
+    * @param bill_city - Type: String
+    * @param bill_locality - Type: String
+    * @param bill_state_prov - Type: String
+    * @param bill_zip - Type: String
+    * @param bill_country - Type: String
+    * @param bill_email - Type: String
+    * @param bill_phone - Type: String
+    * @param bill_phone_extension - Type: String
+    * @param bill_cell_phone - Type: String
+    * @param bill_work_phone - Type: String
+    * @param bill_work_phone_extension - Type: String
+    * @param multiple_coupons - Type: com.aria.common.shared.MultipleCouponsArray
+    * @param alt_client_acct_group_id - Type: String
+    * @param client_alt_inv_template_id - Type: String
+    * @param alt_inv_template_no - Type: Long
+    * @param statement_message - Type: String
+    * @param track_data1 - Type: String
+    * @param track_data2 - Type: String
+    * @param do_write - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   order_no - Type: javax.xml.ws.Holder<br>
+    *   invoice_no - Type: javax.xml.ws.Holder<br>
+    *   transaction_id - Type: javax.xml.ws.Holder<br>
+    *   invoicing_error_code - Type: javax.xml.ws.Holder<br>
+    *   invoicing_error_msg - Type: javax.xml.ws.Holder<br>
+    *   statement_error_code - Type: javax.xml.ws.Holder<br>
+    *   statement_error_msg - Type: javax.xml.ws.Holder<br>
+    *   proc_cvv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_avs_response - Type: javax.xml.ws.Holder<br>
+    *   proc_cavv_response - Type: javax.xml.ws.Holder<br>
+    *   proc_status_code - Type: javax.xml.ws.Holder<br>
+    *   proc_status_text - Type: javax.xml.ws.Holder<br>
+    *   proc_payment_id - Type: javax.xml.ws.Holder<br>
+    *   proc_auth_code - Type: javax.xml.ws.Holder<br>
+    *   proc_merch_comments - Type: javax.xml.ws.Holder<br>
+    *   total_charges_before_tax - Type: javax.xml.ws.Holder<br>
+    *   total_tax_charges - Type: javax.xml.ws.Holder<br>
+    *   total_charges_after_tax - Type: javax.xml.ws.Holder<br>
+    *   total_credit - Type: javax.xml.ws.Holder<br>
+    *   cart_inv_line_items - Type: ArrayList&#60;CartInvLineItemsReturnElement&#62;<br>
+    *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> createOrderWithPlanM(Long client_no, String auth_key, Long acct_no, String client_acct_id, com.aria.common.shared.OrderLineItemsArray order_line_items, Long parent_plan_instance_no, String client_parent_plan_instance_id, Long supp_plan_instance_no, String client_plan_instance_id, Long supp_plan_no, String client_supp_plan_id, Long supp_plan_units, Long assignment_directive, Long bill_immediately, Long bill_seq, String client_order_id, String client_receipt_id, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String cvv, String bank_routing_num, String bank_acct_num, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String bank_id_cd, String bank_branch_cd, String mandate_id, String iban, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, com.aria.common.shared.MultipleCouponsArray multiple_coupons, String alt_client_acct_group_id, String client_alt_inv_template_id, Long alt_inv_template_no, String statement_message, String track_data1, String track_data2, String do_write);
+
+    abstract Map<String,Object> createOrderWithPlanM(Map<String,Object> map);
 
     /**
     * setSessionAuth

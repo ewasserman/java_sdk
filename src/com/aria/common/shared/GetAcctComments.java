@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "dateRangeStart",    "dateRangeEnd",    "doUrlEncoding"})
+    "authKey",    "acctNo",    "dateRangeStart",    "dateRangeEnd",    "doUrlEncoding",    "filterApplicationId"})
 @XmlRootElement(name = "get_acct_comments")
 public class GetAcctComments {
 
@@ -26,6 +26,8 @@ public class GetAcctComments {
     protected String dateRangeEnd;
         @XmlElement(name = "do_url_encoding")
     protected String doUrlEncoding;
+        @XmlElement(name = "filter_application_id")
+    protected String filterApplicationId;
     
     public long getClientNo() {
         return clientNo;
@@ -70,6 +72,13 @@ public class GetAcctComments {
 
     public void setDoUrlEncoding(String value) {
         this.doUrlEncoding = value;
+    }
+            public String getFilterApplicationId() {
+        return filterApplicationId;
+    }
+
+    public void setFilterApplicationId(String value) {
+        this.filterApplicationId = value;
     }
             
 }

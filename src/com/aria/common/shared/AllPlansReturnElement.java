@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_plans_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "prorationInvoiceTimingCd", "planServices"})
+@XmlType(name = "all_plans_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "planServices"})
 public class AllPlansReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -55,8 +55,6 @@ public class AllPlansReturnElement {
     protected String clientPlanId;
     @XmlElement(name = "client_rollover_plan_id")
     protected String clientRolloverPlanId;
-    @XmlElement(name = "client_plan_2_assign_on_susp")
-    protected String clientPlan2AssignOnSusp;
     @XmlElement(name = "proration_invoice_timing_cd")
     protected String prorationInvoiceTimingCd;
     @XmlElement(name = "plan_services")
@@ -228,14 +226,6 @@ public class AllPlansReturnElement {
 
     public void setClientRolloverPlanId(String value) {
         this.clientRolloverPlanId = value;
-    }
-
-    public String getClientPlan2AssignOnSusp() {
-        return clientPlan2AssignOnSusp;
-    }
-
-    public void setClientPlan2AssignOnSusp(String value) {
-        this.clientPlan2AssignOnSusp = value;
     }
 
     public String getProrationInvoiceTimingCd() {

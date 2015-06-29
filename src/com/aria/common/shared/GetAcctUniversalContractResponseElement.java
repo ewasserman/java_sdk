@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "typeNo", "lengthMonths", "createComments", "updateComments", "createDate", "updateDate", "startDate", "endDate", "statusCode"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "typeNo", "lengthMonths", "createComments", "updateComments", "createDate", "updateDate", "startDate", "endDate", "statusCode", "contractNo"})
 @XmlRootElement(name = "get_acct_universal_contractResponseElement")
 public class GetAcctUniversalContractResponseElement {
 
@@ -36,6 +36,8 @@ public class GetAcctUniversalContractResponseElement {
     protected String endDate;
     @XmlElement(name = "status_code")
     protected String statusCode;
+    @XmlElement(name = "contract_no")
+    protected Long contractNo;
     
     public Long getErrorCode() {
         return errorCode;
@@ -123,6 +125,14 @@ public class GetAcctUniversalContractResponseElement {
 
     public void setStatusCode(String value) {
         this.statusCode = value;
+    }
+
+    public Long getContractNo() {
+        return contractNo;
+    }
+
+    public void setContractNo(Long value) {
+        this.contractNo = value;
     }
 
     

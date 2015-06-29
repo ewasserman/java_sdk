@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_invoice_line_ReturnElement", propOrder = {"lineItemNo", "creditReasonCodeDescription", "description", "amount", "comments", "planName", "planNo", "serviceName", "serviceNo", "ledgerCode", "coaId", "coaDescription", "usageUnits", "usageRate", "usageTypeNo", "startDate", "endDate", "clientSku", "orderNo", "itemNo", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "allInvoiceLineTax"})
+@XmlType(name = "all_invoice_line_ReturnElement", propOrder = {"lineItemNo", "creditReasonCodeDescription", "description", "amount", "comments", "planName", "planNo", "serviceName", "serviceNo", "ledgerCode", "coaId", "coaDescription", "usageUnits", "usageRate", "usageTypeNo", "startDate", "endDate", "clientSku", "orderNo", "itemNo", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "allInvoiceLineTax", "rateScheduleNo", "rateScheduleTierNo"})
 public class AllInvoiceLineReturnElement {
 
     @XmlElement(name = "line_item_no")
@@ -67,6 +67,10 @@ public class AllInvoiceLineReturnElement {
     protected String prorationDescription;
     @XmlElement(name = "all_invoice_line_tax")
     protected List<AllInvoiceLineTaxReturnElement> allInvoiceLineTax;
+    @XmlElement(name = "rate_schedule_no")
+    protected Double rateScheduleNo;
+    @XmlElement(name = "rate_schedule_tier_no")
+    protected Double rateScheduleTierNo;
     
     public Long getLineItemNo() {
         return lineItemNo;
@@ -281,5 +285,21 @@ public class AllInvoiceLineReturnElement {
             this.allInvoiceLineTax = new ArrayList<AllInvoiceLineTaxReturnElement>();
         }
         return this.allInvoiceLineTax;
+    }public Double getRateScheduleNo() {
+        return rateScheduleNo;
     }
+
+    public void setRateScheduleNo(Double value) {
+        this.rateScheduleNo = value;
+    }
+
+    public Double getRateScheduleTierNo() {
+        return rateScheduleTierNo;
+    }
+
+    public void setRateScheduleTierNo(Double value) {
+        this.rateScheduleTierNo = value;
+    }
+
+    
 }

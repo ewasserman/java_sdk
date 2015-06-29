@@ -113,6 +113,10 @@ public class AriaServiceClientTest {
         //getDailyBatchStatus();
         //setExternalObjectId();
         //getAcctSurcharges();
+        //getClientPlansAllM();
+        //getClientPlansBasicM();
+        //getMasterPlansBySuppFieldM();
+        //getSuppPlansBySuppFieldM();
         //getCouponDetails();
         //deleteAcctCoupon();
         //createAccount();
@@ -138,6 +142,7 @@ public class AriaServiceClientTest {
         //getPaymentMethods();
         //updatePaymentMethod();
         //authorizeElectronicPayment();
+        //authorizeElectronicPaymentM();
         //getQueuedServicePlans();
         //cancelQueuedServicePlan();
         //getAcctStatusHistory();
@@ -210,6 +215,7 @@ public class AriaServiceClientTest {
         //modifyAcctSuppFields();
         //removeCustomAcctRates();
         //getAcctStatementHistory();
+        //getAcctStatementHistoryM();
         //getAcctInvoiceHistory();
         //getStatementContent();
         //getStatementContentSize();
@@ -218,6 +224,7 @@ public class AriaServiceClientTest {
         //assignSuppPlanMulti();
         //getAcctPaymentMethods();
         //genStatement();
+        //genStatementM();
         //cancelUnconsumedCredit();
         //cancelUnappliedSvceCredits();
         //getAcctBalance();
@@ -246,13 +253,74 @@ public class AriaServiceClientTest {
         //getAcctCreditDetails();
         //getCreditReasonCodes();
         //savePaypalBillAgreement();
+        //savePaypalBillAgreementM();
         //initPaypalBillAgreement();
         //getAcctServiceOutageCredit();
         //getUsageSummaryByType();
         //getAcctOpenCharges();
+        //createAcctCompleteM();
+        //acctPlanInstallCompleteM();
+        //getAcctPaymentMethodsM();
+        //updatePaymentMethodM();
+        //getAcctHierarchyDetailsM();
+        //getAcctDetailsAllM();
+        //updateAcctCompleteM();
+        //getAcctBalanceM();
+        //updateContactM();
+        //getAcctContactsM();
+        //createAcctBillingGroupM();
+        //getAcctBillingGroupDetailsM();
+        //assignAcctPlanM();
+        //cancelAcctPlanM();
+        //createAcctDunningGroupM();
+        //updateAcctPlanM();
+        //updateAcctBillingGroupM();
+        //replaceAcctPlanM();
+        //getAcctPlanBalanceM();
+        //getAcctPlanNotifyMethodM();
+        //setPaymentResponsibilityM();
+        //removeAcctPlanCustomRatesM();
+        //getAcctDunningGroupDetailsM();
+        //updateAcctDunningGroupM();
+        //updateAcctPlanStatusM();
+        //cancelQueuedAcctPlanChangeM();
+        //adjustAcctPlanBillingDatesM();
+        //getAvailPlansForAcctM();
+        //getAvailPlansForAcctAllM();
+        //getAcctPlansM();
+        //getAcctPlansAllM();
         //modifyAcctPlanUnitInstances();
         //getAcctPlanUnitInstanceAll();
         //updateAcctPlanUnitInstance();
+        //assignCustomAcctPlanRatesM();
+        //getQueuedAcctPlansM();
+        //getInvoiceHistoryM();
+        //getPendingInvoiceNoM();
+        //getUnappliedServiceCreditsM();
+        //getAcctCreditsM();
+        //getRecurringCreditInfoM();
+        //createAdvancedServiceCreditM();
+        //getAcctServiceOutageCreditM();
+        //getCreditDetailsM();
+        //cancelUnappliedServiceCreditsM();
+        //getAcctTransHistoryM();
+        //getPlansByPromoCodeM();
+        //getPlansByPromoCodeAllM();
+        //getRateSchedulesForPlanM();
+        //getFamilyTransHistoryM();
+        //getSuppPlansByPromoCodeM();
+        //getSuppPlansByPromoCodeAllM();
+        //getAcctPlanHistoryM();
+        //getUsageSummaryByTypeM();
+        //getUsageHistoryM();
+        //setMonetaryUsgThresholdM();
+        //setUsgMtdPtdBalM();
+        //getUnbilledUsageSummaryM();
+        //applyCouponToAcctM();
+        //getAcctCouponDetailsM();
+        //deleteAcctCouponM();
+        //modifyAcctPlanUnitInstancesM();
+        //getAcctPlanUnitInstanceAllM();
         //getInvNoFromBalXfer();
         //voidTransaction();
         //reinstateTransaction();
@@ -277,6 +345,7 @@ public class AriaServiceClientTest {
         //getOrderItems();
         //genInvoice();
         //getAcctPreviewStatement();
+        //getAcctPreviewStatementM();
         //getStatementForInvoice();
         //getStatementForInvSize();
         //getInvoiceDetails();
@@ -294,6 +363,9 @@ public class AriaServiceClientTest {
         //getWriteoffDetails();
         //getAriaXmlStatement();
         //getAcctPaymentHistory();
+        //updateCcBlacklist();
+        //compareAgainstCcBlacklist();
+        //getCcVelocityInfo();
         //getPaymentApplicationDtls();
         //getExtendedTransactionInfo();
         //discardUsage();
@@ -304,6 +376,29 @@ public class AriaServiceClientTest {
         //cancelRecurringCredits();
         //updateOrder();
         //updateAcctInvoice();
+        //createOrderM();
+        //getInvoiceDetailsM();
+        //getInvNoFromBalXferM();
+        //getRefundablePaymentsM();
+        //applyServiceCreditM();
+        //cancelRecurringCreditsM();
+        //getInvoicesToWriteoffOrDisputeM();
+        //getOrderM();
+        //getWriteoffDetailsM();
+        //getReversibleInvsByPaymentM();
+        //issueRefundToAcctM();
+        //voidInvoiceM();
+        //createWriteoffOrDisputeM();
+        //settleAccountBalanceM();
+        //collectFromAccountM();
+        //getAcctPaymentHistoryM();
+        //getPaymentsOnInvoiceM();
+        //getUnappliedCreditsPaymentsM();
+        //recordUsageM();
+        //bulkRecordUsageM();
+        //genInvoiceM();
+        //managePendingInvoiceM();
+        //createOrderWithPlanM();
         //setSessionAuth();
         //setSession();
         //validateSession();
@@ -1093,6 +1188,81 @@ public class AriaServiceClientTest {
     }
 
     //@Test
+    public void getClientPlansAllM() throws Exception {
+        com.aria.common.shared.SuppFieldNamesArray suppFieldNamesArray = new com.aria.common.shared.SuppFieldNamesArray();
+        com.aria.common.shared.SuppFieldValuesArray suppFieldValuesArray = new com.aria.common.shared.SuppFieldValuesArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().getClientPlansAllM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , suppFieldNamesArray
+                , suppFieldValuesArray
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getClientPlansAllM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getClientPlansBasicM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getClientPlansBasicM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getClientPlansBasicM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getMasterPlansBySuppFieldM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getMasterPlansBySuppFieldM(getClientNo(), getAuthKey()        , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getMasterPlansBySuppFieldM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getSuppPlansBySuppFieldM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getSuppPlansBySuppFieldM(getClientNo(), getAuthKey()        , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getSuppPlansBySuppFieldM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
     public void getCouponDetails() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getCouponDetails(getClientNo(), getAuthKey()        , 1L
@@ -1560,6 +1730,66 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "authorizeElectronicPayment - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void authorizeElectronicPaymentM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().authorizeElectronicPaymentM(getClientNo(), getAuthKey()        , 1L
+                , 1d
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "authorizeElectronicPaymentM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -2437,6 +2667,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "createAcctComplete - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -2856,6 +3087,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateAcctComplete - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3078,6 +3310,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getAcctComments - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3131,6 +3364,27 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getAcctStatementHistory - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctStatementHistoryM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctStatementHistoryM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctStatementHistoryM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -3225,6 +3479,7 @@ public class AriaServiceClientTest {
         com.aria.common.shared.SuppPlansToAssignArray suppPlansToAssignArray = new com.aria.common.shared.SuppPlansToAssignArray();
         com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
         com.aria.common.shared.SuppPlanSurchargesArray suppPlanSurchargesArray = new com.aria.common.shared.SuppPlanSurchargesArray();
+        com.aria.common.shared.NewAcctCustomRatesArray newAcctCustomRatesArray = new com.aria.common.shared.NewAcctCustomRatesArray();
         
         hashMapReturnValues = getBaseAriaBilling().assignSuppPlanMulti(getClientNo(), getAuthKey()        , 1L
                 , suppPlansToAssignArray
@@ -3237,6 +3492,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , suppPlanSurchargesArray
+                , newAcctCustomRatesArray
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "assignSuppPlanMulti - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3270,6 +3526,24 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "genStatement - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void genStatementM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().genStatementM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "genStatementM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -3443,6 +3717,7 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().getAcctMultiplanContract(getClientNo(), getAuthKey()        , 1L
                 , 1L
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getAcctMultiplanContract - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3609,6 +3884,7 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().getAllAcctContracts(getClientNo(), getAuthKey()        , 1L
                 , 1L
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getAllAcctContracts - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -3731,6 +4007,25 @@ public class AriaServiceClientTest {
     }
 
     //@Test
+    public void savePaypalBillAgreementM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().savePaypalBillAgreementM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "savePaypalBillAgreementM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
     public void initPaypalBillAgreement() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().initPaypalBillAgreement(getClientNo(), getAuthKey()        , 1L
@@ -3814,6 +4109,1025 @@ public class AriaServiceClientTest {
     }
 
     //@Test
+    public void createAcctCompleteM() throws Exception {
+        com.aria.common.shared.AcctArray acctArray = new com.aria.common.shared.AcctArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createAcctCompleteM(getClientNo(), getAuthKey()        , ""
+                , ""
+                , acctArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createAcctCompleteM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void acctPlanInstallCompleteM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().acctPlanInstallCompleteM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "acctPlanInstallCompleteM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPaymentMethodsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPaymentMethodsM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPaymentMethodsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updatePaymentMethodM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().updatePaymentMethodM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updatePaymentMethodM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctHierarchyDetailsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctHierarchyDetailsM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctHierarchyDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctDetailsAllM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctDetailsAllM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctDetailsAllM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updateAcctCompleteM() throws Exception {
+        com.aria.common.shared.AcctCouponsArray acctCouponsArray = new com.aria.common.shared.AcctCouponsArray();
+        com.aria.common.shared.FunctionalAcctGroupsArray functionalAcctGroupsArray = new com.aria.common.shared.FunctionalAcctGroupsArray();
+        com.aria.common.shared.CollectionAcctGroupsArray collectionAcctGroupsArray = new com.aria.common.shared.CollectionAcctGroupsArray();
+        com.aria.common.shared.AcctSuppFieldsArray acctSuppFieldsArray = new com.aria.common.shared.AcctSuppFieldsArray();
+        com.aria.common.shared.AcctSurchargesArray acctSurchargesArray = new com.aria.common.shared.AcctSurchargesArray();
+        com.aria.common.shared.MpCouponsArray mpCouponsArray = new com.aria.common.shared.MpCouponsArray();
+        com.aria.common.shared.MasterPlanProductFieldsArray masterPlanProductFieldsArray = new com.aria.common.shared.MasterPlanProductFieldsArray();
+        com.aria.common.shared.NewAcctCustomRatesArray newAcctCustomRatesArray = new com.aria.common.shared.NewAcctCustomRatesArray();
+        com.aria.common.shared.BillingGroupsArrayArray billingGroupsArrayArray = new com.aria.common.shared.BillingGroupsArrayArray();
+        com.aria.common.shared.PaymentMethodsArrayArray paymentMethodsArrayArray = new com.aria.common.shared.PaymentMethodsArrayArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().updateAcctCompleteM(getClientNo(), getAuthKey()        , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , acctCouponsArray
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , functionalAcctGroupsArray
+                , collectionAcctGroupsArray
+                , acctSuppFieldsArray
+                , acctSurchargesArray
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , mpCouponsArray
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , masterPlanProductFieldsArray
+                , newAcctCustomRatesArray
+                , billingGroupsArrayArray
+                , paymentMethodsArrayArray
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateAcctCompleteM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctBalanceM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctBalanceM(getClientNo(), getAuthKey()        , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctBalanceM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updateContactM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().updateContactM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateContactM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctContactsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctContactsM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctContactsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createAcctBillingGroupM() throws Exception {
+        com.aria.common.shared.MasterPlansSummaryArray masterPlansSummaryArray = new com.aria.common.shared.MasterPlansSummaryArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createAcctBillingGroupM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , masterPlansSummaryArray
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createAcctBillingGroupM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctBillingGroupDetailsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctBillingGroupDetailsM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctBillingGroupDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void assignAcctPlanM() throws Exception {
+        com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
+        com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
+        com.aria.common.shared.NewAcctPlanCustomRatesArray newAcctPlanCustomRatesArray = new com.aria.common.shared.NewAcctPlanCustomRatesArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().assignAcctPlanM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1d
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , 1d
+                , couponCodesArray
+                , ""
+                , 1L
+                , ""
+                , planInstanceFieldsArray
+                , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , newAcctPlanCustomRatesArray
+                , ""
+                , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "assignAcctPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void cancelAcctPlanM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().cancelAcctPlanM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "cancelAcctPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createAcctDunningGroupM() throws Exception {
+        com.aria.common.shared.MasterPlansSummaryArray masterPlansSummaryArray = new com.aria.common.shared.MasterPlansSummaryArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createAcctDunningGroupM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , masterPlansSummaryArray
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createAcctDunningGroupM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updateAcctPlanM() throws Exception {
+        com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
+        com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
+        com.aria.common.shared.CustomRateArray customRateArray = new com.aria.common.shared.CustomRateArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().updateAcctPlanM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , 1d
+                , couponCodesArray
+                , ""
+                , 1L
+                , ""
+                , planInstanceFieldsArray
+                , 1L
+                , ""
+                , ""
+                , ""
+                , customRateArray
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateAcctPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updateAcctBillingGroupM() throws Exception {
+        com.aria.common.shared.MasterPlansSummaryArray masterPlansSummaryArray = new com.aria.common.shared.MasterPlansSummaryArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().updateAcctBillingGroupM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , masterPlansSummaryArray
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateAcctBillingGroupM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void replaceAcctPlanM() throws Exception {
+        com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
+        com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
+        com.aria.common.shared.CustomRateArray customRateArray = new com.aria.common.shared.CustomRateArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().replaceAcctPlanM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , 1d
+                , couponCodesArray
+                , ""
+                , 1L
+                , ""
+                , planInstanceFieldsArray
+                , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , customRateArray
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "replaceAcctPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPlanBalanceM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPlanBalanceM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPlanBalanceM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPlanNotifyMethodM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPlanNotifyMethodM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPlanNotifyMethodM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void setPaymentResponsibilityM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().setPaymentResponsibilityM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "setPaymentResponsibilityM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void removeAcctPlanCustomRatesM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().removeAcctPlanCustomRatesM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "removeAcctPlanCustomRatesM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctDunningGroupDetailsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctDunningGroupDetailsM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctDunningGroupDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updateAcctDunningGroupM() throws Exception {
+        com.aria.common.shared.MasterPlansSummaryArray masterPlansSummaryArray = new com.aria.common.shared.MasterPlansSummaryArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().updateAcctDunningGroupM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , masterPlansSummaryArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateAcctDunningGroupM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updateAcctPlanStatusM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().updateAcctPlanStatusM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateAcctPlanStatusM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void cancelQueuedAcctPlanChangeM() throws Exception {
+        com.aria.common.shared.PlanInstanceToRemoveArray planInstanceToRemoveArray = new com.aria.common.shared.PlanInstanceToRemoveArray();
+        com.aria.common.shared.QueueIdToRemoveArray queueIdToRemoveArray = new com.aria.common.shared.QueueIdToRemoveArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().cancelQueuedAcctPlanChangeM(getClientNo(), getAuthKey()        , 1L
+                , planInstanceToRemoveArray
+                , queueIdToRemoveArray
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "cancelQueuedAcctPlanChangeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void adjustAcctPlanBillingDatesM() throws Exception {
+        com.aria.common.shared.BillingDatesArray billingDatesArray = new com.aria.common.shared.BillingDatesArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().adjustAcctPlanBillingDatesM(getClientNo(), getAuthKey()        , 1L
+                , billingDatesArray
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "adjustAcctPlanBillingDatesM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAvailPlansForAcctM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAvailPlansForAcctM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAvailPlansForAcctM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAvailPlansForAcctAllM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAvailPlansForAcctAllM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAvailPlansForAcctAllM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPlansM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPlansM(getClientNo(), getAuthKey()        , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPlansM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPlansAllM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPlansAllM(getClientNo(), getAuthKey()        , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPlansAllM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
     public void modifyAcctPlanUnitInstances() throws Exception {
         com.aria.common.shared.PlanUnitsArray planUnitsArray = new com.aria.common.shared.PlanUnitsArray();
         com.aria.common.shared.NewClientPlanUnitInstArray newClientPlanUnitInstArray = new com.aria.common.shared.NewClientPlanUnitInstArray();
@@ -3870,6 +5184,607 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateAcctPlanUnitInstance - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void assignCustomAcctPlanRatesM() throws Exception {
+        com.aria.common.shared.CustomAcctRatesArray customAcctRatesArray = new com.aria.common.shared.CustomAcctRatesArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().assignCustomAcctPlanRatesM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , customAcctRatesArray
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "assignCustomAcctPlanRatesM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getQueuedAcctPlansM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getQueuedAcctPlansM(getClientNo(), getAuthKey()        , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getQueuedAcctPlansM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getInvoiceHistoryM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getInvoiceHistoryM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getInvoiceHistoryM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getPendingInvoiceNoM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getPendingInvoiceNoM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getPendingInvoiceNoM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getUnappliedServiceCreditsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getUnappliedServiceCreditsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getUnappliedServiceCreditsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctCreditsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctCreditsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctCreditsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getRecurringCreditInfoM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getRecurringCreditInfoM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getRecurringCreditInfoM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createAdvancedServiceCreditM() throws Exception {
+        com.aria.common.shared.EligibleServiceTypesArray eligibleServiceTypesArray = new com.aria.common.shared.EligibleServiceTypesArray();
+        com.aria.common.shared.EligibleServicePlansArray eligibleServicePlansArray = new com.aria.common.shared.EligibleServicePlansArray();
+        com.aria.common.shared.ClientEligibleServicePlanIdsArray clientEligibleServicePlanIdsArray = new com.aria.common.shared.ClientEligibleServicePlanIdsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createAdvancedServiceCreditM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1d
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1d
+                , 1L
+                , 1L
+                , eligibleServiceTypesArray
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , eligibleServicePlansArray
+                , clientEligibleServicePlanIdsArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createAdvancedServiceCreditM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctServiceOutageCreditM() throws Exception {
+        com.aria.common.shared.PlansToGetOutageArray plansToGetOutageArray = new com.aria.common.shared.PlansToGetOutageArray();
+        com.aria.common.shared.ClientPlanIdsToGetOutageArray clientPlanIdsToGetOutageArray = new com.aria.common.shared.ClientPlanIdsToGetOutageArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctServiceOutageCreditM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , plansToGetOutageArray
+                , 1d
+                , clientPlanIdsToGetOutageArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctServiceOutageCreditM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getCreditDetailsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getCreditDetailsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getCreditDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void cancelUnappliedServiceCreditsM() throws Exception {
+        com.aria.common.shared.CreditIdsArray creditIdsArray = new com.aria.common.shared.CreditIdsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().cancelUnappliedServiceCreditsM(getClientNo(), getAuthKey()        , creditIdsArray
+                , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "cancelUnappliedServiceCreditsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctTransHistoryM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctTransHistoryM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctTransHistoryM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getPlansByPromoCodeM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getPlansByPromoCodeM(getClientNo(), getAuthKey()        , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getPlansByPromoCodeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getPlansByPromoCodeAllM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getPlansByPromoCodeAllM(getClientNo(), getAuthKey()        , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getPlansByPromoCodeAllM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getRateSchedulesForPlanM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getRateSchedulesForPlanM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getRateSchedulesForPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getFamilyTransHistoryM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getFamilyTransHistoryM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getFamilyTransHistoryM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getSuppPlansByPromoCodeM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getSuppPlansByPromoCodeM(getClientNo(), getAuthKey()        , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getSuppPlansByPromoCodeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getSuppPlansByPromoCodeAllM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getSuppPlansByPromoCodeAllM(getClientNo(), getAuthKey()        , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getSuppPlansByPromoCodeAllM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPlanHistoryM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPlanHistoryM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPlanHistoryM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getUsageSummaryByTypeM() throws Exception {
+        com.aria.common.shared.UsageQualifier1Array usageQualifier1Array = new com.aria.common.shared.UsageQualifier1Array();
+        com.aria.common.shared.UsageQualifier2Array usageQualifier2Array = new com.aria.common.shared.UsageQualifier2Array();
+        com.aria.common.shared.UsageQualifier3Array usageQualifier3Array = new com.aria.common.shared.UsageQualifier3Array();
+        com.aria.common.shared.UsageQualifier4Array usageQualifier4Array = new com.aria.common.shared.UsageQualifier4Array();
+        
+        hashMapReturnValues = getBaseAriaBilling().getUsageSummaryByTypeM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+                , usageQualifier1Array
+                , usageQualifier2Array
+                , usageQualifier3Array
+                , usageQualifier4Array
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getUsageSummaryByTypeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getUsageHistoryM() throws Exception {
+        com.aria.common.shared.UsageQualifier1Array usageQualifier1Array = new com.aria.common.shared.UsageQualifier1Array();
+        com.aria.common.shared.UsageQualifier2Array usageQualifier2Array = new com.aria.common.shared.UsageQualifier2Array();
+        com.aria.common.shared.UsageQualifier3Array usageQualifier3Array = new com.aria.common.shared.UsageQualifier3Array();
+        com.aria.common.shared.UsageQualifier4Array usageQualifier4Array = new com.aria.common.shared.UsageQualifier4Array();
+        
+        hashMapReturnValues = getBaseAriaBilling().getUsageHistoryM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , usageQualifier1Array
+                , usageQualifier2Array
+                , usageQualifier3Array
+                , usageQualifier4Array
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getUsageHistoryM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void setMonetaryUsgThresholdM() throws Exception {
+        com.aria.common.shared.UsageUnitThresholdsArray usageUnitThresholdsArray = new com.aria.common.shared.UsageUnitThresholdsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().setMonetaryUsgThresholdM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , usageUnitThresholdsArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "setMonetaryUsgThresholdM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void setUsgMtdPtdBalM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().setUsgMtdPtdBalM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "setUsgMtdPtdBalM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getUnbilledUsageSummaryM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getUnbilledUsageSummaryM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getUnbilledUsageSummaryM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void applyCouponToAcctM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().applyCouponToAcctM(getClientNo(), getAuthKey()        , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "applyCouponToAcctM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctCouponDetailsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctCouponDetailsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctCouponDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void deleteAcctCouponM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().deleteAcctCouponM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "deleteAcctCouponM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void modifyAcctPlanUnitInstancesM() throws Exception {
+        com.aria.common.shared.RemovePlanUnitsArray removePlanUnitsArray = new com.aria.common.shared.RemovePlanUnitsArray();
+        com.aria.common.shared.NewClientPlanUnitInstArray newClientPlanUnitInstArray = new com.aria.common.shared.NewClientPlanUnitInstArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().modifyAcctPlanUnitInstancesM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , removePlanUnitsArray
+                , 1L
+                , 1d
+                , newClientPlanUnitInstArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "modifyAcctPlanUnitInstancesM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPlanUnitInstanceAllM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPlanUnitInstanceAllM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPlanUnitInstanceAllM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -4438,6 +6353,25 @@ public class AriaServiceClientTest {
     }
 
     //@Test
+    public void getAcctPreviewStatementM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPreviewStatementM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1d
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPreviewStatementM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
     public void getStatementForInvoice() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getStatementForInvoice(getClientNo(), getAuthKey()        , 1L
@@ -4807,6 +6741,53 @@ public class AriaServiceClientTest {
     }
 
     //@Test
+    public void updateCcBlacklist() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().updateCcBlacklist(getClientNo(), getAuthKey()        , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateCcBlacklist - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void compareAgainstCcBlacklist() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().compareAgainstCcBlacklist(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "compareAgainstCcBlacklist - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getCcVelocityInfo() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getCcVelocityInfo(getClientNo(), getAuthKey()        , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getCcVelocityInfo - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
     public void getPaymentApplicationDtls() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getPaymentApplicationDtls(getClientNo(), getAuthKey()        , 1L
@@ -5002,9 +6983,677 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateAcctInvoice - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createOrderM() throws Exception {
+        com.aria.common.shared.OrderLineItemsArray orderLineItemsArray = new com.aria.common.shared.OrderLineItemsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createOrderM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , 1L
+                , orderLineItemsArray
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createOrderM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getInvoiceDetailsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getInvoiceDetailsM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getInvoiceDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getInvNoFromBalXferM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getInvNoFromBalXferM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getInvNoFromBalXferM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getRefundablePaymentsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getRefundablePaymentsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getRefundablePaymentsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void applyServiceCreditM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().applyServiceCreditM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1d
+                , 1L
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "applyServiceCreditM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void cancelRecurringCreditsM() throws Exception {
+        com.aria.common.shared.RecurringCreditNoArray recurringCreditNoArray = new com.aria.common.shared.RecurringCreditNoArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().cancelRecurringCreditsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , recurringCreditNoArray
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "cancelRecurringCreditsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getInvoicesToWriteoffOrDisputeM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getInvoicesToWriteoffOrDisputeM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getInvoicesToWriteoffOrDisputeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getOrderM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getOrderM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getOrderM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getWriteoffDetailsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getWriteoffDetailsM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getWriteoffDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getReversibleInvsByPaymentM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getReversibleInvsByPaymentM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getReversibleInvsByPaymentM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void issueRefundToAcctM() throws Exception {
+        com.aria.common.shared.InvoicesToReverseArray invoicesToReverseArray = new com.aria.common.shared.InvoicesToReverseArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().issueRefundToAcctM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , 1L
+                , 1d
+                , ""
+                , ""
+                , ""
+                , ""
+                , invoicesToReverseArray
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "issueRefundToAcctM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void voidInvoiceM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().voidInvoiceM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "voidInvoiceM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createWriteoffOrDisputeM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().createWriteoffOrDisputeM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createWriteoffOrDisputeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void settleAccountBalanceM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().settleAccountBalanceM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "settleAccountBalanceM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void collectFromAccountM() throws Exception {
+        com.aria.common.shared.SpecificChargeTransactionIdArray specificChargeTransactionIdArray = new com.aria.common.shared.SpecificChargeTransactionIdArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().collectFromAccountM(getClientNo(), getAuthKey()        , 1L
+                , 1d
+                , 1L
+                , ""
+                , ""
+                , specificChargeTransactionIdArray
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "collectFromAccountM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAcctPaymentHistoryM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctPaymentHistoryM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctPaymentHistoryM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getPaymentsOnInvoiceM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getPaymentsOnInvoiceM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getPaymentsOnInvoiceM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getUnappliedCreditsPaymentsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getUnappliedCreditsPaymentsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getUnappliedCreditsPaymentsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void recordUsageM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().recordUsageM(getClientNo(), getAuthKey()        , 1d
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , 1d
+                , 1d
+                , 1d
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "recordUsageM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void bulkRecordUsageM() throws Exception {
+        com.aria.common.shared.UsageRecsArray usageRecsArray = new com.aria.common.shared.UsageRecsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().bulkRecordUsageM(getClientNo(), getAuthKey()        , usageRecsArray
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "bulkRecordUsageM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void genInvoiceM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().genInvoiceM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "genInvoiceM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void managePendingInvoiceM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().managePendingInvoiceM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "managePendingInvoiceM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createOrderWithPlanM() throws Exception {
+        com.aria.common.shared.OrderLineItemsArray orderLineItemsArray = new com.aria.common.shared.OrderLineItemsArray();
+        com.aria.common.shared.MultipleCouponsArray multipleCouponsArray = new com.aria.common.shared.MultipleCouponsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createOrderWithPlanM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , orderLineItemsArray
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , multipleCouponsArray
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createOrderWithPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }

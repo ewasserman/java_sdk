@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_acct_contracts_ReturnElement", propOrder = {"contractNo", "contractScope", "typeNo", "lengthMonths", "cancelFee", "createComments", "updateComments", "createDate", "updateDate", "startDate", "endDate", "statusCode", "planNo", "clientPlanId"})
+@XmlType(name = "all_acct_contracts_ReturnElement", propOrder = {"contractNo", "contractScope", "typeNo", "lengthMonths", "cancelFee", "createComments", "updateComments", "createDate", "updateDate", "startDate", "endDate", "statusCode", "planNo", "clientPlanId", "planStatusCd", "planStatusLabel"})
 public class AllAcctContractsReturnElement {
 
     @XmlElement(name = "contract_no")
@@ -41,6 +41,10 @@ public class AllAcctContractsReturnElement {
     protected Long planNo;
     @XmlElement(name = "client_plan_id")
     protected String clientPlanId;
+    @XmlElement(name = "plan_status_cd")
+    protected Long planStatusCd;
+    @XmlElement(name = "plan_status_label")
+    protected String planStatusLabel;
     
     public Long getContractNo() {
         return contractNo;
@@ -152,6 +156,22 @@ public class AllAcctContractsReturnElement {
 
     public void setClientPlanId(String value) {
         this.clientPlanId = value;
+    }
+
+    public Long getPlanStatusCd() {
+        return planStatusCd;
+    }
+
+    public void setPlanStatusCd(Long value) {
+        this.planStatusCd = value;
+    }
+
+    public String getPlanStatusLabel() {
+        return planStatusLabel;
+    }
+
+    public void setPlanStatusLabel(String value) {
+        this.planStatusLabel = value;
     }
 
     

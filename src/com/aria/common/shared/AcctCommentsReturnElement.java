@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_comments_ReturnElement", propOrder = {"commentAuthor", "commentDateTime", "comment"})
+@XmlType(name = "acct_comments_ReturnElement", propOrder = {"commentAuthor", "commentDateTime", "comment", "applicationId", "applicationDate"})
 public class AcctCommentsReturnElement {
 
     @XmlElement(name = "comment_author")
@@ -19,6 +19,10 @@ public class AcctCommentsReturnElement {
     protected String commentDateTime;
     @XmlElement(name = "comment")
     protected String comment;
+    @XmlElement(name = "application_id")
+    protected String applicationId;
+    @XmlElement(name = "application_date")
+    protected String applicationDate;
     
     public String getCommentAuthor() {
         return commentAuthor;
@@ -42,6 +46,22 @@ public class AcctCommentsReturnElement {
 
     public void setComment(String value) {
         this.comment = value;
+    }
+
+    public String getApplicationId() {
+        return applicationId;
+    }
+
+    public void setApplicationId(String value) {
+        this.applicationId = value;
+    }
+
+    public String getApplicationDate() {
+        return applicationDate;
+    }
+
+    public void setApplicationDate(String value) {
+        this.applicationDate = value;
     }
 
     

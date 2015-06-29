@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "contractNo"})
+    "authKey",    "acctNo",    "contractNo",    "excludeTerminatedPlans"})
 @XmlRootElement(name = "get_acct_multiplan_contract")
 public class GetAcctMultiplanContract {
 
@@ -22,6 +22,8 @@ public class GetAcctMultiplanContract {
     protected Long acctNo;
         @XmlElement(name = "contract_no")
     protected Long contractNo;
+        @XmlElement(name = "exclude_terminated_plans")
+    protected String excludeTerminatedPlans;
     
     public long getClientNo() {
         return clientNo;
@@ -52,6 +54,13 @@ public class GetAcctMultiplanContract {
 
     public void setContractNo(Long value) {
         this.contractNo = value;
+    }
+            public String getExcludeTerminatedPlans() {
+        return excludeTerminatedPlans;
+    }
+
+    public void setExcludeTerminatedPlans(String value) {
+        this.excludeTerminatedPlans = value;
     }
             
 }

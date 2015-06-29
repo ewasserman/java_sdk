@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "invoices_to_reverse_row", propOrder = {
     "invoiceNo",
     "invoiceLineNo",
+    "invoiceTransactionId",
     "invoiceLineReversingAmount",
     "invoiceLineReversingDate"
     })
@@ -19,6 +20,8 @@ public class InvoicesToReverseRow {
     protected Long invoiceNo;
     @XmlElement(name = "invoice_line_no")
     protected Long invoiceLineNo;
+    @XmlElement(name = "invoice_transaction_id")
+    protected Long invoiceTransactionId;
     @XmlElement(name = "invoice_line_reversing_amount")
     protected Double invoiceLineReversingAmount;
     @XmlElement(name = "invoice_line_reversing_date")
@@ -37,6 +40,14 @@ public class InvoicesToReverseRow {
 
     public void setInvoiceLineNo(Long value) {
         this.invoiceLineNo = value;
+    }
+
+    public Long getInvoiceTransactionId() {
+        return invoiceTransactionId;
+    }
+
+    public void setInvoiceTransactionId(Long value) {
+        this.invoiceTransactionId = value;
     }
 
     public Double getInvoiceLineReversingAmount() {
