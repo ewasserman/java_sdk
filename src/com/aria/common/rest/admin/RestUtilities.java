@@ -181,6 +181,80 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<ClientReturnElement> buildClientReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientReturnElement> returnElement = new ArrayList<ClientReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ClientReturnElement entity = new ClientReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setClientName(getStringValue(jsonObject,"client_name"));
+            entity.setDomain(getStringValue(jsonObject,"domain"));
+            entity.setAddress1(getStringValue(jsonObject,"address1"));
+            entity.setAddress2(getStringValue(jsonObject,"address2"));
+            entity.setCity(getStringValue(jsonObject,"city"));
+            entity.setLocality(getStringValue(jsonObject,"locality"));
+            entity.setStateProv(getStringValue(jsonObject,"state_prov"));
+            entity.setCountry(getStringValue(jsonObject,"country"));
+            entity.setPostalCode(getStringValue(jsonObject,"postal_code"));
+            entity.setPhone(getStringValue(jsonObject,"phone"));
+            entity.setContact(getStringValue(jsonObject,"contact"));
+            entity.setContactAddress1(getStringValue(jsonObject,"contact_address1"));
+            entity.setContactAddress2(getStringValue(jsonObject,"contact_address2"));
+            entity.setContactCity(getStringValue(jsonObject,"contact_city"));
+            entity.setContactState(getStringValue(jsonObject,"contact_state"));
+            entity.setContactZip(getStringValue(jsonObject,"contact_zip"));
+            entity.setContactPhone(getStringValue(jsonObject,"contact_phone"));
+            entity.setContactEmail(getStringValue(jsonObject,"contact_email"));
+            entity.setBillingContact(getStringValue(jsonObject,"billing_contact"));
+            entity.setBillingAddress1(getStringValue(jsonObject,"billing_address1"));
+            entity.setBillingAddress2(getStringValue(jsonObject,"billing_address2"));
+            entity.setBillingCity(getStringValue(jsonObject,"billing_city"));
+            entity.setBillingState(getStringValue(jsonObject,"billing_state"));
+            entity.setBillingZip(getStringValue(jsonObject,"billing_zip"));
+            entity.setBillingPhone(getStringValue(jsonObject,"billing_phone"));
+            entity.setBillingEmail(getStringValue(jsonObject,"billing_email"));
+            entity.setContactCountry(getStringValue(jsonObject,"contact_country"));
+            entity.setContactLocality(getStringValue(jsonObject,"contact_locality"));
+            entity.setBillingCountry(getStringValue(jsonObject,"billing_country"));
+            entity.setBillingLocality(getStringValue(jsonObject,"billing_locality"));
+            } else {
+            entity.setClientName(jsonArray.get(i).toString());
+            entity.setDomain(jsonArray.get(i).toString());
+            entity.setAddress1(jsonArray.get(i).toString());
+            entity.setAddress2(jsonArray.get(i).toString());
+            entity.setCity(jsonArray.get(i).toString());
+            entity.setLocality(jsonArray.get(i).toString());
+            entity.setStateProv(jsonArray.get(i).toString());
+            entity.setCountry(jsonArray.get(i).toString());
+            entity.setPostalCode(jsonArray.get(i).toString());
+            entity.setPhone(jsonArray.get(i).toString());
+            entity.setContact(jsonArray.get(i).toString());
+            entity.setContactAddress1(jsonArray.get(i).toString());
+            entity.setContactAddress2(jsonArray.get(i).toString());
+            entity.setContactCity(jsonArray.get(i).toString());
+            entity.setContactState(jsonArray.get(i).toString());
+            entity.setContactZip(jsonArray.get(i).toString());
+            entity.setContactPhone(jsonArray.get(i).toString());
+            entity.setContactEmail(jsonArray.get(i).toString());
+            entity.setBillingContact(jsonArray.get(i).toString());
+            entity.setBillingAddress1(jsonArray.get(i).toString());
+            entity.setBillingAddress2(jsonArray.get(i).toString());
+            entity.setBillingCity(jsonArray.get(i).toString());
+            entity.setBillingState(jsonArray.get(i).toString());
+            entity.setBillingZip(jsonArray.get(i).toString());
+            entity.setBillingPhone(jsonArray.get(i).toString());
+            entity.setBillingEmail(jsonArray.get(i).toString());
+            entity.setContactCountry(jsonArray.get(i).toString());
+            entity.setContactLocality(jsonArray.get(i).toString());
+            entity.setBillingCountry(jsonArray.get(i).toString());
+            entity.setBillingLocality(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<InventoryItemsReturnElement> buildInventoryItemsReturnElement(JSONArray jsonArray) {
         ArrayList<InventoryItemsReturnElement> returnElement = new ArrayList<InventoryItemsReturnElement>();
         if (jsonArray == null) return returnElement;

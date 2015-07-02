@@ -99,7 +99,7 @@ public interface AriaBillingAdministration {
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   client - Type: javax.xml.ws.Holder<br>
+    *   client - Type: ArrayList&#60;ClientReturnElement&#62;<br>
     */
     abstract Map<String,Object> getCompanyProfile(Long client_no, String auth_key);
 
@@ -141,7 +141,7 @@ public interface AriaBillingAdministration {
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   client - Type: javax.xml.ws.Holder<br>
+    *   client - Type: ArrayList&#60;ClientReturnElement&#62;<br>
     */
     abstract Map<String,Object> setCompanyProfile(Long client_no, String auth_key, String domain, String address1, String address2, String city, String locality, String state_prov, String country, String postal_code, String phone, String contact, String contact_address1, String contact_address2, String contact_city, String contact_state, String contact_zip, String contact_phone, String contact_email, String billing_contact, String billing_address1, String billing_address2, String billing_city, String billing_state, String billing_zip, String billing_phone, String billing_email, String contact_country, String contact_locality, String billing_country, String billing_locality);
 
