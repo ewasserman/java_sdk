@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcess",    "masterPlansSummary",    "clientReceiptId"})
+    "authKey",    "acctNo",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcessNo",    "clientDunningProcessId",    "masterPlansSummary",    "clientReceiptId"})
 @XmlRootElement(name = "create_acct_dunning_group_m")
 public class CreateAcctDunningGroupM {
 
@@ -26,8 +26,10 @@ public class CreateAcctDunningGroupM {
     protected String dunningGroupDescription;
         @XmlElement(name = "client_dunning_group_id")
     protected String clientDunningGroupId;
-        @XmlElement(name = "dunning_process")
-    protected String dunningProcess;
+        @XmlElement(name = "dunning_process_no")
+    protected Long dunningProcessNo;
+        @XmlElement(name = "client_dunning_process_id")
+    protected String clientDunningProcessId;
         @XmlElement(name = "master_plans_summary")
     protected MasterPlansSummaryArray masterPlansSummary;
         @XmlElement(name = "client_receipt_id")
@@ -77,12 +79,19 @@ public class CreateAcctDunningGroupM {
     public void setClientDunningGroupId(String value) {
         this.clientDunningGroupId = value;
     }
-            public String getDunningProcess() {
-        return dunningProcess;
+            public Long getDunningProcessNo() {
+        return dunningProcessNo;
     }
 
-    public void setDunningProcess(String value) {
-        this.dunningProcess = value;
+    public void setDunningProcessNo(Long value) {
+        this.dunningProcessNo = value;
+    }
+            public String getClientDunningProcessId() {
+        return clientDunningProcessId;
+    }
+
+    public void setClientDunningProcessId(String value) {
+        this.clientDunningProcessId = value;
     }
             public MasterPlansSummaryArray getMasterPlansSummary() {
         return masterPlansSummary;

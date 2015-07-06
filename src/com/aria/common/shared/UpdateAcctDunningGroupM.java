@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "dunningGroupNo",    "clientDunningGroupId",    "newClientDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "dunningProcess",    "dunningGroupDirective",    "masterPlansSummary"})
+    "authKey",    "acctNo",    "dunningGroupNo",    "clientDunningGroupId",    "newClientDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "dunningProcessNo",    "clientDunningProcessId",    "dunningGroupDirective",    "masterPlansSummary"})
 @XmlRootElement(name = "update_acct_dunning_group_m")
 public class UpdateAcctDunningGroupM {
 
@@ -30,8 +30,10 @@ public class UpdateAcctDunningGroupM {
     protected String dunningGroupName;
         @XmlElement(name = "dunning_group_description")
     protected String dunningGroupDescription;
-        @XmlElement(name = "dunning_process")
-    protected String dunningProcess;
+        @XmlElement(name = "dunning_process_no")
+    protected Long dunningProcessNo;
+        @XmlElement(name = "client_dunning_process_id")
+    protected String clientDunningProcessId;
         @XmlElement(name = "dunning_group_directive")
     protected Long dunningGroupDirective;
         @XmlElement(name = "master_plans_summary")
@@ -95,12 +97,19 @@ public class UpdateAcctDunningGroupM {
     public void setDunningGroupDescription(String value) {
         this.dunningGroupDescription = value;
     }
-            public String getDunningProcess() {
-        return dunningProcess;
+            public Long getDunningProcessNo() {
+        return dunningProcessNo;
     }
 
-    public void setDunningProcess(String value) {
-        this.dunningProcess = value;
+    public void setDunningProcessNo(Long value) {
+        this.dunningProcessNo = value;
+    }
+            public String getClientDunningProcessId() {
+        return clientDunningProcessId;
+    }
+
+    public void setClientDunningProcessId(String value) {
+        this.clientDunningProcessId = value;
     }
             public Long getDunningGroupDirective() {
         return dunningGroupDirective;

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "surcharges_ReturnElement", propOrder = {"surchargeNo", "clientSurchargeId", "surchargeName", "surchargeTypeCd", "currencyCd", "scopeLabel", "deleteable"})
+@XmlType(name = "surcharges_ReturnElement", propOrder = {"surchargeNo", "clientSurchargeId", "surchargeName", "surchargeTypeCd", "currencyCd", "scopeLabel", "deleteable", "surchargeScope"})
 public class SurchargesReturnElement {
 
     @XmlElement(name = "surcharge_no")
@@ -27,6 +27,8 @@ public class SurchargesReturnElement {
     protected String scopeLabel;
     @XmlElement(name = "deleteable")
     protected String deleteable;
+    @XmlElement(name = "surcharge_scope")
+    protected Long surchargeScope;
     
     public Long getSurchargeNo() {
         return surchargeNo;
@@ -82,6 +84,14 @@ public class SurchargesReturnElement {
 
     public void setDeleteable(String value) {
         this.deleteable = value;
+    }
+
+    public Long getSurchargeScope() {
+        return surchargeScope;
+    }
+
+    public void setSurchargeScope(Long value) {
+        this.surchargeScope = value;
     }
 
     

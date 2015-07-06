@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "payment_history_ReturnElement", propOrder = {"transactionId", "paymentSource", "paymentStatus", "paymentDate", "paymentTransType", "paymentCurrency", "paymentAmount", "paymentAmountLeftToApply", "voidingEventNo", "voidableFlag", "last4", "paymentMethodType", "paymentMethod", "paymentProcessorResultCode", "processorPaymentId", "paymentProcessorApprovalCode", "paymentTimestamp", "paymentApplicationDetails"})
+@XmlType(name = "payment_history_ReturnElement", propOrder = {"transactionId", "paymentSource", "paymentStatus", "paymentDate", "paymentTransType", "paymentCurrency", "paymentAmount", "paymentAmountLeftToApply", "voidingEventNo", "voidableFlag", "last4", "paymentMethodType", "paymentMethod", "paymentProcessorResultCode", "processorPaymentId", "paymentProcessorApprovalCode", "paymentTimestamp", "processorStatusText", "paymentApplicationDetails"})
 public class PaymentHistoryReturnElement {
 
     @XmlElement(name = "transaction_id")
@@ -47,6 +47,8 @@ public class PaymentHistoryReturnElement {
     protected String paymentProcessorApprovalCode;
     @XmlElement(name = "payment_timestamp")
     protected String paymentTimestamp;
+    @XmlElement(name = "processor_status_text")
+    protected String processorStatusText;
     @XmlElement(name = "payment_application_details")
     protected List<PaymentApplicationDetailsReturnElement> paymentApplicationDetails;
     
@@ -184,6 +186,14 @@ public class PaymentHistoryReturnElement {
 
     public void setPaymentTimestamp(String value) {
         this.paymentTimestamp = value;
+    }
+
+    public String getProcessorStatusText() {
+        return processorStatusText;
+    }
+
+    public void setProcessorStatusText(String value) {
+        this.processorStatusText = value;
     }
 
     public List<PaymentApplicationDetailsReturnElement> getPaymentApplicationDetails() {

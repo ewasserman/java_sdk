@@ -3244,13 +3244,14 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<AcctSurchargesReturnElement> buildAcctSurchargesReturnElement(JSONArray jsonArray) {
-        ArrayList<AcctSurchargesReturnElement> returnElement = new ArrayList<AcctSurchargesReturnElement>();
+    public static ArrayList<AcctSurchargesInfoReturnElement> buildAcctSurchargesInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<AcctSurchargesInfoReturnElement> returnElement = new ArrayList<AcctSurchargesInfoReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            AcctSurchargesReturnElement entity = new AcctSurchargesReturnElement();
+            AcctSurchargesInfoReturnElement entity = new AcctSurchargesInfoReturnElement();
             JSONObject jsonObject = (JSONObject)jsonArray.get(i);
             entity.setSurchargeNo(getLongValue(jsonObject,"surcharge_no"));
+            entity.setRateScheduleNo(getLongValue(jsonObject,"rate_schedule_no"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -3450,9 +3451,9 @@ public class RestUtilities {
             for (SuppFieldReturnElement element : arrayListSuppFieldReturnElement){
                 entity.getSuppField().add(element);
             }
-                        ArrayList<AcctSurchargesReturnElement> arrayListAcctSurchargesReturnElement = buildAcctSurchargesReturnElement((JSONArray)jsonObject.get("acct_surcharges"));
-            for (AcctSurchargesReturnElement element : arrayListAcctSurchargesReturnElement){
-                entity.getAcctSurcharges().add(element);
+                        ArrayList<AcctSurchargesInfoReturnElement> arrayListAcctSurchargesInfoReturnElement = buildAcctSurchargesInfoReturnElement((JSONArray)jsonObject.get("acct_surcharges_info"));
+            for (AcctSurchargesInfoReturnElement element : arrayListAcctSurchargesInfoReturnElement){
+                entity.getAcctSurchargesInfo().add(element);
             }
             entity.setAcctCurrency(getStringValue(jsonObject,"acct_currency"));
             entity.setAcctBalance(getDoubleValue(jsonObject,"acct_balance"));
@@ -5034,6 +5035,7 @@ public class RestUtilities {
             entity.setProcessorPaymentId(getStringValue(jsonObject,"processor_payment_id"));
             entity.setPaymentProcessorApprovalCode(getStringValue(jsonObject,"payment_processor_approval_code"));
             entity.setPaymentTimestamp(getStringValue(jsonObject,"payment_timestamp"));
+            entity.setProcessorStatusText(getStringValue(jsonObject,"processor_status_text"));
                         ArrayList<PaymentApplicationDetailsReturnElement> arrayListPaymentApplicationDetailsReturnElement = buildPaymentApplicationDetailsReturnElement((JSONArray)jsonObject.get("payment_application_details"));
             for (PaymentApplicationDetailsReturnElement element : arrayListPaymentApplicationDetailsReturnElement){
                 entity.getPaymentApplicationDetails().add(element);
@@ -8068,8 +8070,6 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.AcctSurchargesRow row : arrayList.getAcctSurchargesRow()){
             parameters.add("surcharge_no["+i+"]", getValue("Long", row.getSurchargeNo()));
-            parameters.add("surcharge_directive["+i+"]", getValue("Long", row.getSurchargeDirective()));
-            parameters.add("rate_schedule_no["+i+"]", getValue("Long", row.getRateScheduleNo()));
             i++;
         }
     }
@@ -8078,8 +8078,6 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.AcctSurchargesRow row : arrayList.getAcctSurchargesRow()){
             parameters.add(paramPrefix + "surcharge_no["+i+"]", getValue("Long", row.getSurchargeNo()));
-            parameters.add(paramPrefix + "surcharge_directive["+i+"]", getValue("Long", row.getSurchargeDirective()));
-            parameters.add(paramPrefix + "rate_schedule_no["+i+"]", getValue("Long", row.getRateScheduleNo()));
             i++;
         }
     }
@@ -8581,6 +8579,27 @@ public class RestUtilities {
         }
     }
 
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AccountSurchargesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.AccountSurchargesRow row : arrayList.getAccountSurchargesRow()){
+            parameters.add("surcharge_no["+i+"]", getValue("Long", row.getSurchargeNo()));
+            parameters.add("surcharge_directive["+i+"]", getValue("Long", row.getSurchargeDirective()));
+            parameters.add("rate_schedule_no["+i+"]", getValue("Long", row.getRateScheduleNo()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AccountSurchargesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.AccountSurchargesRow row : arrayList.getAccountSurchargesRow()){
+            parameters.add(paramPrefix + "surcharge_no["+i+"]", getValue("Long", row.getSurchargeNo()));
+            parameters.add(paramPrefix + "surcharge_directive["+i+"]", getValue("Long", row.getSurchargeDirective()));
+            parameters.add(paramPrefix + "rate_schedule_no["+i+"]", getValue("Long", row.getRateScheduleNo()));
+            i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpCouponsArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -8613,6 +8632,27 @@ public class RestUtilities {
         for (com.aria.common.shared.MasterPlanProductFieldsRow row : arrayList.getMasterPlanProductFieldsRow()){
             parameters.add(paramPrefix + "master_plan_product_field_name["+i+"]", getValue("String", row.getMasterPlanProductFieldName()));
             parameters.add(paramPrefix + "master_plan_product_field_val["+i+"]", getValue("String", row.getMasterPlanProductFieldVal()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpSurchargesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.MpSurchargesRow row : arrayList.getMpSurchargesRow()){
+            parameters.add("mp_surcharge_no["+i+"]", getValue("Long", row.getMpSurchargeNo()));
+            parameters.add("mp_surcharge_directive["+i+"]", getValue("Long", row.getMpSurchargeDirective()));
+            parameters.add("mp_rate_schedule_no["+i+"]", getValue("Long", row.getMpRateScheduleNo()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpSurchargesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.MpSurchargesRow row : arrayList.getMpSurchargesRow()){
+            parameters.add(paramPrefix + "mp_surcharge_no["+i+"]", getValue("Long", row.getMpSurchargeNo()));
+            parameters.add(paramPrefix + "mp_surcharge_directive["+i+"]", getValue("Long", row.getMpSurchargeDirective()));
+            parameters.add(paramPrefix + "mp_rate_schedule_no["+i+"]", getValue("Long", row.getMpRateScheduleNo()));
             i++;
         }
     }

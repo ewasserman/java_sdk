@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "newPlanNo",    "newClientPlanId",    "newClientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "forceSuppBillDateReset",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "newPlanNo",    "newClientPlanId",    "newClientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "mpSurcharges",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "forceSuppBillDateReset",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
 @XmlRootElement(name = "replace_acct_plan_m")
 public class ReplaceAcctPlanM {
 
@@ -38,6 +38,8 @@ public class ReplaceAcctPlanM {
     protected CouponCodesArray couponCodes;
         @XmlElement(name = "promo_cd")
     protected String promoCd;
+        @XmlElement(name = "mp_surcharges")
+    protected MpSurchargesArray mpSurcharges;
         @XmlElement(name = "plan_status")
     protected Long planStatus;
         @XmlElement(name = "plan_instance_description")
@@ -166,6 +168,13 @@ public class ReplaceAcctPlanM {
 
     public void setPromoCd(String value) {
         this.promoCd = value;
+    }
+            public MpSurchargesArray getMpSurcharges() {
+        return mpSurcharges;
+    }
+
+    public void setMpSurcharges(MpSurchargesArray value) {
+        this.mpSurcharges = value;
     }
             public Long getPlanStatus() {
         return planStatus;

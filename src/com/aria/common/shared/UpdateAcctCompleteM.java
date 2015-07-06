@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "clientReceiptId",    "acctNo",    "clientAcctId",    "userid",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "firstName",    "mi",    "lastName",    "companyName",    "address1",    "address2",    "address3",    "city",    "locality",    "stateProv",    "countryCd",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "fax",    "email",    "birthdate",    "statusCd",    "notifyMethod",    "seniorAcctNo",    "seniorAcctUserid",    "seniorClientAcctId",    "testAcctInd",    "taxpayerId",    "altClientAcctGroupId",    "acctCoupons",    "acctStartDate",    "altMsgTemplateNo",    "cnAltMsgTemplateNo",    "seqFuncGroupNo",    "clientSeqFuncGroupId",    "taxExemptionLevel",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "resetDatesAfterStatus",    "newClientAcctId",    "invoicingOption",    "altStartDate",    "altBillDay",    "retroactiveStartDate",    "functionalAcctGroups",    "collectionAcctGroups",    "acctSuppFields",    "acctSurcharges",    "clientMasterPlanInstanceId",    "masterPlanInstanceNo",    "newClientMasterPlanInstanceId",    "clientMasterPlanId",    "masterPlanNo",    "masterPlanInstanceDesc",    "dunningGroupNo",    "clientDunningGroupId",    "mpBillingGroupNo",    "clientMpBillingGroupId",    "masterPlanInstanceStatus",    "masterPlanUnits",    "respLevelCd",    "parentMasterPlanInstNo",    "altRateScheduleNo",    "clientAltRateScheduleId",    "promoCd",    "mpCoupons",    "masterPlanAssignDirective",    "offsetMonths",    "offsetInterval",    "invoiceUnbilledUsage",    "invoiceApprovalRequired",    "statusDegradeDate",    "masterPlanProductFields",    "updateAcctCustomRates",    "billingGroupsArray",    "paymentMethodsArray",    "revrecProfileNo",    "clientRevrecId"})
+    "authKey",    "clientReceiptId",    "acctNo",    "clientAcctId",    "userid",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "firstName",    "mi",    "lastName",    "companyName",    "address1",    "address2",    "address3",    "city",    "locality",    "stateProv",    "countryCd",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "fax",    "email",    "birthdate",    "statusCd",    "notifyMethod",    "seniorAcctNo",    "seniorAcctUserid",    "seniorClientAcctId",    "testAcctInd",    "taxpayerId",    "altClientAcctGroupId",    "acctCoupons",    "acctStartDate",    "altMsgTemplateNo",    "cnAltMsgTemplateNo",    "seqFuncGroupNo",    "clientSeqFuncGroupId",    "taxExemptionLevel",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "resetDatesAfterStatus",    "newClientAcctId",    "invoicingOption",    "altStartDate",    "altBillDay",    "retroactiveStartDate",    "functionalAcctGroups",    "collectionAcctGroups",    "acctSuppFields",    "accountSurcharges",    "clientMasterPlanInstanceId",    "masterPlanInstanceNo",    "newClientMasterPlanInstanceId",    "clientMasterPlanId",    "masterPlanNo",    "masterPlanInstanceDesc",    "dunningGroupNo",    "clientDunningGroupId",    "mpBillingGroupNo",    "clientMpBillingGroupId",    "masterPlanInstanceStatus",    "masterPlanUnits",    "respLevelCd",    "parentMasterPlanInstNo",    "altRateScheduleNo",    "clientAltRateScheduleId",    "promoCd",    "mpCoupons",    "masterPlanAssignDirective",    "offsetMonths",    "offsetInterval",    "invoiceUnbilledUsage",    "invoiceApprovalRequired",    "statusDegradeDate",    "masterPlanProductFields",    "mpSurcharges",    "updateAcctCustomRates",    "billingGroupsArray",    "paymentMethodsArray",    "revrecProfileNo",    "clientRevrecId"})
 @XmlRootElement(name = "update_acct_complete_m")
 public class UpdateAcctCompleteM {
 
@@ -126,8 +126,8 @@ public class UpdateAcctCompleteM {
     protected CollectionAcctGroupsArray collectionAcctGroups;
         @XmlElement(name = "acct_supp_fields")
     protected AcctSuppFieldsArray acctSuppFields;
-        @XmlElement(name = "acct_surcharges")
-    protected AcctSurchargesArray acctSurcharges;
+        @XmlElement(name = "account_surcharges")
+    protected AccountSurchargesArray accountSurcharges;
         @XmlElement(name = "client_master_plan_instance_id")
     protected String clientMasterPlanInstanceId;
         @XmlElement(name = "master_plan_instance_no")
@@ -178,6 +178,8 @@ public class UpdateAcctCompleteM {
     protected String statusDegradeDate;
         @XmlElement(name = "master_plan_product_fields")
     protected MasterPlanProductFieldsArray masterPlanProductFields;
+        @XmlElement(name = "mp_surcharges")
+    protected MpSurchargesArray mpSurcharges;
         @XmlElement(name = "update_acct_custom_rates")
     protected UpdateAcctCustomRatesArray updateAcctCustomRates;
         @XmlElement(name = "billing_groups_array")
@@ -583,12 +585,12 @@ public class UpdateAcctCompleteM {
     public void setAcctSuppFields(AcctSuppFieldsArray value) {
         this.acctSuppFields = value;
     }
-            public AcctSurchargesArray getAcctSurcharges() {
-        return acctSurcharges;
+            public AccountSurchargesArray getAccountSurcharges() {
+        return accountSurcharges;
     }
 
-    public void setAcctSurcharges(AcctSurchargesArray value) {
-        this.acctSurcharges = value;
+    public void setAccountSurcharges(AccountSurchargesArray value) {
+        this.accountSurcharges = value;
     }
             public String getClientMasterPlanInstanceId() {
         return clientMasterPlanInstanceId;
@@ -764,6 +766,13 @@ public class UpdateAcctCompleteM {
 
     public void setMasterPlanProductFields(MasterPlanProductFieldsArray value) {
         this.masterPlanProductFields = value;
+    }
+            public MpSurchargesArray getMpSurcharges() {
+        return mpSurcharges;
+    }
+
+    public void setMpSurcharges(MpSurchargesArray value) {
+        this.mpSurcharges = value;
     }
             public UpdateAcctCustomRatesArray getUpdateAcctCustomRates() {
         return updateAcctCustomRates;

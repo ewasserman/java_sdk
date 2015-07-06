@@ -82,9 +82,9 @@ public class AccountDetailsReturnElement {
     @XmlElement(name = "promo_name")
     protected String promoName;
     @XmlElement(name = "no_provision_ind")
-    protected String noProvisionInd;
+    protected Long noProvisionInd;
     @XmlElement(name = "bill_action_cd")
-    protected String billActionCd;
+    protected Long billActionCd;
     @XmlElement(name = "status_name")
     protected String statusName;
     @XmlElement(name = "acct_balance")
@@ -369,19 +369,19 @@ public class AccountDetailsReturnElement {
         this.promoName = value;
     }
 
-    public String getNoProvisionInd() {
+    public Long getNoProvisionInd() {
         return noProvisionInd;
     }
 
-    public void setNoProvisionInd(String value) {
+    public void setNoProvisionInd(Long value) {
         this.noProvisionInd = value;
     }
 
-    public String getBillActionCd() {
+    public Long getBillActionCd() {
         return billActionCd;
     }
 
-    public void setBillActionCd(String value) {
+    public void setBillActionCd(Long value) {
         this.billActionCd = value;
     }
 

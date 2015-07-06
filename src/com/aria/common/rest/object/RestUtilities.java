@@ -226,8 +226,8 @@ public class RestUtilities {
             entity.setStateProv(getStringValue(jsonObject,"state_prov"));
             entity.setCountryEnglish(getStringValue(jsonObject,"country_english"));
             entity.setPromoName(getStringValue(jsonObject,"promo_name"));
-            entity.setNoProvisionInd(getStringValue(jsonObject,"no_provision_ind"));
-            entity.setBillActionCd(getStringValue(jsonObject,"bill_action_cd"));
+            entity.setNoProvisionInd(getLongValue(jsonObject,"no_provision_ind"));
+            entity.setBillActionCd(getLongValue(jsonObject,"bill_action_cd"));
             entity.setStatusName(getStringValue(jsonObject,"status_name"));
             entity.setAcctBalance(getDoubleValue(jsonObject,"acct_balance"));
                         ArrayList<SuppFieldReturnElement> arrayListSuppFieldReturnElement = buildSuppFieldReturnElement((JSONArray)jsonObject.get("supp_field"));
@@ -474,6 +474,7 @@ public class RestUtilities {
             entity.setVoidDate(getStringValue(jsonObject,"void_date"));
             entity.setFullyAppliedDate(getStringValue(jsonObject,"fully_applied_date"));
             entity.setMasterPlanInstanceNo(getLongValue(jsonObject,"master_plan_instance_no"));
+            entity.setRelatedAmount(getDoubleValue(jsonObject,"related_amount"));
             returnElement.add(entity);
         }
         return returnElement;

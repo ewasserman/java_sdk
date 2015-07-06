@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "related_transaction_ReturnElement", propOrder = {"ariaEventNo", "transactionDate", "transactionType", "transactionTypeNo", "isChargeType", "typeSpecificId", "acctNo", "amount", "currencyCd", "ariaStatementNo", "totalAmountApplied", "relatedAmountApplied", "updateDate", "voidDate", "fullyAppliedDate", "masterPlanInstanceNo"})
+@XmlType(name = "related_transaction_ReturnElement", propOrder = {"ariaEventNo", "transactionDate", "transactionType", "transactionTypeNo", "isChargeType", "typeSpecificId", "acctNo", "amount", "currencyCd", "ariaStatementNo", "totalAmountApplied", "relatedAmountApplied", "updateDate", "voidDate", "fullyAppliedDate", "masterPlanInstanceNo", "relatedAmount"})
 public class RelatedTransactionReturnElement {
 
     @XmlElement(name = "aria_event_no")
@@ -45,6 +45,8 @@ public class RelatedTransactionReturnElement {
     protected String fullyAppliedDate;
     @XmlElement(name = "master_plan_instance_no")
     protected Long masterPlanInstanceNo;
+    @XmlElement(name = "related_amount")
+    protected Double relatedAmount;
     
     public Long getAriaEventNo() {
         return ariaEventNo;
@@ -172,6 +174,14 @@ public class RelatedTransactionReturnElement {
 
     public void setMasterPlanInstanceNo(Long value) {
         this.masterPlanInstanceNo = value;
+    }
+
+    public Double getRelatedAmount() {
+        return relatedAmount;
+    }
+
+    public void setRelatedAmount(Double value) {
+        this.relatedAmount = value;
     }
 
     

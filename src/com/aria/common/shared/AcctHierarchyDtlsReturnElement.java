@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_hierarchy_dtls_ReturnElement", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurcharges", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "childAcctNo"})
+@XmlType(name = "acct_hierarchy_dtls_ReturnElement", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurchargesInfo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "childAcctNo"})
 public class AcctHierarchyDtlsReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -91,8 +91,8 @@ public class AcctHierarchyDtlsReturnElement {
     protected List<CollectionAcctGroupReturnElement> collectionAcctGroup;
     @XmlElement(name = "supp_field")
     protected List<SuppFieldReturnElement> suppField;
-    @XmlElement(name = "acct_surcharges")
-    protected List<AcctSurchargesReturnElement> acctSurcharges;
+    @XmlElement(name = "acct_surcharges_info")
+    protected List<AcctSurchargesInfoReturnElement> acctSurchargesInfo;
     @XmlElement(name = "acct_currency")
     protected String acctCurrency;
     @XmlElement(name = "acct_balance")
@@ -417,11 +417,11 @@ public class AcctHierarchyDtlsReturnElement {
             this.suppField = new ArrayList<SuppFieldReturnElement>();
         }
         return this.suppField;
-    }public List<AcctSurchargesReturnElement> getAcctSurcharges() {
-        if (this.acctSurcharges == null) {
-            this.acctSurcharges = new ArrayList<AcctSurchargesReturnElement>();
+    }public List<AcctSurchargesInfoReturnElement> getAcctSurchargesInfo() {
+        if (this.acctSurchargesInfo == null) {
+            this.acctSurchargesInfo = new ArrayList<AcctSurchargesInfoReturnElement>();
         }
-        return this.acctSurcharges;
+        return this.acctSurchargesInfo;
     }public String getAcctCurrency() {
         return acctCurrency;
     }

@@ -152,6 +152,11 @@ public class AriaServiceClientTest {
         //createRevrecProfile();
         //updateRevrecProfile();
         //deleteRevrecProfile();
+        //createProductFieldCategory();
+        //editProductFieldCategory();
+        //deleteProductFieldCategory();
+        //getProductFieldCategories();
+        //getProductFieldCategoryDetails();
         //createCouponGroup();
         //updateCouponGroup();
         //getCouponGroups();
@@ -532,7 +537,7 @@ public class AriaServiceClientTest {
                 , 1L
                 , 1L
                 , 1L
-                , ""
+                , 1L
                 , ""
                 , supplementalObjFieldArray
                 , ""
@@ -561,7 +566,7 @@ public class AriaServiceClientTest {
                 , 1L
                 , 1L
                 , 1L
-                , ""
+                , 1L
                 , ""
                 , supplementalObjFieldArray
                 , ""
@@ -693,12 +698,12 @@ public class AriaServiceClientTest {
         com.aria.common.shared.admin.ExistingDiscountBundleIdArray existingDiscountBundleIdArray = new com.aria.common.shared.admin.ExistingDiscountBundleIdArray();
         
         hashMapReturnValues = getBaseAriaBilling().createCoupon(getClientNo(), getAuthKey()        , ""
-                , 1L
-                , ""
-                , ""
                 , ""
                 , ""
                 , 1L
+                , 1L
+                , ""
+                , ""
                 , templateArray
                 , existingTemplateArray
                 , existingTemplateIdArray
@@ -732,12 +737,12 @@ public class AriaServiceClientTest {
         com.aria.common.shared.admin.ExistingDiscountBundleIdArray existingDiscountBundleIdArray = new com.aria.common.shared.admin.ExistingDiscountBundleIdArray();
         
         hashMapReturnValues = getBaseAriaBilling().updateCoupon(getClientNo(), getAuthKey()        , ""
-                , 1L
-                , ""
-                , ""
                 , ""
                 , ""
                 , 1L
+                , 1L
+                , ""
+                , ""
                 , templateArray
                 , existingTemplateArray
                 , existingTemplateIdArray
@@ -811,18 +816,18 @@ public class AriaServiceClientTest {
                 , 1L
                 , 1d
                 , 1L
-                , 1L
-                , ""
-                , 1L
                 , ""
                 , 1L
                 , ""
                 , eligibleServiceTypesArray
                 , 1L
-                , ""
+                , 1L
                 , 1L
                 , ""
                 , 1L
+                , ""
+                , 1L
+                , ""
                 , ""
                 , ""
                 , couponArray
@@ -845,11 +850,7 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().updateCreditTemplate(getClientNo(), getAuthKey()        , ""
                 , ""
-                , 1L
                 , 1d
-                , 1L
-                , 1L
-                , ""
                 , ""
                 , 1L
                 , ""
@@ -857,10 +858,14 @@ public class AriaServiceClientTest {
                 , ""
                 , eligibleServiceTypesArray
                 , 1L
-                , ""
+                , 1L
+                , 1L
                 , 1L
                 , ""
                 , 1L
+                , ""
+                , 1L
+                , ""
                 , ""
                 , couponArray
                 , existingCouponArray
@@ -1831,6 +1836,7 @@ public class AriaServiceClientTest {
                 , itemNoArray
                 , clientItemIdArray
                 , scheduleArray
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "createSurcharge - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1868,6 +1874,7 @@ public class AriaServiceClientTest {
                 , itemNoArray
                 , clientItemIdArray
                 , scheduleArray
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "editSurcharge - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -2031,6 +2038,87 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "deleteRevrecProfile - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createProductFieldCategory() throws Exception {
+        com.aria.common.shared.admin.AssignCategoryPlansArray assignCategoryPlansArray = new com.aria.common.shared.admin.AssignCategoryPlansArray();
+        com.aria.common.shared.admin.AssignCategoryFieldsArray assignCategoryFieldsArray = new com.aria.common.shared.admin.AssignCategoryFieldsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createProductFieldCategory(getClientNo(), getAuthKey()        , ""
+                , assignCategoryPlansArray
+                , assignCategoryFieldsArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createProductFieldCategory - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void editProductFieldCategory() throws Exception {
+        com.aria.common.shared.admin.AssignCategoryPlansArray assignCategoryPlansArray = new com.aria.common.shared.admin.AssignCategoryPlansArray();
+        com.aria.common.shared.admin.AssignCategoryFieldsArray assignCategoryFieldsArray = new com.aria.common.shared.admin.AssignCategoryFieldsArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().editProductFieldCategory(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , assignCategoryPlansArray
+                , assignCategoryFieldsArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "editProductFieldCategory - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void deleteProductFieldCategory() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().deleteProductFieldCategory(getClientNo(), getAuthKey()        , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "deleteProductFieldCategory - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getProductFieldCategories() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getProductFieldCategories(getClientNo(), getAuthKey());
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getProductFieldCategories - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getProductFieldCategoryDetails() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getProductFieldCategoryDetails(getClientNo(), getAuthKey()        , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getProductFieldCategoryDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }

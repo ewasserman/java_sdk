@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "newPlanNo",    "newClientPlanId",    "clientPlanInstanceId",    "existingBillingGroupNo",    "existingClientBillingGroupId",    "billingGroupName",    "billingGroupDescription",    "clientDefBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "existingPrimaryPaymentMethodNo",    "existingClientPrimaryPaymentMethodId",    "existingBackupPaymentMethodNo",    "existingClientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "primaryPayMethodName",    "primaryPayMethodCdid",    "primaryPayMethodDescription",    "primaryPayMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "existingDunningGroupNo",    "existingClientDefDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcess",    "altStartDate",    "statusUntilAltStart",    "altBillDay",    "invoicingOption",    "retroactiveStartDate",    "balanceForward",    "respLevelCd",    "parentAcctMasterPlanInstId",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceSuppBillDateReset",    "clientAltRateScheduleId"})
+    "authKey",    "acctNo",    "newPlanNo",    "newClientPlanId",    "clientPlanInstanceId",    "existingBillingGroupNo",    "existingClientBillingGroupId",    "billingGroupName",    "billingGroupDescription",    "clientDefBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "existingPrimaryPaymentMethodNo",    "existingClientPrimaryPaymentMethodId",    "existingBackupPaymentMethodNo",    "existingClientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "primaryPayMethodName",    "primaryPayMethodCdid",    "primaryPayMethodDescription",    "primaryPayMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "existingDunningGroupNo",    "existingClientDefDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcessNo",    "clientDunningProcessId",    "altStartDate",    "statusUntilAltStart",    "altBillDay",    "invoicingOption",    "retroactiveStartDate",    "balanceForward",    "respLevelCd",    "parentAcctMasterPlanInstId",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceSuppBillDateReset",    "clientAltRateScheduleId"})
 @XmlRootElement(name = "assign_acct_plan_m")
 public class AssignAcctPlanM {
 
@@ -182,8 +182,10 @@ public class AssignAcctPlanM {
     protected String dunningGroupDescription;
         @XmlElement(name = "client_dunning_group_id")
     protected String clientDunningGroupId;
-        @XmlElement(name = "dunning_process")
-    protected String dunningProcess;
+        @XmlElement(name = "dunning_process_no")
+    protected Long dunningProcessNo;
+        @XmlElement(name = "client_dunning_process_id")
+    protected String clientDunningProcessId;
         @XmlElement(name = "alt_start_date")
     protected String altStartDate;
         @XmlElement(name = "status_until_alt_start")
@@ -835,12 +837,19 @@ public class AssignAcctPlanM {
     public void setClientDunningGroupId(String value) {
         this.clientDunningGroupId = value;
     }
-            public String getDunningProcess() {
-        return dunningProcess;
+            public Long getDunningProcessNo() {
+        return dunningProcessNo;
     }
 
-    public void setDunningProcess(String value) {
-        this.dunningProcess = value;
+    public void setDunningProcessNo(Long value) {
+        this.dunningProcessNo = value;
+    }
+            public String getClientDunningProcessId() {
+        return clientDunningProcessId;
+    }
+
+    public void setClientDunningProcessId(String value) {
+        this.clientDunningProcessId = value;
     }
             public String getAltStartDate() {
         return altStartDate;

@@ -1384,6 +1384,7 @@ public class RestUtilities {
             entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
             entity.setScopeLabel(getStringValue(jsonObject,"scope_label"));
             entity.setDeleteable(getStringValue(jsonObject,"deleteable"));
+            entity.setSurchargeScope(getLongValue(jsonObject,"surcharge_scope"));
             } else {
             try {
                 entity.setSurchargeNo(Long.parseLong(jsonArray.get(i).toString()));
@@ -1396,6 +1397,11 @@ public class RestUtilities {
             entity.setCurrencyCd(jsonArray.get(i).toString());
             entity.setScopeLabel(jsonArray.get(i).toString());
             entity.setDeleteable(jsonArray.get(i).toString());
+            try {
+                entity.setSurchargeScope(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setSurchargeScope(null);
+            }
             }
             returnElement.add(entity);
         }
@@ -1524,6 +1530,104 @@ public class RestUtilities {
                 entity.setFieldCategoryNo(null);
             }
             entity.setFieldCategoryName(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ObjectValuesReturnElement> buildObjectValuesReturnElement(JSONArray jsonArray) {
+        ArrayList<ObjectValuesReturnElement> returnElement = new ArrayList<ObjectValuesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ObjectValuesReturnElement entity = new ObjectValuesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setObjectType(getStringValue(jsonObject,"object_type"));
+            entity.setObjectId(getLongValue(jsonObject,"object_id"));
+            entity.setValueText(getStringValue(jsonObject,"value_text"));
+            entity.setPrimacy(getLongValue(jsonObject,"primacy"));
+            } else {
+            entity.setObjectType(jsonArray.get(i).toString());
+            try {
+                entity.setObjectId(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setObjectId(null);
+            }
+            entity.setValueText(jsonArray.get(i).toString());
+            try {
+                entity.setPrimacy(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPrimacy(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<FieldDetailsReturnElement> buildFieldDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<FieldDetailsReturnElement> returnElement = new ArrayList<FieldDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            FieldDetailsReturnElement entity = new FieldDetailsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setFieldNo(getLongValue(jsonObject,"field_no"));
+            entity.setFieldName(getStringValue(jsonObject,"field_name"));
+            entity.setDescription(getLongValue(jsonObject,"description"));
+            entity.setDatatype(getLongValue(jsonObject,"datatype"));
+            entity.setMinNoSel(getLongValue(jsonObject,"min_no_sel"));
+            entity.setMaxNoSel(getLongValue(jsonObject,"max_no_sel"));
+            entity.setFormInputType(getStringValue(jsonObject,"form_input_type"));
+                        ArrayList<AllowedValuesReturnElement> arrayListAllowedValuesReturnElement = buildAllowedValuesReturnElement((JSONArray)jsonObject.get("allowed_values"));
+            for (AllowedValuesReturnElement element : arrayListAllowedValuesReturnElement){
+                entity.getAllowedValues().add(element);
+            }
+            entity.setAssociatedTypes(getStringValue(jsonObject,"associated_types"));
+                        ArrayList<FieldCategoriesReturnElement> arrayListFieldCategoriesReturnElement = buildFieldCategoriesReturnElement((JSONArray)jsonObject.get("field_categories"));
+            for (FieldCategoriesReturnElement element : arrayListFieldCategoriesReturnElement){
+                entity.getFieldCategories().add(element);
+            }
+                        ArrayList<ObjectValuesReturnElement> arrayListObjectValuesReturnElement = buildObjectValuesReturnElement((JSONArray)jsonObject.get("object_values"));
+            for (ObjectValuesReturnElement element : arrayListObjectValuesReturnElement){
+                entity.getObjectValues().add(element);
+            }
+            entity.setAllowInstanceOverride(getLongValue(jsonObject,"allow_instance_override"));
+            } else {
+            try {
+                entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setFieldNo(null);
+            }
+            entity.setFieldName(jsonArray.get(i).toString());
+            try {
+                entity.setDescription(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDescription(null);
+            }
+            try {
+                entity.setDatatype(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDatatype(null);
+            }
+            try {
+                entity.setMinNoSel(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setMinNoSel(null);
+            }
+            try {
+                entity.setMaxNoSel(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setMaxNoSel(null);
+            }
+            entity.setFormInputType(jsonArray.get(i).toString());
+            entity.setAssociatedTypes(jsonArray.get(i).toString());
+            try {
+                entity.setAllowInstanceOverride(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setAllowInstanceOverride(null);
+            }
             }
             returnElement.add(entity);
         }
@@ -1662,6 +1766,64 @@ public class RestUtilities {
             entity.setClientProfileId(jsonArray.get(i).toString());
             entity.setProfileName(jsonArray.get(i).toString());
             entity.setProfileDesc(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ProductFieldCategoryReturnElement> buildProductFieldCategoryReturnElement(JSONArray jsonArray) {
+        ArrayList<ProductFieldCategoryReturnElement> returnElement = new ArrayList<ProductFieldCategoryReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ProductFieldCategoryReturnElement entity = new ProductFieldCategoryReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setFieldCategoryNo(getLongValue(jsonObject,"field_category_no"));
+            entity.setFieldCategoryName(getStringValue(jsonObject,"field_category_name"));
+            } else {
+            try {
+                entity.setFieldCategoryNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setFieldCategoryNo(null);
+            }
+            entity.setFieldCategoryName(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ProductFieldsReturnElement> buildProductFieldsReturnElement(JSONArray jsonArray) {
+        ArrayList<ProductFieldsReturnElement> returnElement = new ArrayList<ProductFieldsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ProductFieldsReturnElement entity = new ProductFieldsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setProductFieldNo(getLongValue(jsonObject,"product_field_no"));
+            entity.setProductFieldName(getStringValue(jsonObject,"product_field_name"));
+            entity.setProductFieldDesc(getLongValue(jsonObject,"product_field_desc"));
+            entity.setProductFieldValue(getStringValue(jsonObject,"product_field_value"));
+            entity.setAllowInstanceOverride(getLongValue(jsonObject,"allow_instance_override"));
+            } else {
+            try {
+                entity.setProductFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setProductFieldNo(null);
+            }
+            entity.setProductFieldName(jsonArray.get(i).toString());
+            try {
+                entity.setProductFieldDesc(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setProductFieldDesc(null);
+            }
+            entity.setProductFieldValue(jsonArray.get(i).toString());
+            try {
+                entity.setAllowInstanceOverride(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setAllowInstanceOverride(null);
+            }
             }
             returnElement.add(entity);
         }
@@ -2746,6 +2908,48 @@ public class RestUtilities {
             parameters.add(paramPrefix + "to["+i+"]", getValue("Long", row.getTo()));
             parameters.add(paramPrefix + "rate["+i+"]", getValue("Double", row.getRate()));
             parameters.add(paramPrefix + "description["+i+"]", getValue("String", row.getDescription()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.AssignCategoryPlansArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.AssignCategoryPlansRow row : arrayList.getAssignCategoryPlansRow()){
+            parameters.add("plan_no["+i+"]", getValue("Long", row.getPlanNo()));
+            parameters.add("client_plan_id["+i+"]", getValue("String", row.getClientPlanId()));
+            parameters.add("plan_directive["+i+"]", getValue("Long", row.getPlanDirective()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.AssignCategoryPlansArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.AssignCategoryPlansRow row : arrayList.getAssignCategoryPlansRow()){
+            parameters.add(paramPrefix + "plan_no["+i+"]", getValue("Long", row.getPlanNo()));
+            parameters.add(paramPrefix + "client_plan_id["+i+"]", getValue("String", row.getClientPlanId()));
+            parameters.add(paramPrefix + "plan_directive["+i+"]", getValue("Long", row.getPlanDirective()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.AssignCategoryFieldsArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.AssignCategoryFieldsRow row : arrayList.getAssignCategoryFieldsRow()){
+            parameters.add("field_no["+i+"]", getValue("Long", row.getFieldNo()));
+            parameters.add("field_name["+i+"]", getValue("String", row.getFieldName()));
+            parameters.add("field_directive["+i+"]", getValue("Long", row.getFieldDirective()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.AssignCategoryFieldsArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.AssignCategoryFieldsRow row : arrayList.getAssignCategoryFieldsRow()){
+            parameters.add(paramPrefix + "field_no["+i+"]", getValue("Long", row.getFieldNo()));
+            parameters.add(paramPrefix + "field_name["+i+"]", getValue("String", row.getFieldName()));
+            parameters.add(paramPrefix + "field_directive["+i+"]", getValue("Long", row.getFieldDirective()));
             i++;
         }
     }

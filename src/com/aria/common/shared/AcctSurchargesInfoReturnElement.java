@@ -10,11 +10,13 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_surcharges_ReturnElement", propOrder = {"surchargeNo"})
-public class AcctSurchargesReturnElement {
+@XmlType(name = "acct_surcharges_info_ReturnElement", propOrder = {"surchargeNo", "rateScheduleNo"})
+public class AcctSurchargesInfoReturnElement {
 
     @XmlElement(name = "surcharge_no")
     protected Long surchargeNo;
+    @XmlElement(name = "rate_schedule_no")
+    protected Long rateScheduleNo;
     
     public Long getSurchargeNo() {
         return surchargeNo;
@@ -22,6 +24,14 @@ public class AcctSurchargesReturnElement {
 
     public void setSurchargeNo(Long value) {
         this.surchargeNo = value;
+    }
+
+    public Long getRateScheduleNo() {
+        return rateScheduleNo;
+    }
+
+    public void setRateScheduleNo(Long value) {
+        this.rateScheduleNo = value;
     }
 
     

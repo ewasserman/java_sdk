@@ -4259,9 +4259,10 @@ public class AriaServiceClientTest {
         com.aria.common.shared.FunctionalAcctGroupsArray functionalAcctGroupsArray = new com.aria.common.shared.FunctionalAcctGroupsArray();
         com.aria.common.shared.CollectionAcctGroupsArray collectionAcctGroupsArray = new com.aria.common.shared.CollectionAcctGroupsArray();
         com.aria.common.shared.AcctSuppFieldsArray acctSuppFieldsArray = new com.aria.common.shared.AcctSuppFieldsArray();
-        com.aria.common.shared.AcctSurchargesArray acctSurchargesArray = new com.aria.common.shared.AcctSurchargesArray();
+        com.aria.common.shared.AccountSurchargesArray accountSurchargesArray = new com.aria.common.shared.AccountSurchargesArray();
         com.aria.common.shared.MpCouponsArray mpCouponsArray = new com.aria.common.shared.MpCouponsArray();
         com.aria.common.shared.MasterPlanProductFieldsArray masterPlanProductFieldsArray = new com.aria.common.shared.MasterPlanProductFieldsArray();
+        com.aria.common.shared.MpSurchargesArray mpSurchargesArray = new com.aria.common.shared.MpSurchargesArray();
         com.aria.common.shared.UpdateAcctCustomRatesArray updateAcctCustomRatesArray = new com.aria.common.shared.UpdateAcctCustomRatesArray();
         com.aria.common.shared.BillingGroupsArrayArray billingGroupsArrayArray = new com.aria.common.shared.BillingGroupsArrayArray();
         com.aria.common.shared.PaymentMethodsArrayArray paymentMethodsArrayArray = new com.aria.common.shared.PaymentMethodsArrayArray();
@@ -4320,7 +4321,7 @@ public class AriaServiceClientTest {
                 , functionalAcctGroupsArray
                 , collectionAcctGroupsArray
                 , acctSuppFieldsArray
-                , acctSurchargesArray
+                , accountSurchargesArray
                 , ""
                 , 1L
                 , ""
@@ -4346,6 +4347,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , masterPlanProductFieldsArray
+                , mpSurchargesArray
                 , updateAcctCustomRatesArray
                 , billingGroupsArrayArray
                 , paymentMethodsArrayArray
@@ -4624,6 +4626,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , 1L
                 , ""
                 , ""
                 , 1L
@@ -4697,6 +4700,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , 1L
                 , ""
                 , masterPlansSummaryArray
                 , ""
@@ -4844,6 +4848,7 @@ public class AriaServiceClientTest {
     //@Test
     public void replaceAcctPlanM() throws Exception {
         com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
+        com.aria.common.shared.MpSurchargesArray mpSurchargesArray = new com.aria.common.shared.MpSurchargesArray();
         com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
         com.aria.common.shared.CustomRatesArray customRatesArray = new com.aria.common.shared.CustomRatesArray();
         
@@ -4857,6 +4862,7 @@ public class AriaServiceClientTest {
                 , 1d
                 , couponCodesArray
                 , ""
+                , mpSurchargesArray
                 , 1L
                 , ""
                 , planInstanceFieldsArray
@@ -4989,6 +4995,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , 1L
                 , ""
                 , 1L
                 , masterPlansSummaryArray

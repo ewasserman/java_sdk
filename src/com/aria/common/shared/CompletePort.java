@@ -7622,8 +7622,8 @@ public interface CompletePort {
         javax.xml.ws.Holder<java.util.List<com.aria.common.shared.CollectionAcctGroupReturnElement>> collectionAcctGroup,
         @WebParam(mode = WebParam.Mode.OUT, name = "supp_field", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         javax.xml.ws.Holder<java.util.List<com.aria.common.shared.SuppFieldReturnElement>> suppField,
-        @WebParam(mode = WebParam.Mode.OUT, name = "acct_surcharges", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
-        javax.xml.ws.Holder<java.util.List<com.aria.common.shared.AcctSurchargesReturnElement>> acctSurcharges,
+        @WebParam(mode = WebParam.Mode.OUT, name = "acct_surcharges_info", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        javax.xml.ws.Holder<java.util.List<com.aria.common.shared.AcctSurchargesInfoReturnElement>> acctSurchargesInfo,
         @WebParam(mode = WebParam.Mode.OUT, name = "acct_currency", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         javax.xml.ws.Holder<String> acctCurrency,
         @WebParam(mode = WebParam.Mode.OUT, name = "acct_balance", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
@@ -7818,8 +7818,8 @@ public interface CompletePort {
         com.aria.common.shared.CollectionAcctGroupsArray collectionAcctGroups,
         @WebParam(name = "acct_supp_fields", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         com.aria.common.shared.AcctSuppFieldsArray acctSuppFields,
-        @WebParam(name = "acct_surcharges", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
-        com.aria.common.shared.AcctSurchargesArray acctSurcharges,
+        @WebParam(name = "account_surcharges", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        com.aria.common.shared.AccountSurchargesArray accountSurcharges,
         @WebParam(name = "client_master_plan_instance_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         String clientMasterPlanInstanceId
 ,
@@ -7893,6 +7893,8 @@ public interface CompletePort {
 ,
         @WebParam(name = "master_plan_product_fields", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         com.aria.common.shared.MasterPlanProductFieldsArray masterPlanProductFields,
+        @WebParam(name = "mp_surcharges", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        com.aria.common.shared.MpSurchargesArray mpSurcharges,
         @WebParam(name = "update_acct_custom_rates", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         com.aria.common.shared.UpdateAcctCustomRatesArray updateAcctCustomRates,
         @WebParam(name = "billing_groups_array", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
@@ -8671,8 +8673,11 @@ public interface CompletePort {
         @WebParam(name = "client_dunning_group_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         String clientDunningGroupId
 ,
-        @WebParam(name = "dunning_process", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
-        String dunningProcess
+        @WebParam(name = "dunning_process_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        Long dunningProcessNo
+,
+        @WebParam(name = "client_dunning_process_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        String clientDunningProcessId
 ,
         @WebParam(name = "alt_start_date", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         String altStartDate
@@ -8920,8 +8925,11 @@ public interface CompletePort {
         @WebParam(name = "client_dunning_group_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         String clientDunningGroupId
 ,
-        @WebParam(name = "dunning_process", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
-        String dunningProcess
+        @WebParam(name = "dunning_process_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        Long dunningProcessNo
+,
+        @WebParam(name = "client_dunning_process_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        String clientDunningProcessId
 ,
         @WebParam(name = "master_plans_summary", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         com.aria.common.shared.MasterPlansSummaryArray masterPlansSummary,
@@ -9370,6 +9378,8 @@ public interface CompletePort {
         @WebParam(name = "promo_cd", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         String promoCd
 ,
+        @WebParam(name = "mp_surcharges", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        com.aria.common.shared.MpSurchargesArray mpSurcharges,
         @WebParam(name = "plan_status", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         Long planStatus
 ,
@@ -9681,8 +9691,11 @@ public interface CompletePort {
         @WebParam(name = "dunning_group_description", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         String dunningGroupDescription
 ,
-        @WebParam(name = "dunning_process", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
-        String dunningProcess
+        @WebParam(name = "dunning_process_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        Long dunningProcessNo
+,
+        @WebParam(name = "client_dunning_process_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
+        String clientDunningProcessId
 ,
         @WebParam(name = "dunning_group_directive", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.36:aria_complete_api")
         Long dunningGroupDirective
