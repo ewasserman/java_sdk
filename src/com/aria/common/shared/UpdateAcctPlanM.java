@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
 @XmlRootElement(name = "update_acct_plan_m")
 public class UpdateAcctPlanM {
 
@@ -36,8 +36,8 @@ public class UpdateAcctPlanM {
     protected Long planStatus;
         @XmlElement(name = "plan_instance_description")
     protected String planInstanceDescription;
-        @XmlElement(name = "plan_instance_fields")
-    protected PlanInstanceFieldsArray planInstanceFields;
+        @XmlElement(name = "plan_instance_field_update")
+    protected PlanInstanceFieldUpdateArray planInstanceFieldUpdate;
         @XmlElement(name = "assignment_directive")
     protected Long assignmentDirective;
         @XmlElement(name = "comments")
@@ -66,6 +66,12 @@ public class UpdateAcctPlanM {
     protected Long respLevelCd;
         @XmlElement(name = "parent_acct_master_plan_inst_id")
     protected String parentAcctMasterPlanInstId;
+        @XmlElement(name = "usage_accumulation_reset_months")
+    protected Long usageAccumulationResetMonths;
+        @XmlElement(name = "usage_pooling")
+    protected String usagePooling;
+        @XmlElement(name = "usage_threshold_applicability")
+    protected String usageThresholdApplicability;
     
     public long getClientNo() {
         return clientNo;
@@ -146,12 +152,12 @@ public class UpdateAcctPlanM {
     public void setPlanInstanceDescription(String value) {
         this.planInstanceDescription = value;
     }
-            public PlanInstanceFieldsArray getPlanInstanceFields() {
-        return planInstanceFields;
+            public PlanInstanceFieldUpdateArray getPlanInstanceFieldUpdate() {
+        return planInstanceFieldUpdate;
     }
 
-    public void setPlanInstanceFields(PlanInstanceFieldsArray value) {
-        this.planInstanceFields = value;
+    public void setPlanInstanceFieldUpdate(PlanInstanceFieldUpdateArray value) {
+        this.planInstanceFieldUpdate = value;
     }
             public Long getAssignmentDirective() {
         return assignmentDirective;
@@ -250,6 +256,27 @@ public class UpdateAcctPlanM {
 
     public void setParentAcctMasterPlanInstId(String value) {
         this.parentAcctMasterPlanInstId = value;
+    }
+            public Long getUsageAccumulationResetMonths() {
+        return usageAccumulationResetMonths;
+    }
+
+    public void setUsageAccumulationResetMonths(Long value) {
+        this.usageAccumulationResetMonths = value;
+    }
+            public String getUsagePooling() {
+        return usagePooling;
+    }
+
+    public void setUsagePooling(String value) {
+        this.usagePooling = value;
+    }
+            public String getUsageThresholdApplicability() {
+        return usageThresholdApplicability;
+    }
+
+    public void setUsageThresholdApplicability(String value) {
+        this.usageThresholdApplicability = value;
     }
             
 }

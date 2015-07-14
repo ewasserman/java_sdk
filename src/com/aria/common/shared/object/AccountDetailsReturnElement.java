@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "account_details_ReturnElement", propOrder = {"acctNo", "seniorAcctNo", "userId", "password", "statusCd", "planNo", "firstName", "mi", "lastName", "address1", "address2", "city", "locality", "postalCode", "country", "phoneNpa", "phoneNxx", "phoneSuffix", "phoneExtension", "intlPhone", "altEmail", "clientAcctId", "promoCd", "respLevelCd", "payMethod", "created", "lastUpdated", "client1", "companyName", "currentBillingInfo", "planName", "stateProv", "countryEnglish", "promoName", "noProvisionInd", "billActionCd", "statusName", "acctBalance", "suppField", "billDay", "suppPlan", "invoicePostingMethodCd", "acctStartDate"})
+@XmlType(name = "account_details_ReturnElement", propOrder = {"acctNo", "seniorAcctNo", "userId", "password", "statusCd", "planNo", "firstName", "mi", "lastName", "address1", "address2", "city", "locality", "postalCode", "country", "phoneNpa", "phoneNxx", "phoneSuffix", "phoneExtension", "intlPhone", "altEmail", "clientAcctId", "promoCd", "respLevelCd", "payMethod", "created", "lastUpdated", "client1", "companyName", "currentBillingInfo", "planName", "stateProv", "countryEnglish", "promoName", "noProvisionInd", "billActionCd", "statusName", "acctBalance", "suppField", "billDay", "suppPlan", "invoicePostingMethodCd", "acctStartDate", "payMethodName"})
 public class AccountDetailsReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -99,6 +99,8 @@ public class AccountDetailsReturnElement {
     protected Long invoicePostingMethodCd;
     @XmlElement(name = "acct_start_date")
     protected String acctStartDate;
+    @XmlElement(name = "pay_method_name")
+    protected String payMethodName;
     
     public Long getAcctNo() {
         return acctNo;
@@ -433,6 +435,14 @@ public class AccountDetailsReturnElement {
 
     public void setAcctStartDate(String value) {
         this.acctStartDate = value;
+    }
+
+    public String getPayMethodName() {
+        return payMethodName;
+    }
+
+    public void setPayMethodName(String value) {
+        this.payMethodName = value;
     }
 
     

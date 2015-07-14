@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "out_acct_ReturnElement", propOrder = {"acctNo", "userid", "clientAcctId", "sessionId", "billingErrors", "masterPlansAssigned", "invoiceInfo", "outAcct"})
+@XmlType(name = "out_acct_ReturnElement", propOrder = {"acctNo", "userid", "clientAcctId", "contractDetails", "sessionId", "billingErrors", "masterPlansAssigned", "invoiceInfo", "outAcct"})
 public class OutAcctReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -19,6 +19,8 @@ public class OutAcctReturnElement {
     protected String userid;
     @XmlElement(name = "client_acct_id")
     protected String clientAcctId;
+    @XmlElement(name = "contract_details")
+    protected List<ContractDetailsReturnElement> contractDetails;
     @XmlElement(name = "session_id")
     protected String sessionId;
     @XmlElement(name = "billing_errors")
@@ -54,7 +56,12 @@ public class OutAcctReturnElement {
         this.clientAcctId = value;
     }
 
-    public String getSessionId() {
+    public List<ContractDetailsReturnElement> getContractDetails() {
+        if (this.contractDetails == null) {
+            this.contractDetails = new ArrayList<ContractDetailsReturnElement>();
+        }
+        return this.contractDetails;
+    }public String getSessionId() {
         return sessionId;
     }
 

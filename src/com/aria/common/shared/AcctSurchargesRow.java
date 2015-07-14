@@ -8,18 +8,29 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "acct_surcharges_row", propOrder = {
-    "surchargeNo"
+    "acctSurchargeNo",
+    "acctRateScheduleNo"
     })
 public class AcctSurchargesRow {
 
-    @XmlElement(name = "surcharge_no")
-    protected Long surchargeNo;
-    public Long getSurchargeNo() {
-        return surchargeNo;
+    @XmlElement(name = "acct_surcharge_no")
+    protected Long acctSurchargeNo;
+    @XmlElement(name = "acct_rate_schedule_no")
+    protected Long acctRateScheduleNo;
+    public Long getAcctSurchargeNo() {
+        return acctSurchargeNo;
     }
 
-    public void setSurchargeNo(Long value) {
-        this.surchargeNo = value;
+    public void setAcctSurchargeNo(Long value) {
+        this.acctSurchargeNo = value;
+    }
+
+    public Long getAcctRateScheduleNo() {
+        return acctRateScheduleNo;
+    }
+
+    public void setAcctRateScheduleNo(Long value) {
+        this.acctRateScheduleNo = value;
     }
 
     

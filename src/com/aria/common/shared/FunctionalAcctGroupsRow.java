@@ -8,40 +8,18 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "functional_acct_groups_row", propOrder = {
-    "functionalAcctGroupNo",
-    "clientFunctionalAcctGroupId",
-    "functionalAcctGrpDirective"
+    "functionalAcctGroups"
     })
 public class FunctionalAcctGroupsRow {
 
-    @XmlElement(name = "functional_acct_group_no")
-    protected Long functionalAcctGroupNo;
-    @XmlElement(name = "client_functional_acct_group_id")
-    protected String clientFunctionalAcctGroupId;
-    @XmlElement(name = "functional_acct_grp_directive")
-    protected Long functionalAcctGrpDirective;
-    public Long getFunctionalAcctGroupNo() {
-        return functionalAcctGroupNo;
+    @XmlElement(name = "functional_acct_groups")
+    protected Long functionalAcctGroups;
+    public Long getFunctionalAcctGroups() {
+        return functionalAcctGroups;
     }
 
-    public void setFunctionalAcctGroupNo(Long value) {
-        this.functionalAcctGroupNo = value;
-    }
-
-    public String getClientFunctionalAcctGroupId() {
-        return clientFunctionalAcctGroupId;
-    }
-
-    public void setClientFunctionalAcctGroupId(String value) {
-        this.clientFunctionalAcctGroupId = value;
-    }
-
-    public Long getFunctionalAcctGrpDirective() {
-        return functionalAcctGrpDirective;
-    }
-
-    public void setFunctionalAcctGrpDirective(Long value) {
-        this.functionalAcctGrpDirective = value;
+    public void setFunctionalAcctGroups(Long value) {
+        this.functionalAcctGroups = value;
     }
 
     

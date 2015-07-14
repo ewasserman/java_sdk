@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "paymentTransactionId",    "reasonCode",    "totalRefundAmount",    "refundCheckNumber",    "comments",    "doWrite",    "autoCalcRefund",    "invoicesToReverse",    "clientReceiptId",    "isUnlinkedRefund"})
+    "authKey",    "acctNo",    "clientAcctId",    "paymentTransactionId",    "reasonCode",    "totalRefundAmount",    "refundCheckNumber",    "comments",    "doWrite",    "autoCalcRefund",    "invoiceTransToReverse",    "clientReceiptId",    "isUnlinkedRefund"})
 @XmlRootElement(name = "issue_refund_to_acct_m")
 public class IssueRefundToAcctM {
 
@@ -36,8 +36,8 @@ public class IssueRefundToAcctM {
     protected String doWrite;
         @XmlElement(name = "auto_calc_refund")
     protected String autoCalcRefund;
-        @XmlElement(name = "invoices_to_reverse")
-    protected InvoicesToReverseArray invoicesToReverse;
+        @XmlElement(name = "invoice_trans_to_reverse")
+    protected InvoiceTransToReverseArray invoiceTransToReverse;
         @XmlElement(name = "client_receipt_id")
     protected String clientReceiptId;
         @XmlElement(name = "is_unlinked_refund")
@@ -122,12 +122,12 @@ public class IssueRefundToAcctM {
     public void setAutoCalcRefund(String value) {
         this.autoCalcRefund = value;
     }
-            public InvoicesToReverseArray getInvoicesToReverse() {
-        return invoicesToReverse;
+            public InvoiceTransToReverseArray getInvoiceTransToReverse() {
+        return invoiceTransToReverse;
     }
 
-    public void setInvoicesToReverse(InvoicesToReverseArray value) {
-        this.invoicesToReverse = value;
+    public void setInvoiceTransToReverse(InvoiceTransToReverseArray value) {
+        this.invoiceTransToReverse = value;
     }
             public String getClientReceiptId() {
         return clientReceiptId;

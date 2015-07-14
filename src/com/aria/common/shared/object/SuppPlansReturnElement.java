@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supp_plans_ReturnElement", propOrder = {"suppPlanInstanceNo", "clientSuppPlanInstanceId", "clientSuppPlanId", "suppPlanNo", "suppPlanInstanceDescription", "suppPlanInstanceStatus", "parentPlanInstanceNo", "clientParentPlanInstanceId"})
+@XmlType(name = "supp_plans_ReturnElement", propOrder = {"suppPlanInstanceNo", "clientSuppPlanInstanceId", "clientSuppPlanId", "suppPlanNo", "suppPlanInstanceDescription", "suppPlanInstanceStatus", "parentPlanInstanceNo", "clientParentPlanInstanceId", "suppPlanPlanInstFields"})
 public class SuppPlansReturnElement {
 
     @XmlElement(name = "supp_plan_instance_no")
@@ -29,6 +29,8 @@ public class SuppPlansReturnElement {
     protected String parentPlanInstanceNo;
     @XmlElement(name = "client_parent_plan_instance_id")
     protected String clientParentPlanInstanceId;
+    @XmlElement(name = "supp_plan_plan_inst_fields")
+    protected List<SuppPlanPlanInstFieldsReturnElement> suppPlanPlanInstFields;
     
     public String getSuppPlanInstanceNo() {
         return suppPlanInstanceNo;
@@ -94,5 +96,10 @@ public class SuppPlansReturnElement {
         this.clientParentPlanInstanceId = value;
     }
 
-    
+    public List<SuppPlanPlanInstFieldsReturnElement> getSuppPlanPlanInstFields() {
+        if (this.suppPlanPlanInstFields == null) {
+            this.suppPlanPlanInstFields = new ArrayList<SuppPlanPlanInstFieldsReturnElement>();
+        }
+        return this.suppPlanPlanInstFields;
+    }
 }

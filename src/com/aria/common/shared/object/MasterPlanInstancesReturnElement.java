@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "master_plan_instances_ReturnElement", propOrder = {"masterPlanInstanceId", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "suppPlans", "couponCd"})
+@XmlType(name = "master_plan_instances_ReturnElement", propOrder = {"masterPlanInstanceId", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "dunningGroupName", "dunningGroupDescription", "dunningProcessNo", "clientDunningProcessId", "suppPlans", "couponCd", "masterPlanPlanInstFields"})
 public class MasterPlanInstancesReturnElement {
 
     @XmlElement(name = "master_plan_instance_id")
@@ -23,10 +23,24 @@ public class MasterPlanInstancesReturnElement {
     protected String masterPlanNo;
     @XmlElement(name = "master_plan_instance_description")
     protected String masterPlanInstanceDescription;
+    @XmlElement(name = "dunning_group_no")
+    protected Long dunningGroupNo;
+    @XmlElement(name = "client_dunning_group_id")
+    protected String clientDunningGroupId;
+    @XmlElement(name = "dunning_group_name")
+    protected String dunningGroupName;
+    @XmlElement(name = "dunning_group_description")
+    protected String dunningGroupDescription;
+    @XmlElement(name = "dunning_process_no")
+    protected Long dunningProcessNo;
+    @XmlElement(name = "client_dunning_process_id")
+    protected String clientDunningProcessId;
     @XmlElement(name = "supp_plans")
     protected List<SuppPlansReturnElement> suppPlans;
     @XmlElement(name = "coupon_cd")
     protected List<CouponCdReturnElement> couponCd;
+    @XmlElement(name = "master_plan_plan_inst_fields")
+    protected List<MasterPlanPlanInstFieldsReturnElement> masterPlanPlanInstFields;
     
     public String getMasterPlanInstanceId() {
         return masterPlanInstanceId;
@@ -68,6 +82,54 @@ public class MasterPlanInstancesReturnElement {
         this.masterPlanInstanceDescription = value;
     }
 
+    public Long getDunningGroupNo() {
+        return dunningGroupNo;
+    }
+
+    public void setDunningGroupNo(Long value) {
+        this.dunningGroupNo = value;
+    }
+
+    public String getClientDunningGroupId() {
+        return clientDunningGroupId;
+    }
+
+    public void setClientDunningGroupId(String value) {
+        this.clientDunningGroupId = value;
+    }
+
+    public String getDunningGroupName() {
+        return dunningGroupName;
+    }
+
+    public void setDunningGroupName(String value) {
+        this.dunningGroupName = value;
+    }
+
+    public String getDunningGroupDescription() {
+        return dunningGroupDescription;
+    }
+
+    public void setDunningGroupDescription(String value) {
+        this.dunningGroupDescription = value;
+    }
+
+    public Long getDunningProcessNo() {
+        return dunningProcessNo;
+    }
+
+    public void setDunningProcessNo(Long value) {
+        this.dunningProcessNo = value;
+    }
+
+    public String getClientDunningProcessId() {
+        return clientDunningProcessId;
+    }
+
+    public void setClientDunningProcessId(String value) {
+        this.clientDunningProcessId = value;
+    }
+
     public List<SuppPlansReturnElement> getSuppPlans() {
         if (this.suppPlans == null) {
             this.suppPlans = new ArrayList<SuppPlansReturnElement>();
@@ -78,5 +140,10 @@ public class MasterPlanInstancesReturnElement {
             this.couponCd = new ArrayList<CouponCdReturnElement>();
         }
         return this.couponCd;
+    }public List<MasterPlanPlanInstFieldsReturnElement> getMasterPlanPlanInstFields() {
+        if (this.masterPlanPlanInstFields == null) {
+            this.masterPlanPlanInstFields = new ArrayList<MasterPlanPlanInstFieldsReturnElement>();
+        }
+        return this.masterPlanPlanInstFields;
     }
 }

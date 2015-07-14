@@ -7,24 +7,22 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "contract_row", propOrder = {
-    "contractPlanNo",
+@XmlType(name = "contracts_row", propOrder = {
+    "clientContractId",
     "contractTypeNo",
-    "contractAltRecurFee",
     "contractLengthMonths",
     "contractCancelFee",
     "contractComments",
     "contractStartDate",
-    "contractEndDate"
+    "contractEndDate",
+    "contractPlans"
     })
-public class ContractRow {
+public class ContractsRow {
 
-    @XmlElement(name = "contract_plan_no")
-    protected Long contractPlanNo;
+    @XmlElement(name = "client_contract_id")
+    protected String clientContractId;
     @XmlElement(name = "contract_type_no")
     protected Long contractTypeNo;
-    @XmlElement(name = "contract_alt_recur_fee")
-    protected Double contractAltRecurFee;
     @XmlElement(name = "contract_length_months")
     protected Long contractLengthMonths;
     @XmlElement(name = "contract_cancel_fee")
@@ -35,12 +33,14 @@ public class ContractRow {
     protected String contractStartDate;
     @XmlElement(name = "contract_end_date")
     protected String contractEndDate;
-    public Long getContractPlanNo() {
-        return contractPlanNo;
+    @XmlElement(name = "contract_plans")
+    protected com.aria.common.shared.ContractPlansArray contractPlans;
+    public String getClientContractId() {
+        return clientContractId;
     }
 
-    public void setContractPlanNo(Long value) {
-        this.contractPlanNo = value;
+    public void setClientContractId(String value) {
+        this.clientContractId = value;
     }
 
     public Long getContractTypeNo() {
@@ -49,14 +49,6 @@ public class ContractRow {
 
     public void setContractTypeNo(Long value) {
         this.contractTypeNo = value;
-    }
-
-    public Double getContractAltRecurFee() {
-        return contractAltRecurFee;
-    }
-
-    public void setContractAltRecurFee(Double value) {
-        this.contractAltRecurFee = value;
     }
 
     public Long getContractLengthMonths() {
@@ -97,6 +89,14 @@ public class ContractRow {
 
     public void setContractEndDate(String value) {
         this.contractEndDate = value;
+    }
+
+    public com.aria.common.shared.ContractPlansArray getContractPlans() {
+        return contractPlans;
+    }
+
+    public void setContractPlans(com.aria.common.shared.ContractPlansArray value) {
+        this.contractPlans = value;
     }
 
     

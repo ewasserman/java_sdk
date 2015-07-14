@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "clientReceiptId",    "acctNo",    "clientAcctId",    "userid",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "firstName",    "mi",    "lastName",    "companyName",    "address1",    "address2",    "address3",    "city",    "locality",    "stateProv",    "countryCd",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "fax",    "email",    "birthdate",    "statusCd",    "notifyMethod",    "seniorAcctNo",    "seniorAcctUserid",    "seniorClientAcctId",    "testAcctInd",    "taxpayerId",    "altClientAcctGroupId",    "acctCoupons",    "acctStartDate",    "altMsgTemplateNo",    "cnAltMsgTemplateNo",    "seqFuncGroupNo",    "clientSeqFuncGroupId",    "taxExemptionLevel",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "resetDatesAfterStatus",    "newClientAcctId",    "invoicingOption",    "altStartDate",    "altBillDay",    "retroactiveStartDate",    "functionalAcctGroups",    "collectionAcctGroups",    "acctSuppFields",    "accountSurcharges",    "clientMasterPlanInstanceId",    "masterPlanInstanceNo",    "newClientMasterPlanInstanceId",    "clientMasterPlanId",    "masterPlanNo",    "masterPlanInstanceDesc",    "dunningGroupNo",    "clientDunningGroupId",    "mpBillingGroupNo",    "clientMpBillingGroupId",    "masterPlanInstanceStatus",    "masterPlanUnits",    "respLevelCd",    "parentMasterPlanInstNo",    "altRateScheduleNo",    "clientAltRateScheduleId",    "promoCd",    "mpCoupons",    "masterPlanAssignDirective",    "offsetMonths",    "offsetInterval",    "invoiceUnbilledUsage",    "invoiceApprovalRequired",    "statusDegradeDate",    "masterPlanProductFields",    "mpSurcharges",    "updateAcctCustomRates",    "billingGroupsArray",    "paymentMethodsArray",    "revrecProfileNo",    "clientRevrecId"})
+    "authKey",    "clientReceiptId",    "acctNo",    "clientAcctId",    "userid",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "firstName",    "mi",    "lastName",    "companyName",    "address1",    "address2",    "address3",    "city",    "locality",    "stateProv",    "countryCd",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "fax",    "email",    "birthdate",    "statusCd",    "notifyMethod",    "seniorAcctNo",    "seniorAcctUserid",    "seniorClientAcctId",    "testAcctInd",    "taxpayerId",    "altClientAcctGroupId",    "acctCoupons",    "acctStartDate",    "altMsgTemplateNo",    "cnAltMsgTemplateNo",    "seqFuncGroupNo",    "clientSeqFuncGroupId",    "taxExemptionLevel",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "resetDatesAfterStatus",    "newClientAcctId",    "invoicingOption",    "altStartDate",    "altBillDay",    "retroactiveStartDate",    "functionalAcctGroupsUpdate",    "collectionAcctGroupsUpdate",    "acctSuppFieldsUpdate",    "accountSurcharges",    "clientMasterPlanInstanceId",    "masterPlanInstanceNo",    "newClientMasterPlanInstanceId",    "clientMasterPlanId",    "masterPlanNo",    "masterPlanInstanceDesc",    "dunningGroupNo",    "clientDunningGroupId",    "mpBillingGroupNo",    "clientMpBillingGroupId",    "masterPlanInstanceStatus",    "masterPlanUnits",    "respLevelCd",    "parentMasterPlanInstNo",    "altRateScheduleNo",    "clientAltRateScheduleId",    "promoCd",    "mpCoupons",    "masterPlanAssignDirective",    "offsetMonths",    "offsetInterval",    "invoiceUnbilledUsage",    "invoiceApprovalRequired",    "statusDegradeDate",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "masterPlanPlanInstFields",    "mpSurcharges",    "updateAcctCustomRates",    "billingGroupsArray",    "paymentMethodsArray",    "revrecProfileNo",    "clientRevrecId"})
 @XmlRootElement(name = "update_acct_complete_m")
 public class UpdateAcctCompleteM {
 
@@ -120,12 +120,12 @@ public class UpdateAcctCompleteM {
     protected Long altBillDay;
         @XmlElement(name = "retroactive_start_date")
     protected String retroactiveStartDate;
-        @XmlElement(name = "functional_acct_groups")
-    protected FunctionalAcctGroupsArray functionalAcctGroups;
-        @XmlElement(name = "collection_acct_groups")
-    protected CollectionAcctGroupsArray collectionAcctGroups;
-        @XmlElement(name = "acct_supp_fields")
-    protected AcctSuppFieldsArray acctSuppFields;
+        @XmlElement(name = "functional_acct_groups_update")
+    protected FunctionalAcctGroupsUpdateArray functionalAcctGroupsUpdate;
+        @XmlElement(name = "collection_acct_groups_update")
+    protected CollectionAcctGroupsUpdateArray collectionAcctGroupsUpdate;
+        @XmlElement(name = "acct_supp_fields_update")
+    protected AcctSuppFieldsUpdateArray acctSuppFieldsUpdate;
         @XmlElement(name = "account_surcharges")
     protected AccountSurchargesArray accountSurcharges;
         @XmlElement(name = "client_master_plan_instance_id")
@@ -176,8 +176,14 @@ public class UpdateAcctCompleteM {
     protected String invoiceApprovalRequired;
         @XmlElement(name = "status_degrade_date")
     protected String statusDegradeDate;
-        @XmlElement(name = "master_plan_product_fields")
-    protected MasterPlanProductFieldsArray masterPlanProductFields;
+        @XmlElement(name = "usage_accumulation_reset_months")
+    protected Long usageAccumulationResetMonths;
+        @XmlElement(name = "usage_pooling")
+    protected String usagePooling;
+        @XmlElement(name = "usage_threshold_applicability")
+    protected String usageThresholdApplicability;
+        @XmlElement(name = "master_plan_plan_inst_fields")
+    protected MasterPlanPlanInstFieldsArray masterPlanPlanInstFields;
         @XmlElement(name = "mp_surcharges")
     protected MpSurchargesArray mpSurcharges;
         @XmlElement(name = "update_acct_custom_rates")
@@ -564,26 +570,26 @@ public class UpdateAcctCompleteM {
     public void setRetroactiveStartDate(String value) {
         this.retroactiveStartDate = value;
     }
-            public FunctionalAcctGroupsArray getFunctionalAcctGroups() {
-        return functionalAcctGroups;
+            public FunctionalAcctGroupsUpdateArray getFunctionalAcctGroupsUpdate() {
+        return functionalAcctGroupsUpdate;
     }
 
-    public void setFunctionalAcctGroups(FunctionalAcctGroupsArray value) {
-        this.functionalAcctGroups = value;
+    public void setFunctionalAcctGroupsUpdate(FunctionalAcctGroupsUpdateArray value) {
+        this.functionalAcctGroupsUpdate = value;
     }
-            public CollectionAcctGroupsArray getCollectionAcctGroups() {
-        return collectionAcctGroups;
-    }
-
-    public void setCollectionAcctGroups(CollectionAcctGroupsArray value) {
-        this.collectionAcctGroups = value;
-    }
-            public AcctSuppFieldsArray getAcctSuppFields() {
-        return acctSuppFields;
+            public CollectionAcctGroupsUpdateArray getCollectionAcctGroupsUpdate() {
+        return collectionAcctGroupsUpdate;
     }
 
-    public void setAcctSuppFields(AcctSuppFieldsArray value) {
-        this.acctSuppFields = value;
+    public void setCollectionAcctGroupsUpdate(CollectionAcctGroupsUpdateArray value) {
+        this.collectionAcctGroupsUpdate = value;
+    }
+            public AcctSuppFieldsUpdateArray getAcctSuppFieldsUpdate() {
+        return acctSuppFieldsUpdate;
+    }
+
+    public void setAcctSuppFieldsUpdate(AcctSuppFieldsUpdateArray value) {
+        this.acctSuppFieldsUpdate = value;
     }
             public AccountSurchargesArray getAccountSurcharges() {
         return accountSurcharges;
@@ -760,12 +766,33 @@ public class UpdateAcctCompleteM {
     public void setStatusDegradeDate(String value) {
         this.statusDegradeDate = value;
     }
-            public MasterPlanProductFieldsArray getMasterPlanProductFields() {
-        return masterPlanProductFields;
+            public Long getUsageAccumulationResetMonths() {
+        return usageAccumulationResetMonths;
     }
 
-    public void setMasterPlanProductFields(MasterPlanProductFieldsArray value) {
-        this.masterPlanProductFields = value;
+    public void setUsageAccumulationResetMonths(Long value) {
+        this.usageAccumulationResetMonths = value;
+    }
+            public String getUsagePooling() {
+        return usagePooling;
+    }
+
+    public void setUsagePooling(String value) {
+        this.usagePooling = value;
+    }
+            public String getUsageThresholdApplicability() {
+        return usageThresholdApplicability;
+    }
+
+    public void setUsageThresholdApplicability(String value) {
+        this.usageThresholdApplicability = value;
+    }
+            public MasterPlanPlanInstFieldsArray getMasterPlanPlanInstFields() {
+        return masterPlanPlanInstFields;
+    }
+
+    public void setMasterPlanPlanInstFields(MasterPlanPlanInstFieldsArray value) {
+        this.masterPlanPlanInstFields = value;
     }
             public MpSurchargesArray getMpSurcharges() {
         return mpSurcharges;

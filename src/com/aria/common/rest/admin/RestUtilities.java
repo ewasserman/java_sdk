@@ -447,9 +447,11 @@ public class RestUtilities {
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setServiceTypeCd(getStringValue(jsonObject,"service_type_cd"));
             entity.setServiceTypeName(getStringValue(jsonObject,"service_type_name"));
             entity.setServiceDesc(getStringValue(jsonObject,"service_desc"));
             } else {
+            entity.setServiceTypeCd(jsonArray.get(i).toString());
             entity.setServiceTypeName(jsonArray.get(i).toString());
             entity.setServiceDesc(jsonArray.get(i).toString());
             }
@@ -1402,6 +1404,28 @@ public class RestUtilities {
             } catch (NumberFormatException e) {
                 entity.setSurchargeScope(null);
             }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ContractRolloverRateSchedReturnElement> buildContractRolloverRateSchedReturnElement(JSONArray jsonArray) {
+        ArrayList<ContractRolloverRateSchedReturnElement> returnElement = new ArrayList<ContractRolloverRateSchedReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ContractRolloverRateSchedReturnElement entity = new ContractRolloverRateSchedReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setCurrentRateSchedNo(getStringValue(jsonObject,"current_rate_sched_no"));
+            entity.setCurrentClientRateSchedId(getStringValue(jsonObject,"current_client_rate_sched_id"));
+            entity.setRolloverRateSchedNo(getStringValue(jsonObject,"rollover_rate_sched_no"));
+            entity.setRolloverClientRateSchedId(getStringValue(jsonObject,"rollover_client_rate_sched_id"));
+            } else {
+            entity.setCurrentRateSchedNo(jsonArray.get(i).toString());
+            entity.setCurrentClientRateSchedId(jsonArray.get(i).toString());
+            entity.setRolloverRateSchedNo(jsonArray.get(i).toString());
+            entity.setRolloverClientRateSchedId(jsonArray.get(i).toString());
             }
             returnElement.add(entity);
         }
@@ -2813,6 +2837,29 @@ public class RestUtilities {
             parameters.add(paramPrefix + "field_category_no["+i+"]", getValue("Long", row.getFieldCategoryNo()));
             parameters.add(paramPrefix + "field_category_name["+i+"]", getValue("String", row.getFieldCategoryName()));
             parameters.add(paramPrefix + "field_category_directive["+i+"]", getValue("Long", row.getFieldCategoryDirective()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ContractRolloverRateSchedArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ContractRolloverRateSchedRow row : arrayList.getContractRolloverRateSchedRow()){
+            parameters.add("current_rate_sched_no["+i+"]", getValue("String", row.getCurrentRateSchedNo()));
+            parameters.add("current_client_rate_sched_id["+i+"]", getValue("String", row.getCurrentClientRateSchedId()));
+            parameters.add("rollover_rate_sched_no["+i+"]", getValue("String", row.getRolloverRateSchedNo()));
+            parameters.add("rollover_client_rate_sched_id["+i+"]", getValue("String", row.getRolloverClientRateSchedId()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ContractRolloverRateSchedArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ContractRolloverRateSchedRow row : arrayList.getContractRolloverRateSchedRow()){
+            parameters.add(paramPrefix + "current_rate_sched_no["+i+"]", getValue("String", row.getCurrentRateSchedNo()));
+            parameters.add(paramPrefix + "current_client_rate_sched_id["+i+"]", getValue("String", row.getCurrentClientRateSchedId()));
+            parameters.add(paramPrefix + "rollover_rate_sched_no["+i+"]", getValue("String", row.getRolloverRateSchedNo()));
+            parameters.add(paramPrefix + "rollover_client_rate_sched_id["+i+"]", getValue("String", row.getRolloverClientRateSchedId()));
             i++;
         }
     }

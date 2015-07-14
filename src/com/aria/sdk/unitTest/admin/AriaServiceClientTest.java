@@ -1184,6 +1184,7 @@ public class AriaServiceClientTest {
         com.aria.common.shared.admin.SurchargeNoArray surchargeNoArray = new com.aria.common.shared.admin.SurchargeNoArray();
         com.aria.common.shared.admin.ClientSurchargeIdArray clientSurchargeIdArray = new com.aria.common.shared.admin.ClientSurchargeIdArray();
         com.aria.common.shared.admin.AssignFieldCategoriesArray assignFieldCategoriesArray = new com.aria.common.shared.admin.AssignFieldCategoriesArray();
+        com.aria.common.shared.admin.ContractRolloverRateSchedArray contractRolloverRateSchedArray = new com.aria.common.shared.admin.ContractRolloverRateSchedArray();
         
         hashMapReturnValues = getBaseAriaBilling().createNewPlanM(getClientNo(), getAuthKey()        , ""
                 , ""
@@ -1227,6 +1228,9 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , assignFieldCategoriesArray
+                , ""
+                , ""
+                , contractRolloverRateSchedArray
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "createNewPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1319,6 +1323,7 @@ public class AriaServiceClientTest {
         com.aria.common.shared.admin.SurchargeNoArray surchargeNoArray = new com.aria.common.shared.admin.SurchargeNoArray();
         com.aria.common.shared.admin.ClientSurchargeIdArray clientSurchargeIdArray = new com.aria.common.shared.admin.ClientSurchargeIdArray();
         com.aria.common.shared.admin.AssignFieldCategoriesArray assignFieldCategoriesArray = new com.aria.common.shared.admin.AssignFieldCategoriesArray();
+        com.aria.common.shared.admin.ContractRolloverRateSchedArray contractRolloverRateSchedArray = new com.aria.common.shared.admin.ContractRolloverRateSchedArray();
         
         hashMapReturnValues = getBaseAriaBilling().editPlanM(getClientNo(), getAuthKey()        , ""
                 , ""
@@ -1362,6 +1367,9 @@ public class AriaServiceClientTest {
                 , 1L
                 , assignFieldCategoriesArray
                 , 1L
+                , ""
+                , ""
+                , contractRolloverRateSchedArray
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "editPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";

@@ -8,40 +8,40 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "acct_supp_fields_row", propOrder = {
-    "acctSuppFieldName",
-    "acctSuppFieldValue",
-    "acctSuppFieldDirective"
+    "suppFieldName",
+    "suppFieldValue",
+    "suppFieldDirective"
     })
 public class AcctSuppFieldsRow {
 
-    @XmlElement(name = "acct_supp_field_name")
-    protected String acctSuppFieldName;
-    @XmlElement(name = "acct_supp_field_value")
-    protected String acctSuppFieldValue;
-    @XmlElement(name = "acct_supp_field_directive")
-    protected Long acctSuppFieldDirective;
-    public String getAcctSuppFieldName() {
-        return acctSuppFieldName;
+    @XmlElement(name = "supp_field_name")
+    protected String suppFieldName;
+    @XmlElement(name = "supp_field_value")
+    protected String suppFieldValue;
+    @XmlElement(name = "supp_field_directive")
+    protected Long suppFieldDirective;
+    public String getSuppFieldName() {
+        return suppFieldName;
     }
 
-    public void setAcctSuppFieldName(String value) {
-        this.acctSuppFieldName = value;
+    public void setSuppFieldName(String value) {
+        this.suppFieldName = value;
     }
 
-    public String getAcctSuppFieldValue() {
-        return acctSuppFieldValue;
+    public String getSuppFieldValue() {
+        return suppFieldValue;
     }
 
-    public void setAcctSuppFieldValue(String value) {
-        this.acctSuppFieldValue = value;
+    public void setSuppFieldValue(String value) {
+        this.suppFieldValue = value;
     }
 
-    public Long getAcctSuppFieldDirective() {
-        return acctSuppFieldDirective;
+    public Long getSuppFieldDirective() {
+        return suppFieldDirective;
     }
 
-    public void setAcctSuppFieldDirective(Long value) {
-        this.acctSuppFieldDirective = value;
+    public void setSuppFieldDirective(Long value) {
+        this.suppFieldDirective = value;
     }
 
     

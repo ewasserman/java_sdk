@@ -13,10 +13,14 @@ import javax.xml.bind.annotation.XmlType;
     "clientPlanId",
     "planInstanceDescription",
     "clientPlanInstanceId",
+    "planInstanceIdx",
     "planInstanceUnits",
     "planInstanceFieldsInfo",
     "altRateScheduleNo",
     "clientAltRateScheduleId",
+    "usageAccumulationResetMonths",
+    "usagePooling",
+    "usageThresholdApplicability",
     "customRates"
     })
 public class SuppPlanRow {
@@ -31,6 +35,8 @@ public class SuppPlanRow {
     protected String planInstanceDescription;
     @XmlElement(name = "client_plan_instance_id")
     protected String clientPlanInstanceId;
+    @XmlElement(name = "plan_instance_idx")
+    protected Long planInstanceIdx;
     @XmlElement(name = "plan_instance_units")
     protected Long planInstanceUnits;
     @XmlElement(name = "plan_instance_fields_info")
@@ -39,6 +45,12 @@ public class SuppPlanRow {
     protected Long altRateScheduleNo;
     @XmlElement(name = "client_alt_rate_schedule_id")
     protected String clientAltRateScheduleId;
+    @XmlElement(name = "usage_accumulation_reset_months")
+    protected Long usageAccumulationResetMonths;
+    @XmlElement(name = "usage_pooling")
+    protected String usagePooling;
+    @XmlElement(name = "usage_threshold_applicability")
+    protected String usageThresholdApplicability;
     @XmlElement(name = "custom_rates")
     protected com.aria.common.shared.CustomRatesArray customRates;
     public com.aria.common.shared.SuppPlanArray getSuppPlan() {
@@ -81,6 +93,14 @@ public class SuppPlanRow {
         this.clientPlanInstanceId = value;
     }
 
+    public Long getPlanInstanceIdx() {
+        return planInstanceIdx;
+    }
+
+    public void setPlanInstanceIdx(Long value) {
+        this.planInstanceIdx = value;
+    }
+
     public Long getPlanInstanceUnits() {
         return planInstanceUnits;
     }
@@ -111,6 +131,30 @@ public class SuppPlanRow {
 
     public void setClientAltRateScheduleId(String value) {
         this.clientAltRateScheduleId = value;
+    }
+
+    public Long getUsageAccumulationResetMonths() {
+        return usageAccumulationResetMonths;
+    }
+
+    public void setUsageAccumulationResetMonths(Long value) {
+        this.usageAccumulationResetMonths = value;
+    }
+
+    public String getUsagePooling() {
+        return usagePooling;
+    }
+
+    public void setUsagePooling(String value) {
+        this.usagePooling = value;
+    }
+
+    public String getUsageThresholdApplicability() {
+        return usageThresholdApplicability;
+    }
+
+    public void setUsageThresholdApplicability(String value) {
+        this.usageThresholdApplicability = value;
     }
 
     public com.aria.common.shared.CustomRatesArray getCustomRates() {

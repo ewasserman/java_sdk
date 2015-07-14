@@ -27,9 +27,13 @@ import javax.xml.bind.annotation.XmlType;
     "statusUntilAltStart",
     "balanceForward",
     "couponCodes",
+    "mpiSurcharges",
     "planInstanceFieldsInfo",
     "altRateScheduleNo",
     "clientAltRateScheduleId",
+    "usageAccumulationResetMonths",
+    "usagePooling",
+    "usageThresholdApplicability",
     "customRates",
     "suppPlan"
     })
@@ -73,12 +77,20 @@ public class MasterPlansDetailRow {
     protected Double balanceForward;
     @XmlElement(name = "coupon_codes")
     protected com.aria.common.shared.CouponCodesArray couponCodes;
+    @XmlElement(name = "mpi_surcharges")
+    protected com.aria.common.shared.MpiSurchargesArray mpiSurcharges;
     @XmlElement(name = "plan_instance_fields_info")
     protected com.aria.common.shared.PlanInstanceFieldsInfoArray planInstanceFieldsInfo;
     @XmlElement(name = "alt_rate_schedule_no")
     protected Long altRateScheduleNo;
     @XmlElement(name = "client_alt_rate_schedule_id")
     protected String clientAltRateScheduleId;
+    @XmlElement(name = "usage_accumulation_reset_months")
+    protected Long usageAccumulationResetMonths;
+    @XmlElement(name = "usage_pooling")
+    protected String usagePooling;
+    @XmlElement(name = "usage_threshold_applicability")
+    protected String usageThresholdApplicability;
     @XmlElement(name = "custom_rates")
     protected com.aria.common.shared.CustomRatesArray customRates;
     @XmlElement(name = "supp_plan")
@@ -235,6 +247,14 @@ public class MasterPlansDetailRow {
         this.couponCodes = value;
     }
 
+    public com.aria.common.shared.MpiSurchargesArray getMpiSurcharges() {
+        return mpiSurcharges;
+    }
+
+    public void setMpiSurcharges(com.aria.common.shared.MpiSurchargesArray value) {
+        this.mpiSurcharges = value;
+    }
+
     public com.aria.common.shared.PlanInstanceFieldsInfoArray getPlanInstanceFieldsInfo() {
         return planInstanceFieldsInfo;
     }
@@ -257,6 +277,30 @@ public class MasterPlansDetailRow {
 
     public void setClientAltRateScheduleId(String value) {
         this.clientAltRateScheduleId = value;
+    }
+
+    public Long getUsageAccumulationResetMonths() {
+        return usageAccumulationResetMonths;
+    }
+
+    public void setUsageAccumulationResetMonths(Long value) {
+        this.usageAccumulationResetMonths = value;
+    }
+
+    public String getUsagePooling() {
+        return usagePooling;
+    }
+
+    public void setUsagePooling(String value) {
+        this.usagePooling = value;
+    }
+
+    public String getUsageThresholdApplicability() {
+        return usageThresholdApplicability;
+    }
+
+    public void setUsageThresholdApplicability(String value) {
+        this.usageThresholdApplicability = value;
     }
 
     public com.aria.common.shared.CustomRatesArray getCustomRates() {

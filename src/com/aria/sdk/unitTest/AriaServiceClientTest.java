@@ -321,6 +321,11 @@ public class AriaServiceClientTest {
         //deleteAcctCouponM();
         //modifyAcctPlanUnitInstancesM();
         //getAcctPlanUnitInstanceAllM();
+        //createInstanceContractM();
+        //modifyInstanceContractM();
+        //cancelInstanceContractM();
+        //getInstanceContractM();
+        //getAllAcctContractsM();
         //getInvNoFromBalXfer();
         //voidTransaction();
         //reinstateTransaction();
@@ -385,6 +390,7 @@ public class AriaServiceClientTest {
         //getInvoicesToWriteoffOrDisputeM();
         //getOrderM();
         //getWriteoffDetailsM();
+        //getAcctWriteoffOrDisputesM();
         //getReversibleInvsByPaymentM();
         //issueRefundToAcctM();
         //voidInvoiceM();
@@ -4256,12 +4262,12 @@ public class AriaServiceClientTest {
     //@Test
     public void updateAcctCompleteM() throws Exception {
         com.aria.common.shared.AcctCouponsArray acctCouponsArray = new com.aria.common.shared.AcctCouponsArray();
-        com.aria.common.shared.FunctionalAcctGroupsArray functionalAcctGroupsArray = new com.aria.common.shared.FunctionalAcctGroupsArray();
-        com.aria.common.shared.CollectionAcctGroupsArray collectionAcctGroupsArray = new com.aria.common.shared.CollectionAcctGroupsArray();
-        com.aria.common.shared.AcctSuppFieldsArray acctSuppFieldsArray = new com.aria.common.shared.AcctSuppFieldsArray();
+        com.aria.common.shared.FunctionalAcctGroupsUpdateArray functionalAcctGroupsUpdateArray = new com.aria.common.shared.FunctionalAcctGroupsUpdateArray();
+        com.aria.common.shared.CollectionAcctGroupsUpdateArray collectionAcctGroupsUpdateArray = new com.aria.common.shared.CollectionAcctGroupsUpdateArray();
+        com.aria.common.shared.AcctSuppFieldsUpdateArray acctSuppFieldsUpdateArray = new com.aria.common.shared.AcctSuppFieldsUpdateArray();
         com.aria.common.shared.AccountSurchargesArray accountSurchargesArray = new com.aria.common.shared.AccountSurchargesArray();
         com.aria.common.shared.MpCouponsArray mpCouponsArray = new com.aria.common.shared.MpCouponsArray();
-        com.aria.common.shared.MasterPlanProductFieldsArray masterPlanProductFieldsArray = new com.aria.common.shared.MasterPlanProductFieldsArray();
+        com.aria.common.shared.MasterPlanPlanInstFieldsArray masterPlanPlanInstFieldsArray = new com.aria.common.shared.MasterPlanPlanInstFieldsArray();
         com.aria.common.shared.MpSurchargesArray mpSurchargesArray = new com.aria.common.shared.MpSurchargesArray();
         com.aria.common.shared.UpdateAcctCustomRatesArray updateAcctCustomRatesArray = new com.aria.common.shared.UpdateAcctCustomRatesArray();
         com.aria.common.shared.BillingGroupsArrayArray billingGroupsArrayArray = new com.aria.common.shared.BillingGroupsArrayArray();
@@ -4318,9 +4324,9 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , ""
-                , functionalAcctGroupsArray
-                , collectionAcctGroupsArray
-                , acctSuppFieldsArray
+                , functionalAcctGroupsUpdateArray
+                , collectionAcctGroupsUpdateArray
+                , acctSuppFieldsUpdateArray
                 , accountSurchargesArray
                 , ""
                 , 1L
@@ -4346,7 +4352,10 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
-                , masterPlanProductFieldsArray
+                , 1L
+                , ""
+                , ""
+                , masterPlanPlanInstFieldsArray
                 , mpSurchargesArray
                 , updateAcctCustomRatesArray
                 , billingGroupsArrayArray
@@ -4653,6 +4662,9 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , ""
+                , 1L
+                , ""
+                , ""
                 , customRatesArray
                 , ""
                 , 1L
@@ -4717,7 +4729,7 @@ public class AriaServiceClientTest {
     //@Test
     public void updateAcctPlanM() throws Exception {
         com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
-        com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
+        com.aria.common.shared.PlanInstanceFieldUpdateArray planInstanceFieldUpdateArray = new com.aria.common.shared.PlanInstanceFieldUpdateArray();
         com.aria.common.shared.CustomRatesArray customRatesArray = new com.aria.common.shared.CustomRatesArray();
         
         hashMapReturnValues = getBaseAriaBilling().updateAcctPlanM(getClientNo(), getAuthKey()        , 1L
@@ -4729,7 +4741,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , ""
-                , planInstanceFieldsArray
+                , planInstanceFieldUpdateArray
                 , 1L
                 , ""
                 , ""
@@ -4743,6 +4755,9 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
+                , ""
+                , 1L
+                , ""
                 , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
@@ -4849,7 +4864,7 @@ public class AriaServiceClientTest {
     public void replaceAcctPlanM() throws Exception {
         com.aria.common.shared.CouponCodesArray couponCodesArray = new com.aria.common.shared.CouponCodesArray();
         com.aria.common.shared.MpSurchargesArray mpSurchargesArray = new com.aria.common.shared.MpSurchargesArray();
-        com.aria.common.shared.PlanInstanceFieldsArray planInstanceFieldsArray = new com.aria.common.shared.PlanInstanceFieldsArray();
+        com.aria.common.shared.PlanInstanceFieldUpdateArray planInstanceFieldUpdateArray = new com.aria.common.shared.PlanInstanceFieldUpdateArray();
         com.aria.common.shared.CustomRatesArray customRatesArray = new com.aria.common.shared.CustomRatesArray();
         
         hashMapReturnValues = getBaseAriaBilling().replaceAcctPlanM(getClientNo(), getAuthKey()        , 1L
@@ -4865,7 +4880,7 @@ public class AriaServiceClientTest {
                 , mpSurchargesArray
                 , 1L
                 , ""
-                , planInstanceFieldsArray
+                , planInstanceFieldUpdateArray
                 , 1L
                 , ""
                 , ""
@@ -5794,6 +5809,116 @@ public class AriaServiceClientTest {
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getAcctPlanUnitInstanceAllM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createInstanceContractM() throws Exception {
+        com.aria.common.shared.ContractPlanInstancesArray contractPlanInstancesArray = new com.aria.common.shared.ContractPlanInstancesArray();
+        com.aria.common.shared.ContractRolloverCustomRatesArray contractRolloverCustomRatesArray = new com.aria.common.shared.ContractRolloverCustomRatesArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createInstanceContractM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , contractPlanInstancesArray
+                , ""
+                , 1d
+                , ""
+                , ""
+                , ""
+                , ""
+                , contractRolloverCustomRatesArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createInstanceContractM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void modifyInstanceContractM() throws Exception {
+        com.aria.common.shared.ContractPlanInstancesArray contractPlanInstancesArray = new com.aria.common.shared.ContractPlanInstancesArray();
+        com.aria.common.shared.ContractRolloverCustomRatesArray contractRolloverCustomRatesArray = new com.aria.common.shared.ContractRolloverCustomRatesArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().modifyInstanceContractM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , contractPlanInstancesArray
+                , 1L
+                , 1L
+                , ""
+                , 1d
+                , 1L
+                , ""
+                , ""
+                , ""
+                , contractRolloverCustomRatesArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "modifyInstanceContractM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void cancelInstanceContractM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().cancelInstanceContractM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "cancelInstanceContractM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getInstanceContractM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getInstanceContractM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getInstanceContractM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getAllAcctContractsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAllAcctContractsM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAllAcctContractsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -7216,6 +7341,25 @@ public class AriaServiceClientTest {
     }
 
     //@Test
+    public void getAcctWriteoffOrDisputesM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getAcctWriteoffOrDisputesM(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getAcctWriteoffOrDisputesM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
     public void getReversibleInvsByPaymentM() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getReversibleInvsByPaymentM(getClientNo(), getAuthKey()        , 1L
@@ -7232,7 +7376,7 @@ public class AriaServiceClientTest {
 
     //@Test
     public void issueRefundToAcctM() throws Exception {
-        com.aria.common.shared.InvoicesToReverseArray invoicesToReverseArray = new com.aria.common.shared.InvoicesToReverseArray();
+        com.aria.common.shared.InvoiceTransToReverseArray invoiceTransToReverseArray = new com.aria.common.shared.InvoiceTransToReverseArray();
         
         hashMapReturnValues = getBaseAriaBilling().issueRefundToAcctM(getClientNo(), getAuthKey()        , 1L
                 , ""
@@ -7243,7 +7387,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
-                , invoicesToReverseArray
+                , invoiceTransToReverseArray
                 , ""
                 , ""
         );

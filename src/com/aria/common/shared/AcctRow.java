@@ -64,9 +64,7 @@ import javax.xml.bind.annotation.XmlType;
     "paymentMethod",
     "billingGroup",
     "dunningGroup",
-    "contract",
-    "usageAccumulationConfig",
-    "enableUsagePoolingPlans",
+    "contracts",
     "masterPlansDetail",
     "consumerAcctInd",
     "revrecProfileNo",
@@ -186,12 +184,8 @@ public class AcctRow {
     protected com.aria.common.shared.BillingGroupArray billingGroup;
     @XmlElement(name = "dunning_group")
     protected com.aria.common.shared.DunningGroupArray dunningGroup;
-    @XmlElement(name = "contract")
-    protected com.aria.common.shared.ContractArray contract;
-    @XmlElement(name = "usage_accumulation_config")
-    protected com.aria.common.shared.UsageAccumulationConfigArray usageAccumulationConfig;
-    @XmlElement(name = "enable_usage_pooling_plans")
-    protected com.aria.common.shared.EnableUsagePoolingPlansArray enableUsagePoolingPlans;
+    @XmlElement(name = "contracts")
+    protected com.aria.common.shared.ContractsArray contracts;
     @XmlElement(name = "master_plans_detail")
     protected com.aria.common.shared.MasterPlansDetailArray masterPlansDetail;
     @XmlElement(name = "consumer_acct_ind")
@@ -648,28 +642,12 @@ public class AcctRow {
         this.dunningGroup = value;
     }
 
-    public com.aria.common.shared.ContractArray getContract() {
-        return contract;
+    public com.aria.common.shared.ContractsArray getContracts() {
+        return contracts;
     }
 
-    public void setContract(com.aria.common.shared.ContractArray value) {
-        this.contract = value;
-    }
-
-    public com.aria.common.shared.UsageAccumulationConfigArray getUsageAccumulationConfig() {
-        return usageAccumulationConfig;
-    }
-
-    public void setUsageAccumulationConfig(com.aria.common.shared.UsageAccumulationConfigArray value) {
-        this.usageAccumulationConfig = value;
-    }
-
-    public com.aria.common.shared.EnableUsagePoolingPlansArray getEnableUsagePoolingPlans() {
-        return enableUsagePoolingPlans;
-    }
-
-    public void setEnableUsagePoolingPlans(com.aria.common.shared.EnableUsagePoolingPlansArray value) {
-        this.enableUsagePoolingPlans = value;
+    public void setContracts(com.aria.common.shared.ContractsArray value) {
+        this.contracts = value;
     }
 
     public com.aria.common.shared.MasterPlansDetailArray getMasterPlansDetail() {

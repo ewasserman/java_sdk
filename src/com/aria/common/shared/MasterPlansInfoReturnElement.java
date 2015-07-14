@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "master_plans_info_ReturnElement", propOrder = {"masterPlanInstanceNo", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "billingGroupNo", "clientBillingGroupId", "masterPlanInstanceStatus", "masterPlanUnits", "respLevelCd", "parentMasterPlanInstNo", "altRateScheduleNo", "clientAltRateScheduleId", "promoCd", "billDay", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "masterPlanInstanceBalance", "statusDegradeDate", "couponCodes", "masterPlanProductFields", "suppPlansInfo"})
+@XmlType(name = "master_plans_info_ReturnElement", propOrder = {"masterPlanInstanceNo", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "dunningGroupName", "dunningGroupDescription", "dunningProcessNo", "clientDunningProcessId", "billingGroupNo", "clientBillingGroupId", "masterPlanInstanceStatus", "masterPlanUnits", "respLevelCd", "parentMasterPlanInstNo", "altRateScheduleNo", "clientAltRateScheduleId", "promoCd", "billDay", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "masterPlanInstanceBalance", "statusDegradeDate", "couponCodes", "masterPlanProductFields", "suppPlansInfo"})
 public class MasterPlansInfoReturnElement {
 
     @XmlElement(name = "master_plan_instance_no")
@@ -27,6 +27,14 @@ public class MasterPlansInfoReturnElement {
     protected Long dunningGroupNo;
     @XmlElement(name = "client_dunning_group_id")
     protected String clientDunningGroupId;
+    @XmlElement(name = "dunning_group_name")
+    protected String dunningGroupName;
+    @XmlElement(name = "dunning_group_description")
+    protected String dunningGroupDescription;
+    @XmlElement(name = "dunning_process_no")
+    protected Long dunningProcessNo;
+    @XmlElement(name = "client_dunning_process_id")
+    protected String clientDunningProcessId;
     @XmlElement(name = "billing_group_no")
     protected Long billingGroupNo;
     @XmlElement(name = "client_billing_group_id")
@@ -124,6 +132,38 @@ public class MasterPlansInfoReturnElement {
 
     public void setClientDunningGroupId(String value) {
         this.clientDunningGroupId = value;
+    }
+
+    public String getDunningGroupName() {
+        return dunningGroupName;
+    }
+
+    public void setDunningGroupName(String value) {
+        this.dunningGroupName = value;
+    }
+
+    public String getDunningGroupDescription() {
+        return dunningGroupDescription;
+    }
+
+    public void setDunningGroupDescription(String value) {
+        this.dunningGroupDescription = value;
+    }
+
+    public Long getDunningProcessNo() {
+        return dunningProcessNo;
+    }
+
+    public void setDunningProcessNo(Long value) {
+        this.dunningProcessNo = value;
+    }
+
+    public String getClientDunningProcessId() {
+        return clientDunningProcessId;
+    }
+
+    public void setClientDunningProcessId(String value) {
+        this.clientDunningProcessId = value;
     }
 
     public Long getBillingGroupNo() {

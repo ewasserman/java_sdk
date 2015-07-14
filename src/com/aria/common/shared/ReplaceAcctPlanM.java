@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "newPlanNo",    "newClientPlanId",    "newClientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "mpSurcharges",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "forceSuppBillDateReset",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "newPlanNo",    "newClientPlanId",    "newClientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "mpSurcharges",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "forceSuppBillDateReset",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
 @XmlRootElement(name = "replace_acct_plan_m")
 public class ReplaceAcctPlanM {
 
@@ -44,8 +44,8 @@ public class ReplaceAcctPlanM {
     protected Long planStatus;
         @XmlElement(name = "plan_instance_description")
     protected String planInstanceDescription;
-        @XmlElement(name = "plan_instance_fields")
-    protected PlanInstanceFieldsArray planInstanceFields;
+        @XmlElement(name = "plan_instance_field_update")
+    protected PlanInstanceFieldUpdateArray planInstanceFieldUpdate;
         @XmlElement(name = "assignment_directive")
     protected Long assignmentDirective;
         @XmlElement(name = "comments")
@@ -190,12 +190,12 @@ public class ReplaceAcctPlanM {
     public void setPlanInstanceDescription(String value) {
         this.planInstanceDescription = value;
     }
-            public PlanInstanceFieldsArray getPlanInstanceFields() {
-        return planInstanceFields;
+            public PlanInstanceFieldUpdateArray getPlanInstanceFieldUpdate() {
+        return planInstanceFieldUpdate;
     }
 
-    public void setPlanInstanceFields(PlanInstanceFieldsArray value) {
-        this.planInstanceFields = value;
+    public void setPlanInstanceFieldUpdate(PlanInstanceFieldUpdateArray value) {
+        this.planInstanceFieldUpdate = value;
     }
             public Long getAssignmentDirective() {
         return assignmentDirective;

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "newPlanNo",    "newClientPlanId",    "clientPlanInstanceId",    "existingBillingGroupNo",    "existingClientBillingGroupId",    "billingGroupName",    "billingGroupDescription",    "clientDefBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "existingPrimaryPaymentMethodNo",    "existingClientPrimaryPaymentMethodId",    "existingBackupPaymentMethodNo",    "existingClientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "primaryPayMethodName",    "primaryPayMethodCdid",    "primaryPayMethodDescription",    "primaryPayMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "existingDunningGroupNo",    "existingClientDefDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcessNo",    "clientDunningProcessId",    "altStartDate",    "statusUntilAltStart",    "altBillDay",    "invoicingOption",    "retroactiveStartDate",    "balanceForward",    "respLevelCd",    "parentAcctMasterPlanInstId",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceSuppBillDateReset",    "clientAltRateScheduleId"})
+    "authKey",    "acctNo",    "newPlanNo",    "newClientPlanId",    "clientPlanInstanceId",    "existingBillingGroupNo",    "existingClientBillingGroupId",    "billingGroupName",    "billingGroupDescription",    "clientDefBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "existingPrimaryPaymentMethodNo",    "existingClientPrimaryPaymentMethodId",    "existingBackupPaymentMethodNo",    "existingClientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "primaryPayMethodName",    "primaryPayMethodCdid",    "primaryPayMethodDescription",    "primaryPayMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "existingDunningGroupNo",    "existingClientDefDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcessNo",    "clientDunningProcessId",    "altStartDate",    "statusUntilAltStart",    "altBillDay",    "invoicingOption",    "retroactiveStartDate",    "balanceForward",    "respLevelCd",    "parentAcctMasterPlanInstId",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "customRates",    "effectiveDate",    "offsetInterval",    "forceSuppBillDateReset",    "clientAltRateScheduleId"})
 @XmlRootElement(name = "assign_acct_plan_m")
 public class AssignAcctPlanM {
 
@@ -236,6 +236,12 @@ public class AssignAcctPlanM {
     protected Long autoOffsetMonthsOption;
         @XmlElement(name = "alt_client_acct_group_id")
     protected String altClientAcctGroupId;
+        @XmlElement(name = "usage_accumulation_reset_months")
+    protected Long usageAccumulationResetMonths;
+        @XmlElement(name = "usage_pooling")
+    protected String usagePooling;
+        @XmlElement(name = "usage_threshold_applicability")
+    protected String usageThresholdApplicability;
         @XmlElement(name = "custom_rates")
     protected CustomRatesArray customRates;
         @XmlElement(name = "effective_date")
@@ -1025,6 +1031,27 @@ public class AssignAcctPlanM {
 
     public void setAltClientAcctGroupId(String value) {
         this.altClientAcctGroupId = value;
+    }
+            public Long getUsageAccumulationResetMonths() {
+        return usageAccumulationResetMonths;
+    }
+
+    public void setUsageAccumulationResetMonths(Long value) {
+        this.usageAccumulationResetMonths = value;
+    }
+            public String getUsagePooling() {
+        return usagePooling;
+    }
+
+    public void setUsagePooling(String value) {
+        this.usagePooling = value;
+    }
+            public String getUsageThresholdApplicability() {
+        return usageThresholdApplicability;
+    }
+
+    public void setUsageThresholdApplicability(String value) {
+        this.usageThresholdApplicability = value;
     }
             public CustomRatesArray getCustomRates() {
         return customRates;

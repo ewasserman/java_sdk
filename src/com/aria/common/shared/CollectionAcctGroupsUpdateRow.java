@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "collection_acct_groups_row", propOrder = {
+@XmlType(name = "collection_acct_groups_update_row", propOrder = {
     "collectionAcctGroupNo",
     "clientCollectionAcctGroupId",
     "collectionAcctGrpDirective"
     })
-public class CollectionAcctGroupsRow {
+public class CollectionAcctGroupsUpdateRow {
 
     @XmlElement(name = "collection_acct_group_no")
     protected Long collectionAcctGroupNo;

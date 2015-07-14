@@ -1104,6 +1104,20 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<ContractRolloverRateSchedReturnElement> buildContractRolloverRateSchedReturnElement(JSONArray jsonArray) {
+        ArrayList<ContractRolloverRateSchedReturnElement> returnElement = new ArrayList<ContractRolloverRateSchedReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ContractRolloverRateSchedReturnElement entity = new ContractRolloverRateSchedReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setContractCurrentRateSchedNo(getLongValue(jsonObject,"contract_current_rate_sched_no"));
+            entity.setContractCurrentClientRateSchedId(getStringValue(jsonObject,"contract_current_client_rate_sched_id"));
+            entity.setContractRolloverRateSchedNo(getLongValue(jsonObject,"contract_rollover_rate_sched_no"));
+            entity.setContractRolloverClientRateSchedId(getStringValue(jsonObject,"contract_rollover_client_rate_sched_id"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<PlanDetailsReturnElement> buildPlanDetailsReturnElement(JSONArray jsonArray) {
         ArrayList<PlanDetailsReturnElement> returnElement = new ArrayList<PlanDetailsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -1135,6 +1149,12 @@ public class RestUtilities {
                         ArrayList<PlanRateSchedulesDetailsReturnElement> arrayListPlanRateSchedulesDetailsReturnElement = buildPlanRateSchedulesDetailsReturnElement((JSONArray)jsonObject.get("plan_rate_schedules_details"));
             for (PlanRateSchedulesDetailsReturnElement element : arrayListPlanRateSchedulesDetailsReturnElement){
                 entity.getPlanRateSchedulesDetails().add(element);
+            }
+            entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
+            entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
+                        ArrayList<ContractRolloverRateSchedReturnElement> arrayListContractRolloverRateSchedReturnElement = buildContractRolloverRateSchedReturnElement((JSONArray)jsonObject.get("contract_rollover_rate_sched"));
+            for (ContractRolloverRateSchedReturnElement element : arrayListContractRolloverRateSchedReturnElement){
+                entity.getContractRolloverRateSched().add(element);
             }
             returnElement.add(entity);
         }
@@ -1172,6 +1192,12 @@ public class RestUtilities {
             for (PlanRateSchedulesDetailsReturnElement element : arrayListPlanRateSchedulesDetailsReturnElement){
                 entity.getPlanRateSchedulesDetails().add(element);
             }
+            entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
+            entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
+                        ArrayList<ContractRolloverRateSchedReturnElement> arrayListContractRolloverRateSchedReturnElement = buildContractRolloverRateSchedReturnElement((JSONArray)jsonObject.get("contract_rollover_rate_sched"));
+            for (ContractRolloverRateSchedReturnElement element : arrayListContractRolloverRateSchedReturnElement){
+                entity.getContractRolloverRateSched().add(element);
+            }
             returnElement.add(entity);
         }
         return returnElement;
@@ -1200,6 +1226,12 @@ public class RestUtilities {
                         ArrayList<PlanRateSchedulesDetailsReturnElement> arrayListPlanRateSchedulesDetailsReturnElement = buildPlanRateSchedulesDetailsReturnElement((JSONArray)jsonObject.get("plan_rate_schedules_details"));
             for (PlanRateSchedulesDetailsReturnElement element : arrayListPlanRateSchedulesDetailsReturnElement){
                 entity.getPlanRateSchedulesDetails().add(element);
+            }
+            entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
+            entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
+                        ArrayList<ContractRolloverRateSchedReturnElement> arrayListContractRolloverRateSchedReturnElement = buildContractRolloverRateSchedReturnElement((JSONArray)jsonObject.get("contract_rollover_rate_sched"));
+            for (ContractRolloverRateSchedReturnElement element : arrayListContractRolloverRateSchedReturnElement){
+                entity.getContractRolloverRateSched().add(element);
             }
             returnElement.add(entity);
         }
@@ -2970,6 +3002,35 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<ContractPlanDetailsReturnElement> buildContractPlanDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<ContractPlanDetailsReturnElement> returnElement = new ArrayList<ContractPlanDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ContractPlanDetailsReturnElement entity = new ContractPlanDetailsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanInstanceNo(getLongValue(jsonObject,"plan_instance_no"));
+            entity.setClientPlanInstanceId(getStringValue(jsonObject,"client_plan_instance_id"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ContractDetailsReturnElement> buildContractDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<ContractDetailsReturnElement> returnElement = new ArrayList<ContractDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ContractDetailsReturnElement entity = new ContractDetailsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setContractNo(getLongValue(jsonObject,"contract_no"));
+            entity.setClientContractId(getStringValue(jsonObject,"client_contract_id"));
+                        ArrayList<ContractPlanDetailsReturnElement> arrayListContractPlanDetailsReturnElement = buildContractPlanDetailsReturnElement((JSONArray)jsonObject.get("contract_plan_details"));
+            for (ContractPlanDetailsReturnElement element : arrayListContractPlanDetailsReturnElement){
+                entity.getContractPlanDetails().add(element);
+            }
+            entity.setContractScope(getStringValue(jsonObject,"contract_scope"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<BillingErrorsReturnElement> buildBillingErrorsReturnElement(JSONArray jsonArray) {
         ArrayList<BillingErrorsReturnElement> returnElement = new ArrayList<BillingErrorsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -3047,6 +3108,10 @@ public class RestUtilities {
             entity.setAcctNo(getLongValue(jsonObject,"acct_no"));
             entity.setUserid(getStringValue(jsonObject,"userid"));
             entity.setClientAcctId(getStringValue(jsonObject,"client_acct_id"));
+                        ArrayList<ContractDetailsReturnElement> arrayListContractDetailsReturnElement = buildContractDetailsReturnElement((JSONArray)jsonObject.get("contract_details"));
+            for (ContractDetailsReturnElement element : arrayListContractDetailsReturnElement){
+                entity.getContractDetails().add(element);
+            }
             entity.setSessionId(getStringValue(jsonObject,"session_id"));
                         ArrayList<BillingErrorsReturnElement> arrayListBillingErrorsReturnElement = buildBillingErrorsReturnElement((JSONArray)jsonObject.get("billing_errors"));
             for (BillingErrorsReturnElement element : arrayListBillingErrorsReturnElement){
@@ -3363,6 +3428,10 @@ public class RestUtilities {
             entity.setMasterPlanInstanceDescription(getStringValue(jsonObject,"master_plan_instance_description"));
             entity.setDunningGroupNo(getLongValue(jsonObject,"dunning_group_no"));
             entity.setClientDunningGroupId(getStringValue(jsonObject,"client_dunning_group_id"));
+            entity.setDunningGroupName(getStringValue(jsonObject,"dunning_group_name"));
+            entity.setDunningGroupDescription(getStringValue(jsonObject,"dunning_group_description"));
+            entity.setDunningProcessNo(getLongValue(jsonObject,"dunning_process_no"));
+            entity.setClientDunningProcessId(getStringValue(jsonObject,"client_dunning_process_id"));
             entity.setBillingGroupNo(getLongValue(jsonObject,"billing_group_no"));
             entity.setClientBillingGroupId(getStringValue(jsonObject,"client_billing_group_id"));
             entity.setMasterPlanInstanceStatus(getLongValue(jsonObject,"master_plan_instance_status"));
@@ -3931,6 +4000,12 @@ public class RestUtilities {
             entity.setClientMasterPlanInstanceId(getStringValue(jsonObject,"client_master_plan_instance_id"));
             entity.setParentPlanInstanceNo(getLongValue(jsonObject,"parent_plan_instance_no"));
             entity.setClientParentPlanInstanceId(getStringValue(jsonObject,"client_parent_plan_instance_id"));
+            entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
+            entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
+                        ArrayList<ContractRolloverRateSchedReturnElement> arrayListContractRolloverRateSchedReturnElement = buildContractRolloverRateSchedReturnElement((JSONArray)jsonObject.get("contract_rollover_rate_sched"));
+            for (ContractRolloverRateSchedReturnElement element : arrayListContractRolloverRateSchedReturnElement){
+                entity.getContractRolloverRateSched().add(element);
+            }
             returnElement.add(entity);
         }
         return returnElement;
@@ -4425,6 +4500,12 @@ public class RestUtilities {
             for (PlanRateSchedulesDetailsReturnElement element : arrayListPlanRateSchedulesDetailsReturnElement){
                 entity.getPlanRateSchedulesDetails().add(element);
             }
+            entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
+            entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
+                        ArrayList<ContractRolloverRateSchedReturnElement> arrayListContractRolloverRateSchedReturnElement = buildContractRolloverRateSchedReturnElement((JSONArray)jsonObject.get("contract_rollover_rate_sched"));
+            for (ContractRolloverRateSchedReturnElement element : arrayListContractRolloverRateSchedReturnElement){
+                entity.getContractRolloverRateSched().add(element);
+            }
             returnElement.add(entity);
         }
         return returnElement;
@@ -4632,6 +4713,46 @@ public class RestUtilities {
             for (PlanUnitInstanceReturnElement element : arrayListPlanUnitInstanceReturnElement){
                 entity.getPlanUnitInstance().add(element);
             }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ContractPlanInstanceDetailsReturnElement> buildContractPlanInstanceDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<ContractPlanInstanceDetailsReturnElement> returnElement = new ArrayList<ContractPlanInstanceDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ContractPlanInstanceDetailsReturnElement entity = new ContractPlanInstanceDetailsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanInstanceNo(getLongValue(jsonObject,"plan_instance_no"));
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            entity.setClientPlanInstanceId(getStringValue(jsonObject,"client_plan_instance_id"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<AllAcctContractsMReturnElement> buildAllAcctContractsMReturnElement(JSONArray jsonArray) {
+        ArrayList<AllAcctContractsMReturnElement> returnElement = new ArrayList<AllAcctContractsMReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            AllAcctContractsMReturnElement entity = new AllAcctContractsMReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setContractNo(getLongValue(jsonObject,"contract_no"));
+            entity.setContractScope(getStringValue(jsonObject,"contract_scope"));
+            entity.setTypeNo(getLongValue(jsonObject,"type_no"));
+            entity.setLengthMonths(getLongValue(jsonObject,"length_months"));
+            entity.setCancelFee(getDoubleValue(jsonObject,"cancel_fee"));
+            entity.setCreateComments(getStringValue(jsonObject,"create_comments"));
+            entity.setUpdateComments(getStringValue(jsonObject,"update_comments"));
+            entity.setCreateDate(getStringValue(jsonObject,"create_date"));
+            entity.setUpdateDate(getStringValue(jsonObject,"update_date"));
+            entity.setStartDate(getStringValue(jsonObject,"start_date"));
+            entity.setEndDate(getStringValue(jsonObject,"end_date"));
+            entity.setStatusCode(getLongValue(jsonObject,"status_code"));
+            entity.setPlanInstanceNo(getLongValue(jsonObject,"plan_instance_no"));
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            entity.setClientPlanInstanceId(getStringValue(jsonObject,"client_plan_instance_id"));
+            entity.setPlanInstanceStatusCd(getLongValue(jsonObject,"plan_instance_status_cd"));
+            entity.setPlanInstanceStatusLabel(getStringValue(jsonObject,"plan_instance_status_label"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -5232,6 +5353,34 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<WriteoffDisputeInfoReturnElement> buildWriteoffDisputeInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<WriteoffDisputeInfoReturnElement> returnElement = new ArrayList<WriteoffDisputeInfoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            WriteoffDisputeInfoReturnElement entity = new WriteoffDisputeInfoReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRecNo(getLongValue(jsonObject,"rec_no"));
+            entity.setCreatedBy(getStringValue(jsonObject,"created_by"));
+            entity.setCreatedDate(getStringValue(jsonObject,"created_date"));
+            entity.setAmount(getDoubleValue(jsonObject,"amount"));
+            entity.setInvoiceNo(getLongValue(jsonObject,"invoice_no"));
+            entity.setInvoiceDate(getStringValue(jsonObject,"invoice_date"));
+            entity.setInvoiceAmt(getDoubleValue(jsonObject,"invoice_amt"));
+                        ArrayList<WriteoffDetailReturnElement> arrayListWriteoffDetailReturnElement = buildWriteoffDetailReturnElement((JSONArray)jsonObject.get("writeoff_detail"));
+            for (WriteoffDetailReturnElement element : arrayListWriteoffDetailReturnElement){
+                entity.getWriteoffDetail().add(element);
+            }
+            entity.setDisputeCreationDate(getStringValue(jsonObject,"dispute_creation_date"));
+            entity.setDisputeExpDate(getStringValue(jsonObject,"dispute_exp_date"));
+            entity.setReasonCode(getLongValue(jsonObject,"reason_code"));
+            entity.setSecondaryReasonCode(getLongValue(jsonObject,"secondary_reason_code"));
+            entity.setComments(getStringValue(jsonObject,"comments"));
+            entity.setDisputeInd(getLongValue(jsonObject,"dispute_ind"));
+            entity.setCanUnsettle(getStringValue(jsonObject,"can_unsettle"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<ReversibleInvTransReturnElement> buildReversibleInvTransReturnElement(JSONArray jsonArray) {
         ArrayList<ReversibleInvTransReturnElement> returnElement = new ArrayList<ReversibleInvTransReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -5604,9 +5753,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.FunctionalAcctGroupsRow row : arrayList.getFunctionalAcctGroupsRow()){
-            parameters.add("functional_acct_group_no["+i+"]", getValue("Long", row.getFunctionalAcctGroupNo()));
-            parameters.add("client_functional_acct_group_id["+i+"]", getValue("String", row.getClientFunctionalAcctGroupId()));
-            parameters.add("functional_acct_grp_directive["+i+"]", getValue("Long", row.getFunctionalAcctGrpDirective()));
+            parameters.add("functional_acct_groups["+i+"]", getValue("Long", row.getFunctionalAcctGroups()));
             i++;
         }
     }
@@ -5614,9 +5761,7 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.FunctionalAcctGroupsRow row : arrayList.getFunctionalAcctGroupsRow()){
-            parameters.add(paramPrefix + "functional_acct_group_no["+i+"]", getValue("Long", row.getFunctionalAcctGroupNo()));
-            parameters.add(paramPrefix + "client_functional_acct_group_id["+i+"]", getValue("String", row.getClientFunctionalAcctGroupId()));
-            parameters.add(paramPrefix + "functional_acct_grp_directive["+i+"]", getValue("Long", row.getFunctionalAcctGrpDirective()));
+            parameters.add(paramPrefix + "functional_acct_groups["+i+"]", getValue("Long", row.getFunctionalAcctGroups()));
             i++;
         }
     }
@@ -7713,9 +7858,9 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctSuppFieldsRow row : arrayList.getAcctSuppFieldsRow()){
-            parameters.add("acct_supp_field_name["+i+"]", getValue("String", row.getAcctSuppFieldName()));
-            parameters.add("acct_supp_field_value["+i+"]", getValue("String", row.getAcctSuppFieldValue()));
-            parameters.add("acct_supp_field_directive["+i+"]", getValue("Long", row.getAcctSuppFieldDirective()));
+            parameters.add("supp_field_name["+i+"]", getValue("String", row.getSuppFieldName()));
+            parameters.add("supp_field_value["+i+"]", getValue("String", row.getSuppFieldValue()));
+            parameters.add("supp_field_directive["+i+"]", getValue("Long", row.getSuppFieldDirective()));
             i++;
         }
     }
@@ -7723,9 +7868,9 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctSuppFieldsRow row : arrayList.getAcctSuppFieldsRow()){
-            parameters.add(paramPrefix + "acct_supp_field_name["+i+"]", getValue("String", row.getAcctSuppFieldName()));
-            parameters.add(paramPrefix + "acct_supp_field_value["+i+"]", getValue("String", row.getAcctSuppFieldValue()));
-            parameters.add(paramPrefix + "acct_supp_field_directive["+i+"]", getValue("Long", row.getAcctSuppFieldDirective()));
+            parameters.add(paramPrefix + "supp_field_name["+i+"]", getValue("String", row.getSuppFieldName()));
+            parameters.add(paramPrefix + "supp_field_value["+i+"]", getValue("String", row.getSuppFieldValue()));
+            parameters.add(paramPrefix + "supp_field_directive["+i+"]", getValue("Long", row.getSuppFieldDirective()));
             i++;
         }
     }
@@ -7973,6 +8118,25 @@ public class RestUtilities {
         }
     }
 
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpiSurchargesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.MpiSurchargesRow row : arrayList.getMpiSurchargesRow()){
+            parameters.add("mpi_surcharge_no["+i+"]", getValue("Long", row.getMpiSurchargeNo()));
+            parameters.add("mpi_rate_schedule_no["+i+"]", getValue("Long", row.getMpiRateScheduleNo()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpiSurchargesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.MpiSurchargesRow row : arrayList.getMpiSurchargesRow()){
+            parameters.add(paramPrefix + "mpi_surcharge_no["+i+"]", getValue("Long", row.getMpiSurchargeNo()));
+            parameters.add(paramPrefix + "mpi_rate_schedule_no["+i+"]", getValue("Long", row.getMpiRateScheduleNo()));
+            i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -7982,10 +8146,14 @@ public class RestUtilities {
             parameters.add("client_plan_id["+i+"]", getValue("String", row.getClientPlanId()));
             parameters.add("plan_instance_description["+i+"]", getValue("String", row.getPlanInstanceDescription()));
             parameters.add("client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add("plan_instance_idx["+i+"]", getValue("Long", row.getPlanInstanceIdx()));
             parameters.add("plan_instance_units["+i+"]", getValue("Long", row.getPlanInstanceUnits()));
                         addParameterValuesFromArray(parameters, row.getPlanInstanceFieldsInfo(), "plan_instance_fields_info["+i+"]");
             parameters.add("alt_rate_schedule_no["+i+"]", getValue("Long", row.getAltRateScheduleNo()));
             parameters.add("client_alt_rate_schedule_id["+i+"]", getValue("String", row.getClientAltRateScheduleId()));
+            parameters.add("usage_accumulation_reset_months["+i+"]", getValue("Long", row.getUsageAccumulationResetMonths()));
+            parameters.add("usage_pooling["+i+"]", getValue("String", row.getUsagePooling()));
+            parameters.add("usage_threshold_applicability["+i+"]", getValue("String", row.getUsageThresholdApplicability()));
                         addParameterValuesFromArray(parameters, row.getCustomRates(), "custom_rates["+i+"]");
             i++;
         }
@@ -7999,11 +8167,36 @@ public class RestUtilities {
             parameters.add(paramPrefix + "client_plan_id["+i+"]", getValue("String", row.getClientPlanId()));
             parameters.add(paramPrefix + "plan_instance_description["+i+"]", getValue("String", row.getPlanInstanceDescription()));
             parameters.add(paramPrefix + "client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add(paramPrefix + "plan_instance_idx["+i+"]", getValue("Long", row.getPlanInstanceIdx()));
             parameters.add(paramPrefix + "plan_instance_units["+i+"]", getValue("Long", row.getPlanInstanceUnits()));
                         addParameterValuesFromArray(parameters, row.getPlanInstanceFieldsInfo(), paramPrefix + "plan_instance_fields_info["+i+"]");
             parameters.add(paramPrefix + "alt_rate_schedule_no["+i+"]", getValue("Long", row.getAltRateScheduleNo()));
             parameters.add(paramPrefix + "client_alt_rate_schedule_id["+i+"]", getValue("String", row.getClientAltRateScheduleId()));
+            parameters.add(paramPrefix + "usage_accumulation_reset_months["+i+"]", getValue("Long", row.getUsageAccumulationResetMonths()));
+            parameters.add(paramPrefix + "usage_pooling["+i+"]", getValue("String", row.getUsagePooling()));
+            parameters.add(paramPrefix + "usage_threshold_applicability["+i+"]", getValue("String", row.getUsageThresholdApplicability()));
                         addParameterValuesFromArray(parameters, row.getCustomRates(), paramPrefix + "custom_rates["+i+"]");
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlansArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.ContractPlansRow row : arrayList.getContractPlansRow()){
+            parameters.add("plan_instance_idx["+i+"]", getValue("Long", row.getPlanInstanceIdx()));
+            parameters.add("client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add("cascade_action["+i+"]", getValue("String", row.getCascadeAction()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlansArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.ContractPlansRow row : arrayList.getContractPlansRow()){
+            parameters.add(paramPrefix + "plan_instance_idx["+i+"]", getValue("Long", row.getPlanInstanceIdx()));
+            parameters.add(paramPrefix + "client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add(paramPrefix + "cascade_action["+i+"]", getValue("String", row.getCascadeAction()));
             i++;
         }
     }
@@ -8069,7 +8262,8 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctSurchargesRow row : arrayList.getAcctSurchargesRow()){
-            parameters.add("surcharge_no["+i+"]", getValue("Long", row.getSurchargeNo()));
+            parameters.add("acct_surcharge_no["+i+"]", getValue("Long", row.getAcctSurchargeNo()));
+            parameters.add("acct_rate_schedule_no["+i+"]", getValue("Long", row.getAcctRateScheduleNo()));
             i++;
         }
     }
@@ -8077,7 +8271,8 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctSurchargesRow row : arrayList.getAcctSurchargesRow()){
-            parameters.add(paramPrefix + "surcharge_no["+i+"]", getValue("Long", row.getSurchargeNo()));
+            parameters.add(paramPrefix + "acct_surcharge_no["+i+"]", getValue("Long", row.getAcctSurchargeNo()));
+            parameters.add(paramPrefix + "acct_rate_schedule_no["+i+"]", getValue("Long", row.getAcctRateScheduleNo()));
             i++;
         }
     }
@@ -8287,52 +8482,33 @@ public class RestUtilities {
         }
     }
 
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractArray arrayList) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractsArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.ContractRow row : arrayList.getContractRow()){
-            parameters.add("contract_plan_no["+i+"]", getValue("Long", row.getContractPlanNo()));
+        for (com.aria.common.shared.ContractsRow row : arrayList.getContractsRow()){
+            parameters.add("client_contract_id["+i+"]", getValue("String", row.getClientContractId()));
             parameters.add("contract_type_no["+i+"]", getValue("Long", row.getContractTypeNo()));
-            parameters.add("contract_alt_recur_fee["+i+"]", getValue("Double", row.getContractAltRecurFee()));
             parameters.add("contract_length_months["+i+"]", getValue("Long", row.getContractLengthMonths()));
             parameters.add("contract_cancel_fee["+i+"]", getValue("Double", row.getContractCancelFee()));
             parameters.add("contract_comments["+i+"]", getValue("String", row.getContractComments()));
             parameters.add("contract_start_date["+i+"]", getValue("String", row.getContractStartDate()));
             parameters.add("contract_end_date["+i+"]", getValue("String", row.getContractEndDate()));
+                        addParameterValuesFromArray(parameters, row.getContractPlans(), "contract_plans["+i+"]");
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractArray arrayList, String paramPrefix) {
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.ContractRow row : arrayList.getContractRow()){
-            parameters.add(paramPrefix + "contract_plan_no["+i+"]", getValue("Long", row.getContractPlanNo()));
+        for (com.aria.common.shared.ContractsRow row : arrayList.getContractsRow()){
+            parameters.add(paramPrefix + "client_contract_id["+i+"]", getValue("String", row.getClientContractId()));
             parameters.add(paramPrefix + "contract_type_no["+i+"]", getValue("Long", row.getContractTypeNo()));
-            parameters.add(paramPrefix + "contract_alt_recur_fee["+i+"]", getValue("Double", row.getContractAltRecurFee()));
             parameters.add(paramPrefix + "contract_length_months["+i+"]", getValue("Long", row.getContractLengthMonths()));
             parameters.add(paramPrefix + "contract_cancel_fee["+i+"]", getValue("Double", row.getContractCancelFee()));
             parameters.add(paramPrefix + "contract_comments["+i+"]", getValue("String", row.getContractComments()));
             parameters.add(paramPrefix + "contract_start_date["+i+"]", getValue("String", row.getContractStartDate()));
             parameters.add(paramPrefix + "contract_end_date["+i+"]", getValue("String", row.getContractEndDate()));
-            i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EnableUsagePoolingPlansArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.EnableUsagePoolingPlansRow row : arrayList.getEnableUsagePoolingPlansRow()){
-            parameters.add("enable_usage_pooling_plan_no["+i+"]", getValue("Long", row.getEnableUsagePoolingPlanNo()));
-            parameters.add("client_enable_usage_pool_plan_id["+i+"]", getValue("String", row.getClientEnableUsagePoolPlanId()));
-            i++;
-        }
-    }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EnableUsagePoolingPlansArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.EnableUsagePoolingPlansRow row : arrayList.getEnableUsagePoolingPlansRow()){
-            parameters.add(paramPrefix + "enable_usage_pooling_plan_no["+i+"]", getValue("Long", row.getEnableUsagePoolingPlanNo()));
-            parameters.add(paramPrefix + "client_enable_usage_pool_plan_id["+i+"]", getValue("String", row.getClientEnableUsagePoolPlanId()));
+                        addParameterValuesFromArray(parameters, row.getContractPlans(), paramPrefix + "contract_plans["+i+"]");
             i++;
         }
     }
@@ -8360,9 +8536,13 @@ public class RestUtilities {
             parameters.add("status_until_alt_start["+i+"]", getValue("Long", row.getStatusUntilAltStart()));
             parameters.add("balance_forward["+i+"]", getValue("Double", row.getBalanceForward()));
                         addParameterValuesFromArray(parameters, row.getCouponCodes(), "coupon_codes["+i+"]");
+                        addParameterValuesFromArray(parameters, row.getMpiSurcharges(), "mpi_surcharges["+i+"]");
                         addParameterValuesFromArray(parameters, row.getPlanInstanceFieldsInfo(), "plan_instance_fields_info["+i+"]");
             parameters.add("alt_rate_schedule_no["+i+"]", getValue("Long", row.getAltRateScheduleNo()));
             parameters.add("client_alt_rate_schedule_id["+i+"]", getValue("String", row.getClientAltRateScheduleId()));
+            parameters.add("usage_accumulation_reset_months["+i+"]", getValue("Long", row.getUsageAccumulationResetMonths()));
+            parameters.add("usage_pooling["+i+"]", getValue("String", row.getUsagePooling()));
+            parameters.add("usage_threshold_applicability["+i+"]", getValue("String", row.getUsageThresholdApplicability()));
                         addParameterValuesFromArray(parameters, row.getCustomRates(), "custom_rates["+i+"]");
                         addParameterValuesFromArray(parameters, row.getSuppPlan(), "supp_plan["+i+"]");
             i++;
@@ -8391,9 +8571,13 @@ public class RestUtilities {
             parameters.add(paramPrefix + "status_until_alt_start["+i+"]", getValue("Long", row.getStatusUntilAltStart()));
             parameters.add(paramPrefix + "balance_forward["+i+"]", getValue("Double", row.getBalanceForward()));
                         addParameterValuesFromArray(parameters, row.getCouponCodes(), paramPrefix + "coupon_codes["+i+"]");
+                        addParameterValuesFromArray(parameters, row.getMpiSurcharges(), paramPrefix + "mpi_surcharges["+i+"]");
                         addParameterValuesFromArray(parameters, row.getPlanInstanceFieldsInfo(), paramPrefix + "plan_instance_fields_info["+i+"]");
             parameters.add(paramPrefix + "alt_rate_schedule_no["+i+"]", getValue("Long", row.getAltRateScheduleNo()));
             parameters.add(paramPrefix + "client_alt_rate_schedule_id["+i+"]", getValue("String", row.getClientAltRateScheduleId()));
+            parameters.add(paramPrefix + "usage_accumulation_reset_months["+i+"]", getValue("Long", row.getUsageAccumulationResetMonths()));
+            parameters.add(paramPrefix + "usage_pooling["+i+"]", getValue("String", row.getUsagePooling()));
+            parameters.add(paramPrefix + "usage_threshold_applicability["+i+"]", getValue("String", row.getUsageThresholdApplicability()));
                         addParameterValuesFromArray(parameters, row.getCustomRates(), paramPrefix + "custom_rates["+i+"]");
                         addParameterValuesFromArray(parameters, row.getSuppPlan(), paramPrefix + "supp_plan["+i+"]");
             i++;
@@ -8460,9 +8644,7 @@ public class RestUtilities {
                         addParameterValuesFromArray(parameters, row.getPaymentMethod(), "payment_method["+i+"]");
                         addParameterValuesFromArray(parameters, row.getBillingGroup(), "billing_group["+i+"]");
                         addParameterValuesFromArray(parameters, row.getDunningGroup(), "dunning_group["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getContract(), "contract["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getUsageAccumulationConfig(), "usage_accumulation_config["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getEnableUsagePoolingPlans(), "enable_usage_pooling_plans["+i+"]");
+                        addParameterValuesFromArray(parameters, row.getContracts(), "contracts["+i+"]");
                         addParameterValuesFromArray(parameters, row.getMasterPlansDetail(), "master_plans_detail["+i+"]");
             parameters.add("consumer_acct_ind["+i+"]", getValue("String", row.getConsumerAcctInd()));
             parameters.add("revrec_profile_no["+i+"]", getValue("Long", row.getRevrecProfileNo()));
@@ -8530,9 +8712,7 @@ public class RestUtilities {
                         addParameterValuesFromArray(parameters, row.getPaymentMethod(), paramPrefix + "payment_method["+i+"]");
                         addParameterValuesFromArray(parameters, row.getBillingGroup(), paramPrefix + "billing_group["+i+"]");
                         addParameterValuesFromArray(parameters, row.getDunningGroup(), paramPrefix + "dunning_group["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getContract(), paramPrefix + "contract["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getUsageAccumulationConfig(), paramPrefix + "usage_accumulation_config["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getEnableUsagePoolingPlans(), paramPrefix + "enable_usage_pooling_plans["+i+"]");
+                        addParameterValuesFromArray(parameters, row.getContracts(), paramPrefix + "contracts["+i+"]");
                         addParameterValuesFromArray(parameters, row.getMasterPlansDetail(), paramPrefix + "master_plans_detail["+i+"]");
             parameters.add(paramPrefix + "consumer_acct_ind["+i+"]", getValue("String", row.getConsumerAcctInd()));
             parameters.add(paramPrefix + "revrec_profile_no["+i+"]", getValue("Long", row.getRevrecProfileNo()));
@@ -8558,23 +8738,65 @@ public class RestUtilities {
         }
     }
 
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionAcctGroupsArray arrayList) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.FunctionalAcctGroupsUpdateArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.CollectionAcctGroupsRow row : arrayList.getCollectionAcctGroupsRow()){
+        for (com.aria.common.shared.FunctionalAcctGroupsUpdateRow row : arrayList.getFunctionalAcctGroupsUpdateRow()){
+            parameters.add("functional_acct_group_no["+i+"]", getValue("Long", row.getFunctionalAcctGroupNo()));
+            parameters.add("client_functional_acct_group_id["+i+"]", getValue("String", row.getClientFunctionalAcctGroupId()));
+            parameters.add("functional_acct_grp_directive["+i+"]", getValue("Long", row.getFunctionalAcctGrpDirective()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.FunctionalAcctGroupsUpdateArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.FunctionalAcctGroupsUpdateRow row : arrayList.getFunctionalAcctGroupsUpdateRow()){
+            parameters.add(paramPrefix + "functional_acct_group_no["+i+"]", getValue("Long", row.getFunctionalAcctGroupNo()));
+            parameters.add(paramPrefix + "client_functional_acct_group_id["+i+"]", getValue("String", row.getClientFunctionalAcctGroupId()));
+            parameters.add(paramPrefix + "functional_acct_grp_directive["+i+"]", getValue("Long", row.getFunctionalAcctGrpDirective()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionAcctGroupsUpdateArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.CollectionAcctGroupsUpdateRow row : arrayList.getCollectionAcctGroupsUpdateRow()){
             parameters.add("collection_acct_group_no["+i+"]", getValue("Long", row.getCollectionAcctGroupNo()));
             parameters.add("client_collection_acct_group_id["+i+"]", getValue("String", row.getClientCollectionAcctGroupId()));
             parameters.add("collection_acct_grp_directive["+i+"]", getValue("Long", row.getCollectionAcctGrpDirective()));
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionAcctGroupsArray arrayList, String paramPrefix) {
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionAcctGroupsUpdateArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.CollectionAcctGroupsRow row : arrayList.getCollectionAcctGroupsRow()){
+        for (com.aria.common.shared.CollectionAcctGroupsUpdateRow row : arrayList.getCollectionAcctGroupsUpdateRow()){
             parameters.add(paramPrefix + "collection_acct_group_no["+i+"]", getValue("Long", row.getCollectionAcctGroupNo()));
             parameters.add(paramPrefix + "client_collection_acct_group_id["+i+"]", getValue("String", row.getClientCollectionAcctGroupId()));
             parameters.add(paramPrefix + "collection_acct_grp_directive["+i+"]", getValue("Long", row.getCollectionAcctGrpDirective()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctSuppFieldsUpdateArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.AcctSuppFieldsUpdateRow row : arrayList.getAcctSuppFieldsUpdateRow()){
+            parameters.add("acct_supp_field_name["+i+"]", getValue("String", row.getAcctSuppFieldName()));
+            parameters.add("acct_supp_field_value["+i+"]", getValue("String", row.getAcctSuppFieldValue()));
+            parameters.add("acct_supp_field_directive["+i+"]", getValue("Long", row.getAcctSuppFieldDirective()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctSuppFieldsUpdateArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.AcctSuppFieldsUpdateRow row : arrayList.getAcctSuppFieldsUpdateRow()){
+            parameters.add(paramPrefix + "acct_supp_field_name["+i+"]", getValue("String", row.getAcctSuppFieldName()));
+            parameters.add(paramPrefix + "acct_supp_field_value["+i+"]", getValue("String", row.getAcctSuppFieldValue()));
+            parameters.add(paramPrefix + "acct_supp_field_directive["+i+"]", getValue("Long", row.getAcctSuppFieldDirective()));
             i++;
         }
     }
@@ -8617,21 +8839,23 @@ public class RestUtilities {
         }
     }
 
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlanProductFieldsArray arrayList) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlanPlanInstFieldsArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.MasterPlanProductFieldsRow row : arrayList.getMasterPlanProductFieldsRow()){
-            parameters.add("master_plan_product_field_name["+i+"]", getValue("String", row.getMasterPlanProductFieldName()));
-            parameters.add("master_plan_product_field_val["+i+"]", getValue("String", row.getMasterPlanProductFieldVal()));
+        for (com.aria.common.shared.MasterPlanPlanInstFieldsRow row : arrayList.getMasterPlanPlanInstFieldsRow()){
+            parameters.add("plan_instance_field_name["+i+"]", getValue("String", row.getPlanInstanceFieldName()));
+            parameters.add("plan_instance_field_value["+i+"]", getValue("String", row.getPlanInstanceFieldValue()));
+            parameters.add("plan_instance_field_directive["+i+"]", getValue("Long", row.getPlanInstanceFieldDirective()));
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlanProductFieldsArray arrayList, String paramPrefix) {
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlanPlanInstFieldsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.MasterPlanProductFieldsRow row : arrayList.getMasterPlanProductFieldsRow()){
-            parameters.add(paramPrefix + "master_plan_product_field_name["+i+"]", getValue("String", row.getMasterPlanProductFieldName()));
-            parameters.add(paramPrefix + "master_plan_product_field_val["+i+"]", getValue("String", row.getMasterPlanProductFieldVal()));
+        for (com.aria.common.shared.MasterPlanPlanInstFieldsRow row : arrayList.getMasterPlanPlanInstFieldsRow()){
+            parameters.add(paramPrefix + "plan_instance_field_name["+i+"]", getValue("String", row.getPlanInstanceFieldName()));
+            parameters.add(paramPrefix + "plan_instance_field_value["+i+"]", getValue("String", row.getPlanInstanceFieldValue()));
+            parameters.add(paramPrefix + "plan_instance_field_directive["+i+"]", getValue("Long", row.getPlanInstanceFieldDirective()));
             i++;
         }
     }
@@ -8902,6 +9126,27 @@ public class RestUtilities {
         }
     }
 
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceFieldUpdateArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.PlanInstanceFieldUpdateRow row : arrayList.getPlanInstanceFieldUpdateRow()){
+            parameters.add("plan_instance_field_name["+i+"]", getValue("String", row.getPlanInstanceFieldName()));
+            parameters.add("plan_instance_field_value["+i+"]", getValue("String", row.getPlanInstanceFieldValue()));
+            parameters.add("plan_instance_field_directive["+i+"]", getValue("Long", row.getPlanInstanceFieldDirective()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceFieldUpdateArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.PlanInstanceFieldUpdateRow row : arrayList.getPlanInstanceFieldUpdateRow()){
+            parameters.add(paramPrefix + "plan_instance_field_name["+i+"]", getValue("String", row.getPlanInstanceFieldName()));
+            parameters.add(paramPrefix + "plan_instance_field_value["+i+"]", getValue("String", row.getPlanInstanceFieldValue()));
+            parameters.add(paramPrefix + "plan_instance_field_directive["+i+"]", getValue("Long", row.getPlanInstanceFieldDirective()));
+            i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceToRemoveArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -9064,6 +9309,64 @@ public class RestUtilities {
         for (com.aria.common.shared.RemovePlanUnitsRow row : arrayList.getRemovePlanUnitsRow()){
             parameters.add(paramPrefix + "plan_unit_inst_no["+i+"]", getValue("Long", row.getPlanUnitInstNo()));
             parameters.add(paramPrefix + "client_plan_unit_inst_id["+i+"]", getValue("String", row.getClientPlanUnitInstId()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlanInstancesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.ContractPlanInstancesRow row : arrayList.getContractPlanInstancesRow()){
+            parameters.add("plan_instance_no["+i+"]", getValue("Long", row.getPlanInstanceNo()));
+            parameters.add("client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add("rollover_plan_no["+i+"]", getValue("Long", row.getRolloverPlanNo()));
+            parameters.add("rollover_client_plan_id["+i+"]", getValue("String", row.getRolloverClientPlanId()));
+            parameters.add("rollover_rate_sched_no["+i+"]", getValue("Long", row.getRolloverRateSchedNo()));
+            parameters.add("rollover_client_rate_sched_id["+i+"]", getValue("String", row.getRolloverClientRateSchedId()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlanInstancesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.ContractPlanInstancesRow row : arrayList.getContractPlanInstancesRow()){
+            parameters.add(paramPrefix + "plan_instance_no["+i+"]", getValue("Long", row.getPlanInstanceNo()));
+            parameters.add(paramPrefix + "client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add(paramPrefix + "rollover_plan_no["+i+"]", getValue("Long", row.getRolloverPlanNo()));
+            parameters.add(paramPrefix + "rollover_client_plan_id["+i+"]", getValue("String", row.getRolloverClientPlanId()));
+            parameters.add(paramPrefix + "rollover_rate_sched_no["+i+"]", getValue("Long", row.getRolloverRateSchedNo()));
+            parameters.add(paramPrefix + "rollover_client_rate_sched_id["+i+"]", getValue("String", row.getRolloverClientRateSchedId()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractRolloverCustomRatesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.ContractRolloverCustomRatesRow row : arrayList.getContractRolloverCustomRatesRow()){
+            parameters.add("custom_rate_plan_instance_no["+i+"]", getValue("Long", row.getCustomRatePlanInstanceNo()));
+            parameters.add("custom_rate_client_plan_instance_id["+i+"]", getValue("String", row.getCustomRateClientPlanInstanceId()));
+            parameters.add("custom_rate_service_no["+i+"]", getValue("Long", row.getCustomRateServiceNo()));
+            parameters.add("custom_rate_client_service_id["+i+"]", getValue("String", row.getCustomRateClientServiceId()));
+            parameters.add("custom_rate_seq_no["+i+"]", getValue("Long", row.getCustomRateSeqNo()));
+            parameters.add("custom_rate_from_unit["+i+"]", getValue("Long", row.getCustomRateFromUnit()));
+            parameters.add("custom_rate_to_unit["+i+"]", getValue("Long", row.getCustomRateToUnit()));
+            parameters.add("custom_rate_per_unit["+i+"]", getValue("Double", row.getCustomRatePerUnit()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractRolloverCustomRatesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.ContractRolloverCustomRatesRow row : arrayList.getContractRolloverCustomRatesRow()){
+            parameters.add(paramPrefix + "custom_rate_plan_instance_no["+i+"]", getValue("Long", row.getCustomRatePlanInstanceNo()));
+            parameters.add(paramPrefix + "custom_rate_client_plan_instance_id["+i+"]", getValue("String", row.getCustomRateClientPlanInstanceId()));
+            parameters.add(paramPrefix + "custom_rate_service_no["+i+"]", getValue("Long", row.getCustomRateServiceNo()));
+            parameters.add(paramPrefix + "custom_rate_client_service_id["+i+"]", getValue("String", row.getCustomRateClientServiceId()));
+            parameters.add(paramPrefix + "custom_rate_seq_no["+i+"]", getValue("Long", row.getCustomRateSeqNo()));
+            parameters.add(paramPrefix + "custom_rate_from_unit["+i+"]", getValue("Long", row.getCustomRateFromUnit()));
+            parameters.add(paramPrefix + "custom_rate_to_unit["+i+"]", getValue("Long", row.getCustomRateToUnit()));
+            parameters.add(paramPrefix + "custom_rate_per_unit["+i+"]", getValue("Double", row.getCustomRatePerUnit()));
             i++;
         }
     }
@@ -9307,7 +9610,6 @@ public class RestUtilities {
         for (com.aria.common.shared.InvoicesToReverseRow row : arrayList.getInvoicesToReverseRow()){
             parameters.add("invoice_no["+i+"]", getValue("Long", row.getInvoiceNo()));
             parameters.add("invoice_line_no["+i+"]", getValue("Long", row.getInvoiceLineNo()));
-            parameters.add("invoice_transaction_id["+i+"]", getValue("Long", row.getInvoiceTransactionId()));
             parameters.add("invoice_line_reversing_amount["+i+"]", getValue("Double", row.getInvoiceLineReversingAmount()));
             parameters.add("invoice_line_reversing_date["+i+"]", getValue("String", row.getInvoiceLineReversingDate()));
             i++;
@@ -9319,7 +9621,6 @@ public class RestUtilities {
         for (com.aria.common.shared.InvoicesToReverseRow row : arrayList.getInvoicesToReverseRow()){
             parameters.add(paramPrefix + "invoice_no["+i+"]", getValue("Long", row.getInvoiceNo()));
             parameters.add(paramPrefix + "invoice_line_no["+i+"]", getValue("Long", row.getInvoiceLineNo()));
-            parameters.add(paramPrefix + "invoice_transaction_id["+i+"]", getValue("Long", row.getInvoiceTransactionId()));
             parameters.add(paramPrefix + "invoice_line_reversing_amount["+i+"]", getValue("Double", row.getInvoiceLineReversingAmount()));
             parameters.add(paramPrefix + "invoice_line_reversing_date["+i+"]", getValue("String", row.getInvoiceLineReversingDate()));
             i++;
@@ -9373,6 +9674,31 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.RecurringCreditNoRow row : arrayList.getRecurringCreditNoRow()){
             parameters.add(paramPrefix + "recurring_credit_no["+i+"]", getValue("Long", row.getRecurringCreditNo()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InvoiceTransToReverseArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.InvoiceTransToReverseRow row : arrayList.getInvoiceTransToReverseRow()){
+            parameters.add("invoice_no["+i+"]", getValue("Long", row.getInvoiceNo()));
+            parameters.add("invoice_line_no["+i+"]", getValue("Long", row.getInvoiceLineNo()));
+            parameters.add("invoice_transaction_id["+i+"]", getValue("Long", row.getInvoiceTransactionId()));
+            parameters.add("invoice_line_reversing_amount["+i+"]", getValue("Double", row.getInvoiceLineReversingAmount()));
+            parameters.add("invoice_line_reversing_date["+i+"]", getValue("String", row.getInvoiceLineReversingDate()));
+            i++;
+        }
+    }
+    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InvoiceTransToReverseArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.InvoiceTransToReverseRow row : arrayList.getInvoiceTransToReverseRow()){
+            parameters.add(paramPrefix + "invoice_no["+i+"]", getValue("Long", row.getInvoiceNo()));
+            parameters.add(paramPrefix + "invoice_line_no["+i+"]", getValue("Long", row.getInvoiceLineNo()));
+            parameters.add(paramPrefix + "invoice_transaction_id["+i+"]", getValue("Long", row.getInvoiceTransactionId()));
+            parameters.add(paramPrefix + "invoice_line_reversing_amount["+i+"]", getValue("Double", row.getInvoiceLineReversingAmount()));
+            parameters.add(paramPrefix + "invoice_line_reversing_date["+i+"]", getValue("String", row.getInvoiceLineReversingDate()));
             i++;
         }
     }

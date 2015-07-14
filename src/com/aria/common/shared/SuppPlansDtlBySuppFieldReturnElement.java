@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supp_plans_dtl_by_supp_field_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "planRateSchedulesDetails"})
+@XmlType(name = "supp_plans_dtl_by_supp_field_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched"})
 public class SuppPlansDtlBySuppFieldReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -45,6 +45,12 @@ public class SuppPlansDtlBySuppFieldReturnElement {
     protected String prorationInvoiceTimingCd;
     @XmlElement(name = "plan_rate_schedules_details")
     protected List<PlanRateSchedulesDetailsReturnElement> planRateSchedulesDetails;
+    @XmlElement(name = "contract_rollover_plan_no")
+    protected Long contractRolloverPlanNo;
+    @XmlElement(name = "contract_rollover_client_plan_id")
+    protected String contractRolloverClientPlanId;
+    @XmlElement(name = "contract_rollover_rate_sched")
+    protected List<ContractRolloverRateSchedReturnElement> contractRolloverRateSched;
     
     public Long getPlanNo() {
         return planNo;
@@ -171,5 +177,26 @@ public class SuppPlansDtlBySuppFieldReturnElement {
             this.planRateSchedulesDetails = new ArrayList<PlanRateSchedulesDetailsReturnElement>();
         }
         return this.planRateSchedulesDetails;
+    }public Long getContractRolloverPlanNo() {
+        return contractRolloverPlanNo;
+    }
+
+    public void setContractRolloverPlanNo(Long value) {
+        this.contractRolloverPlanNo = value;
+    }
+
+    public String getContractRolloverClientPlanId() {
+        return contractRolloverClientPlanId;
+    }
+
+    public void setContractRolloverClientPlanId(String value) {
+        this.contractRolloverClientPlanId = value;
+    }
+
+    public List<ContractRolloverRateSchedReturnElement> getContractRolloverRateSched() {
+        if (this.contractRolloverRateSched == null) {
+            this.contractRolloverRateSched = new ArrayList<ContractRolloverRateSchedReturnElement>();
+        }
+        return this.contractRolloverRateSched;
     }
 }

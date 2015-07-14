@@ -241,6 +241,7 @@ public class RestUtilities {
             }
             entity.setInvoicePostingMethodCd(getLongValue(jsonObject,"invoice_posting_method_cd"));
             entity.setAcctStartDate(getStringValue(jsonObject,"acct_start_date"));
+            entity.setPayMethodName(getStringValue(jsonObject,"pay_method_name"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -811,6 +812,18 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<SuppPlanPlanInstFieldsReturnElement> buildSuppPlanPlanInstFieldsReturnElement(JSONArray jsonArray) {
+        ArrayList<SuppPlanPlanInstFieldsReturnElement> returnElement = new ArrayList<SuppPlanPlanInstFieldsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SuppPlanPlanInstFieldsReturnElement entity = new SuppPlanPlanInstFieldsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanInstanceFieldName(getStringValue(jsonObject,"plan_instance_field_name"));
+            entity.setPlanInstanceFieldValue(getStringValue(jsonObject,"plan_instance_field_value"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<SuppPlansReturnElement> buildSuppPlansReturnElement(JSONArray jsonArray) {
         ArrayList<SuppPlansReturnElement> returnElement = new ArrayList<SuppPlansReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -825,6 +838,10 @@ public class RestUtilities {
             entity.setSuppPlanInstanceStatus(getStringValue(jsonObject,"supp_plan_instance_status"));
             entity.setParentPlanInstanceNo(getStringValue(jsonObject,"parent_plan_instance_no"));
             entity.setClientParentPlanInstanceId(getStringValue(jsonObject,"client_parent_plan_instance_id"));
+                        ArrayList<SuppPlanPlanInstFieldsReturnElement> arrayListSuppPlanPlanInstFieldsReturnElement = buildSuppPlanPlanInstFieldsReturnElement((JSONArray)jsonObject.get("supp_plan_plan_inst_fields"));
+            for (SuppPlanPlanInstFieldsReturnElement element : arrayListSuppPlanPlanInstFieldsReturnElement){
+                entity.getSuppPlanPlanInstFields().add(element);
+            }
             returnElement.add(entity);
         }
         return returnElement;
@@ -836,6 +853,18 @@ public class RestUtilities {
             CouponCdReturnElement entity = new CouponCdReturnElement();
             JSONObject jsonObject = (JSONObject)jsonArray.get(i);
             entity.setCouponCd(getStringValue(jsonObject,"coupon_cd"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<MasterPlanPlanInstFieldsReturnElement> buildMasterPlanPlanInstFieldsReturnElement(JSONArray jsonArray) {
+        ArrayList<MasterPlanPlanInstFieldsReturnElement> returnElement = new ArrayList<MasterPlanPlanInstFieldsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            MasterPlanPlanInstFieldsReturnElement entity = new MasterPlanPlanInstFieldsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanInstanceFieldName(getStringValue(jsonObject,"plan_instance_field_name"));
+            entity.setPlanInstanceFieldValue(getStringValue(jsonObject,"plan_instance_field_value"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -912,6 +941,12 @@ public class RestUtilities {
             entity.setClientMasterPlanId(getStringValue(jsonObject,"client_master_plan_id"));
             entity.setMasterPlanNo(getStringValue(jsonObject,"master_plan_no"));
             entity.setMasterPlanInstanceDescription(getStringValue(jsonObject,"master_plan_instance_description"));
+            entity.setDunningGroupNo(getLongValue(jsonObject,"dunning_group_no"));
+            entity.setClientDunningGroupId(getStringValue(jsonObject,"client_dunning_group_id"));
+            entity.setDunningGroupName(getStringValue(jsonObject,"dunning_group_name"));
+            entity.setDunningGroupDescription(getStringValue(jsonObject,"dunning_group_description"));
+            entity.setDunningProcessNo(getLongValue(jsonObject,"dunning_process_no"));
+            entity.setClientDunningProcessId(getStringValue(jsonObject,"client_dunning_process_id"));
                         ArrayList<SuppPlansReturnElement> arrayListSuppPlansReturnElement = buildSuppPlansReturnElement((JSONArray)jsonObject.get("supp_plans"));
             for (SuppPlansReturnElement element : arrayListSuppPlansReturnElement){
                 entity.getSuppPlans().add(element);
@@ -919,6 +954,10 @@ public class RestUtilities {
                         ArrayList<CouponCdReturnElement> arrayListCouponCdReturnElement = buildCouponCdReturnElement((JSONArray)jsonObject.get("coupon_cd"));
             for (CouponCdReturnElement element : arrayListCouponCdReturnElement){
                 entity.getCouponCd().add(element);
+            }
+                        ArrayList<MasterPlanPlanInstFieldsReturnElement> arrayListMasterPlanPlanInstFieldsReturnElement = buildMasterPlanPlanInstFieldsReturnElement((JSONArray)jsonObject.get("master_plan_plan_inst_fields"));
+            for (MasterPlanPlanInstFieldsReturnElement element : arrayListMasterPlanPlanInstFieldsReturnElement){
+                entity.getMasterPlanPlanInstFields().add(element);
             }
             returnElement.add(entity);
         }
