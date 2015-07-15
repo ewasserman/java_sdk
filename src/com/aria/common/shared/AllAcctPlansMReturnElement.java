@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_acct_plans_m_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planInstanceNo", "clientPlanInstanceId", "planDate", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "recurringBillingInterval", "usageBillingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "billingGroupNo", "clientBillingGroupId", "dunningGroupNo", "clientDunningGroupId", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "suppPlanInd", "planInstanceStatusCd", "planInstanceStatusLabel", "planInstanceStatusDate", "dunningState", "dunningStep", "dunningDegradeDate", "planAssignmentDate", "planDeprovisionedDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd", "productFields", "planInstanceFieldsDetail", "masterPlanInstanceNo", "clientMasterPlanInstanceId", "parentPlanInstanceNo", "clientParentPlanInstanceId", "planServices", "surchargesAll"})
+@XmlType(name = "all_acct_plans_m_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planInstanceNo", "clientPlanInstanceId", "planDate", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "recurringBillingInterval", "usageBillingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "billingGroupNo", "clientBillingGroupId", "dunningGroupNo", "clientDunningGroupId", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "suppPlanInd", "planInstanceStatusCd", "planInstanceStatusLabel", "planInstanceStatusDate", "dunningState", "dunningStep", "dunningDegradeDate", "planAssignmentDate", "planDeprovisionedDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd", "productFields", "planInstanceFieldsDetail", "masterPlanInstanceNo", "clientMasterPlanInstanceId", "parentPlanInstanceNo", "clientParentPlanInstanceId", "planServices", "surchargesAll", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSchedNo", "contractRolloverClientRateSchedId"})
 public class AllAcctPlansMReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -133,6 +133,14 @@ public class AllAcctPlansMReturnElement {
     protected List<PlanServicesReturnElement> planServices;
     @XmlElement(name = "surcharges_all")
     protected List<SurchargesAllReturnElement> surchargesAll;
+    @XmlElement(name = "contract_rollover_plan_no")
+    protected Long contractRolloverPlanNo;
+    @XmlElement(name = "contract_rollover_client_plan_id")
+    protected String contractRolloverClientPlanId;
+    @XmlElement(name = "contract_rollover_rate_sched_no")
+    protected Long contractRolloverRateSchedNo;
+    @XmlElement(name = "contract_rollover_client_rate_sched_id")
+    protected String contractRolloverClientRateSchedId;
     
     public Long getPlanNo() {
         return planNo;
@@ -602,5 +610,37 @@ public class AllAcctPlansMReturnElement {
             this.surchargesAll = new ArrayList<SurchargesAllReturnElement>();
         }
         return this.surchargesAll;
+    }public Long getContractRolloverPlanNo() {
+        return contractRolloverPlanNo;
     }
+
+    public void setContractRolloverPlanNo(Long value) {
+        this.contractRolloverPlanNo = value;
+    }
+
+    public String getContractRolloverClientPlanId() {
+        return contractRolloverClientPlanId;
+    }
+
+    public void setContractRolloverClientPlanId(String value) {
+        this.contractRolloverClientPlanId = value;
+    }
+
+    public Long getContractRolloverRateSchedNo() {
+        return contractRolloverRateSchedNo;
+    }
+
+    public void setContractRolloverRateSchedNo(Long value) {
+        this.contractRolloverRateSchedNo = value;
+    }
+
+    public String getContractRolloverClientRateSchedId() {
+        return contractRolloverClientRateSchedId;
+    }
+
+    public void setContractRolloverClientRateSchedId(String value) {
+        this.contractRolloverClientRateSchedId = value;
+    }
+
+    
 }

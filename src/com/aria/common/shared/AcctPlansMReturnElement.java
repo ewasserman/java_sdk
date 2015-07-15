@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_plans_m_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planInstanceNo", "clientPlanInstanceId", "planDate", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "recurringBillingInterval", "usageBillingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "suppPlanInd", "planInstanceStatusCd", "planInstanceStatusLabel", "planInstanceStatusDate", "dunningState", "dunningStep", "dunningDegradeDate", "planAssignmentDate", "planDeprovisionedDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd", "masterPlanInstanceNo", "clientMasterPlanInstanceId", "parentPlanInstanceNo", "clientParentPlanInstanceId", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched"})
+@XmlType(name = "acct_plans_m_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planInstanceNo", "clientPlanInstanceId", "planDate", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "recurringBillingInterval", "usageBillingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "suppPlanInd", "planInstanceStatusCd", "planInstanceStatusLabel", "planInstanceStatusDate", "dunningState", "dunningStep", "dunningDegradeDate", "planAssignmentDate", "planDeprovisionedDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd", "masterPlanInstanceNo", "clientMasterPlanInstanceId", "parentPlanInstanceNo", "clientParentPlanInstanceId", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSchedNo", "contractRolloverClientRateSchedId"})
 public class AcctPlansMReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -121,8 +121,10 @@ public class AcctPlansMReturnElement {
     protected Long contractRolloverPlanNo;
     @XmlElement(name = "contract_rollover_client_plan_id")
     protected String contractRolloverClientPlanId;
-    @XmlElement(name = "contract_rollover_rate_sched")
-    protected List<ContractRolloverRateSchedReturnElement> contractRolloverRateSched;
+    @XmlElement(name = "contract_rollover_rate_sched_no")
+    protected Long contractRolloverRateSchedNo;
+    @XmlElement(name = "contract_rollover_client_rate_sched_id")
+    protected String contractRolloverClientRateSchedId;
     
     public Long getPlanNo() {
         return planNo;
@@ -556,10 +558,21 @@ public class AcctPlansMReturnElement {
         this.contractRolloverClientPlanId = value;
     }
 
-    public List<ContractRolloverRateSchedReturnElement> getContractRolloverRateSched() {
-        if (this.contractRolloverRateSched == null) {
-            this.contractRolloverRateSched = new ArrayList<ContractRolloverRateSchedReturnElement>();
-        }
-        return this.contractRolloverRateSched;
+    public Long getContractRolloverRateSchedNo() {
+        return contractRolloverRateSchedNo;
     }
+
+    public void setContractRolloverRateSchedNo(Long value) {
+        this.contractRolloverRateSchedNo = value;
+    }
+
+    public String getContractRolloverClientRateSchedId() {
+        return contractRolloverClientRateSchedId;
+    }
+
+    public void setContractRolloverClientRateSchedId(String value) {
+        this.contractRolloverClientRateSchedId = value;
+    }
+
+    
 }

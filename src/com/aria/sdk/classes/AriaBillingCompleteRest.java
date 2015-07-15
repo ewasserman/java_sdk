@@ -7298,7 +7298,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"do_write",getValue("String", do_write));
         addParameters(parameters,"client_receipt_id",getValue("String", client_receipt_id));
-        RestUtilities.addParameterValuesFromArray(parameters,acct);
+        RestUtilities.addParameterValuesFromArray(parameters,acct,"acct[acct_row]");
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_acct_complete_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);

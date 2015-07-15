@@ -3896,6 +3896,10 @@ public class RestUtilities {
             for (PlanRateSchedulesDetailsReturnElement element : arrayListPlanRateSchedulesDetailsReturnElement){
                 entity.getPlanRateSchedulesDetails().add(element);
             }
+            entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
+            entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
+            entity.setContractRolloverRateSchedNo(getLongValue(jsonObject,"contract_rollover_rate_sched_no"));
+            entity.setContractRolloverClientRateSchedId(getStringValue(jsonObject,"contract_rollover_client_rate_sched_id"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -3938,6 +3942,10 @@ public class RestUtilities {
             for (PlanRateSchedulesDetailsReturnElement element : arrayListPlanRateSchedulesDetailsReturnElement){
                 entity.getPlanRateSchedulesDetails().add(element);
             }
+            entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
+            entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
+            entity.setContractRolloverRateSchedNo(getLongValue(jsonObject,"contract_rollover_rate_sched_no"));
+            entity.setContractRolloverClientRateSchedId(getStringValue(jsonObject,"contract_rollover_client_rate_sched_id"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -4002,10 +4010,8 @@ public class RestUtilities {
             entity.setClientParentPlanInstanceId(getStringValue(jsonObject,"client_parent_plan_instance_id"));
             entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
             entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
-                        ArrayList<ContractRolloverRateSchedReturnElement> arrayListContractRolloverRateSchedReturnElement = buildContractRolloverRateSchedReturnElement((JSONArray)jsonObject.get("contract_rollover_rate_sched"));
-            for (ContractRolloverRateSchedReturnElement element : arrayListContractRolloverRateSchedReturnElement){
-                entity.getContractRolloverRateSched().add(element);
-            }
+            entity.setContractRolloverRateSchedNo(getLongValue(jsonObject,"contract_rollover_rate_sched_no"));
+            entity.setContractRolloverClientRateSchedId(getStringValue(jsonObject,"contract_rollover_client_rate_sched_id"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -4112,6 +4118,10 @@ public class RestUtilities {
             for (SurchargesAllReturnElement element : arrayListSurchargesAllReturnElement){
                 entity.getSurchargesAll().add(element);
             }
+            entity.setContractRolloverPlanNo(getLongValue(jsonObject,"contract_rollover_plan_no"));
+            entity.setContractRolloverClientPlanId(getStringValue(jsonObject,"contract_rollover_client_plan_id"));
+            entity.setContractRolloverRateSchedNo(getLongValue(jsonObject,"contract_rollover_rate_sched_no"));
+            entity.setContractRolloverClientRateSchedId(getStringValue(jsonObject,"contract_rollover_client_rate_sched_id"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -8084,9 +8094,9 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanInstanceFieldsInfoRow row : arrayList.getPlanInstanceFieldsInfoRow()){
-            parameters.add(paramPrefix + "field_no["+i+"]", getValue("Long", row.getFieldNo()));
-            parameters.add(paramPrefix + "field_name["+i+"]", getValue("String", row.getFieldName()));
-            parameters.add(paramPrefix + "field_value["+i+"]", getValue("String", row.getFieldValue()));
+            parameters.add(paramPrefix + "["+i+"]" + "[field_no]", getValue("Long", row.getFieldNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[field_name]", getValue("String", row.getFieldName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[field_value]", getValue("String", row.getFieldValue()));
             i++;
         }
     }
@@ -8131,8 +8141,8 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MpiSurchargesRow row : arrayList.getMpiSurchargesRow()){
-            parameters.add(paramPrefix + "mpi_surcharge_no["+i+"]", getValue("Long", row.getMpiSurchargeNo()));
-            parameters.add(paramPrefix + "mpi_rate_schedule_no["+i+"]", getValue("Long", row.getMpiRateScheduleNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[mpi_surcharge_no]", getValue("Long", row.getMpiSurchargeNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[mpi_rate_schedule_no]", getValue("Long", row.getMpiRateScheduleNo()));
             i++;
         }
     }
@@ -8162,20 +8172,20 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppPlanRow row : arrayList.getSuppPlanRow()){
-                        addParameterValuesFromArray(parameters, row.getSuppPlan(), paramPrefix + "supp_plan["+i+"]");
-            parameters.add(paramPrefix + "plan_no["+i+"]", getValue("Long", row.getPlanNo()));
-            parameters.add(paramPrefix + "client_plan_id["+i+"]", getValue("String", row.getClientPlanId()));
-            parameters.add(paramPrefix + "plan_instance_description["+i+"]", getValue("String", row.getPlanInstanceDescription()));
-            parameters.add(paramPrefix + "client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
-            parameters.add(paramPrefix + "plan_instance_idx["+i+"]", getValue("Long", row.getPlanInstanceIdx()));
-            parameters.add(paramPrefix + "plan_instance_units["+i+"]", getValue("Long", row.getPlanInstanceUnits()));
-                        addParameterValuesFromArray(parameters, row.getPlanInstanceFieldsInfo(), paramPrefix + "plan_instance_fields_info["+i+"]");
-            parameters.add(paramPrefix + "alt_rate_schedule_no["+i+"]", getValue("Long", row.getAltRateScheduleNo()));
-            parameters.add(paramPrefix + "client_alt_rate_schedule_id["+i+"]", getValue("String", row.getClientAltRateScheduleId()));
-            parameters.add(paramPrefix + "usage_accumulation_reset_months["+i+"]", getValue("Long", row.getUsageAccumulationResetMonths()));
-            parameters.add(paramPrefix + "usage_pooling["+i+"]", getValue("String", row.getUsagePooling()));
-            parameters.add(paramPrefix + "usage_threshold_applicability["+i+"]", getValue("String", row.getUsageThresholdApplicability()));
-                        addParameterValuesFromArray(parameters, row.getCustomRates(), paramPrefix + "custom_rates["+i+"]");
+                        addParameterValuesFromArray(parameters, row.getSuppPlan(), paramPrefix + "["+i+"]" + "[supp_plan][supp_plan_row]");
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_no]", getValue("Long", row.getPlanNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_plan_id]", getValue("String", row.getClientPlanId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_instance_description]", getValue("String", row.getPlanInstanceDescription()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_plan_instance_id]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_instance_idx]", getValue("Long", row.getPlanInstanceIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_instance_units]", getValue("Long", row.getPlanInstanceUnits()));
+                        addParameterValuesFromArray(parameters, row.getPlanInstanceFieldsInfo(), paramPrefix + "["+i+"]" + "[plan_instance_fields_info][plan_instance_fields_info_row]");
+            parameters.add(paramPrefix + "["+i+"]" + "[alt_rate_schedule_no]", getValue("Long", row.getAltRateScheduleNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_alt_rate_schedule_id]", getValue("String", row.getClientAltRateScheduleId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[usage_accumulation_reset_months]", getValue("Long", row.getUsageAccumulationResetMonths()));
+            parameters.add(paramPrefix + "["+i+"]" + "[usage_pooling]", getValue("String", row.getUsagePooling()));
+            parameters.add(paramPrefix + "["+i+"]" + "[usage_threshold_applicability]", getValue("String", row.getUsageThresholdApplicability()));
+                        addParameterValuesFromArray(parameters, row.getCustomRates(), paramPrefix + "["+i+"]" + "[custom_rates][custom_rates_row]");
             i++;
         }
     }
@@ -8194,9 +8204,9 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ContractPlansRow row : arrayList.getContractPlansRow()){
-            parameters.add(paramPrefix + "plan_instance_idx["+i+"]", getValue("Long", row.getPlanInstanceIdx()));
-            parameters.add(paramPrefix + "client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
-            parameters.add(paramPrefix + "cascade_action["+i+"]", getValue("String", row.getCascadeAction()));
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_instance_idx]", getValue("Long", row.getPlanInstanceIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_plan_instance_id]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cascade_action]", getValue("String", row.getCascadeAction()));
             i++;
         }
     }
@@ -8214,8 +8224,8 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.FunctionalAcctGroupRow row : arrayList.getFunctionalAcctGroupRow()){
-            parameters.add(paramPrefix + "functional_acct_group_no["+i+"]", getValue("Long", row.getFunctionalAcctGroupNo()));
-            parameters.add(paramPrefix + "client_functional_acct_group_id["+i+"]", getValue("String", row.getClientFunctionalAcctGroupId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[functional_acct_group_no]", getValue("Long", row.getFunctionalAcctGroupNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_functional_acct_group_id]", getValue("String", row.getClientFunctionalAcctGroupId()));
             i++;
         }
     }
@@ -8233,8 +8243,8 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CollectionAcctGroupRow row : arrayList.getCollectionAcctGroupRow()){
-            parameters.add(paramPrefix + "collections_acct_group_no["+i+"]", getValue("Long", row.getCollectionsAcctGroupNo()));
-            parameters.add(paramPrefix + "client_collections_acct_group_id["+i+"]", getValue("String", row.getClientCollectionsAcctGroupId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[collections_acct_group_no]", getValue("Long", row.getCollectionsAcctGroupNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_collections_acct_group_id]", getValue("String", row.getClientCollectionsAcctGroupId()));
             i++;
         }
     }
@@ -8252,8 +8262,8 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppFieldRow row : arrayList.getSuppFieldRow()){
-            parameters.add(paramPrefix + "supp_field_name["+i+"]", getValue("String", row.getSuppFieldName()));
-            parameters.add(paramPrefix + "supp_field_value["+i+"]", getValue("String", row.getSuppFieldValue()));
+            parameters.add(paramPrefix + "["+i+"]" + "[supp_field_name]", getValue("String", row.getSuppFieldName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[supp_field_value]", getValue("String", row.getSuppFieldValue()));
             i++;
         }
     }
@@ -8271,8 +8281,8 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctSurchargesRow row : arrayList.getAcctSurchargesRow()){
-            parameters.add(paramPrefix + "acct_surcharge_no["+i+"]", getValue("Long", row.getAcctSurchargeNo()));
-            parameters.add(paramPrefix + "acct_rate_schedule_no["+i+"]", getValue("Long", row.getAcctRateScheduleNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[acct_surcharge_no]", getValue("Long", row.getAcctSurchargeNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[acct_rate_schedule_no]", getValue("Long", row.getAcctRateScheduleNo()));
             i++;
         }
     }
@@ -8330,48 +8340,48 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PaymentMethodRow row : arrayList.getPaymentMethodRow()){
-            parameters.add(paramPrefix + "pay_method_type["+i+"]", getValue("Long", row.getPayMethodType()));
-            parameters.add(paramPrefix + "pay_method_name["+i+"]", getValue("String", row.getPayMethodName()));
-            parameters.add(paramPrefix + "pay_method_description["+i+"]", getValue("String", row.getPayMethodDescription()));
-            parameters.add(paramPrefix + "client_pay_method_cdid["+i+"]", getValue("String", row.getClientPayMethodCdid()));
-            parameters.add(paramPrefix + "payment_method_idx["+i+"]", getValue("Long", row.getPaymentMethodIdx()));
-            parameters.add(paramPrefix + "first_name["+i+"]", getValue("String", row.getFirstName()));
-            parameters.add(paramPrefix + "mi["+i+"]", getValue("String", row.getMi()));
-            parameters.add(paramPrefix + "last_name["+i+"]", getValue("String", row.getLastName()));
-            parameters.add(paramPrefix + "company_name["+i+"]", getValue("String", row.getCompanyName()));
-            parameters.add(paramPrefix + "address1["+i+"]", getValue("String", row.getAddress1()));
-            parameters.add(paramPrefix + "address2["+i+"]", getValue("String", row.getAddress2()));
-            parameters.add(paramPrefix + "address3["+i+"]", getValue("String", row.getAddress3()));
-            parameters.add(paramPrefix + "city["+i+"]", getValue("String", row.getCity()));
-            parameters.add(paramPrefix + "locality["+i+"]", getValue("String", row.getLocality()));
-            parameters.add(paramPrefix + "state_prov["+i+"]", getValue("String", row.getStateProv()));
-            parameters.add(paramPrefix + "country["+i+"]", getValue("String", row.getCountry()));
-            parameters.add(paramPrefix + "postal_cd["+i+"]", getValue("String", row.getPostalCd()));
-            parameters.add(paramPrefix + "phone["+i+"]", getValue("String", row.getPhone()));
-            parameters.add(paramPrefix + "phone_ext["+i+"]", getValue("String", row.getPhoneExt()));
-            parameters.add(paramPrefix + "cell_phone["+i+"]", getValue("String", row.getCellPhone()));
-            parameters.add(paramPrefix + "work_phone["+i+"]", getValue("String", row.getWorkPhone()));
-            parameters.add(paramPrefix + "work_phone_ext["+i+"]", getValue("String", row.getWorkPhoneExt()));
-            parameters.add(paramPrefix + "fax["+i+"]", getValue("String", row.getFax()));
-            parameters.add(paramPrefix + "email["+i+"]", getValue("String", row.getEmail()));
-            parameters.add(paramPrefix + "birthdate["+i+"]", getValue("String", row.getBirthdate()));
-            parameters.add(paramPrefix + "cc_num["+i+"]", getValue("String", row.getCcNum()));
-            parameters.add(paramPrefix + "cc_expire_mm["+i+"]", getValue("Long", row.getCcExpireMm()));
-            parameters.add(paramPrefix + "cc_expire_yyyy["+i+"]", getValue("Long", row.getCcExpireYyyy()));
-            parameters.add(paramPrefix + "bank_acct_num["+i+"]", getValue("String", row.getBankAcctNum()));
-            parameters.add(paramPrefix + "bank_routing_no["+i+"]", getValue("String", row.getBankRoutingNo()));
-            parameters.add(paramPrefix + "cvv["+i+"]", getValue("String", row.getCvv()));
-            parameters.add(paramPrefix + "track_data1["+i+"]", getValue("String", row.getTrackData1()));
-            parameters.add(paramPrefix + "track_data2["+i+"]", getValue("String", row.getTrackData2()));
-            parameters.add(paramPrefix + "taxpayer_id["+i+"]", getValue("String", row.getTaxpayerId()));
-            parameters.add(paramPrefix + "bill_agreement_id["+i+"]", getValue("String", row.getBillAgreementId()));
-            parameters.add(paramPrefix + "iban["+i+"]", getValue("String", row.getIban()));
-            parameters.add(paramPrefix + "bank_check_digit["+i+"]", getValue("Long", row.getBankCheckDigit()));
-            parameters.add(paramPrefix + "bank_swift_cd["+i+"]", getValue("String", row.getBankSwiftCd()));
-            parameters.add(paramPrefix + "bank_country_cd["+i+"]", getValue("String", row.getBankCountryCd()));
-            parameters.add(paramPrefix + "mandate_id["+i+"]", getValue("String", row.getMandateId()));
-            parameters.add(paramPrefix + "bank_id_cd["+i+"]", getValue("String", row.getBankIdCd()));
-            parameters.add(paramPrefix + "bank_branch_cd["+i+"]", getValue("String", row.getBankBranchCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[pay_method_type]", getValue("Long", row.getPayMethodType()));
+            parameters.add(paramPrefix + "["+i+"]" + "[pay_method_name]", getValue("String", row.getPayMethodName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[pay_method_description]", getValue("String", row.getPayMethodDescription()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_pay_method_cdid]", getValue("String", row.getClientPayMethodCdid()));
+            parameters.add(paramPrefix + "["+i+"]" + "[payment_method_idx]", getValue("Long", row.getPaymentMethodIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[first_name]", getValue("String", row.getFirstName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[mi]", getValue("String", row.getMi()));
+            parameters.add(paramPrefix + "["+i+"]" + "[last_name]", getValue("String", row.getLastName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[company_name]", getValue("String", row.getCompanyName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address1]", getValue("String", row.getAddress1()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address2]", getValue("String", row.getAddress2()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address3]", getValue("String", row.getAddress3()));
+            parameters.add(paramPrefix + "["+i+"]" + "[city]", getValue("String", row.getCity()));
+            parameters.add(paramPrefix + "["+i+"]" + "[locality]", getValue("String", row.getLocality()));
+            parameters.add(paramPrefix + "["+i+"]" + "[state_prov]", getValue("String", row.getStateProv()));
+            parameters.add(paramPrefix + "["+i+"]" + "[country]", getValue("String", row.getCountry()));
+            parameters.add(paramPrefix + "["+i+"]" + "[postal_cd]", getValue("String", row.getPostalCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[phone]", getValue("String", row.getPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[phone_ext]", getValue("String", row.getPhoneExt()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cell_phone]", getValue("String", row.getCellPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[work_phone]", getValue("String", row.getWorkPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[work_phone_ext]", getValue("String", row.getWorkPhoneExt()));
+            parameters.add(paramPrefix + "["+i+"]" + "[fax]", getValue("String", row.getFax()));
+            parameters.add(paramPrefix + "["+i+"]" + "[email]", getValue("String", row.getEmail()));
+            parameters.add(paramPrefix + "["+i+"]" + "[birthdate]", getValue("String", row.getBirthdate()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cc_num]", getValue("String", row.getCcNum()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cc_expire_mm]", getValue("Long", row.getCcExpireMm()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cc_expire_yyyy]", getValue("Long", row.getCcExpireYyyy()));
+            parameters.add(paramPrefix + "["+i+"]" + "[bank_acct_num]", getValue("String", row.getBankAcctNum()));
+            parameters.add(paramPrefix + "["+i+"]" + "[bank_routing_no]", getValue("String", row.getBankRoutingNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cvv]", getValue("String", row.getCvv()));
+            parameters.add(paramPrefix + "["+i+"]" + "[track_data1]", getValue("String", row.getTrackData1()));
+            parameters.add(paramPrefix + "["+i+"]" + "[track_data2]", getValue("String", row.getTrackData2()));
+            parameters.add(paramPrefix + "["+i+"]" + "[taxpayer_id]", getValue("String", row.getTaxpayerId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[bill_agreement_id]", getValue("String", row.getBillAgreementId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[iban]", getValue("String", row.getIban()));
+            parameters.add(paramPrefix + "["+i+"]" + "[bank_check_digit]", getValue("Long", row.getBankCheckDigit()));
+            parameters.add(paramPrefix + "["+i+"]" + "[bank_swift_cd]", getValue("String", row.getBankSwiftCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[bank_country_cd]", getValue("String", row.getBankCountryCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[mandate_id]", getValue("String", row.getMandateId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[bank_id_cd]", getValue("String", row.getBankIdCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[bank_branch_cd]", getValue("String", row.getBankBranchCd()));
             i++;
         }
     }
@@ -8419,38 +8429,38 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.BillingGroupRow row : arrayList.getBillingGroupRow()){
-            parameters.add(paramPrefix + "billing_group_name["+i+"]", getValue("String", row.getBillingGroupName()));
-            parameters.add(paramPrefix + "billing_group_description["+i+"]", getValue("String", row.getBillingGroupDescription()));
-            parameters.add(paramPrefix + "client_billing_group_id["+i+"]", getValue("String", row.getClientBillingGroupId()));
-            parameters.add(paramPrefix + "billing_group_idx["+i+"]", getValue("Long", row.getBillingGroupIdx()));
-            parameters.add(paramPrefix + "notify_method["+i+"]", getValue("Long", row.getNotifyMethod()));
-            parameters.add(paramPrefix + "notify_template_group["+i+"]", getValue("Long", row.getNotifyTemplateGroup()));
-            parameters.add(paramPrefix + "statement_template["+i+"]", getValue("Long", row.getStatementTemplate()));
-            parameters.add(paramPrefix + "credit_note_template["+i+"]", getValue("Long", row.getCreditNoteTemplate()));
-            parameters.add(paramPrefix + "primary_client_payment_method_id["+i+"]", getValue("String", row.getPrimaryClientPaymentMethodId()));
-            parameters.add(paramPrefix + "primary_payment_method_idx["+i+"]", getValue("Long", row.getPrimaryPaymentMethodIdx()));
-            parameters.add(paramPrefix + "backup_client_payment_method_id["+i+"]", getValue("String", row.getBackupClientPaymentMethodId()));
-            parameters.add(paramPrefix + "backup_payment_method_idx["+i+"]", getValue("Long", row.getBackupPaymentMethodIdx()));
-            parameters.add(paramPrefix + "first_name["+i+"]", getValue("String", row.getFirstName()));
-            parameters.add(paramPrefix + "mi["+i+"]", getValue("String", row.getMi()));
-            parameters.add(paramPrefix + "last_name["+i+"]", getValue("String", row.getLastName()));
-            parameters.add(paramPrefix + "company_name["+i+"]", getValue("String", row.getCompanyName()));
-            parameters.add(paramPrefix + "address1["+i+"]", getValue("String", row.getAddress1()));
-            parameters.add(paramPrefix + "address2["+i+"]", getValue("String", row.getAddress2()));
-            parameters.add(paramPrefix + "address3["+i+"]", getValue("String", row.getAddress3()));
-            parameters.add(paramPrefix + "city["+i+"]", getValue("String", row.getCity()));
-            parameters.add(paramPrefix + "locality["+i+"]", getValue("String", row.getLocality()));
-            parameters.add(paramPrefix + "state_prov["+i+"]", getValue("String", row.getStateProv()));
-            parameters.add(paramPrefix + "country["+i+"]", getValue("String", row.getCountry()));
-            parameters.add(paramPrefix + "postal_cd["+i+"]", getValue("String", row.getPostalCd()));
-            parameters.add(paramPrefix + "phone["+i+"]", getValue("String", row.getPhone()));
-            parameters.add(paramPrefix + "phone_ext["+i+"]", getValue("String", row.getPhoneExt()));
-            parameters.add(paramPrefix + "cell_phone["+i+"]", getValue("String", row.getCellPhone()));
-            parameters.add(paramPrefix + "work_phone["+i+"]", getValue("String", row.getWorkPhone()));
-            parameters.add(paramPrefix + "work_phone_ext["+i+"]", getValue("String", row.getWorkPhoneExt()));
-            parameters.add(paramPrefix + "fax["+i+"]", getValue("String", row.getFax()));
-            parameters.add(paramPrefix + "email["+i+"]", getValue("String", row.getEmail()));
-            parameters.add(paramPrefix + "birthdate["+i+"]", getValue("String", row.getBirthdate()));
+            parameters.add(paramPrefix + "["+i+"]" + "[billing_group_name]", getValue("String", row.getBillingGroupName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[billing_group_description]", getValue("String", row.getBillingGroupDescription()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_billing_group_id]", getValue("String", row.getClientBillingGroupId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[billing_group_idx]", getValue("Long", row.getBillingGroupIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[notify_method]", getValue("Long", row.getNotifyMethod()));
+            parameters.add(paramPrefix + "["+i+"]" + "[notify_template_group]", getValue("Long", row.getNotifyTemplateGroup()));
+            parameters.add(paramPrefix + "["+i+"]" + "[statement_template]", getValue("Long", row.getStatementTemplate()));
+            parameters.add(paramPrefix + "["+i+"]" + "[credit_note_template]", getValue("Long", row.getCreditNoteTemplate()));
+            parameters.add(paramPrefix + "["+i+"]" + "[primary_client_payment_method_id]", getValue("String", row.getPrimaryClientPaymentMethodId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[primary_payment_method_idx]", getValue("Long", row.getPrimaryPaymentMethodIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[backup_client_payment_method_id]", getValue("String", row.getBackupClientPaymentMethodId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[backup_payment_method_idx]", getValue("Long", row.getBackupPaymentMethodIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[first_name]", getValue("String", row.getFirstName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[mi]", getValue("String", row.getMi()));
+            parameters.add(paramPrefix + "["+i+"]" + "[last_name]", getValue("String", row.getLastName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[company_name]", getValue("String", row.getCompanyName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address1]", getValue("String", row.getAddress1()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address2]", getValue("String", row.getAddress2()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address3]", getValue("String", row.getAddress3()));
+            parameters.add(paramPrefix + "["+i+"]" + "[city]", getValue("String", row.getCity()));
+            parameters.add(paramPrefix + "["+i+"]" + "[locality]", getValue("String", row.getLocality()));
+            parameters.add(paramPrefix + "["+i+"]" + "[state_prov]", getValue("String", row.getStateProv()));
+            parameters.add(paramPrefix + "["+i+"]" + "[country]", getValue("String", row.getCountry()));
+            parameters.add(paramPrefix + "["+i+"]" + "[postal_cd]", getValue("String", row.getPostalCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[phone]", getValue("String", row.getPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[phone_ext]", getValue("String", row.getPhoneExt()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cell_phone]", getValue("String", row.getCellPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[work_phone]", getValue("String", row.getWorkPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[work_phone_ext]", getValue("String", row.getWorkPhoneExt()));
+            parameters.add(paramPrefix + "["+i+"]" + "[fax]", getValue("String", row.getFax()));
+            parameters.add(paramPrefix + "["+i+"]" + "[email]", getValue("String", row.getEmail()));
+            parameters.add(paramPrefix + "["+i+"]" + "[birthdate]", getValue("String", row.getBirthdate()));
             i++;
         }
     }
@@ -8472,12 +8482,12 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.DunningGroupRow row : arrayList.getDunningGroupRow()){
-            parameters.add(paramPrefix + "dunning_group_name["+i+"]", getValue("String", row.getDunningGroupName()));
-            parameters.add(paramPrefix + "dunning_group_description["+i+"]", getValue("String", row.getDunningGroupDescription()));
-            parameters.add(paramPrefix + "client_dunning_group_id["+i+"]", getValue("String", row.getClientDunningGroupId()));
-            parameters.add(paramPrefix + "dunning_group_idx["+i+"]", getValue("Long", row.getDunningGroupIdx()));
-            parameters.add(paramPrefix + "dunning_process_no["+i+"]", getValue("Long", row.getDunningProcessNo()));
-            parameters.add(paramPrefix + "client_dunning_process_id["+i+"]", getValue("String", row.getClientDunningProcessId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[dunning_group_name]", getValue("String", row.getDunningGroupName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[dunning_group_description]", getValue("String", row.getDunningGroupDescription()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_dunning_group_id]", getValue("String", row.getClientDunningGroupId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[dunning_group_idx]", getValue("Long", row.getDunningGroupIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[dunning_process_no]", getValue("Long", row.getDunningProcessNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_dunning_process_id]", getValue("String", row.getClientDunningProcessId()));
             i++;
         }
     }
@@ -8501,14 +8511,14 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ContractsRow row : arrayList.getContractsRow()){
-            parameters.add(paramPrefix + "client_contract_id["+i+"]", getValue("String", row.getClientContractId()));
-            parameters.add(paramPrefix + "contract_type_no["+i+"]", getValue("Long", row.getContractTypeNo()));
-            parameters.add(paramPrefix + "contract_length_months["+i+"]", getValue("Long", row.getContractLengthMonths()));
-            parameters.add(paramPrefix + "contract_cancel_fee["+i+"]", getValue("Double", row.getContractCancelFee()));
-            parameters.add(paramPrefix + "contract_comments["+i+"]", getValue("String", row.getContractComments()));
-            parameters.add(paramPrefix + "contract_start_date["+i+"]", getValue("String", row.getContractStartDate()));
-            parameters.add(paramPrefix + "contract_end_date["+i+"]", getValue("String", row.getContractEndDate()));
-                        addParameterValuesFromArray(parameters, row.getContractPlans(), paramPrefix + "contract_plans["+i+"]");
+            parameters.add(paramPrefix + "["+i+"]" + "[client_contract_id]", getValue("String", row.getClientContractId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[contract_type_no]", getValue("Long", row.getContractTypeNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[contract_length_months]", getValue("Long", row.getContractLengthMonths()));
+            parameters.add(paramPrefix + "["+i+"]" + "[contract_cancel_fee]", getValue("Double", row.getContractCancelFee()));
+            parameters.add(paramPrefix + "["+i+"]" + "[contract_comments]", getValue("String", row.getContractComments()));
+            parameters.add(paramPrefix + "["+i+"]" + "[contract_start_date]", getValue("String", row.getContractStartDate()));
+            parameters.add(paramPrefix + "["+i+"]" + "[contract_end_date]", getValue("String", row.getContractEndDate()));
+                        addParameterValuesFromArray(parameters, row.getContractPlans(), paramPrefix + "["+i+"]" + "[contract_plans][contract_plans_row]");
             i++;
         }
     }
@@ -8552,34 +8562,34 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MasterPlansDetailRow row : arrayList.getMasterPlansDetailRow()){
-            parameters.add(paramPrefix + "plan_no["+i+"]", getValue("Long", row.getPlanNo()));
-            parameters.add(paramPrefix + "client_plan_id["+i+"]", getValue("String", row.getClientPlanId()));
-            parameters.add(paramPrefix + "plan_instance_description["+i+"]", getValue("String", row.getPlanInstanceDescription()));
-            parameters.add(paramPrefix + "client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
-            parameters.add(paramPrefix + "plan_instance_idx["+i+"]", getValue("Long", row.getPlanInstanceIdx()));
-            parameters.add(paramPrefix + "promo_cd["+i+"]", getValue("String", row.getPromoCd()));
-            parameters.add(paramPrefix + "plan_instance_units["+i+"]", getValue("Long", row.getPlanInstanceUnits()));
-            parameters.add(paramPrefix + "plan_instance_status["+i+"]", getValue("Long", row.getPlanInstanceStatus()));
-            parameters.add(paramPrefix + "resp_level_cd["+i+"]", getValue("Long", row.getRespLevelCd()));
-            parameters.add(paramPrefix + "resp_master_plan_inst_no["+i+"]", getValue("Long", row.getRespMasterPlanInstNo()));
-            parameters.add(paramPrefix + "client_resp_master_plan_inst_id["+i+"]", getValue("String", row.getClientRespMasterPlanInstId()));
-            parameters.add(paramPrefix + "resp_master_plan_inst_idx["+i+"]", getValue("Long", row.getRespMasterPlanInstIdx()));
-            parameters.add(paramPrefix + "client_billing_group_id["+i+"]", getValue("String", row.getClientBillingGroupId()));
-            parameters.add(paramPrefix + "billing_group_idx["+i+"]", getValue("Long", row.getBillingGroupIdx()));
-            parameters.add(paramPrefix + "client_dunning_group_id["+i+"]", getValue("String", row.getClientDunningGroupId()));
-            parameters.add(paramPrefix + "dunning_group_idx["+i+"]", getValue("Long", row.getDunningGroupIdx()));
-            parameters.add(paramPrefix + "status_until_alt_start["+i+"]", getValue("Long", row.getStatusUntilAltStart()));
-            parameters.add(paramPrefix + "balance_forward["+i+"]", getValue("Double", row.getBalanceForward()));
-                        addParameterValuesFromArray(parameters, row.getCouponCodes(), paramPrefix + "coupon_codes["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getMpiSurcharges(), paramPrefix + "mpi_surcharges["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getPlanInstanceFieldsInfo(), paramPrefix + "plan_instance_fields_info["+i+"]");
-            parameters.add(paramPrefix + "alt_rate_schedule_no["+i+"]", getValue("Long", row.getAltRateScheduleNo()));
-            parameters.add(paramPrefix + "client_alt_rate_schedule_id["+i+"]", getValue("String", row.getClientAltRateScheduleId()));
-            parameters.add(paramPrefix + "usage_accumulation_reset_months["+i+"]", getValue("Long", row.getUsageAccumulationResetMonths()));
-            parameters.add(paramPrefix + "usage_pooling["+i+"]", getValue("String", row.getUsagePooling()));
-            parameters.add(paramPrefix + "usage_threshold_applicability["+i+"]", getValue("String", row.getUsageThresholdApplicability()));
-                        addParameterValuesFromArray(parameters, row.getCustomRates(), paramPrefix + "custom_rates["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getSuppPlan(), paramPrefix + "supp_plan["+i+"]");
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_no]", getValue("Long", row.getPlanNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_plan_id]", getValue("String", row.getClientPlanId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_instance_description]", getValue("String", row.getPlanInstanceDescription()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_plan_instance_id]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_instance_idx]", getValue("Long", row.getPlanInstanceIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[promo_cd]", getValue("String", row.getPromoCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_instance_units]", getValue("Long", row.getPlanInstanceUnits()));
+            parameters.add(paramPrefix + "["+i+"]" + "[plan_instance_status]", getValue("Long", row.getPlanInstanceStatus()));
+            parameters.add(paramPrefix + "["+i+"]" + "[resp_level_cd]", getValue("Long", row.getRespLevelCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[resp_master_plan_inst_no]", getValue("Long", row.getRespMasterPlanInstNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_resp_master_plan_inst_id]", getValue("String", row.getClientRespMasterPlanInstId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[resp_master_plan_inst_idx]", getValue("Long", row.getRespMasterPlanInstIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_billing_group_id]", getValue("String", row.getClientBillingGroupId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[billing_group_idx]", getValue("Long", row.getBillingGroupIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_dunning_group_id]", getValue("String", row.getClientDunningGroupId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[dunning_group_idx]", getValue("Long", row.getDunningGroupIdx()));
+            parameters.add(paramPrefix + "["+i+"]" + "[status_until_alt_start]", getValue("Long", row.getStatusUntilAltStart()));
+            parameters.add(paramPrefix + "["+i+"]" + "[balance_forward]", getValue("Double", row.getBalanceForward()));
+                        addParameterValuesFromArray(parameters, row.getCouponCodes(), paramPrefix + "["+i+"]" + "[coupon_codes][coupon_codes_row]");
+                        addParameterValuesFromArray(parameters, row.getMpiSurcharges(), paramPrefix + "["+i+"]" + "[mpi_surcharges][mpi_surcharges_row]");
+                        addParameterValuesFromArray(parameters, row.getPlanInstanceFieldsInfo(), paramPrefix + "["+i+"]" + "[plan_instance_fields_info][plan_instance_fields_info_row]");
+            parameters.add(paramPrefix + "["+i+"]" + "[alt_rate_schedule_no]", getValue("Long", row.getAltRateScheduleNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_alt_rate_schedule_id]", getValue("String", row.getClientAltRateScheduleId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[usage_accumulation_reset_months]", getValue("Long", row.getUsageAccumulationResetMonths()));
+            parameters.add(paramPrefix + "["+i+"]" + "[usage_pooling]", getValue("String", row.getUsagePooling()));
+            parameters.add(paramPrefix + "["+i+"]" + "[usage_threshold_applicability]", getValue("String", row.getUsageThresholdApplicability()));
+                        addParameterValuesFromArray(parameters, row.getCustomRates(), paramPrefix + "["+i+"]" + "[custom_rates][custom_rates_row]");
+                        addParameterValuesFromArray(parameters, row.getSuppPlan(), paramPrefix + "["+i+"]" + "[supp_plan][supp_plan_row]");
             i++;
         }
     }
@@ -8652,71 +8662,71 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctRow row : arrayList.getAcctRow()){
-                        addParameterValuesFromArray(parameters, row.getAcct(), paramPrefix + "acct["+i+"]");
-            parameters.add(paramPrefix + "client_acct_id["+i+"]", getValue("String", row.getClientAcctId()));
-            parameters.add(paramPrefix + "userid["+i+"]", getValue("String", row.getUserid()));
-            parameters.add(paramPrefix + "status_cd["+i+"]", getValue("Long", row.getStatusCd()));
-            parameters.add(paramPrefix + "notify_method["+i+"]", getValue("Long", row.getNotifyMethod()));
-            parameters.add(paramPrefix + "password["+i+"]", getValue("String", row.getPassword()));
-            parameters.add(paramPrefix + "secret_question["+i+"]", getValue("String", row.getSecretQuestion()));
-            parameters.add(paramPrefix + "secret_question_answer["+i+"]", getValue("String", row.getSecretQuestionAnswer()));
-            parameters.add(paramPrefix + "first_name["+i+"]", getValue("String", row.getFirstName()));
-            parameters.add(paramPrefix + "mi["+i+"]", getValue("String", row.getMi()));
-            parameters.add(paramPrefix + "last_name["+i+"]", getValue("String", row.getLastName()));
-            parameters.add(paramPrefix + "company_name["+i+"]", getValue("String", row.getCompanyName()));
-            parameters.add(paramPrefix + "address1["+i+"]", getValue("String", row.getAddress1()));
-            parameters.add(paramPrefix + "address2["+i+"]", getValue("String", row.getAddress2()));
-            parameters.add(paramPrefix + "address3["+i+"]", getValue("String", row.getAddress3()));
-            parameters.add(paramPrefix + "city["+i+"]", getValue("String", row.getCity()));
-            parameters.add(paramPrefix + "locality["+i+"]", getValue("String", row.getLocality()));
-            parameters.add(paramPrefix + "state_prov["+i+"]", getValue("String", row.getStateProv()));
-            parameters.add(paramPrefix + "country["+i+"]", getValue("String", row.getCountry()));
-            parameters.add(paramPrefix + "postal_cd["+i+"]", getValue("String", row.getPostalCd()));
-            parameters.add(paramPrefix + "phone["+i+"]", getValue("String", row.getPhone()));
-            parameters.add(paramPrefix + "phone_ext["+i+"]", getValue("String", row.getPhoneExt()));
-            parameters.add(paramPrefix + "cell_phone["+i+"]", getValue("String", row.getCellPhone()));
-            parameters.add(paramPrefix + "work_phone["+i+"]", getValue("String", row.getWorkPhone()));
-            parameters.add(paramPrefix + "work_phone_ext["+i+"]", getValue("String", row.getWorkPhoneExt()));
-            parameters.add(paramPrefix + "fax["+i+"]", getValue("String", row.getFax()));
-            parameters.add(paramPrefix + "email["+i+"]", getValue("String", row.getEmail()));
-            parameters.add(paramPrefix + "birthdate["+i+"]", getValue("String", row.getBirthdate()));
-            parameters.add(paramPrefix + "senior_acct_no["+i+"]", getValue("Long", row.getSeniorAcctNo()));
-            parameters.add(paramPrefix + "senior_acct_userid["+i+"]", getValue("String", row.getSeniorAcctUserid()));
-            parameters.add(paramPrefix + "client_senior_acct_id["+i+"]", getValue("String", row.getClientSeniorAcctId()));
-            parameters.add(paramPrefix + "invoicing_option["+i+"]", getValue("Long", row.getInvoicingOption()));
-            parameters.add(paramPrefix + "alt_start_date["+i+"]", getValue("String", row.getAltStartDate()));
-            parameters.add(paramPrefix + "alt_bill_day["+i+"]", getValue("Long", row.getAltBillDay()));
-            parameters.add(paramPrefix + "retroactive_start_date["+i+"]", getValue("String", row.getRetroactiveStartDate()));
-                        addParameterValuesFromArray(parameters, row.getFunctionalAcctGroup(), paramPrefix + "functional_acct_group["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getCollectionAcctGroup(), paramPrefix + "collection_acct_group["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getSuppField(), paramPrefix + "supp_field["+i+"]");
-            parameters.add(paramPrefix + "test_acct_ind["+i+"]", getValue("Long", row.getTestAcctInd()));
-            parameters.add(paramPrefix + "acct_start_date["+i+"]", getValue("String", row.getAcctStartDate()));
-            parameters.add(paramPrefix + "acct_currency["+i+"]", getValue("String", row.getAcctCurrency()));
-            parameters.add(paramPrefix + "seq_func_group_no["+i+"]", getValue("Long", row.getSeqFuncGroupNo()));
-            parameters.add(paramPrefix + "client_seq_func_group_id["+i+"]", getValue("String", row.getClientSeqFuncGroupId()));
-            parameters.add(paramPrefix + "taxpayer_id["+i+"]", getValue("String", row.getTaxpayerId()));
-            parameters.add(paramPrefix + "tax_exemption_level["+i+"]", getValue("Long", row.getTaxExemptionLevel()));
-            parameters.add(paramPrefix + "alt_msg_template_no["+i+"]", getValue("Long", row.getAltMsgTemplateNo()));
-            parameters.add(paramPrefix + "cn_alt_msg_template_no["+i+"]", getValue("Long", row.getCnAltMsgTemplateNo()));
-            parameters.add(paramPrefix + "invoice_approval_required["+i+"]", getValue("String", row.getInvoiceApprovalRequired()));
-            parameters.add(paramPrefix + "create_session["+i+"]", getValue("String", row.getCreateSession()));
-            parameters.add(paramPrefix + "client_alt_msg_template_id["+i+"]", getValue("String", row.getClientAltMsgTemplateId()));
-            parameters.add(paramPrefix + "client_cn_alt_msg_template_id["+i+"]", getValue("Long", row.getClientCnAltMsgTemplateId()));
-                        addParameterValuesFromArray(parameters, row.getAcctSurcharges(), paramPrefix + "acct_surcharges["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getCouponCodes(), paramPrefix + "coupon_codes["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getPaymentMethod(), paramPrefix + "payment_method["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getBillingGroup(), paramPrefix + "billing_group["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getDunningGroup(), paramPrefix + "dunning_group["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getContracts(), paramPrefix + "contracts["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getMasterPlansDetail(), paramPrefix + "master_plans_detail["+i+"]");
-            parameters.add(paramPrefix + "consumer_acct_ind["+i+"]", getValue("String", row.getConsumerAcctInd()));
-            parameters.add(paramPrefix + "revrec_profile_no["+i+"]", getValue("Long", row.getRevrecProfileNo()));
-            parameters.add(paramPrefix + "client_revrec_id["+i+"]", getValue("String", row.getClientRevrecId()));
+                        addParameterValuesFromArray(parameters, row.getAcct(), paramPrefix + "["+i+"]" + "[acct][acct_row]");
+            parameters.add(paramPrefix + "["+i+"]" + "[client_acct_id]", getValue("String", row.getClientAcctId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[userid]", getValue("String", row.getUserid()));
+            parameters.add(paramPrefix + "["+i+"]" + "[status_cd]", getValue("Long", row.getStatusCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[notify_method]", getValue("Long", row.getNotifyMethod()));
+            parameters.add(paramPrefix + "["+i+"]" + "[password]", getValue("String", row.getPassword()));
+            parameters.add(paramPrefix + "["+i+"]" + "[secret_question]", getValue("String", row.getSecretQuestion()));
+            parameters.add(paramPrefix + "["+i+"]" + "[secret_question_answer]", getValue("String", row.getSecretQuestionAnswer()));
+            parameters.add(paramPrefix + "["+i+"]" + "[first_name]", getValue("String", row.getFirstName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[mi]", getValue("String", row.getMi()));
+            parameters.add(paramPrefix + "["+i+"]" + "[last_name]", getValue("String", row.getLastName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[company_name]", getValue("String", row.getCompanyName()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address1]", getValue("String", row.getAddress1()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address2]", getValue("String", row.getAddress2()));
+            parameters.add(paramPrefix + "["+i+"]" + "[address3]", getValue("String", row.getAddress3()));
+            parameters.add(paramPrefix + "["+i+"]" + "[city]", getValue("String", row.getCity()));
+            parameters.add(paramPrefix + "["+i+"]" + "[locality]", getValue("String", row.getLocality()));
+            parameters.add(paramPrefix + "["+i+"]" + "[state_prov]", getValue("String", row.getStateProv()));
+            parameters.add(paramPrefix + "["+i+"]" + "[country]", getValue("String", row.getCountry()));
+            parameters.add(paramPrefix + "["+i+"]" + "[postal_cd]", getValue("String", row.getPostalCd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[phone]", getValue("String", row.getPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[phone_ext]", getValue("String", row.getPhoneExt()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cell_phone]", getValue("String", row.getCellPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[work_phone]", getValue("String", row.getWorkPhone()));
+            parameters.add(paramPrefix + "["+i+"]" + "[work_phone_ext]", getValue("String", row.getWorkPhoneExt()));
+            parameters.add(paramPrefix + "["+i+"]" + "[fax]", getValue("String", row.getFax()));
+            parameters.add(paramPrefix + "["+i+"]" + "[email]", getValue("String", row.getEmail()));
+            parameters.add(paramPrefix + "["+i+"]" + "[birthdate]", getValue("String", row.getBirthdate()));
+            parameters.add(paramPrefix + "["+i+"]" + "[senior_acct_no]", getValue("Long", row.getSeniorAcctNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[senior_acct_userid]", getValue("String", row.getSeniorAcctUserid()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_senior_acct_id]", getValue("String", row.getClientSeniorAcctId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[invoicing_option]", getValue("Long", row.getInvoicingOption()));
+            parameters.add(paramPrefix + "["+i+"]" + "[alt_start_date]", getValue("String", row.getAltStartDate()));
+            parameters.add(paramPrefix + "["+i+"]" + "[alt_bill_day]", getValue("Long", row.getAltBillDay()));
+            parameters.add(paramPrefix + "["+i+"]" + "[retroactive_start_date]", getValue("String", row.getRetroactiveStartDate()));
+                        addParameterValuesFromArray(parameters, row.getFunctionalAcctGroup(), paramPrefix + "["+i+"]" + "[functional_acct_group][functional_acct_group_row]");
+                        addParameterValuesFromArray(parameters, row.getCollectionAcctGroup(), paramPrefix + "["+i+"]" + "[collection_acct_group][collection_acct_group_row]");
+                        addParameterValuesFromArray(parameters, row.getSuppField(), paramPrefix + "["+i+"]" + "[supp_field][supp_field_row]");
+            parameters.add(paramPrefix + "["+i+"]" + "[test_acct_ind]", getValue("Long", row.getTestAcctInd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[acct_start_date]", getValue("String", row.getAcctStartDate()));
+            parameters.add(paramPrefix + "["+i+"]" + "[acct_currency]", getValue("String", row.getAcctCurrency()));
+            parameters.add(paramPrefix + "["+i+"]" + "[seq_func_group_no]", getValue("Long", row.getSeqFuncGroupNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_seq_func_group_id]", getValue("String", row.getClientSeqFuncGroupId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[taxpayer_id]", getValue("String", row.getTaxpayerId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[tax_exemption_level]", getValue("Long", row.getTaxExemptionLevel()));
+            parameters.add(paramPrefix + "["+i+"]" + "[alt_msg_template_no]", getValue("Long", row.getAltMsgTemplateNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[cn_alt_msg_template_no]", getValue("Long", row.getCnAltMsgTemplateNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[invoice_approval_required]", getValue("String", row.getInvoiceApprovalRequired()));
+            parameters.add(paramPrefix + "["+i+"]" + "[create_session]", getValue("String", row.getCreateSession()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_alt_msg_template_id]", getValue("String", row.getClientAltMsgTemplateId()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_cn_alt_msg_template_id]", getValue("Long", row.getClientCnAltMsgTemplateId()));
+                        addParameterValuesFromArray(parameters, row.getAcctSurcharges(), paramPrefix + "["+i+"]" + "[acct_surcharges][acct_surcharges_row]");
+                        addParameterValuesFromArray(parameters, row.getCouponCodes(), paramPrefix + "["+i+"]" + "[coupon_codes][coupon_codes_row]");
+                        addParameterValuesFromArray(parameters, row.getPaymentMethod(), paramPrefix + "["+i+"]" + "[payment_method][payment_method_row]");
+                        addParameterValuesFromArray(parameters, row.getBillingGroup(), paramPrefix + "["+i+"]" + "[billing_group][billing_group_row]");
+                        addParameterValuesFromArray(parameters, row.getDunningGroup(), paramPrefix + "["+i+"]" + "[dunning_group][dunning_group_row]");
+                        addParameterValuesFromArray(parameters, row.getContracts(), paramPrefix + "["+i+"]" + "[contracts][contracts_row]");
+                        addParameterValuesFromArray(parameters, row.getMasterPlansDetail(), paramPrefix + "["+i+"]" + "[master_plans_detail][master_plans_detail_row]");
+            parameters.add(paramPrefix + "["+i+"]" + "[consumer_acct_ind]", getValue("String", row.getConsumerAcctInd()));
+            parameters.add(paramPrefix + "["+i+"]" + "[revrec_profile_no]", getValue("Long", row.getRevrecProfileNo()));
+            parameters.add(paramPrefix + "["+i+"]" + "[client_revrec_id]", getValue("String", row.getClientRevrecId()));
             i++;
         }
     }
