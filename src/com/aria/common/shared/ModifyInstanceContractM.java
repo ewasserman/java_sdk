@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "contractNo",    "clientContractId",    "contractPlanInstances",    "typeNo",    "lengthMonths",    "updateComments",    "cancelFee",    "actionDirective",    "startDate",    "endDate",    "cascadeAction",    "contractRolloverCustomRates"})
+    "authKey",    "acctNo",    "clientAcctId",    "contractNo",    "clientContractId",    "typeNo",    "lengthMonths",    "updateComments",    "cancelFee",    "actionDirective",    "startDate",    "endDate",    "cascadeAction",    "contractPlanInstancesUpdate",    "contractRolloverCustomRates"})
 @XmlRootElement(name = "modify_instance_contract_m")
 public class ModifyInstanceContractM {
 
@@ -26,8 +26,6 @@ public class ModifyInstanceContractM {
     protected Long contractNo;
         @XmlElement(name = "client_contract_id")
     protected String clientContractId;
-        @XmlElement(name = "contract_plan_instances")
-    protected ContractPlanInstancesArray contractPlanInstances;
         @XmlElement(name = "type_no")
     protected Long typeNo;
         @XmlElement(name = "length_months")
@@ -44,6 +42,8 @@ public class ModifyInstanceContractM {
     protected String endDate;
         @XmlElement(name = "cascade_action")
     protected String cascadeAction;
+        @XmlElement(name = "contract_plan_instances_update")
+    protected ContractPlanInstancesUpdateArray contractPlanInstancesUpdate;
         @XmlElement(name = "contract_rollover_custom_rates")
     protected ContractRolloverCustomRatesArray contractRolloverCustomRates;
     
@@ -90,13 +90,6 @@ public class ModifyInstanceContractM {
 
     public void setClientContractId(String value) {
         this.clientContractId = value;
-    }
-            public ContractPlanInstancesArray getContractPlanInstances() {
-        return contractPlanInstances;
-    }
-
-    public void setContractPlanInstances(ContractPlanInstancesArray value) {
-        this.contractPlanInstances = value;
     }
             public Long getTypeNo() {
         return typeNo;
@@ -153,6 +146,13 @@ public class ModifyInstanceContractM {
 
     public void setCascadeAction(String value) {
         this.cascadeAction = value;
+    }
+            public ContractPlanInstancesUpdateArray getContractPlanInstancesUpdate() {
+        return contractPlanInstancesUpdate;
+    }
+
+    public void setContractPlanInstancesUpdate(ContractPlanInstancesUpdateArray value) {
+        this.contractPlanInstancesUpdate = value;
     }
             public ContractRolloverCustomRatesArray getContractRolloverCustomRates() {
         return contractRolloverCustomRates;

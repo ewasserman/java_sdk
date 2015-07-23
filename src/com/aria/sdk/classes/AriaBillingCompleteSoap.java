@@ -3604,16 +3604,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
 
         javax.xml.ws.Holder h_error_msg = new javax.xml.ws.Holder();
 
-        javax.xml.ws.Holder h_supp_field_values = new javax.xml.ws.Holder();
-
         javax.xml.ws.Holder h_acct_supp_field_values = new javax.xml.ws.Holder();
 
         
-        getCompletePort().getSuppFieldValues(client_no, auth_key, acct_no, field_name, h_error_code, h_error_msg, h_supp_field_values, h_acct_supp_field_values);
+        getCompletePort().getSuppFieldValues(client_no, auth_key, acct_no, field_name, h_error_code, h_error_msg, h_acct_supp_field_values);
 
         getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
         getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("supp_field_values",((javax.xml.ws.Holder)h_supp_field_values).value);
         getHashMapReturnValues().put("acct_supp_field_values",((javax.xml.ws.Holder)h_acct_supp_field_values).value);
         
         return getHashMapReturnValues();
@@ -10525,13 +10522,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
     }
 
     @SuppressWarnings({"rawtypes","unchecked"})
-    public Map<String,Object> modifyInstanceContractM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long contract_no, String client_contract_id, com.aria.common.shared.ContractPlanInstancesArray contract_plan_instances, Long type_no, Long length_months, String update_comments, Double cancel_fee, Long action_directive, String start_date, String end_date, String cascade_action, com.aria.common.shared.ContractRolloverCustomRatesArray contract_rollover_custom_rates){
+    public Map<String,Object> modifyInstanceContractM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long contract_no, String client_contract_id, Long type_no, Long length_months, String update_comments, Double cancel_fee, Long action_directive, String start_date, String end_date, String cascade_action, com.aria.common.shared.ContractPlanInstancesUpdateArray contract_plan_instances_update, com.aria.common.shared.ContractRolloverCustomRatesArray contract_rollover_custom_rates){
         javax.xml.ws.Holder h_error_code = new javax.xml.ws.Holder();
 
         javax.xml.ws.Holder h_error_msg = new javax.xml.ws.Holder();
 
         
-        getCompletePort().modifyInstanceContractM(client_no, auth_key, acct_no, client_acct_id, contract_no, client_contract_id, contract_plan_instances, type_no, length_months, update_comments, cancel_fee, action_directive, start_date, end_date, cascade_action, contract_rollover_custom_rates, h_error_code, h_error_msg);
+        getCompletePort().modifyInstanceContractM(client_no, auth_key, acct_no, client_acct_id, contract_no, client_contract_id, type_no, length_months, update_comments, cancel_fee, action_directive, start_date, end_date, cascade_action, contract_plan_instances_update, contract_rollover_custom_rates, h_error_code, h_error_msg);
 
         getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
         getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
@@ -10546,7 +10543,6 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
                 String client_acct_id = (String) map.get("client_acct_id");
                 Long contract_no = (Long) map.get("contract_no");
                 String client_contract_id = (String) map.get("client_contract_id");
-                com.aria.common.shared.ContractPlanInstancesArray contract_plan_instances = (com.aria.common.shared.ContractPlanInstancesArray) map.get("contract_plan_instances");
                 Long type_no = (Long) map.get("type_no");
                 Long length_months = (Long) map.get("length_months");
                 String update_comments = (String) map.get("update_comments");
@@ -10555,9 +10551,10 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
                 String start_date = (String) map.get("start_date");
                 String end_date = (String) map.get("end_date");
                 String cascade_action = (String) map.get("cascade_action");
+                com.aria.common.shared.ContractPlanInstancesUpdateArray contract_plan_instances_update = (com.aria.common.shared.ContractPlanInstancesUpdateArray) map.get("contract_plan_instances_update");
                 com.aria.common.shared.ContractRolloverCustomRatesArray contract_rollover_custom_rates = (com.aria.common.shared.ContractRolloverCustomRatesArray) map.get("contract_rollover_custom_rates");
                 
-        return modifyInstanceContractM(client_no, auth_key, acct_no, client_acct_id, contract_no, client_contract_id, contract_plan_instances, type_no, length_months, update_comments, cancel_fee, action_directive, start_date, end_date, cascade_action, contract_rollover_custom_rates);
+        return modifyInstanceContractM(client_no, auth_key, acct_no, client_acct_id, contract_no, client_contract_id, type_no, length_months, update_comments, cancel_fee, action_directive, start_date, end_date, cascade_action, contract_plan_instances_update, contract_rollover_custom_rates);
     }
 
     @SuppressWarnings({"rawtypes","unchecked"})
@@ -14004,7 +14001,7 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
     }
 
     @SuppressWarnings({"rawtypes","unchecked"})
-    public Map<String,Object> createOrderWithPlanM(Long client_no, String auth_key, Long acct_no, String client_acct_id, com.aria.common.shared.OrderLineItemsArray order_line_items, Long parent_plan_instance_no, String client_parent_plan_instance_id, Long supp_plan_instance_no, String client_plan_instance_id, Long supp_plan_no, String client_supp_plan_id, Long supp_plan_units, Long assignment_directive, Long bill_immediately, Long bill_seq, String client_order_id, String client_receipt_id, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String cvv, String bank_routing_num, String bank_acct_num, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String bank_id_cd, String bank_branch_cd, String mandate_id, String iban, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, com.aria.common.shared.MultipleCouponsArray multiple_coupons, String alt_client_acct_group_id, String client_alt_inv_template_id, Long alt_inv_template_no, String statement_message, String track_data1, String track_data2, String do_write){
+    public Map<String,Object> createOrderWithPlanM(Long client_no, String auth_key, Long acct_no, String client_acct_id, com.aria.common.shared.OrderLineItemsArray order_line_items, Long parent_plan_instance_no, String client_parent_plan_instance_id, Long supp_plan_instance_no, String client_plan_instance_id, Long supp_plan_no, String client_supp_plan_id, Long supp_plan_units, Long assignment_directive, Long bill_immediately, Long bill_seq, String client_order_id, String client_receipt_id, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String bank_id_cd, String bank_branch_cd, String mandate_id, String iban, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, String cvv, String bank_acct_type, String bill_address3, com.aria.common.shared.MultipleCouponsArray multiple_coupons, String alt_client_acct_group_id, String client_alt_inv_template_id, Long alt_inv_template_no, Long force_supp_bill_date_reset, String statement_message, String track_data1, String track_data2, String do_write, String order_comments){
         javax.xml.ws.Holder h_error_code = new javax.xml.ws.Holder();
 
         javax.xml.ws.Holder h_error_msg = new javax.xml.ws.Holder();
@@ -14052,7 +14049,7 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         javax.xml.ws.Holder h_third_party_errors = new javax.xml.ws.Holder();
 
         
-        getCompletePort().createOrderWithPlanM(client_no, auth_key, acct_no, client_acct_id, order_line_items, parent_plan_instance_no, client_parent_plan_instance_id, supp_plan_instance_no, client_plan_instance_id, supp_plan_no, client_supp_plan_id, supp_plan_units, assignment_directive, bill_immediately, bill_seq, client_order_id, client_receipt_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, cvv, bank_routing_num, bank_acct_num, bank_check_digit, bank_swift_cd, bank_country_cd, bank_id_cd, bank_branch_cd, mandate_id, iban, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, multiple_coupons, alt_client_acct_group_id, client_alt_inv_template_id, alt_inv_template_no, statement_message, track_data1, track_data2, do_write, h_error_code, h_error_msg, h_order_no, h_invoice_no, h_transaction_id, h_invoicing_error_code, h_invoicing_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_cart_inv_line_items, h_third_party_errors);
+        getCompletePort().createOrderWithPlanM(client_no, auth_key, acct_no, client_acct_id, order_line_items, parent_plan_instance_no, client_parent_plan_instance_id, supp_plan_instance_no, client_plan_instance_id, supp_plan_no, client_supp_plan_id, supp_plan_units, assignment_directive, bill_immediately, bill_seq, client_order_id, client_receipt_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bank_check_digit, bank_swift_cd, bank_country_cd, bank_id_cd, bank_branch_cd, mandate_id, iban, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, multiple_coupons, alt_client_acct_group_id, client_alt_inv_template_id, alt_inv_template_no, force_supp_bill_date_reset, statement_message, track_data1, track_data2, do_write, order_comments, h_error_code, h_error_msg, h_order_no, h_invoice_no, h_transaction_id, h_invoicing_error_code, h_invoicing_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_cart_inv_line_items, h_third_party_errors);
 
         getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
         getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
@@ -14103,7 +14100,6 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
                 String cc_number = (String) map.get("cc_number");
                 Long cc_expire_mm = (Long) map.get("cc_expire_mm");
                 Long cc_expire_yyyy = (Long) map.get("cc_expire_yyyy");
-                String cvv = (String) map.get("cvv");
                 String bank_routing_num = (String) map.get("bank_routing_num");
                 String bank_acct_num = (String) map.get("bank_acct_num");
                 Long bank_check_digit = (Long) map.get("bank_check_digit");
@@ -14119,7 +14115,6 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
                 String bill_last_name = (String) map.get("bill_last_name");
                 String bill_address1 = (String) map.get("bill_address1");
                 String bill_address2 = (String) map.get("bill_address2");
-                String bill_address3 = (String) map.get("bill_address3");
                 String bill_city = (String) map.get("bill_city");
                 String bill_locality = (String) map.get("bill_locality");
                 String bill_state_prov = (String) map.get("bill_state_prov");
@@ -14131,16 +14126,21 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
                 String bill_cell_phone = (String) map.get("bill_cell_phone");
                 String bill_work_phone = (String) map.get("bill_work_phone");
                 String bill_work_phone_extension = (String) map.get("bill_work_phone_extension");
+                String cvv = (String) map.get("cvv");
+                String bank_acct_type = (String) map.get("bank_acct_type");
+                String bill_address3 = (String) map.get("bill_address3");
                 com.aria.common.shared.MultipleCouponsArray multiple_coupons = (com.aria.common.shared.MultipleCouponsArray) map.get("multiple_coupons");
                 String alt_client_acct_group_id = (String) map.get("alt_client_acct_group_id");
                 String client_alt_inv_template_id = (String) map.get("client_alt_inv_template_id");
                 Long alt_inv_template_no = (Long) map.get("alt_inv_template_no");
+                Long force_supp_bill_date_reset = (Long) map.get("force_supp_bill_date_reset");
                 String statement_message = (String) map.get("statement_message");
                 String track_data1 = (String) map.get("track_data1");
                 String track_data2 = (String) map.get("track_data2");
                 String do_write = (String) map.get("do_write");
+                String order_comments = (String) map.get("order_comments");
                 
-        return createOrderWithPlanM(client_no, auth_key, acct_no, client_acct_id, order_line_items, parent_plan_instance_no, client_parent_plan_instance_id, supp_plan_instance_no, client_plan_instance_id, supp_plan_no, client_supp_plan_id, supp_plan_units, assignment_directive, bill_immediately, bill_seq, client_order_id, client_receipt_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, cvv, bank_routing_num, bank_acct_num, bank_check_digit, bank_swift_cd, bank_country_cd, bank_id_cd, bank_branch_cd, mandate_id, iban, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, multiple_coupons, alt_client_acct_group_id, client_alt_inv_template_id, alt_inv_template_no, statement_message, track_data1, track_data2, do_write);
+        return createOrderWithPlanM(client_no, auth_key, acct_no, client_acct_id, order_line_items, parent_plan_instance_no, client_parent_plan_instance_id, supp_plan_instance_no, client_plan_instance_id, supp_plan_no, client_supp_plan_id, supp_plan_units, assignment_directive, bill_immediately, bill_seq, client_order_id, client_receipt_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bank_check_digit, bank_swift_cd, bank_country_cd, bank_id_cd, bank_branch_cd, mandate_id, iban, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, multiple_coupons, alt_client_acct_group_id, client_alt_inv_template_id, alt_inv_template_no, force_supp_bill_date_reset, statement_message, track_data1, track_data2, do_write, order_comments);
     }
 
     @SuppressWarnings({"rawtypes","unchecked"})

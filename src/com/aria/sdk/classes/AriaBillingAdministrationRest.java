@@ -75,8 +75,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long promo_plan_set_no = (Long) map.get("promo_plan_set_no");
-                String client_plan_type_id = (String) map.get("client_plan_type_id");
-                
+        String client_plan_type_id = (String) map.get("client_plan_type_id");
+        
         return getPromoPlanSetDetails(client_no, auth_key, promo_plan_set_no, client_plan_type_id);
     }
 
@@ -106,11 +106,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String promo_plan_set_name = (String) map.get("promo_plan_set_name");
-                String promo_plan_set_desc = (String) map.get("promo_plan_set_desc");
-                String client_plan_type_id = (String) map.get("client_plan_type_id");
-                Long plan_no = (Long) map.get("plan_no");
-                String client_plan_id = (String) map.get("client_plan_id");
-                
+        String promo_plan_set_desc = (String) map.get("promo_plan_set_desc");
+        String client_plan_type_id = (String) map.get("client_plan_type_id");
+        Long plan_no = (Long) map.get("plan_no");
+        String client_plan_id = (String) map.get("client_plan_id");
+        
         return createPromoPlanSet(client_no, auth_key, promo_plan_set_name, promo_plan_set_desc, client_plan_type_id, plan_no, client_plan_id);
     }
 
@@ -141,12 +141,12 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long promo_plan_set_no = (Long) map.get("promo_plan_set_no");
-                String promo_plan_set_name = (String) map.get("promo_plan_set_name");
-                String promo_plan_set_desc = (String) map.get("promo_plan_set_desc");
-                String client_plan_type_id = (String) map.get("client_plan_type_id");
-                Long plan_no = (Long) map.get("plan_no");
-                String client_plan_id = (String) map.get("client_plan_id");
-                
+        String promo_plan_set_name = (String) map.get("promo_plan_set_name");
+        String promo_plan_set_desc = (String) map.get("promo_plan_set_desc");
+        String client_plan_type_id = (String) map.get("client_plan_type_id");
+        Long plan_no = (Long) map.get("plan_no");
+        String client_plan_id = (String) map.get("client_plan_id");
+        
         return updatePromoPlanSet(client_no, auth_key, promo_plan_set_no, promo_plan_set_name, promo_plan_set_desc, client_plan_type_id, plan_no, client_plan_id);
     }
 
@@ -248,35 +248,35 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String domain = (String) map.get("domain");
-                String address1 = (String) map.get("address1");
-                String address2 = (String) map.get("address2");
-                String city = (String) map.get("city");
-                String locality = (String) map.get("locality");
-                String state_prov = (String) map.get("state_prov");
-                String country = (String) map.get("country");
-                String postal_code = (String) map.get("postal_code");
-                String phone = (String) map.get("phone");
-                String contact = (String) map.get("contact");
-                String contact_address1 = (String) map.get("contact_address1");
-                String contact_address2 = (String) map.get("contact_address2");
-                String contact_city = (String) map.get("contact_city");
-                String contact_state = (String) map.get("contact_state");
-                String contact_zip = (String) map.get("contact_zip");
-                String contact_phone = (String) map.get("contact_phone");
-                String contact_email = (String) map.get("contact_email");
-                String billing_contact = (String) map.get("billing_contact");
-                String billing_address1 = (String) map.get("billing_address1");
-                String billing_address2 = (String) map.get("billing_address2");
-                String billing_city = (String) map.get("billing_city");
-                String billing_state = (String) map.get("billing_state");
-                String billing_zip = (String) map.get("billing_zip");
-                String billing_phone = (String) map.get("billing_phone");
-                String billing_email = (String) map.get("billing_email");
-                String contact_country = (String) map.get("contact_country");
-                String contact_locality = (String) map.get("contact_locality");
-                String billing_country = (String) map.get("billing_country");
-                String billing_locality = (String) map.get("billing_locality");
-                
+        String address1 = (String) map.get("address1");
+        String address2 = (String) map.get("address2");
+        String city = (String) map.get("city");
+        String locality = (String) map.get("locality");
+        String state_prov = (String) map.get("state_prov");
+        String country = (String) map.get("country");
+        String postal_code = (String) map.get("postal_code");
+        String phone = (String) map.get("phone");
+        String contact = (String) map.get("contact");
+        String contact_address1 = (String) map.get("contact_address1");
+        String contact_address2 = (String) map.get("contact_address2");
+        String contact_city = (String) map.get("contact_city");
+        String contact_state = (String) map.get("contact_state");
+        String contact_zip = (String) map.get("contact_zip");
+        String contact_phone = (String) map.get("contact_phone");
+        String contact_email = (String) map.get("contact_email");
+        String billing_contact = (String) map.get("billing_contact");
+        String billing_address1 = (String) map.get("billing_address1");
+        String billing_address2 = (String) map.get("billing_address2");
+        String billing_city = (String) map.get("billing_city");
+        String billing_state = (String) map.get("billing_state");
+        String billing_zip = (String) map.get("billing_zip");
+        String billing_phone = (String) map.get("billing_phone");
+        String billing_email = (String) map.get("billing_email");
+        String contact_country = (String) map.get("contact_country");
+        String contact_locality = (String) map.get("contact_locality");
+        String billing_country = (String) map.get("billing_country");
+        String billing_locality = (String) map.get("billing_locality");
+        
         return setCompanyProfile(client_no, auth_key, domain, address1, address2, city, locality, state_prov, country, postal_code, phone, contact, contact_address1, contact_address2, contact_city, contact_state, contact_zip, contact_phone, contact_email, billing_contact, billing_address1, billing_address2, billing_city, billing_state, billing_zip, billing_phone, billing_email, contact_country, contact_locality, billing_country, billing_locality);
     }
 
@@ -349,9 +349,9 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long item_no = (Long) map.get("item_no");
-                String client_item_id = (String) map.get("client_item_id");
-                String currency_cd = (String) map.get("currency_cd");
-                
+        String client_item_id = (String) map.get("client_item_id");
+        String currency_cd = (String) map.get("currency_cd");
+        
         return getInventoryItemDetails(client_no, auth_key, item_no, client_item_id, currency_cd);
     }
 
@@ -403,32 +403,32 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long item_type = (Long) map.get("item_type");
-                String item_name = (String) map.get("item_name");
-                String item_desc = (String) map.get("item_desc");
-                Long service_no = (Long) map.get("service_no");
-                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
-                String client_sku = (String) map.get("client_sku");
-                String currency_cd = (String) map.get("currency_cd");
-                String item_price = (String) map.get("item_price");
-                String client_item_id = (String) map.get("client_item_id");
-                Long active_ind = (Long) map.get("active_ind");
-                String client_service_id = (String) map.get("client_service_id");
-                String tax_inclusive_ind = (String) map.get("tax_inclusive_ind");
-                String modify_price_ind = (String) map.get("modify_price_ind");
-                Long subunit_qty = (Long) map.get("subunit_qty");
-                String subunit_label = (String) map.get("subunit_label");
-                Long queued_active_ind = (Long) map.get("queued_active_ind");
-                String queued_active_date = (String) map.get("queued_active_date");
-                String do_auto_create_service_credit = (String) map.get("do_auto_create_service_credit");
-                Long days_to_expiry = (Long) map.get("days_to_expiry");
-                String resource_type_no = (String) map.get("resource_type_no");
-                String resource_units = (String) map.get("resource_units");
-                Long stock_level_track = (Long) map.get("stock_level_track");
-                Double stock_level_adjust = (Double) map.get("stock_level_adjust");
-                com.aria.common.shared.admin.ImageArray image = (com.aria.common.shared.admin.ImageArray) map.get("image");
-                com.aria.common.shared.admin.ParentClassArray parent_class = (com.aria.common.shared.admin.ParentClassArray) map.get("parent_class");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                
+        String item_name = (String) map.get("item_name");
+        String item_desc = (String) map.get("item_desc");
+        Long service_no = (Long) map.get("service_no");
+        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
+        String client_sku = (String) map.get("client_sku");
+        String currency_cd = (String) map.get("currency_cd");
+        String item_price = (String) map.get("item_price");
+        String client_item_id = (String) map.get("client_item_id");
+        Long active_ind = (Long) map.get("active_ind");
+        String client_service_id = (String) map.get("client_service_id");
+        String tax_inclusive_ind = (String) map.get("tax_inclusive_ind");
+        String modify_price_ind = (String) map.get("modify_price_ind");
+        Long subunit_qty = (Long) map.get("subunit_qty");
+        String subunit_label = (String) map.get("subunit_label");
+        Long queued_active_ind = (Long) map.get("queued_active_ind");
+        String queued_active_date = (String) map.get("queued_active_date");
+        String do_auto_create_service_credit = (String) map.get("do_auto_create_service_credit");
+        Long days_to_expiry = (Long) map.get("days_to_expiry");
+        String resource_type_no = (String) map.get("resource_type_no");
+        String resource_units = (String) map.get("resource_units");
+        Long stock_level_track = (Long) map.get("stock_level_track");
+        Double stock_level_adjust = (Double) map.get("stock_level_adjust");
+        com.aria.common.shared.admin.ImageArray image = (com.aria.common.shared.admin.ImageArray) map.get("image");
+        com.aria.common.shared.admin.ParentClassArray parent_class = (com.aria.common.shared.admin.ParentClassArray) map.get("parent_class");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        
         return createInventoryItem(client_no, auth_key, item_type, item_name, item_desc, service_no, service, client_sku, currency_cd, item_price, client_item_id, active_ind, client_service_id, tax_inclusive_ind, modify_price_ind, subunit_qty, subunit_label, queued_active_ind, queued_active_date, do_auto_create_service_credit, days_to_expiry, resource_type_no, resource_units, stock_level_track, stock_level_adjust, image, parent_class, supplemental_obj_field);
     }
 
@@ -481,33 +481,33 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long item_no = (Long) map.get("item_no");
-                Long item_type = (Long) map.get("item_type");
-                String item_name = (String) map.get("item_name");
-                String item_desc = (String) map.get("item_desc");
-                String client_item_id = (String) map.get("client_item_id");
-                Long service_no = (Long) map.get("service_no");
-                String client_service_id = (String) map.get("client_service_id");
-                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
-                String client_sku = (String) map.get("client_sku");
-                String currency_cd = (String) map.get("currency_cd");
-                String item_price = (String) map.get("item_price");
-                Long active_ind = (Long) map.get("active_ind");
-                String tax_inclusive_ind = (String) map.get("tax_inclusive_ind");
-                String modify_price_ind = (String) map.get("modify_price_ind");
-                Long subunit_qty = (Long) map.get("subunit_qty");
-                String subunit_label = (String) map.get("subunit_label");
-                Long queued_active_ind = (Long) map.get("queued_active_ind");
-                String queued_active_date = (String) map.get("queued_active_date");
-                Long do_auto_create_service_credit = (Long) map.get("do_auto_create_service_credit");
-                Long days_to_expiry = (Long) map.get("days_to_expiry");
-                String resource_type_no = (String) map.get("resource_type_no");
-                String resource_units = (String) map.get("resource_units");
-                Long stock_level_track = (Long) map.get("stock_level_track");
-                Double stock_level_adjust = (Double) map.get("stock_level_adjust");
-                com.aria.common.shared.admin.ImageArray image = (com.aria.common.shared.admin.ImageArray) map.get("image");
-                com.aria.common.shared.admin.ParentClassArray parent_class = (com.aria.common.shared.admin.ParentClassArray) map.get("parent_class");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                
+        Long item_type = (Long) map.get("item_type");
+        String item_name = (String) map.get("item_name");
+        String item_desc = (String) map.get("item_desc");
+        String client_item_id = (String) map.get("client_item_id");
+        Long service_no = (Long) map.get("service_no");
+        String client_service_id = (String) map.get("client_service_id");
+        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
+        String client_sku = (String) map.get("client_sku");
+        String currency_cd = (String) map.get("currency_cd");
+        String item_price = (String) map.get("item_price");
+        Long active_ind = (Long) map.get("active_ind");
+        String tax_inclusive_ind = (String) map.get("tax_inclusive_ind");
+        String modify_price_ind = (String) map.get("modify_price_ind");
+        Long subunit_qty = (Long) map.get("subunit_qty");
+        String subunit_label = (String) map.get("subunit_label");
+        Long queued_active_ind = (Long) map.get("queued_active_ind");
+        String queued_active_date = (String) map.get("queued_active_date");
+        Long do_auto_create_service_credit = (Long) map.get("do_auto_create_service_credit");
+        Long days_to_expiry = (Long) map.get("days_to_expiry");
+        String resource_type_no = (String) map.get("resource_type_no");
+        String resource_units = (String) map.get("resource_units");
+        Long stock_level_track = (Long) map.get("stock_level_track");
+        Double stock_level_adjust = (Double) map.get("stock_level_adjust");
+        com.aria.common.shared.admin.ImageArray image = (com.aria.common.shared.admin.ImageArray) map.get("image");
+        com.aria.common.shared.admin.ParentClassArray parent_class = (com.aria.common.shared.admin.ParentClassArray) map.get("parent_class");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        
         return updateInventoryItem(client_no, auth_key, item_no, item_type, item_name, item_desc, client_item_id, service_no, client_service_id, service, client_sku, currency_cd, item_price, active_ind, tax_inclusive_ind, modify_price_ind, subunit_qty, subunit_label, queued_active_ind, queued_active_date, do_auto_create_service_credit, days_to_expiry, resource_type_no, resource_units, stock_level_track, stock_level_adjust, image, parent_class, supplemental_obj_field);
     }
 
@@ -537,11 +537,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String class_name = (String) map.get("class_name");
-                String class_desc = (String) map.get("class_desc");
-                Long active_ind = (Long) map.get("active_ind");
-                String client_inventory_class_id = (String) map.get("client_inventory_class_id");
-                com.aria.common.shared.admin.ParentClassArray parent_class = (com.aria.common.shared.admin.ParentClassArray) map.get("parent_class");
-                
+        String class_desc = (String) map.get("class_desc");
+        Long active_ind = (Long) map.get("active_ind");
+        String client_inventory_class_id = (String) map.get("client_inventory_class_id");
+        com.aria.common.shared.admin.ParentClassArray parent_class = (com.aria.common.shared.admin.ParentClassArray) map.get("parent_class");
+        
         return createItemClass(client_no, auth_key, class_name, class_desc, active_ind, client_inventory_class_id, parent_class);
     }
 
@@ -572,12 +572,12 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String class_no = (String) map.get("class_no");
-                String class_name = (String) map.get("class_name");
-                String client_inventory_class_id = (String) map.get("client_inventory_class_id");
-                String class_desc = (String) map.get("class_desc");
-                Long active_ind = (Long) map.get("active_ind");
-                com.aria.common.shared.admin.ParentClassArray parent_class = (com.aria.common.shared.admin.ParentClassArray) map.get("parent_class");
-                
+        String class_name = (String) map.get("class_name");
+        String client_inventory_class_id = (String) map.get("client_inventory_class_id");
+        String class_desc = (String) map.get("class_desc");
+        Long active_ind = (Long) map.get("active_ind");
+        com.aria.common.shared.admin.ParentClassArray parent_class = (com.aria.common.shared.admin.ParentClassArray) map.get("parent_class");
+        
         return editItemClass(client_no, auth_key, class_no, class_name, client_inventory_class_id, class_desc, active_ind, parent_class);
     }
 
@@ -629,11 +629,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         return getServices(client_no, auth_key);
     }
 
-    public Map<String,Object> getServiceDetails(Long client_no, String auth_key, String service_no, String client_service_id){
+    public Map<String,Object> getServiceDetails(Long client_no, String auth_key, Long service_no, String client_service_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"service_no",getValue("String", service_no));
+        addParameters(parameters,"service_no",getValue("Long", service_no));
         addParameters(parameters,"client_service_id",getValue("String", client_service_id));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_service_details"));
@@ -666,9 +666,9 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
     public Map<String,Object> getServiceDetails(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-        String service_no = (String) map.get("service_no");
-                String client_service_id = (String) map.get("client_service_id");
-                
+        Long service_no = (Long) map.get("service_no");
+        String client_service_id = (String) map.get("client_service_id");
+        
         return getServiceDetails(client_no, auth_key, service_no, client_service_id);
     }
 
@@ -716,10 +716,10 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long service_no = (Long) map.get("service_no");
-                Long plan_no = (Long) map.get("plan_no");
-                String client_service_id = (String) map.get("client_service_id");
-                String client_plan_id = (String) map.get("client_plan_id");
-                
+        Long plan_no = (Long) map.get("plan_no");
+        String client_service_id = (String) map.get("client_service_id");
+        String client_plan_id = (String) map.get("client_plan_id");
+        
         return getPlanServiceDetails(client_no, auth_key, service_no, plan_no, client_service_id, client_plan_id);
     }
 
@@ -758,20 +758,20 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String service_name = (String) map.get("service_name");
-                String service_type = (String) map.get("service_type");
-                String gl_cd = (String) map.get("gl_cd");
-                String ar_gl_cd = (String) map.get("ar_gl_cd");
-                String def_gl_cd = (String) map.get("def_gl_cd");
-                Long rev_rec_ind = (Long) map.get("rev_rec_ind");
-                Long deferred_ind = (Long) map.get("deferred_ind");
-                Long taxable_ind = (Long) map.get("taxable_ind");
-                Long tax_group = (Long) map.get("tax_group");
-                Long usage_type = (Long) map.get("usage_type");
-                String client_service_id = (String) map.get("client_service_id");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                String commodity_cd = (String) map.get("commodity_cd");
-                String client_tax_group_id = (String) map.get("client_tax_group_id");
-                
+        String service_type = (String) map.get("service_type");
+        String gl_cd = (String) map.get("gl_cd");
+        String ar_gl_cd = (String) map.get("ar_gl_cd");
+        String def_gl_cd = (String) map.get("def_gl_cd");
+        Long rev_rec_ind = (Long) map.get("rev_rec_ind");
+        Long deferred_ind = (Long) map.get("deferred_ind");
+        Long taxable_ind = (Long) map.get("taxable_ind");
+        Long tax_group = (Long) map.get("tax_group");
+        Long usage_type = (Long) map.get("usage_type");
+        String client_service_id = (String) map.get("client_service_id");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        String commodity_cd = (String) map.get("commodity_cd");
+        String client_tax_group_id = (String) map.get("client_tax_group_id");
+        
         return createService(client_no, auth_key, service_name, service_type, gl_cd, ar_gl_cd, def_gl_cd, rev_rec_ind, deferred_ind, taxable_ind, tax_group, usage_type, client_service_id, supplemental_obj_field, commodity_cd, client_tax_group_id);
     }
 
@@ -811,21 +811,21 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long service_no = (Long) map.get("service_no");
-                String service_name = (String) map.get("service_name");
-                String service_type = (String) map.get("service_type");
-                String gl_cd = (String) map.get("gl_cd");
-                String ar_gl_cd = (String) map.get("ar_gl_cd");
-                String def_gl_cd = (String) map.get("def_gl_cd");
-                Long rev_rec_ind = (Long) map.get("rev_rec_ind");
-                Long deferred_ind = (Long) map.get("deferred_ind");
-                Long taxable_ind = (Long) map.get("taxable_ind");
-                Long tax_group = (Long) map.get("tax_group");
-                Long usage_type = (Long) map.get("usage_type");
-                String client_service_id = (String) map.get("client_service_id");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                String commodity_cd = (String) map.get("commodity_cd");
-                String client_tax_group_id = (String) map.get("client_tax_group_id");
-                
+        String service_name = (String) map.get("service_name");
+        String service_type = (String) map.get("service_type");
+        String gl_cd = (String) map.get("gl_cd");
+        String ar_gl_cd = (String) map.get("ar_gl_cd");
+        String def_gl_cd = (String) map.get("def_gl_cd");
+        Long rev_rec_ind = (Long) map.get("rev_rec_ind");
+        Long deferred_ind = (Long) map.get("deferred_ind");
+        Long taxable_ind = (Long) map.get("taxable_ind");
+        Long tax_group = (Long) map.get("tax_group");
+        Long usage_type = (Long) map.get("usage_type");
+        String client_service_id = (String) map.get("client_service_id");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        String commodity_cd = (String) map.get("commodity_cd");
+        String client_tax_group_id = (String) map.get("client_tax_group_id");
+        
         return updateService(client_no, auth_key, service_no, service_name, service_type, gl_cd, ar_gl_cd, def_gl_cd, rev_rec_ind, deferred_ind, taxable_ind, tax_group, usage_type, client_service_id, supplemental_obj_field, commodity_cd, client_tax_group_id);
     }
 
@@ -886,7 +886,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String field_name = (String) map.get("field_name");
-                
+        
         return getSuppFieldDetails(client_no, auth_key, field_name);
     }
 
@@ -923,18 +923,18 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String field_name = (String) map.get("field_name");
-                Long field_order = (Long) map.get("field_order");
-                String presentation_mode = (String) map.get("presentation_mode");
-                String field_desc = (String) map.get("field_desc");
-                Long required_ind = (Long) map.get("required_ind");
-                Long hidden_ind = (Long) map.get("hidden_ind");
-                Long sel_ind = (Long) map.get("sel_ind");
-                Long min_no_sel = (Long) map.get("min_no_sel");
-                Long max_no_sel = (Long) map.get("max_no_sel");
-                String display_text = (String) map.get("display_text");
-                String option_value = (String) map.get("option_value");
-                Long option_value_order = (Long) map.get("option_value_order");
-                
+        Long field_order = (Long) map.get("field_order");
+        String presentation_mode = (String) map.get("presentation_mode");
+        String field_desc = (String) map.get("field_desc");
+        Long required_ind = (Long) map.get("required_ind");
+        Long hidden_ind = (Long) map.get("hidden_ind");
+        Long sel_ind = (Long) map.get("sel_ind");
+        Long min_no_sel = (Long) map.get("min_no_sel");
+        Long max_no_sel = (Long) map.get("max_no_sel");
+        String display_text = (String) map.get("display_text");
+        String option_value = (String) map.get("option_value");
+        Long option_value_order = (Long) map.get("option_value_order");
+        
         return createSuppField(client_no, auth_key, field_name, field_order, presentation_mode, field_desc, required_ind, hidden_ind, sel_ind, min_no_sel, max_no_sel, display_text, option_value, option_value_order);
     }
 
@@ -971,18 +971,18 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String field_name = (String) map.get("field_name");
-                String field_desc = (String) map.get("field_desc");
-                Long field_order = (Long) map.get("field_order");
-                Long required_ind = (Long) map.get("required_ind");
-                Long hidden_ind = (Long) map.get("hidden_ind");
-                Long sel_ind = (Long) map.get("sel_ind");
-                String presentation_mode = (String) map.get("presentation_mode");
-                Long min_no_sel = (Long) map.get("min_no_sel");
-                Long max_no_sel = (Long) map.get("max_no_sel");
-                String display_text = (String) map.get("display_text");
-                String option_value = (String) map.get("option_value");
-                Long option_value_order = (Long) map.get("option_value_order");
-                
+        String field_desc = (String) map.get("field_desc");
+        Long field_order = (Long) map.get("field_order");
+        Long required_ind = (Long) map.get("required_ind");
+        Long hidden_ind = (Long) map.get("hidden_ind");
+        Long sel_ind = (Long) map.get("sel_ind");
+        String presentation_mode = (String) map.get("presentation_mode");
+        Long min_no_sel = (Long) map.get("min_no_sel");
+        Long max_no_sel = (Long) map.get("max_no_sel");
+        String display_text = (String) map.get("display_text");
+        String option_value = (String) map.get("option_value");
+        Long option_value_order = (Long) map.get("option_value_order");
+        
         return updateSuppField(client_no, auth_key, field_name, field_desc, field_order, required_ind, hidden_ind, sel_ind, presentation_mode, min_no_sel, max_no_sel, display_text, option_value, option_value_order);
     }
 
@@ -1064,7 +1064,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String coupon_cd = (String) map.get("coupon_cd");
-                
+        
         return getCouponDetails(client_no, auth_key, coupon_cd);
     }
 
@@ -1106,23 +1106,23 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String coupon_cd = (String) map.get("coupon_cd");
-                String coupon_desc = (String) map.get("coupon_desc");
-                String coupon_msg = (String) map.get("coupon_msg");
-                Long status_ind = (Long) map.get("status_ind");
-                Long no_of_uses = (Long) map.get("no_of_uses");
-                String start_date = (String) map.get("start_date");
-                String end_date = (String) map.get("end_date");
-                com.aria.common.shared.admin.TemplateArray template = (com.aria.common.shared.admin.TemplateArray) map.get("template");
-                com.aria.common.shared.admin.ExistingTemplateArray existing_template = (com.aria.common.shared.admin.ExistingTemplateArray) map.get("existing_template");
-                com.aria.common.shared.admin.ExistingTemplateIdArray existing_template_id = (com.aria.common.shared.admin.ExistingTemplateIdArray) map.get("existing_template_id");
-                com.aria.common.shared.admin.DiscountRuleArray discount_rule = (com.aria.common.shared.admin.DiscountRuleArray) map.get("discount_rule");
-                com.aria.common.shared.admin.ExistingDiscountRuleArray existing_discount_rule = (com.aria.common.shared.admin.ExistingDiscountRuleArray) map.get("existing_discount_rule");
-                com.aria.common.shared.admin.ExistingDiscountRuleIdArray existing_discount_rule_id = (com.aria.common.shared.admin.ExistingDiscountRuleIdArray) map.get("existing_discount_rule_id");
-                com.aria.common.shared.admin.DiscountBundleArray discount_bundle = (com.aria.common.shared.admin.DiscountBundleArray) map.get("discount_bundle");
-                com.aria.common.shared.admin.ExistingDiscountBundleArray existing_discount_bundle = (com.aria.common.shared.admin.ExistingDiscountBundleArray) map.get("existing_discount_bundle");
-                com.aria.common.shared.admin.ExistingDiscountBundleIdArray existing_discount_bundle_id = (com.aria.common.shared.admin.ExistingDiscountBundleIdArray) map.get("existing_discount_bundle_id");
-                Long coupon_scope = (Long) map.get("coupon_scope");
-                
+        String coupon_desc = (String) map.get("coupon_desc");
+        String coupon_msg = (String) map.get("coupon_msg");
+        Long status_ind = (Long) map.get("status_ind");
+        Long no_of_uses = (Long) map.get("no_of_uses");
+        String start_date = (String) map.get("start_date");
+        String end_date = (String) map.get("end_date");
+        com.aria.common.shared.admin.TemplateArray template = (com.aria.common.shared.admin.TemplateArray) map.get("template");
+        com.aria.common.shared.admin.ExistingTemplateArray existing_template = (com.aria.common.shared.admin.ExistingTemplateArray) map.get("existing_template");
+        com.aria.common.shared.admin.ExistingTemplateIdArray existing_template_id = (com.aria.common.shared.admin.ExistingTemplateIdArray) map.get("existing_template_id");
+        com.aria.common.shared.admin.DiscountRuleArray discount_rule = (com.aria.common.shared.admin.DiscountRuleArray) map.get("discount_rule");
+        com.aria.common.shared.admin.ExistingDiscountRuleArray existing_discount_rule = (com.aria.common.shared.admin.ExistingDiscountRuleArray) map.get("existing_discount_rule");
+        com.aria.common.shared.admin.ExistingDiscountRuleIdArray existing_discount_rule_id = (com.aria.common.shared.admin.ExistingDiscountRuleIdArray) map.get("existing_discount_rule_id");
+        com.aria.common.shared.admin.DiscountBundleArray discount_bundle = (com.aria.common.shared.admin.DiscountBundleArray) map.get("discount_bundle");
+        com.aria.common.shared.admin.ExistingDiscountBundleArray existing_discount_bundle = (com.aria.common.shared.admin.ExistingDiscountBundleArray) map.get("existing_discount_bundle");
+        com.aria.common.shared.admin.ExistingDiscountBundleIdArray existing_discount_bundle_id = (com.aria.common.shared.admin.ExistingDiscountBundleIdArray) map.get("existing_discount_bundle_id");
+        Long coupon_scope = (Long) map.get("coupon_scope");
+        
         return createCoupon(client_no, auth_key, coupon_cd, coupon_desc, coupon_msg, status_ind, no_of_uses, start_date, end_date, template, existing_template, existing_template_id, discount_rule, existing_discount_rule, existing_discount_rule_id, discount_bundle, existing_discount_bundle, existing_discount_bundle_id, coupon_scope);
     }
 
@@ -1164,23 +1164,23 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String coupon_cd = (String) map.get("coupon_cd");
-                String coupon_desc = (String) map.get("coupon_desc");
-                String coupon_msg = (String) map.get("coupon_msg");
-                Long status_ind = (Long) map.get("status_ind");
-                Long no_of_uses = (Long) map.get("no_of_uses");
-                String start_date = (String) map.get("start_date");
-                String end_date = (String) map.get("end_date");
-                com.aria.common.shared.admin.TemplateArray template = (com.aria.common.shared.admin.TemplateArray) map.get("template");
-                com.aria.common.shared.admin.ExistingTemplateArray existing_template = (com.aria.common.shared.admin.ExistingTemplateArray) map.get("existing_template");
-                com.aria.common.shared.admin.ExistingTemplateIdArray existing_template_id = (com.aria.common.shared.admin.ExistingTemplateIdArray) map.get("existing_template_id");
-                com.aria.common.shared.admin.DiscountRuleArray discount_rule = (com.aria.common.shared.admin.DiscountRuleArray) map.get("discount_rule");
-                com.aria.common.shared.admin.ExistingDiscountRuleArray existing_discount_rule = (com.aria.common.shared.admin.ExistingDiscountRuleArray) map.get("existing_discount_rule");
-                com.aria.common.shared.admin.ExistingDiscountRuleIdArray existing_discount_rule_id = (com.aria.common.shared.admin.ExistingDiscountRuleIdArray) map.get("existing_discount_rule_id");
-                com.aria.common.shared.admin.DiscountBundleArray discount_bundle = (com.aria.common.shared.admin.DiscountBundleArray) map.get("discount_bundle");
-                com.aria.common.shared.admin.ExistingDiscountBundleArray existing_discount_bundle = (com.aria.common.shared.admin.ExistingDiscountBundleArray) map.get("existing_discount_bundle");
-                com.aria.common.shared.admin.ExistingDiscountBundleIdArray existing_discount_bundle_id = (com.aria.common.shared.admin.ExistingDiscountBundleIdArray) map.get("existing_discount_bundle_id");
-                Long coupon_scope = (Long) map.get("coupon_scope");
-                
+        String coupon_desc = (String) map.get("coupon_desc");
+        String coupon_msg = (String) map.get("coupon_msg");
+        Long status_ind = (Long) map.get("status_ind");
+        Long no_of_uses = (Long) map.get("no_of_uses");
+        String start_date = (String) map.get("start_date");
+        String end_date = (String) map.get("end_date");
+        com.aria.common.shared.admin.TemplateArray template = (com.aria.common.shared.admin.TemplateArray) map.get("template");
+        com.aria.common.shared.admin.ExistingTemplateArray existing_template = (com.aria.common.shared.admin.ExistingTemplateArray) map.get("existing_template");
+        com.aria.common.shared.admin.ExistingTemplateIdArray existing_template_id = (com.aria.common.shared.admin.ExistingTemplateIdArray) map.get("existing_template_id");
+        com.aria.common.shared.admin.DiscountRuleArray discount_rule = (com.aria.common.shared.admin.DiscountRuleArray) map.get("discount_rule");
+        com.aria.common.shared.admin.ExistingDiscountRuleArray existing_discount_rule = (com.aria.common.shared.admin.ExistingDiscountRuleArray) map.get("existing_discount_rule");
+        com.aria.common.shared.admin.ExistingDiscountRuleIdArray existing_discount_rule_id = (com.aria.common.shared.admin.ExistingDiscountRuleIdArray) map.get("existing_discount_rule_id");
+        com.aria.common.shared.admin.DiscountBundleArray discount_bundle = (com.aria.common.shared.admin.DiscountBundleArray) map.get("discount_bundle");
+        com.aria.common.shared.admin.ExistingDiscountBundleArray existing_discount_bundle = (com.aria.common.shared.admin.ExistingDiscountBundleArray) map.get("existing_discount_bundle");
+        com.aria.common.shared.admin.ExistingDiscountBundleIdArray existing_discount_bundle_id = (com.aria.common.shared.admin.ExistingDiscountBundleIdArray) map.get("existing_discount_bundle_id");
+        Long coupon_scope = (Long) map.get("coupon_scope");
+        
         return updateCoupon(client_no, auth_key, coupon_cd, coupon_desc, coupon_msg, status_ind, no_of_uses, start_date, end_date, template, existing_template, existing_template_id, discount_rule, existing_discount_rule, existing_discount_rule_id, discount_bundle, existing_discount_bundle, existing_discount_bundle_id, coupon_scope);
     }
 
@@ -1206,7 +1206,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         com.aria.common.shared.admin.CouponNosArray coupon_nos = (com.aria.common.shared.admin.CouponNosArray) map.get("coupon_nos");
-                
+        
         return deleteCoupons(client_no, auth_key, coupon_nos);
     }
 
@@ -1275,8 +1275,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long credit_template_no = (Long) map.get("credit_template_no");
-                String client_credit_template_id = (String) map.get("client_credit_template_id");
-                
+        String client_credit_template_id = (String) map.get("client_credit_template_id");
+        
         return getRecurringCreditTemplateDetails(client_no, auth_key, credit_template_no, client_credit_template_id);
     }
 
@@ -1321,26 +1321,26 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String credit_template_name = (String) map.get("credit_template_name");
-                Long discount_type = (Long) map.get("discount_type");
-                Double discount_amt = (Double) map.get("discount_amt");
-                Long eligible_plan_no = (Long) map.get("eligible_plan_no");
-                String eligible_client_plan_id = (String) map.get("eligible_client_plan_id");
-                Long eligible_service_no = (Long) map.get("eligible_service_no");
-                String eligible_client_service_id = (String) map.get("eligible_client_service_id");
-                com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types = (com.aria.common.shared.admin.EligibleServiceTypesArray) map.get("eligible_service_types");
-                Long no_of_credits = (Long) map.get("no_of_credits");
-                Long credit_interval_months = (Long) map.get("credit_interval_months");
-                Long percentage_plan_no = (Long) map.get("percentage_plan_no");
-                String percentage_client_plan_id = (String) map.get("percentage_client_plan_id");
-                Long percentage_service_no = (Long) map.get("percentage_service_no");
-                String percentage_client_service_id = (String) map.get("percentage_client_service_id");
-                Long alt_service_no = (Long) map.get("alt_service_no");
-                String alt_client_service_id = (String) map.get("alt_client_service_id");
-                String client_credit_template_id = (String) map.get("client_credit_template_id");
-                String currency_cd = (String) map.get("currency_cd");
-                com.aria.common.shared.admin.CouponArray coupon = (com.aria.common.shared.admin.CouponArray) map.get("coupon");
-                com.aria.common.shared.admin.ExistingCouponArray existing_coupon = (com.aria.common.shared.admin.ExistingCouponArray) map.get("existing_coupon");
-                
+        Long discount_type = (Long) map.get("discount_type");
+        Double discount_amt = (Double) map.get("discount_amt");
+        Long eligible_plan_no = (Long) map.get("eligible_plan_no");
+        String eligible_client_plan_id = (String) map.get("eligible_client_plan_id");
+        Long eligible_service_no = (Long) map.get("eligible_service_no");
+        String eligible_client_service_id = (String) map.get("eligible_client_service_id");
+        com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types = (com.aria.common.shared.admin.EligibleServiceTypesArray) map.get("eligible_service_types");
+        Long no_of_credits = (Long) map.get("no_of_credits");
+        Long credit_interval_months = (Long) map.get("credit_interval_months");
+        Long percentage_plan_no = (Long) map.get("percentage_plan_no");
+        String percentage_client_plan_id = (String) map.get("percentage_client_plan_id");
+        Long percentage_service_no = (Long) map.get("percentage_service_no");
+        String percentage_client_service_id = (String) map.get("percentage_client_service_id");
+        Long alt_service_no = (Long) map.get("alt_service_no");
+        String alt_client_service_id = (String) map.get("alt_client_service_id");
+        String client_credit_template_id = (String) map.get("client_credit_template_id");
+        String currency_cd = (String) map.get("currency_cd");
+        com.aria.common.shared.admin.CouponArray coupon = (com.aria.common.shared.admin.CouponArray) map.get("coupon");
+        com.aria.common.shared.admin.ExistingCouponArray existing_coupon = (com.aria.common.shared.admin.ExistingCouponArray) map.get("existing_coupon");
+        
         return createCreditTemplate(client_no, auth_key, credit_template_name, discount_type, discount_amt, eligible_plan_no, eligible_client_plan_id, eligible_service_no, eligible_client_service_id, eligible_service_types, no_of_credits, credit_interval_months, percentage_plan_no, percentage_client_plan_id, percentage_service_no, percentage_client_service_id, alt_service_no, alt_client_service_id, client_credit_template_id, currency_cd, coupon, existing_coupon);
     }
 
@@ -1386,27 +1386,27 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String credit_template_no = (String) map.get("credit_template_no");
-                String credit_template_name = (String) map.get("credit_template_name");
-                Double discount_amt = (Double) map.get("discount_amt");
-                String client_credit_template_id = (String) map.get("client_credit_template_id");
-                Long eligible_plan_no = (Long) map.get("eligible_plan_no");
-                String eligible_client_plan_id = (String) map.get("eligible_client_plan_id");
-                Long eligible_service_no = (Long) map.get("eligible_service_no");
-                String eligible_client_service_id = (String) map.get("eligible_client_service_id");
-                com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types = (com.aria.common.shared.admin.EligibleServiceTypesArray) map.get("eligible_service_types");
-                Long discount_type = (Long) map.get("discount_type");
-                Long no_of_credits = (Long) map.get("no_of_credits");
-                Long credit_interval_months = (Long) map.get("credit_interval_months");
-                Long percentage_plan_no = (Long) map.get("percentage_plan_no");
-                String percentage_client_plan_id = (String) map.get("percentage_client_plan_id");
-                Long percentage_service_no = (Long) map.get("percentage_service_no");
-                String percentage_client_service_id = (String) map.get("percentage_client_service_id");
-                Long alt_service_no = (Long) map.get("alt_service_no");
-                String alt_client_service_id = (String) map.get("alt_client_service_id");
-                String currency_cd = (String) map.get("currency_cd");
-                com.aria.common.shared.admin.CouponArray coupon = (com.aria.common.shared.admin.CouponArray) map.get("coupon");
-                com.aria.common.shared.admin.ExistingCouponArray existing_coupon = (com.aria.common.shared.admin.ExistingCouponArray) map.get("existing_coupon");
-                
+        String credit_template_name = (String) map.get("credit_template_name");
+        Double discount_amt = (Double) map.get("discount_amt");
+        String client_credit_template_id = (String) map.get("client_credit_template_id");
+        Long eligible_plan_no = (Long) map.get("eligible_plan_no");
+        String eligible_client_plan_id = (String) map.get("eligible_client_plan_id");
+        Long eligible_service_no = (Long) map.get("eligible_service_no");
+        String eligible_client_service_id = (String) map.get("eligible_client_service_id");
+        com.aria.common.shared.admin.EligibleServiceTypesArray eligible_service_types = (com.aria.common.shared.admin.EligibleServiceTypesArray) map.get("eligible_service_types");
+        Long discount_type = (Long) map.get("discount_type");
+        Long no_of_credits = (Long) map.get("no_of_credits");
+        Long credit_interval_months = (Long) map.get("credit_interval_months");
+        Long percentage_plan_no = (Long) map.get("percentage_plan_no");
+        String percentage_client_plan_id = (String) map.get("percentage_client_plan_id");
+        Long percentage_service_no = (Long) map.get("percentage_service_no");
+        String percentage_client_service_id = (String) map.get("percentage_client_service_id");
+        Long alt_service_no = (Long) map.get("alt_service_no");
+        String alt_client_service_id = (String) map.get("alt_client_service_id");
+        String currency_cd = (String) map.get("currency_cd");
+        com.aria.common.shared.admin.CouponArray coupon = (com.aria.common.shared.admin.CouponArray) map.get("coupon");
+        com.aria.common.shared.admin.ExistingCouponArray existing_coupon = (com.aria.common.shared.admin.ExistingCouponArray) map.get("existing_coupon");
+        
         return updateCreditTemplate(client_no, auth_key, credit_template_no, credit_template_name, discount_amt, client_credit_template_id, eligible_plan_no, eligible_client_plan_id, eligible_service_no, eligible_client_service_id, eligible_service_types, discount_type, no_of_credits, credit_interval_months, percentage_plan_no, percentage_client_plan_id, percentage_service_no, percentage_client_service_id, alt_service_no, alt_client_service_id, currency_cd, coupon, existing_coupon);
     }
 
@@ -1431,7 +1431,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         com.aria.common.shared.admin.TemplateNosArray template_nos = (com.aria.common.shared.admin.TemplateNosArray) map.get("template_nos");
-                
+        
         return deleteTemplates(client_no, auth_key, template_nos);
     }
 
@@ -1480,30 +1480,30 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String label = (String) map.get("label");
-                String rule_id = (String) map.get("rule_id");
-                String description = (String) map.get("description");
-                String ext_description = (String) map.get("ext_description");
-                String flat_percent_ind = (String) map.get("flat_percent_ind");
-                Double amount = (Double) map.get("amount");
-                String currency = (String) map.get("currency");
-                String duration_type_ind = (String) map.get("duration_type_ind");
-                String inline_offset_ind = (String) map.get("inline_offset_ind");
-                String discount_behavior_type_ind = (String) map.get("discount_behavior_type_ind");
-                Long service_code_to_use = (Long) map.get("service_code_to_use");
-                Long scope_no = (Long) map.get("scope_no");
-                Long max_applicable_months = (Long) map.get("max_applicable_months");
-                Long max_applications_per_acct = (Long) map.get("max_applications_per_acct");
-                Long alt_service_no_2_apply = (Long) map.get("alt_service_no_2_apply");
-                String alt_service_id_2_apply = (String) map.get("alt_service_id_2_apply");
-                String applicable_trans_scope = (String) map.get("applicable_trans_scope");
-                com.aria.common.shared.admin.PlanNoArray plan_no = (com.aria.common.shared.admin.PlanNoArray) map.get("plan_no");
-                com.aria.common.shared.admin.ClientPlanIdArray client_plan_id = (com.aria.common.shared.admin.ClientPlanIdArray) map.get("client_plan_id");
-                com.aria.common.shared.admin.ServiceNoArray service_no = (com.aria.common.shared.admin.ServiceNoArray) map.get("service_no");
-                com.aria.common.shared.admin.ClientServiceIdArray client_service_id = (com.aria.common.shared.admin.ClientServiceIdArray) map.get("client_service_id");
-                com.aria.common.shared.admin.ItemNoArray item_no = (com.aria.common.shared.admin.ItemNoArray) map.get("item_no");
-                com.aria.common.shared.admin.ClientItemIdArray client_item_id = (com.aria.common.shared.admin.ClientItemIdArray) map.get("client_item_id");
-                String use_all_or_nth_subs_rule = (String) map.get("use_all_or_nth_subs_rule");
-                
+        String rule_id = (String) map.get("rule_id");
+        String description = (String) map.get("description");
+        String ext_description = (String) map.get("ext_description");
+        String flat_percent_ind = (String) map.get("flat_percent_ind");
+        Double amount = (Double) map.get("amount");
+        String currency = (String) map.get("currency");
+        String duration_type_ind = (String) map.get("duration_type_ind");
+        String inline_offset_ind = (String) map.get("inline_offset_ind");
+        String discount_behavior_type_ind = (String) map.get("discount_behavior_type_ind");
+        Long service_code_to_use = (Long) map.get("service_code_to_use");
+        Long scope_no = (Long) map.get("scope_no");
+        Long max_applicable_months = (Long) map.get("max_applicable_months");
+        Long max_applications_per_acct = (Long) map.get("max_applications_per_acct");
+        Long alt_service_no_2_apply = (Long) map.get("alt_service_no_2_apply");
+        String alt_service_id_2_apply = (String) map.get("alt_service_id_2_apply");
+        String applicable_trans_scope = (String) map.get("applicable_trans_scope");
+        com.aria.common.shared.admin.PlanNoArray plan_no = (com.aria.common.shared.admin.PlanNoArray) map.get("plan_no");
+        com.aria.common.shared.admin.ClientPlanIdArray client_plan_id = (com.aria.common.shared.admin.ClientPlanIdArray) map.get("client_plan_id");
+        com.aria.common.shared.admin.ServiceNoArray service_no = (com.aria.common.shared.admin.ServiceNoArray) map.get("service_no");
+        com.aria.common.shared.admin.ClientServiceIdArray client_service_id = (com.aria.common.shared.admin.ClientServiceIdArray) map.get("client_service_id");
+        com.aria.common.shared.admin.ItemNoArray item_no = (com.aria.common.shared.admin.ItemNoArray) map.get("item_no");
+        com.aria.common.shared.admin.ClientItemIdArray client_item_id = (com.aria.common.shared.admin.ClientItemIdArray) map.get("client_item_id");
+        String use_all_or_nth_subs_rule = (String) map.get("use_all_or_nth_subs_rule");
+        
         return createDiscountRule(client_no, auth_key, label, rule_id, description, ext_description, flat_percent_ind, amount, currency, duration_type_ind, inline_offset_ind, discount_behavior_type_ind, service_code_to_use, scope_no, max_applicable_months, max_applications_per_acct, alt_service_no_2_apply, alt_service_id_2_apply, applicable_trans_scope, plan_no, client_plan_id, service_no, client_service_id, item_no, client_item_id, use_all_or_nth_subs_rule);
     }
 
@@ -1534,12 +1534,12 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String bundle_name = (String) map.get("bundle_name");
-                String bundle_id = (String) map.get("bundle_id");
-                String bundle_description = (String) map.get("bundle_description");
-                String allow_overlap_ind = (String) map.get("allow_overlap_ind");
-                com.aria.common.shared.admin.RulesArray rules = (com.aria.common.shared.admin.RulesArray) map.get("rules");
-                com.aria.common.shared.admin.RuleIdsArray rule_ids = (com.aria.common.shared.admin.RuleIdsArray) map.get("rule_ids");
-                
+        String bundle_id = (String) map.get("bundle_id");
+        String bundle_description = (String) map.get("bundle_description");
+        String allow_overlap_ind = (String) map.get("allow_overlap_ind");
+        com.aria.common.shared.admin.RulesArray rules = (com.aria.common.shared.admin.RulesArray) map.get("rules");
+        com.aria.common.shared.admin.RuleIdsArray rule_ids = (com.aria.common.shared.admin.RuleIdsArray) map.get("rule_ids");
+        
         return createDiscountBundle(client_no, auth_key, bundle_name, bundle_id, bundle_description, allow_overlap_ind, rules, rule_ids);
     }
 
@@ -1590,8 +1590,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long bundle_no = (Long) map.get("bundle_no");
-                String bundle_id = (String) map.get("bundle_id");
-                
+        String bundle_id = (String) map.get("bundle_id");
+        
         return getDiscountBundleDetails(client_no, auth_key, bundle_no, bundle_id);
     }
 
@@ -1643,8 +1643,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long rule_no = (Long) map.get("rule_no");
-                String client_rule_id = (String) map.get("client_rule_id");
-                
+        String client_rule_id = (String) map.get("client_rule_id");
+        
         return getDiscountRuleDetails(client_no, auth_key, rule_no, client_rule_id);
     }
 
@@ -1669,7 +1669,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         com.aria.common.shared.admin.RuleNosArray rule_nos = (com.aria.common.shared.admin.RuleNosArray) map.get("rule_nos");
-                
+        
         return deleteRules(client_no, auth_key, rule_nos);
     }
 
@@ -1694,7 +1694,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         com.aria.common.shared.admin.BundleNosArray bundle_nos = (com.aria.common.shared.admin.BundleNosArray) map.get("bundle_nos");
-                
+        
         return deleteBundles(client_no, auth_key, bundle_nos);
     }
 
@@ -1744,7 +1744,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String include_rs_summary = (String) map.get("include_rs_summary");
-                
+        
         return getPlansM(client_no, auth_key, include_rs_summary);
     }
 
@@ -1807,8 +1807,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long plan_no = (Long) map.get("plan_no");
-                String client_plan_id = (String) map.get("client_plan_id");
-                
+        String client_plan_id = (String) map.get("client_plan_id");
+        
         return getPlanDetails(client_no, auth_key, plan_no, client_plan_id);
     }
 
@@ -1874,9 +1874,9 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long plan_no = (Long) map.get("plan_no");
-                String client_plan_id = (String) map.get("client_plan_id");
-                String include_rs_summary = (String) map.get("include_rs_summary");
-                
+        String client_plan_id = (String) map.get("client_plan_id");
+        String include_rs_summary = (String) map.get("include_rs_summary");
+        
         return getPlanDetailsM(client_no, auth_key, plan_no, client_plan_id, include_rs_summary);
     }
 
@@ -1943,48 +1943,48 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String plan_name = (String) map.get("plan_name");
-                String plan_type = (String) map.get("plan_type");
-                String currency = (String) map.get("currency");
-                String billing_interval = (String) map.get("billing_interval");
-                Long active = (Long) map.get("active");
-                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
-                String plan_description = (String) map.get("plan_description");
-                String client_plan_id = (String) map.get("client_plan_id");
-                com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
-                com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
-                String usage_billing_interval = (String) map.get("usage_billing_interval");
-                String rollover_months = (String) map.get("rollover_months");
-                Long rollover_plan_no = (Long) map.get("rollover_plan_no");
-                String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
-                Long initial_free_months = (Long) map.get("initial_free_months");
-                String free_trial_type = (String) map.get("free_trial_type");
-                String free_trial_duration = (String) map.get("free_trial_duration");
-                Long acct_status_cd = (Long) map.get("acct_status_cd");
-                Long rollover_acct_status_days = (Long) map.get("rollover_acct_status_days");
-                Long rollover_acct_status_cd = (Long) map.get("rollover_acct_status_cd");
-                Long dunning_plan_no = (Long) map.get("dunning_plan_no");
-                String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
-                Long template_no = (Long) map.get("template_no");
-                String client_email_template_id = (String) map.get("client_email_template_id");
-                String apply_cancellation = (String) map.get("apply_cancellation");
-                Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
-                String apply_minimum_fee = (String) map.get("apply_minimum_fee");
-                String how_to_apply_min_fee = (String) map.get("how_to_apply_min_fee");
-                com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
-                Long arc_service_no = (Long) map.get("arc_service_no");
-                com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
-                com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
-                com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                Long template_ind = (Long) map.get("template_ind");
-                com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
-                String notification_template_group_no = (String) map.get("notification_template_group_no");
-                String credit_note_template_no = (String) map.get("credit_note_template_no");
-                com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
-                com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
-                String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
-                
+        String plan_type = (String) map.get("plan_type");
+        String currency = (String) map.get("currency");
+        String billing_interval = (String) map.get("billing_interval");
+        Long active = (Long) map.get("active");
+        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
+        String plan_description = (String) map.get("plan_description");
+        String client_plan_id = (String) map.get("client_plan_id");
+        com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
+        com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
+        String usage_billing_interval = (String) map.get("usage_billing_interval");
+        String rollover_months = (String) map.get("rollover_months");
+        Long rollover_plan_no = (Long) map.get("rollover_plan_no");
+        String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
+        Long initial_free_months = (Long) map.get("initial_free_months");
+        String free_trial_type = (String) map.get("free_trial_type");
+        String free_trial_duration = (String) map.get("free_trial_duration");
+        Long acct_status_cd = (Long) map.get("acct_status_cd");
+        Long rollover_acct_status_days = (Long) map.get("rollover_acct_status_days");
+        Long rollover_acct_status_cd = (Long) map.get("rollover_acct_status_cd");
+        Long dunning_plan_no = (Long) map.get("dunning_plan_no");
+        String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
+        Long template_no = (Long) map.get("template_no");
+        String client_email_template_id = (String) map.get("client_email_template_id");
+        String apply_cancellation = (String) map.get("apply_cancellation");
+        Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
+        String apply_minimum_fee = (String) map.get("apply_minimum_fee");
+        String how_to_apply_min_fee = (String) map.get("how_to_apply_min_fee");
+        com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
+        Long arc_service_no = (Long) map.get("arc_service_no");
+        com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
+        com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
+        com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        Long template_ind = (Long) map.get("template_ind");
+        com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
+        String notification_template_group_no = (String) map.get("notification_template_group_no");
+        String credit_note_template_no = (String) map.get("credit_note_template_no");
+        com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
+        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
+        String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
+        
         return createNewPlan(client_no, auth_key, plan_name, plan_type, currency, billing_interval, active, schedule, service, plan_description, client_plan_id, plan_group, plan_group_id, usage_billing_interval, rollover_months, rollover_plan_no, rollover_client_plan_id, initial_free_months, free_trial_type, free_trial_duration, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, dunning_plan_no, dunning_client_plan_id, template_no, client_email_template_id, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, template_ind, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd);
     }
 
@@ -2054,51 +2054,51 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String plan_name = (String) map.get("plan_name");
-                String plan_type = (String) map.get("plan_type");
-                String currency = (String) map.get("currency");
-                Long active = (Long) map.get("active");
-                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
-                String plan_description = (String) map.get("plan_description");
-                String client_plan_id = (String) map.get("client_plan_id");
-                com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
-                com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
-                String rollover_months = (String) map.get("rollover_months");
-                Long rollover_plan_no = (Long) map.get("rollover_plan_no");
-                String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
-                Long initial_free_months = (Long) map.get("initial_free_months");
-                String free_trial_type = (String) map.get("free_trial_type");
-                String free_trial_duration = (String) map.get("free_trial_duration");
-                Long acct_status_cd = (Long) map.get("acct_status_cd");
-                Long rollover_acct_status_days = (Long) map.get("rollover_acct_status_days");
-                Long rollover_acct_status_cd = (Long) map.get("rollover_acct_status_cd");
-                Long dunning_plan_no = (Long) map.get("dunning_plan_no");
-                String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
-                Long template_no = (Long) map.get("template_no");
-                String client_email_template_id = (String) map.get("client_email_template_id");
-                String apply_cancellation = (String) map.get("apply_cancellation");
-                Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
-                String apply_minimum_fee = (String) map.get("apply_minimum_fee");
-                String how_to_apply_min_fee = (String) map.get("how_to_apply_min_fee");
-                com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
-                Long arc_service_no = (Long) map.get("arc_service_no");
-                com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
-                com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
-                com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                Long template_ind = (Long) map.get("template_ind");
-                com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
-                String notification_template_group_no = (String) map.get("notification_template_group_no");
-                String credit_note_template_no = (String) map.get("credit_note_template_no");
-                com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
-                com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
-                String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
-                Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
-                com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
-                String contract_rollover_plan_no = (String) map.get("contract_rollover_plan_no");
-                String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
-                com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
-                
+        String plan_type = (String) map.get("plan_type");
+        String currency = (String) map.get("currency");
+        Long active = (Long) map.get("active");
+        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
+        String plan_description = (String) map.get("plan_description");
+        String client_plan_id = (String) map.get("client_plan_id");
+        com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
+        com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
+        String rollover_months = (String) map.get("rollover_months");
+        Long rollover_plan_no = (Long) map.get("rollover_plan_no");
+        String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
+        Long initial_free_months = (Long) map.get("initial_free_months");
+        String free_trial_type = (String) map.get("free_trial_type");
+        String free_trial_duration = (String) map.get("free_trial_duration");
+        Long acct_status_cd = (Long) map.get("acct_status_cd");
+        Long rollover_acct_status_days = (Long) map.get("rollover_acct_status_days");
+        Long rollover_acct_status_cd = (Long) map.get("rollover_acct_status_cd");
+        Long dunning_plan_no = (Long) map.get("dunning_plan_no");
+        String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
+        Long template_no = (Long) map.get("template_no");
+        String client_email_template_id = (String) map.get("client_email_template_id");
+        String apply_cancellation = (String) map.get("apply_cancellation");
+        Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
+        String apply_minimum_fee = (String) map.get("apply_minimum_fee");
+        String how_to_apply_min_fee = (String) map.get("how_to_apply_min_fee");
+        com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
+        Long arc_service_no = (Long) map.get("arc_service_no");
+        com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
+        com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
+        com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        Long template_ind = (Long) map.get("template_ind");
+        com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
+        String notification_template_group_no = (String) map.get("notification_template_group_no");
+        String credit_note_template_no = (String) map.get("credit_note_template_no");
+        com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
+        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
+        String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
+        Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
+        com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
+        String contract_rollover_plan_no = (String) map.get("contract_rollover_plan_no");
+        String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
+        com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
+        
         return createNewPlanM(client_no, auth_key, plan_name, plan_type, currency, active, schedule, service, plan_description, client_plan_id, plan_group, plan_group_id, rollover_months, rollover_plan_no, rollover_client_plan_id, initial_free_months, free_trial_type, free_trial_duration, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, dunning_plan_no, dunning_client_plan_id, template_no, client_email_template_id, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, template_ind, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, plan_instance_status_cd, assign_field_categories, contract_rollover_plan_no, contract_rollover_client_plan_id, contract_rollover_rate_sched);
     }
 
@@ -2165,48 +2165,48 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String plan_no = (String) map.get("plan_no");
-                String client_plan_id = (String) map.get("client_plan_id");
-                String plan_name = (String) map.get("plan_name");
-                String plan_description = (String) map.get("plan_description");
-                com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
-                com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
-                Long plan_type = (Long) map.get("plan_type");
-                Long active = (Long) map.get("active");
-                String billing_interval = (String) map.get("billing_interval");
-                String usage_billing_interval = (String) map.get("usage_billing_interval");
-                String currency = (String) map.get("currency");
-                Long template_no = (Long) map.get("template_no");
-                String client_email_template_id = (String) map.get("client_email_template_id");
-                String rollover_months = (String) map.get("rollover_months");
-                Long rollover_plan_no = (Long) map.get("rollover_plan_no");
-                String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
-                Long dunning_plan_no = (Long) map.get("dunning_plan_no");
-                String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
-                Long initial_free_months = (Long) map.get("initial_free_months");
-                Long acct_status_cd = (Long) map.get("acct_status_cd");
-                Long rollover_acct_status_days = (Long) map.get("rollover_acct_status_days");
-                Long rollover_acct_status_cd = (Long) map.get("rollover_acct_status_cd");
-                Long allow_child_accts = (Long) map.get("allow_child_accts");
-                String apply_cancellation = (String) map.get("apply_cancellation");
-                Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
-                String apply_minimum_fee = (String) map.get("apply_minimum_fee");
-                Long how_to_apply_min_fee = (Long) map.get("how_to_apply_min_fee");
-                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
-                com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
-                Long arc_service_no = (Long) map.get("arc_service_no");
-                com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
-                com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
-                com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
-                String notification_template_group_no = (String) map.get("notification_template_group_no");
-                String credit_note_template_no = (String) map.get("credit_note_template_no");
-                com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
-                com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
-                String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
-                Long edit_directives = (Long) map.get("edit_directives");
-                
+        String client_plan_id = (String) map.get("client_plan_id");
+        String plan_name = (String) map.get("plan_name");
+        String plan_description = (String) map.get("plan_description");
+        com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
+        com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
+        Long plan_type = (Long) map.get("plan_type");
+        Long active = (Long) map.get("active");
+        String billing_interval = (String) map.get("billing_interval");
+        String usage_billing_interval = (String) map.get("usage_billing_interval");
+        String currency = (String) map.get("currency");
+        Long template_no = (Long) map.get("template_no");
+        String client_email_template_id = (String) map.get("client_email_template_id");
+        String rollover_months = (String) map.get("rollover_months");
+        Long rollover_plan_no = (Long) map.get("rollover_plan_no");
+        String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
+        Long dunning_plan_no = (Long) map.get("dunning_plan_no");
+        String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
+        Long initial_free_months = (Long) map.get("initial_free_months");
+        Long acct_status_cd = (Long) map.get("acct_status_cd");
+        Long rollover_acct_status_days = (Long) map.get("rollover_acct_status_days");
+        Long rollover_acct_status_cd = (Long) map.get("rollover_acct_status_cd");
+        Long allow_child_accts = (Long) map.get("allow_child_accts");
+        String apply_cancellation = (String) map.get("apply_cancellation");
+        Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
+        String apply_minimum_fee = (String) map.get("apply_minimum_fee");
+        Long how_to_apply_min_fee = (Long) map.get("how_to_apply_min_fee");
+        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
+        com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
+        Long arc_service_no = (Long) map.get("arc_service_no");
+        com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
+        com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
+        com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
+        String notification_template_group_no = (String) map.get("notification_template_group_no");
+        String credit_note_template_no = (String) map.get("credit_note_template_no");
+        com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
+        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
+        String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
+        Long edit_directives = (Long) map.get("edit_directives");
+        
         return editPlan(client_no, auth_key, plan_no, client_plan_id, plan_name, plan_description, plan_group, plan_group_id, plan_type, active, billing_interval, usage_billing_interval, currency, template_no, client_email_template_id, rollover_months, rollover_plan_no, rollover_client_plan_id, dunning_plan_no, dunning_client_plan_id, initial_free_months, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, allow_child_accts, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, schedule, service, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, edit_directives);
     }
 
@@ -2276,51 +2276,51 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String plan_no = (String) map.get("plan_no");
-                String client_plan_id = (String) map.get("client_plan_id");
-                String plan_name = (String) map.get("plan_name");
-                String plan_description = (String) map.get("plan_description");
-                com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
-                com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
-                Long plan_type = (Long) map.get("plan_type");
-                Long active = (Long) map.get("active");
-                String currency = (String) map.get("currency");
-                Long template_no = (Long) map.get("template_no");
-                String client_email_template_id = (String) map.get("client_email_template_id");
-                String rollover_months = (String) map.get("rollover_months");
-                Long rollover_plan_no = (Long) map.get("rollover_plan_no");
-                String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
-                Long dunning_plan_no = (Long) map.get("dunning_plan_no");
-                String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
-                Long initial_free_months = (Long) map.get("initial_free_months");
-                Long acct_status_cd = (Long) map.get("acct_status_cd");
-                Long rollover_acct_status_days = (Long) map.get("rollover_acct_status_days");
-                Long rollover_acct_status_cd = (Long) map.get("rollover_acct_status_cd");
-                Long allow_child_accts = (Long) map.get("allow_child_accts");
-                String apply_cancellation = (String) map.get("apply_cancellation");
-                Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
-                String apply_minimum_fee = (String) map.get("apply_minimum_fee");
-                Long how_to_apply_min_fee = (Long) map.get("how_to_apply_min_fee");
-                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-                com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
-                com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
-                Long arc_service_no = (Long) map.get("arc_service_no");
-                com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
-                com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
-                com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
-                String notification_template_group_no = (String) map.get("notification_template_group_no");
-                String credit_note_template_no = (String) map.get("credit_note_template_no");
-                com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
-                com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
-                String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
-                Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
-                com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
-                Long edit_directives = (Long) map.get("edit_directives");
-                String contract_rollover_plan_no = (String) map.get("contract_rollover_plan_no");
-                String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
-                com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
-                
+        String client_plan_id = (String) map.get("client_plan_id");
+        String plan_name = (String) map.get("plan_name");
+        String plan_description = (String) map.get("plan_description");
+        com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
+        com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
+        Long plan_type = (Long) map.get("plan_type");
+        Long active = (Long) map.get("active");
+        String currency = (String) map.get("currency");
+        Long template_no = (Long) map.get("template_no");
+        String client_email_template_id = (String) map.get("client_email_template_id");
+        String rollover_months = (String) map.get("rollover_months");
+        Long rollover_plan_no = (Long) map.get("rollover_plan_no");
+        String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
+        Long dunning_plan_no = (Long) map.get("dunning_plan_no");
+        String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
+        Long initial_free_months = (Long) map.get("initial_free_months");
+        Long acct_status_cd = (Long) map.get("acct_status_cd");
+        Long rollover_acct_status_days = (Long) map.get("rollover_acct_status_days");
+        Long rollover_acct_status_cd = (Long) map.get("rollover_acct_status_cd");
+        Long allow_child_accts = (Long) map.get("allow_child_accts");
+        String apply_cancellation = (String) map.get("apply_cancellation");
+        Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
+        String apply_minimum_fee = (String) map.get("apply_minimum_fee");
+        Long how_to_apply_min_fee = (Long) map.get("how_to_apply_min_fee");
+        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
+        com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
+        Long arc_service_no = (Long) map.get("arc_service_no");
+        com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
+        com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
+        com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
+        String notification_template_group_no = (String) map.get("notification_template_group_no");
+        String credit_note_template_no = (String) map.get("credit_note_template_no");
+        com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
+        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
+        String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
+        Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
+        com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
+        Long edit_directives = (Long) map.get("edit_directives");
+        String contract_rollover_plan_no = (String) map.get("contract_rollover_plan_no");
+        String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
+        com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
+        
         return editPlanM(client_no, auth_key, plan_no, client_plan_id, plan_name, plan_description, plan_group, plan_group_id, plan_type, active, currency, template_no, client_email_template_id, rollover_months, rollover_plan_no, rollover_client_plan_id, dunning_plan_no, dunning_client_plan_id, initial_free_months, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, allow_child_accts, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, schedule, service, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, plan_instance_status_cd, assign_field_categories, edit_directives, contract_rollover_plan_no, contract_rollover_client_plan_id, contract_rollover_rate_sched);
     }
 
@@ -2346,7 +2346,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         com.aria.common.shared.admin.PlanNosArray plan_nos = (com.aria.common.shared.admin.PlanNosArray) map.get("plan_nos");
-                
+        
         return deletePlans(client_no, auth_key, plan_nos);
     }
 
@@ -2375,10 +2375,10 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long plan_no = (Long) map.get("plan_no");
-                String client_plan_id = (String) map.get("client_plan_id");
-                String plan_name = (String) map.get("plan_name");
-                String new_client_plan_id = (String) map.get("new_client_plan_id");
-                
+        String client_plan_id = (String) map.get("client_plan_id");
+        String plan_name = (String) map.get("plan_name");
+        String new_client_plan_id = (String) map.get("new_client_plan_id");
+        
         return copyPlan(client_no, auth_key, plan_no, client_plan_id, plan_name, new_client_plan_id);
     }
 
@@ -2435,7 +2435,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String promo_cd = (String) map.get("promo_cd");
-                
+        
         return getPromotionDetails(client_no, auth_key, promo_cd);
     }
 
@@ -2466,12 +2466,12 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String promo_cd = (String) map.get("promo_cd");
-                String promo_desc = (String) map.get("promo_desc");
-                Long promo_plan_set_no = (Long) map.get("promo_plan_set_no");
-                String no_of_uses = (String) map.get("no_of_uses");
-                String start_date = (String) map.get("start_date");
-                String exp_date = (String) map.get("exp_date");
-                
+        String promo_desc = (String) map.get("promo_desc");
+        Long promo_plan_set_no = (Long) map.get("promo_plan_set_no");
+        String no_of_uses = (String) map.get("no_of_uses");
+        String start_date = (String) map.get("start_date");
+        String exp_date = (String) map.get("exp_date");
+        
         return createPromotion(client_no, auth_key, promo_cd, promo_desc, promo_plan_set_no, no_of_uses, start_date, exp_date);
     }
 
@@ -2502,12 +2502,12 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String promo_cd = (String) map.get("promo_cd");
-                String promo_desc = (String) map.get("promo_desc");
-                Long promo_plan_set_no = (Long) map.get("promo_plan_set_no");
-                String no_of_uses = (String) map.get("no_of_uses");
-                String start_date = (String) map.get("start_date");
-                String exp_date = (String) map.get("exp_date");
-                
+        String promo_desc = (String) map.get("promo_desc");
+        Long promo_plan_set_no = (Long) map.get("promo_plan_set_no");
+        String no_of_uses = (String) map.get("no_of_uses");
+        String start_date = (String) map.get("start_date");
+        String exp_date = (String) map.get("exp_date");
+        
         return updatePromotion(client_no, auth_key, promo_cd, promo_desc, promo_plan_set_no, no_of_uses, start_date, exp_date);
     }
 
@@ -2565,8 +2565,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long usage_type_no = (Long) map.get("usage_type_no");
-                String usage_type_code = (String) map.get("usage_type_code");
-                
+        String usage_type_code = (String) map.get("usage_type_code");
+        
         return getUsageTypeDetails(client_no, auth_key, usage_type_no, usage_type_code);
     }
 
@@ -2621,12 +2621,12 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String usage_type_name = (String) map.get("usage_type_name");
-                String usage_type_desc = (String) map.get("usage_type_desc");
-                Long usage_unit_type_no = (Long) map.get("usage_unit_type_no");
-                String usage_type_code = (String) map.get("usage_type_code");
-                String usage_type_display_string = (String) map.get("usage_type_display_string");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                
+        String usage_type_desc = (String) map.get("usage_type_desc");
+        Long usage_unit_type_no = (Long) map.get("usage_unit_type_no");
+        String usage_type_code = (String) map.get("usage_type_code");
+        String usage_type_display_string = (String) map.get("usage_type_display_string");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        
         return createUsageType(client_no, auth_key, usage_type_name, usage_type_desc, usage_unit_type_no, usage_type_code, usage_type_display_string, supplemental_obj_field);
     }
 
@@ -2658,13 +2658,13 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long usage_type_no = (Long) map.get("usage_type_no");
-                String usage_type_name = (String) map.get("usage_type_name");
-                String usage_type_desc = (String) map.get("usage_type_desc");
-                Long usage_unit_type_no = (Long) map.get("usage_unit_type_no");
-                String usage_type_code = (String) map.get("usage_type_code");
-                String usage_type_display_string = (String) map.get("usage_type_display_string");
-                com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-                
+        String usage_type_name = (String) map.get("usage_type_name");
+        String usage_type_desc = (String) map.get("usage_type_desc");
+        Long usage_unit_type_no = (Long) map.get("usage_unit_type_no");
+        String usage_type_code = (String) map.get("usage_type_code");
+        String usage_type_display_string = (String) map.get("usage_type_display_string");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        
         return updateUsageType(client_no, auth_key, usage_type_no, usage_type_name, usage_type_desc, usage_unit_type_no, usage_type_code, usage_type_display_string, supplemental_obj_field);
     }
 
@@ -2701,18 +2701,18 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String field_name = (String) map.get("field_name");
-                com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
-                String description = (String) map.get("description");
-                String min_no_sel = (String) map.get("min_no_sel");
-                Long max_no_sel = (Long) map.get("max_no_sel");
-                String datatype = (String) map.get("datatype");
-                String form_input_type = (String) map.get("form_input_type");
-                String use_allowed_vals_ind = (String) map.get("use_allowed_vals_ind");
-                String option_value = (String) map.get("option_value");
-                String option_value_order = (String) map.get("option_value_order");
-                Long allow_instance_override = (Long) map.get("allow_instance_override");
-                com.aria.common.shared.admin.ObjectTypeArray object_type = (com.aria.common.shared.admin.ObjectTypeArray) map.get("object_type");
-                
+        com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
+        String description = (String) map.get("description");
+        String min_no_sel = (String) map.get("min_no_sel");
+        Long max_no_sel = (Long) map.get("max_no_sel");
+        String datatype = (String) map.get("datatype");
+        String form_input_type = (String) map.get("form_input_type");
+        String use_allowed_vals_ind = (String) map.get("use_allowed_vals_ind");
+        String option_value = (String) map.get("option_value");
+        String option_value_order = (String) map.get("option_value_order");
+        Long allow_instance_override = (Long) map.get("allow_instance_override");
+        com.aria.common.shared.admin.ObjectTypeArray object_type = (com.aria.common.shared.admin.ObjectTypeArray) map.get("object_type");
+        
         return createSuppObjField(client_no, auth_key, field_name, assign_field_categories, description, min_no_sel, max_no_sel, datatype, form_input_type, use_allowed_vals_ind, option_value, option_value_order, allow_instance_override, object_type);
     }
 
@@ -2750,19 +2750,19 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long field_no = (Long) map.get("field_no");
-                String field_name = (String) map.get("field_name");
-                com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
-                String description = (String) map.get("description");
-                String min_no_sel = (String) map.get("min_no_sel");
-                Long max_no_sel = (Long) map.get("max_no_sel");
-                String datatype = (String) map.get("datatype");
-                String form_input_type = (String) map.get("form_input_type");
-                String use_allowed_vals_ind = (String) map.get("use_allowed_vals_ind");
-                String option_value = (String) map.get("option_value");
-                String option_value_order = (String) map.get("option_value_order");
-                Long allow_instance_override = (Long) map.get("allow_instance_override");
-                com.aria.common.shared.admin.ObjectTypeArray object_type = (com.aria.common.shared.admin.ObjectTypeArray) map.get("object_type");
-                
+        String field_name = (String) map.get("field_name");
+        com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
+        String description = (String) map.get("description");
+        String min_no_sel = (String) map.get("min_no_sel");
+        Long max_no_sel = (Long) map.get("max_no_sel");
+        String datatype = (String) map.get("datatype");
+        String form_input_type = (String) map.get("form_input_type");
+        String use_allowed_vals_ind = (String) map.get("use_allowed_vals_ind");
+        String option_value = (String) map.get("option_value");
+        String option_value_order = (String) map.get("option_value_order");
+        Long allow_instance_override = (Long) map.get("allow_instance_override");
+        com.aria.common.shared.admin.ObjectTypeArray object_type = (com.aria.common.shared.admin.ObjectTypeArray) map.get("object_type");
+        
         return updateSuppObjField(client_no, auth_key, field_no, field_name, assign_field_categories, description, min_no_sel, max_no_sel, datatype, form_input_type, use_allowed_vals_ind, option_value, option_value_order, allow_instance_override, object_type);
     }
 
@@ -2798,7 +2798,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long field_no = (Long) map.get("field_no");
-                
+        
         return getSuppObjFields(client_no, auth_key, field_no);
     }
 
@@ -2825,8 +2825,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         com.aria.common.shared.admin.FieldSelectionArray field_selection = (com.aria.common.shared.admin.FieldSelectionArray) map.get("field_selection");
-                com.aria.common.shared.admin.FieldCategoriesArray field_categories = (com.aria.common.shared.admin.FieldCategoriesArray) map.get("field_categories");
-                
+        com.aria.common.shared.admin.FieldCategoriesArray field_categories = (com.aria.common.shared.admin.FieldCategoriesArray) map.get("field_categories");
+        
         return listSuppObjFields(client_no, auth_key, field_selection, field_categories);
     }
 
@@ -2882,8 +2882,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long group_no = (Long) map.get("group_no");
-                String client_plan_change_group_id = (String) map.get("client_plan_change_group_id");
-                
+        String client_plan_change_group_id = (String) map.get("client_plan_change_group_id");
+        
         return getPlanGroupDetails(client_no, auth_key, group_no, client_plan_change_group_id);
     }
 
@@ -2914,12 +2914,12 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String group_name = (String) map.get("group_name");
-                String group_desc = (String) map.get("group_desc");
-                String group_usage = (String) map.get("group_usage");
-                String client_plan_change_group_id = (String) map.get("client_plan_change_group_id");
-                String group_plans = (String) map.get("group_plans");
-                String group_plan_ids = (String) map.get("group_plan_ids");
-                
+        String group_desc = (String) map.get("group_desc");
+        String group_usage = (String) map.get("group_usage");
+        String client_plan_change_group_id = (String) map.get("client_plan_change_group_id");
+        String group_plans = (String) map.get("group_plans");
+        String group_plan_ids = (String) map.get("group_plan_ids");
+        
         return createPlanGroup(client_no, auth_key, group_name, group_desc, group_usage, client_plan_change_group_id, group_plans, group_plan_ids);
     }
 
@@ -2951,13 +2951,13 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long group_no = (Long) map.get("group_no");
-                String group_name = (String) map.get("group_name");
-                String group_desc = (String) map.get("group_desc");
-                String group_usage = (String) map.get("group_usage");
-                String client_plan_change_group_id = (String) map.get("client_plan_change_group_id");
-                String group_plans = (String) map.get("group_plans");
-                String group_plan_ids = (String) map.get("group_plan_ids");
-                
+        String group_name = (String) map.get("group_name");
+        String group_desc = (String) map.get("group_desc");
+        String group_usage = (String) map.get("group_usage");
+        String client_plan_change_group_id = (String) map.get("client_plan_change_group_id");
+        String group_plans = (String) map.get("group_plans");
+        String group_plan_ids = (String) map.get("group_plan_ids");
+        
         return updatePlanGroup(client_no, auth_key, group_no, group_name, group_desc, group_usage, client_plan_change_group_id, group_plans, group_plan_ids);
     }
 
@@ -2983,7 +2983,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String group_list = (String) map.get("group_list");
-                
+        
         return deletePlanGroup(client_no, auth_key, group_list);
     }
 
@@ -3034,8 +3034,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String coa_code = (String) map.get("coa_code");
-                String coa_description = (String) map.get("coa_description");
-                
+        String coa_description = (String) map.get("coa_description");
+        
         return addCoa(client_no, auth_key, coa_code, coa_description);
     }
 
@@ -3061,7 +3061,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long coa_id = (Long) map.get("coa_id");
-                
+        
         return getCoa(client_no, auth_key, coa_id);
     }
 
@@ -3089,9 +3089,9 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long coa_id = (Long) map.get("coa_id");
-                String coa_code = (String) map.get("coa_code");
-                String coa_description = (String) map.get("coa_description");
-                
+        String coa_code = (String) map.get("coa_code");
+        String coa_description = (String) map.get("coa_description");
+        
         return editCoa(client_no, auth_key, coa_id, coa_code, coa_description);
     }
 
@@ -3164,8 +3164,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long surcharge_no = (Long) map.get("surcharge_no");
-                String client_surcharge_id = (String) map.get("client_surcharge_id");
-                
+        String client_surcharge_id = (String) map.get("client_surcharge_id");
+        
         return getSurchargeDetails(client_no, auth_key, surcharge_no, client_surcharge_id);
     }
 
@@ -3212,28 +3212,28 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String surcharge_name = (String) map.get("surcharge_name");
-                String description = (String) map.get("description");
-                String ext_description = (String) map.get("ext_description");
-                String currency_cd = (String) map.get("currency_cd");
-                String surcharge_type_cd = (String) map.get("surcharge_type_cd");
-                String inline_offset_ind = (String) map.get("inline_offset_ind");
-                String apply_b4_or_after_discount_cd = (String) map.get("apply_b4_or_after_discount_cd");
-                Long scope_no = (Long) map.get("scope_no");
-                com.aria.common.shared.admin.SurchargeTierArray surcharge_tier = (com.aria.common.shared.admin.SurchargeTierArray) map.get("surcharge_tier");
-                String client_surcharge_id = (String) map.get("client_surcharge_id");
-                Long apply_to_zero_invoice_ind = (Long) map.get("apply_to_zero_invoice_ind");
-                Long tax_group = (Long) map.get("tax_group");
-                String gl_cd = (String) map.get("gl_cd");
-                String ar_gl_cd = (String) map.get("ar_gl_cd");
-                com.aria.common.shared.admin.PlanNoArray plan_no = (com.aria.common.shared.admin.PlanNoArray) map.get("plan_no");
-                com.aria.common.shared.admin.ClientPlanIdArray client_plan_id = (com.aria.common.shared.admin.ClientPlanIdArray) map.get("client_plan_id");
-                com.aria.common.shared.admin.ServiceNoArray service_no = (com.aria.common.shared.admin.ServiceNoArray) map.get("service_no");
-                com.aria.common.shared.admin.ClientServiceIdArray client_service_id = (com.aria.common.shared.admin.ClientServiceIdArray) map.get("client_service_id");
-                com.aria.common.shared.admin.ItemNoArray item_no = (com.aria.common.shared.admin.ItemNoArray) map.get("item_no");
-                com.aria.common.shared.admin.ClientItemIdArray client_item_id = (com.aria.common.shared.admin.ClientItemIdArray) map.get("client_item_id");
-                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-                Long surcharge_scope = (Long) map.get("surcharge_scope");
-                
+        String description = (String) map.get("description");
+        String ext_description = (String) map.get("ext_description");
+        String currency_cd = (String) map.get("currency_cd");
+        String surcharge_type_cd = (String) map.get("surcharge_type_cd");
+        String inline_offset_ind = (String) map.get("inline_offset_ind");
+        String apply_b4_or_after_discount_cd = (String) map.get("apply_b4_or_after_discount_cd");
+        Long scope_no = (Long) map.get("scope_no");
+        com.aria.common.shared.admin.SurchargeTierArray surcharge_tier = (com.aria.common.shared.admin.SurchargeTierArray) map.get("surcharge_tier");
+        String client_surcharge_id = (String) map.get("client_surcharge_id");
+        Long apply_to_zero_invoice_ind = (Long) map.get("apply_to_zero_invoice_ind");
+        Long tax_group = (Long) map.get("tax_group");
+        String gl_cd = (String) map.get("gl_cd");
+        String ar_gl_cd = (String) map.get("ar_gl_cd");
+        com.aria.common.shared.admin.PlanNoArray plan_no = (com.aria.common.shared.admin.PlanNoArray) map.get("plan_no");
+        com.aria.common.shared.admin.ClientPlanIdArray client_plan_id = (com.aria.common.shared.admin.ClientPlanIdArray) map.get("client_plan_id");
+        com.aria.common.shared.admin.ServiceNoArray service_no = (com.aria.common.shared.admin.ServiceNoArray) map.get("service_no");
+        com.aria.common.shared.admin.ClientServiceIdArray client_service_id = (com.aria.common.shared.admin.ClientServiceIdArray) map.get("client_service_id");
+        com.aria.common.shared.admin.ItemNoArray item_no = (com.aria.common.shared.admin.ItemNoArray) map.get("item_no");
+        com.aria.common.shared.admin.ClientItemIdArray client_item_id = (com.aria.common.shared.admin.ClientItemIdArray) map.get("client_item_id");
+        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+        Long surcharge_scope = (Long) map.get("surcharge_scope");
+        
         return createSurcharge(client_no, auth_key, surcharge_name, description, ext_description, currency_cd, surcharge_type_cd, inline_offset_ind, apply_b4_or_after_discount_cd, scope_no, surcharge_tier, client_surcharge_id, apply_to_zero_invoice_ind, tax_group, gl_cd, ar_gl_cd, plan_no, client_plan_id, service_no, client_service_id, item_no, client_item_id, schedule, surcharge_scope);
     }
 
@@ -3275,23 +3275,23 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String surcharge_no = (String) map.get("surcharge_no");
-                String surcharge_name = (String) map.get("surcharge_name");
-                String client_surcharge_id = (String) map.get("client_surcharge_id");
-                String description = (String) map.get("description");
-                String ext_description = (String) map.get("ext_description");
-                String currency_cd = (String) map.get("currency_cd");
-                Long scope_no = (Long) map.get("scope_no");
-                com.aria.common.shared.admin.SurchargeTierArray surcharge_tier = (com.aria.common.shared.admin.SurchargeTierArray) map.get("surcharge_tier");
-                Long apply_to_zero_invoice_ind = (Long) map.get("apply_to_zero_invoice_ind");
-                com.aria.common.shared.admin.PlanNoArray plan_no = (com.aria.common.shared.admin.PlanNoArray) map.get("plan_no");
-                com.aria.common.shared.admin.ClientPlanIdArray client_plan_id = (com.aria.common.shared.admin.ClientPlanIdArray) map.get("client_plan_id");
-                com.aria.common.shared.admin.ServiceNoArray service_no = (com.aria.common.shared.admin.ServiceNoArray) map.get("service_no");
-                com.aria.common.shared.admin.ClientServiceIdArray client_service_id = (com.aria.common.shared.admin.ClientServiceIdArray) map.get("client_service_id");
-                com.aria.common.shared.admin.ItemNoArray item_no = (com.aria.common.shared.admin.ItemNoArray) map.get("item_no");
-                com.aria.common.shared.admin.ClientItemIdArray client_item_id = (com.aria.common.shared.admin.ClientItemIdArray) map.get("client_item_id");
-                com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-                Long surcharge_scope = (Long) map.get("surcharge_scope");
-                
+        String surcharge_name = (String) map.get("surcharge_name");
+        String client_surcharge_id = (String) map.get("client_surcharge_id");
+        String description = (String) map.get("description");
+        String ext_description = (String) map.get("ext_description");
+        String currency_cd = (String) map.get("currency_cd");
+        Long scope_no = (Long) map.get("scope_no");
+        com.aria.common.shared.admin.SurchargeTierArray surcharge_tier = (com.aria.common.shared.admin.SurchargeTierArray) map.get("surcharge_tier");
+        Long apply_to_zero_invoice_ind = (Long) map.get("apply_to_zero_invoice_ind");
+        com.aria.common.shared.admin.PlanNoArray plan_no = (com.aria.common.shared.admin.PlanNoArray) map.get("plan_no");
+        com.aria.common.shared.admin.ClientPlanIdArray client_plan_id = (com.aria.common.shared.admin.ClientPlanIdArray) map.get("client_plan_id");
+        com.aria.common.shared.admin.ServiceNoArray service_no = (com.aria.common.shared.admin.ServiceNoArray) map.get("service_no");
+        com.aria.common.shared.admin.ClientServiceIdArray client_service_id = (com.aria.common.shared.admin.ClientServiceIdArray) map.get("client_service_id");
+        com.aria.common.shared.admin.ItemNoArray item_no = (com.aria.common.shared.admin.ItemNoArray) map.get("item_no");
+        com.aria.common.shared.admin.ClientItemIdArray client_item_id = (com.aria.common.shared.admin.ClientItemIdArray) map.get("client_item_id");
+        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+        Long surcharge_scope = (Long) map.get("surcharge_scope");
+        
         return editSurcharge(client_no, auth_key, surcharge_no, surcharge_name, client_surcharge_id, description, ext_description, currency_cd, scope_no, surcharge_tier, apply_to_zero_invoice_ind, plan_no, client_plan_id, service_no, client_service_id, item_no, client_item_id, schedule, surcharge_scope);
     }
 
@@ -3317,8 +3317,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
-                com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
-                
+        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
+        
         return deleteSurcharge(client_no, auth_key, surcharge_no, client_surcharge_id);
     }
 
@@ -3343,7 +3343,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String session_id = (String) map.get("session_id");
-                
+        
         return validateAdminSession(client_no, auth_key, session_id);
     }
 
@@ -3380,17 +3380,17 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long source_client_no = (Long) map.get("source_client_no");
-                String target_client_name = (String) map.get("target_client_name");
-                String destination_email = (String) map.get("destination_email");
-                Long acct_template_no = (Long) map.get("acct_template_no");
-                String user_id = (String) map.get("user_id");
-                String first_name = (String) map.get("first_name");
-                String last_name = (String) map.get("last_name");
-                String users_email = (String) map.get("users_email");
-                String users_password_first = (String) map.get("users_password_first");
-                String users_secret_question = (String) map.get("users_secret_question");
-                String users_secret_question_answer = (String) map.get("users_secret_question_answer");
-                
+        String target_client_name = (String) map.get("target_client_name");
+        String destination_email = (String) map.get("destination_email");
+        Long acct_template_no = (Long) map.get("acct_template_no");
+        String user_id = (String) map.get("user_id");
+        String first_name = (String) map.get("first_name");
+        String last_name = (String) map.get("last_name");
+        String users_email = (String) map.get("users_email");
+        String users_password_first = (String) map.get("users_password_first");
+        String users_secret_question = (String) map.get("users_secret_question");
+        String users_secret_question_answer = (String) map.get("users_secret_question_answer");
+        
         return createChannel(client_no, auth_key, source_client_no, target_client_name, destination_email, acct_template_no, user_id, first_name, last_name, users_email, users_password_first, users_secret_question, users_secret_question_answer);
     }
 
@@ -3425,16 +3425,16 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long source_client_no = (Long) map.get("source_client_no");
-                String target_client_name = (String) map.get("target_client_name");
-                String destination_email = (String) map.get("destination_email");
-                String user_id = (String) map.get("user_id");
-                String first_name = (String) map.get("first_name");
-                String last_name = (String) map.get("last_name");
-                String users_email = (String) map.get("users_email");
-                String users_password_first = (String) map.get("users_password_first");
-                String users_secret_question = (String) map.get("users_secret_question");
-                String users_secret_question_answer = (String) map.get("users_secret_question_answer");
-                
+        String target_client_name = (String) map.get("target_client_name");
+        String destination_email = (String) map.get("destination_email");
+        String user_id = (String) map.get("user_id");
+        String first_name = (String) map.get("first_name");
+        String last_name = (String) map.get("last_name");
+        String users_email = (String) map.get("users_email");
+        String users_password_first = (String) map.get("users_password_first");
+        String users_secret_question = (String) map.get("users_secret_question");
+        String users_secret_question_answer = (String) map.get("users_secret_question_answer");
+        
         return copyClient(client_no, auth_key, source_client_no, target_client_name, destination_email, user_id, first_name, last_name, users_email, users_password_first, users_secret_question, users_secret_question_answer);
     }
 
@@ -3491,8 +3491,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long profile_id = (Long) map.get("profile_id");
-                String client_profile_id = (String) map.get("client_profile_id");
-                
+        String client_profile_id = (String) map.get("client_profile_id");
+        
         return getRevrecProfileDetails(client_no, auth_key, profile_id, client_profile_id);
     }
 
@@ -3523,12 +3523,12 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String profile_name = (String) map.get("profile_name");
-                String client_profile_id = (String) map.get("client_profile_id");
-                String profile_desc = (String) map.get("profile_desc");
-                Long on_plan_payment_date = (Long) map.get("on_plan_payment_date");
-                Long on_order_payment_date = (Long) map.get("on_order_payment_date");
-                Long on_order_fulfill_date = (Long) map.get("on_order_fulfill_date");
-                
+        String client_profile_id = (String) map.get("client_profile_id");
+        String profile_desc = (String) map.get("profile_desc");
+        Long on_plan_payment_date = (Long) map.get("on_plan_payment_date");
+        Long on_order_payment_date = (Long) map.get("on_order_payment_date");
+        Long on_order_fulfill_date = (Long) map.get("on_order_fulfill_date");
+        
         return createRevrecProfile(client_no, auth_key, profile_name, client_profile_id, profile_desc, on_plan_payment_date, on_order_payment_date, on_order_fulfill_date);
     }
 
@@ -3560,13 +3560,13 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long profile_id = (Long) map.get("profile_id");
-                String profile_name = (String) map.get("profile_name");
-                String client_profile_id = (String) map.get("client_profile_id");
-                String profile_desc = (String) map.get("profile_desc");
-                Long on_plan_payment_date = (Long) map.get("on_plan_payment_date");
-                Long on_order_payment_date = (Long) map.get("on_order_payment_date");
-                Long on_order_fulfill_date = (Long) map.get("on_order_fulfill_date");
-                
+        String profile_name = (String) map.get("profile_name");
+        String client_profile_id = (String) map.get("client_profile_id");
+        String profile_desc = (String) map.get("profile_desc");
+        Long on_plan_payment_date = (Long) map.get("on_plan_payment_date");
+        Long on_order_payment_date = (Long) map.get("on_order_payment_date");
+        Long on_order_fulfill_date = (Long) map.get("on_order_fulfill_date");
+        
         return updateRevrecProfile(client_no, auth_key, profile_id, profile_name, client_profile_id, profile_desc, on_plan_payment_date, on_order_payment_date, on_order_fulfill_date);
     }
 
@@ -3592,8 +3592,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long profile_id = (Long) map.get("profile_id");
-                String client_profile_id = (String) map.get("client_profile_id");
-                
+        String client_profile_id = (String) map.get("client_profile_id");
+        
         return deleteRevrecProfile(client_no, auth_key, profile_id, client_profile_id);
     }
 
@@ -3621,9 +3621,9 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String field_category_name = (String) map.get("field_category_name");
-                com.aria.common.shared.admin.AssignCategoryPlansArray assign_category_plans = (com.aria.common.shared.admin.AssignCategoryPlansArray) map.get("assign_category_plans");
-                com.aria.common.shared.admin.AssignCategoryFieldsArray assign_category_fields = (com.aria.common.shared.admin.AssignCategoryFieldsArray) map.get("assign_category_fields");
-                
+        com.aria.common.shared.admin.AssignCategoryPlansArray assign_category_plans = (com.aria.common.shared.admin.AssignCategoryPlansArray) map.get("assign_category_plans");
+        com.aria.common.shared.admin.AssignCategoryFieldsArray assign_category_fields = (com.aria.common.shared.admin.AssignCategoryFieldsArray) map.get("assign_category_fields");
+        
         return createProductFieldCategory(client_no, auth_key, field_category_name, assign_category_plans, assign_category_fields);
     }
 
@@ -3653,11 +3653,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long field_category_no = (Long) map.get("field_category_no");
-                String field_category_name = (String) map.get("field_category_name");
-                String new_category_name = (String) map.get("new_category_name");
-                com.aria.common.shared.admin.AssignCategoryPlansArray assign_category_plans = (com.aria.common.shared.admin.AssignCategoryPlansArray) map.get("assign_category_plans");
-                com.aria.common.shared.admin.AssignCategoryFieldsArray assign_category_fields = (com.aria.common.shared.admin.AssignCategoryFieldsArray) map.get("assign_category_fields");
-                
+        String field_category_name = (String) map.get("field_category_name");
+        String new_category_name = (String) map.get("new_category_name");
+        com.aria.common.shared.admin.AssignCategoryPlansArray assign_category_plans = (com.aria.common.shared.admin.AssignCategoryPlansArray) map.get("assign_category_plans");
+        com.aria.common.shared.admin.AssignCategoryFieldsArray assign_category_fields = (com.aria.common.shared.admin.AssignCategoryFieldsArray) map.get("assign_category_fields");
+        
         return editProductFieldCategory(client_no, auth_key, field_category_no, field_category_name, new_category_name, assign_category_plans, assign_category_fields);
     }
 
@@ -3683,8 +3683,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long field_category_no = (Long) map.get("field_category_no");
-                String field_category_name = (String) map.get("field_category_name");
-                
+        String field_category_name = (String) map.get("field_category_name");
+        
         return deleteProductFieldCategory(client_no, auth_key, field_category_no, field_category_name);
     }
 
@@ -3738,8 +3738,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long field_category_no = (Long) map.get("field_category_no");
-                String field_category_name = (String) map.get("field_category_name");
-                
+        String field_category_name = (String) map.get("field_category_name");
+        
         return getProductFieldCategoryDetails(client_no, auth_key, field_category_no, field_category_name);
     }
 
@@ -3769,11 +3769,11 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String group_name = (String) map.get("group_name");
-                String client_defined_id = (String) map.get("client_defined_id");
-                String description = (String) map.get("description");
-                String precedence = (String) map.get("precedence");
-                com.aria.common.shared.admin.CouponsArray coupons = (com.aria.common.shared.admin.CouponsArray) map.get("coupons");
-                
+        String client_defined_id = (String) map.get("client_defined_id");
+        String description = (String) map.get("description");
+        String precedence = (String) map.get("precedence");
+        com.aria.common.shared.admin.CouponsArray coupons = (com.aria.common.shared.admin.CouponsArray) map.get("coupons");
+        
         return createCouponGroup(client_no, auth_key, group_name, client_defined_id, description, precedence, coupons);
     }
 
@@ -3805,13 +3805,13 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         Long group_no = (Long) map.get("group_no");
-                String group_name = (String) map.get("group_name");
-                String client_defined_id = (String) map.get("client_defined_id");
-                String description = (String) map.get("description");
-                String precedence = (String) map.get("precedence");
-                Long edit_directive = (Long) map.get("edit_directive");
-                com.aria.common.shared.admin.CouponsArray coupons = (com.aria.common.shared.admin.CouponsArray) map.get("coupons");
-                
+        String group_name = (String) map.get("group_name");
+        String client_defined_id = (String) map.get("client_defined_id");
+        String description = (String) map.get("description");
+        String precedence = (String) map.get("precedence");
+        Long edit_directive = (Long) map.get("edit_directive");
+        com.aria.common.shared.admin.CouponsArray coupons = (com.aria.common.shared.admin.CouponsArray) map.get("coupons");
+        
         return updateCouponGroup(client_no, auth_key, group_no, group_name, client_defined_id, description, precedence, edit_directive, coupons);
     }
 
@@ -3862,8 +3862,8 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
         String group_no = (String) map.get("group_no");
-                String client_defined_id = (String) map.get("client_defined_id");
-                
+        String client_defined_id = (String) map.get("client_defined_id");
+        
         return getCouponGroupDetails(client_no, auth_key, group_no, client_defined_id);
     }
 

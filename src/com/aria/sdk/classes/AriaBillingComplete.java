@@ -1987,7 +1987,6 @@ public interface AriaBillingComplete {
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   supp_field_values - Type: ArrayList&#60;SuppFieldValuesReturnElement&#62;<br>
     *   acct_supp_field_values - Type: ArrayList&#60;AcctSuppFieldValuesReturnElement&#62;<br>
     */
     abstract Map<String,Object> getSuppFieldValues(Long client_no, String auth_key, Long acct_no, String field_name);
@@ -6043,7 +6042,6 @@ public interface AriaBillingComplete {
     * @param client_acct_id - Type: String
     * @param contract_no - Type: Long
     * @param client_contract_id - Type: String
-    * @param contract_plan_instances - Type: com.aria.common.shared.ContractPlanInstancesArray
     * @param type_no - Type: Long
     * @param length_months - Type: Long
     * @param update_comments - Type: String
@@ -6052,12 +6050,13 @@ public interface AriaBillingComplete {
     * @param start_date - Type: String
     * @param end_date - Type: String
     * @param cascade_action - Type: String
+    * @param contract_plan_instances_update - Type: com.aria.common.shared.ContractPlanInstancesUpdateArray
     * @param contract_rollover_custom_rates - Type: com.aria.common.shared.ContractRolloverCustomRatesArray
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> modifyInstanceContractM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long contract_no, String client_contract_id, com.aria.common.shared.ContractPlanInstancesArray contract_plan_instances, Long type_no, Long length_months, String update_comments, Double cancel_fee, Long action_directive, String start_date, String end_date, String cascade_action, com.aria.common.shared.ContractRolloverCustomRatesArray contract_rollover_custom_rates);
+    abstract Map<String,Object> modifyInstanceContractM(Long client_no, String auth_key, Long acct_no, String client_acct_id, Long contract_no, String client_contract_id, Long type_no, Long length_months, String update_comments, Double cancel_fee, Long action_directive, String start_date, String end_date, String cascade_action, com.aria.common.shared.ContractPlanInstancesUpdateArray contract_plan_instances_update, com.aria.common.shared.ContractRolloverCustomRatesArray contract_rollover_custom_rates);
 
     abstract Map<String,Object> modifyInstanceContractM(Map<String,Object> map);
 
@@ -8142,7 +8141,6 @@ public interface AriaBillingComplete {
     * @param cc_number - Type: String
     * @param cc_expire_mm - Type: Long
     * @param cc_expire_yyyy - Type: Long
-    * @param cvv - Type: String
     * @param bank_routing_num - Type: String
     * @param bank_acct_num - Type: String
     * @param bank_check_digit - Type: Long
@@ -8158,7 +8156,6 @@ public interface AriaBillingComplete {
     * @param bill_last_name - Type: String
     * @param bill_address1 - Type: String
     * @param bill_address2 - Type: String
-    * @param bill_address3 - Type: String
     * @param bill_city - Type: String
     * @param bill_locality - Type: String
     * @param bill_state_prov - Type: String
@@ -8170,14 +8167,19 @@ public interface AriaBillingComplete {
     * @param bill_cell_phone - Type: String
     * @param bill_work_phone - Type: String
     * @param bill_work_phone_extension - Type: String
+    * @param cvv - Type: String
+    * @param bank_acct_type - Type: String
+    * @param bill_address3 - Type: String
     * @param multiple_coupons - Type: com.aria.common.shared.MultipleCouponsArray
     * @param alt_client_acct_group_id - Type: String
     * @param client_alt_inv_template_id - Type: String
     * @param alt_inv_template_no - Type: Long
+    * @param force_supp_bill_date_reset - Type: Long
     * @param statement_message - Type: String
     * @param track_data1 - Type: String
     * @param track_data2 - Type: String
     * @param do_write - Type: String
+    * @param order_comments - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
     *   error_msg - Type: javax.xml.ws.Holder<br>
@@ -8203,7 +8205,7 @@ public interface AriaBillingComplete {
     *   cart_inv_line_items - Type: ArrayList&#60;CartInvLineItemsReturnElement&#62;<br>
     *   third_party_errors - Type: ArrayList&#60;ThirdPartyErrorsReturnElement&#62;<br>
     */
-    abstract Map<String,Object> createOrderWithPlanM(Long client_no, String auth_key, Long acct_no, String client_acct_id, com.aria.common.shared.OrderLineItemsArray order_line_items, Long parent_plan_instance_no, String client_parent_plan_instance_id, Long supp_plan_instance_no, String client_plan_instance_id, Long supp_plan_no, String client_supp_plan_id, Long supp_plan_units, Long assignment_directive, Long bill_immediately, Long bill_seq, String client_order_id, String client_receipt_id, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String cvv, String bank_routing_num, String bank_acct_num, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String bank_id_cd, String bank_branch_cd, String mandate_id, String iban, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_address3, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, com.aria.common.shared.MultipleCouponsArray multiple_coupons, String alt_client_acct_group_id, String client_alt_inv_template_id, Long alt_inv_template_no, String statement_message, String track_data1, String track_data2, String do_write);
+    abstract Map<String,Object> createOrderWithPlanM(Long client_no, String auth_key, Long acct_no, String client_acct_id, com.aria.common.shared.OrderLineItemsArray order_line_items, Long parent_plan_instance_no, String client_parent_plan_instance_id, Long supp_plan_instance_no, String client_plan_instance_id, Long supp_plan_no, String client_supp_plan_id, Long supp_plan_units, Long assignment_directive, Long bill_immediately, Long bill_seq, String client_order_id, String client_receipt_id, Long alt_pay_method, String cc_number, Long cc_expire_mm, Long cc_expire_yyyy, String bank_routing_num, String bank_acct_num, Long bank_check_digit, String bank_swift_cd, String bank_country_cd, String bank_id_cd, String bank_branch_cd, String mandate_id, String iban, String bill_company_name, String bill_first_name, String bill_middle_initial, String bill_last_name, String bill_address1, String bill_address2, String bill_city, String bill_locality, String bill_state_prov, String bill_zip, String bill_country, String bill_email, String bill_phone, String bill_phone_extension, String bill_cell_phone, String bill_work_phone, String bill_work_phone_extension, String cvv, String bank_acct_type, String bill_address3, com.aria.common.shared.MultipleCouponsArray multiple_coupons, String alt_client_acct_group_id, String client_alt_inv_template_id, Long alt_inv_template_no, Long force_supp_bill_date_reset, String statement_message, String track_data1, String track_data2, String do_write, String order_comments);
 
     abstract Map<String,Object> createOrderWithPlanM(Map<String,Object> map);
 

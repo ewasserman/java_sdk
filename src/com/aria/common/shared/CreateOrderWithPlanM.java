@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "orderLineItems",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "suppPlanInstanceNo",    "clientPlanInstanceId",    "suppPlanNo",    "clientSuppPlanId",    "suppPlanUnits",    "assignmentDirective",    "billImmediately",    "billSeq",    "clientOrderId",    "clientReceiptId",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "cvv",    "bankRoutingNum",    "bankAcctNum",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "bankIdCd",    "bankBranchCd",    "mandateId",    "iban",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "multipleCoupons",    "altClientAcctGroupId",    "clientAltInvTemplateId",    "altInvTemplateNo",    "statementMessage",    "trackData1",    "trackData2",    "doWrite"})
+    "authKey",    "acctNo",    "clientAcctId",    "orderLineItems",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "suppPlanInstanceNo",    "clientPlanInstanceId",    "suppPlanNo",    "clientSuppPlanId",    "suppPlanUnits",    "assignmentDirective",    "billImmediately",    "billSeq",    "clientOrderId",    "clientReceiptId",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "bankIdCd",    "bankBranchCd",    "mandateId",    "iban",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "multipleCoupons",    "altClientAcctGroupId",    "clientAltInvTemplateId",    "altInvTemplateNo",    "forceSuppBillDateReset",    "statementMessage",    "trackData1",    "trackData2",    "doWrite",    "orderComments"})
 @XmlRootElement(name = "create_order_with_plan_m")
 public class CreateOrderWithPlanM {
 
@@ -56,8 +56,6 @@ public class CreateOrderWithPlanM {
     protected Long ccExpireMm;
         @XmlElement(name = "cc_expire_yyyy")
     protected Long ccExpireYyyy;
-        @XmlElement(name = "cvv")
-    protected String cvv;
         @XmlElement(name = "bank_routing_num")
     protected String bankRoutingNum;
         @XmlElement(name = "bank_acct_num")
@@ -88,8 +86,6 @@ public class CreateOrderWithPlanM {
     protected String billAddress1;
         @XmlElement(name = "bill_address2")
     protected String billAddress2;
-        @XmlElement(name = "bill_address3")
-    protected String billAddress3;
         @XmlElement(name = "bill_city")
     protected String billCity;
         @XmlElement(name = "bill_locality")
@@ -112,6 +108,12 @@ public class CreateOrderWithPlanM {
     protected String billWorkPhone;
         @XmlElement(name = "bill_work_phone_extension")
     protected String billWorkPhoneExtension;
+        @XmlElement(name = "cvv")
+    protected String cvv;
+        @XmlElement(name = "bank_acct_type")
+    protected String bankAcctType;
+        @XmlElement(name = "bill_address3")
+    protected String billAddress3;
         @XmlElement(name = "multiple_coupons")
     protected MultipleCouponsArray multipleCoupons;
         @XmlElement(name = "alt_client_acct_group_id")
@@ -120,6 +122,8 @@ public class CreateOrderWithPlanM {
     protected String clientAltInvTemplateId;
         @XmlElement(name = "alt_inv_template_no")
     protected Long altInvTemplateNo;
+        @XmlElement(name = "force_supp_bill_date_reset")
+    protected Long forceSuppBillDateReset;
         @XmlElement(name = "statement_message")
     protected String statementMessage;
         @XmlElement(name = "track_data1")
@@ -128,6 +132,8 @@ public class CreateOrderWithPlanM {
     protected String trackData2;
         @XmlElement(name = "do_write")
     protected String doWrite;
+        @XmlElement(name = "order_comments")
+    protected String orderComments;
     
     public long getClientNo() {
         return clientNo;
@@ -278,13 +284,6 @@ public class CreateOrderWithPlanM {
     public void setCcExpireYyyy(Long value) {
         this.ccExpireYyyy = value;
     }
-            public String getCvv() {
-        return cvv;
-    }
-
-    public void setCvv(String value) {
-        this.cvv = value;
-    }
             public String getBankRoutingNum() {
         return bankRoutingNum;
     }
@@ -390,13 +389,6 @@ public class CreateOrderWithPlanM {
     public void setBillAddress2(String value) {
         this.billAddress2 = value;
     }
-            public String getBillAddress3() {
-        return billAddress3;
-    }
-
-    public void setBillAddress3(String value) {
-        this.billAddress3 = value;
-    }
             public String getBillCity() {
         return billCity;
     }
@@ -474,6 +466,27 @@ public class CreateOrderWithPlanM {
     public void setBillWorkPhoneExtension(String value) {
         this.billWorkPhoneExtension = value;
     }
+            public String getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(String value) {
+        this.cvv = value;
+    }
+            public String getBankAcctType() {
+        return bankAcctType;
+    }
+
+    public void setBankAcctType(String value) {
+        this.bankAcctType = value;
+    }
+            public String getBillAddress3() {
+        return billAddress3;
+    }
+
+    public void setBillAddress3(String value) {
+        this.billAddress3 = value;
+    }
             public MultipleCouponsArray getMultipleCoupons() {
         return multipleCoupons;
     }
@@ -502,6 +515,13 @@ public class CreateOrderWithPlanM {
     public void setAltInvTemplateNo(Long value) {
         this.altInvTemplateNo = value;
     }
+            public Long getForceSuppBillDateReset() {
+        return forceSuppBillDateReset;
+    }
+
+    public void setForceSuppBillDateReset(Long value) {
+        this.forceSuppBillDateReset = value;
+    }
             public String getStatementMessage() {
         return statementMessage;
     }
@@ -529,6 +549,13 @@ public class CreateOrderWithPlanM {
 
     public void setDoWrite(String value) {
         this.doWrite = value;
+    }
+            public String getOrderComments() {
+        return orderComments;
+    }
+
+    public void setOrderComments(String value) {
+        this.orderComments = value;
     }
             
 }

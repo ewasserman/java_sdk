@@ -495,7 +495,7 @@ public class AriaServiceClientTest {
     //@Test
     public void getServiceDetails() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getServiceDetails(getClientNo(), getAuthKey()        , ""
+        hashMapReturnValues = getBaseAriaBilling().getServiceDetails(getClientNo(), getAuthKey()        , 1L
                 , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {

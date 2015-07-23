@@ -5846,14 +5846,13 @@ public class AriaServiceClientTest {
 
     //@Test
     public void modifyInstanceContractM() throws Exception {
-        com.aria.common.shared.ContractPlanInstancesArray contractPlanInstancesArray = new com.aria.common.shared.ContractPlanInstancesArray();
+        com.aria.common.shared.ContractPlanInstancesUpdateArray contractPlanInstancesUpdateArray = new com.aria.common.shared.ContractPlanInstancesUpdateArray();
         com.aria.common.shared.ContractRolloverCustomRatesArray contractRolloverCustomRatesArray = new com.aria.common.shared.ContractRolloverCustomRatesArray();
         
         hashMapReturnValues = getBaseAriaBilling().modifyInstanceContractM(getClientNo(), getAuthKey()        , 1L
                 , ""
                 , 1L
                 , ""
-                , contractPlanInstancesArray
                 , 1L
                 , 1L
                 , ""
@@ -5862,6 +5861,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , contractPlanInstancesUpdateArray
                 , contractRolloverCustomRatesArray
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
@@ -7770,8 +7770,9 @@ public class AriaServiceClientTest {
                 , 1L
                 , ""
                 , ""
-                , ""
                 , 1L
+                , ""
+                , ""
                 , ""
                 , ""
                 , ""
@@ -7800,6 +7801,8 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
+                , 1L
+                , ""
                 , ""
                 , ""
                 , ""

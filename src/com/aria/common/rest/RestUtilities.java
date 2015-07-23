@@ -5516,7 +5516,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppFieldNamesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppFieldNamesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppFieldNamesRow row : arrayList.getSuppFieldNamesRow()){
@@ -5533,7 +5533,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppFieldValuesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppFieldValuesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppFieldValuesRow row : arrayList.getSuppFieldValuesRow()){
@@ -5550,7 +5550,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.WebValsInArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.WebValsInArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.WebValsInRow row : arrayList.getWebValsInRow()){
@@ -5567,7 +5567,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EventListArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EventListArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.EventListRow row : arrayList.getEventListRow()){
@@ -5585,7 +5585,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InRegUssParamsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InRegUssParamsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.InRegUssParamsRow row : arrayList.getInRegUssParamsRow()){
@@ -5603,7 +5603,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ParamNamesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ParamNamesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ParamNamesRow row : arrayList.getParamNamesRow()){
@@ -5621,7 +5621,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InRegUssConfigParamsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InRegUssConfigParamsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.InRegUssConfigParamsRow row : arrayList.getInRegUssConfigParamsRow()){
@@ -5643,7 +5643,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InventoryItemStockArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InventoryItemStockArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.InventoryItemStockRow row : arrayList.getInventoryItemStockRow()){
@@ -5665,7 +5665,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanNoToRemoveArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanNoToRemoveArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanNoToRemoveRow row : arrayList.getPlanNoToRemoveRow()){
@@ -5690,7 +5690,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.NewAcctCustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.NewAcctCustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.NewAcctCustomRatesRow row : arrayList.getNewAcctCustomRatesRow()){
@@ -5715,7 +5715,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SurchargeNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SurchargeNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SurchargeNoRow row : arrayList.getSurchargeNoRow()){
@@ -5733,7 +5733,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppPlansRow row : arrayList.getSuppPlansRow()){
@@ -5750,7 +5750,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanUnitsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanUnitsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppPlanUnitsRow row : arrayList.getSuppPlanUnitsRow()){
@@ -5767,7 +5767,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.FunctionalAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.FunctionalAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.FunctionalAcctGroupsRow row : arrayList.getFunctionalAcctGroupsRow()){
@@ -5784,7 +5784,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionsAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionsAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CollectionsAcctGroupsRow row : arrayList.getCollectionsAcctGroupsRow()){
@@ -5801,7 +5801,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppPlanAltRateSchedNoRow row : arrayList.getSuppPlanAltRateSchedNoRow()){
@@ -5818,7 +5818,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CouponCodesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CouponCodesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CouponCodesRow row : arrayList.getCouponCodesRow()){
@@ -5843,7 +5843,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.NewAcctPlanContractsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.NewAcctPlanContractsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.NewAcctPlanContractsRow row : arrayList.getNewAcctPlanContractsRow()){
@@ -5870,7 +5870,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageAccumulationConfigArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageAccumulationConfigArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageAccumulationConfigRow row : arrayList.getUsageAccumulationConfigRow()){
@@ -5891,7 +5891,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.EnableUsagePoolingPlanNoRow row : arrayList.getEnableUsagePoolingPlanNoRow()){
@@ -5910,7 +5910,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ClientFuncAcctGroupIdsRow row : arrayList.getClientFuncAcctGroupIdsRow()){
@@ -5927,7 +5927,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ClientCollAcctGroupIdsRow row : arrayList.getClientCollAcctGroupIdsRow()){
@@ -5944,7 +5944,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientSuppPlanIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientSuppPlanIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ClientSuppPlanIdsRow row : arrayList.getClientSuppPlanIdsRow()){
@@ -5961,7 +5961,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ClientSpAltRateSchedIdsRow row : arrayList.getClientSpAltRateSchedIdsRow()){
@@ -5978,7 +5978,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppPlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppPlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1SuppPlansRow row : arrayList.getA1SuppPlansRow()){
@@ -5995,7 +5995,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppPlanUnitsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppPlanUnitsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1SuppPlanUnitsRow row : arrayList.getA1SuppPlanUnitsRow()){
@@ -6012,7 +6012,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1FunctionalAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1FunctionalAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1FunctionalAcctGroupsRow row : arrayList.getA1FunctionalAcctGroupsRow()){
@@ -6029,7 +6029,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1CollectionsAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1CollectionsAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1CollectionsAcctGroupsRow row : arrayList.getA1CollectionsAcctGroupsRow()){
@@ -6046,7 +6046,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppFieldNamesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppFieldNamesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1SuppFieldNamesRow row : arrayList.getA1SuppFieldNamesRow()){
@@ -6063,7 +6063,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppFieldValuesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppFieldValuesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1SuppFieldValuesRow row : arrayList.getA1SuppFieldValuesRow()){
@@ -6080,7 +6080,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1SuppPlanAltRateSchedNoRow row : arrayList.getA1SuppPlanAltRateSchedNoRow()){
@@ -6097,7 +6097,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1CouponCodesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1CouponCodesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1CouponCodesRow row : arrayList.getA1CouponCodesRow()){
@@ -6121,7 +6121,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1NewAcctCustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1NewAcctCustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1NewAcctCustomRatesRow row : arrayList.getA1NewAcctCustomRatesRow()){
@@ -6153,7 +6153,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1NewAcctPlanContractsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1NewAcctPlanContractsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1NewAcctPlanContractsRow row : arrayList.getA1NewAcctPlanContractsRow()){
@@ -6180,7 +6180,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1UsageAccumulationConfigArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1UsageAccumulationConfigArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1UsageAccumulationConfigRow row : arrayList.getA1UsageAccumulationConfigRow()){
@@ -6201,7 +6201,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1EnableUsagePoolingPlanNoRow row : arrayList.getA1EnableUsagePoolingPlanNoRow()){
@@ -6220,7 +6220,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1ClientFuncAcctGroupIdsRow row : arrayList.getA1ClientFuncAcctGroupIdsRow()){
@@ -6237,7 +6237,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1ClientCollAcctGroupIdsRow row : arrayList.getA1ClientCollAcctGroupIdsRow()){
@@ -6254,7 +6254,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1ClientSuppPlanIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1ClientSuppPlanIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1ClientSuppPlanIdsRow row : arrayList.getA1ClientSuppPlanIdsRow()){
@@ -6271,7 +6271,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1ClientSpAltRateSchedIdsRow row : arrayList.getA1ClientSpAltRateSchedIdsRow()){
@@ -6289,7 +6289,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SurchargeNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A1SurchargeNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A1SurchargeNoRow row : arrayList.getA1SurchargeNoRow()){
@@ -6307,7 +6307,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppPlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppPlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2SuppPlansRow row : arrayList.getA2SuppPlansRow()){
@@ -6324,7 +6324,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppPlanUnitsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppPlanUnitsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2SuppPlanUnitsRow row : arrayList.getA2SuppPlanUnitsRow()){
@@ -6341,7 +6341,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2FunctionalAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2FunctionalAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2FunctionalAcctGroupsRow row : arrayList.getA2FunctionalAcctGroupsRow()){
@@ -6358,7 +6358,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2CollectionsAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2CollectionsAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2CollectionsAcctGroupsRow row : arrayList.getA2CollectionsAcctGroupsRow()){
@@ -6375,7 +6375,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppFieldNamesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppFieldNamesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2SuppFieldNamesRow row : arrayList.getA2SuppFieldNamesRow()){
@@ -6392,7 +6392,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppFieldValuesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppFieldValuesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2SuppFieldValuesRow row : arrayList.getA2SuppFieldValuesRow()){
@@ -6409,7 +6409,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2SuppPlanAltRateSchedNoRow row : arrayList.getA2SuppPlanAltRateSchedNoRow()){
@@ -6426,7 +6426,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2CouponCodesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2CouponCodesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2CouponCodesRow row : arrayList.getA2CouponCodesRow()){
@@ -6450,7 +6450,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2NewAcctCustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2NewAcctCustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2NewAcctCustomRatesRow row : arrayList.getA2NewAcctCustomRatesRow()){
@@ -6482,7 +6482,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2NewAcctPlanContractsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2NewAcctPlanContractsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2NewAcctPlanContractsRow row : arrayList.getA2NewAcctPlanContractsRow()){
@@ -6509,7 +6509,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2UsageAccumulationConfigArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2UsageAccumulationConfigArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2UsageAccumulationConfigRow row : arrayList.getA2UsageAccumulationConfigRow()){
@@ -6530,7 +6530,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2EnableUsagePoolingPlanNoRow row : arrayList.getA2EnableUsagePoolingPlanNoRow()){
@@ -6549,7 +6549,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2ClientFuncAcctGroupIdsRow row : arrayList.getA2ClientFuncAcctGroupIdsRow()){
@@ -6566,7 +6566,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2ClientCollAcctGroupIdsRow row : arrayList.getA2ClientCollAcctGroupIdsRow()){
@@ -6583,7 +6583,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2ClientSuppPlanIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2ClientSuppPlanIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2ClientSuppPlanIdsRow row : arrayList.getA2ClientSuppPlanIdsRow()){
@@ -6600,7 +6600,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2ClientSpAltRateSchedIdsRow row : arrayList.getA2ClientSpAltRateSchedIdsRow()){
@@ -6618,7 +6618,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SurchargeNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A2SurchargeNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A2SurchargeNoRow row : arrayList.getA2SurchargeNoRow()){
@@ -6636,7 +6636,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppPlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppPlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3SuppPlansRow row : arrayList.getA3SuppPlansRow()){
@@ -6653,7 +6653,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppPlanUnitsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppPlanUnitsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3SuppPlanUnitsRow row : arrayList.getA3SuppPlanUnitsRow()){
@@ -6670,7 +6670,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3FunctionalAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3FunctionalAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3FunctionalAcctGroupsRow row : arrayList.getA3FunctionalAcctGroupsRow()){
@@ -6687,7 +6687,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3CollectionsAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3CollectionsAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3CollectionsAcctGroupsRow row : arrayList.getA3CollectionsAcctGroupsRow()){
@@ -6704,7 +6704,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppFieldNamesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppFieldNamesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3SuppFieldNamesRow row : arrayList.getA3SuppFieldNamesRow()){
@@ -6721,7 +6721,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppFieldValuesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppFieldValuesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3SuppFieldValuesRow row : arrayList.getA3SuppFieldValuesRow()){
@@ -6738,7 +6738,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3SuppPlanAltRateSchedNoRow row : arrayList.getA3SuppPlanAltRateSchedNoRow()){
@@ -6755,7 +6755,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3CouponCodesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3CouponCodesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3CouponCodesRow row : arrayList.getA3CouponCodesRow()){
@@ -6779,7 +6779,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3NewAcctCustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3NewAcctCustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3NewAcctCustomRatesRow row : arrayList.getA3NewAcctCustomRatesRow()){
@@ -6811,7 +6811,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3NewAcctPlanContractsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3NewAcctPlanContractsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3NewAcctPlanContractsRow row : arrayList.getA3NewAcctPlanContractsRow()){
@@ -6838,7 +6838,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3UsageAccumulationConfigArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3UsageAccumulationConfigArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3UsageAccumulationConfigRow row : arrayList.getA3UsageAccumulationConfigRow()){
@@ -6859,7 +6859,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3EnableUsagePoolingPlanNoRow row : arrayList.getA3EnableUsagePoolingPlanNoRow()){
@@ -6878,7 +6878,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3ClientFuncAcctGroupIdsRow row : arrayList.getA3ClientFuncAcctGroupIdsRow()){
@@ -6895,7 +6895,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3ClientCollAcctGroupIdsRow row : arrayList.getA3ClientCollAcctGroupIdsRow()){
@@ -6912,7 +6912,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3ClientSuppPlanIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3ClientSuppPlanIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3ClientSuppPlanIdsRow row : arrayList.getA3ClientSuppPlanIdsRow()){
@@ -6929,7 +6929,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3ClientSpAltRateSchedIdsRow row : arrayList.getA3ClientSpAltRateSchedIdsRow()){
@@ -6947,7 +6947,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SurchargeNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A3SurchargeNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A3SurchargeNoRow row : arrayList.getA3SurchargeNoRow()){
@@ -6965,7 +6965,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppPlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppPlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4SuppPlansRow row : arrayList.getA4SuppPlansRow()){
@@ -6982,7 +6982,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppPlanUnitsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppPlanUnitsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4SuppPlanUnitsRow row : arrayList.getA4SuppPlanUnitsRow()){
@@ -6999,7 +6999,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4FunctionalAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4FunctionalAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4FunctionalAcctGroupsRow row : arrayList.getA4FunctionalAcctGroupsRow()){
@@ -7016,7 +7016,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4CollectionsAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4CollectionsAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4CollectionsAcctGroupsRow row : arrayList.getA4CollectionsAcctGroupsRow()){
@@ -7033,7 +7033,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppFieldNamesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppFieldNamesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4SuppFieldNamesRow row : arrayList.getA4SuppFieldNamesRow()){
@@ -7050,7 +7050,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppFieldValuesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppFieldValuesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4SuppFieldValuesRow row : arrayList.getA4SuppFieldValuesRow()){
@@ -7067,7 +7067,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4SuppPlanAltRateSchedNoRow row : arrayList.getA4SuppPlanAltRateSchedNoRow()){
@@ -7084,7 +7084,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4CouponCodesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4CouponCodesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4CouponCodesRow row : arrayList.getA4CouponCodesRow()){
@@ -7108,7 +7108,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4NewAcctCustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4NewAcctCustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4NewAcctCustomRatesRow row : arrayList.getA4NewAcctCustomRatesRow()){
@@ -7140,7 +7140,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4NewAcctPlanContractsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4NewAcctPlanContractsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4NewAcctPlanContractsRow row : arrayList.getA4NewAcctPlanContractsRow()){
@@ -7167,7 +7167,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4UsageAccumulationConfigArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4UsageAccumulationConfigArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4UsageAccumulationConfigRow row : arrayList.getA4UsageAccumulationConfigRow()){
@@ -7188,7 +7188,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4EnableUsagePoolingPlanNoRow row : arrayList.getA4EnableUsagePoolingPlanNoRow()){
@@ -7207,7 +7207,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4ClientFuncAcctGroupIdsRow row : arrayList.getA4ClientFuncAcctGroupIdsRow()){
@@ -7224,7 +7224,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4ClientCollAcctGroupIdsRow row : arrayList.getA4ClientCollAcctGroupIdsRow()){
@@ -7241,7 +7241,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4ClientSuppPlanIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4ClientSuppPlanIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4ClientSuppPlanIdsRow row : arrayList.getA4ClientSuppPlanIdsRow()){
@@ -7258,7 +7258,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4ClientSpAltRateSchedIdsRow row : arrayList.getA4ClientSpAltRateSchedIdsRow()){
@@ -7276,7 +7276,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SurchargeNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A4SurchargeNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A4SurchargeNoRow row : arrayList.getA4SurchargeNoRow()){
@@ -7294,7 +7294,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppPlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppPlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5SuppPlansRow row : arrayList.getA5SuppPlansRow()){
@@ -7311,7 +7311,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppPlanUnitsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppPlanUnitsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5SuppPlanUnitsRow row : arrayList.getA5SuppPlanUnitsRow()){
@@ -7328,7 +7328,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5FunctionalAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5FunctionalAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5FunctionalAcctGroupsRow row : arrayList.getA5FunctionalAcctGroupsRow()){
@@ -7345,7 +7345,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5CollectionsAcctGroupsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5CollectionsAcctGroupsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5CollectionsAcctGroupsRow row : arrayList.getA5CollectionsAcctGroupsRow()){
@@ -7362,7 +7362,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppFieldNamesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppFieldNamesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5SuppFieldNamesRow row : arrayList.getA5SuppFieldNamesRow()){
@@ -7379,7 +7379,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppFieldValuesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppFieldValuesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5SuppFieldValuesRow row : arrayList.getA5SuppFieldValuesRow()){
@@ -7396,7 +7396,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SuppPlanAltRateSchedNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5SuppPlanAltRateSchedNoRow row : arrayList.getA5SuppPlanAltRateSchedNoRow()){
@@ -7413,7 +7413,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5CouponCodesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5CouponCodesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5CouponCodesRow row : arrayList.getA5CouponCodesRow()){
@@ -7437,7 +7437,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5NewAcctCustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5NewAcctCustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5NewAcctCustomRatesRow row : arrayList.getA5NewAcctCustomRatesRow()){
@@ -7469,7 +7469,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5NewAcctPlanContractsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5NewAcctPlanContractsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5NewAcctPlanContractsRow row : arrayList.getA5NewAcctPlanContractsRow()){
@@ -7496,7 +7496,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5UsageAccumulationConfigArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5UsageAccumulationConfigArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5UsageAccumulationConfigRow row : arrayList.getA5UsageAccumulationConfigRow()){
@@ -7517,7 +7517,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5EnableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5EnableUsagePoolingPlanNoRow row : arrayList.getA5EnableUsagePoolingPlanNoRow()){
@@ -7536,7 +7536,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5ClientFuncAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5ClientFuncAcctGroupIdsRow row : arrayList.getA5ClientFuncAcctGroupIdsRow()){
@@ -7553,7 +7553,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5ClientCollAcctGroupIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5ClientCollAcctGroupIdsRow row : arrayList.getA5ClientCollAcctGroupIdsRow()){
@@ -7570,7 +7570,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5ClientSuppPlanIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5ClientSuppPlanIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5ClientSuppPlanIdsRow row : arrayList.getA5ClientSuppPlanIdsRow()){
@@ -7587,7 +7587,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5ClientSpAltRateSchedIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5ClientSpAltRateSchedIdsRow row : arrayList.getA5ClientSpAltRateSchedIdsRow()){
@@ -7605,7 +7605,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SurchargeNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.A5SurchargeNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.A5SurchargeNoRow row : arrayList.getA5SurchargeNoRow()){
@@ -7623,7 +7623,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EligibleServiceTypesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EligibleServiceTypesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.EligibleServiceTypesRow row : arrayList.getEligibleServiceTypesRow()){
@@ -7641,7 +7641,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EligibleServicePlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.EligibleServicePlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.EligibleServicePlansRow row : arrayList.getEligibleServicePlansRow()){
@@ -7660,7 +7660,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientEligibleServicePlanIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientEligibleServicePlanIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ClientEligibleServicePlanIdsRow row : arrayList.getClientEligibleServicePlanIdsRow()){
@@ -7678,7 +7678,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageQualifier1Array arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageQualifier1Array arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageQualifier1Row row : arrayList.getUsageQualifier1Row()){
@@ -7695,7 +7695,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageQualifier2Array arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageQualifier2Array arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageQualifier2Row row : arrayList.getUsageQualifier2Row()){
@@ -7712,7 +7712,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageQualifier3Array arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageQualifier3Array arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageQualifier3Row row : arrayList.getUsageQualifier3Row()){
@@ -7729,7 +7729,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageQualifier4Array arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageQualifier4Array arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageQualifier4Row row : arrayList.getUsageQualifier4Row()){
@@ -7748,7 +7748,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateAcctSuppFieldArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateAcctSuppFieldArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UpdateAcctSuppFieldRow row : arrayList.getUpdateAcctSuppFieldRow()){
@@ -7769,7 +7769,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateAcctFuncGroupArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateAcctFuncGroupArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UpdateAcctFuncGroupRow row : arrayList.getUpdateAcctFuncGroupRow()){
@@ -7790,7 +7790,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateAcctCollGroupArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateAcctCollGroupArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UpdateAcctCollGroupRow row : arrayList.getUpdateAcctCollGroupRow()){
@@ -7810,7 +7810,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.DisableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.DisableUsagePoolingPlanNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.DisableUsagePoolingPlanNoRow row : arrayList.getDisableUsagePoolingPlanNoRow()){
@@ -7830,7 +7830,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateSurchargeArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateSurchargeArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UpdateSurchargeRow row : arrayList.getUpdateSurchargeRow()){
@@ -7852,7 +7852,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CustomAcctRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CustomAcctRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CustomAcctRatesRow row : arrayList.getCustomAcctRatesRow()){
@@ -7874,7 +7874,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctSuppFieldsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctSuppFieldsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctSuppFieldsRow row : arrayList.getAcctSuppFieldsRow()){
@@ -7907,7 +7907,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlansToAssignArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlansToAssignArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppPlansToAssignRow row : arrayList.getSuppPlansToAssignRow()){
@@ -7940,7 +7940,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanSurchargesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanSurchargesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppPlanSurchargesRow row : arrayList.getSuppPlanSurchargesRow()){
@@ -7959,7 +7959,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CreditIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CreditIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CreditIdsRow row : arrayList.getCreditIdsRow()){
@@ -7981,7 +7981,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageUnitThresholdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageUnitThresholdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageUnitThresholdsRow row : arrayList.getUsageUnitThresholdsRow()){
@@ -8003,7 +8003,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanNoRow row : arrayList.getPlanNoRow()){
@@ -8020,7 +8020,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientPlanIdArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientPlanIdArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ClientPlanIdRow row : arrayList.getClientPlanIdRow()){
@@ -8037,7 +8037,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlansInputArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlansInputArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlansInputRow row : arrayList.getPlansInputRow()){
@@ -8054,7 +8054,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlansToGetOutageArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlansToGetOutageArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlansToGetOutageRow row : arrayList.getPlansToGetOutageRow()){
@@ -8071,7 +8071,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientPlanIdsToGetOutageArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientPlanIdsToGetOutageArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ClientPlanIdsToGetOutageRow row : arrayList.getClientPlanIdsToGetOutageRow()){
@@ -8090,7 +8090,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceFieldsInfoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceFieldsInfoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanInstanceFieldsInfoRow row : arrayList.getPlanInstanceFieldsInfoRow()){
@@ -8114,7 +8114,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CustomRatesRow row : arrayList.getCustomRatesRow()){
@@ -8137,7 +8137,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpiSurchargesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpiSurchargesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MpiSurchargesRow row : arrayList.getMpiSurchargesRow()){
@@ -8168,7 +8168,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppPlanArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppPlanRow row : arrayList.getSuppPlanRow()){
@@ -8200,7 +8200,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ContractPlansRow row : arrayList.getContractPlansRow()){
@@ -8220,7 +8220,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.FunctionalAcctGroupArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.FunctionalAcctGroupArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.FunctionalAcctGroupRow row : arrayList.getFunctionalAcctGroupRow()){
@@ -8239,7 +8239,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionAcctGroupArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionAcctGroupArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CollectionAcctGroupRow row : arrayList.getCollectionAcctGroupRow()){
@@ -8258,7 +8258,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppFieldArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SuppFieldArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SuppFieldRow row : arrayList.getSuppFieldRow()){
@@ -8277,7 +8277,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctSurchargesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctSurchargesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctSurchargesRow row : arrayList.getAcctSurchargesRow()){
@@ -8336,7 +8336,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PaymentMethodArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PaymentMethodArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PaymentMethodRow row : arrayList.getPaymentMethodRow()){
@@ -8425,7 +8425,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.BillingGroupArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.BillingGroupArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.BillingGroupRow row : arrayList.getBillingGroupRow()){
@@ -8478,7 +8478,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.DunningGroupArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.DunningGroupArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.DunningGroupRow row : arrayList.getDunningGroupRow()){
@@ -8507,7 +8507,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ContractsRow row : arrayList.getContractsRow()){
@@ -8558,7 +8558,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlansDetailArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlansDetailArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MasterPlansDetailRow row : arrayList.getMasterPlansDetailRow()){
@@ -8739,7 +8739,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctCouponsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctCouponsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctCouponsRow row : arrayList.getAcctCouponsRow()){
@@ -8758,7 +8758,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.FunctionalAcctGroupsUpdateArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.FunctionalAcctGroupsUpdateArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.FunctionalAcctGroupsUpdateRow row : arrayList.getFunctionalAcctGroupsUpdateRow()){
@@ -8779,7 +8779,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionAcctGroupsUpdateArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CollectionAcctGroupsUpdateArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CollectionAcctGroupsUpdateRow row : arrayList.getCollectionAcctGroupsUpdateRow()){
@@ -8800,7 +8800,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctSuppFieldsUpdateArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AcctSuppFieldsUpdateArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AcctSuppFieldsUpdateRow row : arrayList.getAcctSuppFieldsUpdateRow()){
@@ -8821,7 +8821,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AccountSurchargesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.AccountSurchargesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.AccountSurchargesRow row : arrayList.getAccountSurchargesRow()){
@@ -8840,7 +8840,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpCouponsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpCouponsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MpCouponsRow row : arrayList.getMpCouponsRow()){
@@ -8859,7 +8859,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlanPlanInstFieldsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlanPlanInstFieldsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MasterPlanPlanInstFieldsRow row : arrayList.getMasterPlanPlanInstFieldsRow()){
@@ -8880,7 +8880,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpSurchargesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MpSurchargesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MpSurchargesRow row : arrayList.getMpSurchargesRow()){
@@ -8904,7 +8904,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateAcctCustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UpdateAcctCustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UpdateAcctCustomRatesRow row : arrayList.getUpdateAcctCustomRatesRow()){
@@ -8957,7 +8957,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.BillingGroupsArrayArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.BillingGroupsArrayArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.BillingGroupsArrayRow row : arrayList.getBillingGroupsArrayRow()){
@@ -9047,7 +9047,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PaymentMethodsArrayArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PaymentMethodsArrayArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PaymentMethodsArrayRow row : arrayList.getPaymentMethodsArrayRow()){
@@ -9107,7 +9107,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlansSummaryArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MasterPlansSummaryArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MasterPlansSummaryRow row : arrayList.getMasterPlansSummaryRow()){
@@ -9126,7 +9126,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceFieldsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceFieldsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanInstanceFieldsRow row : arrayList.getPlanInstanceFieldsRow()){
@@ -9146,7 +9146,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceFieldUpdateArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceFieldUpdateArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanInstanceFieldUpdateRow row : arrayList.getPlanInstanceFieldUpdateRow()){
@@ -9166,7 +9166,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceToRemoveArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanInstanceToRemoveArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanInstanceToRemoveRow row : arrayList.getPlanInstanceToRemoveRow()){
@@ -9184,7 +9184,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.QueueIdToRemoveArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.QueueIdToRemoveArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.QueueIdToRemoveRow row : arrayList.getQueueIdToRemoveRow()){
@@ -9204,7 +9204,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.BillingDatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.BillingDatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.BillingDatesRow row : arrayList.getBillingDatesRow()){
@@ -9229,7 +9229,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanUnitsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanUnitsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanUnitsRow row : arrayList.getPlanUnitsRow()){
@@ -9251,7 +9251,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.NewClientPlanUnitInstArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.NewClientPlanUnitInstArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.NewClientPlanUnitInstRow row : arrayList.getNewClientPlanUnitInstRow()){
@@ -9271,7 +9271,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanUnitInstServicesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanUnitInstServicesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanUnitInstServicesRow row : arrayList.getPlanUnitInstServicesRow()){
@@ -9293,7 +9293,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanUnitInstFieldsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PlanUnitInstFieldsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PlanUnitInstFieldsRow row : arrayList.getPlanUnitInstFieldsRow()){
@@ -9313,7 +9313,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.RemovePlanUnitsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.RemovePlanUnitsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.RemovePlanUnitsRow row : arrayList.getRemovePlanUnitsRow()){
@@ -9336,7 +9336,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlanInstancesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlanInstancesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ContractPlanInstancesRow row : arrayList.getContractPlanInstancesRow()){
@@ -9365,7 +9365,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractRolloverCustomRatesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractRolloverCustomRatesArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ContractRolloverCustomRatesRow row : arrayList.getContractRolloverCustomRatesRow()){
@@ -9377,6 +9377,33 @@ public class RestUtilities {
             parameters.add(paramPrefix + "custom_rate_from_unit["+i+"]", getValue("Long", row.getCustomRateFromUnit()));
             parameters.add(paramPrefix + "custom_rate_to_unit["+i+"]", getValue("Long", row.getCustomRateToUnit()));
             parameters.add(paramPrefix + "custom_rate_per_unit["+i+"]", getValue("Double", row.getCustomRatePerUnit()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlanInstancesUpdateArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.ContractPlanInstancesUpdateRow row : arrayList.getContractPlanInstancesUpdateRow()){
+            parameters.add("plan_instance_no["+i+"]", getValue("Long", row.getPlanInstanceNo()));
+            parameters.add("client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add("rollover_plan_no["+i+"]", getValue("Long", row.getRolloverPlanNo()));
+            parameters.add("rollover_client_plan_id["+i+"]", getValue("String", row.getRolloverClientPlanId()));
+            parameters.add("rollover_rate_sched_no["+i+"]", getValue("Long", row.getRolloverRateSchedNo()));
+            parameters.add("rollover_client_rate_sched_id["+i+"]", getValue("String", row.getRolloverClientRateSchedId()));
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ContractPlanInstancesUpdateArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.ContractPlanInstancesUpdateRow row : arrayList.getContractPlanInstancesUpdateRow()){
+            parameters.add(paramPrefix + "plan_instance_no["+i+"]", getValue("Long", row.getPlanInstanceNo()));
+            parameters.add(paramPrefix + "client_plan_instance_id["+i+"]", getValue("String", row.getClientPlanInstanceId()));
+            parameters.add(paramPrefix + "rollover_plan_no["+i+"]", getValue("Long", row.getRolloverPlanNo()));
+            parameters.add(paramPrefix + "rollover_client_plan_id["+i+"]", getValue("String", row.getRolloverClientPlanId()));
+            parameters.add(paramPrefix + "rollover_rate_sched_no["+i+"]", getValue("Long", row.getRolloverRateSchedNo()));
+            parameters.add(paramPrefix + "rollover_client_rate_sched_id["+i+"]", getValue("String", row.getRolloverClientRateSchedId()));
             i++;
         }
     }
@@ -9393,7 +9420,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.OrderLineItemsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.OrderLineItemsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.OrderLineItemsRow row : arrayList.getOrderLineItemsRow()){
@@ -9414,7 +9441,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SpecificChargeTransactionIdArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.SpecificChargeTransactionIdArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.SpecificChargeTransactionIdRow row : arrayList.getSpecificChargeTransactionIdRow()){
@@ -9431,7 +9458,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InvoiceNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InvoiceNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.InvoiceNoRow row : arrayList.getInvoiceNoRow()){
@@ -9452,7 +9479,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.StandingOrderArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.StandingOrderArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.StandingOrderRow row : arrayList.getStandingOrderRow()){
@@ -9493,7 +9520,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageRecordsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageRecordsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageRecordsRow row : arrayList.getUsageRecordsRow()){
@@ -9535,7 +9562,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PreCalcPlanArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PreCalcPlanArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PreCalcPlanRow row : arrayList.getPreCalcPlanRow()){
@@ -9561,7 +9588,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PreCalcSkuArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.PreCalcSkuArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.PreCalcSkuRow row : arrayList.getPreCalcSkuRow()){
@@ -9585,7 +9612,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CartSuppPlansArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.CartSuppPlansArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.CartSuppPlansRow row : arrayList.getCartSuppPlansRow()){
@@ -9605,7 +9632,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MultipleCouponsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.MultipleCouponsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MultipleCouponsRow row : arrayList.getMultipleCouponsRow()){
@@ -9625,7 +9652,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InvoicesToReverseArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InvoicesToReverseArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.InvoicesToReverseRow row : arrayList.getInvoicesToReverseRow()){
@@ -9645,7 +9672,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageRecordNosArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageRecordNosArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageRecordNosRow row : arrayList.getUsageRecordNosRow()){
@@ -9662,7 +9689,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientRecordIdsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.ClientRecordIdsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.ClientRecordIdsRow row : arrayList.getClientRecordIdsRow()){
@@ -9679,7 +9706,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.RecurringCreditNoArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.RecurringCreditNoArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.RecurringCreditNoRow row : arrayList.getRecurringCreditNoRow()){
@@ -9700,7 +9727,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InvoiceTransToReverseArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.InvoiceTransToReverseArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.InvoiceTransToReverseRow row : arrayList.getInvoiceTransToReverseRow()){
@@ -9744,7 +9771,7 @@ public class RestUtilities {
             i++;
         }
     }
-    private static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageRecsArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.UsageRecsArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.UsageRecsRow row : arrayList.getUsageRecsRow()){

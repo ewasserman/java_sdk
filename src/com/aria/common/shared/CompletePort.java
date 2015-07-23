@@ -3428,8 +3428,6 @@ public interface CompletePort {
         javax.xml.ws.Holder<Long> errorCode,
         @WebParam(mode = WebParam.Mode.OUT, name = "error_msg", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         javax.xml.ws.Holder<String> errorMsg,
-        @WebParam(mode = WebParam.Mode.OUT, name = "supp_field_values", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
-        javax.xml.ws.Holder<java.util.List<com.aria.common.shared.SuppFieldValuesReturnElement>> suppFieldValues,
         @WebParam(mode = WebParam.Mode.OUT, name = "acct_supp_field_values", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         javax.xml.ws.Holder<java.util.List<com.aria.common.shared.AcctSuppFieldValuesReturnElement>> acctSuppFieldValues
     );
@@ -11386,8 +11384,6 @@ public interface CompletePort {
         @WebParam(name = "client_contract_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String clientContractId
 ,
-        @WebParam(name = "contract_plan_instances", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
-        com.aria.common.shared.ContractPlanInstancesArray contractPlanInstances,
         @WebParam(name = "type_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         Long typeNo
 ,
@@ -11412,6 +11408,8 @@ public interface CompletePort {
         @WebParam(name = "cascade_action", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String cascadeAction
 ,
+        @WebParam(name = "contract_plan_instances_update", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        com.aria.common.shared.ContractPlanInstancesUpdateArray contractPlanInstancesUpdate,
         @WebParam(name = "contract_rollover_custom_rates", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         com.aria.common.shared.ContractRolloverCustomRatesArray contractRolloverCustomRates,
         @WebParam(mode = WebParam.Mode.OUT, name = "error_code", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
@@ -15549,9 +15547,6 @@ public interface CompletePort {
         @WebParam(name = "cc_expire_yyyy", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         Long ccExpireYyyy
 ,
-        @WebParam(name = "cvv", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
-        String cvv
-,
         @WebParam(name = "bank_routing_num", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String bankRoutingNum
 ,
@@ -15597,9 +15592,6 @@ public interface CompletePort {
         @WebParam(name = "bill_address2", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String billAddress2
 ,
-        @WebParam(name = "bill_address3", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
-        String billAddress3
-,
         @WebParam(name = "bill_city", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String billCity
 ,
@@ -15633,6 +15625,15 @@ public interface CompletePort {
         @WebParam(name = "bill_work_phone_extension", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String billWorkPhoneExtension
 ,
+        @WebParam(name = "cvv", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String cvv
+,
+        @WebParam(name = "bank_acct_type", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String bankAcctType
+,
+        @WebParam(name = "bill_address3", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String billAddress3
+,
         @WebParam(name = "multiple_coupons", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         com.aria.common.shared.MultipleCouponsArray multipleCoupons,
         @WebParam(name = "alt_client_acct_group_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
@@ -15643,6 +15644,9 @@ public interface CompletePort {
 ,
         @WebParam(name = "alt_inv_template_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         Long altInvTemplateNo
+,
+        @WebParam(name = "force_supp_bill_date_reset", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        Long forceSuppBillDateReset
 ,
         @WebParam(name = "statement_message", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String statementMessage
@@ -15655,6 +15659,9 @@ public interface CompletePort {
 ,
         @WebParam(name = "do_write", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String doWrite
+,
+        @WebParam(name = "order_comments", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String orderComments
 ,
         @WebParam(mode = WebParam.Mode.OUT, name = "error_code", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         javax.xml.ws.Holder<Long> errorCode,

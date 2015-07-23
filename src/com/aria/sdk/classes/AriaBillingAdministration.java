@@ -345,7 +345,7 @@ public interface AriaBillingAdministration {
     * getServiceDetails
     * @param client_no - Type: Long
     * @param auth_key - Type: String
-    * @param service_no - Type: String
+    * @param service_no - Type: Long
     * @param client_service_id - Type: String
     * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
     *   error_code - Type: javax.xml.ws.Holder<br>
@@ -367,7 +367,7 @@ public interface AriaBillingAdministration {
     *   commodity_cd - Type: javax.xml.ws.Holder<br>
     *   client_tax_group_id - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> getServiceDetails(Long client_no, String auth_key, String service_no, String client_service_id);
+    abstract Map<String,Object> getServiceDetails(Long client_no, String auth_key, Long service_no, String client_service_id);
 
     abstract Map<String,Object> getServiceDetails(Map<String,Object> map);
 
