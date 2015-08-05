@@ -162,6 +162,7 @@ public class AriaServiceClientTest {
         //getCouponGroups();
         //getCouponGroupDetails();
         //getClientPaymentMethod();
+        //getDunningProcessesM();
         //viewProcessorConfig();
         //editProcessorConfig();
         //deleteProcessorConfig();
@@ -1228,7 +1229,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , assignFieldCategoriesArray
-                , ""
+                , 1L
                 , ""
                 , contractRolloverRateSchedArray
         );
@@ -1367,7 +1368,7 @@ public class AriaServiceClientTest {
                 , 1L
                 , assignFieldCategoriesArray
                 , 1L
-                , ""
+                , 1L
                 , ""
                 , contractRolloverRateSchedArray
         );
@@ -2208,6 +2209,25 @@ public class AriaServiceClientTest {
         hashMapReturnValues = getBaseAriaBilling().getClientPaymentMethod(getClientNo(), getAuthKey());
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getClientPaymentMethod - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getDunningProcessesM() throws Exception {
+        com.aria.common.shared.admin.DunningProcessesArray dunningProcessesArray = new com.aria.common.shared.admin.DunningProcessesArray();
+        com.aria.common.shared.admin.PayMethodTypesArray payMethodTypesArray = new com.aria.common.shared.admin.PayMethodTypesArray();
+        com.aria.common.shared.admin.MasterPlansArray masterPlansArray = new com.aria.common.shared.admin.MasterPlansArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().getDunningProcessesM(getClientNo(), getAuthKey()        , dunningProcessesArray
+                , payMethodTypesArray
+                , masterPlansArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getDunningProcessesM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }

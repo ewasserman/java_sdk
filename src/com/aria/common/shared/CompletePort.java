@@ -1263,6 +1263,37 @@ public interface CompletePort {
         javax.xml.ws.Holder<java.util.List<com.aria.common.shared.SuppPlansDtlBySuppFieldReturnElement>> suppPlansDtlBySuppField
     );
 
+    @RequestWrapper(localName = "get_acct_surcharges_m", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api", className = "com.aria.common.shared.GetAcctSurchargesM")
+    @WebMethod(operationName = "get_acct_surcharges_m", action = "get_acct_surcharges_m")
+    @ResponseWrapper(localName = "get_acct_surcharges_mResponseElement", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api", className = "com.aria.common.shared.GetAcctSurchargesMResponseElement")
+    public void getAcctSurchargesM(
+        @WebParam(name = "client_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        Long clientNo,
+        @WebParam(name = "auth_key", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String authKey,
+        @WebParam(name = "acct_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        Long acctNo
+,
+        @WebParam(name = "client_acct_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String clientAcctId
+,
+        @WebParam(name = "master_plan_instance_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        Long masterPlanInstanceNo
+,
+        @WebParam(name = "client_master_plan_instance_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String clientMasterPlanInstanceId
+,
+        @WebParam(name = "include_detail_ind", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String includeDetailInd
+,
+        @WebParam(mode = WebParam.Mode.OUT, name = "all_surcharges", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        javax.xml.ws.Holder<java.util.List<com.aria.common.shared.AllSurchargesReturnElement>> allSurcharges,
+        @WebParam(mode = WebParam.Mode.OUT, name = "error_code", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        javax.xml.ws.Holder<Long> errorCode,
+        @WebParam(mode = WebParam.Mode.OUT, name = "error_msg", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        javax.xml.ws.Holder<String> errorMsg
+    );
+
     @RequestWrapper(localName = "get_coupon_details", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api", className = "com.aria.common.shared.GetCouponDetails")
     @WebMethod(operationName = "get_coupon_details", action = "get_coupon_details")
     @ResponseWrapper(localName = "get_coupon_detailsResponseElement", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api", className = "com.aria.common.shared.GetCouponDetailsResponseElement")
@@ -8727,6 +8758,8 @@ public interface CompletePort {
         @WebParam(name = "promo_cd", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String promoCd
 ,
+        @WebParam(name = "mpi_surcharges", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        com.aria.common.shared.MpiSurchargesArray mpiSurcharges,
         @WebParam(name = "plan_status", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         Long planStatus
 ,
@@ -9044,6 +9077,8 @@ public interface CompletePort {
         @WebParam(name = "usage_threshold_applicability", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         String usageThresholdApplicability
 ,
+        @WebParam(name = "mp_surcharges", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        com.aria.common.shared.MpSurchargesArray mpSurcharges,
         @WebParam(mode = WebParam.Mode.OUT, name = "error_code", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         javax.xml.ws.Holder<Long> errorCode,
         @WebParam(mode = WebParam.Mode.OUT, name = "error_msg", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
@@ -9700,6 +9735,9 @@ public interface CompletePort {
         String authKey,
         @WebParam(name = "acct_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         Long acctNo
+,
+        @WebParam(name = "client_acct_id", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        String clientAcctId
 ,
         @WebParam(name = "dunning_group_no", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         Long dunningGroupNo
@@ -15072,8 +15110,8 @@ public interface CompletePort {
         javax.xml.ws.Holder<Long> errorCode,
         @WebParam(mode = WebParam.Mode.OUT, name = "error_msg", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         javax.xml.ws.Holder<String> errorMsg,
-        @WebParam(mode = WebParam.Mode.OUT, name = "payment_history", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
-        javax.xml.ws.Holder<java.util.List<com.aria.common.shared.PaymentHistoryReturnElement>> paymentHistory
+        @WebParam(mode = WebParam.Mode.OUT, name = "acct_payment_history", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        javax.xml.ws.Holder<java.util.List<com.aria.common.shared.AcctPaymentHistoryReturnElement>> acctPaymentHistory
     );
 
     @RequestWrapper(localName = "get_payments_on_invoice_m", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api", className = "com.aria.common.shared.GetPaymentsOnInvoiceM")
@@ -15097,8 +15135,8 @@ public interface CompletePort {
         javax.xml.ws.Holder<Long> errorCode,
         @WebParam(mode = WebParam.Mode.OUT, name = "error_msg", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
         javax.xml.ws.Holder<String> errorMsg,
-        @WebParam(mode = WebParam.Mode.OUT, name = "invoice_payments", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
-        javax.xml.ws.Holder<java.util.List<com.aria.common.shared.InvoicePaymentsReturnElement>> invoicePayments
+        @WebParam(mode = WebParam.Mode.OUT, name = "invoice_payment_details", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api")
+        javax.xml.ws.Holder<java.util.List<com.aria.common.shared.InvoicePaymentDetailsReturnElement>> invoicePaymentDetails
     );
 
     @RequestWrapper(localName = "get_unapplied_credits_payments_m", targetNamespace = "urn:client:api:wsdl:document/literal_wrapped:vers:6.37:aria_complete_api", className = "com.aria.common.shared.GetUnappliedCreditsPaymentsM")

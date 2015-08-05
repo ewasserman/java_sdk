@@ -1417,14 +1417,22 @@ public class RestUtilities {
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setCurrentRateSchedNo(getStringValue(jsonObject,"current_rate_sched_no"));
+            entity.setCurrentRateSchedNo(getLongValue(jsonObject,"current_rate_sched_no"));
             entity.setCurrentClientRateSchedId(getStringValue(jsonObject,"current_client_rate_sched_id"));
-            entity.setRolloverRateSchedNo(getStringValue(jsonObject,"rollover_rate_sched_no"));
+            entity.setRolloverRateSchedNo(getLongValue(jsonObject,"rollover_rate_sched_no"));
             entity.setRolloverClientRateSchedId(getStringValue(jsonObject,"rollover_client_rate_sched_id"));
             } else {
-            entity.setCurrentRateSchedNo(jsonArray.get(i).toString());
+            try {
+                entity.setCurrentRateSchedNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setCurrentRateSchedNo(null);
+            }
             entity.setCurrentClientRateSchedId(jsonArray.get(i).toString());
-            entity.setRolloverRateSchedNo(jsonArray.get(i).toString());
+            try {
+                entity.setRolloverRateSchedNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setRolloverRateSchedNo(null);
+            }
             entity.setRolloverClientRateSchedId(jsonArray.get(i).toString());
             }
             returnElement.add(entity);
@@ -1919,6 +1927,98 @@ public class RestUtilities {
                 entity.setDaysUntilPaymentReminder03(Long.parseLong(jsonArray.get(i).toString()));
             } catch (NumberFormatException e) {
                 entity.setDaysUntilPaymentReminder03(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<MappedMasterPlansReturnElement> buildMappedMasterPlansReturnElement(JSONArray jsonArray) {
+        ArrayList<MappedMasterPlansReturnElement> returnElement = new ArrayList<MappedMasterPlansReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            MappedMasterPlansReturnElement entity = new MappedMasterPlansReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
+            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            } else {
+            try {
+                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPlanNo(null);
+            }
+            entity.setClientPlanId(jsonArray.get(i).toString());
+            entity.setPlanName(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<MappedPayMethodTypesReturnElement> buildMappedPayMethodTypesReturnElement(JSONArray jsonArray) {
+        ArrayList<MappedPayMethodTypesReturnElement> returnElement = new ArrayList<MappedPayMethodTypesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            MappedPayMethodTypesReturnElement entity = new MappedPayMethodTypesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPayMethodTypeCd(getLongValue(jsonObject,"pay_method_type_cd"));
+            entity.setPayMethodType(getStringValue(jsonObject,"pay_method_type"));
+            } else {
+            try {
+                entity.setPayMethodTypeCd(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setPayMethodTypeCd(null);
+            }
+            entity.setPayMethodType(jsonArray.get(i).toString());
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<DunningProcessDetailsReturnElement> buildDunningProcessDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<DunningProcessDetailsReturnElement> returnElement = new ArrayList<DunningProcessDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DunningProcessDetailsReturnElement entity = new DunningProcessDetailsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setDunningProcessNo(getLongValue(jsonObject,"dunning_process_no"));
+            entity.setClientDunningProcessId(getStringValue(jsonObject,"client_dunning_process_id"));
+            entity.setDunningProcessName(getStringValue(jsonObject,"dunning_process_name"));
+            entity.setDunningProcessDescription(getStringValue(jsonObject,"dunning_process_description"));
+            entity.setClientDefaultInd(getLongValue(jsonObject,"client_default_ind"));
+            entity.setTotalStepCount(getLongValue(jsonObject,"total_step_count"));
+                        ArrayList<MappedMasterPlansReturnElement> arrayListMappedMasterPlansReturnElement = buildMappedMasterPlansReturnElement((JSONArray)jsonObject.get("mapped_master_plans"));
+            for (MappedMasterPlansReturnElement element : arrayListMappedMasterPlansReturnElement){
+                entity.getMappedMasterPlans().add(element);
+            }
+                        ArrayList<MappedPayMethodTypesReturnElement> arrayListMappedPayMethodTypesReturnElement = buildMappedPayMethodTypesReturnElement((JSONArray)jsonObject.get("mapped_pay_method_types"));
+            for (MappedPayMethodTypesReturnElement element : arrayListMappedPayMethodTypesReturnElement){
+                entity.getMappedPayMethodTypes().add(element);
+            }
+            } else {
+            try {
+                entity.setDunningProcessNo(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setDunningProcessNo(null);
+            }
+            entity.setClientDunningProcessId(jsonArray.get(i).toString());
+            entity.setDunningProcessName(jsonArray.get(i).toString());
+            entity.setDunningProcessDescription(jsonArray.get(i).toString());
+            try {
+                entity.setClientDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setClientDefaultInd(null);
+            }
+            try {
+                entity.setTotalStepCount(Long.parseLong(jsonArray.get(i).toString()));
+            } catch (NumberFormatException e) {
+                entity.setTotalStepCount(null);
             }
             }
             returnElement.add(entity);
@@ -2845,9 +2945,9 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.ContractRolloverRateSchedRow row : arrayList.getContractRolloverRateSchedRow()){
-            parameters.add("current_rate_sched_no["+i+"]", getValue("String", row.getCurrentRateSchedNo()));
+            parameters.add("current_rate_sched_no["+i+"]", getValue("Long", row.getCurrentRateSchedNo()));
             parameters.add("current_client_rate_sched_id["+i+"]", getValue("String", row.getCurrentClientRateSchedId()));
-            parameters.add("rollover_rate_sched_no["+i+"]", getValue("String", row.getRolloverRateSchedNo()));
+            parameters.add("rollover_rate_sched_no["+i+"]", getValue("Long", row.getRolloverRateSchedNo()));
             parameters.add("rollover_client_rate_sched_id["+i+"]", getValue("String", row.getRolloverClientRateSchedId()));
             i++;
         }
@@ -2856,9 +2956,9 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.admin.ContractRolloverRateSchedRow row : arrayList.getContractRolloverRateSchedRow()){
-            parameters.add(paramPrefix + "current_rate_sched_no["+i+"]", getValue("String", row.getCurrentRateSchedNo()));
+            parameters.add(paramPrefix + "current_rate_sched_no["+i+"]", getValue("Long", row.getCurrentRateSchedNo()));
             parameters.add(paramPrefix + "current_client_rate_sched_id["+i+"]", getValue("String", row.getCurrentClientRateSchedId()));
-            parameters.add(paramPrefix + "rollover_rate_sched_no["+i+"]", getValue("String", row.getRolloverRateSchedNo()));
+            parameters.add(paramPrefix + "rollover_rate_sched_no["+i+"]", getValue("Long", row.getRolloverRateSchedNo()));
             parameters.add(paramPrefix + "rollover_client_rate_sched_id["+i+"]", getValue("String", row.getRolloverClientRateSchedId()));
             i++;
         }
@@ -3014,6 +3114,61 @@ public class RestUtilities {
         int i = 0;
         for (com.aria.common.shared.admin.CouponsRow row : arrayList.getCouponsRow()){
             parameters.add(paramPrefix + "coupon_cd["+i+"]", getValue("String", row.getCouponCd()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.DunningProcessesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.DunningProcessesRow row : arrayList.getDunningProcessesRow()){
+            parameters.add("dunning_process_no["+i+"]", getValue("Long", row.getDunningProcessNo()));
+            parameters.add("client_dunning_process_id["+i+"]", getValue("String", row.getClientDunningProcessId()));
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.DunningProcessesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.DunningProcessesRow row : arrayList.getDunningProcessesRow()){
+            parameters.add(paramPrefix + "dunning_process_no["+i+"]", getValue("Long", row.getDunningProcessNo()));
+            parameters.add(paramPrefix + "client_dunning_process_id["+i+"]", getValue("String", row.getClientDunningProcessId()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PayMethodTypesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.PayMethodTypesRow row : arrayList.getPayMethodTypesRow()){
+            parameters.add("pay_method_type_cd["+i+"]", getValue("Long", row.getPayMethodTypeCd()));
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PayMethodTypesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.PayMethodTypesRow row : arrayList.getPayMethodTypesRow()){
+            parameters.add(paramPrefix + "pay_method_type_cd["+i+"]", getValue("Long", row.getPayMethodTypeCd()));
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.MasterPlansArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.MasterPlansRow row : arrayList.getMasterPlansRow()){
+            parameters.add("plan_no["+i+"]", getValue("Long", row.getPlanNo()));
+            parameters.add("client_plan_id["+i+"]", getValue("String", row.getClientPlanId()));
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.MasterPlansArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.MasterPlansRow row : arrayList.getMasterPlansRow()){
+            parameters.add(paramPrefix + "plan_no["+i+"]", getValue("Long", row.getPlanNo()));
+            parameters.add(paramPrefix + "client_plan_id["+i+"]", getValue("String", row.getClientPlanId()));
             i++;
         }
     }

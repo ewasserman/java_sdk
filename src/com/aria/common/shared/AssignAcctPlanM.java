@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "newPlanNo",    "newClientPlanId",    "clientPlanInstanceId",    "existingBillingGroupNo",    "existingClientBillingGroupId",    "billingGroupName",    "billingGroupDescription",    "clientDefBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "existingPrimaryPaymentMethodNo",    "existingClientPrimaryPaymentMethodId",    "existingBackupPaymentMethodNo",    "existingClientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "primaryPayMethodName",    "primaryPayMethodCdid",    "primaryPayMethodDescription",    "primaryPayMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "existingDunningGroupNo",    "existingClientDefDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcessNo",    "clientDunningProcessId",    "altStartDate",    "statusUntilAltStart",    "altBillDay",    "invoicingOption",    "retroactiveStartDate",    "balanceForward",    "respLevelCd",    "parentAcctMasterPlanInstId",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "customRates",    "effectiveDate",    "offsetInterval",    "forceSuppBillDateReset",    "clientAltRateScheduleId"})
+    "authKey",    "acctNo",    "newPlanNo",    "newClientPlanId",    "clientPlanInstanceId",    "existingBillingGroupNo",    "existingClientBillingGroupId",    "billingGroupName",    "billingGroupDescription",    "clientDefBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "existingPrimaryPaymentMethodNo",    "existingClientPrimaryPaymentMethodId",    "existingBackupPaymentMethodNo",    "existingClientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "primaryPayMethodName",    "primaryPayMethodCdid",    "primaryPayMethodDescription",    "primaryPayMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "existingDunningGroupNo",    "existingClientDefDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcessNo",    "clientDunningProcessId",    "altStartDate",    "statusUntilAltStart",    "altBillDay",    "invoicingOption",    "retroactiveStartDate",    "balanceForward",    "respLevelCd",    "parentAcctMasterPlanInstId",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "mpiSurcharges",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "customRates",    "effectiveDate",    "offsetInterval",    "forceSuppBillDateReset",    "clientAltRateScheduleId"})
 @XmlRootElement(name = "assign_acct_plan_m")
 public class AssignAcctPlanM {
 
@@ -214,6 +214,8 @@ public class AssignAcctPlanM {
     protected CouponCodesArray couponCodes;
         @XmlElement(name = "promo_cd")
     protected String promoCd;
+        @XmlElement(name = "mpi_surcharges")
+    protected MpiSurchargesArray mpiSurcharges;
         @XmlElement(name = "plan_status")
     protected Long planStatus;
         @XmlElement(name = "plan_instance_description")
@@ -954,6 +956,13 @@ public class AssignAcctPlanM {
 
     public void setPromoCd(String value) {
         this.promoCd = value;
+    }
+            public MpiSurchargesArray getMpiSurcharges() {
+        return mpiSurcharges;
+    }
+
+    public void setMpiSurcharges(MpiSurchargesArray value) {
+        this.mpiSurcharges = value;
     }
             public Long getPlanStatus() {
         return planStatus;

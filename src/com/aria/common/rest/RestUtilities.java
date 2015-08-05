@@ -1237,6 +1237,51 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<SurchargeRatesReturnElement> buildSurchargeRatesReturnElement(JSONArray jsonArray) {
+        ArrayList<SurchargeRatesReturnElement> returnElement = new ArrayList<SurchargeRatesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SurchargeRatesReturnElement entity = new SurchargeRatesReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRateSeqNo(getLongValue(jsonObject,"rate_seq_no"));
+            entity.setFromUnit(getDoubleValue(jsonObject,"from_unit"));
+            entity.setToUnit(getDoubleValue(jsonObject,"to_unit"));
+            entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
+            entity.setIncludeZero(getLongValue(jsonObject,"include_zero"));
+            entity.setRateSchedIsAssignedInd(getLongValue(jsonObject,"rate_sched_is_assigned_ind"));
+            entity.setRateTierDescription(getStringValue(jsonObject,"rate_tier_description"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<AllSurchargesReturnElement> buildAllSurchargesReturnElement(JSONArray jsonArray) {
+        ArrayList<AllSurchargesReturnElement> returnElement = new ArrayList<AllSurchargesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            AllSurchargesReturnElement entity = new AllSurchargesReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setSurchargeNo(getLongValue(jsonObject,"surcharge_no"));
+            entity.setSurchargeName(getStringValue(jsonObject,"surcharge_name"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
+            entity.setSurchargeType(getStringValue(jsonObject,"surcharge_type"));
+            entity.setCurrency(getStringValue(jsonObject,"currency"));
+            entity.setTaxGroup(getStringValue(jsonObject,"tax_group"));
+            entity.setInvoiceAppMethod(getStringValue(jsonObject,"invoice_app_method"));
+            entity.setRevGlCode(getStringValue(jsonObject,"rev_gl_code"));
+            entity.setArGlCode(getStringValue(jsonObject,"ar_gl_code"));
+                        ArrayList<SurchargePlanReturnElement> arrayListSurchargePlanReturnElement = buildSurchargePlanReturnElement((JSONArray)jsonObject.get("surcharge_plan"));
+            for (SurchargePlanReturnElement element : arrayListSurchargePlanReturnElement){
+                entity.getSurchargePlan().add(element);
+            }
+                        ArrayList<SurchargeRatesReturnElement> arrayListSurchargeRatesReturnElement = buildSurchargeRatesReturnElement((JSONArray)jsonObject.get("surcharge_rates"));
+            for (SurchargeRatesReturnElement element : arrayListSurchargeRatesReturnElement){
+                entity.getSurchargeRates().add(element);
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<DiscountBundleNoReturnElement> buildDiscountBundleNoReturnElement(JSONArray jsonArray) {
         ArrayList<DiscountBundleNoReturnElement> returnElement = new ArrayList<DiscountBundleNoReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -3219,6 +3264,18 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<SuppPlanPlanInstFieldsReturnElement> buildSuppPlanPlanInstFieldsReturnElement(JSONArray jsonArray) {
+        ArrayList<SuppPlanPlanInstFieldsReturnElement> returnElement = new ArrayList<SuppPlanPlanInstFieldsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SuppPlanPlanInstFieldsReturnElement entity = new SuppPlanPlanInstFieldsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanInstanceFieldName(getStringValue(jsonObject,"plan_instance_field_name"));
+            entity.setPlanInstanceFieldValue(getStringValue(jsonObject,"plan_instance_field_value"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<CouponCodesReturnElement> buildCouponCodesReturnElement(JSONArray jsonArray) {
         ArrayList<CouponCodesReturnElement> returnElement = new ArrayList<CouponCodesReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -3238,6 +3295,18 @@ public class RestUtilities {
             JSONObject jsonObject = (JSONObject)jsonArray.get(i);
             entity.setFieldName(getStringValue(jsonObject,"field_name"));
             entity.setFieldValue(getStringValue(jsonObject,"field_value"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<MpPlanInstFieldsReturnElement> buildMpPlanInstFieldsReturnElement(JSONArray jsonArray) {
+        ArrayList<MpPlanInstFieldsReturnElement> returnElement = new ArrayList<MpPlanInstFieldsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            MpPlanInstFieldsReturnElement entity = new MpPlanInstFieldsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanInstanceFieldName(getStringValue(jsonObject,"plan_instance_field_name"));
+            entity.setPlanInstanceFieldValue(getStringValue(jsonObject,"plan_instance_field_value"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -3265,9 +3334,19 @@ public class RestUtilities {
             entity.setSuppPlanInstanceStatus(getStringValue(jsonObject,"supp_plan_instance_status"));
             entity.setParentPlanInstanceNo(getLongValue(jsonObject,"parent_plan_instance_no"));
             entity.setClientParentPlanInstanceId(getStringValue(jsonObject,"client_parent_plan_instance_id"));
+            entity.setRecurringBillingInterval(getLongValue(jsonObject,"recurring_billing_interval"));
+            entity.setUsageBillingInterval(getLongValue(jsonObject,"usage_billing_interval"));
+            entity.setRolloverPlanStatus(getLongValue(jsonObject,"rollover_plan_status"));
+            entity.setRolloverPlanStatusDuration(getLongValue(jsonObject,"rollover_plan_status_duration"));
+            entity.setRolloverPlanStatusUomCd(getLongValue(jsonObject,"rollover_plan_status_uom_cd"));
+            entity.setPlanDeprovisionedDate(getStringValue(jsonObject,"plan_deprovisioned_date"));
                         ArrayList<SuppPlanProductFieldsReturnElement> arrayListSuppPlanProductFieldsReturnElement = buildSuppPlanProductFieldsReturnElement((JSONArray)jsonObject.get("supp_plan_product_fields"));
             for (SuppPlanProductFieldsReturnElement element : arrayListSuppPlanProductFieldsReturnElement){
                 entity.getSuppPlanProductFields().add(element);
+            }
+                        ArrayList<SuppPlanPlanInstFieldsReturnElement> arrayListSuppPlanPlanInstFieldsReturnElement = buildSuppPlanPlanInstFieldsReturnElement((JSONArray)jsonObject.get("supp_plan_plan_inst_fields"));
+            for (SuppPlanPlanInstFieldsReturnElement element : arrayListSuppPlanPlanInstFieldsReturnElement){
+                entity.getSuppPlanPlanInstFields().add(element);
             }
             returnElement.add(entity);
         }
@@ -3450,6 +3529,18 @@ public class RestUtilities {
             entity.setStatusDate(getStringValue(jsonObject,"status_date"));
             entity.setMasterPlanInstanceBalance(getDoubleValue(jsonObject,"master_plan_instance_balance"));
             entity.setStatusDegradeDate(getStringValue(jsonObject,"status_degrade_date"));
+            entity.setRecurringBillingInterval(getLongValue(jsonObject,"recurring_billing_interval"));
+            entity.setUsageBillingInterval(getLongValue(jsonObject,"usage_billing_interval"));
+            entity.setInitialPlanStatus(getLongValue(jsonObject,"initial_plan_status"));
+            entity.setRolloverPlanStatus(getLongValue(jsonObject,"rollover_plan_status"));
+            entity.setRolloverPlanStatusDuration(getLongValue(jsonObject,"rollover_plan_status_duration"));
+            entity.setRolloverPlanStatusUomCd(getLongValue(jsonObject,"rollover_plan_status_uom_cd"));
+            entity.setInitFreePeriodDuration(getLongValue(jsonObject,"init_free_period_duration"));
+            entity.setInitFreePeriodUomCd(getLongValue(jsonObject,"init_free_period_uom_cd"));
+            entity.setDunningState(getLongValue(jsonObject,"dunning_state"));
+            entity.setDunningStep(getLongValue(jsonObject,"dunning_step"));
+            entity.setDunningDegradeDate(getStringValue(jsonObject,"dunning_degrade_date"));
+            entity.setPlanDeprovisionedDate(getStringValue(jsonObject,"plan_deprovisioned_date"));
                         ArrayList<CouponCodesReturnElement> arrayListCouponCodesReturnElement = buildCouponCodesReturnElement((JSONArray)jsonObject.get("coupon_codes"));
             for (CouponCodesReturnElement element : arrayListCouponCodesReturnElement){
                 entity.getCouponCodes().add(element);
@@ -3457,6 +3548,10 @@ public class RestUtilities {
                         ArrayList<MasterPlanProductFieldsReturnElement> arrayListMasterPlanProductFieldsReturnElement = buildMasterPlanProductFieldsReturnElement((JSONArray)jsonObject.get("master_plan_product_fields"));
             for (MasterPlanProductFieldsReturnElement element : arrayListMasterPlanProductFieldsReturnElement){
                 entity.getMasterPlanProductFields().add(element);
+            }
+                        ArrayList<MpPlanInstFieldsReturnElement> arrayListMpPlanInstFieldsReturnElement = buildMpPlanInstFieldsReturnElement((JSONArray)jsonObject.get("mp_plan_inst_fields"));
+            for (MpPlanInstFieldsReturnElement element : arrayListMpPlanInstFieldsReturnElement){
+                entity.getMpPlanInstFields().add(element);
             }
                         ArrayList<SuppPlansInfoReturnElement> arrayListSuppPlansInfoReturnElement = buildSuppPlansInfoReturnElement((JSONArray)jsonObject.get("supp_plans_info"));
             for (SuppPlansInfoReturnElement element : arrayListSuppPlansInfoReturnElement){
@@ -5159,14 +5254,14 @@ public class RestUtilities {
             entity.setPaymentAmountLeftToApply(getDoubleValue(jsonObject,"payment_amount_left_to_apply"));
             entity.setVoidingEventNo(getLongValue(jsonObject,"voiding_event_no"));
             entity.setVoidableFlag(getLongValue(jsonObject,"voidable_flag"));
-            entity.setLast4(getLongValue(jsonObject,"last_4"));
-            entity.setPaymentMethodType(getStringValue(jsonObject,"payment_method_type"));
-            entity.setPaymentMethod(getLongValue(jsonObject,"payment_method"));
-            entity.setPaymentProcessorResultCode(getLongValue(jsonObject,"payment_processor_result_code"));
-            entity.setProcessorPaymentId(getStringValue(jsonObject,"processor_payment_id"));
-            entity.setPaymentProcessorApprovalCode(getStringValue(jsonObject,"payment_processor_approval_code"));
+            entity.setCcSuffix(getStringValue(jsonObject,"cc_suffix"));
+            entity.setCcString(getStringValue(jsonObject,"cc_string"));
+            entity.setPayMethodType(getLongValue(jsonObject,"pay_method_type"));
+            entity.setProcStatusCode(getLongValue(jsonObject,"proc_status_code"));
+            entity.setProcPaymentId(getStringValue(jsonObject,"proc_payment_id"));
+            entity.setProcAuthCode(getStringValue(jsonObject,"proc_auth_code"));
             entity.setPaymentTimestamp(getStringValue(jsonObject,"payment_timestamp"));
-            entity.setProcessorStatusText(getStringValue(jsonObject,"processor_status_text"));
+            entity.setProcStatusText(getStringValue(jsonObject,"proc_status_text"));
                         ArrayList<PaymentApplicationDetailsReturnElement> arrayListPaymentApplicationDetailsReturnElement = buildPaymentApplicationDetailsReturnElement((JSONArray)jsonObject.get("payment_application_details"));
             for (PaymentApplicationDetailsReturnElement element : arrayListPaymentApplicationDetailsReturnElement){
                 entity.getPaymentApplicationDetails().add(element);
@@ -5460,6 +5555,66 @@ public class RestUtilities {
             entity.setDisputeExpiryDate(getStringValue(jsonObject,"dispute_expiry_date"));
             entity.setDisputeInd(getLongValue(jsonObject,"dispute_ind"));
             entity.setCanUnsettle(getStringValue(jsonObject,"can_unsettle"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<AcctPaymentHistoryReturnElement> buildAcctPaymentHistoryReturnElement(JSONArray jsonArray) {
+        ArrayList<AcctPaymentHistoryReturnElement> returnElement = new ArrayList<AcctPaymentHistoryReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            AcctPaymentHistoryReturnElement entity = new AcctPaymentHistoryReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setTransactionId(getLongValue(jsonObject,"transaction_id"));
+            entity.setPaymentSource(getStringValue(jsonObject,"payment_source"));
+            entity.setPaymentStatus(getStringValue(jsonObject,"payment_status"));
+            entity.setPaymentDate(getStringValue(jsonObject,"payment_date"));
+            entity.setPaymentTransType(getLongValue(jsonObject,"payment_trans_type"));
+            entity.setPaymentCurrency(getStringValue(jsonObject,"payment_currency"));
+            entity.setPaymentAmount(getDoubleValue(jsonObject,"payment_amount"));
+            entity.setPaymentAmountLeftToApply(getDoubleValue(jsonObject,"payment_amount_left_to_apply"));
+            entity.setVoidingEventNo(getLongValue(jsonObject,"voiding_event_no"));
+            entity.setVoidableFlag(getLongValue(jsonObject,"voidable_flag"));
+            entity.setCcSuffix(getLongValue(jsonObject,"cc_suffix"));
+            entity.setCcString(getStringValue(jsonObject,"cc_string"));
+            entity.setPayMethodType(getLongValue(jsonObject,"pay_method_type"));
+            entity.setProcStatusCode(getLongValue(jsonObject,"proc_status_code"));
+            entity.setProcPaymentId(getStringValue(jsonObject,"proc_payment_id"));
+            entity.setProcAuthCode(getStringValue(jsonObject,"proc_auth_code"));
+            entity.setPaymentTimestamp(getStringValue(jsonObject,"payment_timestamp"));
+            entity.setProcStatusText(getStringValue(jsonObject,"proc_status_text"));
+            entity.setPaymentMethodNo(getLongValue(jsonObject,"payment_method_no"));
+            entity.setClientPaymentMethodId(getStringValue(jsonObject,"client_payment_method_id"));
+                        ArrayList<PaymentApplicationDetailsReturnElement> arrayListPaymentApplicationDetailsReturnElement = buildPaymentApplicationDetailsReturnElement((JSONArray)jsonObject.get("payment_application_details"));
+            for (PaymentApplicationDetailsReturnElement element : arrayListPaymentApplicationDetailsReturnElement){
+                entity.getPaymentApplicationDetails().add(element);
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<InvoicePaymentDetailsReturnElement> buildInvoicePaymentDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<InvoicePaymentDetailsReturnElement> returnElement = new ArrayList<InvoicePaymentDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            InvoicePaymentDetailsReturnElement entity = new InvoicePaymentDetailsReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setTransactionId(getLongValue(jsonObject,"transaction_id"));
+            entity.setTransactionType(getLongValue(jsonObject,"transaction_type"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setAmount(getDoubleValue(jsonObject,"amount"));
+            entity.setAppliedAmount(getDoubleValue(jsonObject,"applied_amount"));
+            entity.setCurrencyCode(getStringValue(jsonObject,"currency_code"));
+            entity.setTransactionDate(getStringValue(jsonObject,"transaction_date"));
+            entity.setIsVoided(getStringValue(jsonObject,"is_voided"));
+            entity.setStatementNo(getLongValue(jsonObject,"statement_no"));
+            entity.setPaymentType(getStringValue(jsonObject,"payment_type"));
+            entity.setPaymentSrcDescription(getStringValue(jsonObject,"payment_src_description"));
+            entity.setPaymentSrcSuffix(getStringValue(jsonObject,"payment_src_suffix"));
+            entity.setClientReceiptId(getStringValue(jsonObject,"client_receipt_id"));
+            entity.setSeqStatementId(getStringValue(jsonObject,"seq_statement_id"));
+            entity.setPaymentMethodNo(getLongValue(jsonObject,"payment_method_no"));
+            entity.setClientPaymentMethodId(getStringValue(jsonObject,"client_payment_method_id"));
             returnElement.add(entity);
         }
         return returnElement;
@@ -8141,8 +8296,8 @@ public class RestUtilities {
         if (arrayList == null) return;
         int i = 0;
         for (com.aria.common.shared.MpiSurchargesRow row : arrayList.getMpiSurchargesRow()){
-            parameters.add(paramPrefix + "["+i+"]" + "[mpi_surcharge_no]", getValue("Long", row.getMpiSurchargeNo()));
-            parameters.add(paramPrefix + "["+i+"]" + "[mpi_rate_schedule_no]", getValue("Long", row.getMpiRateScheduleNo()));
+            parameters.add(paramPrefix + "mpi_surcharge_no["+i+"]", getValue("Long", row.getMpiSurchargeNo()));
+            parameters.add(paramPrefix + "mpi_rate_schedule_no["+i+"]", getValue("Long", row.getMpiRateScheduleNo()));
             i++;
         }
     }

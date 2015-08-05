@@ -10,18 +10,23 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoicePaymentDetails"})
-@XmlRootElement(name = "get_payments_on_invoice_mResponseElement")
-public class GetPaymentsOnInvoiceMResponseElement {
+@XmlType(name = "", propOrder = {"allSurcharges", "errorCode", "errorMsg"})
+@XmlRootElement(name = "get_acct_surcharges_mResponseElement")
+public class GetAcctSurchargesMResponseElement {
 
+    @XmlElement(name = "all_surcharges")
+    protected List<AllSurchargesReturnElement> allSurcharges;
     @XmlElement(name = "error_code")
     protected Long errorCode;
     @XmlElement(name = "error_msg")
     protected String errorMsg;
-    @XmlElement(name = "invoice_payment_details")
-    protected List<InvoicePaymentDetailsReturnElement> invoicePaymentDetails;
     
-    public Long getErrorCode() {
+    public List<AllSurchargesReturnElement> getAllSurcharges() {
+        if (this.allSurcharges == null) {
+            this.allSurcharges = new ArrayList<AllSurchargesReturnElement>();
+        }
+        return this.allSurcharges;
+    }public Long getErrorCode() {
         return errorCode;
     }
 
@@ -37,10 +42,5 @@ public class GetPaymentsOnInvoiceMResponseElement {
         this.errorMsg = value;
     }
 
-    public List<InvoicePaymentDetailsReturnElement> getInvoicePaymentDetails() {
-        if (this.invoicePaymentDetails == null) {
-            this.invoicePaymentDetails = new ArrayList<InvoicePaymentDetailsReturnElement>();
-        }
-        return this.invoicePaymentDetails;
-    }
+    
 }

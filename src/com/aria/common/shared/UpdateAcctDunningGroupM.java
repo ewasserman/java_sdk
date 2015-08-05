@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "dunningGroupNo",    "clientDunningGroupId",    "newClientDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "dunningProcessNo",    "clientDunningProcessId",    "dunningGroupDirective",    "masterPlansSummary"})
+    "authKey",    "acctNo",    "clientAcctId",    "dunningGroupNo",    "clientDunningGroupId",    "newClientDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "dunningProcessNo",    "clientDunningProcessId",    "dunningGroupDirective",    "masterPlansSummary"})
 @XmlRootElement(name = "update_acct_dunning_group_m")
 public class UpdateAcctDunningGroupM {
 
@@ -20,6 +20,8 @@ public class UpdateAcctDunningGroupM {
     protected String authKey;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
+        @XmlElement(name = "client_acct_id")
+    protected String clientAcctId;
         @XmlElement(name = "dunning_group_no")
     protected Long dunningGroupNo;
         @XmlElement(name = "client_dunning_group_id")
@@ -61,6 +63,13 @@ public class UpdateAcctDunningGroupM {
 
     public void setAcctNo(Long value) {
         this.acctNo = value;
+    }
+            public String getClientAcctId() {
+        return clientAcctId;
+    }
+
+    public void setClientAcctId(String value) {
+        this.clientAcctId = value;
     }
             public Long getDunningGroupNo() {
         return dunningGroupNo;

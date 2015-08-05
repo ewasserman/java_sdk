@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "master_plans_info_ReturnElement", propOrder = {"masterPlanInstanceNo", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "dunningGroupName", "dunningGroupDescription", "dunningProcessNo", "clientDunningProcessId", "billingGroupNo", "clientBillingGroupId", "masterPlanInstanceStatus", "masterPlanUnits", "respLevelCd", "parentMasterPlanInstNo", "altRateScheduleNo", "clientAltRateScheduleId", "promoCd", "billDay", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "masterPlanInstanceBalance", "statusDegradeDate", "couponCodes", "masterPlanProductFields", "suppPlansInfo"})
+@XmlType(name = "master_plans_info_ReturnElement", propOrder = {"masterPlanInstanceNo", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "dunningGroupName", "dunningGroupDescription", "dunningProcessNo", "clientDunningProcessId", "billingGroupNo", "clientBillingGroupId", "masterPlanInstanceStatus", "masterPlanUnits", "respLevelCd", "parentMasterPlanInstNo", "altRateScheduleNo", "clientAltRateScheduleId", "promoCd", "billDay", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "masterPlanInstanceBalance", "statusDegradeDate", "recurringBillingInterval", "usageBillingInterval", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "dunningState", "dunningStep", "dunningDegradeDate", "planDeprovisionedDate", "couponCodes", "masterPlanProductFields", "mpPlanInstFields", "suppPlansInfo"})
 public class MasterPlansInfoReturnElement {
 
     @XmlElement(name = "master_plan_instance_no")
@@ -71,10 +71,36 @@ public class MasterPlansInfoReturnElement {
     protected Double masterPlanInstanceBalance;
     @XmlElement(name = "status_degrade_date")
     protected String statusDegradeDate;
+    @XmlElement(name = "recurring_billing_interval")
+    protected Long recurringBillingInterval;
+    @XmlElement(name = "usage_billing_interval")
+    protected Long usageBillingInterval;
+    @XmlElement(name = "initial_plan_status")
+    protected Long initialPlanStatus;
+    @XmlElement(name = "rollover_plan_status")
+    protected Long rolloverPlanStatus;
+    @XmlElement(name = "rollover_plan_status_duration")
+    protected Long rolloverPlanStatusDuration;
+    @XmlElement(name = "rollover_plan_status_uom_cd")
+    protected Long rolloverPlanStatusUomCd;
+    @XmlElement(name = "init_free_period_duration")
+    protected Long initFreePeriodDuration;
+    @XmlElement(name = "init_free_period_uom_cd")
+    protected Long initFreePeriodUomCd;
+    @XmlElement(name = "dunning_state")
+    protected Long dunningState;
+    @XmlElement(name = "dunning_step")
+    protected Long dunningStep;
+    @XmlElement(name = "dunning_degrade_date")
+    protected String dunningDegradeDate;
+    @XmlElement(name = "plan_deprovisioned_date")
+    protected String planDeprovisionedDate;
     @XmlElement(name = "coupon_codes")
     protected List<CouponCodesReturnElement> couponCodes;
     @XmlElement(name = "master_plan_product_fields")
     protected List<MasterPlanProductFieldsReturnElement> masterPlanProductFields;
+    @XmlElement(name = "mp_plan_inst_fields")
+    protected List<MpPlanInstFieldsReturnElement> mpPlanInstFields;
     @XmlElement(name = "supp_plans_info")
     protected List<SuppPlansInfoReturnElement> suppPlansInfo;
     
@@ -310,6 +336,102 @@ public class MasterPlansInfoReturnElement {
         this.statusDegradeDate = value;
     }
 
+    public Long getRecurringBillingInterval() {
+        return recurringBillingInterval;
+    }
+
+    public void setRecurringBillingInterval(Long value) {
+        this.recurringBillingInterval = value;
+    }
+
+    public Long getUsageBillingInterval() {
+        return usageBillingInterval;
+    }
+
+    public void setUsageBillingInterval(Long value) {
+        this.usageBillingInterval = value;
+    }
+
+    public Long getInitialPlanStatus() {
+        return initialPlanStatus;
+    }
+
+    public void setInitialPlanStatus(Long value) {
+        this.initialPlanStatus = value;
+    }
+
+    public Long getRolloverPlanStatus() {
+        return rolloverPlanStatus;
+    }
+
+    public void setRolloverPlanStatus(Long value) {
+        this.rolloverPlanStatus = value;
+    }
+
+    public Long getRolloverPlanStatusDuration() {
+        return rolloverPlanStatusDuration;
+    }
+
+    public void setRolloverPlanStatusDuration(Long value) {
+        this.rolloverPlanStatusDuration = value;
+    }
+
+    public Long getRolloverPlanStatusUomCd() {
+        return rolloverPlanStatusUomCd;
+    }
+
+    public void setRolloverPlanStatusUomCd(Long value) {
+        this.rolloverPlanStatusUomCd = value;
+    }
+
+    public Long getInitFreePeriodDuration() {
+        return initFreePeriodDuration;
+    }
+
+    public void setInitFreePeriodDuration(Long value) {
+        this.initFreePeriodDuration = value;
+    }
+
+    public Long getInitFreePeriodUomCd() {
+        return initFreePeriodUomCd;
+    }
+
+    public void setInitFreePeriodUomCd(Long value) {
+        this.initFreePeriodUomCd = value;
+    }
+
+    public Long getDunningState() {
+        return dunningState;
+    }
+
+    public void setDunningState(Long value) {
+        this.dunningState = value;
+    }
+
+    public Long getDunningStep() {
+        return dunningStep;
+    }
+
+    public void setDunningStep(Long value) {
+        this.dunningStep = value;
+    }
+
+    public String getDunningDegradeDate() {
+        return dunningDegradeDate;
+    }
+
+    public void setDunningDegradeDate(String value) {
+        this.dunningDegradeDate = value;
+    }
+
+    public String getPlanDeprovisionedDate() {
+        return planDeprovisionedDate;
+    }
+
+    public void setPlanDeprovisionedDate(String value) {
+        this.planDeprovisionedDate = value;
+    }
+
     public List<CouponCodesReturnElement> getCouponCodes() {
         if (this.couponCodes == null) {
             this.couponCodes = new ArrayList<CouponCodesReturnElement>();
@@ -320,6 +442,11 @@ public class MasterPlansInfoReturnElement {
             this.masterPlanProductFields = new ArrayList<MasterPlanProductFieldsReturnElement>();
         }
         return this.masterPlanProductFields;
+    }public List<MpPlanInstFieldsReturnElement> getMpPlanInstFields() {
+        if (this.mpPlanInstFields == null) {
+            this.mpPlanInstFields = new ArrayList<MpPlanInstFieldsReturnElement>();
+        }
+        return this.mpPlanInstFields;
     }public List<SuppPlansInfoReturnElement> getSuppPlansInfo() {
         if (this.suppPlansInfo == null) {
             this.suppPlansInfo = new ArrayList<SuppPlansInfoReturnElement>();

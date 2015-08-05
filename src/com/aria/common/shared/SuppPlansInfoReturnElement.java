@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supp_plans_info_ReturnElement", propOrder = {"suppPlanInstanceNo", "clientSuppPlanInstanceId", "suppPlanNo", "clientSuppPlanId", "suppPlanInstanceDescription", "suppPlanUnits", "altRateScheduleNo", "clientAltRateScheduleId", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "suppPlanInstanceStatus", "parentPlanInstanceNo", "clientParentPlanInstanceId", "suppPlanProductFields"})
+@XmlType(name = "supp_plans_info_ReturnElement", propOrder = {"suppPlanInstanceNo", "clientSuppPlanInstanceId", "suppPlanNo", "clientSuppPlanId", "suppPlanInstanceDescription", "suppPlanUnits", "altRateScheduleNo", "clientAltRateScheduleId", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "suppPlanInstanceStatus", "parentPlanInstanceNo", "clientParentPlanInstanceId", "recurringBillingInterval", "usageBillingInterval", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "planDeprovisionedDate", "suppPlanProductFields", "suppPlanPlanInstFields"})
 public class SuppPlansInfoReturnElement {
 
     @XmlElement(name = "supp_plan_instance_no")
@@ -47,8 +47,22 @@ public class SuppPlansInfoReturnElement {
     protected Long parentPlanInstanceNo;
     @XmlElement(name = "client_parent_plan_instance_id")
     protected String clientParentPlanInstanceId;
+    @XmlElement(name = "recurring_billing_interval")
+    protected Long recurringBillingInterval;
+    @XmlElement(name = "usage_billing_interval")
+    protected Long usageBillingInterval;
+    @XmlElement(name = "rollover_plan_status")
+    protected Long rolloverPlanStatus;
+    @XmlElement(name = "rollover_plan_status_duration")
+    protected Long rolloverPlanStatusDuration;
+    @XmlElement(name = "rollover_plan_status_uom_cd")
+    protected Long rolloverPlanStatusUomCd;
+    @XmlElement(name = "plan_deprovisioned_date")
+    protected String planDeprovisionedDate;
     @XmlElement(name = "supp_plan_product_fields")
     protected List<SuppPlanProductFieldsReturnElement> suppPlanProductFields;
+    @XmlElement(name = "supp_plan_plan_inst_fields")
+    protected List<SuppPlanPlanInstFieldsReturnElement> suppPlanPlanInstFields;
     
     public Long getSuppPlanInstanceNo() {
         return suppPlanInstanceNo;
@@ -186,10 +200,63 @@ public class SuppPlansInfoReturnElement {
         this.clientParentPlanInstanceId = value;
     }
 
+    public Long getRecurringBillingInterval() {
+        return recurringBillingInterval;
+    }
+
+    public void setRecurringBillingInterval(Long value) {
+        this.recurringBillingInterval = value;
+    }
+
+    public Long getUsageBillingInterval() {
+        return usageBillingInterval;
+    }
+
+    public void setUsageBillingInterval(Long value) {
+        this.usageBillingInterval = value;
+    }
+
+    public Long getRolloverPlanStatus() {
+        return rolloverPlanStatus;
+    }
+
+    public void setRolloverPlanStatus(Long value) {
+        this.rolloverPlanStatus = value;
+    }
+
+    public Long getRolloverPlanStatusDuration() {
+        return rolloverPlanStatusDuration;
+    }
+
+    public void setRolloverPlanStatusDuration(Long value) {
+        this.rolloverPlanStatusDuration = value;
+    }
+
+    public Long getRolloverPlanStatusUomCd() {
+        return rolloverPlanStatusUomCd;
+    }
+
+    public void setRolloverPlanStatusUomCd(Long value) {
+        this.rolloverPlanStatusUomCd = value;
+    }
+
+    public String getPlanDeprovisionedDate() {
+        return planDeprovisionedDate;
+    }
+
+    public void setPlanDeprovisionedDate(String value) {
+        this.planDeprovisionedDate = value;
+    }
+
     public List<SuppPlanProductFieldsReturnElement> getSuppPlanProductFields() {
         if (this.suppPlanProductFields == null) {
             this.suppPlanProductFields = new ArrayList<SuppPlanProductFieldsReturnElement>();
         }
         return this.suppPlanProductFields;
+    }public List<SuppPlanPlanInstFieldsReturnElement> getSuppPlanPlanInstFields() {
+        if (this.suppPlanPlanInstFields == null) {
+            this.suppPlanPlanInstFields = new ArrayList<SuppPlanPlanInstFieldsReturnElement>();
+        }
+        return this.suppPlanPlanInstFields;
     }
 }

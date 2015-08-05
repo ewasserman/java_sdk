@@ -1988,7 +1988,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         return createNewPlan(client_no, auth_key, plan_name, plan_type, currency, billing_interval, active, schedule, service, plan_description, client_plan_id, plan_group, plan_group_id, usage_billing_interval, rollover_months, rollover_plan_no, rollover_client_plan_id, initial_free_months, free_trial_type, free_trial_duration, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, dunning_plan_no, dunning_client_plan_id, template_no, client_email_template_id, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, template_ind, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd);
     }
 
-    public Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long initial_free_months, String free_trial_type, String free_trial_duration, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, String contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched){
+    public Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long initial_free_months, String free_trial_type, String free_trial_duration, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -2034,7 +2034,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         addParameters(parameters,"proration_invoice_timing_cd",getValue("String", proration_invoice_timing_cd));
         addParameters(parameters,"plan_instance_status_cd",getValue("Long", plan_instance_status_cd));
         RestUtilities.addParameterValuesFromArray(parameters,assign_field_categories);
-        addParameters(parameters,"contract_rollover_plan_no",getValue("String", contract_rollover_plan_no));
+        addParameters(parameters,"contract_rollover_plan_no",getValue("Long", contract_rollover_plan_no));
         addParameters(parameters,"contract_rollover_client_plan_id",getValue("String", contract_rollover_client_plan_id));
         RestUtilities.addParameterValuesFromArray(parameters,contract_rollover_rate_sched);
         
@@ -2095,7 +2095,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
         Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
         com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
-        String contract_rollover_plan_no = (String) map.get("contract_rollover_plan_no");
+        Long contract_rollover_plan_no = (Long) map.get("contract_rollover_plan_no");
         String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
         com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
         
@@ -2210,7 +2210,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         return editPlan(client_no, auth_key, plan_no, client_plan_id, plan_name, plan_description, plan_group, plan_group_id, plan_type, active, billing_interval, usage_billing_interval, currency, template_no, client_email_template_id, rollover_months, rollover_plan_no, rollover_client_plan_id, dunning_plan_no, dunning_client_plan_id, initial_free_months, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, allow_child_accts, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, schedule, service, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, edit_directives);
     }
 
-    public Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives, String contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched){
+    public Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
@@ -2256,7 +2256,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         addParameters(parameters,"plan_instance_status_cd",getValue("Long", plan_instance_status_cd));
         RestUtilities.addParameterValuesFromArray(parameters,assign_field_categories);
         addParameters(parameters,"edit_directives",getValue("Long", edit_directives));
-        addParameters(parameters,"contract_rollover_plan_no",getValue("String", contract_rollover_plan_no));
+        addParameters(parameters,"contract_rollover_plan_no",getValue("Long", contract_rollover_plan_no));
         addParameters(parameters,"contract_rollover_client_plan_id",getValue("String", contract_rollover_client_plan_id));
         RestUtilities.addParameterValuesFromArray(parameters,contract_rollover_rate_sched);
         
@@ -2317,7 +2317,7 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
         com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
         Long edit_directives = (Long) map.get("edit_directives");
-        String contract_rollover_plan_no = (String) map.get("contract_rollover_plan_no");
+        Long contract_rollover_plan_no = (Long) map.get("contract_rollover_plan_no");
         String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
         com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
         
@@ -3889,6 +3889,36 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         String auth_key = (String) map.get("auth_key");
         
         return getClientPaymentMethod(client_no, auth_key);
+    }
+
+    public Map<String,Object> getDunningProcessesM(Long client_no, String auth_key, com.aria.common.shared.admin.DunningProcessesArray dunning_processes, com.aria.common.shared.admin.PayMethodTypesArray pay_method_types, com.aria.common.shared.admin.MasterPlansArray master_plans){
+        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
+        addParameters(parameters,"client_no",getValue("Long",client_no));
+        addParameters(parameters,"auth_key",getValue("String",auth_key));
+        RestUtilities.addParameterValuesFromArray(parameters,dunning_processes);
+        RestUtilities.addParameterValuesFromArray(parameters,pay_method_types);
+        RestUtilities.addParameterValuesFromArray(parameters,master_plans);
+        
+        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_dunning_processes_m"));
+        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
+        String[] returnValues = new String[3];
+
+        returnValues[0] = "error_code";
+        returnValues[1] = "error_msg";
+        returnValues[2] = "dunning_process_details";
+        
+        buildHashMapReturnValues(ret,returnValues);
+        return getHashMapReturnValues();
+    }
+
+    public Map<String,Object> getDunningProcessesM(Map<String,Object> map){
+        Long client_no = (Long) map.get("client_no");
+        String auth_key = (String) map.get("auth_key");
+        com.aria.common.shared.admin.DunningProcessesArray dunning_processes = (com.aria.common.shared.admin.DunningProcessesArray) map.get("dunning_processes");
+        com.aria.common.shared.admin.PayMethodTypesArray pay_method_types = (com.aria.common.shared.admin.PayMethodTypesArray) map.get("pay_method_types");
+        com.aria.common.shared.admin.MasterPlansArray master_plans = (com.aria.common.shared.admin.MasterPlansArray) map.get("master_plans");
+        
+        return getDunningProcessesM(client_no, auth_key, dunning_processes, pay_method_types, master_plans);
     }
 
     /********************************** END - METHODS IMPLEMENTATION ***********************************************/

@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "payment_history_ReturnElement", propOrder = {"transactionId", "paymentSource", "paymentStatus", "paymentDate", "paymentTransType", "paymentCurrency", "paymentAmount", "paymentAmountLeftToApply", "voidingEventNo", "voidableFlag", "ccSuffix", "ccString", "payMethodType", "procStatusCode", "procPaymentId", "procAuthCode", "paymentTimestamp", "procStatusText", "paymentApplicationDetails"})
-public class PaymentHistoryReturnElement {
+@XmlType(name = "acct_payment_history_ReturnElement", propOrder = {"transactionId", "paymentSource", "paymentStatus", "paymentDate", "paymentTransType", "paymentCurrency", "paymentAmount", "paymentAmountLeftToApply", "voidingEventNo", "voidableFlag", "ccSuffix", "ccString", "payMethodType", "procStatusCode", "procPaymentId", "procAuthCode", "paymentTimestamp", "procStatusText", "paymentMethodNo", "clientPaymentMethodId", "paymentApplicationDetails"})
+public class AcctPaymentHistoryReturnElement {
 
     @XmlElement(name = "transaction_id")
     protected Long transactionId;
@@ -34,7 +34,7 @@ public class PaymentHistoryReturnElement {
     @XmlElement(name = "voidable_flag")
     protected Long voidableFlag;
     @XmlElement(name = "cc_suffix")
-    protected String ccSuffix;
+    protected Long ccSuffix;
     @XmlElement(name = "cc_string")
     protected String ccString;
     @XmlElement(name = "pay_method_type")
@@ -49,6 +49,10 @@ public class PaymentHistoryReturnElement {
     protected String paymentTimestamp;
     @XmlElement(name = "proc_status_text")
     protected String procStatusText;
+    @XmlElement(name = "payment_method_no")
+    protected Long paymentMethodNo;
+    @XmlElement(name = "client_payment_method_id")
+    protected String clientPaymentMethodId;
     @XmlElement(name = "payment_application_details")
     protected List<PaymentApplicationDetailsReturnElement> paymentApplicationDetails;
     
@@ -132,11 +136,11 @@ public class PaymentHistoryReturnElement {
         this.voidableFlag = value;
     }
 
-    public String getCcSuffix() {
+    public Long getCcSuffix() {
         return ccSuffix;
     }
 
-    public void setCcSuffix(String value) {
+    public void setCcSuffix(Long value) {
         this.ccSuffix = value;
     }
 
@@ -194,6 +198,22 @@ public class PaymentHistoryReturnElement {
 
     public void setProcStatusText(String value) {
         this.procStatusText = value;
+    }
+
+    public Long getPaymentMethodNo() {
+        return paymentMethodNo;
+    }
+
+    public void setPaymentMethodNo(Long value) {
+        this.paymentMethodNo = value;
+    }
+
+    public String getClientPaymentMethodId() {
+        return clientPaymentMethodId;
+    }
+
+    public void setClientPaymentMethodId(String value) {
+        this.clientPaymentMethodId = value;
     }
 
     public List<PaymentApplicationDetailsReturnElement> getPaymentApplicationDetails() {

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "mpSurcharges"})
 @XmlRootElement(name = "update_acct_plan_m")
 public class UpdateAcctPlanM {
 
@@ -72,6 +72,8 @@ public class UpdateAcctPlanM {
     protected String usagePooling;
         @XmlElement(name = "usage_threshold_applicability")
     protected String usageThresholdApplicability;
+        @XmlElement(name = "mp_surcharges")
+    protected MpSurchargesArray mpSurcharges;
     
     public long getClientNo() {
         return clientNo;
@@ -277,6 +279,13 @@ public class UpdateAcctPlanM {
 
     public void setUsageThresholdApplicability(String value) {
         this.usageThresholdApplicability = value;
+    }
+            public MpSurchargesArray getMpSurcharges() {
+        return mpSurcharges;
+    }
+
+    public void setMpSurcharges(MpSurchargesArray value) {
+        this.mpSurcharges = value;
     }
             
 }

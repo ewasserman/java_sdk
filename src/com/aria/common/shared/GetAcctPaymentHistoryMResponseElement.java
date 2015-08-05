@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "paymentHistory"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "acctPaymentHistory"})
 @XmlRootElement(name = "get_acct_payment_history_mResponseElement")
 public class GetAcctPaymentHistoryMResponseElement {
 
@@ -18,8 +18,8 @@ public class GetAcctPaymentHistoryMResponseElement {
     protected Long errorCode;
     @XmlElement(name = "error_msg")
     protected String errorMsg;
-    @XmlElement(name = "payment_history")
-    protected List<PaymentHistoryReturnElement> paymentHistory;
+    @XmlElement(name = "acct_payment_history")
+    protected List<AcctPaymentHistoryReturnElement> acctPaymentHistory;
     
     public Long getErrorCode() {
         return errorCode;
@@ -37,10 +37,10 @@ public class GetAcctPaymentHistoryMResponseElement {
         this.errorMsg = value;
     }
 
-    public List<PaymentHistoryReturnElement> getPaymentHistory() {
-        if (this.paymentHistory == null) {
-            this.paymentHistory = new ArrayList<PaymentHistoryReturnElement>();
+    public List<AcctPaymentHistoryReturnElement> getAcctPaymentHistory() {
+        if (this.acctPaymentHistory == null) {
+            this.acctPaymentHistory = new ArrayList<AcctPaymentHistoryReturnElement>();
         }
-        return this.paymentHistory;
+        return this.acctPaymentHistory;
     }
 }

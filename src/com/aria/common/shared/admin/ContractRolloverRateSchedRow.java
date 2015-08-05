@@ -16,18 +16,18 @@ import javax.xml.bind.annotation.XmlType;
 public class ContractRolloverRateSchedRow {
 
     @XmlElement(name = "current_rate_sched_no")
-    protected String currentRateSchedNo;
+    protected Long currentRateSchedNo;
     @XmlElement(name = "current_client_rate_sched_id")
     protected String currentClientRateSchedId;
     @XmlElement(name = "rollover_rate_sched_no")
-    protected String rolloverRateSchedNo;
+    protected Long rolloverRateSchedNo;
     @XmlElement(name = "rollover_client_rate_sched_id")
     protected String rolloverClientRateSchedId;
-    public String getCurrentRateSchedNo() {
+    public Long getCurrentRateSchedNo() {
         return currentRateSchedNo;
     }
 
-    public void setCurrentRateSchedNo(String value) {
+    public void setCurrentRateSchedNo(Long value) {
         this.currentRateSchedNo = value;
     }
 
@@ -39,11 +39,11 @@ public class ContractRolloverRateSchedRow {
         this.currentClientRateSchedId = value;
     }
 
-    public String getRolloverRateSchedNo() {
+    public Long getRolloverRateSchedNo() {
         return rolloverRateSchedNo;
     }
 
-    public void setRolloverRateSchedNo(String value) {
+    public void setRolloverRateSchedNo(Long value) {
         this.rolloverRateSchedNo = value;
     }
 
