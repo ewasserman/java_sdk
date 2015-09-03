@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "mp_plan_inst_fields_ReturnElement", propOrder = {"planInstanceFieldName", "planInstanceFieldValue"})
-public class MpPlanInstFieldsReturnElement {
+@XmlType(name = "master_plan_plan_inst_fields_ReturnElement", propOrder = {"planInstanceFieldName", "planInstanceFieldValue"})
+public class MasterPlanPlanInstFieldsReturnElement {
 
     @XmlElement(name = "plan_instance_field_name")
     protected String planInstanceFieldName;

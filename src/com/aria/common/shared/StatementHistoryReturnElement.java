@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "statement_history_ReturnElement", propOrder = {"statementNo", "createDate", "currencyCd", "dueDate", "dueDatePlusGracePeriod", "newChargesAmount", "newPaymentsAmount", "balanceForwardAmount", "totalAmount", "isPaidInd", "invoiceActivityInd", "seqStatementId"})
+@XmlType(name = "statement_history_ReturnElement", propOrder = {"statementNo", "createDate", "currencyCd", "dueDate", "dueDatePlusGracePeriod", "newChargesAmount", "newPaymentsAmount", "balanceForwardAmount", "totalAmount", "isPaidInd", "invoiceActivityInd", "seqStatementId", "sentStatus", "dateSent"})
 public class StatementHistoryReturnElement {
 
     @XmlElement(name = "statement_no")
@@ -37,6 +37,10 @@ public class StatementHistoryReturnElement {
     protected Long invoiceActivityInd;
     @XmlElement(name = "seq_statement_id")
     protected String seqStatementId;
+    @XmlElement(name = "sent_status")
+    protected String sentStatus;
+    @XmlElement(name = "date_sent")
+    protected String dateSent;
     
     public Long getStatementNo() {
         return statementNo;
@@ -132,6 +136,22 @@ public class StatementHistoryReturnElement {
 
     public void setSeqStatementId(String value) {
         this.seqStatementId = value;
+    }
+
+    public String getSentStatus() {
+        return sentStatus;
+    }
+
+    public void setSentStatus(String value) {
+        this.sentStatus = value;
+    }
+
+    public String getDateSent() {
+        return dateSent;
+    }
+
+    public void setDateSent(String value) {
+        this.dateSent = value;
     }
 
     

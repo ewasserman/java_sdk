@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "planServices", "planRateSchedulesDetails", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlanNo"})
+@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "nsoInclListScope", "planServices", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planNsoInclList", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlanNo", "planNsoItems", "planNsoGroup", "nsoGroupMinQty", "nsoGroupMaxQty", "nsoGroupItemScope"})
 public class AllClientPlanDtlsReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -57,10 +57,20 @@ public class AllClientPlanDtlsReturnElement {
     protected String clientRolloverPlanId;
     @XmlElement(name = "proration_invoice_timing_cd")
     protected String prorationInvoiceTimingCd;
+    @XmlElement(name = "nso_incl_list_scope")
+    protected Long nsoInclListScope;
     @XmlElement(name = "plan_services")
     protected List<PlanServicesReturnElement> planServices;
     @XmlElement(name = "plan_rate_schedules_details")
     protected List<PlanRateSchedulesDetailsReturnElement> planRateSchedulesDetails;
+    @XmlElement(name = "contract_rollover_plan_no")
+    protected Long contractRolloverPlanNo;
+    @XmlElement(name = "contract_rollover_client_plan_id")
+    protected String contractRolloverClientPlanId;
+    @XmlElement(name = "contract_rollover_rate_sched")
+    protected List<ContractRolloverRateSchedReturnElement> contractRolloverRateSched;
+    @XmlElement(name = "plan_nso_incl_list")
+    protected List<PlanNsoInclListReturnElement> planNsoInclList;
     @XmlElement(name = "plan_groups")
     protected List<PlanGroupsReturnElement> planGroups;
     @XmlElement(name = "promotional_plan_sets")
@@ -73,6 +83,16 @@ public class AllClientPlanDtlsReturnElement {
     protected String firstRetrievalLevelInd;
     @XmlElement(name = "child_plan_no")
     protected List<ChildPlanNoReturnElement> childPlanNo;
+    @XmlElement(name = "plan_nso_items")
+    protected List<PlanNsoItemsReturnElement> planNsoItems;
+    @XmlElement(name = "plan_nso_group")
+    protected List<PlanNsoGroupReturnElement> planNsoGroup;
+    @XmlElement(name = "nso_group_min_qty")
+    protected String nsoGroupMinQty;
+    @XmlElement(name = "nso_group_max_qty")
+    protected String nsoGroupMaxQty;
+    @XmlElement(name = "nso_group_item_scope")
+    protected String nsoGroupItemScope;
     
     public Long getPlanNo() {
         return planNo;
@@ -250,6 +270,14 @@ public class AllClientPlanDtlsReturnElement {
         this.prorationInvoiceTimingCd = value;
     }
 
+    public Long getNsoInclListScope() {
+        return nsoInclListScope;
+    }
+
+    public void setNsoInclListScope(Long value) {
+        this.nsoInclListScope = value;
+    }
+
     public List<PlanServicesReturnElement> getPlanServices() {
         if (this.planServices == null) {
             this.planServices = new ArrayList<PlanServicesReturnElement>();
@@ -260,6 +288,32 @@ public class AllClientPlanDtlsReturnElement {
             this.planRateSchedulesDetails = new ArrayList<PlanRateSchedulesDetailsReturnElement>();
         }
         return this.planRateSchedulesDetails;
+    }public Long getContractRolloverPlanNo() {
+        return contractRolloverPlanNo;
+    }
+
+    public void setContractRolloverPlanNo(Long value) {
+        this.contractRolloverPlanNo = value;
+    }
+
+    public String getContractRolloverClientPlanId() {
+        return contractRolloverClientPlanId;
+    }
+
+    public void setContractRolloverClientPlanId(String value) {
+        this.contractRolloverClientPlanId = value;
+    }
+
+    public List<ContractRolloverRateSchedReturnElement> getContractRolloverRateSched() {
+        if (this.contractRolloverRateSched == null) {
+            this.contractRolloverRateSched = new ArrayList<ContractRolloverRateSchedReturnElement>();
+        }
+        return this.contractRolloverRateSched;
+    }public List<PlanNsoInclListReturnElement> getPlanNsoInclList() {
+        if (this.planNsoInclList == null) {
+            this.planNsoInclList = new ArrayList<PlanNsoInclListReturnElement>();
+        }
+        return this.planNsoInclList;
     }public List<PlanGroupsReturnElement> getPlanGroups() {
         if (this.planGroups == null) {
             this.planGroups = new ArrayList<PlanGroupsReturnElement>();
@@ -293,5 +347,39 @@ public class AllClientPlanDtlsReturnElement {
             this.childPlanNo = new ArrayList<ChildPlanNoReturnElement>();
         }
         return this.childPlanNo;
+    }public List<PlanNsoItemsReturnElement> getPlanNsoItems() {
+        if (this.planNsoItems == null) {
+            this.planNsoItems = new ArrayList<PlanNsoItemsReturnElement>();
+        }
+        return this.planNsoItems;
+    }public List<PlanNsoGroupReturnElement> getPlanNsoGroup() {
+        if (this.planNsoGroup == null) {
+            this.planNsoGroup = new ArrayList<PlanNsoGroupReturnElement>();
+        }
+        return this.planNsoGroup;
+    }public String getNsoGroupMinQty() {
+        return nsoGroupMinQty;
     }
+
+    public void setNsoGroupMinQty(String value) {
+        this.nsoGroupMinQty = value;
+    }
+
+    public String getNsoGroupMaxQty() {
+        return nsoGroupMaxQty;
+    }
+
+    public void setNsoGroupMaxQty(String value) {
+        this.nsoGroupMaxQty = value;
+    }
+
+    public String getNsoGroupItemScope() {
+        return nsoGroupItemScope;
+    }
+
+    public void setNsoGroupItemScope(String value) {
+        this.nsoGroupItemScope = value;
+    }
+
+    
 }

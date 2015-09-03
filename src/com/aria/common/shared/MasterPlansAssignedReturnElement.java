@@ -10,13 +10,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "master_plans_assigned_ReturnElement", propOrder = {"planInstanceNo", "clientPlanInstanceId", "outContract", "thirdPartyErrors"})
+@XmlType(name = "master_plans_assigned_ReturnElement", propOrder = {"planInstanceNo", "clientPlanInstanceId", "nsoOrderNo", "nsoOrderStatusLabel", "outContract", "thirdPartyErrors"})
 public class MasterPlansAssignedReturnElement {
 
     @XmlElement(name = "plan_instance_no")
     protected Long planInstanceNo;
     @XmlElement(name = "client_plan_instance_id")
     protected String clientPlanInstanceId;
+    @XmlElement(name = "nso_order_no")
+    protected Long nsoOrderNo;
+    @XmlElement(name = "nso_order_status_label")
+    protected String nsoOrderStatusLabel;
     @XmlElement(name = "out_contract")
     protected List<OutContractReturnElement> outContract;
     @XmlElement(name = "third_party_errors")
@@ -36,6 +40,22 @@ public class MasterPlansAssignedReturnElement {
 
     public void setClientPlanInstanceId(String value) {
         this.clientPlanInstanceId = value;
+    }
+
+    public Long getNsoOrderNo() {
+        return nsoOrderNo;
+    }
+
+    public void setNsoOrderNo(Long value) {
+        this.nsoOrderNo = value;
+    }
+
+    public String getNsoOrderStatusLabel() {
+        return nsoOrderStatusLabel;
+    }
+
+    public void setNsoOrderStatusLabel(String value) {
+        this.nsoOrderStatusLabel = value;
     }
 
     public List<OutContractReturnElement> getOutContract() {

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "firstName",    "lastName",    "middleInitial",    "companyName",    "address1",    "address2",    "city",    "locality",    "stateProv",    "country",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "email",    "birthdate",    "billFirstName",    "billLastName",    "billMiddleInitial",    "billCompanyName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billEmail",    "payMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "masterPlanNo",    "masterPlanAltRateSchedNo",    "masterPlanUnits",    "masterPlanAssignDirective",    "updateAcctSuppField",    "updateAcctFuncGroup",    "updateAcctCollGroup",    "statusCd",    "notifyMethod",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "testAcctInd",    "respLevelCd",    "seniorAcctNo",    "seniorAcctUserId",    "clientSeniorAcctId",    "clientAcctId",    "doCollect",    "changeStatusAfterColl",    "resetDatesAfterStatus",    "clientReceiptId",    "altDoDunning",    "forceCurrencyChange",    "cvv",    "taxpayerId",    "billAgreementId",    "autoCancelSuppPlans",    "offsetMonths",    "altProrationStartDate",    "altMsgTemplateNo",    "seqFuncGroupNo",    "bankAcctType",    "address3",    "billAddress3",    "usageAccumulationConfig",    "enableUsagePoolingPlanNo",    "disableUsagePoolingPlanNo",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "offsetInterval",    "taxExemptionLevel",    "cnAltMsgTemplateNo",    "promoCd",    "invoiceUnbilledUsage",    "couponCode",    "userid",    "invoiceApprovalRequired",    "clientMasterPlanId",    "clientMpAltRateSchedId",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "updateSurcharge",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "bkupBillFirstName",    "bkupBillMi",    "bkupBillLastName",    "bkupBillCompanyName",    "bkupBillAddress1",    "bkupBillAddress2",    "bkupBillAddress3",    "bkupBillCity",    "bkupBillLocality",    "bkupBillStateProv",    "bkupBillCountry",    "bkupBillPostalCd",    "bkupBillPhone",    "bkupBillPhoneExt",    "bkupBillCellPhone",    "bkupBillWorkPhone",    "bkupBillWorkPhoneExt",    "bkupBillEmail",    "bkupPayMethod",    "bkupCcNumber",    "bkupCcExpireMm",    "bkupCcExpireYyyy",    "bkupBankAcctNo",    "bkupBankRoutingNo",    "bkupBankAcctType",    "bkupBillAgreementId",    "bkupCvv",    "seqFuncGroupId",    "revrecProfileId",    "revrecClientDefinedId",    "stmntEmailList",    "stmntEmailListCc",    "stmntEmailListBcc",    "invoicePostingMethodCd",    "acctStartDate"})
+    "authKey",    "acctNo",    "firstName",    "lastName",    "middleInitial",    "companyName",    "address1",    "address2",    "city",    "locality",    "stateProv",    "country",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "email",    "birthdate",    "billFirstName",    "billLastName",    "billMiddleInitial",    "billCompanyName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billEmail",    "payMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "masterPlanNo",    "masterPlanAltRateSchedNo",    "masterPlanUnits",    "masterPlanAssignDirective",    "updateAcctSuppField",    "updateAcctFuncGroup",    "updateAcctCollGroup",    "statusCd",    "notifyMethod",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "testAcctInd",    "respLevelCd",    "seniorAcctNo",    "seniorAcctUserId",    "clientSeniorAcctId",    "clientAcctId",    "doCollect",    "changeStatusAfterColl",    "resetDatesAfterStatus",    "clientReceiptId",    "altDoDunning",    "forceCurrencyChange",    "cvv",    "taxpayerId",    "billAgreementId",    "autoCancelSuppPlans",    "offsetMonths",    "altProrationStartDate",    "altMsgTemplateNo",    "seqFuncGroupNo",    "bankAcctType",    "address3",    "billAddress3",    "usageAccumulationConfig",    "enableUsagePoolingPlanNo",    "disableUsagePoolingPlanNo",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "offsetInterval",    "taxExemptionLevel",    "cnAltMsgTemplateNo",    "promoCd",    "invoiceUnbilledUsage",    "couponCode",    "userid",    "invoiceApprovalRequired",    "clientMasterPlanId",    "clientMpAltRateSchedId",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "updateSurcharge",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "bkupBillFirstName",    "bkupBillMi",    "bkupBillLastName",    "bkupBillCompanyName",    "bkupBillAddress1",    "bkupBillAddress2",    "bkupBillAddress3",    "bkupBillCity",    "bkupBillLocality",    "bkupBillStateProv",    "bkupBillCountry",    "bkupBillPostalCd",    "bkupBillPhone",    "bkupBillPhoneExt",    "bkupBillCellPhone",    "bkupBillWorkPhone",    "bkupBillWorkPhoneExt",    "bkupBillEmail",    "bkupPayMethod",    "bkupCcNumber",    "bkupCcExpireMm",    "bkupCcExpireYyyy",    "bkupBankAcctNo",    "bkupBankRoutingNo",    "bkupBankAcctType",    "bkupBillAgreementId",    "bkupCvv",    "seqFuncGroupId",    "revrecProfileId",    "revrecClientDefinedId",    "stmntEmailList",    "stmntEmailListCc",    "stmntEmailListBcc",    "invoicePostingMethodCd",    "acctStartDate",    "minStatementThreshold",    "maxStatementsToDefer",    "deferFullStatementsOnly"})
 @XmlRootElement(name = "update_acct_complete")
 public class UpdateAcctComplete {
 
@@ -296,6 +296,12 @@ public class UpdateAcctComplete {
     protected Long invoicePostingMethodCd;
         @XmlElement(name = "acct_start_date")
     protected String acctStartDate;
+        @XmlElement(name = "min_statement_threshold")
+    protected Long minStatementThreshold;
+        @XmlElement(name = "max_statements_to_defer")
+    protected Long maxStatementsToDefer;
+        @XmlElement(name = "defer_full_statements_only")
+    protected Long deferFullStatementsOnly;
     
     public long getClientNo() {
         return clientNo;
@@ -1285,6 +1291,27 @@ public class UpdateAcctComplete {
 
     public void setAcctStartDate(String value) {
         this.acctStartDate = value;
+    }
+            public Long getMinStatementThreshold() {
+        return minStatementThreshold;
+    }
+
+    public void setMinStatementThreshold(Long value) {
+        this.minStatementThreshold = value;
+    }
+            public Long getMaxStatementsToDefer() {
+        return maxStatementsToDefer;
+    }
+
+    public void setMaxStatementsToDefer(Long value) {
+        this.maxStatementsToDefer = value;
+    }
+            public Long getDeferFullStatementsOnly() {
+        return deferFullStatementsOnly;
+    }
+
+    public void setDeferFullStatementsOnly(Long value) {
+        this.deferFullStatementsOnly = value;
     }
             
 }

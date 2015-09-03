@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_avail_plans_ReturnElement", propOrder = {"parentPlanInstanceNo", "parentClientPlanInstanceId", "planNo", "clientPlanId", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "clientRolloverPlanId", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDays", "initFreeMonths", "plan2AssignOnSusp", "clientPlan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSchedNo", "contractRolloverClientRateSchedId"})
+@XmlType(name = "all_client_avail_plans_ReturnElement", propOrder = {"parentPlanInstanceNo", "parentClientPlanInstanceId", "planNo", "clientPlanId", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "clientRolloverPlanId", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDays", "initFreeMonths", "plan2AssignOnSusp", "clientPlan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched"})
 public class AllClientAvailPlansReturnElement {
 
     @XmlElement(name = "parent_plan_instance_no")
@@ -65,10 +65,8 @@ public class AllClientAvailPlansReturnElement {
     protected Long contractRolloverPlanNo;
     @XmlElement(name = "contract_rollover_client_plan_id")
     protected String contractRolloverClientPlanId;
-    @XmlElement(name = "contract_rollover_rate_sched_no")
-    protected Long contractRolloverRateSchedNo;
-    @XmlElement(name = "contract_rollover_client_rate_sched_id")
-    protected String contractRolloverClientRateSchedId;
+    @XmlElement(name = "contract_rollover_rate_sched")
+    protected List<ContractRolloverRateSchedReturnElement> contractRolloverRateSched;
     
     public Long getParentPlanInstanceNo() {
         return parentPlanInstanceNo;
@@ -275,21 +273,10 @@ public class AllClientAvailPlansReturnElement {
         this.contractRolloverClientPlanId = value;
     }
 
-    public Long getContractRolloverRateSchedNo() {
-        return contractRolloverRateSchedNo;
+    public List<ContractRolloverRateSchedReturnElement> getContractRolloverRateSched() {
+        if (this.contractRolloverRateSched == null) {
+            this.contractRolloverRateSched = new ArrayList<ContractRolloverRateSchedReturnElement>();
+        }
+        return this.contractRolloverRateSched;
     }
-
-    public void setContractRolloverRateSchedNo(Long value) {
-        this.contractRolloverRateSchedNo = value;
-    }
-
-    public String getContractRolloverClientRateSchedId() {
-        return contractRolloverClientRateSchedId;
-    }
-
-    public void setContractRolloverClientRateSchedId(String value) {
-        this.contractRolloverClientRateSchedId = value;
-    }
-
-    
 }

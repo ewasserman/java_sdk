@@ -27,7 +27,7 @@ public class UpdateAcctPlanStatusM {
         @XmlElement(name = "status_cd")
     protected Long statusCd;
         @XmlElement(name = "dunning_state")
-    protected String dunningState;
+    protected Long dunningState;
         @XmlElement(name = "degrade_date")
     protected String degradeDate;
         @XmlElement(name = "queue_days")
@@ -85,11 +85,11 @@ public class UpdateAcctPlanStatusM {
     public void setStatusCd(Long value) {
         this.statusCd = value;
     }
-            public String getDunningState() {
+            public Long getDunningState() {
         return dunningState;
     }
 
-    public void setDunningState(String value) {
+    public void setDunningState(Long value) {
         this.dunningState = value;
     }
             public String getDegradeDate() {

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_surcharges_ReturnElement", propOrder = {"surchargeNo", "surchargeName", "description", "extDescription", "surchargeType", "currency", "taxGroup", "invoiceAppMethod", "revGlCode", "arGlCode", "surchargePlan", "surchargeRates"})
+@XmlType(name = "all_surcharges_ReturnElement", propOrder = {"surchargeNo", "surchargeName", "description", "extDescription", "surchargeType", "currency", "taxGroup", "invoiceAppMethod", "revGlCode", "arGlCode", "surchargePlan", "surchargeRate"})
 public class AllSurchargesReturnElement {
 
     @XmlElement(name = "surcharge_no")
@@ -35,8 +35,8 @@ public class AllSurchargesReturnElement {
     protected String arGlCode;
     @XmlElement(name = "surcharge_plan")
     protected List<SurchargePlanReturnElement> surchargePlan;
-    @XmlElement(name = "surcharge_rates")
-    protected List<SurchargeRatesReturnElement> surchargeRates;
+    @XmlElement(name = "surcharge_rate")
+    protected List<SurchargeRateReturnElement> surchargeRate;
     
     public Long getSurchargeNo() {
         return surchargeNo;
@@ -123,10 +123,10 @@ public class AllSurchargesReturnElement {
             this.surchargePlan = new ArrayList<SurchargePlanReturnElement>();
         }
         return this.surchargePlan;
-    }public List<SurchargeRatesReturnElement> getSurchargeRates() {
-        if (this.surchargeRates == null) {
-            this.surchargeRates = new ArrayList<SurchargeRatesReturnElement>();
+    }public List<SurchargeRateReturnElement> getSurchargeRate() {
+        if (this.surchargeRate == null) {
+            this.surchargeRate = new ArrayList<SurchargeRateReturnElement>();
         }
-        return this.surchargeRates;
+        return this.surchargeRate;
     }
 }

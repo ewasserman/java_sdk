@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "promoCode",    "includeRsSummary"})
+    "authKey",    "promoCode",    "includeRsSummary",    "retrieveBundledNso",    "retrieveIncludedNso"})
 @XmlRootElement(name = "get_plans_by_promo_code_all_m")
 public class GetPlansByPromoCodeAllM {
 
@@ -22,6 +22,10 @@ public class GetPlansByPromoCodeAllM {
     protected String promoCode;
         @XmlElement(name = "include_rs_summary")
     protected String includeRsSummary;
+        @XmlElement(name = "retrieve_bundled_nso")
+    protected String retrieveBundledNso;
+        @XmlElement(name = "retrieve_included_nso")
+    protected String retrieveIncludedNso;
     
     public long getClientNo() {
         return clientNo;
@@ -52,6 +56,20 @@ public class GetPlansByPromoCodeAllM {
 
     public void setIncludeRsSummary(String value) {
         this.includeRsSummary = value;
+    }
+            public String getRetrieveBundledNso() {
+        return retrieveBundledNso;
+    }
+
+    public void setRetrieveBundledNso(String value) {
+        this.retrieveBundledNso = value;
+    }
+            public String getRetrieveIncludedNso() {
+        return retrieveIncludedNso;
+    }
+
+    public void setRetrieveIncludedNso(String value) {
+        this.retrieveIncludedNso = value;
     }
             
 }

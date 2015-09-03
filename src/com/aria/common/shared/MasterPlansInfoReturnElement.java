@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "master_plans_info_ReturnElement", propOrder = {"masterPlanInstanceNo", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "dunningGroupName", "dunningGroupDescription", "dunningProcessNo", "clientDunningProcessId", "billingGroupNo", "clientBillingGroupId", "masterPlanInstanceStatus", "masterPlanUnits", "respLevelCd", "parentMasterPlanInstNo", "altRateScheduleNo", "clientAltRateScheduleId", "promoCd", "billDay", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "masterPlanInstanceBalance", "statusDegradeDate", "recurringBillingInterval", "usageBillingInterval", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "dunningState", "dunningStep", "dunningDegradeDate", "planDeprovisionedDate", "couponCodes", "masterPlanProductFields", "mpPlanInstFields", "suppPlansInfo"})
+@XmlType(name = "master_plans_info_ReturnElement", propOrder = {"masterPlanInstanceNo", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "dunningGroupName", "dunningGroupDescription", "dunningProcessNo", "clientDunningProcessId", "billingGroupNo", "clientBillingGroupId", "masterPlanInstanceStatus", "mpInstanceStatusLabel", "masterPlanUnits", "respLevelCd", "parentMasterPlanInstNo", "altRateScheduleNo", "clientAltRateScheduleId", "promoCd", "billDay", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "masterPlanInstanceBalance", "statusDegradeDate", "recurringBillingInterval", "usageBillingInterval", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "dunningState", "dunningStep", "dunningDegradeDate", "planDeprovisionedDate", "couponCodes", "masterPlanProductFields", "masterPlanPlanInstFields", "suppPlansInfo"})
 public class MasterPlansInfoReturnElement {
 
     @XmlElement(name = "master_plan_instance_no")
@@ -41,6 +41,8 @@ public class MasterPlansInfoReturnElement {
     protected String clientBillingGroupId;
     @XmlElement(name = "master_plan_instance_status")
     protected Long masterPlanInstanceStatus;
+    @XmlElement(name = "mp_instance_status_label")
+    protected String mpInstanceStatusLabel;
     @XmlElement(name = "master_plan_units")
     protected Long masterPlanUnits;
     @XmlElement(name = "resp_level_cd")
@@ -99,8 +101,8 @@ public class MasterPlansInfoReturnElement {
     protected List<CouponCodesReturnElement> couponCodes;
     @XmlElement(name = "master_plan_product_fields")
     protected List<MasterPlanProductFieldsReturnElement> masterPlanProductFields;
-    @XmlElement(name = "mp_plan_inst_fields")
-    protected List<MpPlanInstFieldsReturnElement> mpPlanInstFields;
+    @XmlElement(name = "master_plan_plan_inst_fields")
+    protected List<MasterPlanPlanInstFieldsReturnElement> masterPlanPlanInstFields;
     @XmlElement(name = "supp_plans_info")
     protected List<SuppPlansInfoReturnElement> suppPlansInfo;
     
@@ -214,6 +216,14 @@ public class MasterPlansInfoReturnElement {
 
     public void setMasterPlanInstanceStatus(Long value) {
         this.masterPlanInstanceStatus = value;
+    }
+
+    public String getMpInstanceStatusLabel() {
+        return mpInstanceStatusLabel;
+    }
+
+    public void setMpInstanceStatusLabel(String value) {
+        this.mpInstanceStatusLabel = value;
     }
 
     public Long getMasterPlanUnits() {
@@ -442,11 +452,11 @@ public class MasterPlansInfoReturnElement {
             this.masterPlanProductFields = new ArrayList<MasterPlanProductFieldsReturnElement>();
         }
         return this.masterPlanProductFields;
-    }public List<MpPlanInstFieldsReturnElement> getMpPlanInstFields() {
-        if (this.mpPlanInstFields == null) {
-            this.mpPlanInstFields = new ArrayList<MpPlanInstFieldsReturnElement>();
+    }public List<MasterPlanPlanInstFieldsReturnElement> getMasterPlanPlanInstFields() {
+        if (this.masterPlanPlanInstFields == null) {
+            this.masterPlanPlanInstFields = new ArrayList<MasterPlanPlanInstFieldsReturnElement>();
         }
-        return this.mpPlanInstFields;
+        return this.masterPlanPlanInstFields;
     }public List<SuppPlansInfoReturnElement> getSuppPlansInfo() {
         if (this.suppPlansInfo == null) {
             this.suppPlansInfo = new ArrayList<SuppPlansInfoReturnElement>();

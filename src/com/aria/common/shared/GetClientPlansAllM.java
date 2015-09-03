@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "planNo",    "acctNo",    "promoCode",    "parentPlanNo",    "suppFieldNames",    "suppFieldValues",    "includeAllRateSchedules",    "includePlanHierarchy",    "clientPlanId",    "clientParentPlanId"})
+    "authKey",    "planNo",    "acctNo",    "promoCode",    "parentPlanNo",    "suppFieldNames",    "suppFieldValues",    "includeAllRateSchedules",    "includePlanHierarchy",    "clientPlanId",    "clientParentPlanId",    "retrieveBundledNso",    "retrieveIncludedNso"})
 @XmlRootElement(name = "get_client_plans_all_m")
 public class GetClientPlansAllM {
 
@@ -38,6 +38,10 @@ public class GetClientPlansAllM {
     protected String clientPlanId;
         @XmlElement(name = "client_parent_plan_id")
     protected String clientParentPlanId;
+        @XmlElement(name = "retrieve_bundled_nso")
+    protected String retrieveBundledNso;
+        @XmlElement(name = "retrieve_included_nso")
+    protected String retrieveIncludedNso;
     
     public long getClientNo() {
         return clientNo;
@@ -124,6 +128,20 @@ public class GetClientPlansAllM {
 
     public void setClientParentPlanId(String value) {
         this.clientParentPlanId = value;
+    }
+            public String getRetrieveBundledNso() {
+        return retrieveBundledNso;
+    }
+
+    public void setRetrieveBundledNso(String value) {
+        this.retrieveBundledNso = value;
+    }
+            public String getRetrieveIncludedNso() {
+        return retrieveIncludedNso;
+    }
+
+    public void setRetrieveIncludedNso(String value) {
+        this.retrieveIncludedNso = value;
     }
             
 }

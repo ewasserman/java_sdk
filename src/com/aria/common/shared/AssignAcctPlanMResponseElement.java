@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "prorationResultAmount", "collectionErrorCode", "collectionErrorMsg", "statementErrorCode", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceNo", "expectdActivationFee", "expectdMthlyRecurringCost", "expectdAnnuRecurringCost", "acctPlanLineItems", "totalChargesBeforeTax", "totalTaxCharges", "totalChargesAfterTax", "totalCredit", "totalTaxCredit", "totalCreditBeforeTax", "total", "prorationTaxAmount", "prorationCreditResultAmount", "prorationCreditAmount", "planInstanceNo"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "prorationResultAmount", "collectionErrorCode", "collectionErrorMsg", "statementErrorCode", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceNo", "expectdActivationFee", "expectdMthlyRecurringCost", "expectdAnnuRecurringCost", "acctPlanLineItems", "totalChargesBeforeTax", "totalTaxCharges", "totalChargesAfterTax", "totalCredit", "totalTaxCredit", "totalCreditBeforeTax", "total", "prorationTaxAmount", "prorationCreditResultAmount", "prorationCreditAmount", "planInstanceNo", "nsoOrderNo", "nsoOrderStatusLabel"})
 @XmlRootElement(name = "assign_acct_plan_mResponseElement")
 public class AssignAcctPlanMResponseElement {
 
@@ -76,6 +76,10 @@ public class AssignAcctPlanMResponseElement {
     protected Double prorationCreditAmount;
     @XmlElement(name = "plan_instance_no")
     protected Long planInstanceNo;
+    @XmlElement(name = "nso_order_no")
+    protected Long nsoOrderNo;
+    @XmlElement(name = "nso_order_status_label")
+    protected String nsoOrderStatusLabel;
     
     public Long getErrorCode() {
         return errorCode;
@@ -320,6 +324,22 @@ public class AssignAcctPlanMResponseElement {
 
     public void setPlanInstanceNo(Long value) {
         this.planInstanceNo = value;
+    }
+
+    public Long getNsoOrderNo() {
+        return nsoOrderNo;
+    }
+
+    public void setNsoOrderNo(Long value) {
+        this.nsoOrderNo = value;
+    }
+
+    public String getNsoOrderStatusLabel() {
+        return nsoOrderStatusLabel;
+    }
+
+    public void setNsoOrderStatusLabel(String value) {
+        this.nsoOrderStatusLabel = value;
     }
 
     

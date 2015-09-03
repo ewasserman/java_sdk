@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_plan_details_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "planServices", "planRateSchedulesDetails"})
+@XmlType(name = "all_plan_details_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "nsoInclListScope", "planServices", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planNsoItems", "planNsoGroup", "nsoGroupMinQty", "nsoGroupMaxQty", "nsoGroupItemScope", "planNsoInclList"})
 public class AllPlanDetailsReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -57,10 +57,30 @@ public class AllPlanDetailsReturnElement {
     protected String clientPlanId2AssignOnSusp;
     @XmlElement(name = "proration_invoice_timing_cd")
     protected String prorationInvoiceTimingCd;
+    @XmlElement(name = "nso_incl_list_scope")
+    protected Long nsoInclListScope;
     @XmlElement(name = "plan_services")
     protected List<PlanServicesReturnElement> planServices;
     @XmlElement(name = "plan_rate_schedules_details")
     protected List<PlanRateSchedulesDetailsReturnElement> planRateSchedulesDetails;
+    @XmlElement(name = "contract_rollover_plan_no")
+    protected Long contractRolloverPlanNo;
+    @XmlElement(name = "contract_rollover_client_plan_id")
+    protected String contractRolloverClientPlanId;
+    @XmlElement(name = "contract_rollover_rate_sched")
+    protected List<ContractRolloverRateSchedReturnElement> contractRolloverRateSched;
+    @XmlElement(name = "plan_nso_items")
+    protected List<PlanNsoItemsReturnElement> planNsoItems;
+    @XmlElement(name = "plan_nso_group")
+    protected List<PlanNsoGroupReturnElement> planNsoGroup;
+    @XmlElement(name = "nso_group_min_qty")
+    protected String nsoGroupMinQty;
+    @XmlElement(name = "nso_group_max_qty")
+    protected String nsoGroupMaxQty;
+    @XmlElement(name = "nso_group_item_scope")
+    protected String nsoGroupItemScope;
+    @XmlElement(name = "plan_nso_incl_list")
+    protected List<PlanNsoInclListReturnElement> planNsoInclList;
     
     public Long getPlanNo() {
         return planNo;
@@ -238,6 +258,14 @@ public class AllPlanDetailsReturnElement {
         this.prorationInvoiceTimingCd = value;
     }
 
+    public Long getNsoInclListScope() {
+        return nsoInclListScope;
+    }
+
+    public void setNsoInclListScope(Long value) {
+        this.nsoInclListScope = value;
+    }
+
     public List<PlanServicesReturnElement> getPlanServices() {
         if (this.planServices == null) {
             this.planServices = new ArrayList<PlanServicesReturnElement>();
@@ -248,5 +276,65 @@ public class AllPlanDetailsReturnElement {
             this.planRateSchedulesDetails = new ArrayList<PlanRateSchedulesDetailsReturnElement>();
         }
         return this.planRateSchedulesDetails;
+    }public Long getContractRolloverPlanNo() {
+        return contractRolloverPlanNo;
+    }
+
+    public void setContractRolloverPlanNo(Long value) {
+        this.contractRolloverPlanNo = value;
+    }
+
+    public String getContractRolloverClientPlanId() {
+        return contractRolloverClientPlanId;
+    }
+
+    public void setContractRolloverClientPlanId(String value) {
+        this.contractRolloverClientPlanId = value;
+    }
+
+    public List<ContractRolloverRateSchedReturnElement> getContractRolloverRateSched() {
+        if (this.contractRolloverRateSched == null) {
+            this.contractRolloverRateSched = new ArrayList<ContractRolloverRateSchedReturnElement>();
+        }
+        return this.contractRolloverRateSched;
+    }public List<PlanNsoItemsReturnElement> getPlanNsoItems() {
+        if (this.planNsoItems == null) {
+            this.planNsoItems = new ArrayList<PlanNsoItemsReturnElement>();
+        }
+        return this.planNsoItems;
+    }public List<PlanNsoGroupReturnElement> getPlanNsoGroup() {
+        if (this.planNsoGroup == null) {
+            this.planNsoGroup = new ArrayList<PlanNsoGroupReturnElement>();
+        }
+        return this.planNsoGroup;
+    }public String getNsoGroupMinQty() {
+        return nsoGroupMinQty;
+    }
+
+    public void setNsoGroupMinQty(String value) {
+        this.nsoGroupMinQty = value;
+    }
+
+    public String getNsoGroupMaxQty() {
+        return nsoGroupMaxQty;
+    }
+
+    public void setNsoGroupMaxQty(String value) {
+        this.nsoGroupMaxQty = value;
+    }
+
+    public String getNsoGroupItemScope() {
+        return nsoGroupItemScope;
+    }
+
+    public void setNsoGroupItemScope(String value) {
+        this.nsoGroupItemScope = value;
+    }
+
+    public List<PlanNsoInclListReturnElement> getPlanNsoInclList() {
+        if (this.planNsoInclList == null) {
+            this.planNsoInclList = new ArrayList<PlanNsoInclListReturnElement>();
+        }
+        return this.planNsoInclList;
     }
 }

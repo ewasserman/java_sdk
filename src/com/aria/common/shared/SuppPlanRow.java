@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlType;
     "clientPlanInstanceId",
     "planInstanceIdx",
     "planInstanceUnits",
+    "suppPlanNsoList",
     "planInstanceFieldsInfo",
     "altRateScheduleNo",
     "clientAltRateScheduleId",
@@ -39,6 +40,8 @@ public class SuppPlanRow {
     protected Long planInstanceIdx;
     @XmlElement(name = "plan_instance_units")
     protected Long planInstanceUnits;
+    @XmlElement(name = "supp_plan_nso_list")
+    protected com.aria.common.shared.SuppPlanNsoListArray suppPlanNsoList;
     @XmlElement(name = "plan_instance_fields_info")
     protected com.aria.common.shared.PlanInstanceFieldsInfoArray planInstanceFieldsInfo;
     @XmlElement(name = "alt_rate_schedule_no")
@@ -107,6 +110,14 @@ public class SuppPlanRow {
 
     public void setPlanInstanceUnits(Long value) {
         this.planInstanceUnits = value;
+    }
+
+    public com.aria.common.shared.SuppPlanNsoListArray getSuppPlanNsoList() {
+        return suppPlanNsoList;
+    }
+
+    public void setSuppPlanNsoList(com.aria.common.shared.SuppPlanNsoListArray value) {
+        this.suppPlanNsoList = value;
     }
 
     public com.aria.common.shared.PlanInstanceFieldsInfoArray getPlanInstanceFieldsInfo() {

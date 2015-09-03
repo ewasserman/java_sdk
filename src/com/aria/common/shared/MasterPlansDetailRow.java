@@ -28,6 +28,8 @@ import javax.xml.bind.annotation.XmlType;
     "balanceForward",
     "couponCodes",
     "mpiSurcharges",
+    "nsoBillImmediately",
+    "masterPlanNsoList",
     "planInstanceFieldsInfo",
     "altRateScheduleNo",
     "clientAltRateScheduleId",
@@ -79,6 +81,10 @@ public class MasterPlansDetailRow {
     protected com.aria.common.shared.CouponCodesArray couponCodes;
     @XmlElement(name = "mpi_surcharges")
     protected com.aria.common.shared.MpiSurchargesArray mpiSurcharges;
+    @XmlElement(name = "nso_bill_immediately")
+    protected Long nsoBillImmediately;
+    @XmlElement(name = "master_plan_nso_list")
+    protected com.aria.common.shared.MasterPlanNsoListArray masterPlanNsoList;
     @XmlElement(name = "plan_instance_fields_info")
     protected com.aria.common.shared.PlanInstanceFieldsInfoArray planInstanceFieldsInfo;
     @XmlElement(name = "alt_rate_schedule_no")
@@ -253,6 +259,22 @@ public class MasterPlansDetailRow {
 
     public void setMpiSurcharges(com.aria.common.shared.MpiSurchargesArray value) {
         this.mpiSurcharges = value;
+    }
+
+    public Long getNsoBillImmediately() {
+        return nsoBillImmediately;
+    }
+
+    public void setNsoBillImmediately(Long value) {
+        this.nsoBillImmediately = value;
+    }
+
+    public com.aria.common.shared.MasterPlanNsoListArray getMasterPlanNsoList() {
+        return masterPlanNsoList;
+    }
+
+    public void setMasterPlanNsoList(com.aria.common.shared.MasterPlanNsoListArray value) {
+        this.masterPlanNsoList = value;
     }
 
     public com.aria.common.shared.PlanInstanceFieldsInfoArray getPlanInstanceFieldsInfo() {

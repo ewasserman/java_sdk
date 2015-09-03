@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supp_plans_info_ReturnElement", propOrder = {"suppPlanInstanceNo", "clientSuppPlanInstanceId", "suppPlanNo", "clientSuppPlanId", "suppPlanInstanceDescription", "suppPlanUnits", "altRateScheduleNo", "clientAltRateScheduleId", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "suppPlanInstanceStatus", "parentPlanInstanceNo", "clientParentPlanInstanceId", "recurringBillingInterval", "usageBillingInterval", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "planDeprovisionedDate", "suppPlanProductFields", "suppPlanPlanInstFields"})
+@XmlType(name = "supp_plans_info_ReturnElement", propOrder = {"suppPlanInstanceNo", "clientSuppPlanInstanceId", "suppPlanNo", "clientSuppPlanId", "suppPlanInstanceDescription", "suppPlanUnits", "altRateScheduleNo", "clientAltRateScheduleId", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "suppPlanInstanceStatusCd", "suppPlanInstanceStatus", "parentPlanInstanceNo", "clientParentPlanInstanceId", "recurringBillingInterval", "usageBillingInterval", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "planDeprovisionedDate", "suppPlanProductFields", "suppPlanPlanInstFields"})
 public class SuppPlansInfoReturnElement {
 
     @XmlElement(name = "supp_plan_instance_no")
@@ -41,6 +41,8 @@ public class SuppPlansInfoReturnElement {
     protected String planDate;
     @XmlElement(name = "status_date")
     protected String statusDate;
+    @XmlElement(name = "supp_plan_instance_status_cd")
+    protected Long suppPlanInstanceStatusCd;
     @XmlElement(name = "supp_plan_instance_status")
     protected String suppPlanInstanceStatus;
     @XmlElement(name = "parent_plan_instance_no")
@@ -174,6 +176,14 @@ public class SuppPlansInfoReturnElement {
 
     public void setStatusDate(String value) {
         this.statusDate = value;
+    }
+
+    public Long getSuppPlanInstanceStatusCd() {
+        return suppPlanInstanceStatusCd;
+    }
+
+    public void setSuppPlanInstanceStatusCd(Long value) {
+        this.suppPlanInstanceStatusCd = value;
     }
 
     public String getSuppPlanInstanceStatus() {
