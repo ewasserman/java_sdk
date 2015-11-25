@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"orderNo", "transactionId", "invoicingErrorCode", "invoicingErrorMsg", "statementErrorCd", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceNo", "errorCode", "errorMsg", "totalChargesBeforeTax", "totalTaxCharges", "totalChargesAfterTax", "totalCredit", "cartInvoiceLineItems", "thirdPartyErrors"})
+@XmlType(name = "", propOrder = {"orderNo", "transactionId", "invoicingErrorCode", "invoicingErrorMsg", "statementErrorCd", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceNo", "errorCode", "errorMsg", "totalChargesBeforeTax", "totalTaxCharges", "totalChargesAfterTax", "totalCredit", "invoiceLineItemsList", "thirdPartyErrors"})
 @XmlRootElement(name = "create_orderResponseElement")
 public class CreateOrderResponseElement {
 
@@ -56,8 +56,8 @@ public class CreateOrderResponseElement {
     protected Double totalChargesAfterTax;
     @XmlElement(name = "total_credit")
     protected Double totalCredit;
-    @XmlElement(name = "cart_invoice_line_items")
-    protected List<CartInvoiceLineItemsReturnElement> cartInvoiceLineItems;
+    @XmlElement(name = "invoice_line_items_list")
+    protected List<InvoiceLineItemsListReturnElement> invoiceLineItemsList;
     @XmlElement(name = "third_party_errors")
     protected List<ThirdPartyErrorsReturnElement> thirdPartyErrors;
     
@@ -229,11 +229,11 @@ public class CreateOrderResponseElement {
         this.totalCredit = value;
     }
 
-    public List<CartInvoiceLineItemsReturnElement> getCartInvoiceLineItems() {
-        if (this.cartInvoiceLineItems == null) {
-            this.cartInvoiceLineItems = new ArrayList<CartInvoiceLineItemsReturnElement>();
+    public List<InvoiceLineItemsListReturnElement> getInvoiceLineItemsList() {
+        if (this.invoiceLineItemsList == null) {
+            this.invoiceLineItemsList = new ArrayList<InvoiceLineItemsListReturnElement>();
         }
-        return this.cartInvoiceLineItems;
+        return this.invoiceLineItemsList;
     }public List<ThirdPartyErrorsReturnElement> getThirdPartyErrors() {
         if (this.thirdPartyErrors == null) {
             this.thirdPartyErrors = new ArrayList<ThirdPartyErrorsReturnElement>();

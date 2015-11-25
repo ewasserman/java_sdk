@@ -41,14 +41,14 @@ public class GetInvoiceInformationM {
         this.authKey = value;
     }
 
-            public String getQueryString() {
+    public String getQueryString() {
         return queryString;
     }
 
     public void setQueryString(String value) {
         this.queryString = value;
     }
-            public Long getLimit() {
+                    public Long getLimit() {
         return limit;
     }
 

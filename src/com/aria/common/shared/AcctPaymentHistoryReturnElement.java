@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_payment_history_ReturnElement", propOrder = {"transactionId", "paymentSource", "paymentStatus", "paymentDate", "paymentTransType", "paymentCurrency", "paymentAmount", "paymentAmountLeftToApply", "voidingEventNo", "voidableFlag", "ccSuffix", "ccString", "payMethodType", "procStatusCode", "procPaymentId", "procAuthCode", "paymentTimestamp", "procStatusText", "paymentMethodNo", "clientPaymentMethodId", "paymentApplicationDetails"})
+@XmlType(name = "acct_payment_history_ReturnElement", propOrder = {"transactionId", "paymentSource", "paymentStatus", "paymentDate", "paymentTransType", "paymentCurrency", "paymentAmount", "paymentAmountLeftToApply", "voidingEventNo", "voidableFlag", "ccSuffix", "ccString", "payMethodType", "procStatusCode", "procPaymentId", "procAuthCode", "paymentTimestamp", "procStatusText", "paymentMethodNo", "clientPaymentMethodId", "paymentReceivedDate", "paymentApplicationDetails"})
 public class AcctPaymentHistoryReturnElement {
 
     @XmlElement(name = "transaction_id")
@@ -53,6 +53,8 @@ public class AcctPaymentHistoryReturnElement {
     protected Long paymentMethodNo;
     @XmlElement(name = "client_payment_method_id")
     protected String clientPaymentMethodId;
+    @XmlElement(name = "payment_received_date")
+    protected String paymentReceivedDate;
     @XmlElement(name = "payment_application_details")
     protected List<PaymentApplicationDetailsReturnElement> paymentApplicationDetails;
     
@@ -214,6 +216,14 @@ public class AcctPaymentHistoryReturnElement {
 
     public void setClientPaymentMethodId(String value) {
         this.clientPaymentMethodId = value;
+    }
+
+    public String getPaymentReceivedDate() {
+        return paymentReceivedDate;
+    }
+
+    public void setPaymentReceivedDate(String value) {
+        this.paymentReceivedDate = value;
     }
 
     public List<PaymentApplicationDetailsReturnElement> getPaymentApplicationDetails() {

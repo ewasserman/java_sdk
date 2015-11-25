@@ -28,9 +28,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_account_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -60,9 +60,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_account_status_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -92,9 +92,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_account_plan_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -124,9 +124,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_payment_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -156,9 +156,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_order_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -188,9 +188,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_invoice_information"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -220,9 +220,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_transaction_information"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -252,9 +252,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_refund_information"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -284,9 +284,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_coupon_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -316,9 +316,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
-        addParameters(parameters,"query_string",getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("list_transaction_types"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -348,9 +348,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
-        addParameters(parameters,"query_string",getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("list_payment_methods"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -380,9 +380,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
-        addParameters(parameters,"query_string",getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("list_payment_processors"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -412,9 +412,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_all_invoice_information"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -444,9 +444,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plan_instance_information_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -474,9 +474,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_account_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -506,9 +506,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_coupon_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -538,9 +538,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_invoice_information_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -570,9 +570,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_all_invoice_information_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
@@ -602,9 +602,9 @@ public class AriaBillingIntegrationRest extends BaseAriaBilling implements AriaB
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"query_string",getValue("String", query_string));
-        addParameters(parameters,"limit",getValue("Long", limit));
-        addParameters(parameters,"offset",getValue("Long", offset));
+        addParameters(parameters,"query_string", getValue("String", query_string));
+        addParameters(parameters,"limit", getValue("Long", limit));
+        addParameters(parameters,"offset", getValue("Long", offset));
         
         WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_account_plan_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);

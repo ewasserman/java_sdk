@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "nsoInclListScope", "planServices", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planNsoInclList", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlanNo", "planNsoItems", "planNsoGroup", "nsoGroupMinQty", "nsoGroupMaxQty", "nsoGroupItemScope"})
+@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "nsoInclListScope", "planServices", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planNsoInclList", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlans", "planNsoItems", "planNsoGroup", "nsoGroupMinQty", "nsoGroupMaxQty", "nsoGroupItemScope"})
 public class AllClientPlanDtlsReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -81,8 +81,8 @@ public class AllClientPlanDtlsReturnElement {
     protected List<PlanSuppFieldsReturnElement> planSuppFields;
     @XmlElement(name = "first_retrieval_level_ind")
     protected String firstRetrievalLevelInd;
-    @XmlElement(name = "child_plan_no")
-    protected List<ChildPlanNoReturnElement> childPlanNo;
+    @XmlElement(name = "child_plans")
+    protected List<ChildPlansReturnElement> childPlans;
     @XmlElement(name = "plan_nso_items")
     protected List<PlanNsoItemsReturnElement> planNsoItems;
     @XmlElement(name = "plan_nso_group")
@@ -342,11 +342,11 @@ public class AllClientPlanDtlsReturnElement {
         this.firstRetrievalLevelInd = value;
     }
 
-    public List<ChildPlanNoReturnElement> getChildPlanNo() {
-        if (this.childPlanNo == null) {
-            this.childPlanNo = new ArrayList<ChildPlanNoReturnElement>();
+    public List<ChildPlansReturnElement> getChildPlans() {
+        if (this.childPlans == null) {
+            this.childPlans = new ArrayList<ChildPlansReturnElement>();
         }
-        return this.childPlanNo;
+        return this.childPlans;
     }public List<PlanNsoItemsReturnElement> getPlanNsoItems() {
         if (this.planNsoItems == null) {
             this.planNsoItems = new ArrayList<PlanNsoItemsReturnElement>();

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "accountNo",    "orderLineItems",    "billImmediately",    "billSeq",    "clientOrderId",    "clientReceiptId",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "doWrite",    "couponCd",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "altInvTemplateNo",    "clientAltInvTemplateId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "statementMessage",    "fulfilledDate",    "orderComments"})
+    "authKey",    "accountNo",    "orderLineItemsList",    "billImmediately",    "billSeq",    "clientOrderId",    "clientReceiptId",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "doWrite",    "couponCd",    "altClientAcctGroupId",    "trackData1",    "trackData2",    "altInvTemplateNo",    "clientAltInvTemplateId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "statementMessage",    "fulfilledDate",    "orderComments"})
 @XmlRootElement(name = "create_order")
 public class CreateOrder {
 
@@ -20,8 +20,8 @@ public class CreateOrder {
     protected String authKey;
         @XmlElement(name = "account_no")
     protected Long accountNo;
-        @XmlElement(name = "order_line_items")
-    protected OrderLineItemsArray orderLineItems;
+        @XmlElement(name = "order_line_items_list")
+    protected OrderLineItemsListArray orderLineItemsList;
         @XmlElement(name = "bill_immediately")
     protected Long billImmediately;
         @XmlElement(name = "bill_seq")
@@ -140,12 +140,12 @@ public class CreateOrder {
     public void setAccountNo(Long value) {
         this.accountNo = value;
     }
-            public OrderLineItemsArray getOrderLineItems() {
-        return orderLineItems;
+            public OrderLineItemsListArray getOrderLineItemsList() {
+        return orderLineItemsList;
     }
 
-    public void setOrderLineItems(OrderLineItemsArray value) {
-        this.orderLineItems = value;
+    public void setOrderLineItemsList(OrderLineItemsListArray value) {
+        this.orderLineItemsList = value;
     }
             public Long getBillImmediately() {
         return billImmediately;

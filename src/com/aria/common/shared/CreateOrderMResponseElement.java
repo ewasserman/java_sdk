@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"orderNo", "transactionId", "invoicingErrorCode", "invoicingErrorMsg", "statementErrorCd", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceNo", "errorCode", "errorMsg", "totalChargesBeforeTax", "totalTaxCharges", "totalChargesAfterTax", "totalCredit", "cartInvoiceLineItems", "thirdPartyErrors"})
+@XmlType(name = "", propOrder = {"orderNo", "transactionId", "invoicingErrorCode", "invoicingErrorMsg", "statementErrorCd", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceNo", "errorCode", "errorMsg", "totalChargesBeforeTax", "totalTaxCharges", "totalChargesAfterTax", "totalCredit", "cartInvoiceLineItems", "taxDetails", "thirdPartyErrors"})
 @XmlRootElement(name = "create_order_mResponseElement")
 public class CreateOrderMResponseElement {
 
@@ -58,6 +58,8 @@ public class CreateOrderMResponseElement {
     protected Double totalCredit;
     @XmlElement(name = "cart_invoice_line_items")
     protected List<CartInvoiceLineItemsReturnElement> cartInvoiceLineItems;
+    @XmlElement(name = "tax_details")
+    protected List<TaxDetailsReturnElement> taxDetails;
     @XmlElement(name = "third_party_errors")
     protected List<ThirdPartyErrorsReturnElement> thirdPartyErrors;
     
@@ -234,6 +236,11 @@ public class CreateOrderMResponseElement {
             this.cartInvoiceLineItems = new ArrayList<CartInvoiceLineItemsReturnElement>();
         }
         return this.cartInvoiceLineItems;
+    }public List<TaxDetailsReturnElement> getTaxDetails() {
+        if (this.taxDetails == null) {
+            this.taxDetails = new ArrayList<TaxDetailsReturnElement>();
+        }
+        return this.taxDetails;
     }public List<ThirdPartyErrorsReturnElement> getThirdPartyErrors() {
         if (this.thirdPartyErrors == null) {
             this.thirdPartyErrors = new ArrayList<ThirdPartyErrorsReturnElement>();

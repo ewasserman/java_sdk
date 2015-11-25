@@ -67,8 +67,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getAccountDetails(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getAccountDetails(client_no, auth_key, query_string, limit, offset);
@@ -101,8 +101,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getAccountStatusHistory(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getAccountStatusHistory(client_no, auth_key, query_string, limit, offset);
@@ -135,8 +135,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getAccountPlanHistory(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getAccountPlanHistory(client_no, auth_key, query_string, limit, offset);
@@ -169,8 +169,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getPaymentDetails(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getPaymentDetails(client_no, auth_key, query_string, limit, offset);
@@ -203,8 +203,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getOrderDetails(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getOrderDetails(client_no, auth_key, query_string, limit, offset);
@@ -237,8 +237,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getInvoiceInformation(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getInvoiceInformation(client_no, auth_key, query_string, limit, offset);
@@ -271,8 +271,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getTransactionInformation(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getTransactionInformation(client_no, auth_key, query_string, limit, offset);
@@ -305,8 +305,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getRefundInformation(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getRefundInformation(client_no, auth_key, query_string, limit, offset);
@@ -475,8 +475,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getAllInvoiceInformation(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getAllInvoiceInformation(client_no, auth_key, query_string, limit, offset);
@@ -503,8 +503,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getPlanInstanceInformationM(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getPlanInstanceInformationM(client_no, auth_key, query_string, limit, offset);
@@ -537,8 +537,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getAccountDetailsM(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getAccountDetailsM(client_no, auth_key, query_string, limit, offset);
@@ -605,8 +605,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getInvoiceInformationM(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getInvoiceInformationM(client_no, auth_key, query_string, limit, offset);
@@ -639,8 +639,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getAllInvoiceInformationM(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getAllInvoiceInformationM(client_no, auth_key, query_string, limit, offset);
@@ -673,8 +673,8 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
     public Map<String,Object> getAccountPlanHistoryM(Map<String,Object> map){
         Long client_no = (Long) map.get("client_no");
         String auth_key = (String) map.get("auth_key");
-                        String query_string = (String) map.get("query_string");
-                Long limit = (Long) map.get("limit");
+        String query_string = (String) map.get("query_string");
+                                Long limit = (Long) map.get("limit");
                 Long offset = (Long) map.get("offset");
                 
         return getAccountPlanHistoryM(client_no, auth_key, query_string, limit, offset);

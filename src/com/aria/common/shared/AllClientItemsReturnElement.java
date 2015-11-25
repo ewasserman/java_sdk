@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_items_ReturnElement", propOrder = {"itemNo", "itemLabel", "serviceNo", "serviceDesc", "clientItemId", "clientServiceId", "clientItemPlanId", "usageTypeCd", "allServiceSuppFields", "clientSku", "itemPlan", "itemMonths", "stockLevel", "avgRatings", "numRatings", "numReviews", "itemType", "itemDesc", "activeInd", "modifyPriceInd", "subunitQty", "subunitLabel", "serviceType", "coaId", "clientCoaCode", "taxableInd", "taxGroup", "usageType", "allItemPrices", "allItemImages", "allItemSuppFields", "allItemClasses"})
+@XmlType(name = "all_client_items_ReturnElement", propOrder = {"itemNo", "itemLabel", "serviceNo", "serviceDesc", "clientItemId", "clientServiceId", "clientItemPlanId", "usageTypeCd", "allServiceSuppFields", "clientSku", "itemPlan", "itemMonths", "stockLevel", "avgRatings", "numRatings", "numReviews", "itemType", "itemDesc", "activeInd", "modifyPriceInd", "subunitQty", "subunitLabel", "serviceType", "coaId", "clientCoaCode", "taxableInd", "taxGroup", "usageType", "allItemPrices", "allItemImages", "allItemSuppFields", "allItemClasses", "schedule"})
 public class AllClientItemsReturnElement {
 
     @XmlElement(name = "item_no")
@@ -77,6 +77,8 @@ public class AllClientItemsReturnElement {
     protected List<AllItemSuppFieldsReturnElement> allItemSuppFields;
     @XmlElement(name = "all_item_classes")
     protected List<AllItemClassesReturnElement> allItemClasses;
+    @XmlElement(name = "schedule")
+    protected List<ScheduleReturnElement> schedule;
     
     public Long getItemNo() {
         return itemNo;
@@ -319,5 +321,10 @@ public class AllClientItemsReturnElement {
             this.allItemClasses = new ArrayList<AllItemClassesReturnElement>();
         }
         return this.allItemClasses;
+    }public List<ScheduleReturnElement> getSchedule() {
+        if (this.schedule == null) {
+            this.schedule = new ArrayList<ScheduleReturnElement>();
+        }
+        return this.schedule;
     }
 }

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_acct_contracts_m_ReturnElement", propOrder = {"contractNo", "contractScope", "typeNo", "lengthMonths", "cancelFee", "createComments", "updateComments", "createDate", "updateDate", "startDate", "endDate", "statusCode", "planInstanceNo", "planName", "clientPlanInstanceId", "planInstanceStatusCd", "planInstanceStatusLabel"})
+@XmlType(name = "all_acct_contracts_m_ReturnElement", propOrder = {"contractNo", "contractScope", "typeNo", "lengthMonths", "cancelFee", "createComments", "updateComments", "createDate", "updateDate", "startDate", "endDate", "statusCode", "contractPlanInstanceInfo"})
 public class AllAcctContractsMReturnElement {
 
     @XmlElement(name = "contract_no")
@@ -37,16 +37,8 @@ public class AllAcctContractsMReturnElement {
     protected String endDate;
     @XmlElement(name = "status_code")
     protected Long statusCode;
-    @XmlElement(name = "plan_instance_no")
-    protected Long planInstanceNo;
-    @XmlElement(name = "plan_name")
-    protected String planName;
-    @XmlElement(name = "client_plan_instance_id")
-    protected String clientPlanInstanceId;
-    @XmlElement(name = "plan_instance_status_cd")
-    protected Long planInstanceStatusCd;
-    @XmlElement(name = "plan_instance_status_label")
-    protected String planInstanceStatusLabel;
+    @XmlElement(name = "contract_plan_instance_info")
+    protected List<ContractPlanInstanceInfoReturnElement> contractPlanInstanceInfo;
     
     public Long getContractNo() {
         return contractNo;
@@ -144,45 +136,10 @@ public class AllAcctContractsMReturnElement {
         this.statusCode = value;
     }
 
-    public Long getPlanInstanceNo() {
-        return planInstanceNo;
+    public List<ContractPlanInstanceInfoReturnElement> getContractPlanInstanceInfo() {
+        if (this.contractPlanInstanceInfo == null) {
+            this.contractPlanInstanceInfo = new ArrayList<ContractPlanInstanceInfoReturnElement>();
+        }
+        return this.contractPlanInstanceInfo;
     }
-
-    public void setPlanInstanceNo(Long value) {
-        this.planInstanceNo = value;
-    }
-
-    public String getPlanName() {
-        return planName;
-    }
-
-    public void setPlanName(String value) {
-        this.planName = value;
-    }
-
-    public String getClientPlanInstanceId() {
-        return clientPlanInstanceId;
-    }
-
-    public void setClientPlanInstanceId(String value) {
-        this.clientPlanInstanceId = value;
-    }
-
-    public Long getPlanInstanceStatusCd() {
-        return planInstanceStatusCd;
-    }
-
-    public void setPlanInstanceStatusCd(Long value) {
-        this.planInstanceStatusCd = value;
-    }
-
-    public String getPlanInstanceStatusLabel() {
-        return planInstanceStatusLabel;
-    }
-
-    public void setPlanInstanceStatusLabel(String value) {
-        this.planInstanceStatusLabel = value;
-    }
-
-    
 }

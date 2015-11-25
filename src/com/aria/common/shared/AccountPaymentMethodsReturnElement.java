@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "account_payment_methods_ReturnElement", propOrder = {"billFirstName", "billMiddleInitial", "billLastName", "billCompanyName", "billAddress1", "billAddress2", "billAddress3", "billCity", "billLocality", "billStateProv", "billCountry", "billPostalCd", "billAddressVerificationCode", "billAddressMatchScore", "billPhone", "billPhoneExt", "billCellPhone", "billWorkPhone", "billWorkPhoneExt", "billFax", "billEmail", "billBirthdate", "payMethodName", "clientPaymentMethodId", "payMethodDescription", "payMethodType", "suffix", "ccExpireMm", "ccExpireYyyy", "bankRoutingNum", "billAgreementId", "bankSwiftCd", "bankCountryCd", "mandateId", "bankIdCd", "bankBranchCd", "status", "paymentMethodNo", "persistentInd", "fromDate", "toDate", "billInfoApiReceiptId"})
+@XmlType(name = "account_payment_methods_ReturnElement", propOrder = {"billFirstName", "billMiddleInitial", "billLastName", "billCompanyName", "billAddress1", "billAddress2", "billAddress3", "billCity", "billLocality", "billStateProv", "billCountry", "billPostalCd", "billAddressVerificationCode", "billAddressMatchScore", "billPhone", "billPhoneExt", "billCellPhone", "billWorkPhone", "billWorkPhoneExt", "billFax", "billEmail", "billBirthdate", "payMethodName", "clientPaymentMethodId", "payMethodDescription", "payMethodType", "suffix", "ccExpireMm", "ccExpireYyyy", "ccType", "bankRoutingNum", "billAgreementId", "bankSwiftCd", "bankCountryCd", "mandateId", "bankIdCd", "bankBranchCd", "status", "paymentMethodNo", "persistentInd", "fromDate", "toDate", "billInfoApiReceiptId"})
 public class AccountPaymentMethodsReturnElement {
 
     @XmlElement(name = "bill_first_name")
@@ -71,6 +71,8 @@ public class AccountPaymentMethodsReturnElement {
     protected Long ccExpireMm;
     @XmlElement(name = "cc_expire_yyyy")
     protected Long ccExpireYyyy;
+    @XmlElement(name = "cc_type")
+    protected String ccType;
     @XmlElement(name = "bank_routing_num")
     protected String bankRoutingNum;
     @XmlElement(name = "bill_agreement_id")
@@ -328,6 +330,14 @@ public class AccountPaymentMethodsReturnElement {
 
     public void setCcExpireYyyy(Long value) {
         this.ccExpireYyyy = value;
+    }
+
+    public String getCcType() {
+        return ccType;
+    }
+
+    public void setCcType(String value) {
+        this.ccType = value;
     }
 
     public String getBankRoutingNum() {

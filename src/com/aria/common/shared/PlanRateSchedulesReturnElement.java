@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_rate_schedules_ReturnElement", propOrder = {"scheduleNo", "scheduleName", "scheduleCurrency", "scheduleDefaultInd", "scheduleDefaultIndCurr", "scheduleDisplayInd", "clientRateScheduleId"})
+@XmlType(name = "plan_rate_schedules_ReturnElement", propOrder = {"scheduleNo", "scheduleName", "scheduleCurrency", "scheduleDefaultInd", "scheduleDefaultIndCurr", "scheduleDisplayInd", "clientRateScheduleId", "availableFromDate", "availableToDate", "futureRate", "futureChangeDate", "followupRsNo", "clientFollowupRsId"})
 public class PlanRateSchedulesReturnElement {
 
     @XmlElement(name = "schedule_no")
@@ -27,6 +27,18 @@ public class PlanRateSchedulesReturnElement {
     protected Long scheduleDisplayInd;
     @XmlElement(name = "client_rate_schedule_id")
     protected String clientRateScheduleId;
+    @XmlElement(name = "available_from_date")
+    protected String availableFromDate;
+    @XmlElement(name = "available_to_date")
+    protected String availableToDate;
+    @XmlElement(name = "future_rate")
+    protected Long futureRate;
+    @XmlElement(name = "future_change_date")
+    protected String futureChangeDate;
+    @XmlElement(name = "followup_rs_no")
+    protected Long followupRsNo;
+    @XmlElement(name = "client_followup_rs_id")
+    protected String clientFollowupRsId;
     
     public Long getScheduleNo() {
         return scheduleNo;
@@ -82,6 +94,54 @@ public class PlanRateSchedulesReturnElement {
 
     public void setClientRateScheduleId(String value) {
         this.clientRateScheduleId = value;
+    }
+
+    public String getAvailableFromDate() {
+        return availableFromDate;
+    }
+
+    public void setAvailableFromDate(String value) {
+        this.availableFromDate = value;
+    }
+
+    public String getAvailableToDate() {
+        return availableToDate;
+    }
+
+    public void setAvailableToDate(String value) {
+        this.availableToDate = value;
+    }
+
+    public Long getFutureRate() {
+        return futureRate;
+    }
+
+    public void setFutureRate(Long value) {
+        this.futureRate = value;
+    }
+
+    public String getFutureChangeDate() {
+        return futureChangeDate;
+    }
+
+    public void setFutureChangeDate(String value) {
+        this.futureChangeDate = value;
+    }
+
+    public Long getFollowupRsNo() {
+        return followupRsNo;
+    }
+
+    public void setFollowupRsNo(Long value) {
+        this.followupRsNo = value;
+    }
+
+    public String getClientFollowupRsId() {
+        return clientFollowupRsId;
+    }
+
+    public void setClientFollowupRsId(String value) {
+        this.clientFollowupRsId = value;
     }
 
     

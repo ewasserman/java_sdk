@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "newPlanNo",    "newClientPlanId",    "clientPlanInstanceId",    "existingBillingGroupNo",    "existingClientBillingGroupId",    "billingGroupName",    "billingGroupDescription",    "clientDefBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "existingPrimaryPaymentMethodNo",    "existingClientPrimaryPaymentMethodId",    "existingBackupPaymentMethodNo",    "existingClientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "primaryPayMethodName",    "primaryPayMethodCdid",    "primaryPayMethodDescription",    "primaryPayMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "existingDunningGroupNo",    "existingClientDefDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcessNo",    "clientDunningProcessId",    "altStartDate",    "statusUntilAltStart",    "altBillDay",    "invoicingOption",    "retroactiveStartDate",    "balanceForward",    "respLevelCd",    "parentAcctMasterPlanInstId",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "mpiSurcharges",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "customRates",    "effectiveDate",    "offsetInterval",    "forceSuppBillDateReset",    "clientAltRateScheduleId",    "nsoBillImmediately",    "nsoItemList"})
+    "authKey",    "acctNo",    "newPlanNo",    "newClientPlanId",    "clientPlanInstanceId",    "existingBillingGroupNo",    "existingClientBillingGroupId",    "billingGroupName",    "billingGroupDescription",    "clientDefBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "existingPrimaryPaymentMethodNo",    "existingClientPrimaryPaymentMethodId",    "existingBackupPaymentMethodNo",    "existingClientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "primaryPayMethodName",    "primaryPayMethodCdid",    "primaryPayMethodDescription",    "primaryPayMethodType",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNo",    "bankRoutingNo",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "existingDunningGroupNo",    "existingClientDefDunningGroupId",    "dunningGroupName",    "dunningGroupDescription",    "clientDunningGroupId",    "dunningProcessNo",    "clientDunningProcessId",    "altStartDate",    "statusUntilAltStart",    "altBillDay",    "invoicingOption",    "retroactiveStartDate",    "balanceForward",    "respLevelCd",    "parentAcctMasterPlanInstId",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "mpiSurcharges",    "planStatus",    "planInstanceDescription",    "planInstanceFields",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "customRates",    "effectiveDate",    "offsetInterval",    "forceSuppBillDateReset",    "clientAltRateScheduleId",    "nsoBillImmediately",    "nsoItemList",    "prorationInvoiceTiming"})
 @XmlRootElement(name = "assign_acct_plan_m")
 public class AssignAcctPlanM {
 
@@ -258,6 +258,8 @@ public class AssignAcctPlanM {
     protected Long nsoBillImmediately;
         @XmlElement(name = "nso_item_list")
     protected NsoItemListArray nsoItemList;
+        @XmlElement(name = "proration_invoice_timing")
+    protected Long prorationInvoiceTiming;
     
     public long getClientNo() {
         return clientNo;
@@ -1114,6 +1116,13 @@ public class AssignAcctPlanM {
 
     public void setNsoItemList(NsoItemListArray value) {
         this.nsoItemList = value;
+    }
+            public Long getProrationInvoiceTiming() {
+        return prorationInvoiceTiming;
+    }
+
+    public void setProrationInvoiceTiming(Long value) {
+        this.prorationInvoiceTiming = value;
     }
             
 }

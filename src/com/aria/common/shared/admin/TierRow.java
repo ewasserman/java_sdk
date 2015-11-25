@@ -8,18 +8,73 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "tier_row", propOrder = {
-    "price"
+    "from",
+    "to",
+    "price",
+    "description",
+    "amount"
     })
 public class TierRow {
 
+    @XmlElement(name = "from")
+    protected Long from;
+    @XmlElement(name = "to")
+    protected Long to;
     @XmlElement(name = "price")
     protected com.aria.common.shared.admin.PriceArray price;
+    @XmlElement(name = "description")
+    protected String description;
+    @XmlElement(name = "amount")
+    protected Double amount;
+    @XmlElement(name = "schedule")
+    protected com.aria.common.shared.admin.ScheduleArray schedule;
+    
+    public com.aria.common.shared.admin.ScheduleArray getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(com.aria.common.shared.admin.ScheduleArray schedule) {
+		this.schedule = schedule;
+	}
+
+	public Long getFrom() {
+        return from;
+    }
+
+    public void setFrom(Long value) {
+        this.from = value;
+    }
+
+    public Long getTo() {
+        return to;
+    }
+
+    public void setTo(Long value) {
+        this.to = value;
+    }
+
     public com.aria.common.shared.admin.PriceArray getPrice() {
         return price;
     }
 
     public void setPrice(com.aria.common.shared.admin.PriceArray value) {
         this.price = value;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String value) {
+        this.description = value;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double value) {
+        this.amount = value;
     }
 
     

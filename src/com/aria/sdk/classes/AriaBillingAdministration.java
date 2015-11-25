@@ -148,137 +148,6 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> setCompanyProfile(Map<String,Object> map);
 
     /**
-    * getInventoryItems
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   inventory_items - Type: ArrayList&#60;InventoryItemsReturnElement&#62;<br>
-    */
-    abstract Map<String,Object> getInventoryItems(Long client_no, String auth_key);
-
-    abstract Map<String,Object> getInventoryItems(Map<String,Object> map);
-
-    /**
-    * getInventoryItemDetails
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param item_no - Type: Long
-    * @param client_item_id - Type: String
-    * @param currency_cd - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   item_no - Type: javax.xml.ws.Holder<br>
-    *   client_item_id - Type: javax.xml.ws.Holder<br>
-    *   item_type - Type: javax.xml.ws.Holder<br>
-    *   item_name - Type: javax.xml.ws.Holder<br>
-    *   item_desc - Type: javax.xml.ws.Holder<br>
-    *   active_ind - Type: javax.xml.ws.Holder<br>
-    *   service_no - Type: javax.xml.ws.Holder<br>
-    *   client_service_id - Type: javax.xml.ws.Holder<br>
-    *   invoice_advancement_months - Type: javax.xml.ws.Holder<br>
-    *   plan_no - Type: javax.xml.ws.Holder<br>
-    *   client_plan_id - Type: javax.xml.ws.Holder<br>
-    *   client_sku - Type: javax.xml.ws.Holder<br>
-    *   modify_price_ind - Type: javax.xml.ws.Holder<br>
-    *   subunit_qty - Type: javax.xml.ws.Holder<br>
-    *   subunit_label - Type: javax.xml.ws.Holder<br>
-    *   days_to_expiry - Type: javax.xml.ws.Holder<br>
-    *   resources - Type: ArrayList&#60;ResourcesReturnElement&#62;<br>
-    *   pricing - Type: ArrayList&#60;PricingReturnElement&#62;<br>
-    *   stock_level - Type: javax.xml.ws.Holder<br>
-    *   image - Type: ArrayList&#60;ImageReturnElement&#62;<br>
-    *   item_class - Type: javax.xml.ws.Holder<br>
-    *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
-    */
-    abstract Map<String,Object> getInventoryItemDetails(Long client_no, String auth_key, Long item_no, String client_item_id, String currency_cd);
-
-    abstract Map<String,Object> getInventoryItemDetails(Map<String,Object> map);
-
-    /**
-    * createInventoryItem
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param item_type - Type: Long
-    * @param item_name - Type: String
-    * @param item_desc - Type: String
-    * @param service_no - Type: Long
-    * @param service - Type: com.aria.common.shared.admin.ServiceArray
-    * @param client_sku - Type: String
-    * @param currency_cd - Type: String
-    * @param item_price - Type: String
-    * @param client_item_id - Type: String
-    * @param active_ind - Type: Long
-    * @param client_service_id - Type: String
-    * @param tax_inclusive_ind - Type: String
-    * @param modify_price_ind - Type: String
-    * @param subunit_qty - Type: Long
-    * @param subunit_label - Type: String
-    * @param queued_active_ind - Type: Long
-    * @param queued_active_date - Type: String
-    * @param do_auto_create_service_credit - Type: String
-    * @param days_to_expiry - Type: Long
-    * @param resource_type_no - Type: String
-    * @param resource_units - Type: String
-    * @param stock_level_track - Type: Long
-    * @param stock_level_adjust - Type: Double
-    * @param image - Type: com.aria.common.shared.admin.ImageArray
-    * @param parent_class - Type: com.aria.common.shared.admin.ParentClassArray
-    * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   item_no - Type: javax.xml.ws.Holder<br>
-    *   currency_cd - Type: javax.xml.ws.Holder<br>
-    */
-    abstract Map<String,Object> createInventoryItem(Long client_no, String auth_key, Long item_type, String item_name, String item_desc, Long service_no, com.aria.common.shared.admin.ServiceArray service, String client_sku, String currency_cd, String item_price, String client_item_id, Long active_ind, String client_service_id, String tax_inclusive_ind, String modify_price_ind, Long subunit_qty, String subunit_label, Long queued_active_ind, String queued_active_date, String do_auto_create_service_credit, Long days_to_expiry, String resource_type_no, String resource_units, Long stock_level_track, Double stock_level_adjust, com.aria.common.shared.admin.ImageArray image, com.aria.common.shared.admin.ParentClassArray parent_class, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field);
-
-    abstract Map<String,Object> createInventoryItem(Map<String,Object> map);
-
-    /**
-    * updateInventoryItem
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param item_no - Type: Long
-    * @param item_type - Type: Long
-    * @param item_name - Type: String
-    * @param item_desc - Type: String
-    * @param client_item_id - Type: String
-    * @param service_no - Type: Long
-    * @param client_service_id - Type: String
-    * @param service - Type: com.aria.common.shared.admin.ServiceArray
-    * @param client_sku - Type: String
-    * @param currency_cd - Type: String
-    * @param item_price - Type: String
-    * @param active_ind - Type: Long
-    * @param tax_inclusive_ind - Type: String
-    * @param modify_price_ind - Type: String
-    * @param subunit_qty - Type: Long
-    * @param subunit_label - Type: String
-    * @param queued_active_ind - Type: Long
-    * @param queued_active_date - Type: String
-    * @param do_auto_create_service_credit - Type: Long
-    * @param days_to_expiry - Type: Long
-    * @param resource_type_no - Type: String
-    * @param resource_units - Type: String
-    * @param stock_level_track - Type: Long
-    * @param stock_level_adjust - Type: Double
-    * @param image - Type: com.aria.common.shared.admin.ImageArray
-    * @param parent_class - Type: com.aria.common.shared.admin.ParentClassArray
-    * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   item_no - Type: javax.xml.ws.Holder<br>
-    *   currency_cd - Type: javax.xml.ws.Holder<br>
-    */
-    abstract Map<String,Object> updateInventoryItem(Long client_no, String auth_key, Long item_no, Long item_type, String item_name, String item_desc, String client_item_id, Long service_no, String client_service_id, com.aria.common.shared.admin.ServiceArray service, String client_sku, String currency_cd, String item_price, Long active_ind, String tax_inclusive_ind, String modify_price_ind, Long subunit_qty, String subunit_label, Long queued_active_ind, String queued_active_date, Long do_auto_create_service_credit, Long days_to_expiry, String resource_type_no, String resource_units, Long stock_level_track, Double stock_level_adjust, com.aria.common.shared.admin.ImageArray image, com.aria.common.shared.admin.ParentClassArray parent_class, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field);
-
-    abstract Map<String,Object> updateInventoryItem(Map<String,Object> map);
-
-    /**
     * createItemClass
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -402,6 +271,7 @@ public interface AriaBillingAdministration {
     *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
     *   commodity_cd - Type: javax.xml.ws.Holder<br>
     *   fulfillment_based_ind - Type: javax.xml.ws.Holder<br>
+    *   apply_usage_rates_daily - Type: javax.xml.ws.Holder<br>
     */
     abstract Map<String,Object> getPlanServiceDetails(Long client_no, String auth_key, Long service_no, Long plan_no, String client_service_id, String client_plan_id);
 
@@ -1158,15 +1028,8 @@ public interface AriaBillingAdministration {
     * @param client_plan_id - Type: String
     * @param plan_group - Type: com.aria.common.shared.admin.PlanGroupArray
     * @param plan_group_id - Type: com.aria.common.shared.admin.PlanGroupIdArray
-    * @param rollover_months - Type: String
     * @param rollover_plan_no - Type: Long
     * @param rollover_client_plan_id - Type: String
-    * @param initial_free_months - Type: Long
-    * @param free_trial_type - Type: String
-    * @param free_trial_duration - Type: String
-    * @param acct_status_cd - Type: Long
-    * @param rollover_acct_status_days - Type: Long
-    * @param rollover_acct_status_cd - Type: Long
     * @param dunning_plan_no - Type: Long
     * @param dunning_client_plan_id - Type: String
     * @param template_no - Type: Long
@@ -1183,6 +1046,7 @@ public interface AriaBillingAdministration {
     * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
     * @param template_ind - Type: Long
     * @param child_plans - Type: com.aria.common.shared.admin.ChildPlansArray
+    * @param eligible_child_plans - Type: com.aria.common.shared.admin.EligibleChildPlansArray
     * @param notification_template_group_no - Type: String
     * @param credit_note_template_no - Type: String
     * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
@@ -1205,7 +1069,7 @@ public interface AriaBillingAdministration {
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   plan_no - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long initial_free_months, String free_trial_type, String free_trial_duration, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array);
+    abstract Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array);
 
     abstract Map<String,Object> createNewPlanM(Map<String,Object> map);
 
@@ -1279,15 +1143,10 @@ public interface AriaBillingAdministration {
     * @param currency - Type: String
     * @param template_no - Type: Long
     * @param client_email_template_id - Type: String
-    * @param rollover_months - Type: String
     * @param rollover_plan_no - Type: Long
     * @param rollover_client_plan_id - Type: String
     * @param dunning_plan_no - Type: Long
     * @param dunning_client_plan_id - Type: String
-    * @param initial_free_months - Type: Long
-    * @param acct_status_cd - Type: Long
-    * @param rollover_acct_status_days - Type: Long
-    * @param rollover_acct_status_cd - Type: Long
     * @param allow_child_accts - Type: Long
     * @param apply_cancellation - Type: String
     * @param plan_cancel_min_month - Type: Long
@@ -1302,6 +1161,7 @@ public interface AriaBillingAdministration {
     * @param exclusion_plans - Type: com.aria.common.shared.admin.ExclusionPlansArray
     * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
     * @param child_plans - Type: com.aria.common.shared.admin.ChildPlansArray
+    * @param eligible_child_plans - Type: com.aria.common.shared.admin.EligibleChildPlansArray
     * @param notification_template_group_no - Type: String
     * @param credit_note_template_no - Type: String
     * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
@@ -1325,7 +1185,7 @@ public interface AriaBillingAdministration {
     *   error_msg - Type: javax.xml.ws.Holder<br>
     *   plan_no - Type: javax.xml.ws.Holder<br>
     */
-    abstract Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array);
+    abstract Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array);
 
     abstract Map<String,Object> editPlanM(Map<String,Object> map);
 
@@ -2338,6 +2198,143 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> getInventoryItemDetailsM(Long client_no, String auth_key, Long item_no, String client_item_id, String currency_cd);
 
     abstract Map<String,Object> getInventoryItemDetailsM(Map<String,Object> map);
+
+    /**
+    * getInventoryItems
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   inventory_items - Type: ArrayList&#60;InventoryItemsReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getInventoryItems(Long client_no, String auth_key);
+
+    abstract Map<String,Object> getInventoryItems(Map<String,Object> map);
+
+    /**
+    * getInventoryItemDetails
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param item_no - Type: Long
+    * @param client_item_id - Type: String
+    * @param currency_cd - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   item_no - Type: javax.xml.ws.Holder<br>
+    *   client_item_id - Type: javax.xml.ws.Holder<br>
+    *   item_type - Type: javax.xml.ws.Holder<br>
+    *   item_name - Type: javax.xml.ws.Holder<br>
+    *   item_desc - Type: javax.xml.ws.Holder<br>
+    *   active_ind - Type: javax.xml.ws.Holder<br>
+    *   service_no - Type: javax.xml.ws.Holder<br>
+    *   client_service_id - Type: javax.xml.ws.Holder<br>
+    *   invoice_advancement_months - Type: javax.xml.ws.Holder<br>
+    *   plan_no - Type: javax.xml.ws.Holder<br>
+    *   client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   client_sku - Type: javax.xml.ws.Holder<br>
+    *   modify_price_ind - Type: javax.xml.ws.Holder<br>
+    *   subunit_qty - Type: javax.xml.ws.Holder<br>
+    *   subunit_label - Type: javax.xml.ws.Holder<br>
+    *   days_to_expiry - Type: javax.xml.ws.Holder<br>
+    *   resources - Type: ArrayList&#60;ResourcesReturnElement&#62;<br>
+    *   pricing - Type: ArrayList&#60;PricingReturnElement&#62;<br>
+    *   stock_level - Type: javax.xml.ws.Holder<br>
+    *   image - Type: ArrayList&#60;ImageReturnElement&#62;<br>
+    *   item_class - Type: javax.xml.ws.Holder<br>
+    *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
+    *   schedule - Type: ArrayList&#60;ScheduleReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getInventoryItemDetails(Long client_no, String auth_key, Long item_no, String client_item_id, String currency_cd);
+
+    abstract Map<String,Object> getInventoryItemDetails(Map<String,Object> map);
+
+    /**
+    * createInventoryItem
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param item_type - Type: Long
+    * @param item_name - Type: String
+    * @param item_desc - Type: String
+    * @param service_no - Type: Long
+    * @param service - Type: com.aria.common.shared.admin.ServiceArray
+    * @param client_sku - Type: String
+    * @param currency_cd - Type: String
+    * @param item_price - Type: String
+    * @param client_item_id - Type: String
+    * @param active_ind - Type: Long
+    * @param client_service_id - Type: String
+    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
+    * @param tax_inclusive_ind - Type: String
+    * @param modify_price_ind - Type: String
+    * @param subunit_qty - Type: Long
+    * @param subunit_label - Type: String
+    * @param pricing_rule - Type: Long
+    * @param queued_active_ind - Type: Long
+    * @param queued_active_date - Type: String
+    * @param do_auto_create_service_credit - Type: String
+    * @param days_to_expiry - Type: Long
+    * @param resource_type_no - Type: String
+    * @param resource_units - Type: String
+    * @param stock_level_track - Type: Long
+    * @param stock_level_adjust - Type: Double
+    * @param image - Type: com.aria.common.shared.admin.ImageArray
+    * @param parent_class - Type: com.aria.common.shared.admin.ParentClassArray
+    * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   item_no - Type: javax.xml.ws.Holder<br>
+    *   currency_cd - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> createInventoryItem(Long client_no, String auth_key, Long item_type, String item_name, String item_desc, Long service_no, com.aria.common.shared.admin.ServiceArray service, String client_sku, String currency_cd, String item_price, String client_item_id, Long active_ind, String client_service_id, com.aria.common.shared.admin.ScheduleArray schedule, String tax_inclusive_ind, String modify_price_ind, Long subunit_qty, String subunit_label, Long pricing_rule, Long queued_active_ind, String queued_active_date, String do_auto_create_service_credit, Long days_to_expiry, String resource_type_no, String resource_units, Long stock_level_track, Double stock_level_adjust, com.aria.common.shared.admin.ImageArray image, com.aria.common.shared.admin.ParentClassArray parent_class, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field);
+
+    abstract Map<String,Object> createInventoryItem(Map<String,Object> map);
+
+    /**
+    * updateInventoryItem
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param item_no - Type: Long
+    * @param item_type - Type: Long
+    * @param item_name - Type: String
+    * @param item_desc - Type: String
+    * @param client_item_id - Type: String
+    * @param service_no - Type: Long
+    * @param client_service_id - Type: String
+    * @param service - Type: com.aria.common.shared.admin.ServiceArray
+    * @param client_sku - Type: String
+    * @param currency_cd - Type: String
+    * @param item_price - Type: String
+    * @param active_ind - Type: Long
+    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
+    * @param tax_inclusive_ind - Type: String
+    * @param modify_price_ind - Type: String
+    * @param subunit_qty - Type: Long
+    * @param subunit_label - Type: String
+    * @param pricing_rule - Type: Long
+    * @param queued_active_ind - Type: Long
+    * @param queued_active_date - Type: String
+    * @param do_auto_create_service_credit - Type: Long
+    * @param days_to_expiry - Type: Long
+    * @param resource_type_no - Type: String
+    * @param resource_units - Type: String
+    * @param stock_level_track - Type: Long
+    * @param stock_level_adjust - Type: Double
+    * @param image - Type: com.aria.common.shared.admin.ImageArray
+    * @param parent_class - Type: com.aria.common.shared.admin.ParentClassArray
+    * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
+    * @param edit_directive - Type: Long
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   item_no - Type: javax.xml.ws.Holder<br>
+    *   currency_cd - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> updateInventoryItem(Long client_no, String auth_key, Long item_no, Long item_type, String item_name, String item_desc, String client_item_id, Long service_no, String client_service_id, com.aria.common.shared.admin.ServiceArray service, String client_sku, String currency_cd, String item_price, Long active_ind, com.aria.common.shared.admin.ScheduleArray schedule, String tax_inclusive_ind, String modify_price_ind, Long subunit_qty, String subunit_label, Long pricing_rule, Long queued_active_ind, String queued_active_date, Long do_auto_create_service_credit, Long days_to_expiry, String resource_type_no, String resource_units, Long stock_level_track, Double stock_level_adjust, com.aria.common.shared.admin.ImageArray image, com.aria.common.shared.admin.ParentClassArray parent_class, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long edit_directive);
+
+    abstract Map<String,Object> updateInventoryItem(Map<String,Object> map);
 
     /********************************** END - METHODS ***********************************************/
 }

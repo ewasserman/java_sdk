@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "mpSurcharges"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "mpSurcharges",    "prorationInvoiceTiming"})
 @XmlRootElement(name = "update_acct_plan_m")
 public class UpdateAcctPlanM {
 
@@ -74,6 +74,8 @@ public class UpdateAcctPlanM {
     protected String usageThresholdApplicability;
         @XmlElement(name = "mp_surcharges")
     protected MpSurchargesArray mpSurcharges;
+        @XmlElement(name = "proration_invoice_timing")
+    protected Long prorationInvoiceTiming;
     
     public long getClientNo() {
         return clientNo;
@@ -286,6 +288,13 @@ public class UpdateAcctPlanM {
 
     public void setMpSurcharges(MpSurchargesArray value) {
         this.mpSurcharges = value;
+    }
+            public Long getProrationInvoiceTiming() {
+        return prorationInvoiceTiming;
+    }
+
+    public void setProrationInvoiceTiming(Long value) {
+        this.prorationInvoiceTiming = value;
     }
             
 }

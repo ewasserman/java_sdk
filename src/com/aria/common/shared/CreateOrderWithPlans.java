@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "orderLineItems",    "cartSuppPlans",    "clientOrderId",    "couponCode",    "comments",    "doWrite",    "clientReceiptId",    "billSeq",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "trackData1",    "trackData2",    "altInvTemplateNo",    "syncMstrBillDatesOverride",    "multipleCoupons",    "clientAltInvTemplateId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "statementMessage",    "orderComments"})
+    "authKey",    "acctNo",    "orderLineItemsList",    "cartSuppPlans",    "clientOrderId",    "couponCode",    "comments",    "doWrite",    "clientReceiptId",    "billSeq",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "trackData1",    "trackData2",    "altInvTemplateNo",    "syncMstrBillDatesOverride",    "multipleCoupons",    "clientAltInvTemplateId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "statementMessage",    "orderComments"})
 @XmlRootElement(name = "create_order_with_plans")
 public class CreateOrderWithPlans {
 
@@ -20,8 +20,8 @@ public class CreateOrderWithPlans {
     protected String authKey;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
-        @XmlElement(name = "order_line_items")
-    protected OrderLineItemsArray orderLineItems;
+        @XmlElement(name = "order_line_items_list")
+    protected OrderLineItemsListArray orderLineItemsList;
         @XmlElement(name = "cart_supp_plans")
     protected CartSuppPlansArray cartSuppPlans;
         @XmlElement(name = "client_order_id")
@@ -142,12 +142,12 @@ public class CreateOrderWithPlans {
     public void setAcctNo(Long value) {
         this.acctNo = value;
     }
-            public OrderLineItemsArray getOrderLineItems() {
-        return orderLineItems;
+            public OrderLineItemsListArray getOrderLineItemsList() {
+        return orderLineItemsList;
     }
 
-    public void setOrderLineItems(OrderLineItemsArray value) {
-        this.orderLineItems = value;
+    public void setOrderLineItemsList(OrderLineItemsListArray value) {
+        this.orderLineItemsList = value;
     }
             public CartSuppPlansArray getCartSuppPlans() {
         return cartSuppPlans;

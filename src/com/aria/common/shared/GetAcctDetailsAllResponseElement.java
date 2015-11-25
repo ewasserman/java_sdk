@@ -263,7 +263,7 @@ public class GetAcctDetailsAllResponseElement {
     @XmlElement(name = "bkup_cc_expire_yyyy")
     protected String bkupCcExpireYyyy;
     @XmlElement(name = "bkup_cc_id")
-    protected String bkupCcId;
+    protected Long bkupCcId;
     @XmlElement(name = "bkup_bank_acct_suffix")
     protected String bkupBankAcctSuffix;
     @XmlElement(name = "bkup_bank_routing_no")
@@ -1301,11 +1301,11 @@ public class GetAcctDetailsAllResponseElement {
         this.bkupCcExpireYyyy = value;
     }
 
-    public String getBkupCcId() {
+    public Long getBkupCcId() {
         return bkupCcId;
     }
 
-    public void setBkupCcId(String value) {
+    public void setBkupCcId(Long value) {
         this.bkupCcId = value;
     }
 

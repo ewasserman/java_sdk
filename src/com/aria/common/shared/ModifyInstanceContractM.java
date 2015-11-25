@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "contractNo",    "clientContractId",    "typeNo",    "lengthMonths",    "updateComments",    "cancelFee",    "actionDirective",    "startDate",    "endDate",    "cascadeAction",    "contractPlanInstancesUpdate",    "contractRolloverCustomRates"})
+    "authKey",    "acctNo",    "clientAcctId",    "contractNo",    "clientContractId",    "typeNo",    "lengthMonths",    "updateComments",    "cancelFee",    "modifyDirective",    "startDate",    "endDate",    "cascadeAction",    "contractPlanInstancesUpdate",    "contractRolloverCustomRates"})
 @XmlRootElement(name = "modify_instance_contract_m")
 public class ModifyInstanceContractM {
 
@@ -34,8 +34,8 @@ public class ModifyInstanceContractM {
     protected String updateComments;
         @XmlElement(name = "cancel_fee")
     protected Double cancelFee;
-        @XmlElement(name = "action_directive")
-    protected Long actionDirective;
+        @XmlElement(name = "modify_directive")
+    protected Long modifyDirective;
         @XmlElement(name = "start_date")
     protected String startDate;
         @XmlElement(name = "end_date")
@@ -119,12 +119,12 @@ public class ModifyInstanceContractM {
     public void setCancelFee(Double value) {
         this.cancelFee = value;
     }
-            public Long getActionDirective() {
-        return actionDirective;
+            public Long getModifyDirective() {
+        return modifyDirective;
     }
 
-    public void setActionDirective(Long value) {
-        this.actionDirective = value;
+    public void setModifyDirective(Long value) {
+        this.modifyDirective = value;
     }
             public String getStartDate() {
         return startDate;

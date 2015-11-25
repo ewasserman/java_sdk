@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "rate_sched_ReturnElement", propOrder = {"scheduleNo", "scheduleName", "scheduleCurrency", "defaultInd", "displayInd", "defaultIndCurr", "clientRateScheduleId"})
+@XmlType(name = "rate_sched_ReturnElement", propOrder = {"scheduleNo", "scheduleName", "scheduleCurrency", "defaultInd", "displayInd", "defaultIndCurr", "clientRateScheduleId", "availableFromDate", "availableToDate", "followupRsNo", "clientFollowupRsId"})
 public class RateSchedReturnElement {
 
     @XmlElement(name = "schedule_no")
@@ -27,6 +27,14 @@ public class RateSchedReturnElement {
     protected Long defaultIndCurr;
     @XmlElement(name = "client_rate_schedule_id")
     protected String clientRateScheduleId;
+    @XmlElement(name = "available_from_date")
+    protected String availableFromDate;
+    @XmlElement(name = "available_to_date")
+    protected String availableToDate;
+    @XmlElement(name = "followup_rs_no")
+    protected Long followupRsNo;
+    @XmlElement(name = "client_followup_rs_id")
+    protected String clientFollowupRsId;
     
     public Long getScheduleNo() {
         return scheduleNo;
@@ -82,6 +90,38 @@ public class RateSchedReturnElement {
 
     public void setClientRateScheduleId(String value) {
         this.clientRateScheduleId = value;
+    }
+
+    public String getAvailableFromDate() {
+        return availableFromDate;
+    }
+
+    public void setAvailableFromDate(String value) {
+        this.availableFromDate = value;
+    }
+
+    public String getAvailableToDate() {
+        return availableToDate;
+    }
+
+    public void setAvailableToDate(String value) {
+        this.availableToDate = value;
+    }
+
+    public Long getFollowupRsNo() {
+        return followupRsNo;
+    }
+
+    public void setFollowupRsNo(Long value) {
+        this.followupRsNo = value;
+    }
+
+    public String getClientFollowupRsId() {
+        return clientFollowupRsId;
+    }
+
+    public void setClientFollowupRsId(String value) {
+        this.clientFollowupRsId = value;
     }
 
     

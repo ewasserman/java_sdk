@@ -10,22 +10,22 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"allItemPrices", "errorCode", "errorMsg"})
+@XmlType(name = "", propOrder = {"itemRates", "errorCode", "errorMsg"})
 @XmlRootElement(name = "get_client_item_pricesResponseElement")
 public class GetClientItemPricesResponseElement {
 
-    @XmlElement(name = "all_item_prices")
-    protected List<AllItemPricesReturnElement> allItemPrices;
+    @XmlElement(name = "item_rates")
+    protected List<ItemRatesReturnElement> itemRates;
     @XmlElement(name = "error_code")
     protected Long errorCode;
     @XmlElement(name = "error_msg")
     protected String errorMsg;
     
-    public List<AllItemPricesReturnElement> getAllItemPrices() {
-        if (this.allItemPrices == null) {
-            this.allItemPrices = new ArrayList<AllItemPricesReturnElement>();
+    public List<ItemRatesReturnElement> getItemRates() {
+        if (this.itemRates == null) {
+            this.itemRates = new ArrayList<ItemRatesReturnElement>();
         }
-        return this.allItemPrices;
+        return this.itemRates;
     }public Long getErrorCode() {
         return errorCode;
     }

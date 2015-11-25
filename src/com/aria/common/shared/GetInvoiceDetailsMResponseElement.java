@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceLineDetails", "isPendingInd", "customStatusLabel", "customStatusDesc", "clientNotes", "invoiceTypeCd", "fromDate", "toDate", "billingGroupNo", "clientBillingGroupNo"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceLineDetails", "taxDetails", "isPendingInd", "customStatusLabel", "customStatusDesc", "clientNotes", "invoiceTypeCd", "fromDate", "toDate", "billingGroupNo", "clientBillingGroupNo"})
 @XmlRootElement(name = "get_invoice_details_mResponseElement")
 public class GetInvoiceDetailsMResponseElement {
 
@@ -20,6 +20,8 @@ public class GetInvoiceDetailsMResponseElement {
     protected String errorMsg;
     @XmlElement(name = "invoice_line_details")
     protected List<InvoiceLineDetailsReturnElement> invoiceLineDetails;
+    @XmlElement(name = "tax_details")
+    protected List<TaxDetailsReturnElement> taxDetails;
     @XmlElement(name = "is_pending_ind")
     protected Long isPendingInd;
     @XmlElement(name = "custom_status_label")
@@ -60,6 +62,11 @@ public class GetInvoiceDetailsMResponseElement {
             this.invoiceLineDetails = new ArrayList<InvoiceLineDetailsReturnElement>();
         }
         return this.invoiceLineDetails;
+    }public List<TaxDetailsReturnElement> getTaxDetails() {
+        if (this.taxDetails == null) {
+            this.taxDetails = new ArrayList<TaxDetailsReturnElement>();
+        }
+        return this.taxDetails;
     }public Long getIsPendingInd() {
         return isPendingInd;
     }

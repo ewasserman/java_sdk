@@ -11,7 +11,8 @@ import javax.xml.bind.annotation.XmlType;
     "masterPlanInstanceNo",
     "clientMasterPlanInstanceId",
     "actionDirective",
-    "adjustmentDays"
+    "adjustmentDays",
+    "adjustmentDate"
     })
 public class BillingDatesRow {
 
@@ -23,6 +24,8 @@ public class BillingDatesRow {
     protected Long actionDirective;
     @XmlElement(name = "adjustment_days")
     protected Long adjustmentDays;
+    @XmlElement(name = "adjustment_date")
+    protected String adjustmentDate;
     public Long getMasterPlanInstanceNo() {
         return masterPlanInstanceNo;
     }
@@ -53,6 +56,14 @@ public class BillingDatesRow {
 
     public void setAdjustmentDays(Long value) {
         this.adjustmentDays = value;
+    }
+
+    public String getAdjustmentDate() {
+        return adjustmentDate;
+    }
+
+    public void setAdjustmentDate(String value) {
+        this.adjustmentDate = value;
     }
 
     

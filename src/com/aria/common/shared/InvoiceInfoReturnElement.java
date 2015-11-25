@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_info_ReturnElement", propOrder = {"invoiceNo", "billingGroupNo", "clientPlanInstanceId", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceChargesBeforeTax", "invoiceTaxCharges", "invoiceChargesAfterTax", "invoiceCreditAmount", "invoiceTotalAmount", "invoiceItems"})
+@XmlType(name = "invoice_info_ReturnElement", propOrder = {"invoiceNo", "billingGroupNo", "clientPlanInstanceId", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceChargesBeforeTax", "invoiceTaxCharges", "invoiceChargesAfterTax", "invoiceCreditAmount", "invoiceTotalAmount", "invoiceItems", "taxDetails"})
 public class InvoiceInfoReturnElement {
 
     @XmlElement(name = "invoice_no")
@@ -47,6 +47,8 @@ public class InvoiceInfoReturnElement {
     protected Double invoiceTotalAmount;
     @XmlElement(name = "invoice_items")
     protected List<InvoiceItemsReturnElement> invoiceItems;
+    @XmlElement(name = "tax_details")
+    protected List<TaxDetailsReturnElement> taxDetails;
     
     public Long getInvoiceNo() {
         return invoiceNo;
@@ -181,5 +183,10 @@ public class InvoiceInfoReturnElement {
             this.invoiceItems = new ArrayList<InvoiceItemsReturnElement>();
         }
         return this.invoiceItems;
+    }public List<TaxDetailsReturnElement> getTaxDetails() {
+        if (this.taxDetails == null) {
+            this.taxDetails = new ArrayList<TaxDetailsReturnElement>();
+        }
+        return this.taxDetails;
     }
 }

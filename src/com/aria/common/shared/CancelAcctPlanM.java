@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientReceiptId",    "planInstanceNo",    "clientPlanInstanceId",    "assignmentDirective",    "comments",    "altProrationStartDate",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "doWrite"})
+    "authKey",    "acctNo",    "clientReceiptId",    "planInstanceNo",    "clientPlanInstanceId",    "assignmentDirective",    "comments",    "altProrationStartDate",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "doWrite",    "prorationInvoiceTiming"})
 @XmlRootElement(name = "cancel_acct_plan_m")
 public class CancelAcctPlanM {
 
@@ -40,6 +40,8 @@ public class CancelAcctPlanM {
     protected String invoiceUnbilledUsage;
         @XmlElement(name = "do_write")
     protected String doWrite;
+        @XmlElement(name = "proration_invoice_timing")
+    protected Long prorationInvoiceTiming;
     
     public long getClientNo() {
         return clientNo;
@@ -133,6 +135,13 @@ public class CancelAcctPlanM {
 
     public void setDoWrite(String value) {
         this.doWrite = value;
+    }
+            public Long getProrationInvoiceTiming() {
+        return prorationInvoiceTiming;
+    }
+
+    public void setProrationInvoiceTiming(Long value) {
+        this.prorationInvoiceTiming = value;
     }
             
 }

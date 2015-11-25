@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "cart_inv_line_items_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "serviceIsTaxInd", "lineUnits", "ratePerUnit", "lineAmount", "description", "usageTypeNo", "planInstanceNo", "planName", "clientServiceId", "usageTypeCd", "clientPlanInstanceId", "refChargeLineNo"})
+@XmlType(name = "cart_inv_line_items_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "serviceIsTaxInd", "lineUnits", "ratePerUnit", "lineAmount", "description", "dateRangeStart", "dateRangeEnd", "usageTypeNo", "planInstanceNo", "planName", "clientServiceId", "usageTypeCd", "clientPlanInstanceId", "refChargeLineNo"})
 public class CartInvLineItemsReturnElement {
 
     @XmlElement(name = "line_no")
@@ -29,6 +29,10 @@ public class CartInvLineItemsReturnElement {
     protected Double lineAmount;
     @XmlElement(name = "description")
     protected String description;
+    @XmlElement(name = "date_range_start")
+    protected String dateRangeStart;
+    @XmlElement(name = "date_range_end")
+    protected String dateRangeEnd;
     @XmlElement(name = "usage_type_no")
     protected Long usageTypeNo;
     @XmlElement(name = "plan_instance_no")
@@ -106,6 +110,22 @@ public class CartInvLineItemsReturnElement {
 
     public void setDescription(String value) {
         this.description = value;
+    }
+
+    public String getDateRangeStart() {
+        return dateRangeStart;
+    }
+
+    public void setDateRangeStart(String value) {
+        this.dateRangeStart = value;
+    }
+
+    public String getDateRangeEnd() {
+        return dateRangeEnd;
+    }
+
+    public void setDateRangeEnd(String value) {
+        this.dateRangeEnd = value;
     }
 
     public Long getUsageTypeNo() {

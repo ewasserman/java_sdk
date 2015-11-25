@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "resources_ReturnElement", propOrder = {"resourceTypeNo", "resourceUnits", "daysToExpiry", "resourceName"})
+@XmlType(name = "resources_ReturnElement", propOrder = {"resourceTypeNo", "resourceUnits", "daysToExpiry", "resourceName", "resources"})
 public class ResourcesReturnElement {
 
     @XmlElement(name = "resource_type_no")
@@ -21,6 +21,8 @@ public class ResourcesReturnElement {
     protected Long daysToExpiry;
     @XmlElement(name = "resource_name")
     protected String resourceName;
+    @XmlElement(name = "resources")
+    protected Long resources;
     
     public Long getResourceTypeNo() {
         return resourceTypeNo;
@@ -52,6 +54,14 @@ public class ResourcesReturnElement {
 
     public void setResourceName(String value) {
         this.resourceName = value;
+    }
+
+    public Long getResources() {
+        return resources;
+    }
+
+    public void setResources(Long value) {
+        this.resources = value;
     }
 
     

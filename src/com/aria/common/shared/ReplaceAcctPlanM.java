@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "newPlanNo",    "newClientPlanId",    "newClientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "mpSurcharges",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "forceSuppBillDateReset",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "newPlanNo",    "newClientPlanId",    "newClientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "mpSurcharges",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "offsetMonths",    "altProrationStartDate",    "autoOffsetMonthsOption",    "altClientAcctGroupId",    "customRates",    "effectiveDate",    "offsetInterval",    "invoiceUnbilledUsage",    "forceSuppBillDateReset",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "prorationInvoiceTiming"})
 @XmlRootElement(name = "replace_acct_plan_m")
 public class ReplaceAcctPlanM {
 
@@ -82,6 +82,8 @@ public class ReplaceAcctPlanM {
     protected String usagePooling;
         @XmlElement(name = "usage_threshold_applicability")
     protected String usageThresholdApplicability;
+        @XmlElement(name = "proration_invoice_timing")
+    protected Long prorationInvoiceTiming;
     
     public long getClientNo() {
         return clientNo;
@@ -322,6 +324,13 @@ public class ReplaceAcctPlanM {
 
     public void setUsageThresholdApplicability(String value) {
         this.usageThresholdApplicability = value;
+    }
+            public Long getProrationInvoiceTiming() {
+        return prorationInvoiceTiming;
+    }
+
+    public void setProrationInvoiceTiming(Long value) {
+        this.prorationInvoiceTiming = value;
     }
             
 }

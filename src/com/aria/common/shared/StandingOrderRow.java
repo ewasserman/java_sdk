@@ -12,7 +12,9 @@ import javax.xml.bind.annotation.XmlType;
     "units",
     "amount",
     "unitDiscountAmount",
-    "lineComments"
+    "lineComments",
+    "rateScheduleNo",
+    "clientDefinedRateScheduleId"
     })
 public class StandingOrderRow {
 
@@ -26,6 +28,10 @@ public class StandingOrderRow {
     protected String unitDiscountAmount;
     @XmlElement(name = "line_comments")
     protected String lineComments;
+    @XmlElement(name = "rate_schedule_no")
+    protected Long rateScheduleNo;
+    @XmlElement(name = "client_defined_rate_schedule_id")
+    protected String clientDefinedRateScheduleId;
     public String getClientSku() {
         return clientSku;
     }
@@ -64,6 +70,22 @@ public class StandingOrderRow {
 
     public void setLineComments(String value) {
         this.lineComments = value;
+    }
+
+    public Long getRateScheduleNo() {
+        return rateScheduleNo;
+    }
+
+    public void setRateScheduleNo(Long value) {
+        this.rateScheduleNo = value;
+    }
+
+    public String getClientDefinedRateScheduleId() {
+        return clientDefinedRateScheduleId;
+    }
+
+    public void setClientDefinedRateScheduleId(String value) {
+        this.clientDefinedRateScheduleId = value;
     }
 
     

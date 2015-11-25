@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_services_ReturnElement", propOrder = {"serviceNo", "serviceDesc", "isRecurringInd", "isUsageBasedInd", "usageType", "taxableInd", "isTaxInd", "isArrearsInd", "isSetupInd", "isMiscInd", "isDonationInd", "isOrderBasedInd", "isCancellationInd", "coaId", "ledgerCode", "clientCoaCode", "displayInd", "tieredPricingRule", "isMinFeeInd", "clientServiceId", "usageTypeCd", "allServiceSuppFields", "fulfillmentBasedInd", "planServiceRates", "allPlanServiceRates", "usageTypeName", "usageTypeDesc", "usageTypeCode", "usageUnitLabel"})
+@XmlType(name = "plan_services_ReturnElement", propOrder = {"serviceNo", "serviceDesc", "isRecurringInd", "isUsageBasedInd", "usageType", "taxableInd", "isTaxInd", "isArrearsInd", "isSetupInd", "isMiscInd", "isDonationInd", "isOrderBasedInd", "isCancellationInd", "coaId", "ledgerCode", "clientCoaCode", "displayInd", "tieredPricingRule", "isMinFeeInd", "clientServiceId", "usageTypeCd", "allServiceSuppFields", "fulfillmentBasedInd", "planServiceRates", "allPlanServiceRates", "usageTypeName", "usageTypeDesc", "usageTypeCode", "usageUnitLabel", "applyUsageRatesDaily"})
 public class PlanServicesReturnElement {
 
     @XmlElement(name = "service_no")
@@ -71,6 +71,8 @@ public class PlanServicesReturnElement {
     protected String usageTypeCode;
     @XmlElement(name = "usage_unit_label")
     protected String usageUnitLabel;
+    @XmlElement(name = "apply_usage_rates_daily")
+    protected Long applyUsageRatesDaily;
     
     public Long getServiceNo() {
         return serviceNo;
@@ -293,6 +295,14 @@ public class PlanServicesReturnElement {
 
     public void setUsageUnitLabel(String value) {
         this.usageUnitLabel = value;
+    }
+
+    public Long getApplyUsageRatesDaily() {
+        return applyUsageRatesDaily;
+    }
+
+    public void setApplyUsageRatesDaily(Long value) {
+        this.applyUsageRatesDaily = value;
     }
 
     

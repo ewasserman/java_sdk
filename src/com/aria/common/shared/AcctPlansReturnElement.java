@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_plans_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planDate", "planUnits", "queuedPlanUnits", "unitsChangeDate", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "billingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "suppPlanInd", "suppPlanStatusCd", "suppPlanStatusLabel", "suppPlanStatusDate", "suppPlanActivateDate", "suppPlanTerminateDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd"})
+@XmlType(name = "acct_plans_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planDate", "planUnits", "queuedPlanUnits", "unitsChangeDate", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "billingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "availableFromDate", "availableToDate", "followupRsNo", "clientFollowupRsId", "suppPlanInd", "suppPlanStatusCd", "suppPlanStatusLabel", "suppPlanStatusDate", "suppPlanActivateDate", "suppPlanTerminateDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd"})
 public class AcctPlansReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -73,6 +73,14 @@ public class AcctPlansReturnElement {
     protected String rateScheduleName;
     @XmlElement(name = "rate_sched_is_default_ind")
     protected Long rateSchedIsDefaultInd;
+    @XmlElement(name = "available_from_date")
+    protected String availableFromDate;
+    @XmlElement(name = "available_to_date")
+    protected String availableToDate;
+    @XmlElement(name = "followup_rs_no")
+    protected Long followupRsNo;
+    @XmlElement(name = "client_followup_rs_id")
+    protected String clientFollowupRsId;
     @XmlElement(name = "supp_plan_ind")
     protected Long suppPlanInd;
     @XmlElement(name = "supp_plan_status_cd")
@@ -336,6 +344,38 @@ public class AcctPlansReturnElement {
 
     public void setRateSchedIsDefaultInd(Long value) {
         this.rateSchedIsDefaultInd = value;
+    }
+
+    public String getAvailableFromDate() {
+        return availableFromDate;
+    }
+
+    public void setAvailableFromDate(String value) {
+        this.availableFromDate = value;
+    }
+
+    public String getAvailableToDate() {
+        return availableToDate;
+    }
+
+    public void setAvailableToDate(String value) {
+        this.availableToDate = value;
+    }
+
+    public Long getFollowupRsNo() {
+        return followupRsNo;
+    }
+
+    public void setFollowupRsNo(Long value) {
+        this.followupRsNo = value;
+    }
+
+    public String getClientFollowupRsId() {
+        return clientFollowupRsId;
+    }
+
+    public void setClientFollowupRsId(String value) {
+        this.clientFollowupRsId = value;
     }
 
     public Long getSuppPlanInd() {

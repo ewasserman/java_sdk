@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "ccNum",    "assignmentDirective",    "notes"})
+    "authKey",    "ccNum",    "assignmentDirective",    "acctNo",    "clientAcctId",    "notes",    "creditCardPaymentMethod"})
 @XmlRootElement(name = "update_cc_blacklist")
 public class UpdateCcBlacklist {
 
@@ -22,8 +22,14 @@ public class UpdateCcBlacklist {
     protected String ccNum;
         @XmlElement(name = "assignment_directive")
     protected Long assignmentDirective;
+        @XmlElement(name = "acct_no")
+    protected Long acctNo;
+        @XmlElement(name = "client_acct_id")
+    protected String clientAcctId;
         @XmlElement(name = "notes")
     protected String notes;
+        @XmlElement(name = "credit_card_payment_method")
+    protected CreditCardPaymentMethodArray creditCardPaymentMethod;
     
     public long getClientNo() {
         return clientNo;
@@ -55,12 +61,33 @@ public class UpdateCcBlacklist {
     public void setAssignmentDirective(Long value) {
         this.assignmentDirective = value;
     }
+            public Long getAcctNo() {
+        return acctNo;
+    }
+
+    public void setAcctNo(Long value) {
+        this.acctNo = value;
+    }
+            public String getClientAcctId() {
+        return clientAcctId;
+    }
+
+    public void setClientAcctId(String value) {
+        this.clientAcctId = value;
+    }
             public String getNotes() {
         return notes;
     }
 
     public void setNotes(String value) {
         this.notes = value;
+    }
+            public CreditCardPaymentMethodArray getCreditCardPaymentMethod() {
+        return creditCardPaymentMethod;
+    }
+
+    public void setCreditCardPaymentMethod(CreditCardPaymentMethodArray value) {
+        this.creditCardPaymentMethod = value;
     }
             
 }

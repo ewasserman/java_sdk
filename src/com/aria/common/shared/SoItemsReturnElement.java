@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "so_items_ReturnElement", propOrder = {"lineNo", "clientSku", "label", "altLabel", "longDesc", "units", "unitAmount", "lineAmount", "lineComments"})
+@XmlType(name = "so_items_ReturnElement", propOrder = {"lineNo", "clientSku", "label", "altLabel", "longDesc", "units", "unitAmount", "lineAmount", "lineComments", "scheduleNo", "tierNo"})
 public class SoItemsReturnElement {
 
     @XmlElement(name = "line_no")
@@ -31,6 +31,10 @@ public class SoItemsReturnElement {
     protected Double lineAmount;
     @XmlElement(name = "line_comments")
     protected String lineComments;
+    @XmlElement(name = "schedule_no")
+    protected Long scheduleNo;
+    @XmlElement(name = "tier_no")
+    protected Long tierNo;
     
     public Long getLineNo() {
         return lineNo;
@@ -102,6 +106,22 @@ public class SoItemsReturnElement {
 
     public void setLineComments(String value) {
         this.lineComments = value;
+    }
+
+    public Long getScheduleNo() {
+        return scheduleNo;
+    }
+
+    public void setScheduleNo(Long value) {
+        this.scheduleNo = value;
+    }
+
+    public Long getTierNo() {
+        return tierNo;
+    }
+
+    public void setTierNo(Long value) {
+        this.tierNo = value;
     }
 
     
