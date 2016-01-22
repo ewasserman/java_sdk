@@ -150,29 +150,95 @@ public class RestUtilities {
             entity.setGroupPlansCount(getLongValue(jsonObject,"group_plans_count"));
             } else {
             try {
-                entity.setPromoPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPromoPlanSetNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPromoPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPromoPlanSetNo(null);
             }
-            entity.setPromoPlanSetName(jsonArray.get(i).toString());
-            entity.setPromoPlanSetDesc(jsonArray.get(i).toString());
-            entity.setClientPlanTypeId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPromoPlanSetName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPromoPlanSetName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPromoPlanSetDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPromoPlanSetDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanTypeId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanTypeId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanGroup(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanGroup(null);
             }
             try {
-                entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setGroupNo(null);
             }
-            entity.setGroupName(jsonArray.get(i).toString());
-            entity.setGroupDesc(jsonArray.get(i).toString());
-            entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
-            entity.setGroupUsage(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setGroupName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setGroupDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanChangeGroupId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupUsage(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setGroupUsage(jsonArray.get(i).toString());
+                }
             try {
-                entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupPlansCount(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setGroupPlansCount(null);
             }
@@ -195,13 +261,37 @@ public class RestUtilities {
             entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
             } else {
             try {
-                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanNo(null);
             }
-            entity.setPlanName(jsonArray.get(i).toString());
-            entity.setPlanDesc(jsonArray.get(i).toString());
-            entity.setClientPlanId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -246,36 +336,216 @@ public class RestUtilities {
             entity.setBillingCountry(getStringValue(jsonObject,"billing_country"));
             entity.setBillingLocality(getStringValue(jsonObject,"billing_locality"));
             } else {
-            entity.setClientName(jsonArray.get(i).toString());
-            entity.setDomain(jsonArray.get(i).toString());
-            entity.setAddress1(jsonArray.get(i).toString());
-            entity.setAddress2(jsonArray.get(i).toString());
-            entity.setCity(jsonArray.get(i).toString());
-            entity.setLocality(jsonArray.get(i).toString());
-            entity.setStateProv(jsonArray.get(i).toString());
-            entity.setCountry(jsonArray.get(i).toString());
-            entity.setPostalCode(jsonArray.get(i).toString());
-            entity.setPhone(jsonArray.get(i).toString());
-            entity.setContact(jsonArray.get(i).toString());
-            entity.setContactAddress1(jsonArray.get(i).toString());
-            entity.setContactAddress2(jsonArray.get(i).toString());
-            entity.setContactCity(jsonArray.get(i).toString());
-            entity.setContactState(jsonArray.get(i).toString());
-            entity.setContactZip(jsonArray.get(i).toString());
-            entity.setContactPhone(jsonArray.get(i).toString());
-            entity.setContactEmail(jsonArray.get(i).toString());
-            entity.setBillingContact(jsonArray.get(i).toString());
-            entity.setBillingAddress1(jsonArray.get(i).toString());
-            entity.setBillingAddress2(jsonArray.get(i).toString());
-            entity.setBillingCity(jsonArray.get(i).toString());
-            entity.setBillingState(jsonArray.get(i).toString());
-            entity.setBillingZip(jsonArray.get(i).toString());
-            entity.setBillingPhone(jsonArray.get(i).toString());
-            entity.setBillingEmail(jsonArray.get(i).toString());
-            entity.setContactCountry(jsonArray.get(i).toString());
-            entity.setContactLocality(jsonArray.get(i).toString());
-            entity.setBillingCountry(jsonArray.get(i).toString());
-            entity.setBillingLocality(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDomain(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDomain(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAddress1(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAddress1(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAddress2(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAddress2(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCity(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCity(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocality(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocality(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setStateProv(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setStateProv(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCountry(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCountry(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPostalCode(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPostalCode(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPhone(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPhone(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContact(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContact(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactAddress1(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactAddress1(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactAddress2(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactAddress2(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactCity(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactCity(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactState(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactState(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactZip(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactZip(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactPhone(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactPhone(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactEmail(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactEmail(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingContact(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingContact(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingAddress1(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingAddress1(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingAddress2(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingAddress2(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingCity(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingCity(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingState(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingState(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingZip(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingZip(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingPhone(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingPhone(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingEmail(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingEmail(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactCountry(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactCountry(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setContactLocality(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setContactLocality(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingCountry(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingCountry(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingLocality(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBillingLocality(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -293,9 +563,27 @@ public class RestUtilities {
             entity.setServiceTypeName(getStringValue(jsonObject,"service_type_name"));
             entity.setServiceDesc(getStringValue(jsonObject,"service_desc"));
             } else {
-            entity.setServiceTypeCd(jsonArray.get(i).toString());
-            entity.setServiceTypeName(jsonArray.get(i).toString());
-            entity.setServiceDesc(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceTypeCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceTypeCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceTypeName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceTypeName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceDesc(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -315,13 +603,37 @@ public class RestUtilities {
             entity.setServiceType(getStringValue(jsonObject,"service_type"));
             } else {
             try {
-                entity.setServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setServiceNo(null);
             }
-            entity.setClientServiceId(jsonArray.get(i).toString());
-            entity.setServiceName(jsonArray.get(i).toString());
-            entity.setServiceType(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientServiceId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientServiceId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceType(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -340,12 +652,30 @@ public class RestUtilities {
             entity.setFieldName(getStringValue(jsonObject,"field_name"));
             } else {
             try {
-                entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFieldNo(null);
             }
-            entity.setFieldValue(jsonArray.get(i).toString());
-            entity.setFieldName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldValue(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldValue(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldName(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -368,28 +698,70 @@ public class RestUtilities {
             entity.setDescription(getStringValue(jsonObject,"description"));
             } else {
             try {
-                entity.setScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setScheduleNo(null);
             }
-            entity.setScheduleName(jsonArray.get(i).toString());
-            entity.setClientRateScheduleId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScheduleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setScheduleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setFromUnit(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFromUnit(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFromUnit(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFromUnit(null);
             }
             try {
-                entity.setToUnit(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setToUnit(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setToUnit(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setToUnit(null);
             }
             try {
-                entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRatePerUnit(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setRatePerUnit(null);
             }
-            entity.setDescription(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -413,16 +785,46 @@ public class RestUtilities {
             entity.setToUnit(getStringValue(jsonObject,"to_unit"));
             entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
             } else {
-            entity.setCurrency(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrency(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrency(jsonArray.get(i).toString());
+                }
             try {
-                entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setIsDefault(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setIsDefault(null);
             }
-            entity.setFromUnit(jsonArray.get(i).toString());
-            entity.setToUnit(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFromUnit(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFromUnit(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setToUnit(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setToUnit(jsonArray.get(i).toString());
+                }
             try {
-                entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRatePerUnit(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setRatePerUnit(null);
             }
@@ -442,7 +844,13 @@ public class RestUtilities {
             entity.setParentPlan(getLongValue(jsonObject,"parent_plan"));
             } else {
             try {
-                entity.setParentPlan(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setParentPlan(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setParentPlan(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setParentPlan(null);
             }
@@ -461,7 +869,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setParentPlanId(getStringValue(jsonObject,"parent_plan_id"));
             } else {
-            entity.setParentPlanId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setParentPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setParentPlanId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -478,7 +892,13 @@ public class RestUtilities {
             entity.setExclusionPlan(getLongValue(jsonObject,"exclusion_plan"));
             } else {
             try {
-                entity.setExclusionPlan(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExclusionPlan(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setExclusionPlan(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setExclusionPlan(null);
             }
@@ -499,10 +919,28 @@ public class RestUtilities {
             entity.setFieldDesc(getStringValue(jsonObject,"field_desc"));
             entity.setFieldOrder(getLongValue(jsonObject,"field_order"));
             } else {
-            entity.setFieldName(jsonArray.get(i).toString());
-            entity.setFieldDesc(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldDesc(jsonArray.get(i).toString());
+                }
             try {
-                entity.setFieldOrder(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldOrder(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFieldOrder(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFieldOrder(null);
             }
@@ -523,10 +961,28 @@ public class RestUtilities {
             entity.setOptionValue(getStringValue(jsonObject,"option_value"));
             entity.setOptionValueOrder(getLongValue(jsonObject,"option_value_order"));
             } else {
-            entity.setDisplayText(jsonArray.get(i).toString());
-            entity.setOptionValue(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDisplayText(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDisplayText(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setOptionValue(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setOptionValue(jsonArray.get(i).toString());
+                }
             try {
-                entity.setOptionValueOrder(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setOptionValueOrder(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setOptionValueOrder(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setOptionValueOrder(null);
             }
@@ -545,7 +1001,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setCouponCd(getStringValue(jsonObject,"coupon_cd"));
             } else {
-            entity.setCouponCd(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCouponCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCouponCd(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -562,7 +1024,13 @@ public class RestUtilities {
             entity.setRule(getLongValue(jsonObject,"rule"));
             } else {
             try {
-                entity.setRule(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRule(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRule(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setRule(null);
             }
@@ -581,7 +1049,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setRule(getStringValue(jsonObject,"rule"));
             } else {
-            entity.setRule(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRule(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRule(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -598,7 +1072,13 @@ public class RestUtilities {
             entity.setPlanNos(getLongValue(jsonObject,"plan_nos"));
             } else {
             try {
-                entity.setPlanNos(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNos(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanNos(null);
             }
@@ -617,7 +1097,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setClientPlanIds(getStringValue(jsonObject,"client_plan_ids"));
             } else {
-            entity.setClientPlanIds(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanIds(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -634,7 +1120,13 @@ public class RestUtilities {
             entity.setServiceNos(getLongValue(jsonObject,"service_nos"));
             } else {
             try {
-                entity.setServiceNos(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setServiceNos(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setServiceNos(null);
             }
@@ -653,7 +1145,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setClientServiceIds(getStringValue(jsonObject,"client_service_ids"));
             } else {
-            entity.setClientServiceIds(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientServiceIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientServiceIds(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -670,7 +1168,13 @@ public class RestUtilities {
             entity.setItemNos(getLongValue(jsonObject,"item_nos"));
             } else {
             try {
-                entity.setItemNos(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemNos(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setItemNos(null);
             }
@@ -690,8 +1194,20 @@ public class RestUtilities {
             entity.setClientItemIds(getStringValue(jsonObject,"client_item_ids"));
             entity.setItemIds(getStringValue(jsonObject,"item_ids"));
             } else {
-            entity.setClientItemIds(jsonArray.get(i).toString());
-            entity.setItemIds(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientItemIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientItemIds(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setItemIds(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -707,7 +1223,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setEligibleServiceType(getStringValue(jsonObject,"eligible_service_type"));
             } else {
-            entity.setEligibleServiceType(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setEligibleServiceType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setEligibleServiceType(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -745,63 +1267,171 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setCreditTemplateNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCreditTemplateNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setCreditTemplateNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setCreditTemplateNo(null);
             }
-            entity.setCreditTemplateId(jsonArray.get(i).toString());
-            entity.setCreditTemplateName(jsonArray.get(i).toString());
-            entity.setClientCreditTemplateId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCreditTemplateId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCreditTemplateId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCreditTemplateName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCreditTemplateName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientCreditTemplateId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientCreditTemplateId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setEligiblePlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setEligiblePlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setEligiblePlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setEligiblePlanNo(null);
             }
-            entity.setEligibleClientPlanId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setEligibleClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setEligibleClientPlanId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setEligibleServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setEligibleServiceNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setEligibleServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setEligibleServiceNo(null);
             }
-            entity.setEligibleClientServiceId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setEligibleClientServiceId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setEligibleClientServiceId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setNoOfCredits(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setNoOfCredits(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setNoOfCredits(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setNoOfCredits(null);
             }
             try {
-                entity.setTimeBetweenCredits(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setTimeBetweenCredits(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setTimeBetweenCredits(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setTimeBetweenCredits(null);
             }
             try {
-                entity.setDiscountType(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDiscountType(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDiscountType(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDiscountType(null);
             }
             try {
-                entity.setDiscountAmt(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDiscountAmt(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setDiscountAmt(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setDiscountAmt(null);
             }
             try {
-                entity.setPercentagePlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPercentagePlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPercentagePlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPercentagePlanNo(null);
             }
-            entity.setPercentageClientPlanId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPercentageClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPercentageClientPlanId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setPercentageServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPercentageServiceNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPercentageServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPercentageServiceNo(null);
             }
-            entity.setPercentageClientServiceId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPercentageClientServiceId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPercentageClientServiceId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setAltServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAltServiceNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setAltServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setAltServiceNo(null);
             }
-            entity.setAltClientServiceId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAltClientServiceId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAltClientServiceId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -859,52 +1489,160 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setRuleNo(null);
             }
-            entity.setRuleName(jsonArray.get(i).toString());
-            entity.setRuleId(jsonArray.get(i).toString());
-            entity.setDescription(jsonArray.get(i).toString());
-            entity.setExtDescription(jsonArray.get(i).toString());
-            entity.setDiscountType(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRuleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRuleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExtDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setExtDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDiscountType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDiscountType(jsonArray.get(i).toString());
+                }
             try {
-                entity.setFlatPercentInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFlatPercentInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFlatPercentInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFlatPercentInd(null);
             }
             try {
-                entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAmount(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setAmount(null);
             }
-            entity.setCurrency(jsonArray.get(i).toString());
-            entity.setApplicableTransScope(jsonArray.get(i).toString());
-            entity.setDurationTypeInd(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrency(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrency(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setApplicableTransScope(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setApplicableTransScope(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDurationTypeInd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDurationTypeInd(jsonArray.get(i).toString());
+                }
             try {
-                entity.setMaxApplicableMonths(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMaxApplicableMonths(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setMaxApplicableMonths(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setMaxApplicableMonths(null);
             }
             try {
-                entity.setMaxApplicationsPerAcct(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMaxApplicationsPerAcct(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setMaxApplicationsPerAcct(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setMaxApplicationsPerAcct(null);
             }
-            entity.setInlineOffsetInd(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setInlineOffsetInd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setInlineOffsetInd(jsonArray.get(i).toString());
+                }
             try {
-                entity.setServiceCodeToUse(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceCodeToUse(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setServiceCodeToUse(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setServiceCodeToUse(null);
             }
             try {
-                entity.setAltServiceNo2Apply(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAltServiceNo2Apply(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setAltServiceNo2Apply(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setAltServiceNo2Apply(null);
             }
-            entity.setAltServiceId2Apply(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAltServiceId2Apply(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAltServiceId2Apply(jsonArray.get(i).toString());
+                }
             try {
-                entity.setScopeNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScopeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setScopeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setScopeNo(null);
             }
@@ -936,14 +1674,44 @@ public class RestUtilities {
             entity.setAllowOverlapInd(getStringValue(jsonObject,"allow_overlap_ind"));
             } else {
             try {
-                entity.setBundleNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBundleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setBundleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setBundleNo(null);
             }
-            entity.setBundleName(jsonArray.get(i).toString());
-            entity.setBundleId(jsonArray.get(i).toString());
-            entity.setDescription(jsonArray.get(i).toString());
-            entity.setAllowOverlapInd(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBundleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBundleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBundleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBundleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAllowOverlapInd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAllowOverlapInd(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -962,12 +1730,30 @@ public class RestUtilities {
             entity.setClientCreditTemplateId(getStringValue(jsonObject,"client_credit_template_id"));
             } else {
             try {
-                entity.setRecurringCreditTemplateNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRecurringCreditTemplateNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRecurringCreditTemplateNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setRecurringCreditTemplateNo(null);
             }
-            entity.setCreditTemplateName(jsonArray.get(i).toString());
-            entity.setClientCreditTemplateId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCreditTemplateName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCreditTemplateName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientCreditTemplateId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientCreditTemplateId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -996,14 +1782,44 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setBundleNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBundleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setBundleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setBundleNo(null);
             }
-            entity.setBundleName(jsonArray.get(i).toString());
-            entity.setBundleId(jsonArray.get(i).toString());
-            entity.setDescription(jsonArray.get(i).toString());
-            entity.setAllowOverlapInd(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBundleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBundleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBundleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBundleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAllowOverlapInd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAllowOverlapInd(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1062,52 +1878,166 @@ public class RestUtilities {
             entity.setUseAllOrNthSubsRule(getStringValue(jsonObject,"use_all_or_nth_subs_rule"));
             } else {
             try {
-                entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setRuleNo(null);
             }
-            entity.setRuleName(jsonArray.get(i).toString());
-            entity.setRuleId(jsonArray.get(i).toString());
-            entity.setDescription(jsonArray.get(i).toString());
-            entity.setExtDescription(jsonArray.get(i).toString());
-            entity.setDiscountType(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRuleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRuleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExtDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setExtDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDiscountType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDiscountType(jsonArray.get(i).toString());
+                }
             try {
-                entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAmount(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setAmount(null);
             }
-            entity.setCurrency(jsonArray.get(i).toString());
-            entity.setApplicableTransScope(jsonArray.get(i).toString());
-            entity.setDurationTypeInd(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrency(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrency(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setApplicableTransScope(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setApplicableTransScope(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDurationTypeInd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDurationTypeInd(jsonArray.get(i).toString());
+                }
             try {
-                entity.setMaxApplicableMonths(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMaxApplicableMonths(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setMaxApplicableMonths(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setMaxApplicableMonths(null);
             }
             try {
-                entity.setMaxApplicationsPerAcct(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMaxApplicationsPerAcct(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setMaxApplicationsPerAcct(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setMaxApplicationsPerAcct(null);
             }
-            entity.setInlineOffsetInd(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setInlineOffsetInd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setInlineOffsetInd(jsonArray.get(i).toString());
+                }
             try {
-                entity.setServiceCodeToUse(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceCodeToUse(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setServiceCodeToUse(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setServiceCodeToUse(null);
             }
             try {
-                entity.setAltServiceNo2Apply(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAltServiceNo2Apply(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setAltServiceNo2Apply(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setAltServiceNo2Apply(null);
             }
-            entity.setAltServiceId2Apply(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAltServiceId2Apply(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAltServiceId2Apply(jsonArray.get(i).toString());
+                }
             try {
-                entity.setScopeNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScopeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setScopeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setScopeNo(null);
             }
-            entity.setDiscountBehaviorTypeInd(jsonArray.get(i).toString());
-            entity.setUseAllOrNthSubsRule(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDiscountBehaviorTypeInd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDiscountBehaviorTypeInd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUseAllOrNthSubsRule(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUseAllOrNthSubsRule(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1129,26 +2059,68 @@ public class RestUtilities {
             entity.setBillingInterval(getLongValue(jsonObject,"billing_interval"));
             entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
             } else {
-            entity.setPlanName(jsonArray.get(i).toString());
-            entity.setPlanDesc(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanDesc(jsonArray.get(i).toString());
+                }
             try {
-                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanNo(null);
             }
             try {
-                entity.setPlanLevel(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanLevel(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanLevel(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanLevel(null);
             }
-            entity.setClientPlanId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBillingInterval(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setBillingInterval(null);
             }
             try {
-                entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setActiveInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setActiveInd(null);
             }
@@ -1175,30 +2147,78 @@ public class RestUtilities {
             entity.setDefaultIndCurr(getLongValue(jsonObject,"default_ind_curr"));
             } else {
             try {
-                entity.setScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setScheduleNo(null);
             }
-            entity.setClientRateScheduleId(jsonArray.get(i).toString());
-            entity.setScheduleName(jsonArray.get(i).toString());
-            entity.setScheduleCurrency(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScheduleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setScheduleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScheduleCurrency(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setScheduleCurrency(jsonArray.get(i).toString());
+                }
             try {
-                entity.setRecurringBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRecurringBillingInterval(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRecurringBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setRecurringBillingInterval(null);
             }
             try {
-                entity.setUsageBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageBillingInterval(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setUsageBillingInterval(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setUsageBillingInterval(null);
             }
             try {
-                entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDefaultInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDefaultInd(null);
             }
             try {
-                entity.setDefaultIndCurr(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDefaultIndCurr(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDefaultIndCurr(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDefaultIndCurr(null);
             }
@@ -1218,7 +2238,13 @@ public class RestUtilities {
             entity.setSurchargeNos(getLongValue(jsonObject,"surcharge_nos"));
             } else {
             try {
-                entity.setSurchargeNos(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setSurchargeNos(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setSurchargeNos(null);
             }
@@ -1237,7 +2263,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setClientSurchargeIds(getStringValue(jsonObject,"client_surcharge_ids"));
             } else {
-            entity.setClientSurchargeIds(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientSurchargeIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientSurchargeIds(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1264,29 +2296,95 @@ public class RestUtilities {
             entity.setGroupPlansCount(getLongValue(jsonObject,"group_plans_count"));
             } else {
             try {
-                entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setGroupNo(null);
             }
-            entity.setGroupName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setGroupName(jsonArray.get(i).toString());
+                }
             try {
-                entity.setPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanSetNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanSetNo(null);
             }
-            entity.setSetName(jsonArray.get(i).toString());
-            entity.setSetDescription(jsonArray.get(i).toString());
-            entity.setClientPlanTypeId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSetName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setSetName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSetDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setSetDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanTypeId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanTypeId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanGroup(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanGroup(null);
             }
-            entity.setGroupDesc(jsonArray.get(i).toString());
-            entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
-            entity.setGroupUsage(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setGroupDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanChangeGroupId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupUsage(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setGroupUsage(jsonArray.get(i).toString());
+                }
             try {
-                entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupPlansCount(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setGroupPlansCount(null);
             }
@@ -1305,7 +2403,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setPlanGroupId(getStringValue(jsonObject,"plan_group_id"));
             } else {
-            entity.setPlanGroupId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanGroupId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanGroupId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1326,23 +2430,53 @@ public class RestUtilities {
             entity.setResources(getLongValue(jsonObject,"resources"));
             } else {
             try {
-                entity.setResourceTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResourceTypeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setResourceTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setResourceTypeNo(null);
             }
             try {
-                entity.setResourceUnits(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResourceUnits(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setResourceUnits(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setResourceUnits(null);
             }
             try {
-                entity.setDaysToExpiry(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDaysToExpiry(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDaysToExpiry(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDaysToExpiry(null);
             }
-            entity.setResourceName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResourceName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setResourceName(jsonArray.get(i).toString());
+                }
             try {
-                entity.setResources(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResources(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setResources(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setResources(null);
             }
@@ -1369,18 +2503,66 @@ public class RestUtilities {
             entity.setSurchargeScope(getLongValue(jsonObject,"surcharge_scope"));
             } else {
             try {
-                entity.setSurchargeNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setSurchargeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setSurchargeNo(null);
             }
-            entity.setClientSurchargeId(jsonArray.get(i).toString());
-            entity.setSurchargeName(jsonArray.get(i).toString());
-            entity.setSurchargeTypeCd(jsonArray.get(i).toString());
-            entity.setCurrencyCd(jsonArray.get(i).toString());
-            entity.setScopeLabel(jsonArray.get(i).toString());
-            entity.setDeleteable(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientSurchargeId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientSurchargeId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setSurchargeName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeTypeCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setSurchargeTypeCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScopeLabel(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setScopeLabel(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDeleteable(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDeleteable(jsonArray.get(i).toString());
+                }
             try {
-                entity.setSurchargeScope(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeScope(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setSurchargeScope(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setSurchargeScope(null);
             }
@@ -1403,13 +2585,37 @@ public class RestUtilities {
             entity.setOverridePrice(getStringValue(jsonObject,"override_price"));
             } else {
             try {
-                entity.setRateScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRateScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRateScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setRateScheduleNo(null);
             }
-            entity.setClientRateScheduleId(jsonArray.get(i).toString());
-            entity.setCurrencyCd(jsonArray.get(i).toString());
-            entity.setOverridePrice(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setOverridePrice(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setOverridePrice(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1429,13 +2635,37 @@ public class RestUtilities {
             entity.setOverridePrice(getStringValue(jsonObject,"override_price"));
             } else {
             try {
-                entity.setRateScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRateScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRateScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setRateScheduleNo(null);
             }
-            entity.setClientRateScheduleId(jsonArray.get(i).toString());
-            entity.setCurrencyCd(jsonArray.get(i).toString());
-            entity.setOverridePrice(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setOverridePrice(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setOverridePrice(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1455,17 +2685,41 @@ public class RestUtilities {
             entity.setRolloverClientRateSchedId(getStringValue(jsonObject,"rollover_client_rate_sched_id"));
             } else {
             try {
-                entity.setCurrentRateSchedNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrentRateSchedNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setCurrentRateSchedNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setCurrentRateSchedNo(null);
             }
-            entity.setCurrentClientRateSchedId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrentClientRateSchedId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrentClientRateSchedId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setRolloverRateSchedNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRolloverRateSchedNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRolloverRateSchedNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setRolloverRateSchedNo(null);
             }
-            entity.setRolloverClientRateSchedId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRolloverClientRateSchedId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRolloverClientRateSchedId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1490,18 +2744,48 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setItemNo(null);
             }
             try {
-                entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setActiveInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setActiveInd(null);
             }
-            entity.setMinQty(jsonArray.get(i).toString());
-            entity.setMaxQty(jsonArray.get(i).toString());
-            entity.setItemScope(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMinQty(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setMinQty(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMaxQty(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setMaxQty(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemScope(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setItemScope(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1523,12 +2807,24 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setItemNo(null);
             }
             try {
-                entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setActiveInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setActiveInd(null);
             }
@@ -1549,12 +2845,24 @@ public class RestUtilities {
             entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
             } else {
             try {
-                entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setItemNo(null);
             }
             try {
-                entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setActiveInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setActiveInd(null);
             }
@@ -1575,9 +2883,27 @@ public class RestUtilities {
             entity.setPromoDesc(getStringValue(jsonObject,"promo_desc"));
             entity.setExpiresAfter(getStringValue(jsonObject,"expires_after"));
             } else {
-            entity.setPromoCd(jsonArray.get(i).toString());
-            entity.setPromoDesc(jsonArray.get(i).toString());
-            entity.setExpiresAfter(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPromoCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPromoCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPromoDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPromoDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExpiresAfter(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setExpiresAfter(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1598,15 +2924,45 @@ public class RestUtilities {
             entity.setIsEditable(getLongValue(jsonObject,"is_editable"));
             } else {
             try {
-                entity.setUsageTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setUsageTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setUsageTypeNo(null);
             }
-            entity.setUsageTypeDesc(jsonArray.get(i).toString());
-            entity.setUsageUnitType(jsonArray.get(i).toString());
-            entity.setUsageTypeName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageTypeDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageUnitType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageUnitType(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageTypeName(jsonArray.get(i).toString());
+                }
             try {
-                entity.setIsEditable(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setIsEditable(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setIsEditable(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setIsEditable(null);
             }
@@ -1627,11 +2983,23 @@ public class RestUtilities {
             entity.setUsageUnitTypeDesc(getStringValue(jsonObject,"usage_unit_type_desc"));
             } else {
             try {
-                entity.setUsageUnitTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageUnitTypeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setUsageUnitTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setUsageUnitTypeNo(null);
             }
-            entity.setUsageUnitTypeDesc(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageUnitTypeDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageUnitTypeDesc(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1647,7 +3015,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setValue(getStringValue(jsonObject,"value"));
             } else {
-            entity.setValue(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setValue(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setValue(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1663,7 +3037,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setAssociatedObject(getStringValue(jsonObject,"associated_object"));
             } else {
-            entity.setAssociatedObject(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAssociatedObject(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAssociatedObject(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1681,11 +3061,23 @@ public class RestUtilities {
             entity.setFieldCategoryName(getStringValue(jsonObject,"field_category_name"));
             } else {
             try {
-                entity.setFieldCategoryNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldCategoryNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFieldCategoryNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFieldCategoryNo(null);
             }
-            entity.setFieldCategoryName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldCategoryName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldCategoryName(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1704,15 +3096,39 @@ public class RestUtilities {
             entity.setValueText(getStringValue(jsonObject,"value_text"));
             entity.setPrimacy(getLongValue(jsonObject,"primacy"));
             } else {
-            entity.setObjectType(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setObjectType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setObjectType(jsonArray.get(i).toString());
+                }
             try {
-                entity.setObjectId(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setObjectId(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setObjectId(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setObjectId(null);
             }
-            entity.setValueText(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setValueText(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setValueText(jsonArray.get(i).toString());
+                }
             try {
-                entity.setPrimacy(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPrimacy(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPrimacy(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPrimacy(null);
             }
@@ -1752,35 +3168,89 @@ public class RestUtilities {
             entity.setAllowInstanceOverride(getLongValue(jsonObject,"allow_instance_override"));
             } else {
             try {
-                entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFieldNo(null);
             }
-            entity.setFieldName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldName(jsonArray.get(i).toString());
+                }
             try {
-                entity.setDescription(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDescription(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDescription(null);
             }
             try {
-                entity.setDatatype(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDatatype(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDatatype(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDatatype(null);
             }
             try {
-                entity.setMinNoSel(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMinNoSel(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setMinNoSel(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setMinNoSel(null);
             }
             try {
-                entity.setMaxNoSel(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMaxNoSel(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setMaxNoSel(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setMaxNoSel(null);
             }
-            entity.setFormInputType(jsonArray.get(i).toString());
-            entity.setAssociatedTypes(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFormInputType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFormInputType(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAssociatedTypes(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setAssociatedTypes(jsonArray.get(i).toString());
+                }
             try {
-                entity.setAllowInstanceOverride(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAllowInstanceOverride(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setAllowInstanceOverride(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setAllowInstanceOverride(null);
             }
@@ -1802,12 +3272,30 @@ public class RestUtilities {
             entity.setCoaDescription(getStringValue(jsonObject,"coa_description"));
             } else {
             try {
-                entity.setCoaId(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCoaId(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setCoaId(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setCoaId(null);
             }
-            entity.setCoaCode(jsonArray.get(i).toString());
-            entity.setCoaDescription(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCoaCode(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCoaCode(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCoaDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCoaDescription(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1826,12 +3314,30 @@ public class RestUtilities {
             entity.setCoaDescription(getStringValue(jsonObject,"coa_description"));
             } else {
             try {
-                entity.setCoaId(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCoaId(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setCoaId(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setCoaId(null);
             }
-            entity.setCoaCode(jsonArray.get(i).toString());
-            entity.setCoaDescription(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCoaCode(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCoaCode(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCoaDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCoaDescription(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1851,21 +3357,45 @@ public class RestUtilities {
             entity.setDescription(getStringValue(jsonObject,"description"));
             } else {
             try {
-                entity.setFrom(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFrom(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFrom(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFrom(null);
             }
             try {
-                entity.setTo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setTo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setTo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setTo(null);
             }
             try {
-                entity.setRate(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRate(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setRate(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setRate(null);
             }
-            entity.setDescription(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1891,11 +3421,23 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanNo(null);
             }
-            entity.setClientPlanId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1911,7 +3453,13 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setPaymentMethodType(getStringValue(jsonObject,"payment_method_type"));
             } else {
-            entity.setPaymentMethodType(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPaymentMethodType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPaymentMethodType(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1931,13 +3479,37 @@ public class RestUtilities {
             entity.setProfileDesc(getStringValue(jsonObject,"profile_desc"));
             } else {
             try {
-                entity.setProfileId(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setProfileId(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setProfileId(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setProfileId(null);
             }
-            entity.setClientProfileId(jsonArray.get(i).toString());
-            entity.setProfileName(jsonArray.get(i).toString());
-            entity.setProfileDesc(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientProfileId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientProfileId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setProfileName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setProfileName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setProfileDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setProfileDesc(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1955,11 +3527,23 @@ public class RestUtilities {
             entity.setFieldCategoryName(getStringValue(jsonObject,"field_category_name"));
             } else {
             try {
-                entity.setFieldCategoryNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldCategoryNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFieldCategoryNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFieldCategoryNo(null);
             }
-            entity.setFieldCategoryName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldCategoryName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldCategoryName(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -1980,19 +3564,49 @@ public class RestUtilities {
             entity.setAllowInstanceOverride(getLongValue(jsonObject,"allow_instance_override"));
             } else {
             try {
-                entity.setProductFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setProductFieldNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setProductFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setProductFieldNo(null);
             }
-            entity.setProductFieldName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setProductFieldName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setProductFieldName(jsonArray.get(i).toString());
+                }
             try {
-                entity.setProductFieldDesc(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setProductFieldDesc(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setProductFieldDesc(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setProductFieldDesc(null);
             }
-            entity.setProductFieldValue(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setProductFieldValue(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setProductFieldValue(jsonArray.get(i).toString());
+                }
             try {
-                entity.setAllowInstanceOverride(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAllowInstanceOverride(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setAllowInstanceOverride(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setAllowInstanceOverride(null);
             }
@@ -2020,14 +3634,44 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setGroupNo(null);
             }
-            entity.setClientDefinedId(jsonArray.get(i).toString());
-            entity.setGroupName(jsonArray.get(i).toString());
-            entity.setDescription(jsonArray.get(i).toString());
-            entity.setPrecedence(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientDefinedId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientDefinedId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setGroupName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setGroupName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPrecedence(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPrecedence(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -2048,23 +3692,53 @@ public class RestUtilities {
             entity.setDaysUntilPaymentReminder03(getLongValue(jsonObject,"days_until_payment_reminder_03"));
             } else {
             try {
-                entity.setPayMethodType(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPayMethodType(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPayMethodType(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPayMethodType(null);
             }
-            entity.setPayMethodName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPayMethodName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPayMethodName(jsonArray.get(i).toString());
+                }
             try {
-                entity.setDaysUntilPaymentReminder01(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDaysUntilPaymentReminder01(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDaysUntilPaymentReminder01(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDaysUntilPaymentReminder01(null);
             }
             try {
-                entity.setDaysUntilPaymentReminder02(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDaysUntilPaymentReminder02(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDaysUntilPaymentReminder02(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDaysUntilPaymentReminder02(null);
             }
             try {
-                entity.setDaysUntilPaymentReminder03(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDaysUntilPaymentReminder03(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDaysUntilPaymentReminder03(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDaysUntilPaymentReminder03(null);
             }
@@ -2086,12 +3760,30 @@ public class RestUtilities {
             entity.setPlanName(getStringValue(jsonObject,"plan_name"));
             } else {
             try {
-                entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPlanNo(null);
             }
-            entity.setClientPlanId(jsonArray.get(i).toString());
-            entity.setPlanName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanName(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -2109,11 +3801,23 @@ public class RestUtilities {
             entity.setPayMethodType(getStringValue(jsonObject,"pay_method_type"));
             } else {
             try {
-                entity.setPayMethodTypeCd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPayMethodTypeCd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPayMethodTypeCd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setPayMethodTypeCd(null);
             }
-            entity.setPayMethodType(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPayMethodType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPayMethodType(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -2143,20 +3847,56 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setDunningProcessNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDunningProcessNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDunningProcessNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDunningProcessNo(null);
             }
-            entity.setClientDunningProcessId(jsonArray.get(i).toString());
-            entity.setDunningProcessName(jsonArray.get(i).toString());
-            entity.setDunningProcessDescription(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientDunningProcessId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientDunningProcessId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDunningProcessName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDunningProcessName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDunningProcessDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDunningProcessDescription(jsonArray.get(i).toString());
+                }
             try {
-                entity.setClientDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientDefaultInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setClientDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setClientDefaultInd(null);
             }
             try {
-                entity.setTotalStepCount(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setTotalStepCount(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setTotalStepCount(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setTotalStepCount(null);
             }
@@ -2182,28 +3922,70 @@ public class RestUtilities {
             entity.setClientItemId(getStringValue(jsonObject,"client_item_id"));
             } else {
             try {
-                entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setItemNo(null);
             }
-            entity.setItemName(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setItemName(jsonArray.get(i).toString());
+                }
             try {
-                entity.setItemType(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemType(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemType(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setItemType(null);
             }
-            entity.setClientSku(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientSku(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientSku(jsonArray.get(i).toString());
+                }
             try {
-                entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setActiveInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setActiveInd(null);
             }
             try {
-                entity.setStockLevel(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setStockLevel(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setStockLevel(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setStockLevel(null);
             }
-            entity.setClientItemId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientItemId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientItemId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -2221,14 +4003,32 @@ public class RestUtilities {
             entity.setPrice(getDoubleValue(jsonObject,"price"));
             entity.setPricePerUnit(getDoubleValue(jsonObject,"price_per_unit"));
             } else {
-            entity.setCurrencyCd(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
             try {
-                entity.setPrice(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPrice(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setPrice(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setPrice(null);
             }
             try {
-                entity.setPricePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPricePerUnit(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setPricePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setPricePerUnit(null);
             }
@@ -2252,24 +4052,60 @@ public class RestUtilities {
             entity.setActive(getLongValue(jsonObject,"active"));
             entity.setMainImageUrl(getStringValue(jsonObject,"main_image_url"));
             } else {
-            entity.setThumbnailImageUrl(jsonArray.get(i).toString());
-            entity.setImageText(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setThumbnailImageUrl(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setThumbnailImageUrl(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setImageText(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setImageText(jsonArray.get(i).toString());
+                }
             try {
-                entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDefaultInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setDefaultInd(null);
             }
             try {
-                entity.setImageClassSeqNo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setImageClassSeqNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setImageClassSeqNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setImageClassSeqNo(null);
             }
             try {
-                entity.setActive(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setActive(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setActive(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setActive(null);
             }
-            entity.setMainImageUrl(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMainImageUrl(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setMainImageUrl(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -2286,7 +4122,13 @@ public class RestUtilities {
             entity.setAmount(getDoubleValue(jsonObject,"amount"));
             } else {
             try {
-                entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAmount(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setAmount(null);
             }
@@ -2313,18 +4155,42 @@ public class RestUtilities {
             }
             } else {
             try {
-                entity.setFrom(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFrom(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFrom(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setFrom(null);
             }
             try {
-                entity.setTo(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setTo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setTo(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setTo(null);
             }
-            entity.setDescription(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
             try {
-                entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAmount(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
             } catch (NumberFormatException e) {
                 entity.setAmount(null);
             }
@@ -2351,16 +4217,46 @@ public class RestUtilities {
                 entity.getTier().add(element);
             }
             } else {
-            entity.setScheduleName(jsonArray.get(i).toString());
-            entity.setCurrencyCd(jsonArray.get(i).toString());
-            entity.setClientRateScheduleId(jsonArray.get(i).toString());
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScheduleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setScheduleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                }
             try {
-                entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setIsDefault(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setIsDefault(null);
             }
             try {
-                entity.setTaxInclusiveRate(Long.parseLong(jsonArray.get(i).toString()));
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setTaxInclusiveRate(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setTaxInclusiveRate(Long.parseLong(jsonArray.get(i).toString()));
+                }
             } catch (NumberFormatException e) {
                 entity.setTaxInclusiveRate(null);
             }
