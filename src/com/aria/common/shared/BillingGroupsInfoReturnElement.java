@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "billing_groups_info_ReturnElement", propOrder = {"billingGroupNo", "billingGroupName", "billingGroupDescription", "clientDefBillingGroupId", "notifyMethod", "notifyTemplateGroup", "statementTemplate", "creditNoteTemplate", "primaryPaymentMethodId", "backupPaymentMethodId", "stmtFirstName", "stmtMi", "stmtLastName", "stmtCompanyName", "stmtAddress1", "stmtAddress2", "stmtAddress3", "stmtCity", "stmtLocality", "stmtStateProv", "stmtCountry", "stmtPostalCd", "stmtPhone", "stmtPhoneExt", "stmtCellPhone", "stmtWorkPhone", "stmtWorkPhoneExt", "stmtFax", "stmtEmail", "stmtBirthdate", "stmtAddressVerificationCode", "stmtAddressMatchScore", "clientPrimaryPaymentMethodId", "clientBackupPaymentMethodId"})
+@XmlType(name = "billing_groups_info_ReturnElement", propOrder = {"billingGroupNo", "billingGroupName", "billingGroupDescription", "clientDefBillingGroupId", "notifyMethod", "notifyTemplateGroup", "statementTemplate", "creditNoteTemplate", "primaryPaymentMethodId", "backupPaymentMethodId", "stmtFirstName", "stmtMi", "stmtLastName", "stmtCompanyName", "stmtAddress1", "stmtAddress2", "stmtAddress3", "stmtCity", "stmtLocality", "stmtStateProv", "stmtCountry", "stmtPostalCd", "stmtPhone", "stmtPhoneExt", "stmtCellPhone", "stmtWorkPhone", "stmtWorkPhoneExt", "stmtFax", "stmtEmail", "stmtBirthdate", "bgListStartMasterFile", "stmtAddressVerificationCode", "stmtAddressMatchScore", "clientPrimaryPaymentMethodId", "clientBackupPaymentMethodId"})
 public class BillingGroupsInfoReturnElement {
 
     @XmlElement(name = "billing_group_no")
@@ -73,6 +73,8 @@ public class BillingGroupsInfoReturnElement {
     protected String stmtEmail;
     @XmlElement(name = "stmt_birthdate")
     protected String stmtBirthdate;
+    @XmlElement(name = "bg_list_start_master_file")
+    protected Long bgListStartMasterFile;
     @XmlElement(name = "stmt_address_verification_code")
     protected String stmtAddressVerificationCode;
     @XmlElement(name = "stmt_address_match_score")
@@ -320,6 +322,14 @@ public class BillingGroupsInfoReturnElement {
 
     public void setStmtBirthdate(String value) {
         this.stmtBirthdate = value;
+    }
+
+    public Long getBgListStartMasterFile() {
+        return bgListStartMasterFile;
+    }
+
+    public void setBgListStartMasterFile(Long value) {
+        this.bgListStartMasterFile = value;
     }
 
     public String getStmtAddressVerificationCode() {

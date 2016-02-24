@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "revrecProfileNo", "clientRevrecId", "invoiceApprovalRequired", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurchargesInfo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "acctCoupons", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "consumerAcctInd", "errorCode", "errorMsg"})
+@XmlType(name = "", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "listStartMasterFile", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "revrecProfileNo", "clientRevrecId", "invoiceApprovalRequired", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurchargesInfo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "acctCoupons", "poNum", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "consumerAcctInd", "errorCode", "errorMsg"})
 @XmlRootElement(name = "get_acct_details_all_mResponseElement")
 public class GetAcctDetailsAllMResponseElement {
 
@@ -82,6 +82,8 @@ public class GetAcctDetailsAllMResponseElement {
     protected Long seqFuncGroupNo;
     @XmlElement(name = "tax_exemption_level")
     protected Long taxExemptionLevel;
+    @XmlElement(name = "list_start_master_file")
+    protected Long listStartMasterFile;
     @XmlElement(name = "client_alt_msg_template_id")
     protected String clientAltMsgTemplateId;
     @XmlElement(name = "client_cn_alt_msg_template_id")
@@ -114,6 +116,8 @@ public class GetAcctDetailsAllMResponseElement {
     protected String statusClientReceiptId;
     @XmlElement(name = "acct_coupons")
     protected List<AcctCouponsReturnElement> acctCoupons;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     @XmlElement(name = "billing_groups_info")
     protected List<BillingGroupsInfoReturnElement> billingGroupsInfo;
     @XmlElement(name = "payment_methods_info")
@@ -399,6 +403,14 @@ public class GetAcctDetailsAllMResponseElement {
         this.taxExemptionLevel = value;
     }
 
+    public Long getListStartMasterFile() {
+        return listStartMasterFile;
+    }
+
+    public void setListStartMasterFile(Long value) {
+        this.listStartMasterFile = value;
+    }
+
     public String getClientAltMsgTemplateId() {
         return clientAltMsgTemplateId;
     }
@@ -512,7 +524,15 @@ public class GetAcctDetailsAllMResponseElement {
             this.acctCoupons = new ArrayList<AcctCouponsReturnElement>();
         }
         return this.acctCoupons;
-    }public List<BillingGroupsInfoReturnElement> getBillingGroupsInfo() {
+    }public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
+    }
+
+    public List<BillingGroupsInfoReturnElement> getBillingGroupsInfo() {
         if (this.billingGroupsInfo == null) {
             this.billingGroupsInfo = new ArrayList<BillingGroupsInfoReturnElement>();
         }

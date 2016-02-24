@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "payment_methods_summary_ReturnElement", propOrder = {"billFirstName", "billMiddleInitial", "billLastName", "billCompanyName", "billAddress1", "billAddress2", "billAddress3", "billCity", "billLocality", "billStateProv", "billCountry", "billPostalCd", "billPhone", "billPhoneExt", "billCellPhone", "billWorkPhone", "billWorkPhoneExt", "billFax", "billEmail", "billBirthdate", "billAddressVerificationCode", "billAddressMatchScore", "payMethodName", "paymentMethodNo", "clientPaymentMethodId", "payMethodDescription", "payMethodType", "ccExpireMm", "ccExpireYyyy", "billAgreementId", "bankSwiftCd", "bankCountryCd", "mandateId", "bankIdCd", "bankBranchCd", "suffix"})
+@XmlType(name = "payment_methods_summary_ReturnElement", propOrder = {"billFirstName", "billMiddleInitial", "billLastName", "billCompanyName", "billAddress1", "billAddress2", "billAddress3", "billCity", "billLocality", "billStateProv", "billCountry", "billPostalCd", "billPhone", "billPhoneExt", "billCellPhone", "billWorkPhone", "billWorkPhoneExt", "billFax", "billEmail", "billBirthdate", "billAddressVerificationCode", "billAddressMatchScore", "payMethodName", "paymentMethodNo", "clientPaymentMethodId", "payMethodDescription", "payMethodType", "ccExpireMm", "ccExpireYyyy", "billAgreementId", "bankSwiftCd", "bankCountryCd", "mandateId", "listStartMasterFile", "bankIdCd", "bankBranchCd", "suffix"})
 public class PaymentMethodsSummaryReturnElement {
 
     @XmlElement(name = "bill_first_name")
@@ -79,6 +79,8 @@ public class PaymentMethodsSummaryReturnElement {
     protected String bankCountryCd;
     @XmlElement(name = "mandate_id")
     protected String mandateId;
+    @XmlElement(name = "list_start_master_file")
+    protected Long listStartMasterFile;
     @XmlElement(name = "bank_id_cd")
     protected String bankIdCd;
     @XmlElement(name = "bank_branch_cd")
@@ -348,6 +350,14 @@ public class PaymentMethodsSummaryReturnElement {
 
     public void setMandateId(String value) {
         this.mandateId = value;
+    }
+
+    public Long getListStartMasterFile() {
+        return listStartMasterFile;
+    }
+
+    public void setListStartMasterFile(Long value) {
+        this.listStartMasterFile = value;
     }
 
     public String getBankIdCd() {

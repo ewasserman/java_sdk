@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "client_ReturnElement", propOrder = {"clientName", "domain", "address1", "address2", "city", "locality", "stateProv", "country", "postalCode", "phone", "contact", "contactAddress1", "contactAddress2", "contactCity", "contactState", "contactZip", "contactPhone", "contactEmail", "billingContact", "billingAddress1", "billingAddress2", "billingCity", "billingState", "billingZip", "billingPhone", "billingEmail", "contactCountry", "contactLocality", "billingCountry", "billingLocality"})
+@XmlType(name = "client_ReturnElement", propOrder = {"clientName", "domain", "address1", "address2", "city", "locality", "stateProv", "country", "postalCode", "phone", "contact", "contactAddress1", "contactAddress2", "contactCity", "contactState", "contactZip", "contactPhone", "contactEmail", "billingContact", "billingAddress1", "billingAddress2", "billingCity", "billingState", "billingZip", "billingPhone", "billingEmail", "contactCountry", "contactLocality", "billingCountry", "billingLocality", "batchJobAlertContact", "batchJobAlertEmail", "clientLocaleName", "localeName"})
 public class ClientReturnElement {
 
     @XmlElement(name = "client_name")
@@ -73,6 +73,14 @@ public class ClientReturnElement {
     protected String billingCountry;
     @XmlElement(name = "billing_locality")
     protected String billingLocality;
+    @XmlElement(name = "batch_job_alert_contact")
+    protected String batchJobAlertContact;
+    @XmlElement(name = "batch_job_alert_email")
+    protected String batchJobAlertEmail;
+    @XmlElement(name = "client_locale_name")
+    protected String clientLocaleName;
+    @XmlElement(name = "locale_name")
+    protected String localeName;
     
     public String getClientName() {
         return clientName;
@@ -312,6 +320,38 @@ public class ClientReturnElement {
 
     public void setBillingLocality(String value) {
         this.billingLocality = value;
+    }
+
+    public String getBatchJobAlertContact() {
+        return batchJobAlertContact;
+    }
+
+    public void setBatchJobAlertContact(String value) {
+        this.batchJobAlertContact = value;
+    }
+
+    public String getBatchJobAlertEmail() {
+        return batchJobAlertEmail;
+    }
+
+    public void setBatchJobAlertEmail(String value) {
+        this.batchJobAlertEmail = value;
+    }
+
+    public String getClientLocaleName() {
+        return clientLocaleName;
+    }
+
+    public void setClientLocaleName(String value) {
+        this.clientLocaleName = value;
+    }
+
+    public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
     }
 
     

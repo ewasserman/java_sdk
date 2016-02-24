@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_unit_instance_ReturnElement", propOrder = {"planUnitInstNo", "clientPlanUnitInstId", "planUnitInstStatus", "planUnitInstServices", "planUnitInstFields"})
+@XmlType(name = "plan_unit_instance_ReturnElement", propOrder = {"planUnitInstNo", "clientPlanUnitInstId", "planUnitInstStatus", "planUnitInstServicesInfo", "planUnitInstFields"})
 public class PlanUnitInstanceReturnElement {
 
     @XmlElement(name = "plan_unit_inst_no")
@@ -19,8 +19,8 @@ public class PlanUnitInstanceReturnElement {
     protected String clientPlanUnitInstId;
     @XmlElement(name = "plan_unit_inst_status")
     protected String planUnitInstStatus;
-    @XmlElement(name = "plan_unit_inst_services")
-    protected List<PlanUnitInstServicesReturnElement> planUnitInstServices;
+    @XmlElement(name = "plan_unit_inst_services_info")
+    protected List<PlanUnitInstServicesInfoReturnElement> planUnitInstServicesInfo;
     @XmlElement(name = "plan_unit_inst_fields")
     protected List<PlanUnitInstFieldsReturnElement> planUnitInstFields;
     
@@ -48,11 +48,11 @@ public class PlanUnitInstanceReturnElement {
         this.planUnitInstStatus = value;
     }
 
-    public List<PlanUnitInstServicesReturnElement> getPlanUnitInstServices() {
-        if (this.planUnitInstServices == null) {
-            this.planUnitInstServices = new ArrayList<PlanUnitInstServicesReturnElement>();
+    public List<PlanUnitInstServicesInfoReturnElement> getPlanUnitInstServicesInfo() {
+        if (this.planUnitInstServicesInfo == null) {
+            this.planUnitInstServicesInfo = new ArrayList<PlanUnitInstServicesInfoReturnElement>();
         }
-        return this.planUnitInstServices;
+        return this.planUnitInstServicesInfo;
     }public List<PlanUnitInstFieldsReturnElement> getPlanUnitInstFields() {
         if (this.planUnitInstFields == null) {
             this.planUnitInstFields = new ArrayList<PlanUnitInstFieldsReturnElement>();

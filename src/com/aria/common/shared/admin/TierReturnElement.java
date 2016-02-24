@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "tier_ReturnElement", propOrder = {"from", "to", "description", "amount", "price"})
+@XmlType(name = "tier_ReturnElement", propOrder = {"from", "to", "description", "amount"})
 public class TierReturnElement {
 
     @XmlElement(name = "from")
@@ -21,8 +21,6 @@ public class TierReturnElement {
     protected String description;
     @XmlElement(name = "amount")
     protected Double amount;
-    @XmlElement(name = "price")
-    protected List<PriceReturnElement> price;
     
     public Long getFrom() {
         return from;
@@ -56,10 +54,5 @@ public class TierReturnElement {
         this.amount = value;
     }
 
-    public List<PriceReturnElement> getPrice() {
-        if (this.price == null) {
-            this.price = new ArrayList<PriceReturnElement>();
-        }
-        return this.price;
-    }
+    
 }

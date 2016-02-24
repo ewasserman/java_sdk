@@ -10,40 +10,32 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plans_ReturnElement", propOrder = {"planName", "planDesc", "planNo", "planLevel", "clientPlanId", "billingInterval", "activeInd"})
+@XmlType(name = "plans_ReturnElement", propOrder = {"planNo", "clientPlanId", "planName", "planLevel", "billingInterval", "activeInd", "description", "isDeletable", "rateSched", "planTranslationInfo", "planDesc"})
 public class PlansReturnElement {
 
-    @XmlElement(name = "plan_name")
-    protected String planName;
-    @XmlElement(name = "plan_desc")
-    protected String planDesc;
     @XmlElement(name = "plan_no")
     protected Long planNo;
-    @XmlElement(name = "plan_level")
-    protected Long planLevel;
     @XmlElement(name = "client_plan_id")
     protected String clientPlanId;
+    @XmlElement(name = "plan_name")
+    protected String planName;
+    @XmlElement(name = "plan_level")
+    protected Long planLevel;
     @XmlElement(name = "billing_interval")
     protected Long billingInterval;
     @XmlElement(name = "active_ind")
     protected Long activeInd;
+    @XmlElement(name = "description")
+    protected String description;
+    @XmlElement(name = "is_deletable")
+    protected String isDeletable;
+    @XmlElement(name = "rate_sched")
+    protected List<RateSchedReturnElement> rateSched;
+    @XmlElement(name = "plan_translation_info")
+    protected List<PlanTranslationInfoReturnElement> planTranslationInfo;
+    @XmlElement(name = "plan_desc")
+    protected String planDesc;
     
-    public String getPlanName() {
-        return planName;
-    }
-
-    public void setPlanName(String value) {
-        this.planName = value;
-    }
-
-    public String getPlanDesc() {
-        return planDesc;
-    }
-
-    public void setPlanDesc(String value) {
-        this.planDesc = value;
-    }
-
     public Long getPlanNo() {
         return planNo;
     }
@@ -52,20 +44,28 @@ public class PlansReturnElement {
         this.planNo = value;
     }
 
-    public Long getPlanLevel() {
-        return planLevel;
-    }
-
-    public void setPlanLevel(Long value) {
-        this.planLevel = value;
-    }
-
     public String getClientPlanId() {
         return clientPlanId;
     }
 
     public void setClientPlanId(String value) {
         this.clientPlanId = value;
+    }
+
+    public String getPlanName() {
+        return planName;
+    }
+
+    public void setPlanName(String value) {
+        this.planName = value;
+    }
+
+    public Long getPlanLevel() {
+        return planLevel;
+    }
+
+    public void setPlanLevel(Long value) {
+        this.planLevel = value;
     }
 
     public Long getBillingInterval() {
@@ -82,6 +82,40 @@ public class PlansReturnElement {
 
     public void setActiveInd(Long value) {
         this.activeInd = value;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String value) {
+        this.description = value;
+    }
+
+    public String getIsDeletable() {
+        return isDeletable;
+    }
+
+    public void setIsDeletable(String value) {
+        this.isDeletable = value;
+    }
+
+    public List<RateSchedReturnElement> getRateSched() {
+        if (this.rateSched == null) {
+            this.rateSched = new ArrayList<RateSchedReturnElement>();
+        }
+        return this.rateSched;
+    }public List<PlanTranslationInfoReturnElement> getPlanTranslationInfo() {
+        if (this.planTranslationInfo == null) {
+            this.planTranslationInfo = new ArrayList<PlanTranslationInfoReturnElement>();
+        }
+        return this.planTranslationInfo;
+    }public String getPlanDesc() {
+        return planDesc;
+    }
+
+    public void setPlanDesc(String value) {
+        this.planDesc = value;
     }
 
     

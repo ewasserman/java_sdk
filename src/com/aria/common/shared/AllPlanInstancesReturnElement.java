@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_plan_instances_ReturnElement", propOrder = {"queuedInd", "planInstanceNo", "clientPlanInstanceId", "parentPlanInstanceNo", "planName", "planType", "planUnitInstance"})
+@XmlType(name = "all_plan_instances_ReturnElement", propOrder = {"queuedInd", "planInstanceNo", "clientPlanInstanceId", "parentPlanInstanceNo", "planName", "planType", "planUnitInstList"})
 public class AllPlanInstancesReturnElement {
 
     @XmlElement(name = "queued_ind")
@@ -25,8 +25,8 @@ public class AllPlanInstancesReturnElement {
     protected String planName;
     @XmlElement(name = "plan_type")
     protected String planType;
-    @XmlElement(name = "plan_unit_instance")
-    protected List<PlanUnitInstanceReturnElement> planUnitInstance;
+    @XmlElement(name = "plan_unit_inst_list")
+    protected List<PlanUnitInstListReturnElement> planUnitInstList;
     
     public String getQueuedInd() {
         return queuedInd;
@@ -76,10 +76,10 @@ public class AllPlanInstancesReturnElement {
         this.planType = value;
     }
 
-    public List<PlanUnitInstanceReturnElement> getPlanUnitInstance() {
-        if (this.planUnitInstance == null) {
-            this.planUnitInstance = new ArrayList<PlanUnitInstanceReturnElement>();
+    public List<PlanUnitInstListReturnElement> getPlanUnitInstList() {
+        if (this.planUnitInstList == null) {
+            this.planUnitInstList = new ArrayList<PlanUnitInstListReturnElement>();
         }
-        return this.planUnitInstance;
+        return this.planUnitInstList;
     }
 }

@@ -10,18 +10,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "price_ReturnElement", propOrder = {"amount"})
-public class PriceReturnElement {
+@XmlType(name = "surcharge_tier_t_ReturnElement", propOrder = {"description"})
+public class SurchargeTierTReturnElement {
 
-    @XmlElement(name = "amount")
-    protected Double amount;
+    @XmlElement(name = "description")
+    protected String description;
     
-    public Double getAmount() {
-        return amount;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAmount(Double value) {
-        this.amount = value;
+    public void setDescription(String value) {
+        this.description = value;
     }
 
     

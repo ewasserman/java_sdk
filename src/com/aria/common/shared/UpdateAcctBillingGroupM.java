@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "billingGroupNo",    "billingGroupName",    "billingGroupDescription",    "clientBillingGroupId",    "newClientBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "primaryPaymentMethodNo",    "clientPrimaryPaymentMethodId",    "backupPaymentMethodNo",    "clientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "payMethodName",    "clientPaymentMethodId",    "payMethodDescription",    "payMethodType",    "ccNum",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNum",    "bankRoutingNum",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "billingGroupDirective",    "masterPlansSummary",    "clientReceiptId"})
+    "authKey",    "acctNo",    "billingGroupNo",    "billingGroupName",    "billingGroupDescription",    "clientBillingGroupId",    "newClientBillingGroupId",    "notifyMethod",    "notifyTemplateGroup",    "statementTemplate",    "creditNoteTemplate",    "primaryPaymentMethodNo",    "clientPrimaryPaymentMethodId",    "backupPaymentMethodNo",    "clientBackupPaymentMethodId",    "stmtFirstName",    "stmtMi",    "stmtLastName",    "stmtCompanyName",    "stmtAddress1",    "stmtAddress2",    "stmtAddress3",    "stmtCity",    "stmtLocality",    "stmtStateProv",    "stmtCountry",    "stmtPostalCd",    "stmtPhone",    "stmtPhoneExt",    "stmtCellPhone",    "stmtWorkPhone",    "stmtWorkPhoneExt",    "stmtFax",    "stmtEmail",    "stmtBirthdate",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "payMethodName",    "clientPaymentMethodId",    "payMethodDescription",    "payMethodType",    "ccNum",    "ccExpireMm",    "ccExpireYyyy",    "bankAcctNum",    "bankRoutingNum",    "cvv",    "trackData1",    "trackData2",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "billingGroupDirective",    "masterPlansSummary",    "clientReceiptId",    "listStartMasterFile",    "ccId",    "paymentTermsNo",    "paymentTermsName"})
 @XmlRootElement(name = "update_acct_billing_group_m")
 public class UpdateAcctBillingGroupM {
 
@@ -172,6 +172,14 @@ public class UpdateAcctBillingGroupM {
     protected MasterPlansSummaryArray masterPlansSummary;
         @XmlElement(name = "client_receipt_id")
     protected String clientReceiptId;
+        @XmlElement(name = "list_start_master_file")
+    protected Long listStartMasterFile;
+        @XmlElement(name = "cc_id")
+    protected Long ccId;
+        @XmlElement(name = "payment_terms_no")
+    protected Long paymentTermsNo;
+        @XmlElement(name = "payment_terms_name")
+    protected String paymentTermsName;
     
     public long getClientNo() {
         return clientNo;
@@ -727,6 +735,34 @@ public class UpdateAcctBillingGroupM {
 
     public void setClientReceiptId(String value) {
         this.clientReceiptId = value;
+    }
+            public Long getListStartMasterFile() {
+        return listStartMasterFile;
+    }
+
+    public void setListStartMasterFile(Long value) {
+        this.listStartMasterFile = value;
+    }
+            public Long getCcId() {
+        return ccId;
+    }
+
+    public void setCcId(Long value) {
+        this.ccId = value;
+    }
+            public Long getPaymentTermsNo() {
+        return paymentTermsNo;
+    }
+
+    public void setPaymentTermsNo(Long value) {
+        this.paymentTermsNo = value;
+    }
+            public String getPaymentTermsName() {
+        return paymentTermsName;
+    }
+
+    public void setPaymentTermsName(String value) {
+        this.paymentTermsName = value;
     }
             
 }

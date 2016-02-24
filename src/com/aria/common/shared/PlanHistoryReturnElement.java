@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_history_ReturnElement", propOrder = {"planInstanceNo", "masterPlanInstanceNo", "oldPlanNo", "newPlanNo", "oldClientPlanId", "newClientPlanId", "oldPlanName", "newPlanName", "oldPromoCd", "newPromoCd", "oldStatusCd", "newStatusCd", "oldPlanUnits", "newPlanUnits", "oldRateScheduleNo", "newRateScheduleNo", "oldClientRateScheduleId", "newClientRateScheduleId", "oldClientPlanInstanceId", "newClientPlanInstanceId", "updateDate"})
+@XmlType(name = "plan_history_ReturnElement", propOrder = {"planInstanceNo", "masterPlanInstanceNo", "oldPlanNo", "newPlanNo", "oldClientPlanId", "newClientPlanId", "oldPlanName", "newPlanName", "oldPromoCd", "newPromoCd", "oldStatusCd", "newStatusCd", "oldPlanUnits", "newPlanUnits", "oldRateScheduleNo", "newRateScheduleNo", "oldClientRateScheduleId", "newClientRateScheduleId", "oldClientPlanInstanceId", "newClientPlanInstanceId", "updateDate", "oldDunningState", "newDunningState"})
 public class PlanHistoryReturnElement {
 
     @XmlElement(name = "plan_instance_no")
@@ -55,6 +55,10 @@ public class PlanHistoryReturnElement {
     protected String newClientPlanInstanceId;
     @XmlElement(name = "update_date")
     protected String updateDate;
+    @XmlElement(name = "old_dunning_state")
+    protected Long oldDunningState;
+    @XmlElement(name = "new_dunning_state")
+    protected Long newDunningState;
     
     public Long getPlanInstanceNo() {
         return planInstanceNo;
@@ -222,6 +226,22 @@ public class PlanHistoryReturnElement {
 
     public void setUpdateDate(String value) {
         this.updateDate = value;
+    }
+
+    public Long getOldDunningState() {
+        return oldDunningState;
+    }
+
+    public void setOldDunningState(Long value) {
+        this.oldDunningState = value;
+    }
+
+    public Long getNewDunningState() {
+        return newDunningState;
+    }
+
+    public void setNewDunningState(Long value) {
+        this.newDunningState = value;
     }
 
     

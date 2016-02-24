@@ -49,7 +49,8 @@ import javax.xml.bind.annotation.XmlType;
     "bankCountryCd",
     "mandateId",
     "bankIdCd",
-    "bankBranchCd"
+    "bankBranchCd",
+    "ccId"
     })
 public class PaymentMethodRow {
 
@@ -137,6 +138,8 @@ public class PaymentMethodRow {
     protected String bankIdCd;
     @XmlElement(name = "bank_branch_cd")
     protected String bankBranchCd;
+    @XmlElement(name = "cc_id")
+    protected Long ccId;
     public Long getPayMethodType() {
         return payMethodType;
     }
@@ -471,6 +474,14 @@ public class PaymentMethodRow {
 
     public void setBankBranchCd(String value) {
         this.bankBranchCd = value;
+    }
+
+    public Long getCcId() {
+        return ccId;
+    }
+
+    public void setCcId(Long value) {
+        this.ccId = value;
     }
 
     

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_line_m_ReturnElement", propOrder = {"lineItemNo", "amount", "comments", "planName", "planNo", "serviceName", "serviceNo", "ledgerCode", "coaId", "coaDescription", "usageUnits", "usageRate", "usageTypeNo", "startDate", "endDate", "clientSku", "orderNo", "itemNo", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "transactionType", "masterPlanInstanceId", "clientMasterPlanInstanceId", "invoiceTransactionId", "invoiceLineTaxM", "rateScheduleNo", "rateScheduleTierNo"})
+@XmlType(name = "invoice_line_m_ReturnElement", propOrder = {"lineItemNo", "amount", "comments", "planName", "planNo", "serviceName", "serviceNo", "ledgerCode", "coaId", "coaDescription", "usageUnits", "usageRate", "usageTypeNo", "startDate", "endDate", "clientSku", "orderNo", "itemNo", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "transactionType", "masterPlanInstanceId", "clientMasterPlanInstanceId", "invoiceTransactionId", "poNum", "invoiceLineTaxM", "rateScheduleNo", "rateScheduleTierNo"})
 public class InvoiceLineMReturnElement {
 
     @XmlElement(name = "line_item_no")
@@ -69,6 +69,8 @@ public class InvoiceLineMReturnElement {
     protected String clientMasterPlanInstanceId;
     @XmlElement(name = "invoice_transaction_id")
     protected Long invoiceTransactionId;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     @XmlElement(name = "invoice_line_tax_m")
     protected List<InvoiceLineTaxMReturnElement> invoiceLineTaxM;
     @XmlElement(name = "rate_schedule_no")
@@ -298,6 +300,14 @@ public class InvoiceLineMReturnElement {
 
     public void setInvoiceTransactionId(Long value) {
         this.invoiceTransactionId = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     public List<InvoiceLineTaxMReturnElement> getInvoiceLineTaxM() {

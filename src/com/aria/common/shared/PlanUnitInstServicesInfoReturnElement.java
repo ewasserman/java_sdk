@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_unit_inst_services_ReturnElement", propOrder = {"serviceNo", "clientServiceId", "serviceName", "fulfillmentStatus", "fulfillmentDate"})
-public class PlanUnitInstServicesReturnElement {
+@XmlType(name = "plan_unit_inst_services_info_ReturnElement", propOrder = {"serviceNo", "clientServiceId", "serviceName", "fulfillmentStatus", "fulfillmentDate"})
+public class PlanUnitInstServicesInfoReturnElement {
 
     @XmlElement(name = "service_no")
     protected Long serviceNo;

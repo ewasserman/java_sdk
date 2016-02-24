@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "field_details_ReturnElement", propOrder = {"fieldNo", "fieldName", "description", "datatype", "minNoSel", "maxNoSel", "formInputType", "allowedValues", "associatedTypes", "fieldCategories", "objectValues", "allowInstanceOverride"})
+@XmlType(name = "field_details_ReturnElement", propOrder = {"fieldNo", "fieldName", "description", "datatype", "minNoSel", "maxNoSel", "formInputType", "allowedValues", "associatedTypes", "fieldCategories", "objectValues", "allowInstanceOverride", "suppObjFieldTranslations"})
 public class FieldDetailsReturnElement {
 
     @XmlElement(name = "field_no")
@@ -37,6 +37,8 @@ public class FieldDetailsReturnElement {
     protected List<ObjectValuesReturnElement> objectValues;
     @XmlElement(name = "allow_instance_override")
     protected Long allowInstanceOverride;
+    @XmlElement(name = "supp_obj_field_translations")
+    protected List<SuppObjFieldTranslationsReturnElement> suppObjFieldTranslations;
     
     public Long getFieldNo() {
         return fieldNo;
@@ -125,5 +127,10 @@ public class FieldDetailsReturnElement {
         this.allowInstanceOverride = value;
     }
 
-    
+    public List<SuppObjFieldTranslationsReturnElement> getSuppObjFieldTranslations() {
+        if (this.suppObjFieldTranslations == null) {
+            this.suppObjFieldTranslations = new ArrayList<SuppObjFieldTranslationsReturnElement>();
+        }
+        return this.suppObjFieldTranslations;
+    }
 }

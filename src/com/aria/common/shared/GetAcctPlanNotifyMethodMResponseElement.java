@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "notifyMethod", "notifyMethodName"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "notifyMethod", "listStartMasterFile", "notifyMethodName"})
 @XmlRootElement(name = "get_acct_plan_notify_method_mResponseElement")
 public class GetAcctPlanNotifyMethodMResponseElement {
 
@@ -20,6 +20,8 @@ public class GetAcctPlanNotifyMethodMResponseElement {
     protected String errorMsg;
     @XmlElement(name = "notify_method")
     protected Long notifyMethod;
+    @XmlElement(name = "list_start_master_file")
+    protected Long listStartMasterFile;
     @XmlElement(name = "notify_method_name")
     protected String notifyMethodName;
     
@@ -45,6 +47,14 @@ public class GetAcctPlanNotifyMethodMResponseElement {
 
     public void setNotifyMethod(Long value) {
         this.notifyMethod = value;
+    }
+
+    public Long getListStartMasterFile() {
+        return listStartMasterFile;
+    }
+
+    public void setListStartMasterFile(Long value) {
+        this.listStartMasterFile = value;
     }
 
     public String getNotifyMethodName() {

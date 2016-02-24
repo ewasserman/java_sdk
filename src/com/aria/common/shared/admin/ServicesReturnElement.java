@@ -10,17 +10,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "services_ReturnElement", propOrder = {"serviceNo", "clientServiceId", "serviceName", "serviceType"})
+@XmlType(name = "services_ReturnElement", propOrder = {"serviceNo", "serviceName", "serviceType", "clientServiceId", "serviceTranslations"})
 public class ServicesReturnElement {
 
     @XmlElement(name = "service_no")
     protected Long serviceNo;
-    @XmlElement(name = "client_service_id")
-    protected String clientServiceId;
     @XmlElement(name = "service_name")
     protected String serviceName;
     @XmlElement(name = "service_type")
     protected String serviceType;
+    @XmlElement(name = "client_service_id")
+    protected String clientServiceId;
+    @XmlElement(name = "service_translations")
+    protected List<ServiceTranslationsReturnElement> serviceTranslations;
     
     public Long getServiceNo() {
         return serviceNo;
@@ -28,14 +30,6 @@ public class ServicesReturnElement {
 
     public void setServiceNo(Long value) {
         this.serviceNo = value;
-    }
-
-    public String getClientServiceId() {
-        return clientServiceId;
-    }
-
-    public void setClientServiceId(String value) {
-        this.clientServiceId = value;
     }
 
     public String getServiceName() {
@@ -54,5 +48,18 @@ public class ServicesReturnElement {
         this.serviceType = value;
     }
 
-    
+    public String getClientServiceId() {
+        return clientServiceId;
+    }
+
+    public void setClientServiceId(String value) {
+        this.clientServiceId = value;
+    }
+
+    public List<ServiceTranslationsReturnElement> getServiceTranslations() {
+        if (this.serviceTranslations == null) {
+            this.serviceTranslations = new ArrayList<ServiceTranslationsReturnElement>();
+        }
+        return this.serviceTranslations;
+    }
 }

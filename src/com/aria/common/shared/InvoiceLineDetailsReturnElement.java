@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_line_details_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "units", "ratePerUnit", "amount", "description", "dateRangeStart", "dateRangeEnd", "usageTypeNo", "planNo", "planName", "creditReasonCodeDescription", "csrComments", "clientSku", "orderNo", "itemNo", "clientServiceId", "usageTypeCd", "clientPlanId", "clientItemId", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "clientAcctId", "masterPlanInstanceNo", "clientMpInstanceId", "invoiceTransactionId"})
+@XmlType(name = "invoice_line_details_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "units", "ratePerUnit", "amount", "description", "dateRangeStart", "dateRangeEnd", "usageTypeNo", "planNo", "planName", "creditReasonCodeDescription", "csrComments", "clientSku", "orderNo", "itemNo", "clientServiceId", "usageTypeCd", "clientPlanId", "clientItemId", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "clientAcctId", "masterPlanInstanceNo", "clientMpInstanceId", "invoiceTransactionId", "poNum"})
 public class InvoiceLineDetailsReturnElement {
 
     @XmlElement(name = "line_no")
@@ -75,6 +75,8 @@ public class InvoiceLineDetailsReturnElement {
     protected String clientMpInstanceId;
     @XmlElement(name = "invoice_transaction_id")
     protected Long invoiceTransactionId;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     
     public Long getLineNo() {
         return lineNo;
@@ -322,6 +324,14 @@ public class InvoiceLineDetailsReturnElement {
 
     public void setInvoiceTransactionId(Long value) {
         this.invoiceTransactionId = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     

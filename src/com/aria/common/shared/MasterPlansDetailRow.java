@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlType;
     "planInstanceIdx",
     "promoCd",
     "planInstanceUnits",
+    "planUnitInstances",
     "planInstanceStatus",
     "respLevelCd",
     "respMasterPlanInstNo",
@@ -30,6 +31,7 @@ import javax.xml.bind.annotation.XmlType;
     "mpiSurcharges",
     "nsoBillImmediately",
     "masterPlanNsoList",
+    "nsoPoNum",
     "planInstanceFieldsInfo",
     "altRateScheduleNo",
     "clientAltRateScheduleId",
@@ -37,6 +39,7 @@ import javax.xml.bind.annotation.XmlType;
     "usagePooling",
     "usageThresholdApplicability",
     "customRates",
+    "poNum",
     "suppPlan"
     })
 public class MasterPlansDetailRow {
@@ -55,6 +58,8 @@ public class MasterPlansDetailRow {
     protected String promoCd;
     @XmlElement(name = "plan_instance_units")
     protected Long planInstanceUnits;
+    @XmlElement(name = "plan_unit_instances")
+    protected com.aria.common.shared.PlanUnitInstancesArray planUnitInstances;
     @XmlElement(name = "plan_instance_status")
     protected Long planInstanceStatus;
     @XmlElement(name = "resp_level_cd")
@@ -85,6 +90,8 @@ public class MasterPlansDetailRow {
     protected Long nsoBillImmediately;
     @XmlElement(name = "master_plan_nso_list")
     protected com.aria.common.shared.MasterPlanNsoListArray masterPlanNsoList;
+    @XmlElement(name = "nso_po_num")
+    protected String nsoPoNum;
     @XmlElement(name = "plan_instance_fields_info")
     protected com.aria.common.shared.PlanInstanceFieldsInfoArray planInstanceFieldsInfo;
     @XmlElement(name = "alt_rate_schedule_no")
@@ -99,6 +106,8 @@ public class MasterPlansDetailRow {
     protected String usageThresholdApplicability;
     @XmlElement(name = "custom_rates")
     protected com.aria.common.shared.CustomRatesArray customRates;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     @XmlElement(name = "supp_plan")
     protected com.aria.common.shared.SuppPlanArray suppPlan;
     public Long getPlanNo() {
@@ -155,6 +164,14 @@ public class MasterPlansDetailRow {
 
     public void setPlanInstanceUnits(Long value) {
         this.planInstanceUnits = value;
+    }
+
+    public com.aria.common.shared.PlanUnitInstancesArray getPlanUnitInstances() {
+        return planUnitInstances;
+    }
+
+    public void setPlanUnitInstances(com.aria.common.shared.PlanUnitInstancesArray value) {
+        this.planUnitInstances = value;
     }
 
     public Long getPlanInstanceStatus() {
@@ -277,6 +294,14 @@ public class MasterPlansDetailRow {
         this.masterPlanNsoList = value;
     }
 
+    public String getNsoPoNum() {
+        return nsoPoNum;
+    }
+
+    public void setNsoPoNum(String value) {
+        this.nsoPoNum = value;
+    }
+
     public com.aria.common.shared.PlanInstanceFieldsInfoArray getPlanInstanceFieldsInfo() {
         return planInstanceFieldsInfo;
     }
@@ -331,6 +356,14 @@ public class MasterPlansDetailRow {
 
     public void setCustomRates(com.aria.common.shared.CustomRatesArray value) {
         this.customRates = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     public com.aria.common.shared.SuppPlanArray getSuppPlan() {

@@ -50,7 +50,8 @@ import javax.xml.bind.annotation.XmlType;
     "bankIdCd",
     "bankBranchCd",
     "doCollect",
-    "changeStatusAfterColl"
+    "changeStatusAfterColl",
+    "ccId"
     })
 public class PaymentMethodsArrayRow {
 
@@ -140,6 +141,8 @@ public class PaymentMethodsArrayRow {
     protected String doCollect;
     @XmlElement(name = "change_status_after_coll")
     protected String changeStatusAfterColl;
+    @XmlElement(name = "cc_id")
+    protected Long ccId;
     public Long getPaymentMethodNo() {
         return paymentMethodNo;
     }
@@ -482,6 +485,14 @@ public class PaymentMethodsArrayRow {
 
     public void setChangeStatusAfterColl(String value) {
         this.changeStatusAfterColl = value;
+    }
+
+    public Long getCcId() {
+        return ccId;
+    }
+
+    public void setCcId(Long value) {
+        this.ccId = value;
     }
 
     

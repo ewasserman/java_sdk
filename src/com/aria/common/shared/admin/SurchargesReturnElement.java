@@ -10,13 +10,13 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "surcharges_ReturnElement", propOrder = {"surchargeNo", "clientSurchargeId", "surchargeName", "surchargeTypeCd", "currencyCd", "scopeLabel", "deleteable", "surchargeScope"})
+@XmlType(name = "surcharges_ReturnElement", propOrder = {"surchargeNo", "clientSurchargeId", "surchargeName", "surchargeTypeCd", "currencyCd", "scopeLabel", "deleteable", "surchargeScope", "surchargeTranslations"})
 public class SurchargesReturnElement {
 
     @XmlElement(name = "surcharge_no")
-    protected Long surchargeNo;
+    protected List<SurchargeNoReturnElement> surchargeNo;
     @XmlElement(name = "client_surcharge_id")
-    protected String clientSurchargeId;
+    protected List<ClientSurchargeIdReturnElement> clientSurchargeId;
     @XmlElement(name = "surcharge_name")
     protected String surchargeName;
     @XmlElement(name = "surcharge_type_cd")
@@ -29,24 +29,20 @@ public class SurchargesReturnElement {
     protected String deleteable;
     @XmlElement(name = "surcharge_scope")
     protected Long surchargeScope;
+    @XmlElement(name = "surcharge_translations")
+    protected List<SurchargeTranslationsReturnElement> surchargeTranslations;
     
-    public Long getSurchargeNo() {
-        return surchargeNo;
-    }
-
-    public void setSurchargeNo(Long value) {
-        this.surchargeNo = value;
-    }
-
-    public String getClientSurchargeId() {
-        return clientSurchargeId;
-    }
-
-    public void setClientSurchargeId(String value) {
-        this.clientSurchargeId = value;
-    }
-
-    public String getSurchargeName() {
+    public List<SurchargeNoReturnElement> getSurchargeNo() {
+        if (this.surchargeNo == null) {
+            this.surchargeNo = new ArrayList<SurchargeNoReturnElement>();
+        }
+        return this.surchargeNo;
+    }public List<ClientSurchargeIdReturnElement> getClientSurchargeId() {
+        if (this.clientSurchargeId == null) {
+            this.clientSurchargeId = new ArrayList<ClientSurchargeIdReturnElement>();
+        }
+        return this.clientSurchargeId;
+    }public String getSurchargeName() {
         return surchargeName;
     }
 
@@ -94,5 +90,10 @@ public class SurchargesReturnElement {
         this.surchargeScope = value;
     }
 
-    
+    public List<SurchargeTranslationsReturnElement> getSurchargeTranslations() {
+        if (this.surchargeTranslations == null) {
+            this.surchargeTranslations = new ArrayList<SurchargeTranslationsReturnElement>();
+        }
+        return this.surchargeTranslations;
+    }
 }

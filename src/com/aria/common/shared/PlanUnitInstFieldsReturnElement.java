@@ -10,13 +10,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_unit_inst_fields_ReturnElement", propOrder = {"fieldName", "fieldValue"})
+@XmlType(name = "plan_unit_inst_fields_ReturnElement", propOrder = {"fieldName", "fieldValue", "planUnitInstDirective"})
 public class PlanUnitInstFieldsReturnElement {
 
     @XmlElement(name = "field_name")
     protected String fieldName;
     @XmlElement(name = "field_value")
     protected String fieldValue;
+    @XmlElement(name = "plan_unit_inst_directive")
+    protected Long planUnitInstDirective;
     
     public String getFieldName() {
         return fieldName;
@@ -32,6 +34,14 @@ public class PlanUnitInstFieldsReturnElement {
 
     public void setFieldValue(String value) {
         this.fieldValue = value;
+    }
+
+    public Long getPlanUnitInstDirective() {
+        return planUnitInstDirective;
+    }
+
+    public void setPlanUnitInstDirective(Long value) {
+        this.planUnitInstDirective = value;
     }
 
     

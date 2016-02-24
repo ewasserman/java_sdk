@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "mpSurcharges",    "prorationInvoiceTiming"})
+    "authKey",    "acctNo",    "planInstanceNo",    "clientPlanInstanceId",    "altRateScheduleNo",    "planUnits",    "couponCodes",    "promoCd",    "planStatus",    "planInstanceDescription",    "planInstanceFieldUpdate",    "assignmentDirective",    "comments",    "doWrite",    "clientReceiptId",    "customRates",    "effectiveDate",    "offsetInterval",    "forceMasterBillDateReset",    "clientAltRateScheduleId",    "newClientPlanInstId",    "dunningState",    "degradeDate",    "respLevelCd",    "parentAcctMasterPlanInstId",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "mpSurcharges",    "prorationInvoiceTiming",    "poNum"})
 @XmlRootElement(name = "update_acct_plan_m")
 public class UpdateAcctPlanM {
 
@@ -59,7 +59,7 @@ public class UpdateAcctPlanM {
         @XmlElement(name = "new_client_plan_inst_id")
     protected Long newClientPlanInstId;
         @XmlElement(name = "dunning_state")
-    protected String dunningState;
+    protected Long dunningState;
         @XmlElement(name = "degrade_date")
     protected String degradeDate;
         @XmlElement(name = "resp_level_cd")
@@ -76,6 +76,8 @@ public class UpdateAcctPlanM {
     protected MpSurchargesArray mpSurcharges;
         @XmlElement(name = "proration_invoice_timing")
     protected Long prorationInvoiceTiming;
+        @XmlElement(name = "po_num")
+    protected String poNum;
     
     public long getClientNo() {
         return clientNo;
@@ -233,11 +235,11 @@ public class UpdateAcctPlanM {
     public void setNewClientPlanInstId(Long value) {
         this.newClientPlanInstId = value;
     }
-            public String getDunningState() {
+            public Long getDunningState() {
         return dunningState;
     }
 
-    public void setDunningState(String value) {
+    public void setDunningState(Long value) {
         this.dunningState = value;
     }
             public String getDegradeDate() {
@@ -295,6 +297,13 @@ public class UpdateAcctPlanM {
 
     public void setProrationInvoiceTiming(Long value) {
         this.prorationInvoiceTiming = value;
+    }
+            public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
             
 }

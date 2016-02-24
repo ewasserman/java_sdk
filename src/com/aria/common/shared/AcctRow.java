@@ -53,6 +53,7 @@ import javax.xml.bind.annotation.XmlType;
     "clientSeqFuncGroupId",
     "taxpayerId",
     "taxExemptionLevel",
+    "listStartMasterFile",
     "altMsgTemplateNo",
     "cnAltMsgTemplateNo",
     "invoiceApprovalRequired",
@@ -68,7 +69,8 @@ import javax.xml.bind.annotation.XmlType;
     "masterPlansDetail",
     "consumerAcctInd",
     "revrecProfileNo",
-    "clientRevrecId"
+    "clientRevrecId",
+    "poNum"
     })
 public class AcctRow {
 
@@ -162,6 +164,8 @@ public class AcctRow {
     protected String taxpayerId;
     @XmlElement(name = "tax_exemption_level")
     protected Long taxExemptionLevel;
+    @XmlElement(name = "list_start_master_file")
+    protected Long listStartMasterFile;
     @XmlElement(name = "alt_msg_template_no")
     protected Long altMsgTemplateNo;
     @XmlElement(name = "cn_alt_msg_template_no")
@@ -194,6 +198,8 @@ public class AcctRow {
     protected Long revrecProfileNo;
     @XmlElement(name = "client_revrec_id")
     protected String clientRevrecId;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     public com.aria.common.shared.AcctArray getAcct() {
         return acct;
     }
@@ -554,6 +560,14 @@ public class AcctRow {
         this.taxExemptionLevel = value;
     }
 
+    public Long getListStartMasterFile() {
+        return listStartMasterFile;
+    }
+
+    public void setListStartMasterFile(Long value) {
+        this.listStartMasterFile = value;
+    }
+
     public Long getAltMsgTemplateNo() {
         return altMsgTemplateNo;
     }
@@ -680,6 +694,14 @@ public class AcctRow {
 
     public void setClientRevrecId(String value) {
         this.clientRevrecId = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     

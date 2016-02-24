@@ -10,9 +10,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "tier_row", propOrder = {
     "from",
     "to",
-    "price",
     "description",
-    "amount"
+    "amount",
+    "schedule",
+    "price"
     })
 public class TierRow {
 
@@ -20,24 +21,15 @@ public class TierRow {
     protected Long from;
     @XmlElement(name = "to")
     protected Long to;
-    @XmlElement(name = "price")
-    protected com.aria.common.shared.admin.PriceArray price;
     @XmlElement(name = "description")
     protected String description;
     @XmlElement(name = "amount")
     protected Double amount;
     @XmlElement(name = "schedule")
     protected com.aria.common.shared.admin.ScheduleArray schedule;
-    
-    public com.aria.common.shared.admin.ScheduleArray getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(com.aria.common.shared.admin.ScheduleArray schedule) {
-		this.schedule = schedule;
-	}
-
-	public Long getFrom() {
+    @XmlElement(name = "price")
+    protected com.aria.common.shared.admin.PriceArray price;
+    public Long getFrom() {
         return from;
     }
 
@@ -51,14 +43,6 @@ public class TierRow {
 
     public void setTo(Long value) {
         this.to = value;
-    }
-
-    public com.aria.common.shared.admin.PriceArray getPrice() {
-        return price;
-    }
-
-    public void setPrice(com.aria.common.shared.admin.PriceArray value) {
-        this.price = value;
     }
 
     public String getDescription() {
@@ -75,6 +59,22 @@ public class TierRow {
 
     public void setAmount(Double value) {
         this.amount = value;
+    }
+
+    public com.aria.common.shared.admin.ScheduleArray getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(com.aria.common.shared.admin.ScheduleArray value) {
+        this.schedule = value;
+    }
+
+    public com.aria.common.shared.admin.PriceArray getPrice() {
+        return price;
+    }
+
+    public void setPrice(com.aria.common.shared.admin.PriceArray value) {
+        this.price = value;
     }
 
     

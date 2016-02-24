@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "planInstNo",    "clientPlanInstId",    "removePlanUnits",    "assignmentDirective",    "newPlanUnits",    "newClientPlanUnitInst"})
+    "authKey",    "acctNo",    "clientAcctId",    "planInstNo",    "clientPlanInstId",    "removePlanUnits",    "assignmentDirective",    "newPlanUnits",    "newClientPlanUnitInst",    "prorationInvoiceTiming",    "doWrite"})
 @XmlRootElement(name = "modify_acct_plan_unit_instances_m")
 public class ModifyAcctPlanUnitInstancesM {
 
@@ -34,6 +34,10 @@ public class ModifyAcctPlanUnitInstancesM {
     protected Double newPlanUnits;
         @XmlElement(name = "new_client_plan_unit_inst")
     protected NewClientPlanUnitInstArray newClientPlanUnitInst;
+        @XmlElement(name = "proration_invoice_timing")
+    protected Long prorationInvoiceTiming;
+        @XmlElement(name = "do_write")
+    protected String doWrite;
     
     public long getClientNo() {
         return clientNo;
@@ -106,6 +110,20 @@ public class ModifyAcctPlanUnitInstancesM {
 
     public void setNewClientPlanUnitInst(NewClientPlanUnitInstArray value) {
         this.newClientPlanUnitInst = value;
+    }
+            public Long getProrationInvoiceTiming() {
+        return prorationInvoiceTiming;
+    }
+
+    public void setProrationInvoiceTiming(Long value) {
+        this.prorationInvoiceTiming = value;
+    }
+            public String getDoWrite() {
+        return doWrite;
+    }
+
+    public void setDoWrite(String value) {
+        this.doWrite = value;
     }
             
 }

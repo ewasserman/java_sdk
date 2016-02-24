@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "paymentMethodNo",    "clientPaymentMethodId",    "disabledInd",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "payMethodName",    "payMethodDescription",    "payMethodType",    "ccNum",    "ccExpireMm",    "ccExpireYyyy",    "cvv",    "bankAcctNum",    "bankRoutingNum",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "doCollect",    "changeStatusAfterColl",    "resetDatesAfterStatus",    "clientReceiptId"})
+    "authKey",    "acctNo",    "paymentMethodNo",    "clientPaymentMethodId",    "disabledInd",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billCompanyName",    "billAddress1",    "billAddress2",    "billAddress3",    "billCity",    "billLocality",    "billStateProv",    "billCountry",    "billPostalCd",    "billPhone",    "billPhoneExt",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExt",    "billFax",    "billEmail",    "billBirthdate",    "payMethodName",    "payMethodDescription",    "payMethodType",    "ccNum",    "ccExpireMm",    "ccExpireYyyy",    "cvv",    "bankAcctNum",    "bankRoutingNum",    "billAgreementId",    "iban",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "mandateId",    "bankIdCd",    "bankBranchCd",    "doCollect",    "changeStatusAfterColl",    "resetDatesAfterStatus",    "clientReceiptId",    "ccId"})
 @XmlRootElement(name = "update_payment_method_m")
 public class UpdatePaymentMethodM {
 
@@ -108,6 +108,8 @@ public class UpdatePaymentMethodM {
     protected String resetDatesAfterStatus;
         @XmlElement(name = "client_receipt_id")
     protected String clientReceiptId;
+        @XmlElement(name = "cc_id")
+    protected Long ccId;
     
     public long getClientNo() {
         return clientNo;
@@ -439,6 +441,13 @@ public class UpdatePaymentMethodM {
 
     public void setClientReceiptId(String value) {
         this.clientReceiptId = value;
+    }
+            public Long getCcId() {
+        return ccId;
+    }
+
+    public void setCcId(Long value) {
+        this.ccId = value;
     }
             
 }

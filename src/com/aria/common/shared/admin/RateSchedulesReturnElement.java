@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "rate_schedules_ReturnElement", propOrder = {"currency", "rateInfo", "isDefault", "fromUnit", "toUnit", "ratePerUnit"})
+@XmlType(name = "rate_schedules_ReturnElement", propOrder = {"currency", "rateInfo", "isDefault"})
 public class RateSchedulesReturnElement {
 
     @XmlElement(name = "currency")
@@ -19,12 +19,6 @@ public class RateSchedulesReturnElement {
     protected List<RateInfoReturnElement> rateInfo;
     @XmlElement(name = "is_default")
     protected Long isDefault;
-    @XmlElement(name = "from_unit")
-    protected String fromUnit;
-    @XmlElement(name = "to_unit")
-    protected String toUnit;
-    @XmlElement(name = "rate_per_unit")
-    protected Double ratePerUnit;
     
     public String getCurrency() {
         return currency;
@@ -45,30 +39,6 @@ public class RateSchedulesReturnElement {
 
     public void setIsDefault(Long value) {
         this.isDefault = value;
-    }
-
-    public String getFromUnit() {
-        return fromUnit;
-    }
-
-    public void setFromUnit(String value) {
-        this.fromUnit = value;
-    }
-
-    public String getToUnit() {
-        return toUnit;
-    }
-
-    public void setToUnit(String value) {
-        this.toUnit = value;
-    }
-
-    public Double getRatePerUnit() {
-        return ratePerUnit;
-    }
-
-    public void setRatePerUnit(Double value) {
-        this.ratePerUnit = value;
     }
 
     

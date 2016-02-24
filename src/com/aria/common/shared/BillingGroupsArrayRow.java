@@ -39,7 +39,10 @@ import javax.xml.bind.annotation.XmlType;
     "stmtWorkPhoneExt",
     "stmtFax",
     "stmtEmail",
-    "stmtBirthdate"
+    "stmtBirthdate",
+    "bgListStartMasterFile",
+    "paymentTermsNo",
+    "paymentTermsName"
     })
 public class BillingGroupsArrayRow {
 
@@ -107,6 +110,12 @@ public class BillingGroupsArrayRow {
     protected String stmtEmail;
     @XmlElement(name = "stmt_birthdate")
     protected String stmtBirthdate;
+    @XmlElement(name = "bg_list_start_master_file")
+    protected Long bgListStartMasterFile;
+    @XmlElement(name = "payment_terms_no")
+    protected Long paymentTermsNo;
+    @XmlElement(name = "payment_terms_name")
+    protected String paymentTermsName;
     public String getBillingGroupName() {
         return billingGroupName;
     }
@@ -361,6 +370,30 @@ public class BillingGroupsArrayRow {
 
     public void setStmtBirthdate(String value) {
         this.stmtBirthdate = value;
+    }
+
+    public Long getBgListStartMasterFile() {
+        return bgListStartMasterFile;
+    }
+
+    public void setBgListStartMasterFile(Long value) {
+        this.bgListStartMasterFile = value;
+    }
+
+    public Long getPaymentTermsNo() {
+        return paymentTermsNo;
+    }
+
+    public void setPaymentTermsNo(Long value) {
+        this.paymentTermsNo = value;
+    }
+
+    public String getPaymentTermsName() {
+        return paymentTermsName;
+    }
+
+    public void setPaymentTermsName(String value) {
+        this.paymentTermsName = value;
     }
 
     

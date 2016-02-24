@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supplemental_obj_fields_ReturnElement", propOrder = {"fieldNo", "fieldValue", "fieldName"})
+@XmlType(name = "supplemental_obj_fields_ReturnElement", propOrder = {"fieldNo", "fieldValue", "fieldName", "supplementalObjField"})
 public class SupplementalObjFieldsReturnElement {
 
     @XmlElement(name = "field_no")
@@ -19,6 +19,8 @@ public class SupplementalObjFieldsReturnElement {
     protected String fieldValue;
     @XmlElement(name = "field_name")
     protected String fieldName;
+    @XmlElement(name = "supplemental_obj_field")
+    protected String supplementalObjField;
     
     public Long getFieldNo() {
         return fieldNo;
@@ -42,6 +44,14 @@ public class SupplementalObjFieldsReturnElement {
 
     public void setFieldName(String value) {
         this.fieldName = value;
+    }
+
+    public String getSupplementalObjField() {
+        return supplementalObjField;
+    }
+
+    public void setSupplementalObjField(String value) {
+        this.supplementalObjField = value;
     }
 
     

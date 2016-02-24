@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "promotions_ReturnElement", propOrder = {"promoCd", "promoDesc", "expiresAfter"})
+@XmlType(name = "promotions_ReturnElement", propOrder = {"promoCd", "promoDesc", "expiresAfter", "promotionTranslations"})
 public class PromotionsReturnElement {
 
     @XmlElement(name = "promo_cd")
@@ -19,6 +19,8 @@ public class PromotionsReturnElement {
     protected String promoDesc;
     @XmlElement(name = "expires_after")
     protected String expiresAfter;
+    @XmlElement(name = "promotion_translations")
+    protected List<PromotionTranslationsReturnElement> promotionTranslations;
     
     public String getPromoCd() {
         return promoCd;
@@ -44,5 +46,10 @@ public class PromotionsReturnElement {
         this.expiresAfter = value;
     }
 
-    
+    public List<PromotionTranslationsReturnElement> getPromotionTranslations() {
+        if (this.promotionTranslations == null) {
+            this.promotionTranslations = new ArrayList<PromotionTranslationsReturnElement>();
+        }
+        return this.promotionTranslations;
+    }
 }

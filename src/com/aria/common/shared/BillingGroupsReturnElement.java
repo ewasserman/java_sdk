@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "billing_groups_ReturnElement", propOrder = {"billingGroupNo", "billingGroupName", "billingGroupDescription", "clientBillingGroupId", "notifyMethod", "notifyTemplateGroup", "statementTemplate", "creditNoteTemplate", "primaryPaymentMethodNo", "clientPrimaryPaymentMethodId", "backupPaymentMethodNo", "clientBackupPaymentMethodId", "stmtFirstName", "stmtMi", "stmtLastName", "stmtCompanyName", "stmtAddress1", "stmtAddress2", "stmtAddress3", "stmtCity", "stmtLocality", "stmtStateProv", "stmtCountry", "stmtPostalCd", "stmtPhone", "stmtPhoneExt", "stmtCellPhone", "stmtWorkPhone", "stmtWorkPhoneExt", "stmtFax", "stmtEmail", "stmtBirthdate", "addressVerificationCode", "addressMatchScore", "masterPlansSummary"})
+@XmlType(name = "billing_groups_ReturnElement", propOrder = {"billingGroupNo", "billingGroupName", "billingGroupDescription", "clientBillingGroupId", "notifyMethod", "notifyTemplateGroup", "statementTemplate", "creditNoteTemplate", "primaryPaymentMethodNo", "clientPrimaryPaymentMethodId", "backupPaymentMethodNo", "clientBackupPaymentMethodId", "stmtFirstName", "stmtMi", "stmtLastName", "stmtCompanyName", "stmtAddress1", "stmtAddress2", "stmtAddress3", "stmtCity", "stmtLocality", "stmtStateProv", "stmtCountry", "stmtPostalCd", "stmtPhone", "stmtPhoneExt", "stmtCellPhone", "stmtWorkPhone", "stmtWorkPhoneExt", "stmtFax", "stmtEmail", "stmtBirthdate", "listStartMasterFile", "addressVerificationCode", "addressMatchScore", "masterPlansSummary"})
 public class BillingGroupsReturnElement {
 
     @XmlElement(name = "billing_group_no")
@@ -77,6 +77,8 @@ public class BillingGroupsReturnElement {
     protected String stmtEmail;
     @XmlElement(name = "stmt_birthdate")
     protected String stmtBirthdate;
+    @XmlElement(name = "list_start_master_file")
+    protected Long listStartMasterFile;
     @XmlElement(name = "address_verification_code")
     protected String addressVerificationCode;
     @XmlElement(name = "address_match_score")
@@ -338,6 +340,14 @@ public class BillingGroupsReturnElement {
 
     public void setStmtBirthdate(String value) {
         this.stmtBirthdate = value;
+    }
+
+    public Long getListStartMasterFile() {
+        return listStartMasterFile;
+    }
+
+    public void setListStartMasterFile(Long value) {
+        this.listStartMasterFile = value;
     }
 
     public String getAddressVerificationCode() {

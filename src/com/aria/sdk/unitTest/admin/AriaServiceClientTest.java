@@ -67,6 +67,10 @@ public class AriaServiceClientTest {
         //setCompanyProfile();
         //planExport();
         //planImport();
+        //getInventoryItems();
+        //getInventoryItemDetails();
+        //createInventoryItem();
+        //updateInventoryItem();
         //createItemClass();
         //editItemClass();
         //getServiceTypes();
@@ -163,10 +167,11 @@ public class AriaServiceClientTest {
         //updateInventoryItemM();
         //getInventoryItemsM();
         //getInventoryItemDetailsM();
-        //getInventoryItems();
-        //getInventoryItemDetails();
-        //createInventoryItem();
-        //updateInventoryItem();
+        //createReasonCodeM();
+        //updateReasonCodeM();
+        //getReasonCodeM();
+        //createPaymentTermsM();
+        //getPaymentTermsM();
         //viewProcessorConfig();
         //editProcessorConfig();
         //deleteProcessorConfig();
@@ -201,6 +206,8 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().getPromoPlanSetDetails(getClientNo(), getAuthKey()        , 1L
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getPromoPlanSetDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -306,9 +313,135 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
+                , ""
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "setCompanyProfile - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getInventoryItems() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getInventoryItems(getClientNo(), getAuthKey());
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getInventoryItems - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getInventoryItemDetails() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getInventoryItemDetails(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getInventoryItemDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void createInventoryItem() throws Exception {
+        com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
+        com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
+        com.aria.common.shared.admin.ImageArray imageArray = new com.aria.common.shared.admin.ImageArray();
+        com.aria.common.shared.admin.ParentClassArray parentClassArray = new com.aria.common.shared.admin.ParentClassArray();
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplementalObjFieldArray = new com.aria.common.shared.admin.SupplementalObjFieldArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().createInventoryItem(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , ""
+                , 1L
+                , serviceArray
+                , ""
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , scheduleArray
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , 1d
+                , imageArray
+                , parentClassArray
+                , supplementalObjFieldArray
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "createInventoryItem - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void updateInventoryItem() throws Exception {
+        com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
+        com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
+        com.aria.common.shared.admin.ImageArray imageArray = new com.aria.common.shared.admin.ImageArray();
+        com.aria.common.shared.admin.ParentClassArray parentClassArray = new com.aria.common.shared.admin.ParentClassArray();
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplementalObjFieldArray = new com.aria.common.shared.admin.SupplementalObjFieldArray();
+        
+        hashMapReturnValues = getBaseAriaBilling().updateInventoryItem(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , 1L
+                , ""
+                , serviceArray
+                , ""
+                , ""
+                , ""
+                , 1L
+                , scheduleArray
+                , ""
+                , ""
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , 1L
+                , 1L
+                , ""
+                , ""
+                , 1L
+                , 1d
+                , imageArray
+                , parentClassArray
+                , supplementalObjFieldArray
+                , 1L
+        );
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "updateInventoryItem - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -371,7 +504,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getServices() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getServices(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getServices(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getServices - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -386,6 +521,8 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().getServiceDetails(getClientNo(), getAuthKey()        , 1L
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getServiceDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -403,6 +540,8 @@ public class AriaServiceClientTest {
                 , 1L
                 , ""
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getPlanServiceDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -460,6 +599,7 @@ public class AriaServiceClientTest {
                 , supplementalObjFieldArray
                 , ""
                 , ""
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateService - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -473,7 +613,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getSuppFields() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getSuppFields(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getSuppFields(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getSuppFields - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -487,6 +629,8 @@ public class AriaServiceClientTest {
     public void getSuppFieldDetails() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getSuppFieldDetails(getClientNo(), getAuthKey()        , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getSuppFieldDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -537,6 +681,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , 1L
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateSuppField - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -550,7 +695,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getCoupons() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getCoupons(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getCoupons(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getCoupons - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -564,6 +711,8 @@ public class AriaServiceClientTest {
     public void getCouponDetails() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getCouponDetails(getClientNo(), getAuthKey()        , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getCouponDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -642,6 +791,7 @@ public class AriaServiceClientTest {
                 , existingDiscountBundleArray
                 , existingDiscountBundleIdArray
                 , 1L
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateCoupon - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -850,7 +1000,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getDiscountBundles() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getDiscountBundles(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getDiscountBundles(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getDiscountBundles - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -878,7 +1030,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getDiscountRules() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getDiscountRules(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getDiscountRules(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getDiscountRules - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -893,6 +1047,8 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().getDiscountRuleDetails(getClientNo(), getAuthKey()        , 1L
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getDiscountRuleDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -950,6 +1106,8 @@ public class AriaServiceClientTest {
     public void getPlansM() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getPlansM(getClientNo(), getAuthKey()        , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getPlansM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -983,6 +1141,8 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getPlanDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1273,6 +1433,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , nsoItemsArrayArray
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "editPlanM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1318,7 +1479,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getPromotions() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getPromotions(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getPromotions(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getPromotions - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -1332,6 +1495,8 @@ public class AriaServiceClientTest {
     public void getPromotionDetails() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getPromotionDetails(getClientNo(), getAuthKey()        , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getPromotionDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1370,6 +1535,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , ""
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updatePromotion - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1383,7 +1549,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getUsageTypes() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getUsageTypes(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getUsageTypes(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getUsageTypes - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -1398,6 +1566,8 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().getUsageTypeDetails(getClientNo(), getAuthKey()        , 1L
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getUsageTypeDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1411,7 +1581,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getUsageUnitTypes() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getUsageUnitTypes(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getUsageUnitTypes(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getUsageUnitTypes - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -1452,6 +1624,7 @@ public class AriaServiceClientTest {
                 , ""
                 , ""
                 , supplementalObjFieldArray
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateUsageType - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1507,6 +1680,7 @@ public class AriaServiceClientTest {
                 , ""
                 , 1L
                 , objectTypeArray
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateSuppObjField - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1521,6 +1695,8 @@ public class AriaServiceClientTest {
     public void getSuppObjFields() throws Exception {
         
         hashMapReturnValues = getBaseAriaBilling().getSuppObjFields(getClientNo(), getAuthKey()        , 1L
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getSuppObjFields - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1538,6 +1714,8 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().listSuppObjFields(getClientNo(), getAuthKey()        , fieldSelectionArray
                 , fieldCategoriesArray
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "listSuppObjFields - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1566,6 +1744,8 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().getPlanGroupDetails(getClientNo(), getAuthKey()        , 1L
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getPlanGroupDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1690,7 +1870,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getSurcharges() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getSurcharges(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getSurcharges(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getSurcharges - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -1705,6 +1887,8 @@ public class AriaServiceClientTest {
         
         hashMapReturnValues = getBaseAriaBilling().getSurchargeDetails(getClientNo(), getAuthKey()        , 1L
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getSurchargeDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -1786,6 +1970,7 @@ public class AriaServiceClientTest {
                 , clientItemIdArray
                 , scheduleArray
                 , 1L
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "editSurcharge - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -2216,6 +2401,7 @@ public class AriaServiceClientTest {
                 , imageArray
                 , parentClassArray
                 , supplementalObjFieldArray
+                , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "updateInventoryItemM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -2229,7 +2415,9 @@ public class AriaServiceClientTest {
     //@Test
     public void getInventoryItemsM() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getInventoryItemsM(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().getInventoryItemsM(getClientNo(), getAuthKey()        , ""
+                , 1L
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getInventoryItemsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
@@ -2245,6 +2433,8 @@ public class AriaServiceClientTest {
         hashMapReturnValues = getBaseAriaBilling().getInventoryItemDetailsM(getClientNo(), getAuthKey()        , 1L
                 , ""
                 , ""
+                , ""
+                , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
             String errorMessage = "getInventoryItemDetailsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
@@ -2256,11 +2446,19 @@ public class AriaServiceClientTest {
     }
 
     //@Test
-    public void getInventoryItems() throws Exception {
+    public void createReasonCodeM() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getInventoryItems(getClientNo(), getAuthKey());
+        hashMapReturnValues = getBaseAriaBilling().createReasonCodeM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+                , ""
+        );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "getInventoryItems - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            String errorMessage = "createReasonCodeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -2269,14 +2467,18 @@ public class AriaServiceClientTest {
     }
 
     //@Test
-    public void getInventoryItemDetails() throws Exception {
+    public void updateReasonCodeM() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().getInventoryItemDetails(getClientNo(), getAuthKey()        , 1L
+        hashMapReturnValues = getBaseAriaBilling().updateReasonCodeM(getClientNo(), getAuthKey()        , 1L
+                , 1L
+                , ""
+                , ""
+                , ""
                 , ""
                 , ""
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "getInventoryItemDetails - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            String errorMessage = "updateReasonCodeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -2285,44 +2487,13 @@ public class AriaServiceClientTest {
     }
 
     //@Test
-    public void createInventoryItem() throws Exception {
-        com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
-        com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
-        com.aria.common.shared.admin.ImageArray imageArray = new com.aria.common.shared.admin.ImageArray();
-        com.aria.common.shared.admin.ParentClassArray parentClassArray = new com.aria.common.shared.admin.ParentClassArray();
-        com.aria.common.shared.admin.SupplementalObjFieldArray supplementalObjFieldArray = new com.aria.common.shared.admin.SupplementalObjFieldArray();
+    public void getReasonCodeM() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().createInventoryItem(getClientNo(), getAuthKey()        , 1L
-                , ""
-                , ""
+        hashMapReturnValues = getBaseAriaBilling().getReasonCodeM(getClientNo(), getAuthKey()        , 1L
                 , 1L
-                , serviceArray
-                , ""
-                , ""
-                , ""
-                , ""
-                , 1L
-                , ""
-                , scheduleArray
-                , ""
-                , ""
-                , 1L
-                , ""
-                , 1L
-                , 1L
-                , ""
-                , ""
-                , 1L
-                , ""
-                , ""
-                , 1L
-                , 1d
-                , imageArray
-                , parentClassArray
-                , supplementalObjFieldArray
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "createInventoryItem - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            String errorMessage = "getReasonCodeM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }
@@ -2331,46 +2502,30 @@ public class AriaServiceClientTest {
     }
 
     //@Test
-    public void updateInventoryItem() throws Exception {
-        com.aria.common.shared.admin.ServiceArray serviceArray = new com.aria.common.shared.admin.ServiceArray();
-        com.aria.common.shared.admin.ScheduleArray scheduleArray = new com.aria.common.shared.admin.ScheduleArray();
-        com.aria.common.shared.admin.ImageArray imageArray = new com.aria.common.shared.admin.ImageArray();
-        com.aria.common.shared.admin.ParentClassArray parentClassArray = new com.aria.common.shared.admin.ParentClassArray();
-        com.aria.common.shared.admin.SupplementalObjFieldArray supplementalObjFieldArray = new com.aria.common.shared.admin.SupplementalObjFieldArray();
+    public void createPaymentTermsM() throws Exception {
         
-        hashMapReturnValues = getBaseAriaBilling().updateInventoryItem(getClientNo(), getAuthKey()        , 1L
-                , 1L
-                , ""
-                , ""
-                , ""
-                , 1L
-                , ""
-                , serviceArray
-                , ""
-                , ""
-                , ""
-                , 1L
-                , scheduleArray
-                , ""
-                , ""
-                , 1L
+        hashMapReturnValues = getBaseAriaBilling().createPaymentTermsM(getClientNo(), getAuthKey()        , ""
                 , ""
                 , 1L
                 , 1L
-                , ""
                 , 1L
-                , 1L
-                , ""
-                , ""
-                , 1L
-                , 1d
-                , imageArray
-                , parentClassArray
-                , supplementalObjFieldArray
                 , 1L
         );
         if (hashMapReturnValues.get(ERROR_CODE) != null) {
-            String errorMessage = "updateInventoryItem - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            String errorMessage = "createPaymentTermsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
+            if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
+                errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
+            }
+            assertEquals(errorMessage, 0L, hashMapReturnValues.get(ERROR_CODE));
+        }
+    }
+
+    //@Test
+    public void getPaymentTermsM() throws Exception {
+        
+        hashMapReturnValues = getBaseAriaBilling().getPaymentTermsM(getClientNo(), getAuthKey());
+        if (hashMapReturnValues.get(ERROR_CODE) != null) {
+            String errorMessage = "getPaymentTermsM - " + ERROR_CODE + " (" + hashMapReturnValues.get(ERROR_CODE) + ") ";
             if (hashMapReturnValues.get(ERROR_MESSAGE) != null) {
                 errorMessage += ERROR_MESSAGE + " (" + hashMapReturnValues.get(ERROR_MESSAGE) + ")";
             }

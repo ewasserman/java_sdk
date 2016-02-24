@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "planUnits",    "newClientPlanUnitInst"})
+    "authKey",    "acctNo",    "planUnits",    "newClientPlanUnitInst",    "doWrite"})
 @XmlRootElement(name = "modify_acct_plan_unit_instances")
 public class ModifyAcctPlanUnitInstances {
 
@@ -24,6 +24,8 @@ public class ModifyAcctPlanUnitInstances {
     protected PlanUnitsArray planUnits;
         @XmlElement(name = "new_client_plan_unit_inst")
     protected NewClientPlanUnitInstArray newClientPlanUnitInst;
+        @XmlElement(name = "do_write")
+    protected String doWrite;
     
     public long getClientNo() {
         return clientNo;
@@ -61,6 +63,13 @@ public class ModifyAcctPlanUnitInstances {
 
     public void setNewClientPlanUnitInst(NewClientPlanUnitInstArray value) {
         this.newClientPlanUnitInst = value;
+    }
+            public String getDoWrite() {
+        return doWrite;
+    }
+
+    public void setDoWrite(String value) {
+        this.doWrite = value;
     }
             
 }

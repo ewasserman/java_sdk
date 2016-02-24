@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "master_plan_instances_ReturnElement", propOrder = {"masterPlanInstanceId", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "dunningGroupName", "dunningGroupDescription", "dunningProcessNo", "clientDunningProcessId", "suppPlans", "couponCd", "masterPlanPlanInstFields"})
+@XmlType(name = "master_plan_instances_ReturnElement", propOrder = {"masterPlanInstanceId", "clientMasterPlanInstanceId", "clientMasterPlanId", "masterPlanNo", "masterPlanInstanceDescription", "dunningGroupNo", "clientDunningGroupId", "dunningGroupName", "dunningGroupDescription", "dunningProcessNo", "clientDunningProcessId", "poNum", "suppPlans", "couponCd", "masterPlanPlanInstFields"})
 public class MasterPlanInstancesReturnElement {
 
     @XmlElement(name = "master_plan_instance_id")
@@ -35,6 +35,8 @@ public class MasterPlanInstancesReturnElement {
     protected Long dunningProcessNo;
     @XmlElement(name = "client_dunning_process_id")
     protected String clientDunningProcessId;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     @XmlElement(name = "supp_plans")
     protected List<SuppPlansReturnElement> suppPlans;
     @XmlElement(name = "coupon_cd")
@@ -128,6 +130,14 @@ public class MasterPlanInstancesReturnElement {
 
     public void setClientDunningProcessId(String value) {
         this.clientDunningProcessId = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     public List<SuppPlansReturnElement> getSuppPlans() {

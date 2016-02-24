@@ -10,13 +10,11 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "discount_rules_ReturnElement", propOrder = {"ruleNo", "ruleName", "ruleId", "description", "extDescription", "discountType", "amount", "currency", "applicableTransScope", "durationTypeInd", "maxApplicableMonths", "maxApplicationsPerAcct", "inlineOffsetInd", "serviceCodeToUse", "altServiceNo2Apply", "altServiceId2Apply", "scopeNo", "discountBehaviorTypeInd", "planNo", "clientPlanId", "serviceNo", "clientServiceId", "itemNo", "clientItemId", "useAllOrNthSubsRule"})
+@XmlType(name = "discount_rules_ReturnElement", propOrder = {"ruleNo", "ruleId", "description", "extDescription", "discountType", "amount", "discountRuleTranslations", "ruleName", "currency", "applicableTransScope", "durationTypeInd", "maxApplicableMonths", "maxApplicationsPerAcct", "inlineOffsetInd", "serviceCodeToUse", "altServiceNo2Apply", "altServiceId2Apply", "scopeNo", "discountBehaviorTypeInd", "planNo", "clientPlanId", "serviceNo", "clientServiceId", "itemNo", "clientItemId", "useAllOrNthSubsRule"})
 public class DiscountRulesReturnElement {
 
     @XmlElement(name = "rule_no")
     protected Long ruleNo;
-    @XmlElement(name = "rule_name")
-    protected String ruleName;
     @XmlElement(name = "rule_id")
     protected String ruleId;
     @XmlElement(name = "description")
@@ -24,9 +22,13 @@ public class DiscountRulesReturnElement {
     @XmlElement(name = "ext_description")
     protected String extDescription;
     @XmlElement(name = "discount_type")
-    protected String discountType;
+    protected Long discountType;
     @XmlElement(name = "amount")
     protected Double amount;
+    @XmlElement(name = "discount_rule_translations")
+    protected List<DiscountRuleTranslationsReturnElement> discountRuleTranslations;
+    @XmlElement(name = "rule_name")
+    protected String ruleName;
     @XmlElement(name = "currency")
     protected String currency;
     @XmlElement(name = "applicable_trans_scope")
@@ -72,14 +74,6 @@ public class DiscountRulesReturnElement {
         this.ruleNo = value;
     }
 
-    public String getRuleName() {
-        return ruleName;
-    }
-
-    public void setRuleName(String value) {
-        this.ruleName = value;
-    }
-
     public String getRuleId() {
         return ruleId;
     }
@@ -104,11 +98,11 @@ public class DiscountRulesReturnElement {
         this.extDescription = value;
     }
 
-    public String getDiscountType() {
+    public Long getDiscountType() {
         return discountType;
     }
 
-    public void setDiscountType(String value) {
+    public void setDiscountType(Long value) {
         this.discountType = value;
     }
 
@@ -118,6 +112,19 @@ public class DiscountRulesReturnElement {
 
     public void setAmount(Double value) {
         this.amount = value;
+    }
+
+    public List<DiscountRuleTranslationsReturnElement> getDiscountRuleTranslations() {
+        if (this.discountRuleTranslations == null) {
+            this.discountRuleTranslations = new ArrayList<DiscountRuleTranslationsReturnElement>();
+        }
+        return this.discountRuleTranslations;
+    }public String getRuleName() {
+        return ruleName;
+    }
+
+    public void setRuleName(String value) {
+        this.ruleName = value;
     }
 
     public String getCurrency() {

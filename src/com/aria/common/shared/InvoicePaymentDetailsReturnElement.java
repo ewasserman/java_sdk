@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_payment_details_ReturnElement", propOrder = {"transactionId", "transactionType", "description", "amount", "appliedAmount", "currencyCode", "transactionDate", "isVoided", "statementNo", "paymentType", "paymentSrcDescription", "paymentSrcSuffix", "clientReceiptId", "seqStatementId", "paymentMethodNo", "clientPaymentMethodId"})
+@XmlType(name = "invoice_payment_details_ReturnElement", propOrder = {"transactionId", "transactionType", "description", "amount", "appliedAmount", "currencyCode", "transactionDate", "isVoided", "statementNo", "paymentType", "paymentSrcDescription", "paymentSrcSuffix", "clientReceiptId", "seqStatementId", "paymentMethodNo", "clientPaymentMethodId", "reasonCode", "reasonDescription"})
 public class InvoicePaymentDetailsReturnElement {
 
     @XmlElement(name = "transaction_id")
@@ -45,6 +45,10 @@ public class InvoicePaymentDetailsReturnElement {
     protected Long paymentMethodNo;
     @XmlElement(name = "client_payment_method_id")
     protected String clientPaymentMethodId;
+    @XmlElement(name = "reason_code")
+    protected Long reasonCode;
+    @XmlElement(name = "reason_description")
+    protected String reasonDescription;
     
     public Long getTransactionId() {
         return transactionId;
@@ -172,6 +176,22 @@ public class InvoicePaymentDetailsReturnElement {
 
     public void setClientPaymentMethodId(String value) {
         this.clientPaymentMethodId = value;
+    }
+
+    public Long getReasonCode() {
+        return reasonCode;
+    }
+
+    public void setReasonCode(Long value) {
+        this.reasonCode = value;
+    }
+
+    public String getReasonDescription() {
+        return reasonDescription;
+    }
+
+    public void setReasonDescription(String value) {
+        this.reasonDescription = value;
     }
 
     

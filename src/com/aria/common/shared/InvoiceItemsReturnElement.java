@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_items_ReturnElement", propOrder = {"invoiceLineNo", "planNo", "clientPlanId", "planInstanceNo", "clientPlanInstanceId", "planName", "serviceNo", "clientServiceId", "serviceName", "serviceCoaId", "clientServiceCoaCode", "units", "ratePerUnit", "lineAmount", "lineDescription", "startDateRange", "endDateRange"})
+@XmlType(name = "invoice_items_ReturnElement", propOrder = {"invoiceLineNo", "planNo", "clientPlanId", "planInstanceNo", "clientPlanInstanceId", "planName", "serviceNo", "clientServiceId", "serviceName", "serviceCoaId", "clientServiceCoaCode", "units", "ratePerUnit", "lineAmount", "lineDescription", "startDateRange", "endDateRange", "lineType", "basePlanUnits", "prorationFactor", "prorationText", "prorationRemainingDays", "prorationDescription", "creditCouponCode", "clientSku", "orderNo", "itemNo", "clientItemId", "advBillingPeriodTotalDays", "rateScheduleNo", "rateScheduleTierNo"})
 public class InvoiceItemsReturnElement {
 
     @XmlElement(name = "invoice_line_no")
@@ -47,6 +47,34 @@ public class InvoiceItemsReturnElement {
     protected String startDateRange;
     @XmlElement(name = "end_date_range")
     protected String endDateRange;
+    @XmlElement(name = "line_type")
+    protected Long lineType;
+    @XmlElement(name = "base_plan_units")
+    protected Double basePlanUnits;
+    @XmlElement(name = "proration_factor")
+    protected Double prorationFactor;
+    @XmlElement(name = "proration_text")
+    protected String prorationText;
+    @XmlElement(name = "proration_remaining_days")
+    protected Long prorationRemainingDays;
+    @XmlElement(name = "proration_description")
+    protected String prorationDescription;
+    @XmlElement(name = "credit_coupon_code")
+    protected String creditCouponCode;
+    @XmlElement(name = "client_sku")
+    protected String clientSku;
+    @XmlElement(name = "order_no")
+    protected Long orderNo;
+    @XmlElement(name = "item_no")
+    protected Long itemNo;
+    @XmlElement(name = "client_item_id")
+    protected String clientItemId;
+    @XmlElement(name = "adv_billing_period_total_days")
+    protected Long advBillingPeriodTotalDays;
+    @XmlElement(name = "rate_schedule_no")
+    protected Long rateScheduleNo;
+    @XmlElement(name = "rate_schedule_tier_no")
+    protected Long rateScheduleTierNo;
     
     public Long getInvoiceLineNo() {
         return invoiceLineNo;
@@ -182,6 +210,118 @@ public class InvoiceItemsReturnElement {
 
     public void setEndDateRange(String value) {
         this.endDateRange = value;
+    }
+
+    public Long getLineType() {
+        return lineType;
+    }
+
+    public void setLineType(Long value) {
+        this.lineType = value;
+    }
+
+    public Double getBasePlanUnits() {
+        return basePlanUnits;
+    }
+
+    public void setBasePlanUnits(Double value) {
+        this.basePlanUnits = value;
+    }
+
+    public Double getProrationFactor() {
+        return prorationFactor;
+    }
+
+    public void setProrationFactor(Double value) {
+        this.prorationFactor = value;
+    }
+
+    public String getProrationText() {
+        return prorationText;
+    }
+
+    public void setProrationText(String value) {
+        this.prorationText = value;
+    }
+
+    public Long getProrationRemainingDays() {
+        return prorationRemainingDays;
+    }
+
+    public void setProrationRemainingDays(Long value) {
+        this.prorationRemainingDays = value;
+    }
+
+    public String getProrationDescription() {
+        return prorationDescription;
+    }
+
+    public void setProrationDescription(String value) {
+        this.prorationDescription = value;
+    }
+
+    public String getCreditCouponCode() {
+        return creditCouponCode;
+    }
+
+    public void setCreditCouponCode(String value) {
+        this.creditCouponCode = value;
+    }
+
+    public String getClientSku() {
+        return clientSku;
+    }
+
+    public void setClientSku(String value) {
+        this.clientSku = value;
+    }
+
+    public Long getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(Long value) {
+        this.orderNo = value;
+    }
+
+    public Long getItemNo() {
+        return itemNo;
+    }
+
+    public void setItemNo(Long value) {
+        this.itemNo = value;
+    }
+
+    public String getClientItemId() {
+        return clientItemId;
+    }
+
+    public void setClientItemId(String value) {
+        this.clientItemId = value;
+    }
+
+    public Long getAdvBillingPeriodTotalDays() {
+        return advBillingPeriodTotalDays;
+    }
+
+    public void setAdvBillingPeriodTotalDays(Long value) {
+        this.advBillingPeriodTotalDays = value;
+    }
+
+    public Long getRateScheduleNo() {
+        return rateScheduleNo;
+    }
+
+    public void setRateScheduleNo(Long value) {
+        this.rateScheduleNo = value;
+    }
+
+    public Long getRateScheduleTierNo() {
+        return rateScheduleTierNo;
+    }
+
+    public void setRateScheduleTierNo(Long value) {
+        this.rateScheduleTierNo = value;
     }
 
     

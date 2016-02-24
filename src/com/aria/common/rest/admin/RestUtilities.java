@@ -141,13 +141,6 @@ public class RestUtilities {
             entity.setPromoPlanSetName(getStringValue(jsonObject,"promo_plan_set_name"));
             entity.setPromoPlanSetDesc(getStringValue(jsonObject,"promo_plan_set_desc"));
             entity.setClientPlanTypeId(getStringValue(jsonObject,"client_plan_type_id"));
-            entity.setPlanGroup(getLongValue(jsonObject,"plan_group"));
-            entity.setGroupNo(getLongValue(jsonObject,"group_no"));
-            entity.setGroupName(getStringValue(jsonObject,"group_name"));
-            entity.setGroupDesc(getStringValue(jsonObject,"group_desc"));
-            entity.setClientPlanChangeGroupId(getStringValue(jsonObject,"client_plan_change_group_id"));
-            entity.setGroupUsage(getStringValue(jsonObject,"group_usage"));
-            entity.setGroupPlansCount(getLongValue(jsonObject,"group_plans_count"));
             } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
@@ -181,67 +174,6 @@ public class RestUtilities {
                 } else {
                     entity.setClientPlanTypeId(jsonArray.get(i).toString());
                 }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanGroup(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setPlanGroup(null);
-            }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setGroupNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setGroupNo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setGroupNo(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setGroupName(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setGroupName(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setGroupDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setGroupDesc(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientPlanChangeGroupId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setGroupUsage(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setGroupUsage(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setGroupPlansCount(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setGroupPlansCount(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setGroupPlansCount(null);
-            }
             }
             returnElement.add(entity);
         }
@@ -297,6 +229,74 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<PromoPlanSetTranslationInfoReturnElement> buildPromoPlanSetTranslationInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<PromoPlanSetTranslationInfoReturnElement> returnElement = new ArrayList<PromoPlanSetTranslationInfoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PromoPlanSetTranslationInfoReturnElement entity = new PromoPlanSetTranslationInfoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+                        ArrayList<PlanTReturnElement> arrayListPlanTReturnElement = buildPlanTReturnElement((JSONArray)jsonObject.get("plan_t"));
+            for (PlanTReturnElement element : arrayListPlanTReturnElement){
+                entity.getPlanT().add(element);
+            }
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PlanTReturnElement> buildPlanTReturnElement(JSONArray jsonArray) {
+        ArrayList<PlanTReturnElement> returnElement = new ArrayList<PlanTReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlanTReturnElement entity = new PlanTReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPlanNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanDesc(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<ClientReturnElement> buildClientReturnElement(JSONArray jsonArray) {
         ArrayList<ClientReturnElement> returnElement = new ArrayList<ClientReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -335,6 +335,10 @@ public class RestUtilities {
             entity.setContactLocality(getStringValue(jsonObject,"contact_locality"));
             entity.setBillingCountry(getStringValue(jsonObject,"billing_country"));
             entity.setBillingLocality(getStringValue(jsonObject,"billing_locality"));
+            entity.setBatchJobAlertContact(getStringValue(jsonObject,"batch_job_alert_contact"));
+            entity.setBatchJobAlertEmail(getStringValue(jsonObject,"batch_job_alert_email"));
+            entity.setClientLocaleName(getStringValue(jsonObject,"client_locale_name"));
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -546,6 +550,536 @@ public class RestUtilities {
                 } else {
                     entity.setBillingLocality(jsonArray.get(i).toString());
                 }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBatchJobAlertContact(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBatchJobAlertContact(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setBatchJobAlertEmail(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setBatchJobAlertEmail(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientLocaleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<InventoryItemsReturnElement> buildInventoryItemsReturnElement(JSONArray jsonArray) {
+        ArrayList<InventoryItemsReturnElement> returnElement = new ArrayList<InventoryItemsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            InventoryItemsReturnElement entity = new InventoryItemsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setItemNo(getLongValue(jsonObject,"item_no"));
+            entity.setItemName(getStringValue(jsonObject,"item_name"));
+            entity.setItemType(getLongValue(jsonObject,"item_type"));
+            entity.setClientSku(getStringValue(jsonObject,"client_sku"));
+            entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
+            entity.setStockLevel(getDoubleValue(jsonObject,"stock_level"));
+            entity.setClientItemId(getStringValue(jsonObject,"client_item_id"));
+            entity.setPurchaseScope(getLongValue(jsonObject,"purchase_scope"));
+                        ArrayList<ItemTranslationsReturnElement> arrayListItemTranslationsReturnElement = buildItemTranslationsReturnElement((JSONArray)jsonObject.get("item_translations"));
+            for (ItemTranslationsReturnElement element : arrayListItemTranslationsReturnElement){
+                entity.getItemTranslations().add(element);
+            }
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setItemNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setItemName(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemType(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemType(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setItemType(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientSku(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientSku(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setActiveInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setActiveInd(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setStockLevel(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setStockLevel(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
+            } catch (NumberFormatException e) {
+                entity.setStockLevel(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientItemId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientItemId(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPurchaseScope(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPurchaseScope(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPurchaseScope(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ResourcesReturnElement> buildResourcesReturnElement(JSONArray jsonArray) {
+        ArrayList<ResourcesReturnElement> returnElement = new ArrayList<ResourcesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ResourcesReturnElement entity = new ResourcesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setResourceTypeNo(getLongValue(jsonObject,"resource_type_no"));
+            entity.setResourceUnits(getLongValue(jsonObject,"resource_units"));
+            entity.setDaysToExpiry(getLongValue(jsonObject,"days_to_expiry"));
+            entity.setResourceName(getStringValue(jsonObject,"resource_name"));
+            entity.setResources(getLongValue(jsonObject,"resources"));
+            entity.setExpireOnPaidThrough(getLongValue(jsonObject,"expire_on_paid_through"));
+            entity.setResetOnUpdate(getLongValue(jsonObject,"reset_on_update"));
+            entity.setAddDaysToExpiry(getLongValue(jsonObject,"add_days_to_expiry"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResourceTypeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setResourceTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setResourceTypeNo(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResourceUnits(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setResourceUnits(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setResourceUnits(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDaysToExpiry(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDaysToExpiry(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setDaysToExpiry(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResourceName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setResourceName(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResources(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setResources(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setResources(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExpireOnPaidThrough(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setExpireOnPaidThrough(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setExpireOnPaidThrough(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setResetOnUpdate(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setResetOnUpdate(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setResetOnUpdate(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAddDaysToExpiry(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setAddDaysToExpiry(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setAddDaysToExpiry(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PricingReturnElement> buildPricingReturnElement(JSONArray jsonArray) {
+        ArrayList<PricingReturnElement> returnElement = new ArrayList<PricingReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PricingReturnElement entity = new PricingReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
+            entity.setPrice(getDoubleValue(jsonObject,"price"));
+            entity.setPricePerUnit(getDoubleValue(jsonObject,"price_per_unit"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPrice(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setPrice(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPrice(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPricePerUnit(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setPricePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPricePerUnit(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ImageReturnElement> buildImageReturnElement(JSONArray jsonArray) {
+        ArrayList<ImageReturnElement> returnElement = new ArrayList<ImageReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ImageReturnElement entity = new ImageReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setThumbnailImageUrl(getStringValue(jsonObject,"thumbnail_image_url"));
+            entity.setImageText(getStringValue(jsonObject,"image_text"));
+            entity.setDefaultInd(getLongValue(jsonObject,"default_ind"));
+            entity.setImageClassSeqNo(getLongValue(jsonObject,"image_class_seq_no"));
+            entity.setActive(getLongValue(jsonObject,"active"));
+            entity.setMainImageUrl(getStringValue(jsonObject,"main_image_url"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setThumbnailImageUrl(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setThumbnailImageUrl(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setImageText(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setImageText(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDefaultInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setDefaultInd(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setImageClassSeqNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setImageClassSeqNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setImageClassSeqNo(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setActive(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setActive(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setActive(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setMainImageUrl(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setMainImageUrl(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<SupplementalObjFieldsReturnElement> buildSupplementalObjFieldsReturnElement(JSONArray jsonArray) {
+        ArrayList<SupplementalObjFieldsReturnElement> returnElement = new ArrayList<SupplementalObjFieldsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SupplementalObjFieldsReturnElement entity = new SupplementalObjFieldsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setFieldNo(getLongValue(jsonObject,"field_no"));
+            entity.setFieldValue(getStringValue(jsonObject,"field_value"));
+            entity.setFieldName(getStringValue(jsonObject,"field_name"));
+            entity.setSupplementalObjField(getStringValue(jsonObject,"supplemental_obj_field"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setFieldNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldValue(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldValue(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFieldName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFieldName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSupplementalObjField(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setSupplementalObjField(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ScheduleReturnElement> buildScheduleReturnElement(JSONArray jsonArray) {
+        ArrayList<ScheduleReturnElement> returnElement = new ArrayList<ScheduleReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ScheduleReturnElement entity = new ScheduleReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setScheduleName(getStringValue(jsonObject,"schedule_name"));
+            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
+            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
+            entity.setIsDefault(getLongValue(jsonObject,"is_default"));
+            entity.setTaxInclusiveRate(getLongValue(jsonObject,"tax_inclusive_rate"));
+                        ArrayList<TierReturnElement> arrayListTierReturnElement = buildTierReturnElement((JSONArray)jsonObject.get("tier"));
+            for (TierReturnElement element : arrayListTierReturnElement){
+                entity.getTier().add(element);
+            }
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScheduleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setScheduleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setIsDefault(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setIsDefault(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setTaxInclusiveRate(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setTaxInclusiveRate(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setTaxInclusiveRate(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<TierReturnElement> buildTierReturnElement(JSONArray jsonArray) {
+        ArrayList<TierReturnElement> returnElement = new ArrayList<TierReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            TierReturnElement entity = new TierReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setFrom(getLongValue(jsonObject,"from"));
+            entity.setTo(getLongValue(jsonObject,"to"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setAmount(getDoubleValue(jsonObject,"amount"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFrom(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setFrom(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setFrom(null);
+            }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setTo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setTo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setTo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setAmount(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                    }
+                } else {
+                    entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                }
+            } catch (NumberFormatException e) {
+                entity.setAmount(null);
+            }
             }
             returnElement.add(entity);
         }
@@ -598,9 +1132,13 @@ public class RestUtilities {
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setServiceNo(getLongValue(jsonObject,"service_no"));
-            entity.setClientServiceId(getStringValue(jsonObject,"client_service_id"));
             entity.setServiceName(getStringValue(jsonObject,"service_name"));
             entity.setServiceType(getStringValue(jsonObject,"service_type"));
+            entity.setClientServiceId(getStringValue(jsonObject,"client_service_id"));
+                        ArrayList<ServiceTranslationsReturnElement> arrayListServiceTranslationsReturnElement = buildServiceTranslationsReturnElement((JSONArray)jsonObject.get("service_translations"));
+            for (ServiceTranslationsReturnElement element : arrayListServiceTranslationsReturnElement){
+                entity.getServiceTranslations().add(element);
+            }
             } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
@@ -615,13 +1153,6 @@ public class RestUtilities {
             }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientServiceId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientServiceId(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
                         entity.setServiceName(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
@@ -634,48 +1165,135 @@ public class RestUtilities {
                 } else {
                     entity.setServiceType(jsonArray.get(i).toString());
                 }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientServiceId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientServiceId(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
         return returnElement;
     }
-    public static ArrayList<SupplementalObjFieldsReturnElement> buildSupplementalObjFieldsReturnElement(JSONArray jsonArray) {
-        ArrayList<SupplementalObjFieldsReturnElement> returnElement = new ArrayList<SupplementalObjFieldsReturnElement>();
+    public static ArrayList<ServiceTranslationsReturnElement> buildServiceTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<ServiceTranslationsReturnElement> returnElement = new ArrayList<ServiceTranslationsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            SupplementalObjFieldsReturnElement entity = new SupplementalObjFieldsReturnElement();
+            ServiceTranslationsReturnElement entity = new ServiceTranslationsReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setFieldNo(getLongValue(jsonObject,"field_no"));
-            entity.setFieldValue(getStringValue(jsonObject,"field_value"));
-            entity.setFieldName(getStringValue(jsonObject,"field_name"));
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setServiceNo(getLongValue(jsonObject,"service_no"));
+            entity.setServiceName(getStringValue(jsonObject,"service_name"));
             } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setFieldNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setServiceNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setServiceNo(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setFieldNo(null);
+                entity.setServiceNo(null);
             }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setFieldValue(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setServiceName(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setFieldValue(jsonArray.get(i).toString());
+                    entity.setServiceName(jsonArray.get(i).toString());
                 }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ServiceTranslationInfoReturnElement> buildServiceTranslationInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<ServiceTranslationInfoReturnElement> returnElement = new ArrayList<ServiceTranslationInfoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ServiceTranslationInfoReturnElement entity = new ServiceTranslationInfoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setServiceNo(getLongValue(jsonObject,"service_no"));
+            entity.setServiceName(getStringValue(jsonObject,"service_name"));
+            } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setFieldName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setFieldName(jsonArray.get(i).toString());
+                    entity.setLocaleName(jsonArray.get(i).toString());
                 }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setServiceNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setServiceNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceName(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RateSchedulesReturnElement> buildRateSchedulesReturnElement(JSONArray jsonArray) {
+        ArrayList<RateSchedulesReturnElement> returnElement = new ArrayList<RateSchedulesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RateSchedulesReturnElement entity = new RateSchedulesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setCurrency(getStringValue(jsonObject,"currency"));
+                        ArrayList<RateInfoReturnElement> arrayListRateInfoReturnElement = buildRateInfoReturnElement((JSONArray)jsonObject.get("rate_info"));
+            for (RateInfoReturnElement element : arrayListRateInfoReturnElement){
+                entity.getRateInfo().add(element);
+            }
+            entity.setIsDefault(getLongValue(jsonObject,"is_default"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrency(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrency(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setIsDefault(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setIsDefault(null);
+            }
             }
             returnElement.add(entity);
         }
@@ -767,72 +1385,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<RateSchedulesReturnElement> buildRateSchedulesReturnElement(JSONArray jsonArray) {
-        ArrayList<RateSchedulesReturnElement> returnElement = new ArrayList<RateSchedulesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            RateSchedulesReturnElement entity = new RateSchedulesReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setCurrency(getStringValue(jsonObject,"currency"));
-                        ArrayList<RateInfoReturnElement> arrayListRateInfoReturnElement = buildRateInfoReturnElement((JSONArray)jsonObject.get("rate_info"));
-            for (RateInfoReturnElement element : arrayListRateInfoReturnElement){
-                entity.getRateInfo().add(element);
-            }
-            entity.setIsDefault(getLongValue(jsonObject,"is_default"));
-            entity.setFromUnit(getStringValue(jsonObject,"from_unit"));
-            entity.setToUnit(getStringValue(jsonObject,"to_unit"));
-            entity.setRatePerUnit(getDoubleValue(jsonObject,"rate_per_unit"));
-            } else {
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setCurrency(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setCurrency(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setIsDefault(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setIsDefault(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setFromUnit(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setFromUnit(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setToUnit(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setToUnit(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setRatePerUnit(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
-                    }
-                } else {
-                    entity.setRatePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
-                }
-            } catch (NumberFormatException e) {
-                entity.setRatePerUnit(null);
-            }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
     public static ArrayList<ParentPlansReturnElement> buildParentPlansReturnElement(JSONArray jsonArray) {
         ArrayList<ParentPlansReturnElement> returnElement = new ArrayList<ParentPlansReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -902,6 +1454,66 @@ public class RestUtilities {
             } catch (NumberFormatException e) {
                 entity.setExclusionPlan(null);
             }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ServiceTranslationDetailsReturnElement> buildServiceTranslationDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<ServiceTranslationDetailsReturnElement> returnElement = new ArrayList<ServiceTranslationDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ServiceTranslationDetailsReturnElement entity = new ServiceTranslationDetailsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setServiceNo(getStringValue(jsonObject,"service_no"));
+            entity.setServiceName(getStringValue(jsonObject,"service_name"));
+                        ArrayList<RateSchedulesTReturnElement> arrayListRateSchedulesTReturnElement = buildRateSchedulesTReturnElement((JSONArray)jsonObject.get("rate_schedules_t"));
+            for (RateSchedulesTReturnElement element : arrayListRateSchedulesTReturnElement){
+                entity.getRateSchedulesT().add(element);
+            }
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceNo(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceNo(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceName(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RateSchedulesTReturnElement> buildRateSchedulesTReturnElement(JSONArray jsonArray) {
+        ArrayList<RateSchedulesTReturnElement> returnElement = new ArrayList<RateSchedulesTReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RateSchedulesTReturnElement entity = new RateSchedulesTReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+                        ArrayList<RateInfoReturnElement> arrayListRateInfoReturnElement = buildRateInfoReturnElement((JSONArray)jsonObject.get("rate_info"));
+            for (RateInfoReturnElement element : arrayListRateInfoReturnElement){
+                entity.getRateInfo().add(element);
+            }
+            } else {
             }
             returnElement.add(entity);
         }
@@ -1000,6 +1612,19 @@ public class RestUtilities {
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setCouponCd(getStringValue(jsonObject,"coupon_cd"));
+            entity.setCouponDesc(getStringValue(jsonObject,"coupon_desc"));
+            entity.setExpiresAfter(getStringValue(jsonObject,"expires_after"));
+            entity.setCouponScope(getLongValue(jsonObject,"coupon_scope"));
+                        ArrayList<CouponTranslationsReturnElement> arrayListCouponTranslationsReturnElement = buildCouponTranslationsReturnElement((JSONArray)jsonObject.get("coupon_translations"));
+            for (CouponTranslationsReturnElement element : arrayListCouponTranslationsReturnElement){
+                entity.getCouponTranslations().add(element);
+            }
+            entity.setCouponNo(getLongValue(jsonObject,"coupon_no"));
+            entity.setCouponMsg(getStringValue(jsonObject,"coupon_msg"));
+            entity.setStatusInd(getLongValue(jsonObject,"status_ind"));
+            entity.setNoOfUses(getLongValue(jsonObject,"no_of_uses"));
+            entity.setStartDate(getStringValue(jsonObject,"start_date"));
+            entity.setEndDate(getStringValue(jsonObject,"end_date"));
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -1008,205 +1633,114 @@ public class RestUtilities {
                 } else {
                     entity.setCouponCd(jsonArray.get(i).toString());
                 }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<RulesReturnElement> buildRulesReturnElement(JSONArray jsonArray) {
-        ArrayList<RulesReturnElement> returnElement = new ArrayList<RulesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            RulesReturnElement entity = new RulesReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRule(getLongValue(jsonObject,"rule"));
-            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCouponDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCouponDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExpiresAfter(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setExpiresAfter(jsonArray.get(i).toString());
+                }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setRule(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setCouponScope(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setRule(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setCouponScope(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setRule(null);
+                entity.setCouponScope(null);
             }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<RuleIdsReturnElement> buildRuleIdsReturnElement(JSONArray jsonArray) {
-        ArrayList<RuleIdsReturnElement> returnElement = new ArrayList<RuleIdsReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            RuleIdsReturnElement entity = new RuleIdsReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRule(getStringValue(jsonObject,"rule"));
-            } else {
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setRule(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setRule(jsonArray.get(i).toString());
-                }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<PlanNoReturnElement> buildPlanNoReturnElement(JSONArray jsonArray) {
-        ArrayList<PlanNoReturnElement> returnElement = new ArrayList<PlanNoReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            PlanNoReturnElement entity = new PlanNoReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setPlanNos(getLongValue(jsonObject,"plan_nos"));
-            } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setCouponNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setPlanNos(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setCouponNo(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setPlanNos(null);
+                entity.setCouponNo(null);
             }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<ClientPlanIdReturnElement> buildClientPlanIdReturnElement(JSONArray jsonArray) {
-        ArrayList<ClientPlanIdReturnElement> returnElement = new ArrayList<ClientPlanIdReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ClientPlanIdReturnElement entity = new ClientPlanIdReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setClientPlanIds(getStringValue(jsonObject,"client_plan_ids"));
-            } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientPlanIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setCouponMsg(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setClientPlanIds(jsonArray.get(i).toString());
+                    entity.setCouponMsg(jsonArray.get(i).toString());
                 }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<ServiceNoReturnElement> buildServiceNoReturnElement(JSONArray jsonArray) {
-        ArrayList<ServiceNoReturnElement> returnElement = new ArrayList<ServiceNoReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ServiceNoReturnElement entity = new ServiceNoReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setServiceNos(getLongValue(jsonObject,"service_nos"));
-            } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setServiceNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setStatusInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setServiceNos(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setStatusInd(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setServiceNos(null);
+                entity.setStatusInd(null);
             }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<ClientServiceIdReturnElement> buildClientServiceIdReturnElement(JSONArray jsonArray) {
-        ArrayList<ClientServiceIdReturnElement> returnElement = new ArrayList<ClientServiceIdReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ClientServiceIdReturnElement entity = new ClientServiceIdReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setClientServiceIds(getStringValue(jsonObject,"client_service_ids"));
-            } else {
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientServiceIds(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientServiceIds(jsonArray.get(i).toString());
-                }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<ItemNoReturnElement> buildItemNoReturnElement(JSONArray jsonArray) {
-        ArrayList<ItemNoReturnElement> returnElement = new ArrayList<ItemNoReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ItemNoReturnElement entity = new ItemNoReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setItemNos(getLongValue(jsonObject,"item_nos"));
-            } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setItemNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setNoOfUses(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setItemNos(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setNoOfUses(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setItemNos(null);
+                entity.setNoOfUses(null);
             }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setStartDate(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setStartDate(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setEndDate(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setEndDate(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
         return returnElement;
     }
-    public static ArrayList<ClientItemIdReturnElement> buildClientItemIdReturnElement(JSONArray jsonArray) {
-        ArrayList<ClientItemIdReturnElement> returnElement = new ArrayList<ClientItemIdReturnElement>();
+    public static ArrayList<CouponTranslationsReturnElement> buildCouponTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<CouponTranslationsReturnElement> returnElement = new ArrayList<CouponTranslationsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            ClientItemIdReturnElement entity = new ClientItemIdReturnElement();
+            CouponTranslationsReturnElement entity = new CouponTranslationsReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setClientItemIds(getStringValue(jsonObject,"client_item_ids"));
-            entity.setItemIds(getStringValue(jsonObject,"item_ids"));
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setCouponDesc(getStringValue(jsonObject,"coupon_desc"));
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientItemIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setClientItemIds(jsonArray.get(i).toString());
+                    entity.setLocaleName(jsonArray.get(i).toString());
                 }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setItemIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setCouponDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setItemIds(jsonArray.get(i).toString());
+                    entity.setCouponDesc(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -1651,6 +2185,150 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<PlanNoReturnElement> buildPlanNoReturnElement(JSONArray jsonArray) {
+        ArrayList<PlanNoReturnElement> returnElement = new ArrayList<PlanNoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlanNoReturnElement entity = new PlanNoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanNos(getLongValue(jsonObject,"plan_nos"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNos(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPlanNos(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ClientPlanIdReturnElement> buildClientPlanIdReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientPlanIdReturnElement> returnElement = new ArrayList<ClientPlanIdReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ClientPlanIdReturnElement entity = new ClientPlanIdReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setClientPlanIds(getStringValue(jsonObject,"client_plan_ids"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanIds(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ServiceNoReturnElement> buildServiceNoReturnElement(JSONArray jsonArray) {
+        ArrayList<ServiceNoReturnElement> returnElement = new ArrayList<ServiceNoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ServiceNoReturnElement entity = new ServiceNoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setServiceNos(getLongValue(jsonObject,"service_nos"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setServiceNos(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setServiceNos(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ClientServiceIdReturnElement> buildClientServiceIdReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientServiceIdReturnElement> returnElement = new ArrayList<ClientServiceIdReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ClientServiceIdReturnElement entity = new ClientServiceIdReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setClientServiceIds(getStringValue(jsonObject,"client_service_ids"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientServiceIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientServiceIds(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ItemNoReturnElement> buildItemNoReturnElement(JSONArray jsonArray) {
+        ArrayList<ItemNoReturnElement> returnElement = new ArrayList<ItemNoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ItemNoReturnElement entity = new ItemNoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setItemNos(getLongValue(jsonObject,"item_nos"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setItemNos(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setItemNos(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ClientItemIdReturnElement> buildClientItemIdReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientItemIdReturnElement> returnElement = new ArrayList<ClientItemIdReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ClientItemIdReturnElement entity = new ClientItemIdReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setClientItemIds(getStringValue(jsonObject,"client_item_ids"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientItemIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientItemIds(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<DiscountBundleReturnElement> buildDiscountBundleReturnElement(JSONArray jsonArray) {
         ArrayList<DiscountBundleReturnElement> returnElement = new ArrayList<DiscountBundleReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -1711,6 +2389,146 @@ public class RestUtilities {
                     }
                 } else {
                     entity.setAllowOverlapInd(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RulesReturnElement> buildRulesReturnElement(JSONArray jsonArray) {
+        ArrayList<RulesReturnElement> returnElement = new ArrayList<RulesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RulesReturnElement entity = new RulesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRule(getLongValue(jsonObject,"rule"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRule(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRule(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setRule(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RuleIdsReturnElement> buildRuleIdsReturnElement(JSONArray jsonArray) {
+        ArrayList<RuleIdsReturnElement> returnElement = new ArrayList<RuleIdsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RuleIdsReturnElement entity = new RuleIdsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRule(getStringValue(jsonObject,"rule"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRule(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRule(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<CouponTranslationDetailsReturnElement> buildCouponTranslationDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<CouponTranslationDetailsReturnElement> returnElement = new ArrayList<CouponTranslationDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            CouponTranslationDetailsReturnElement entity = new CouponTranslationDetailsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setCouponDesc(getStringValue(jsonObject,"coupon_desc"));
+            entity.setCouponMsg(getStringValue(jsonObject,"coupon_msg"));
+                        ArrayList<DiscountRuleTReturnElement> arrayListDiscountRuleTReturnElement = buildDiscountRuleTReturnElement((JSONArray)jsonObject.get("discount_rule_t"));
+            for (DiscountRuleTReturnElement element : arrayListDiscountRuleTReturnElement){
+                entity.getDiscountRuleT().add(element);
+            }
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCouponDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCouponDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCouponMsg(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCouponMsg(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<DiscountRuleTReturnElement> buildDiscountRuleTReturnElement(JSONArray jsonArray) {
+        ArrayList<DiscountRuleTReturnElement> returnElement = new ArrayList<DiscountRuleTReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DiscountRuleTReturnElement entity = new DiscountRuleTReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRuleNo(getLongValue(jsonObject,"rule_no"));
+            entity.setRuleName(getStringValue(jsonObject,"rule_name"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setRuleNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRuleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExtDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setExtDescription(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -1834,12 +2652,16 @@ public class RestUtilities {
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setRuleNo(getLongValue(jsonObject,"rule_no"));
-            entity.setRuleName(getStringValue(jsonObject,"rule_name"));
             entity.setRuleId(getStringValue(jsonObject,"rule_id"));
             entity.setDescription(getStringValue(jsonObject,"description"));
             entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
-            entity.setDiscountType(getStringValue(jsonObject,"discount_type"));
+            entity.setDiscountType(getLongValue(jsonObject,"discount_type"));
             entity.setAmount(getDoubleValue(jsonObject,"amount"));
+                        ArrayList<DiscountRuleTranslationsReturnElement> arrayListDiscountRuleTranslationsReturnElement = buildDiscountRuleTranslationsReturnElement((JSONArray)jsonObject.get("discount_rule_translations"));
+            for (DiscountRuleTranslationsReturnElement element : arrayListDiscountRuleTranslationsReturnElement){
+                entity.getDiscountRuleTranslations().add(element);
+            }
+            entity.setRuleName(getStringValue(jsonObject,"rule_name"));
             entity.setCurrency(getStringValue(jsonObject,"currency"));
             entity.setApplicableTransScope(getStringValue(jsonObject,"applicable_trans_scope"));
             entity.setDurationTypeInd(getStringValue(jsonObject,"duration_type_ind"));
@@ -1890,13 +2712,6 @@ public class RestUtilities {
             }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setRuleName(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setRuleName(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
                         entity.setRuleId(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
@@ -1916,13 +2731,17 @@ public class RestUtilities {
                 } else {
                     entity.setExtDescription(jsonArray.get(i).toString());
                 }
-            if (jsonArray.get(i) instanceof JSONArray){
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setDiscountType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setDiscountType(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setDiscountType(jsonArray.get(i).toString());
+                    entity.setDiscountType(Long.parseLong(jsonArray.get(i).toString()));
                 }
+            } catch (NumberFormatException e) {
+                entity.setDiscountType(null);
+            }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -1934,6 +2753,13 @@ public class RestUtilities {
             } catch (NumberFormatException e) {
                 entity.setAmount(null);
             }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRuleName(jsonArray.get(i).toString());
+                }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
                         entity.setCurrency(((JSONArray)jsonArray.get(i)).get(0).toString());
@@ -2043,6 +2869,64 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<DiscountRuleTranslationsReturnElement> buildDiscountRuleTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<DiscountRuleTranslationsReturnElement> returnElement = new ArrayList<DiscountRuleTranslationsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            DiscountRuleTranslationsReturnElement entity = new DiscountRuleTranslationsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setRuleNo(getLongValue(jsonObject,"rule_no"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
+            entity.setRuleName(getStringValue(jsonObject,"rule_name"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRuleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setRuleNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExtDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setExtDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRuleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setRuleName(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<PlansReturnElement> buildPlansReturnElement(JSONArray jsonArray) {
         ArrayList<PlansReturnElement> returnElement = new ArrayList<PlansReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -2051,28 +2935,24 @@ public class RestUtilities {
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
-            entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
             entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
-            entity.setPlanLevel(getLongValue(jsonObject,"plan_level"));
             entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            entity.setPlanLevel(getLongValue(jsonObject,"plan_level"));
             entity.setBillingInterval(getLongValue(jsonObject,"billing_interval"));
             entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setIsDeletable(getStringValue(jsonObject,"is_deletable"));
+                        ArrayList<RateSchedReturnElement> arrayListRateSchedReturnElement = buildRateSchedReturnElement((JSONArray)jsonObject.get("rate_sched"));
+            for (RateSchedReturnElement element : arrayListRateSchedReturnElement){
+                entity.getRateSched().add(element);
+            }
+                        ArrayList<PlanTranslationInfoReturnElement> arrayListPlanTranslationInfoReturnElement = buildPlanTranslationInfoReturnElement((JSONArray)jsonObject.get("plan_translation_info"));
+            for (PlanTranslationInfoReturnElement element : arrayListPlanTranslationInfoReturnElement){
+                entity.getPlanTranslationInfo().add(element);
+            }
+            entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
             } else {
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setPlanName(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setPlanDesc(jsonArray.get(i).toString());
-                }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2084,6 +2964,20 @@ public class RestUtilities {
             } catch (NumberFormatException e) {
                 entity.setPlanNo(null);
             }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanName(jsonArray.get(i).toString());
+                }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2095,13 +2989,6 @@ public class RestUtilities {
             } catch (NumberFormatException e) {
                 entity.setPlanLevel(null);
             }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientPlanId(jsonArray.get(i).toString());
-                }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2124,6 +3011,27 @@ public class RestUtilities {
             } catch (NumberFormatException e) {
                 entity.setActiveInd(null);
             }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setIsDeletable(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setIsDeletable(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanDesc(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -2227,48 +3135,84 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<SurchargeNoReturnElement> buildSurchargeNoReturnElement(JSONArray jsonArray) {
-        ArrayList<SurchargeNoReturnElement> returnElement = new ArrayList<SurchargeNoReturnElement>();
+    public static ArrayList<PlanTranslationInfoReturnElement> buildPlanTranslationInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<PlanTranslationInfoReturnElement> returnElement = new ArrayList<PlanTranslationInfoReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            SurchargeNoReturnElement entity = new SurchargeNoReturnElement();
+            PlanTranslationInfoReturnElement entity = new PlanTranslationInfoReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setSurchargeNos(getLongValue(jsonObject,"surcharge_nos"));
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+                        ArrayList<RateSchedTReturnElement> arrayListRateSchedTReturnElement = buildRateSchedTReturnElement((JSONArray)jsonObject.get("rate_sched_t"));
+            for (RateSchedTReturnElement element : arrayListRateSchedTReturnElement){
+                entity.getRateSchedT().add(element);
+            }
+            entity.setPlanNo(getStringValue(jsonObject,"plan_no"));
             } else {
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
+            if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setSurchargeNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setSurchargeNos(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setLocaleName(jsonArray.get(i).toString());
                 }
-            } catch (NumberFormatException e) {
-                entity.setSurchargeNos(null);
-            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanNo(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
         return returnElement;
     }
-    public static ArrayList<ClientSurchargeIdReturnElement> buildClientSurchargeIdReturnElement(JSONArray jsonArray) {
-        ArrayList<ClientSurchargeIdReturnElement> returnElement = new ArrayList<ClientSurchargeIdReturnElement>();
+    public static ArrayList<RateSchedTReturnElement> buildRateSchedTReturnElement(JSONArray jsonArray) {
+        ArrayList<RateSchedTReturnElement> returnElement = new ArrayList<RateSchedTReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            ClientSurchargeIdReturnElement entity = new ClientSurchargeIdReturnElement();
+            RateSchedTReturnElement entity = new RateSchedTReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setClientSurchargeIds(getStringValue(jsonObject,"client_surcharge_ids"));
+            entity.setScheduleNo(getLongValue(jsonObject,"schedule_no"));
+            entity.setScheduleName(getStringValue(jsonObject,"schedule_name"));
             } else {
-            if (jsonArray.get(i) instanceof JSONArray){
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientSurchargeIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setClientSurchargeIds(jsonArray.get(i).toString());
+                    entity.setScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setScheduleNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setScheduleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setScheduleName(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -2283,18 +3227,25 @@ public class RestUtilities {
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setGroupNo(getLongValue(jsonObject,"group_no"));
-            entity.setGroupName(getStringValue(jsonObject,"group_name"));
-            entity.setPlanSetNo(getLongValue(jsonObject,"plan_set_no"));
-            entity.setSetName(getStringValue(jsonObject,"set_name"));
-            entity.setSetDescription(getStringValue(jsonObject,"set_description"));
-            entity.setClientPlanTypeId(getStringValue(jsonObject,"client_plan_type_id"));
             entity.setPlanGroup(getLongValue(jsonObject,"plan_group"));
-            entity.setGroupDesc(getStringValue(jsonObject,"group_desc"));
+            entity.setGroupNo(getLongValue(jsonObject,"group_no"));
             entity.setClientPlanChangeGroupId(getStringValue(jsonObject,"client_plan_change_group_id"));
+            entity.setGroupName(getStringValue(jsonObject,"group_name"));
+            entity.setGroupDesc(getStringValue(jsonObject,"group_desc"));
             entity.setGroupUsage(getStringValue(jsonObject,"group_usage"));
             entity.setGroupPlansCount(getLongValue(jsonObject,"group_plans_count"));
             } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanGroup(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPlanGroup(null);
+            }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2308,67 +3259,24 @@ public class RestUtilities {
             }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanChangeGroupId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
                         entity.setGroupName(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
                     entity.setGroupName(jsonArray.get(i).toString());
                 }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanSetNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setPlanSetNo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setPlanSetNo(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setSetName(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setSetName(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setSetDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setSetDescription(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientPlanTypeId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientPlanTypeId(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanGroup(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setPlanGroup(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setPlanGroup(null);
-            }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
                         entity.setGroupDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
                     entity.setGroupDesc(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientPlanChangeGroupId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientPlanChangeGroupId(jsonArray.get(i).toString());
                 }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2415,76 +3323,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<ResourcesReturnElement> buildResourcesReturnElement(JSONArray jsonArray) {
-        ArrayList<ResourcesReturnElement> returnElement = new ArrayList<ResourcesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ResourcesReturnElement entity = new ResourcesReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setResourceTypeNo(getLongValue(jsonObject,"resource_type_no"));
-            entity.setResourceUnits(getLongValue(jsonObject,"resource_units"));
-            entity.setDaysToExpiry(getLongValue(jsonObject,"days_to_expiry"));
-            entity.setResourceName(getStringValue(jsonObject,"resource_name"));
-            entity.setResources(getLongValue(jsonObject,"resources"));
-            } else {
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setResourceTypeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setResourceTypeNo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setResourceTypeNo(null);
-            }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setResourceUnits(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setResourceUnits(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setResourceUnits(null);
-            }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setDaysToExpiry(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setDaysToExpiry(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setDaysToExpiry(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setResourceName(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setResourceName(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setResources(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setResources(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setResources(null);
-            }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
     public static ArrayList<SurchargesReturnElement> buildSurchargesReturnElement(JSONArray jsonArray) {
         ArrayList<SurchargesReturnElement> returnElement = new ArrayList<SurchargesReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -2493,33 +3331,25 @@ public class RestUtilities {
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setSurchargeNo(getLongValue(jsonObject,"surcharge_no"));
-            entity.setClientSurchargeId(getStringValue(jsonObject,"client_surcharge_id"));
+                        ArrayList<SurchargeNoReturnElement> arrayListSurchargeNoReturnElement = buildSurchargeNoReturnElement((JSONArray)jsonObject.get("surcharge_no"));
+            for (SurchargeNoReturnElement element : arrayListSurchargeNoReturnElement){
+                entity.getSurchargeNo().add(element);
+            }
+                        ArrayList<ClientSurchargeIdReturnElement> arrayListClientSurchargeIdReturnElement = buildClientSurchargeIdReturnElement((JSONArray)jsonObject.get("client_surcharge_id"));
+            for (ClientSurchargeIdReturnElement element : arrayListClientSurchargeIdReturnElement){
+                entity.getClientSurchargeId().add(element);
+            }
             entity.setSurchargeName(getStringValue(jsonObject,"surcharge_name"));
             entity.setSurchargeTypeCd(getStringValue(jsonObject,"surcharge_type_cd"));
             entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
             entity.setScopeLabel(getStringValue(jsonObject,"scope_label"));
             entity.setDeleteable(getStringValue(jsonObject,"deleteable"));
             entity.setSurchargeScope(getLongValue(jsonObject,"surcharge_scope"));
-            } else {
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setSurchargeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setSurchargeNo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setSurchargeNo(null);
+                        ArrayList<SurchargeTranslationsReturnElement> arrayListSurchargeTranslationsReturnElement = buildSurchargeTranslationsReturnElement((JSONArray)jsonObject.get("surcharge_translations"));
+            for (SurchargeTranslationsReturnElement element : arrayListSurchargeTranslationsReturnElement){
+                entity.getSurchargeTranslations().add(element);
             }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientSurchargeId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientSurchargeId(jsonArray.get(i).toString());
-                }
+            } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
                         entity.setSurchargeName(((JSONArray)jsonArray.get(i)).get(0).toString());
@@ -2571,100 +3401,48 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<PlanNsoGroupPriceOverrideReturnElement> buildPlanNsoGroupPriceOverrideReturnElement(JSONArray jsonArray) {
-        ArrayList<PlanNsoGroupPriceOverrideReturnElement> returnElement = new ArrayList<PlanNsoGroupPriceOverrideReturnElement>();
+    public static ArrayList<SurchargeNoReturnElement> buildSurchargeNoReturnElement(JSONArray jsonArray) {
+        ArrayList<SurchargeNoReturnElement> returnElement = new ArrayList<SurchargeNoReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            PlanNsoGroupPriceOverrideReturnElement entity = new PlanNsoGroupPriceOverrideReturnElement();
+            SurchargeNoReturnElement entity = new SurchargeNoReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRateScheduleNo(getLongValue(jsonObject,"rate_schedule_no"));
-            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
-            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
-            entity.setOverridePrice(getStringValue(jsonObject,"override_price"));
+            entity.setSurchargeNos(getLongValue(jsonObject,"surcharge_nos"));
             } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setRateScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setSurchargeNos(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setRateScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setSurchargeNos(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setRateScheduleNo(null);
+                entity.setSurchargeNos(null);
             }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setCurrencyCd(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setOverridePrice(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setOverridePrice(jsonArray.get(i).toString());
-                }
             }
             returnElement.add(entity);
         }
         return returnElement;
     }
-    public static ArrayList<PlanNsoPriceOverrideReturnElement> buildPlanNsoPriceOverrideReturnElement(JSONArray jsonArray) {
-        ArrayList<PlanNsoPriceOverrideReturnElement> returnElement = new ArrayList<PlanNsoPriceOverrideReturnElement>();
+    public static ArrayList<ClientSurchargeIdReturnElement> buildClientSurchargeIdReturnElement(JSONArray jsonArray) {
+        ArrayList<ClientSurchargeIdReturnElement> returnElement = new ArrayList<ClientSurchargeIdReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            PlanNsoPriceOverrideReturnElement entity = new PlanNsoPriceOverrideReturnElement();
+            ClientSurchargeIdReturnElement entity = new ClientSurchargeIdReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setRateScheduleNo(getLongValue(jsonObject,"rate_schedule_no"));
-            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
-            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
-            entity.setOverridePrice(getStringValue(jsonObject,"override_price"));
+            entity.setClientSurchargeIds(getStringValue(jsonObject,"client_surcharge_ids"));
             } else {
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setRateScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setRateScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setRateScheduleNo(null);
-            }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setClientSurchargeIds(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setCurrencyCd(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setOverridePrice(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setOverridePrice(jsonArray.get(i).toString());
+                    entity.setClientSurchargeIds(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -2791,6 +3569,56 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<PlanNsoPriceOverrideReturnElement> buildPlanNsoPriceOverrideReturnElement(JSONArray jsonArray) {
+        ArrayList<PlanNsoPriceOverrideReturnElement> returnElement = new ArrayList<PlanNsoPriceOverrideReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlanNsoPriceOverrideReturnElement entity = new PlanNsoPriceOverrideReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRateScheduleNo(getLongValue(jsonObject,"rate_schedule_no"));
+            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
+            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
+            entity.setOverridePrice(getStringValue(jsonObject,"override_price"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRateScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRateScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setRateScheduleNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setOverridePrice(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setOverridePrice(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<PlanNsoGroupReturnElement> buildPlanNsoGroupReturnElement(JSONArray jsonArray) {
         ArrayList<PlanNsoGroupReturnElement> returnElement = new ArrayList<PlanNsoGroupReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -2828,6 +3656,56 @@ public class RestUtilities {
             } catch (NumberFormatException e) {
                 entity.setActiveInd(null);
             }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PlanNsoGroupPriceOverrideReturnElement> buildPlanNsoGroupPriceOverrideReturnElement(JSONArray jsonArray) {
+        ArrayList<PlanNsoGroupPriceOverrideReturnElement> returnElement = new ArrayList<PlanNsoGroupPriceOverrideReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlanNsoGroupPriceOverrideReturnElement entity = new PlanNsoGroupPriceOverrideReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setRateScheduleNo(getLongValue(jsonObject,"rate_schedule_no"));
+            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
+            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
+            entity.setOverridePrice(getStringValue(jsonObject,"override_price"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setRateScheduleNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setRateScheduleNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setRateScheduleNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCurrencyCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setOverridePrice(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setOverridePrice(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -2882,6 +3760,10 @@ public class RestUtilities {
             entity.setPromoCd(getStringValue(jsonObject,"promo_cd"));
             entity.setPromoDesc(getStringValue(jsonObject,"promo_desc"));
             entity.setExpiresAfter(getStringValue(jsonObject,"expires_after"));
+                        ArrayList<PromotionTranslationsReturnElement> arrayListPromotionTranslationsReturnElement = buildPromotionTranslationsReturnElement((JSONArray)jsonObject.get("promotion_translations"));
+            for (PromotionTranslationsReturnElement element : arrayListPromotionTranslationsReturnElement){
+                entity.getPromotionTranslations().add(element);
+            }
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2909,6 +3791,44 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<PromotionTranslationsReturnElement> buildPromotionTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<PromotionTranslationsReturnElement> returnElement = new ArrayList<PromotionTranslationsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PromotionTranslationsReturnElement entity = new PromotionTranslationsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setPromoCd(getStringValue(jsonObject,"promo_cd"));
+            entity.setPromoDesc(getStringValue(jsonObject,"promo_desc"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPromoCd(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPromoCd(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPromoDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPromoDesc(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<UsageTypesReturnElement> buildUsageTypesReturnElement(JSONArray jsonArray) {
         ArrayList<UsageTypesReturnElement> returnElement = new ArrayList<UsageTypesReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -2922,6 +3842,10 @@ public class RestUtilities {
             entity.setUsageUnitType(getStringValue(jsonObject,"usage_unit_type"));
             entity.setUsageTypeName(getStringValue(jsonObject,"usage_type_name"));
             entity.setIsEditable(getLongValue(jsonObject,"is_editable"));
+                        ArrayList<UsageTypeTranslationsReturnElement> arrayListUsageTypeTranslationsReturnElement = buildUsageTypeTranslationsReturnElement((JSONArray)jsonObject.get("usage_type_translations"));
+            for (UsageTypeTranslationsReturnElement element : arrayListUsageTypeTranslationsReturnElement){
+                entity.getUsageTypeTranslations().add(element);
+            }
             } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
@@ -2971,6 +3895,114 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<UsageTypeTranslationsReturnElement> buildUsageTypeTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<UsageTypeTranslationsReturnElement> returnElement = new ArrayList<UsageTypeTranslationsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            UsageTypeTranslationsReturnElement entity = new UsageTypeTranslationsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setUsageTypeNo(getLongValue(jsonObject,"usage_type_no"));
+            entity.setUsageTypeName(getStringValue(jsonObject,"usage_type_name"));
+            entity.setUsageTypeDesc(getStringValue(jsonObject,"usage_type_desc"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setUsageTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setUsageTypeNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageTypeName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageTypeDesc(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<UsageTypeTranslationDetailsReturnElement> buildUsageTypeTranslationDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<UsageTypeTranslationDetailsReturnElement> returnElement = new ArrayList<UsageTypeTranslationDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            UsageTypeTranslationDetailsReturnElement entity = new UsageTypeTranslationDetailsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setUsageTypeNo(getLongValue(jsonObject,"usage_type_no"));
+            entity.setUsageTypeName(getStringValue(jsonObject,"usage_type_name"));
+            entity.setUsageTypeDesc(getStringValue(jsonObject,"usage_type_desc"));
+            entity.setUsageTypeDisplayString(getStringValue(jsonObject,"usage_type_display_string"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setUsageTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setUsageTypeNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageTypeName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageTypeDesc(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageTypeDisplayString(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageTypeDisplayString(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<UsageUnitTypesReturnElement> buildUsageUnitTypesReturnElement(JSONArray jsonArray) {
         ArrayList<UsageUnitTypesReturnElement> returnElement = new ArrayList<UsageUnitTypesReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -2981,7 +4013,53 @@ public class RestUtilities {
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setUsageUnitTypeNo(getLongValue(jsonObject,"usage_unit_type_no"));
             entity.setUsageUnitTypeDesc(getStringValue(jsonObject,"usage_unit_type_desc"));
+                        ArrayList<UsageUnitTypeTranslationsReturnElement> arrayListUsageUnitTypeTranslationsReturnElement = buildUsageUnitTypeTranslationsReturnElement((JSONArray)jsonObject.get("usage_unit_type_translations"));
+            for (UsageUnitTypeTranslationsReturnElement element : arrayListUsageUnitTypeTranslationsReturnElement){
+                entity.getUsageUnitTypeTranslations().add(element);
+            }
             } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageUnitTypeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setUsageUnitTypeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setUsageUnitTypeNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setUsageUnitTypeDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setUsageUnitTypeDesc(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<UsageUnitTypeTranslationsReturnElement> buildUsageUnitTypeTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<UsageUnitTypeTranslationsReturnElement> returnElement = new ArrayList<UsageUnitTypeTranslationsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            UsageUnitTypeTranslationsReturnElement entity = new UsageUnitTypeTranslationsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setUsageUnitTypeNo(getLongValue(jsonObject,"usage_unit_type_no"));
+            entity.setUsageUnitTypeDesc(getStringValue(jsonObject,"usage_unit_type_desc"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -3083,55 +4161,51 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<ObjectValuesReturnElement> buildObjectValuesReturnElement(JSONArray jsonArray) {
-        ArrayList<ObjectValuesReturnElement> returnElement = new ArrayList<ObjectValuesReturnElement>();
+    public static ArrayList<SuppObjFieldTranslationsReturnElement> buildSuppObjFieldTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<SuppObjFieldTranslationsReturnElement> returnElement = new ArrayList<SuppObjFieldTranslationsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            ObjectValuesReturnElement entity = new ObjectValuesReturnElement();
+            SuppObjFieldTranslationsReturnElement entity = new SuppObjFieldTranslationsReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setObjectType(getStringValue(jsonObject,"object_type"));
-            entity.setObjectId(getLongValue(jsonObject,"object_id"));
-            entity.setValueText(getStringValue(jsonObject,"value_text"));
-            entity.setPrimacy(getLongValue(jsonObject,"primacy"));
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setFieldNo(getLongValue(jsonObject,"field_no"));
+            entity.setFieldName(getStringValue(jsonObject,"field_name"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setObjectType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setObjectType(jsonArray.get(i).toString());
+                    entity.setLocaleName(jsonArray.get(i).toString());
                 }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setObjectId(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setFieldNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setObjectId(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setFieldNo(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setObjectId(null);
+                entity.setFieldNo(null);
             }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setValueText(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setFieldName(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setValueText(jsonArray.get(i).toString());
+                    entity.setFieldName(jsonArray.get(i).toString());
                 }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
+            if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPrimacy(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setPrimacy(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setDescription(jsonArray.get(i).toString());
                 }
-            } catch (NumberFormatException e) {
-                entity.setPrimacy(null);
-            }
             }
             returnElement.add(entity);
         }
@@ -3166,6 +4240,10 @@ public class RestUtilities {
                 entity.getObjectValues().add(element);
             }
             entity.setAllowInstanceOverride(getLongValue(jsonObject,"allow_instance_override"));
+                        ArrayList<SuppObjFieldTranslationsReturnElement> arrayListSuppObjFieldTranslationsReturnElement = buildSuppObjFieldTranslationsReturnElement((JSONArray)jsonObject.get("supp_obj_field_translations"));
+            for (SuppObjFieldTranslationsReturnElement element : arrayListSuppObjFieldTranslationsReturnElement){
+                entity.getSuppObjFieldTranslations().add(element);
+            }
             } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
@@ -3259,6 +4337,128 @@ public class RestUtilities {
         }
         return returnElement;
     }
+    public static ArrayList<ObjectValuesReturnElement> buildObjectValuesReturnElement(JSONArray jsonArray) {
+        ArrayList<ObjectValuesReturnElement> returnElement = new ArrayList<ObjectValuesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ObjectValuesReturnElement entity = new ObjectValuesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setObjectType(getStringValue(jsonObject,"object_type"));
+            entity.setObjectId(getLongValue(jsonObject,"object_id"));
+            entity.setValueText(getStringValue(jsonObject,"value_text"));
+            entity.setPrimacy(getLongValue(jsonObject,"primacy"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setObjectType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setObjectType(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setObjectId(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setObjectId(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setObjectId(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setValueText(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setValueText(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPrimacy(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPrimacy(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPrimacy(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PlanGroupTranslationInfoReturnElement> buildPlanGroupTranslationInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<PlanGroupTranslationInfoReturnElement> returnElement = new ArrayList<PlanGroupTranslationInfoReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlanGroupTranslationInfoReturnElement entity = new PlanGroupTranslationInfoReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+                        ArrayList<PlansTReturnElement> arrayListPlansTReturnElement = buildPlansTReturnElement((JSONArray)jsonObject.get("plans_t"));
+            for (PlansTReturnElement element : arrayListPlansTReturnElement){
+                entity.getPlansT().add(element);
+            }
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PlansTReturnElement> buildPlansTReturnElement(JSONArray jsonArray) {
+        ArrayList<PlansTReturnElement> returnElement = new ArrayList<PlansTReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlansTReturnElement entity = new PlansTReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            entity.setPlanDesc(getStringValue(jsonObject,"plan_desc"));
+            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanDesc(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPlanNo(null);
+            }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
     public static ArrayList<CoaListReturnElement> buildCoaListReturnElement(JSONArray jsonArray) {
         ArrayList<CoaListReturnElement> returnElement = new ArrayList<CoaListReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -3337,6 +4537,48 @@ public class RestUtilities {
                     }
                 } else {
                     entity.setCoaDescription(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<SurchargeTranslationsReturnElement> buildSurchargeTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<SurchargeTranslationsReturnElement> returnElement = new ArrayList<SurchargeTranslationsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SurchargeTranslationsReturnElement entity = new SurchargeTranslationsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setSurchargeNo(getLongValue(jsonObject,"surcharge_no"));
+            entity.setSurchargeName(getStringValue(jsonObject,"surcharge_name"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setSurchargeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setSurchargeNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setSurchargeName(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -3459,6 +4701,90 @@ public class RestUtilities {
                     }
                 } else {
                     entity.setPaymentMethodType(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<SurchargeTranslationDetailsReturnElement> buildSurchargeTranslationDetailsReturnElement(JSONArray jsonArray) {
+        ArrayList<SurchargeTranslationDetailsReturnElement> returnElement = new ArrayList<SurchargeTranslationDetailsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SurchargeTranslationDetailsReturnElement entity = new SurchargeTranslationDetailsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
+            entity.setSurchargeNo(getLongValue(jsonObject,"surcharge_no"));
+            entity.setSurchargeName(getStringValue(jsonObject,"surcharge_name"));
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            entity.setExtDescription(getStringValue(jsonObject,"ext_description"));
+                        ArrayList<SurchargeTierTReturnElement> arrayListSurchargeTierTReturnElement = buildSurchargeTierTReturnElement((JSONArray)jsonObject.get("surcharge_tier_t"));
+            for (SurchargeTierTReturnElement element : arrayListSurchargeTierTReturnElement){
+                entity.getSurchargeTierT().add(element);
+            }
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setSurchargeNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setSurchargeNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setSurchargeName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setSurchargeName(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setExtDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setExtDescription(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<SurchargeTierTReturnElement> buildSurchargeTierTReturnElement(JSONArray jsonArray) {
+        ArrayList<SurchargeTierTReturnElement> returnElement = new ArrayList<SurchargeTierTReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            SurchargeTierTReturnElement entity = new SurchargeTierTReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setDescription(getStringValue(jsonObject,"description"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setDescription(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -3747,82 +5073,6 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<MappedMasterPlansReturnElement> buildMappedMasterPlansReturnElement(JSONArray jsonArray) {
-        ArrayList<MappedMasterPlansReturnElement> returnElement = new ArrayList<MappedMasterPlansReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            MappedMasterPlansReturnElement entity = new MappedMasterPlansReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
-            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
-            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
-            } else {
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setPlanNo(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientPlanId(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setPlanName(jsonArray.get(i).toString());
-                }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<MappedPayMethodTypesReturnElement> buildMappedPayMethodTypesReturnElement(JSONArray jsonArray) {
-        ArrayList<MappedPayMethodTypesReturnElement> returnElement = new ArrayList<MappedPayMethodTypesReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            MappedPayMethodTypesReturnElement entity = new MappedPayMethodTypesReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setPayMethodTypeCd(getLongValue(jsonObject,"pay_method_type_cd"));
-            entity.setPayMethodType(getStringValue(jsonObject,"pay_method_type"));
-            } else {
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPayMethodTypeCd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setPayMethodTypeCd(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setPayMethodTypeCd(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPayMethodType(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setPayMethodType(jsonArray.get(i).toString());
-                }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
     public static ArrayList<DunningProcessDetailsReturnElement> buildDunningProcessDetailsReturnElement(JSONArray jsonArray) {
         ArrayList<DunningProcessDetailsReturnElement> returnElement = new ArrayList<DunningProcessDetailsReturnElement>();
         if (jsonArray == null) return returnElement;
@@ -3905,22 +5155,102 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<InventoryItemsReturnElement> buildInventoryItemsReturnElement(JSONArray jsonArray) {
-        ArrayList<InventoryItemsReturnElement> returnElement = new ArrayList<InventoryItemsReturnElement>();
+    public static ArrayList<MappedMasterPlansReturnElement> buildMappedMasterPlansReturnElement(JSONArray jsonArray) {
+        ArrayList<MappedMasterPlansReturnElement> returnElement = new ArrayList<MappedMasterPlansReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            InventoryItemsReturnElement entity = new InventoryItemsReturnElement();
+            MappedMasterPlansReturnElement entity = new MappedMasterPlansReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
+            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
+            entity.setPlanName(getStringValue(jsonObject,"plan_name"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPlanNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanId(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanName(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<MappedPayMethodTypesReturnElement> buildMappedPayMethodTypesReturnElement(JSONArray jsonArray) {
+        ArrayList<MappedPayMethodTypesReturnElement> returnElement = new ArrayList<MappedPayMethodTypesReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            MappedPayMethodTypesReturnElement entity = new MappedPayMethodTypesReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPayMethodTypeCd(getLongValue(jsonObject,"pay_method_type_cd"));
+            entity.setPayMethodType(getStringValue(jsonObject,"pay_method_type"));
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPayMethodTypeCd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPayMethodTypeCd(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPayMethodTypeCd(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPayMethodType(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPayMethodType(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<ItemTranslationsReturnElement> buildItemTranslationsReturnElement(JSONArray jsonArray) {
+        ArrayList<ItemTranslationsReturnElement> returnElement = new ArrayList<ItemTranslationsReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            ItemTranslationsReturnElement entity = new ItemTranslationsReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setLocaleName(getStringValue(jsonObject,"locale_name"));
             entity.setItemNo(getLongValue(jsonObject,"item_no"));
             entity.setItemName(getStringValue(jsonObject,"item_name"));
-            entity.setItemType(getLongValue(jsonObject,"item_type"));
-            entity.setClientSku(getStringValue(jsonObject,"client_sku"));
-            entity.setActiveInd(getLongValue(jsonObject,"active_ind"));
-            entity.setStockLevel(getDoubleValue(jsonObject,"stock_level"));
-            entity.setClientItemId(getStringValue(jsonObject,"client_item_id"));
+            entity.setItemDesc(getStringValue(jsonObject,"item_desc"));
             } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setLocaleName(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setLocaleName(jsonArray.get(i).toString());
+                }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -3939,327 +5269,115 @@ public class RestUtilities {
                 } else {
                     entity.setItemName(jsonArray.get(i).toString());
                 }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setItemType(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setItemType(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setItemType(null);
-            }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientSku(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setItemDesc(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setClientSku(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setActiveInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setActiveInd(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setActiveInd(null);
-            }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setStockLevel(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
-                    }
-                } else {
-                    entity.setStockLevel(Double.parseDouble(jsonArray.get(i).toString()+".0"));
-                }
-            } catch (NumberFormatException e) {
-                entity.setStockLevel(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientItemId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientItemId(jsonArray.get(i).toString());
+                    entity.setItemDesc(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
         }
         return returnElement;
     }
-    public static ArrayList<PricingReturnElement> buildPricingReturnElement(JSONArray jsonArray) {
-        ArrayList<PricingReturnElement> returnElement = new ArrayList<PricingReturnElement>();
+    public static ArrayList<AllPaymentTermsReturnElement> buildAllPaymentTermsReturnElement(JSONArray jsonArray) {
+        ArrayList<AllPaymentTermsReturnElement> returnElement = new ArrayList<AllPaymentTermsReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            PricingReturnElement entity = new PricingReturnElement();
+            AllPaymentTermsReturnElement entity = new AllPaymentTermsReturnElement();
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
-            entity.setPrice(getDoubleValue(jsonObject,"price"));
-            entity.setPricePerUnit(getDoubleValue(jsonObject,"price_per_unit"));
-            } else {
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setCurrencyCd(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPrice(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
-                    }
-                } else {
-                    entity.setPrice(Double.parseDouble(jsonArray.get(i).toString()+".0"));
-                }
-            } catch (NumberFormatException e) {
-                entity.setPrice(null);
-            }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPricePerUnit(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
-                    }
-                } else {
-                    entity.setPricePerUnit(Double.parseDouble(jsonArray.get(i).toString()+".0"));
-                }
-            } catch (NumberFormatException e) {
-                entity.setPricePerUnit(null);
-            }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<ImageReturnElement> buildImageReturnElement(JSONArray jsonArray) {
-        ArrayList<ImageReturnElement> returnElement = new ArrayList<ImageReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ImageReturnElement entity = new ImageReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setThumbnailImageUrl(getStringValue(jsonObject,"thumbnail_image_url"));
-            entity.setImageText(getStringValue(jsonObject,"image_text"));
-            entity.setDefaultInd(getLongValue(jsonObject,"default_ind"));
-            entity.setImageClassSeqNo(getLongValue(jsonObject,"image_class_seq_no"));
-            entity.setActive(getLongValue(jsonObject,"active"));
-            entity.setMainImageUrl(getStringValue(jsonObject,"main_image_url"));
-            } else {
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setThumbnailImageUrl(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setThumbnailImageUrl(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setImageText(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setImageText(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setDefaultInd(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setDefaultInd(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setDefaultInd(null);
-            }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setImageClassSeqNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setImageClassSeqNo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setImageClassSeqNo(null);
-            }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setActive(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setActive(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setActive(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setMainImageUrl(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setMainImageUrl(jsonArray.get(i).toString());
-                }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<PriceReturnElement> buildPriceReturnElement(JSONArray jsonArray) {
-        ArrayList<PriceReturnElement> returnElement = new ArrayList<PriceReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            PriceReturnElement entity = new PriceReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setAmount(getDoubleValue(jsonObject,"amount"));
+            entity.setPaymentTermsNo(getLongValue(jsonObject,"payment_terms_no"));
+            entity.setTermsNameInternal(getStringValue(jsonObject,"terms_name_internal"));
+            entity.setTermsNameExternal(getStringValue(jsonObject,"terms_name_external"));
+            entity.setDaysUntilDue(getLongValue(jsonObject,"days_until_due"));
+            entity.setDiscountPercent(getLongValue(jsonObject,"discount_percent"));
+            entity.setDiscountPeriod(getLongValue(jsonObject,"discount_period"));
+            entity.setFunctionalAcctGroup(getStringValue(jsonObject,"functional_acct_group"));
+            entity.setCreatedBy(getStringValue(jsonObject,"created_by"));
+            entity.setCreatedDate(getStringValue(jsonObject,"created_date"));
             } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setAmount(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                        entity.setPaymentTermsNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                    entity.setPaymentTermsNo(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setAmount(null);
-            }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<TierReturnElement> buildTierReturnElement(JSONArray jsonArray) {
-        ArrayList<TierReturnElement> returnElement = new ArrayList<TierReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            TierReturnElement entity = new TierReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setFrom(getLongValue(jsonObject,"from"));
-            entity.setTo(getLongValue(jsonObject,"to"));
-            entity.setDescription(getStringValue(jsonObject,"description"));
-            entity.setAmount(getDoubleValue(jsonObject,"amount"));
-                        ArrayList<PriceReturnElement> arrayListPriceReturnElement = buildPriceReturnElement((JSONArray)jsonObject.get("price"));
-            for (PriceReturnElement element : arrayListPriceReturnElement){
-                entity.getPrice().add(element);
-            }
-            } else {
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setFrom(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setFrom(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setFrom(null);
-            }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setTo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setTo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setTo(null);
+                entity.setPaymentTermsNo(null);
             }
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setDescription(((JSONArray)jsonArray.get(i)).get(0).toString());
+                        entity.setTermsNameInternal(((JSONArray)jsonArray.get(i)).get(0).toString());
                     }
                 } else {
-                    entity.setDescription(jsonArray.get(i).toString());
+                    entity.setTermsNameInternal(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setTermsNameExternal(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setTermsNameExternal(jsonArray.get(i).toString());
                 }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setAmount(Double.parseDouble(((JSONArray)jsonArray.get(i)).get(0).toString()+".0"));
+                        entity.setDaysUntilDue(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setAmount(Double.parseDouble(jsonArray.get(i).toString()+".0"));
+                    entity.setDaysUntilDue(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setAmount(null);
-            }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<ScheduleReturnElement> buildScheduleReturnElement(JSONArray jsonArray) {
-        ArrayList<ScheduleReturnElement> returnElement = new ArrayList<ScheduleReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            ScheduleReturnElement entity = new ScheduleReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setScheduleName(getStringValue(jsonObject,"schedule_name"));
-            entity.setCurrencyCd(getStringValue(jsonObject,"currency_cd"));
-            entity.setClientRateScheduleId(getStringValue(jsonObject,"client_rate_schedule_id"));
-            entity.setIsDefault(getLongValue(jsonObject,"is_default"));
-            entity.setTaxInclusiveRate(getLongValue(jsonObject,"tax_inclusive_rate"));
-                        ArrayList<TierReturnElement> arrayListTierReturnElement = buildTierReturnElement((JSONArray)jsonObject.get("tier"));
-            for (TierReturnElement element : arrayListTierReturnElement){
-                entity.getTier().add(element);
-            }
-            } else {
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setScheduleName(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setScheduleName(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setCurrencyCd(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setCurrencyCd(jsonArray.get(i).toString());
-                }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientRateScheduleId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientRateScheduleId(jsonArray.get(i).toString());
-                }
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setIsDefault(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setIsDefault(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setIsDefault(null);
+                entity.setDaysUntilDue(null);
             }
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setTaxInclusiveRate(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                        entity.setDiscountPercent(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
                     }
                 } else {
-                    entity.setTaxInclusiveRate(Long.parseLong(jsonArray.get(i).toString()));
+                    entity.setDiscountPercent(Long.parseLong(jsonArray.get(i).toString()));
                 }
             } catch (NumberFormatException e) {
-                entity.setTaxInclusiveRate(null);
+                entity.setDiscountPercent(null);
             }
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setDiscountPeriod(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setDiscountPeriod(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setDiscountPeriod(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setFunctionalAcctGroup(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setFunctionalAcctGroup(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCreatedBy(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCreatedBy(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setCreatedDate(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setCreatedDate(jsonArray.get(i).toString());
+                }
             }
             returnElement.add(entity);
         }
@@ -4268,6 +5386,358 @@ public class RestUtilities {
     /* ****************** END - SPECIFIC METHODS FOR EACH RETURN ELEMENT (build<#name#>) **************************************** */
 
     /* ****************** ARRAY TO PARAM METHODS FOR EACH ARRAY ELEMENT ********************************************** */
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ServiceArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ServiceRow row : arrayList.getServiceRow()){
+            if (row.getName() != null){
+                parameters.add("name["+i+"]", getValue("String", row.getName()));
+            }
+            if (row.getGlCd() != null){
+                parameters.add("gl_cd["+i+"]", getValue("String", row.getGlCd()));
+            }
+            if (row.getTaxable() != null){
+                parameters.add("taxable["+i+"]", getValue("Long", row.getTaxable()));
+            }
+            if (row.getTaxGroup() != null){
+                parameters.add("tax_group["+i+"]", getValue("Long", row.getTaxGroup()));
+            }
+            if (row.getCommodityCd() != null){
+                parameters.add("commodity_cd["+i+"]", getValue("String", row.getCommodityCd()));
+            }
+            if (row.getServiceNo() != null){
+                parameters.add("service_no["+i+"]", getValue("Long", row.getServiceNo()));
+            }
+            if (row.getClientServiceId() != null){
+                parameters.add("client_service_id["+i+"]", getValue("String", row.getClientServiceId()));
+            }
+            if (row.getServiceType() != null){
+                parameters.add("service_type["+i+"]", getValue("String", row.getServiceType()));
+            }
+            if (row.getTaxableInd() != null){
+                parameters.add("taxable_ind["+i+"]", getValue("String", row.getTaxableInd()));
+            }
+            if (row.getUsageType() != null){
+                parameters.add("usage_type["+i+"]", getValue("Long", row.getUsageType()));
+            }
+            if (row.getRateType() != null){
+                parameters.add("rate_type["+i+"]", getValue("String", row.getRateType()));
+            }
+            if (row.getPricingRule() != null){
+                parameters.add("pricing_rule["+i+"]", getValue("String", row.getPricingRule()));
+            }
+            if (row.getHighWater() != null){
+                parameters.add("high_water["+i+"]", getValue("String", row.getHighWater()));
+            }
+            if (row.getTaxInclusiveInd() != null){
+                parameters.add("tax_inclusive_ind["+i+"]", getValue("Long", row.getTaxInclusiveInd()));
+            }
+                        addParameterValuesFromArray(parameters, row.getUsageThreshold(), "usage_threshold["+i+"]");
+                        addParameterValuesFromArray(parameters, row.getTier(), "tier["+i+"]");
+            if (row.getFulfillmentBasedInd() != null){
+                parameters.add("fulfillment_based_ind["+i+"]", getValue("Long", row.getFulfillmentBasedInd()));
+            }
+            if (row.getApplyUsageRatesDaily() != null){
+                parameters.add("apply_usage_rates_daily["+i+"]", getValue("Long", row.getApplyUsageRatesDaily()));
+            }
+            if (row.getBillingOption() != null){
+                parameters.add("billing_option["+i+"]", getValue("Long", row.getBillingOption()));
+            }
+            if (row.getThreshold() != null){
+                parameters.add("threshold["+i+"]", getValue("Long", row.getThreshold()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ServiceArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ServiceRow row : arrayList.getServiceRow()){
+                        if (row.getName() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[name]", getValue("String", row.getName()));
+            }
+                                    if (row.getGlCd() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[gl_cd]", getValue("String", row.getGlCd()));
+            }
+                                    if (row.getTaxable() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[taxable]", getValue("Long", row.getTaxable()));
+            }
+                                    if (row.getTaxGroup() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[tax_group]", getValue("Long", row.getTaxGroup()));
+            }
+                                    if (row.getCommodityCd() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[commodity_cd]", getValue("String", row.getCommodityCd()));
+            }
+                                    if (row.getServiceNo() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[service_no]", getValue("Long", row.getServiceNo()));
+            }
+                                    if (row.getClientServiceId() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[client_service_id]", getValue("String", row.getClientServiceId()));
+            }
+                                    if (row.getServiceType() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[service_type]", getValue("String", row.getServiceType()));
+            }
+                                    if (row.getTaxableInd() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[taxable_ind]", getValue("String", row.getTaxableInd()));
+            }
+                                    if (row.getUsageType() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[usage_type]", getValue("Long", row.getUsageType()));
+            }
+                                    if (row.getRateType() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[rate_type]", getValue("String", row.getRateType()));
+            }
+                                    if (row.getPricingRule() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[pricing_rule]", getValue("String", row.getPricingRule()));
+            }
+                                    if (row.getHighWater() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[high_water]", getValue("String", row.getHighWater()));
+            }
+                                    if (row.getTaxInclusiveInd() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[tax_inclusive_ind]", getValue("Long", row.getTaxInclusiveInd()));
+            }
+                        addParameterValuesFromArray(parameters, row.getUsageThreshold(), paramPrefix + "["+i+"]" + "[usage_threshold]");
+            addParameterValuesFromArray(parameters, row.getTier(), paramPrefix + "["+i+"]" + "[tier]");
+                        if (row.getFulfillmentBasedInd() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[fulfillment_based_ind]", getValue("Long", row.getFulfillmentBasedInd()));
+            }
+                                    if (row.getApplyUsageRatesDaily() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[apply_usage_rates_daily]", getValue("Long", row.getApplyUsageRatesDaily()));
+            }
+                                    if (row.getBillingOption() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[billing_option]", getValue("Long", row.getBillingOption()));
+            }
+                                    if (row.getThreshold() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[threshold]", getValue("Long", row.getThreshold()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
+            if (row.getScheduleName() != null){
+                parameters.add("schedule_name["+i+"]", getValue("String", row.getScheduleName()));
+            }
+            if (row.getCurrencyCd() != null){
+                parameters.add("currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
+            }
+            if (row.getClientRateScheduleId() != null){
+                parameters.add("client_rate_schedule_id["+i+"]", getValue("String", row.getClientRateScheduleId()));
+            }
+            if (row.getIsDefault() != null){
+                parameters.add("is_default["+i+"]", getValue("Long", row.getIsDefault()));
+            }
+            if (row.getTaxInclusiveRate() != null){
+                parameters.add("tax_inclusive_rate["+i+"]", getValue("Long", row.getTaxInclusiveRate()));
+            }
+                        addParameterValuesFromArray(parameters, row.getTier(), "tier["+i+"]");
+            if (row.getScheduleNo() != null){
+                parameters.add("schedule_no["+i+"]", getValue("String", row.getScheduleNo()));
+            }
+            if (row.getAvailableFromDt() != null){
+                parameters.add("available_from_dt["+i+"]", getValue("String", row.getAvailableFromDt()));
+            }
+            if (row.getAvailableToDt() != null){
+                parameters.add("available_to_dt["+i+"]", getValue("String", row.getAvailableToDt()));
+            }
+            if (row.getFutureRate() != null){
+                parameters.add("future_rate["+i+"]", getValue("Long", row.getFutureRate()));
+            }
+            if (row.getFutureChangeDt() != null){
+                parameters.add("future_change_dt["+i+"]", getValue("String", row.getFutureChangeDt()));
+            }
+            if (row.getFollowupRsNo() != null){
+                parameters.add("followup_rs_no["+i+"]", getValue("Long", row.getFollowupRsNo()));
+            }
+            if (row.getClientFollowupRsId() != null){
+                parameters.add("client_followup_rs_id["+i+"]", getValue("String", row.getClientFollowupRsId()));
+            }
+            if (row.getAmount() != null){
+                parameters.add("amount["+i+"]", getValue("Double", row.getAmount()));
+            }
+            if (row.getFrom() != null){
+                parameters.add("from["+i+"]", getValue("Long", row.getFrom()));
+            }
+            if (row.getTo() != null){
+                parameters.add("to["+i+"]", getValue("Long", row.getTo()));
+            }
+            if (row.getDescription() != null){
+                parameters.add("description["+i+"]", getValue("String", row.getDescription()));
+            }
+            if (row.getFutureAmount() != null){
+                parameters.add("future_amount["+i+"]", getValue("Double", row.getFutureAmount()));
+            }
+            if (row.getRecurringBillingInterval() != null){
+                parameters.add("recurring_billing_interval["+i+"]", getValue("Long", row.getRecurringBillingInterval()));
+            }
+            if (row.getUsageBillingInterval() != null){
+                parameters.add("usage_billing_interval["+i+"]", getValue("Long", row.getUsageBillingInterval()));
+            }
+            if (row.getMinSurchargeToApply() != null){
+                parameters.add("min_surcharge_to_apply["+i+"]", getValue("Double", row.getMinSurchargeToApply()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
+                        if (row.getScheduleName() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[schedule_name]", getValue("String", row.getScheduleName()));
+            }
+                                    if (row.getCurrencyCd() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[currency_cd]", getValue("String", row.getCurrencyCd()));
+            }
+                                    if (row.getClientRateScheduleId() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[client_rate_schedule_id]", getValue("String", row.getClientRateScheduleId()));
+            }
+                                    if (row.getIsDefault() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[is_default]", getValue("Long", row.getIsDefault()));
+            }
+                                    if (row.getTaxInclusiveRate() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[tax_inclusive_rate]", getValue("Long", row.getTaxInclusiveRate()));
+            }
+                        addParameterValuesFromArray(parameters, row.getTier(), paramPrefix + "["+i+"]" + "[tier]");
+                        if (row.getScheduleNo() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[schedule_no]", getValue("String", row.getScheduleNo()));
+            }
+                                    if (row.getAvailableFromDt() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[available_from_dt]", getValue("String", row.getAvailableFromDt()));
+            }
+                                    if (row.getAvailableToDt() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[available_to_dt]", getValue("String", row.getAvailableToDt()));
+            }
+                                    if (row.getFutureRate() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[future_rate]", getValue("Long", row.getFutureRate()));
+            }
+                                    if (row.getFutureChangeDt() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[future_change_dt]", getValue("String", row.getFutureChangeDt()));
+            }
+                                    if (row.getFollowupRsNo() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[followup_rs_no]", getValue("Long", row.getFollowupRsNo()));
+            }
+                                    if (row.getClientFollowupRsId() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[client_followup_rs_id]", getValue("String", row.getClientFollowupRsId()));
+            }
+                                    if (row.getAmount() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[amount]", getValue("Double", row.getAmount()));
+            }
+                                    if (row.getFrom() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[from]", getValue("Long", row.getFrom()));
+            }
+                                    if (row.getTo() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[to]", getValue("Long", row.getTo()));
+            }
+                                    if (row.getDescription() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[description]", getValue("String", row.getDescription()));
+            }
+                                    if (row.getFutureAmount() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[future_amount]", getValue("Double", row.getFutureAmount()));
+            }
+                                    if (row.getRecurringBillingInterval() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[recurring_billing_interval]", getValue("Long", row.getRecurringBillingInterval()));
+            }
+                                    if (row.getUsageBillingInterval() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[usage_billing_interval]", getValue("Long", row.getUsageBillingInterval()));
+            }
+                                    if (row.getMinSurchargeToApply() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[min_surcharge_to_apply]", getValue("Double", row.getMinSurchargeToApply()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.TierArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.TierRow row : arrayList.getTierRow()){
+            if (row.getFrom() != null){
+                parameters.add("from["+i+"]", getValue("Long", row.getFrom()));
+            }
+            if (row.getTo() != null){
+                parameters.add("to["+i+"]", getValue("Long", row.getTo()));
+            }
+            if (row.getDescription() != null){
+                parameters.add("description["+i+"]", getValue("String", row.getDescription()));
+            }
+            if (row.getAmount() != null){
+                parameters.add("amount["+i+"]", getValue("Double", row.getAmount()));
+            }
+                        addParameterValuesFromArray(parameters, row.getSchedule(), "schedule["+i+"]");
+                        addParameterValuesFromArray(parameters, row.getPrice(), "price["+i+"]");
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.TierArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.TierRow row : arrayList.getTierRow()){
+                        if (row.getFrom() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[from]", getValue("Long", row.getFrom()));
+            }
+                                    if (row.getTo() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[to]", getValue("Long", row.getTo()));
+            }
+                                    if (row.getDescription() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[description]", getValue("String", row.getDescription()));
+            }
+                                    if (row.getAmount() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[amount]", getValue("Double", row.getAmount()));
+            }
+                        addParameterValuesFromArray(parameters, row.getSchedule(), paramPrefix + "["+i+"]" + "[schedule]");
+            addParameterValuesFromArray(parameters, row.getPrice(), paramPrefix + "["+i+"]" + "[price]");
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ImageArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ImageRow row : arrayList.getImageRow()){
+            if (row.getDefaultImageUrl() != null){
+                parameters.add("default_image_url["+i+"]", getValue("String", row.getDefaultImageUrl()));
+            }
+            if (row.getThumbnailImageUrl() != null){
+                parameters.add("thumbnail_image_url["+i+"]", getValue("String", row.getThumbnailImageUrl()));
+            }
+            if (row.getImageText() != null){
+                parameters.add("image_text["+i+"]", getValue("String", row.getImageText()));
+            }
+            if (row.getDefaultInd() != null){
+                parameters.add("default_ind["+i+"]", getValue("Long", row.getDefaultInd()));
+            }
+            if (row.getActive() != null){
+                parameters.add("active["+i+"]", getValue("Long", row.getActive()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ImageArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ImageRow row : arrayList.getImageRow()){
+                        if (row.getDefaultImageUrl() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[default_image_url]", getValue("String", row.getDefaultImageUrl()));
+            }
+                                    if (row.getThumbnailImageUrl() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[thumbnail_image_url]", getValue("String", row.getThumbnailImageUrl()));
+            }
+                                    if (row.getImageText() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[image_text]", getValue("String", row.getImageText()));
+            }
+                                    if (row.getDefaultInd() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[default_ind]", getValue("Long", row.getDefaultInd()));
+            }
+                                    if (row.getActive() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[active]", getValue("Long", row.getActive()));
+            }
+                        i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ParentClassArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -4284,27 +5754,6 @@ public class RestUtilities {
         for (com.aria.common.shared.admin.ParentClassRow row : arrayList.getParentClassRow()){
                         if (row.getClassNo() != null){
                 parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getClassNo()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldValueArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.FieldValueRow row : arrayList.getFieldValueRow()){
-            if (row.getFieldValue() != null){
-                parameters.add("field_value["+i+"]", getValue("String", row.getFieldValue()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldValueArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.FieldValueRow row : arrayList.getFieldValueRow()){
-                        if (row.getFieldValue() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getFieldValue()));
             }
                         i++;
         }
@@ -4339,196 +5788,22 @@ public class RestUtilities {
         }
     }
 
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.RulesArray arrayList) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldValueArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.admin.RulesRow row : arrayList.getRulesRow()){
-            if (row.getRule() != null){
-                parameters.add("rule["+i+"]", getValue("Long", row.getRule()));
+        for (com.aria.common.shared.admin.FieldValueRow row : arrayList.getFieldValueRow()){
+            if (row.getFieldValue() != null){
+                parameters.add("field_value["+i+"]", getValue("String", row.getFieldValue()));
             }
             i++;
         }
     }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.RulesArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.FieldValueArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.admin.RulesRow row : arrayList.getRulesRow()){
-                        if (row.getRule() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getRule()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.RuleIdsArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.RuleIdsRow row : arrayList.getRuleIdsRow()){
-            if (row.getRuleId() != null){
-                parameters.add("rule_id["+i+"]", getValue("String", row.getRuleId()));
-            }
-            if (row.getRule() != null){
-                parameters.add("rule["+i+"]", getValue("String", row.getRule()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.RuleIdsArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.RuleIdsRow row : arrayList.getRuleIdsRow()){
-                        if (row.getRuleId() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[rule_id]", getValue("String", row.getRuleId()));
-            }
-                                    if (row.getRule() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[rule]", getValue("String", row.getRule()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanNoArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.PlanNoRow row : arrayList.getPlanNoRow()){
-            if (row.getPlanNos() != null){
-                parameters.add("plan_nos["+i+"]", getValue("Long", row.getPlanNos()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanNoArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.PlanNoRow row : arrayList.getPlanNoRow()){
-                        if (row.getPlanNos() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getPlanNos()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientPlanIdArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ClientPlanIdRow row : arrayList.getClientPlanIdRow()){
-            if (row.getClientPlanIds() != null){
-                parameters.add("client_plan_ids["+i+"]", getValue("String", row.getClientPlanIds()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientPlanIdArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ClientPlanIdRow row : arrayList.getClientPlanIdRow()){
-                        if (row.getClientPlanIds() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getClientPlanIds()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ServiceNoArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ServiceNoRow row : arrayList.getServiceNoRow()){
-            if (row.getServiceNos() != null){
-                parameters.add("service_nos["+i+"]", getValue("Long", row.getServiceNos()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ServiceNoArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ServiceNoRow row : arrayList.getServiceNoRow()){
-                        if (row.getServiceNos() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getServiceNos()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientServiceIdArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ClientServiceIdRow row : arrayList.getClientServiceIdRow()){
-            if (row.getClientServiceIds() != null){
-                parameters.add("client_service_ids["+i+"]", getValue("String", row.getClientServiceIds()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientServiceIdArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ClientServiceIdRow row : arrayList.getClientServiceIdRow()){
-                        if (row.getClientServiceIds() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getClientServiceIds()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ItemNoArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ItemNoRow row : arrayList.getItemNoRow()){
-            if (row.getItemNos() != null){
-                parameters.add("item_nos["+i+"]", getValue("Long", row.getItemNos()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ItemNoArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ItemNoRow row : arrayList.getItemNoRow()){
-                        if (row.getItemNos() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getItemNos()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientItemIdArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ClientItemIdRow row : arrayList.getClientItemIdRow()){
-            if (row.getClientItemIds() != null){
-                parameters.add("client_item_ids["+i+"]", getValue("String", row.getClientItemIds()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientItemIdArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ClientItemIdRow row : arrayList.getClientItemIdRow()){
-                        if (row.getClientItemIds() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getClientItemIds()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.EligibleServiceTypesArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.EligibleServiceTypesRow row : arrayList.getEligibleServiceTypesRow()){
-            if (row.getEligibleServiceType() != null){
-                parameters.add("eligible_service_type["+i+"]", getValue("String", row.getEligibleServiceType()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.EligibleServiceTypesArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.EligibleServiceTypesRow row : arrayList.getEligibleServiceTypesRow()){
-                        if (row.getEligibleServiceType() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getEligibleServiceType()));
+        for (com.aria.common.shared.admin.FieldValueRow row : arrayList.getFieldValueRow()){
+                        if (row.getFieldValue() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getFieldValue()));
             }
                         i++;
         }
@@ -4648,6 +5923,27 @@ public class RestUtilities {
             }
                                     if (row.getCurrencyCd() != null){
                 parameters.add(paramPrefix + "["+i+"]" + "[currency_cd]", getValue("String", row.getCurrencyCd()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.EligibleServiceTypesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.EligibleServiceTypesRow row : arrayList.getEligibleServiceTypesRow()){
+            if (row.getEligibleServiceType() != null){
+                parameters.add("eligible_service_type["+i+"]", getValue("String", row.getEligibleServiceType()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.EligibleServiceTypesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.EligibleServiceTypesRow row : arrayList.getEligibleServiceTypesRow()){
+                        if (row.getEligibleServiceType() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getEligibleServiceType()));
             }
                         i++;
         }
@@ -4830,6 +6126,132 @@ public class RestUtilities {
         }
     }
 
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanNoArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.PlanNoRow row : arrayList.getPlanNoRow()){
+            if (row.getPlanNos() != null){
+                parameters.add("plan_nos["+i+"]", getValue("Long", row.getPlanNos()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PlanNoArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.PlanNoRow row : arrayList.getPlanNoRow()){
+                        if (row.getPlanNos() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getPlanNos()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientPlanIdArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ClientPlanIdRow row : arrayList.getClientPlanIdRow()){
+            if (row.getClientPlanIds() != null){
+                parameters.add("client_plan_ids["+i+"]", getValue("String", row.getClientPlanIds()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientPlanIdArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ClientPlanIdRow row : arrayList.getClientPlanIdRow()){
+                        if (row.getClientPlanIds() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getClientPlanIds()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ServiceNoArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ServiceNoRow row : arrayList.getServiceNoRow()){
+            if (row.getServiceNos() != null){
+                parameters.add("service_nos["+i+"]", getValue("Long", row.getServiceNos()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ServiceNoArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ServiceNoRow row : arrayList.getServiceNoRow()){
+                        if (row.getServiceNos() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getServiceNos()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientServiceIdArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ClientServiceIdRow row : arrayList.getClientServiceIdRow()){
+            if (row.getClientServiceIds() != null){
+                parameters.add("client_service_ids["+i+"]", getValue("String", row.getClientServiceIds()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientServiceIdArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ClientServiceIdRow row : arrayList.getClientServiceIdRow()){
+                        if (row.getClientServiceIds() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getClientServiceIds()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ItemNoArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ItemNoRow row : arrayList.getItemNoRow()){
+            if (row.getItemNos() != null){
+                parameters.add("item_nos["+i+"]", getValue("Long", row.getItemNos()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ItemNoArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ItemNoRow row : arrayList.getItemNoRow()){
+                        if (row.getItemNos() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getItemNos()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientItemIdArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ClientItemIdRow row : arrayList.getClientItemIdRow()){
+            if (row.getClientItemIds() != null){
+                parameters.add("client_item_ids["+i+"]", getValue("String", row.getClientItemIds()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ClientItemIdArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.ClientItemIdRow row : arrayList.getClientItemIdRow()){
+                        if (row.getClientItemIds() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("String", row.getClientItemIds()));
+            }
+                        i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ExistingDiscountRuleArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -4912,6 +6334,54 @@ public class RestUtilities {
                         addParameterValuesFromArray(parameters, row.getRules(), paramPrefix + "["+i+"]" + "[rules]");
             addParameterValuesFromArray(parameters, row.getRuleIds(), paramPrefix + "["+i+"]" + "[rule_ids]");
             i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.RulesArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.RulesRow row : arrayList.getRulesRow()){
+            if (row.getRule() != null){
+                parameters.add("rule["+i+"]", getValue("Long", row.getRule()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.RulesArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.RulesRow row : arrayList.getRulesRow()){
+                        if (row.getRule() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("Long", row.getRule()));
+            }
+                        i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.RuleIdsArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.RuleIdsRow row : arrayList.getRuleIdsRow()){
+            if (row.getRule() != null){
+                parameters.add("rule["+i+"]", getValue("String", row.getRule()));
+            }
+            if (row.getRuleId() != null){
+                parameters.add("rule_id["+i+"]", getValue("String", row.getRuleId()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.RuleIdsArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.RuleIdsRow row : arrayList.getRuleIdsRow()){
+                        if (row.getRule() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[rule]", getValue("String", row.getRule()));
+            }
+                                    if (row.getRuleId() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[rule_id]", getValue("String", row.getRuleId()));
+            }
+                        i++;
         }
     }
 
@@ -5125,143 +6595,6 @@ public class RestUtilities {
         }
     }
 
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PriceArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.PriceRow row : arrayList.getPriceRow()){
-            if (row.getAmount() != null){
-                parameters.add("amount["+i+"]", getValue("Double", row.getAmount()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PriceArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.PriceRow row : arrayList.getPriceRow()){
-                        if (row.getAmount() != null){
-                parameters.add(paramPrefix + "["+i+"]", getValue("Double", row.getAmount()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
-            if (row.getScheduleNo() != null){
-                parameters.add("schedule_no["+i+"]", getValue("String", row.getScheduleNo()));
-            }
-            if (row.getScheduleName() != null){
-                parameters.add("schedule_name["+i+"]", getValue("String", row.getScheduleName()));
-            }
-            if (row.getCurrencyCd() != null){
-                parameters.add("currency_cd["+i+"]", getValue("String", row.getCurrencyCd()));
-            }
-            if (row.getClientRateScheduleId() != null){
-                parameters.add("client_rate_schedule_id["+i+"]", getValue("String", row.getClientRateScheduleId()));
-            }
-            if (row.getIsDefault() != null){
-                parameters.add("is_default["+i+"]", getValue("Long", row.getIsDefault()));
-            }
-            if (row.getTaxInclusiveRate() != null){
-                parameters.add("tax_inclusive_rate["+i+"]", getValue("Long", row.getTaxInclusiveRate()));
-            }
-                        addParameterValuesFromArray(parameters, row.getTier(), "tier["+i+"]");
-            if (row.getAvailableFromDt() != null){
-                parameters.add("available_from_dt["+i+"]", getValue("String", row.getAvailableFromDt()));
-            }
-            if (row.getAvailableToDt() != null){
-                parameters.add("available_to_dt["+i+"]", getValue("String", row.getAvailableToDt()));
-            }
-            if (row.getFutureRate() != null){
-                parameters.add("future_rate["+i+"]", getValue("Long", row.getFutureRate()));
-            }
-            if (row.getFutureChangeDt() != null){
-                parameters.add("future_change_dt["+i+"]", getValue("String", row.getFutureChangeDt()));
-            }
-            if (row.getFollowupRsNo() != null){
-                parameters.add("followup_rs_no["+i+"]", getValue("Long", row.getFollowupRsNo()));
-            }
-            if (row.getClientFollowupRsId() != null){
-                parameters.add("client_followup_rs_id["+i+"]", getValue("String", row.getClientFollowupRsId()));
-            }
-            if (row.getRecurringBillingInterval() != null){
-                parameters.add("recurring_billing_interval["+i+"]", getValue("Long", row.getRecurringBillingInterval()));
-            }
-            if (row.getUsageBillingInterval() != null){
-                parameters.add("usage_billing_interval["+i+"]", getValue("Long", row.getUsageBillingInterval()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ScheduleArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ScheduleRow row : arrayList.getScheduleRow()){
-                        if (row.getScheduleNo() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[schedule_no]", getValue("Long", row.getScheduleNo()));
-            }
-                                    if (row.getScheduleName() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[schedule_name]", getValue("String", row.getScheduleName()));
-            }
-                                    if (row.getCurrencyCd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[currency_cd]", getValue("String", row.getCurrencyCd()));
-            }
-                                    if (row.getClientRateScheduleId() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[client_rate_schedule_id]", getValue("String", row.getClientRateScheduleId()));
-            }
-                                    if (row.getIsDefault() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[is_default]", getValue("Long", row.getIsDefault()));
-            }
-                                    if (row.getTaxInclusiveRate() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[tax_inclusive_rate]", getValue("Long", row.getTaxInclusiveRate()));
-            }
-                        addParameterValuesFromArray(parameters, row.getTier(), paramPrefix + "["+i+"]" + "[tier]");
-                        if (row.getAvailableFromDt() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[available_from_dt]", getValue("String", row.getAvailableFromDt()));
-            }
-                                    if (row.getAvailableToDt() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[available_to_dt]", getValue("String", row.getAvailableToDt()));
-            }
-                                    if (row.getFutureRate() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[future_rate]", getValue("Long", row.getFutureRate()));
-            }
-                                    if (row.getFutureChangeDt() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[future_change_dt]", getValue("String", row.getFutureChangeDt()));
-            }
-                                    if (row.getFollowupRsNo() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[followup_rs_no]", getValue("Long", row.getFollowupRsNo()));
-            }
-                                    if (row.getClientFollowupRsId() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[client_followup_rs_id]", getValue("String", row.getClientFollowupRsId()));
-            }
-                                    if (row.getRecurringBillingInterval() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[recurring_billing_interval]", getValue("Long", row.getRecurringBillingInterval()));
-            }
-                                    if (row.getUsageBillingInterval() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[usage_billing_interval]", getValue("Long", row.getUsageBillingInterval()));
-            }
-                                    if (row.getFrom() != null){
-                                        parameters.add(paramPrefix + "["+i+"]" + "[from]", getValue("Long", row.getFrom()));
-                                    }
-                                    if (row.getTo() != null){
-                                        parameters.add(paramPrefix + "["+i+"]" + "[to]", getValue("Long", row.getTo()));
-                                    }
-                                    if (row.getAmount() != null){
-                                        parameters.add(paramPrefix + "["+i+"]" + "[amount]", getValue("Double", row.getAmount()));
-                                    }
-                                    if (row.getFutureAmount() != null){
-                                        parameters.add(paramPrefix + "["+i+"]" + "[future_amount]", getValue("Double", row.getFutureAmount()));
-                                    }
-                                    if (row.getDescription() != null){
-                                        parameters.add(paramPrefix + "["+i+"]" + "[description]", getValue("String", row.getDescription()));
-            }
-                        i++;
-        }
-    }
-
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.UsageThresholdArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -5284,200 +6617,6 @@ public class RestUtilities {
             }
                                     if (row.getNoticeBalanceType() != null){
                 parameters.add(paramPrefix + "["+i+"]" + "[notice_balance_type]", getValue("String", row.getNoticeBalanceType()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.TierArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.TierRow row : arrayList.getTierRow()){
-            if (row.getFrom() != null){
-                parameters.add("from["+i+"]", getValue("Long", row.getFrom()));
-            }
-            if (row.getTo() != null){
-                parameters.add("to["+i+"]", getValue("Long", row.getTo()));
-            }
-            if (row.getDescription() != null){
-                parameters.add("description["+i+"]", getValue("String", row.getDescription()));
-            }
-            if (row.getAmount() != null){
-                parameters.add("amount["+i+"]", getValue("Double", row.getAmount()));
-            }
-                        addParameterValuesFromArray(parameters, row.getPrice(), "price["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getSchedule(), "schedule["+i+"]");
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.TierArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.TierRow row : arrayList.getTierRow()){
-                        if (row.getFrom() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[from]", getValue("Long", row.getFrom()));
-            }
-                                    if (row.getTo() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[to]", getValue("Long", row.getTo()));
-            }
-                                    if (row.getDescription() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[description]", getValue("String", row.getDescription()));
-            }
-                                    if (row.getAmount() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[amount]", getValue("Double", row.getAmount()));
-            }
-                        addParameterValuesFromArray(parameters, row.getPrice(), paramPrefix + "["+i+"]" + "[price]");
-            addParameterValuesFromArray(parameters, row.getSchedule(), paramPrefix + "["+i+"]" + "[schedule]");
-            i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ServiceArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ServiceRow row : arrayList.getServiceRow()){
-            if (row.getServiceNo() != null){
-                parameters.add("service_no["+i+"]", getValue("Long", row.getServiceNo()));
-            }
-            if (row.getClientServiceId() != null){
-                parameters.add("client_service_id["+i+"]", getValue("String", row.getClientServiceId()));
-            }
-            if (row.getName() != null){
-                parameters.add("name["+i+"]", getValue("String", row.getName()));
-            }
-            if (row.getGlCd() != null){
-                parameters.add("gl_cd["+i+"]", getValue("String", row.getGlCd()));
-            }
-            if (row.getTaxable() != null){
-                parameters.add("taxable["+i+"]", getValue("Long", row.getTaxable()));
-            }
-            if (row.getTaxGroup() != null){
-                parameters.add("tax_group["+i+"]", getValue("Long", row.getTaxGroup()));
-            }
-            if (row.getCommodityCd() != null){
-                parameters.add("commodity_cd["+i+"]", getValue("String", row.getCommodityCd()));
-            }
-            if (row.getServiceType() != null){
-                parameters.add("service_type["+i+"]", getValue("String", row.getServiceType()));
-            }
-            if (row.getTaxableInd() != null){
-                parameters.add("taxable_ind["+i+"]", getValue("String", row.getTaxableInd()));
-            }
-            if (row.getUsageType() != null){
-                parameters.add("usage_type["+i+"]", getValue("Long", row.getUsageType()));
-            }
-            if (row.getRateType() != null){
-                parameters.add("rate_type["+i+"]", getValue("String", row.getRateType()));
-            }
-            if (row.getPricingRule() != null){
-                parameters.add("pricing_rule["+i+"]", getValue("String", row.getPricingRule()));
-            }
-            if (row.getHighWater() != null){
-                parameters.add("high_water["+i+"]", getValue("String", row.getHighWater()));
-            }
-            if (row.getBillingOption() != null){
-                parameters.add("billing_option["+i+"]", getValue("Long", row.getBillingOption()));
-            }
-            if (row.getThreshold() != null){
-                parameters.add("threshold["+i+"]", getValue("Long", row.getThreshold()));
-            }
-            if (row.getTaxInclusiveInd() != null){
-                parameters.add("tax_inclusive_ind["+i+"]", getValue("Long", row.getTaxInclusiveInd()));
-            }
-            if (row.getArGlCd() != null){
-                parameters.add("ar_gl_cd["+i+"]", getValue("String", row.getArGlCd()));
-            }
-            if (row.getDefGlCd() != null){
-                parameters.add("def_gl_cd["+i+"]", getValue("String", row.getDefGlCd()));
-            }
-            if (row.getRevRecInd() != null){
-                parameters.add("rev_rec_ind["+i+"]", getValue("Long", row.getRevRecInd()));
-            }
-            if (row.getDeferredInd() != null){
-                parameters.add("deferred_ind["+i+"]", getValue("Long", row.getDeferredInd()));
-            }
-                        addParameterValuesFromArray(parameters, row.getUsageThreshold(), "usage_threshold["+i+"]");
-                        addParameterValuesFromArray(parameters, row.getTier(), "tier["+i+"]");
-            if (row.getFulfillmentBasedInd() != null){
-                parameters.add("fulfillment_based_ind["+i+"]", getValue("Long", row.getFulfillmentBasedInd()));
-            }
-            if (row.getApplyUsageRatesDaily() != null){
-                parameters.add("apply_usage_rates_daily["+i+"]", getValue("Long", row.getApplyUsageRatesDaily()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ServiceArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ServiceRow row : arrayList.getServiceRow()){
-                        if (row.getServiceNo() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[service_no]", getValue("Long", row.getServiceNo()));
-            }
-                                    if (row.getClientServiceId() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[client_service_id]", getValue("String", row.getClientServiceId()));
-            }
-                                    if (row.getName() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[name]", getValue("String", row.getName()));
-            }
-                                    if (row.getGlCd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[gl_cd]", getValue("String", row.getGlCd()));
-            }
-                                    if (row.getTaxable() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[taxable]", getValue("Long", row.getTaxable()));
-            }
-                                    if (row.getTaxGroup() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[tax_group]", getValue("Long", row.getTaxGroup()));
-            }
-                                    if (row.getCommodityCd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[commodity_cd]", getValue("String", row.getCommodityCd()));
-            }
-                                    if (row.getServiceType() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[service_type]", getValue("String", row.getServiceType()));
-            }
-                                    if (row.getTaxableInd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[taxable_ind]", getValue("String", row.getTaxableInd()));
-            }
-                                    if (row.getUsageType() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[usage_type]", getValue("Long", row.getUsageType()));
-            }
-                                    if (row.getRateType() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[rate_type]", getValue("String", row.getRateType()));
-            }
-                                    if (row.getPricingRule() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[pricing_rule]", getValue("String", row.getPricingRule()));
-            }
-                                    if (row.getHighWater() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[high_water]", getValue("String", row.getHighWater()));
-            }
-                                    if (row.getBillingOption() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[billing_option]", getValue("Long", row.getBillingOption()));
-            }
-                                    if (row.getThreshold() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[threshold]", getValue("Long", row.getThreshold()));
-            }
-                                    if (row.getTaxInclusiveInd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[tax_inclusive_ind]", getValue("Long", row.getTaxInclusiveInd()));
-            }
-                                    if (row.getArGlCd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[ar_gl_cd]", getValue("String", row.getArGlCd()));
-            }
-                                    if (row.getDefGlCd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[def_gl_cd]", getValue("String", row.getDefGlCd()));
-            }
-                                    if (row.getRevRecInd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[rev_rec_ind]", getValue("Long", row.getRevRecInd()));
-            }
-                                    if (row.getDeferredInd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[deferred_ind]", getValue("Long", row.getDeferredInd()));
-            }
-                        addParameterValuesFromArray(parameters, row.getUsageThreshold(), paramPrefix + "["+i+"]" + "[usage_threshold]");
-            addParameterValuesFromArray(parameters, row.getTier(), paramPrefix + "["+i+"]" + "[tier]");
-                        if (row.getFulfillmentBasedInd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[fulfillment_based_ind]", getValue("Long", row.getFulfillmentBasedInd()));
-            }
-                                    if (row.getApplyUsageRatesDaily() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[apply_usage_rates_daily]", getValue("Long", row.getApplyUsageRatesDaily()));
             }
                         i++;
         }
@@ -5714,67 +6853,22 @@ public class RestUtilities {
         }
     }
 
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoItemsPriceOverrideArray arrayList) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PriceArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.admin.NsoItemsPriceOverrideRow row : arrayList.getNsoItemsPriceOverrideRow()){
-            if (row.getRateScheduleNo() != null){
-                parameters.add("rate_schedule_no["+i+"]", getValue("Long", row.getRateScheduleNo()));
-            }
-            if (row.getClientRateScheduleId() != null){
-                parameters.add("client_rate_schedule_id["+i+"]", getValue("String", row.getClientRateScheduleId()));
-            }
-            if (row.getOverridePrice() != null){
-                parameters.add("override_price["+i+"]", getValue("String", row.getOverridePrice()));
+        for (com.aria.common.shared.admin.PriceRow row : arrayList.getPriceRow()){
+            if (row.getAmount() != null){
+                parameters.add("amount["+i+"]", getValue("Double", row.getAmount()));
             }
             i++;
         }
     }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoItemsPriceOverrideArray arrayList, String paramPrefix) {
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.PriceArray arrayList, String paramPrefix) {
         if (arrayList == null) return;
         int i = 0;
-        for (com.aria.common.shared.admin.NsoItemsPriceOverrideRow row : arrayList.getNsoItemsPriceOverrideRow()){
-                        if (row.getRateScheduleNo() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[rate_schedule_no]", getValue("Long", row.getRateScheduleNo()));
-            }
-                                    if (row.getClientRateScheduleId() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[client_rate_schedule_id]", getValue("String", row.getClientRateScheduleId()));
-            }
-                                    if (row.getOverridePrice() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[override_price]", getValue("String", row.getOverridePrice()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoGroupPriceOverrideArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.NsoGroupPriceOverrideRow row : arrayList.getNsoGroupPriceOverrideRow()){
-            if (row.getRateScheduleNo() != null){
-                parameters.add("rate_schedule_no["+i+"]", getValue("Long", row.getRateScheduleNo()));
-            }
-            if (row.getClientRateScheduleId() != null){
-                parameters.add("client_rate_schedule_id["+i+"]", getValue("String", row.getClientRateScheduleId()));
-            }
-            if (row.getOverridePrice() != null){
-                parameters.add("override_price["+i+"]", getValue("String", row.getOverridePrice()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoGroupPriceOverrideArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.NsoGroupPriceOverrideRow row : arrayList.getNsoGroupPriceOverrideRow()){
-                        if (row.getRateScheduleNo() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[rate_schedule_no]", getValue("Long", row.getRateScheduleNo()));
-            }
-                                    if (row.getClientRateScheduleId() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[client_rate_schedule_id]", getValue("String", row.getClientRateScheduleId()));
-            }
-                                    if (row.getOverridePrice() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[override_price]", getValue("String", row.getOverridePrice()));
+        for (com.aria.common.shared.admin.PriceRow row : arrayList.getPriceRow()){
+                        if (row.getAmount() != null){
+                parameters.add(paramPrefix + "["+i+"]", getValue("Double", row.getAmount()));
             }
                         i++;
         }
@@ -5953,6 +7047,39 @@ public class RestUtilities {
         }
     }
 
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoGroupPriceOverrideArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.NsoGroupPriceOverrideRow row : arrayList.getNsoGroupPriceOverrideRow()){
+            if (row.getRateScheduleNo() != null){
+                parameters.add("rate_schedule_no["+i+"]", getValue("Long", row.getRateScheduleNo()));
+            }
+            if (row.getClientRateScheduleId() != null){
+                parameters.add("client_rate_schedule_id["+i+"]", getValue("String", row.getClientRateScheduleId()));
+            }
+            if (row.getOverridePrice() != null){
+                parameters.add("override_price["+i+"]", getValue("String", row.getOverridePrice()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoGroupPriceOverrideArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.NsoGroupPriceOverrideRow row : arrayList.getNsoGroupPriceOverrideRow()){
+                        if (row.getRateScheduleNo() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[rate_schedule_no]", getValue("Long", row.getRateScheduleNo()));
+            }
+                                    if (row.getClientRateScheduleId() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[client_rate_schedule_id]", getValue("String", row.getClientRateScheduleId()));
+            }
+                                    if (row.getOverridePrice() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[override_price]", getValue("String", row.getOverridePrice()));
+            }
+                        i++;
+        }
+    }
+
     public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoItemsArrayArray arrayList) {
         if (arrayList == null) return;
         int i = 0;
@@ -5991,6 +7118,39 @@ public class RestUtilities {
             }
                         addParameterValuesFromArray(parameters, row.getNsoItemsPriceOverride(), paramPrefix + "["+i+"]" + "[nso_items_price_override]");
             i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoItemsPriceOverrideArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.NsoItemsPriceOverrideRow row : arrayList.getNsoItemsPriceOverrideRow()){
+            if (row.getRateScheduleNo() != null){
+                parameters.add("rate_schedule_no["+i+"]", getValue("Long", row.getRateScheduleNo()));
+            }
+            if (row.getClientRateScheduleId() != null){
+                parameters.add("client_rate_schedule_id["+i+"]", getValue("String", row.getClientRateScheduleId()));
+            }
+            if (row.getOverridePrice() != null){
+                parameters.add("override_price["+i+"]", getValue("String", row.getOverridePrice()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NsoItemsPriceOverrideArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.NsoItemsPriceOverrideRow row : arrayList.getNsoItemsPriceOverrideRow()){
+                        if (row.getRateScheduleNo() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[rate_schedule_no]", getValue("Long", row.getRateScheduleNo()));
+            }
+                                    if (row.getClientRateScheduleId() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[client_rate_schedule_id]", getValue("String", row.getClientRateScheduleId()));
+            }
+                                    if (row.getOverridePrice() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[override_price]", getValue("String", row.getOverridePrice()));
+            }
+                        i++;
         }
     }
 
@@ -6286,51 +7446,6 @@ public class RestUtilities {
             }
                                     if (row.getClientPlanId() != null){
                 parameters.add(paramPrefix + "["+i+"]" + "[client_plan_id]", getValue("String", row.getClientPlanId()));
-            }
-                        i++;
-        }
-    }
-
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ImageArray arrayList) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ImageRow row : arrayList.getImageRow()){
-            if (row.getDefaultImageUrl() != null){
-                parameters.add("default_image_url["+i+"]", getValue("String", row.getDefaultImageUrl()));
-            }
-            if (row.getThumbnailImageUrl() != null){
-                parameters.add("thumbnail_image_url["+i+"]", getValue("String", row.getThumbnailImageUrl()));
-            }
-            if (row.getImageText() != null){
-                parameters.add("image_text["+i+"]", getValue("String", row.getImageText()));
-            }
-            if (row.getDefaultInd() != null){
-                parameters.add("default_ind["+i+"]", getValue("Long", row.getDefaultInd()));
-            }
-            if (row.getActive() != null){
-                parameters.add("active["+i+"]", getValue("Long", row.getActive()));
-            }
-            i++;
-        }
-    }
-    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.ImageArray arrayList, String paramPrefix) {
-        if (arrayList == null) return;
-        int i = 0;
-        for (com.aria.common.shared.admin.ImageRow row : arrayList.getImageRow()){
-                        if (row.getDefaultImageUrl() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[default_image_url]", getValue("String", row.getDefaultImageUrl()));
-            }
-                                    if (row.getThumbnailImageUrl() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[thumbnail_image_url]", getValue("String", row.getThumbnailImageUrl()));
-            }
-                                    if (row.getImageText() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[image_text]", getValue("String", row.getImageText()));
-            }
-                                    if (row.getDefaultInd() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[default_ind]", getValue("Long", row.getDefaultInd()));
-            }
-                                    if (row.getActive() != null){
-                parameters.add(paramPrefix + "["+i+"]" + "[active]", getValue("Long", row.getActive()));
             }
                         i++;
         }

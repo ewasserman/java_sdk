@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "items_by_supp_field_ReturnElement", propOrder = {"itemNo", "itemLabel", "serviceNo", "serviceDesc", "clientSku", "price", "itemPlan", "itemMonths", "currencyCd", "classNo", "classLabel", "stockLevel", "avgRatings", "numRatings", "numReviews", "imageUrl", "imageText", "clientItemId", "clientServiceId", "clientItemPlanId", "schedule"})
+@XmlType(name = "items_by_supp_field_ReturnElement", propOrder = {"itemNo", "itemLabel", "serviceNo", "serviceDesc", "clientSku", "price", "itemPlan", "itemMonths", "currencyCd", "classNo", "classLabel", "stockLevel", "avgRatings", "numRatings", "numReviews", "imageUrl", "imageText", "clientItemId", "clientServiceId", "clientItemPlanId"})
 public class ItemsBySuppFieldReturnElement {
 
     @XmlElement(name = "item_no")
@@ -53,8 +53,6 @@ public class ItemsBySuppFieldReturnElement {
     protected String clientServiceId;
     @XmlElement(name = "client_item_plan_id")
     protected String clientItemPlanId;
-    @XmlElement(name = "schedule")
-    protected List<ScheduleReturnElement> schedule;
     
     public Long getItemNo() {
         return itemNo;
@@ -216,10 +214,5 @@ public class ItemsBySuppFieldReturnElement {
         this.clientItemPlanId = value;
     }
 
-    public List<ScheduleReturnElement> getSchedule() {
-        if (this.schedule == null) {
-            this.schedule = new ArrayList<ScheduleReturnElement>();
-        }
-        return this.schedule;
-    }
+    
 }

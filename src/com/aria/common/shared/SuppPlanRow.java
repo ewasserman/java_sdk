@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlType;
     "clientPlanInstanceId",
     "planInstanceIdx",
     "planInstanceUnits",
+    "planUnitInstances",
     "suppPlanNsoList",
     "planInstanceFieldsInfo",
     "altRateScheduleNo",
@@ -22,7 +23,8 @@ import javax.xml.bind.annotation.XmlType;
     "usageAccumulationResetMonths",
     "usagePooling",
     "usageThresholdApplicability",
-    "customRates"
+    "customRates",
+    "poNum"
     })
 public class SuppPlanRow {
 
@@ -40,6 +42,8 @@ public class SuppPlanRow {
     protected Long planInstanceIdx;
     @XmlElement(name = "plan_instance_units")
     protected Long planInstanceUnits;
+    @XmlElement(name = "plan_unit_instances")
+    protected com.aria.common.shared.PlanUnitInstancesArray planUnitInstances;
     @XmlElement(name = "supp_plan_nso_list")
     protected com.aria.common.shared.SuppPlanNsoListArray suppPlanNsoList;
     @XmlElement(name = "plan_instance_fields_info")
@@ -56,6 +60,8 @@ public class SuppPlanRow {
     protected String usageThresholdApplicability;
     @XmlElement(name = "custom_rates")
     protected com.aria.common.shared.CustomRatesArray customRates;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     public com.aria.common.shared.SuppPlanArray getSuppPlan() {
         return suppPlan;
     }
@@ -110,6 +116,14 @@ public class SuppPlanRow {
 
     public void setPlanInstanceUnits(Long value) {
         this.planInstanceUnits = value;
+    }
+
+    public com.aria.common.shared.PlanUnitInstancesArray getPlanUnitInstances() {
+        return planUnitInstances;
+    }
+
+    public void setPlanUnitInstances(com.aria.common.shared.PlanUnitInstancesArray value) {
+        this.planUnitInstances = value;
     }
 
     public com.aria.common.shared.SuppPlanNsoListArray getSuppPlanNsoList() {
@@ -174,6 +188,14 @@ public class SuppPlanRow {
 
     public void setCustomRates(com.aria.common.shared.CustomRatesArray value) {
         this.customRates = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     

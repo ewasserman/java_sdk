@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "account_details_m_ReturnElement", propOrder = {"acctNo", "clientAcctId", "userId", "firstName", "mi", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "functionalAcctGroups", "collectionAcctGroups", "acctSuppFields", "surchargeNo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "billingGroups", "masterPlanInstances", "consumerAcctInd"})
+@XmlType(name = "account_details_m_ReturnElement", propOrder = {"acctNo", "clientAcctId", "userId", "firstName", "mi", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "functionalAcctGroups", "collectionAcctGroups", "acctSuppFields", "surchargeNo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "billingGroups", "masterPlanInstances", "consumerAcctInd", "poNum", "listStartMasterFile"})
 public class AccountDetailsMReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -107,6 +107,10 @@ public class AccountDetailsMReturnElement {
     protected List<MasterPlanInstancesReturnElement> masterPlanInstances;
     @XmlElement(name = "consumer_acct_ind")
     protected String consumerAcctInd;
+    @XmlElement(name = "po_num")
+    protected String poNum;
+    @XmlElement(name = "list_start_master_file")
+    protected Long listStartMasterFile;
     
     public Long getAcctNo() {
         return acctNo;
@@ -464,6 +468,22 @@ public class AccountDetailsMReturnElement {
 
     public void setConsumerAcctInd(String value) {
         this.consumerAcctInd = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
+    }
+
+    public Long getListStartMasterFile() {
+        return listStartMasterFile;
+    }
+
+    public void setListStartMasterFile(Long value) {
+        this.listStartMasterFile = value;
     }
 
     

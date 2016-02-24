@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "orderLineItems",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "suppPlanInstanceNo",    "clientPlanInstanceId",    "suppPlanNo",    "clientSuppPlanId",    "suppPlanUnits",    "assignmentDirective",    "billImmediately",    "billSeq",    "clientOrderId",    "clientReceiptId",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "bankIdCd",    "bankBranchCd",    "mandateId",    "iban",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "multipleCoupons",    "altClientAcctGroupId",    "clientAltInvTemplateId",    "altInvTemplateNo",    "forceSuppBillDateReset",    "statementMessage",    "trackData1",    "trackData2",    "doWrite",    "orderComments"})
+    "authKey",    "acctNo",    "clientAcctId",    "orderLineItems",    "parentPlanInstanceNo",    "clientParentPlanInstanceId",    "suppPlanInstanceNo",    "clientPlanInstanceId",    "suppPlanNo",    "clientSuppPlanId",    "suppPlanUnits",    "assignmentDirective",    "billImmediately",    "billSeq",    "clientOrderId",    "clientReceiptId",    "altPayMethod",    "ccNumber",    "ccExpireMm",    "ccExpireYyyy",    "bankRoutingNum",    "bankAcctNum",    "bankCheckDigit",    "bankSwiftCd",    "bankCountryCd",    "bankIdCd",    "bankBranchCd",    "mandateId",    "iban",    "billCompanyName",    "billFirstName",    "billMiddleInitial",    "billLastName",    "billAddress1",    "billAddress2",    "billCity",    "billLocality",    "billStateProv",    "billZip",    "billCountry",    "billEmail",    "billPhone",    "billPhoneExtension",    "billCellPhone",    "billWorkPhone",    "billWorkPhoneExtension",    "cvv",    "bankAcctType",    "billAddress3",    "multipleCoupons",    "altClientAcctGroupId",    "clientAltInvTemplateId",    "altInvTemplateNo",    "forceSuppBillDateReset",    "statementMessage",    "trackData1",    "trackData2",    "doWrite",    "orderComments",    "nsoPoNum",    "poNum"})
 @XmlRootElement(name = "create_order_with_plan_m")
 public class CreateOrderWithPlanM {
 
@@ -134,6 +134,10 @@ public class CreateOrderWithPlanM {
     protected String doWrite;
         @XmlElement(name = "order_comments")
     protected String orderComments;
+        @XmlElement(name = "nso_po_num")
+    protected String nsoPoNum;
+        @XmlElement(name = "po_num")
+    protected String poNum;
     
     public long getClientNo() {
         return clientNo;
@@ -556,6 +560,20 @@ public class CreateOrderWithPlanM {
 
     public void setOrderComments(String value) {
         this.orderComments = value;
+    }
+            public String getNsoPoNum() {
+        return nsoPoNum;
+    }
+
+    public void setNsoPoNum(String value) {
+        this.nsoPoNum = value;
+    }
+            public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
             
 }

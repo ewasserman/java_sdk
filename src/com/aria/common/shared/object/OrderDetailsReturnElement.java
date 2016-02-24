@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "order_details_ReturnElement", propOrder = {"orderNo", "acctNo", "userId", "invoiceNo", "createDate", "amount", "currencyCd", "lastUpdated", "orderStatus", "orderItem"})
+@XmlType(name = "order_details_ReturnElement", propOrder = {"orderNo", "acctNo", "userId", "invoiceNo", "createDate", "amount", "currencyCd", "lastUpdated", "orderStatus", "poNum", "orderItem"})
 public class OrderDetailsReturnElement {
 
     @XmlElement(name = "order_no")
@@ -31,6 +31,8 @@ public class OrderDetailsReturnElement {
     protected String lastUpdated;
     @XmlElement(name = "order_status")
     protected String orderStatus;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     @XmlElement(name = "order_item")
     protected List<OrderItemReturnElement> orderItem;
     
@@ -104,6 +106,14 @@ public class OrderDetailsReturnElement {
 
     public void setOrderStatus(String value) {
         this.orderStatus = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     public List<OrderItemReturnElement> getOrderItem() {

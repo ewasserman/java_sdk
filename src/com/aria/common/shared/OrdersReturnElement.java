@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "orders_ReturnElement", propOrder = {"orderNo", "amount", "currencyCd", "statusLabel", "planInstanceNo", "clientPlanInstanceId", "invoiceNo", "createDate", "updateDate", "comments", "clientOrderId", "transactionId", "orderCreateClientReceiptId", "orderStatusClientReceiptId", "statementMessage", "orderItems"})
+@XmlType(name = "orders_ReturnElement", propOrder = {"orderNo", "amount", "currencyCd", "statusLabel", "planInstanceNo", "clientPlanInstanceId", "invoiceNo", "createDate", "updateDate", "comments", "clientOrderId", "transactionId", "orderCreateClientReceiptId", "orderStatusClientReceiptId", "statementMessage", "poNum", "orderItems"})
 public class OrdersReturnElement {
 
     @XmlElement(name = "order_no")
@@ -43,6 +43,8 @@ public class OrdersReturnElement {
     protected String orderStatusClientReceiptId;
     @XmlElement(name = "statement_message")
     protected String statementMessage;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     @XmlElement(name = "order_items")
     protected List<OrderItemsReturnElement> orderItems;
     
@@ -164,6 +166,14 @@ public class OrdersReturnElement {
 
     public void setStatementMessage(String value) {
         this.statementMessage = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     public List<OrderItemsReturnElement> getOrderItems() {

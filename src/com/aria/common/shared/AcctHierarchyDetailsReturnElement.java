@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_hierarchy_details_ReturnElement", propOrder = {"acctNo", "firstName", "mi", "lastName", "userid", "birthdate", "jobTitle", "salutation", "seniorAcctNo", "clientAcctId", "respLevelCd", "isTestAcct", "altEmail", "address1", "address2", "address3", "city", "stateProv", "locality", "postalCode", "country", "companyName", "faxPhone", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "billDay", "createdDate", "dateToExpire", "dateToSuspend", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "statusDegradeDate", "statusCd", "statusLabel", "masterPlanNo", "masterPlanName", "masterPlanUnits", "notifyMethod", "notifyMethodName", "password", "pin", "secretQuestion", "secretQuestionAnswer", "payMethod", "payMethodName", "currencyCd", "taxId", "billingEmail", "billingFirstName", "billingMiddleInitial", "billingLastName", "billingAddress1", "billingAddress2", "billingAddress3", "billingCity", "billingState", "billingLocality", "billingZip", "billingCountry", "ccSuffix", "ccExpireMm", "ccExpireYyyy", "ccId", "bankAcctSuffix", "bankRoutingNo", "billingCompanyName", "billingPhone", "billingPhoneExt", "billingCellPhone", "billingWorkPhoneExt", "balance", "acctCreateClientReceiptId", "planClientReceiptId", "statusClientReceiptId", "taxpayerId", "altMsgTemplateNo", "seqFuncGroupNo", "promoCd", "addressVerificationCode", "addressMatchScore", "billingAddressVerificationCode", "billingAddressMatchScore", "clientMasterPlanId", "clientAltMsgTemplateId", "childAcctNo", "thisAcctSuppPlans", "thisAcctSuppFields", "stmntEmailList", "stmntEmailListCc", "stmntEmailListBcc"})
+@XmlType(name = "acct_hierarchy_details_ReturnElement", propOrder = {"acctNo", "firstName", "mi", "lastName", "userid", "birthdate", "jobTitle", "salutation", "seniorAcctNo", "clientAcctId", "respLevelCd", "isTestAcct", "altEmail", "address1", "address2", "address3", "city", "stateProv", "locality", "postalCode", "country", "companyName", "faxPhone", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "billDay", "createdDate", "dateToExpire", "dateToSuspend", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "statusDegradeDate", "statusCd", "statusLabel", "masterPlanNo", "masterPlanName", "masterPlanUnits", "notifyMethod", "notifyMethodName", "password", "pin", "secretQuestion", "secretQuestionAnswer", "payMethod", "payMethodName", "currencyCd", "taxId", "listStartMasterFile", "billingEmail", "billingFirstName", "billingMiddleInitial", "billingLastName", "billingAddress1", "billingAddress2", "billingAddress3", "billingCity", "billingState", "billingLocality", "billingZip", "billingCountry", "ccSuffix", "ccExpireMm", "ccExpireYyyy", "ccId", "bankAcctSuffix", "bankRoutingNo", "billingCompanyName", "billingPhone", "billingPhoneExt", "billingCellPhone", "billingWorkPhoneExt", "balance", "acctCreateClientReceiptId", "planClientReceiptId", "statusClientReceiptId", "taxpayerId", "altMsgTemplateNo", "seqFuncGroupNo", "promoCd", "addressVerificationCode", "addressMatchScore", "billingAddressVerificationCode", "billingAddressMatchScore", "clientMasterPlanId", "clientAltMsgTemplateId", "childAcctNo", "thisAcctSuppPlans", "thisAcctSuppFields", "stmntEmailList", "stmntEmailListCc", "stmntEmailListBcc"})
 public class AcctHierarchyDetailsReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -121,6 +121,8 @@ public class AcctHierarchyDetailsReturnElement {
     protected String currencyCd;
     @XmlElement(name = "tax_id")
     protected String taxId;
+    @XmlElement(name = "list_start_master_file")
+    protected Long listStartMasterFile;
     @XmlElement(name = "billing_email")
     protected String billingEmail;
     @XmlElement(name = "billing_first_name")
@@ -638,6 +640,14 @@ public class AcctHierarchyDetailsReturnElement {
 
     public void setTaxId(String value) {
         this.taxId = value;
+    }
+
+    public Long getListStartMasterFile() {
+        return listStartMasterFile;
+    }
+
+    public void setListStartMasterFile(Long value) {
+        this.listStartMasterFile = value;
     }
 
     public String getBillingEmail() {

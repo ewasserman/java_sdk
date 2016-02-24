@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "cart_inv_line_items_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "serviceIsTaxInd", "lineUnits", "ratePerUnit", "lineAmount", "description", "dateRangeStart", "dateRangeEnd", "usageTypeNo", "planInstanceNo", "planName", "clientServiceId", "usageTypeCd", "clientPlanInstanceId", "refChargeLineNo"})
+@XmlType(name = "cart_inv_line_items_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "serviceIsTaxInd", "lineUnits", "ratePerUnit", "lineAmount", "description", "dateRangeStart", "dateRangeEnd", "usageTypeNo", "planInstanceNo", "planName", "clientServiceId", "usageTypeCd", "clientPlanInstanceId", "refChargeLineNo", "poNum"})
 public class CartInvLineItemsReturnElement {
 
     @XmlElement(name = "line_no")
@@ -47,6 +47,8 @@ public class CartInvLineItemsReturnElement {
     protected String clientPlanInstanceId;
     @XmlElement(name = "ref_charge_line_no")
     protected Long refChargeLineNo;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     
     public Long getLineNo() {
         return lineNo;
@@ -182,6 +184,14 @@ public class CartInvLineItemsReturnElement {
 
     public void setRefChargeLineNo(Long value) {
         this.refChargeLineNo = value;
+    }
+
+    public String getPoNum() {
+        return poNum;
+    }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
     }
 
     

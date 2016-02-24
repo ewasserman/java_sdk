@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_info_ReturnElement", propOrder = {"invoiceNo", "billingGroupNo", "clientPlanInstanceId", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceChargesBeforeTax", "invoiceTaxCharges", "invoiceChargesAfterTax", "invoiceCreditAmount", "invoiceTotalAmount", "invoiceItems", "taxDetails"})
+@XmlType(name = "invoice_info_ReturnElement", propOrder = {"invoiceNo", "billingGroupNo", "clientPlanInstanceId", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "invoiceChargesBeforeTax", "invoiceTaxCharges", "invoiceChargesAfterTax", "invoiceCreditAmount", "invoiceTotalAmount", "totalCredit", "totalTaxCredit", "totalCreditBeforeTax", "total", "prorationResultAmount", "expectedMonthlyRecCost", "expectedAnnualRecCost", "invoiceItems", "taxDetails"})
 public class InvoiceInfoReturnElement {
 
     @XmlElement(name = "invoice_no")
@@ -45,6 +45,20 @@ public class InvoiceInfoReturnElement {
     protected Double invoiceCreditAmount;
     @XmlElement(name = "invoice_total_amount")
     protected Double invoiceTotalAmount;
+    @XmlElement(name = "total_credit")
+    protected Double totalCredit;
+    @XmlElement(name = "total_tax_credit")
+    protected Double totalTaxCredit;
+    @XmlElement(name = "total_credit_before_tax")
+    protected Double totalCreditBeforeTax;
+    @XmlElement(name = "total")
+    protected Double total;
+    @XmlElement(name = "proration_result_amount")
+    protected Double prorationResultAmount;
+    @XmlElement(name = "expected_monthly_rec_cost")
+    protected Double expectedMonthlyRecCost;
+    @XmlElement(name = "expected_annual_rec_cost")
+    protected Double expectedAnnualRecCost;
     @XmlElement(name = "invoice_items")
     protected List<InvoiceItemsReturnElement> invoiceItems;
     @XmlElement(name = "tax_details")
@@ -176,6 +190,62 @@ public class InvoiceInfoReturnElement {
 
     public void setInvoiceTotalAmount(Double value) {
         this.invoiceTotalAmount = value;
+    }
+
+    public Double getTotalCredit() {
+        return totalCredit;
+    }
+
+    public void setTotalCredit(Double value) {
+        this.totalCredit = value;
+    }
+
+    public Double getTotalTaxCredit() {
+        return totalTaxCredit;
+    }
+
+    public void setTotalTaxCredit(Double value) {
+        this.totalTaxCredit = value;
+    }
+
+    public Double getTotalCreditBeforeTax() {
+        return totalCreditBeforeTax;
+    }
+
+    public void setTotalCreditBeforeTax(Double value) {
+        this.totalCreditBeforeTax = value;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double value) {
+        this.total = value;
+    }
+
+    public Double getProrationResultAmount() {
+        return prorationResultAmount;
+    }
+
+    public void setProrationResultAmount(Double value) {
+        this.prorationResultAmount = value;
+    }
+
+    public Double getExpectedMonthlyRecCost() {
+        return expectedMonthlyRecCost;
+    }
+
+    public void setExpectedMonthlyRecCost(Double value) {
+        this.expectedMonthlyRecCost = value;
+    }
+
+    public Double getExpectedAnnualRecCost() {
+        return expectedAnnualRecCost;
+    }
+
+    public void setExpectedAnnualRecCost(Double value) {
+        this.expectedAnnualRecCost = value;
     }
 
     public List<InvoiceItemsReturnElement> getInvoiceItems() {

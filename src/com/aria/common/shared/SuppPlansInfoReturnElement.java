@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supp_plans_info_ReturnElement", propOrder = {"suppPlanInstanceNo", "clientSuppPlanInstanceId", "suppPlanNo", "clientSuppPlanId", "suppPlanInstanceDescription", "suppPlanUnits", "altRateScheduleNo", "clientAltRateScheduleId", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "suppPlanInstanceStatusCd", "suppPlanInstanceStatus", "parentPlanInstanceNo", "clientParentPlanInstanceId", "recurringBillingInterval", "usageBillingInterval", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "planDeprovisionedDate", "suppPlanProductFields", "suppPlanPlanInstFields"})
+@XmlType(name = "supp_plans_info_ReturnElement", propOrder = {"suppPlanInstanceNo", "clientSuppPlanInstanceId", "suppPlanNo", "clientSuppPlanId", "suppPlanInstanceDescription", "suppPlanUnits", "altRateScheduleNo", "clientAltRateScheduleId", "lastArrearsBillThruDate", "lastBillDate", "lastBillThruDate", "nextBillDate", "planDate", "statusDate", "suppPlanInstanceStatusCd", "suppPlanInstanceStatus", "parentPlanInstanceNo", "clientParentPlanInstanceId", "recurringBillingInterval", "usageBillingInterval", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "planDeprovisionedDate", "suppPlanProductFields", "suppPlanPlanInstFields", "poNum"})
 public class SuppPlansInfoReturnElement {
 
     @XmlElement(name = "supp_plan_instance_no")
@@ -65,6 +65,8 @@ public class SuppPlansInfoReturnElement {
     protected List<SuppPlanProductFieldsReturnElement> suppPlanProductFields;
     @XmlElement(name = "supp_plan_plan_inst_fields")
     protected List<SuppPlanPlanInstFieldsReturnElement> suppPlanPlanInstFields;
+    @XmlElement(name = "po_num")
+    protected String poNum;
     
     public Long getSuppPlanInstanceNo() {
         return suppPlanInstanceNo;
@@ -268,5 +270,13 @@ public class SuppPlansInfoReturnElement {
             this.suppPlanPlanInstFields = new ArrayList<SuppPlanPlanInstFieldsReturnElement>();
         }
         return this.suppPlanPlanInstFields;
+    }public String getPoNum() {
+        return poNum;
     }
+
+    public void setPoNum(String value) {
+        this.poNum = value;
+    }
+
+    
 }

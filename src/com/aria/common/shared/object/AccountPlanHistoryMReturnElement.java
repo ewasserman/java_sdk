@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "account_plan_history_m_ReturnElement", propOrder = {"planInstanceNo", "clientPlanInstanceId", "masterPlanInstanceNo", "mpClientPlanInstanceId", "oldPlanName", "oldPlanNo", "oldClientPlanId", "oldClientPlanInstanceId", "oldPromoCd", "oldStatusCd", "oldPlanUnits", "oldRateScheduleNo", "oldClientRateScheduleId", "newPlanName", "newPlanNo", "newClientPlanId", "newClientPlanInstanceId", "newPromoCd", "newStatusCd", "newPlanUnits", "newRateScheduleNo", "newClientRateScheduleId"})
+@XmlType(name = "account_plan_history_m_ReturnElement", propOrder = {"planInstanceNo", "clientPlanInstanceId", "masterPlanInstanceNo", "mpClientPlanInstanceId", "oldPlanName", "oldPlanNo", "oldClientPlanId", "oldClientPlanInstanceId", "oldPromoCd", "oldStatusCd", "oldPlanUnits", "oldRateScheduleNo", "oldClientRateScheduleId", "newPlanName", "newPlanNo", "newClientPlanId", "newClientPlanInstanceId", "newPromoCd", "newStatusCd", "newPlanUnits", "newRateScheduleNo", "newClientRateScheduleId", "oldDunningState", "newDunningState"})
 public class AccountPlanHistoryMReturnElement {
 
     @XmlElement(name = "plan_instance_no")
@@ -57,6 +57,10 @@ public class AccountPlanHistoryMReturnElement {
     protected Long newRateScheduleNo;
     @XmlElement(name = "new_client_rate_schedule_id")
     protected Long newClientRateScheduleId;
+    @XmlElement(name = "old_dunning_state")
+    protected Long oldDunningState;
+    @XmlElement(name = "new_dunning_state")
+    protected Long newDunningState;
     
     public Long getPlanInstanceNo() {
         return planInstanceNo;
@@ -232,6 +236,22 @@ public class AccountPlanHistoryMReturnElement {
 
     public void setNewClientRateScheduleId(Long value) {
         this.newClientRateScheduleId = value;
+    }
+
+    public Long getOldDunningState() {
+        return oldDunningState;
+    }
+
+    public void setOldDunningState(Long value) {
+        this.oldDunningState = value;
+    }
+
+    public Long getNewDunningState() {
+        return newDunningState;
+    }
+
+    public void setNewDunningState(Long value) {
+        this.newDunningState = value;
     }
 
     
