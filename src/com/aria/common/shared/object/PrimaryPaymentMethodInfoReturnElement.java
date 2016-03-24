@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "primary_payment_method_ReturnElement", propOrder = {"billingFirstName", "billingMiddleInitial", "billingLastName", "billingAddress1", "billingAddress2", "billingCity", "billingState", "billingLocality", "billingZip", "billingCountry", "billingIntlPhone", "billingEmail", "payMethodType", "ccExpireMm", "ccExpireYyyy", "bankRoutingNum", "paymentInstrumentSuffix", "primaryPaymentMethodName", "primaryPaymentMethodDescription", "primaryPaymentMethodClientDefinedId"})
-public class PrimaryPaymentMethodReturnElement {
+@XmlType(name = "primary_payment_method_info_ReturnElement", propOrder = {"billingFirstName", "billingMiddleInitial", "billingLastName", "billingAddress1", "billingAddress2", "billingCity", "billingState", "billingLocality", "billingZip", "billingCountry", "billingIntlPhone", "billingEmail", "payMethodType", "ccExpireMm", "ccExpireYyyy", "bankRoutingNum", "paymentInstrumentSuffix", "primaryPaymentMethodName", "primaryPaymentMethodDescription", "primaryPaymentMethodClientDefinedId"})
+public class PrimaryPaymentMethodInfoReturnElement {
 
     @XmlElement(name = "billing_first_name")
     protected String billingFirstName;

@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "backup_payment_method_ReturnElement", propOrder = {"bkupBillingFirstName", "bkupBillingMiddleInitial", "bkupBillingLastName", "bkupBillingAddress1", "bkupBillingAddress2", "bkupBillingCity", "bkupBillingState", "bkupBillingLocality", "bkupBillingZip", "bkupBillingCountry", "bkupBillingIntlPhone", "bkupBillingEmail", "bkupPayMethodType", "bkupCcExpireMm", "bkupCcExpireYyyy", "bkupBankRoutingNum", "bkupPaymentInstrumentSuffix", "backupPaymentMethodName", "backupPaymentMethodDescription", "backupPaymentMethodClientDefinedId"})
-public class BackupPaymentMethodReturnElement {
+@XmlType(name = "backup_payment_method_info_ReturnElement", propOrder = {"bkupBillingFirstName", "bkupBillingMiddleInitial", "bkupBillingLastName", "bkupBillingAddress1", "bkupBillingAddress2", "bkupBillingCity", "bkupBillingState", "bkupBillingLocality", "bkupBillingZip", "bkupBillingCountry", "bkupBillingIntlPhone", "bkupBillingEmail", "bkupPayMethodType", "bkupCcExpireMm", "bkupCcExpireYyyy", "bkupBankRoutingNum", "bkupPaymentInstrumentSuffix", "backupPaymentMethodName", "backupPaymentMethodDescription", "backupPaymentMethodClientDefinedId"})
+public class BackupPaymentMethodInfoReturnElement {
 
     @XmlElement(name = "bkup_billing_first_name")
     protected String bkupBillingFirstName;

@@ -727,13 +727,13 @@ public class RestUtilities {
             entity.setBillingGroupNo(getLongValue(jsonObject,"billing_group_no"));
             entity.setClientBillingGroupId(getStringValue(jsonObject,"client_billing_group_id"));
             entity.setDunningGroupNo(getLongValue(jsonObject,"dunning_group_no"));
-                        ArrayList<PrimaryPaymentMethodReturnElement> arrayListPrimaryPaymentMethodReturnElement = buildPrimaryPaymentMethodReturnElement((JSONArray)jsonObject.get("primary_payment_method"));
-            for (PrimaryPaymentMethodReturnElement element : arrayListPrimaryPaymentMethodReturnElement){
-                entity.getPrimaryPaymentMethod().add(element);
+                        ArrayList<PrimaryPaymentMethodInfoReturnElement> arrayListPrimaryPaymentMethodInfoReturnElement = buildPrimaryPaymentMethodInfoReturnElement((JSONArray)jsonObject.get("primary_payment_method_info"));
+            for (PrimaryPaymentMethodInfoReturnElement element : arrayListPrimaryPaymentMethodInfoReturnElement){
+                entity.getPrimaryPaymentMethodInfo().add(element);
             }
-                        ArrayList<BackupPaymentMethodReturnElement> arrayListBackupPaymentMethodReturnElement = buildBackupPaymentMethodReturnElement((JSONArray)jsonObject.get("backup_payment_method"));
-            for (BackupPaymentMethodReturnElement element : arrayListBackupPaymentMethodReturnElement){
-                entity.getBackupPaymentMethod().add(element);
+                        ArrayList<BackupPaymentMethodInfoReturnElement> arrayListBackupPaymentMethodInfoReturnElement = buildBackupPaymentMethodInfoReturnElement((JSONArray)jsonObject.get("backup_payment_method_info"));
+            for (BackupPaymentMethodInfoReturnElement element : arrayListBackupPaymentMethodInfoReturnElement){
+                entity.getBackupPaymentMethodInfo().add(element);
             }
             returnElement.add(entity);
         }
@@ -753,11 +753,11 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<PrimaryPaymentMethodReturnElement> buildPrimaryPaymentMethodReturnElement(JSONArray jsonArray) {
-        ArrayList<PrimaryPaymentMethodReturnElement> returnElement = new ArrayList<PrimaryPaymentMethodReturnElement>();
+    public static ArrayList<PrimaryPaymentMethodInfoReturnElement> buildPrimaryPaymentMethodInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<PrimaryPaymentMethodInfoReturnElement> returnElement = new ArrayList<PrimaryPaymentMethodInfoReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            PrimaryPaymentMethodReturnElement entity = new PrimaryPaymentMethodReturnElement();
+            PrimaryPaymentMethodInfoReturnElement entity = new PrimaryPaymentMethodInfoReturnElement();
             JSONObject jsonObject = (JSONObject)jsonArray.get(i);
             entity.setBillingFirstName(getStringValue(jsonObject,"billing_first_name"));
             entity.setBillingMiddleInitial(getStringValue(jsonObject,"billing_middle_initial"));
@@ -783,11 +783,11 @@ public class RestUtilities {
         }
         return returnElement;
     }
-    public static ArrayList<BackupPaymentMethodReturnElement> buildBackupPaymentMethodReturnElement(JSONArray jsonArray) {
-        ArrayList<BackupPaymentMethodReturnElement> returnElement = new ArrayList<BackupPaymentMethodReturnElement>();
+    public static ArrayList<BackupPaymentMethodInfoReturnElement> buildBackupPaymentMethodInfoReturnElement(JSONArray jsonArray) {
+        ArrayList<BackupPaymentMethodInfoReturnElement> returnElement = new ArrayList<BackupPaymentMethodInfoReturnElement>();
         if (jsonArray == null) return returnElement;
         for (int i = 0;i < jsonArray.size();i++) {
-            BackupPaymentMethodReturnElement entity = new BackupPaymentMethodReturnElement();
+            BackupPaymentMethodInfoReturnElement entity = new BackupPaymentMethodInfoReturnElement();
             JSONObject jsonObject = (JSONObject)jsonArray.get(i);
             entity.setBkupBillingFirstName(getStringValue(jsonObject,"bkup_billing_first_name"));
             entity.setBkupBillingMiddleInitial(getStringValue(jsonObject,"bkup_billing_middle_initial"));
