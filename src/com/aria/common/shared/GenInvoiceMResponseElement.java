@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceNo", "outAcctNo", "outClientAcctId", "outBillingGroupNo", "outClientBillingGroupId", "thirdPartyErrors"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceNo", "outAcctNo", "outClientAcctId", "outBillingGroupNo", "outClientBillingGroupId", "thirdPartyErrors", "outInvoices"})
 @XmlRootElement(name = "gen_invoice_mResponseElement")
 public class GenInvoiceMResponseElement {
 
@@ -30,6 +30,8 @@ public class GenInvoiceMResponseElement {
     protected String outClientBillingGroupId;
     @XmlElement(name = "third_party_errors")
     protected List<ThirdPartyErrorsReturnElement> thirdPartyErrors;
+    @XmlElement(name = "out_invoices")
+    protected List<OutInvoicesReturnElement> outInvoices;
     
     public Long getErrorCode() {
         return errorCode;
@@ -92,5 +94,10 @@ public class GenInvoiceMResponseElement {
             this.thirdPartyErrors = new ArrayList<ThirdPartyErrorsReturnElement>();
         }
         return this.thirdPartyErrors;
+    }public List<OutInvoicesReturnElement> getOutInvoices() {
+        if (this.outInvoices == null) {
+            this.outInvoices = new ArrayList<OutInvoicesReturnElement>();
+        }
+        return this.outInvoices;
     }
 }

@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlType;
     "masterPlanInstanceNo",
     "clientMasterPlanInstanceId",
     "planInstanceNo",
+    "clientPlanInstanceId",
     "usageType",
     "usageUnits",
     "usageDate",
@@ -45,6 +46,8 @@ public class UsageRecsRow {
     protected String clientMasterPlanInstanceId;
     @XmlElement(name = "plan_instance_no")
     protected Long planInstanceNo;
+    @XmlElement(name = "client_plan_instance_id")
+    protected String clientPlanInstanceId;
     @XmlElement(name = "usage_type")
     protected Long usageType;
     @XmlElement(name = "usage_units")
@@ -121,6 +124,14 @@ public class UsageRecsRow {
 
     public void setPlanInstanceNo(Long value) {
         this.planInstanceNo = value;
+    }
+
+    public String getClientPlanInstanceId() {
+        return clientPlanInstanceId;
+    }
+
+    public void setClientPlanInstanceId(String value) {
+        this.clientPlanInstanceId = value;
     }
 
     public Long getUsageType() {

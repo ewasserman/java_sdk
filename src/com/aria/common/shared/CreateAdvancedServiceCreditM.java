@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "amount",    "reasonCode",    "comments",    "eligiblePlanNo",    "eligibleServiceNo",    "altServiceNoToApply",    "frequencyNo",    "frequencyIntervalMonths",    "initialCreditDate",    "percentAmount",    "percentEvalPlanNo",    "percentEvalServiceNo",    "eligibleServiceTypes",    "clientEligiblePlanId",    "clientEligibleServiceId",    "clientAltServiceIdToApply",    "clientPercentEvalPlanId",    "clientPercentEvalServiceId",    "creditExpiryTypeInd",    "creditExpiryMonths",    "creditExpiryDate",    "eligibleServicePlans",    "clientEligibleServicePlanIds"})
+    "authKey",    "acctNo",    "clientAcctId",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "amount",    "reasonCode",    "comments",    "eligiblePlanNo",    "eligibleServiceNo",    "altServiceNoToApply",    "frequencyNo",    "frequencyIntervalMonths",    "initialCreditDate",    "percentAmount",    "percentEvalPlanNo",    "percentEvalServiceNo",    "eligibleServiceTypes",    "clientEligiblePlanId",    "clientEligibleServiceId",    "clientAltServiceIdToApply",    "clientPercentEvalPlanId",    "clientPercentEvalServiceId",    "creditExpiryTypeInd",    "creditExpiryMonths",    "creditExpiryDate",    "eligibleServicePlans",    "clientEligibleServicePlanIds",    "frequencyIntervalType",    "eligiblePlanInstances",    "clientEligiblePlanInstances"})
 @XmlRootElement(name = "create_advanced_service_credit_m")
 public class CreateAdvancedServiceCreditM {
 
@@ -72,6 +72,12 @@ public class CreateAdvancedServiceCreditM {
     protected EligibleServicePlansArray eligibleServicePlans;
         @XmlElement(name = "client_eligible_service_plan_ids")
     protected ClientEligibleServicePlanIdsArray clientEligibleServicePlanIds;
+        @XmlElement(name = "frequency_interval_type")
+    protected Long frequencyIntervalType;
+        @XmlElement(name = "eligible_plan_instances")
+    protected EligiblePlanInstancesArray eligiblePlanInstances;
+        @XmlElement(name = "client_eligible_plan_instances")
+    protected ClientEligiblePlanInstancesArray clientEligiblePlanInstances;
     
     public long getClientNo() {
         return clientNo;
@@ -277,6 +283,27 @@ public class CreateAdvancedServiceCreditM {
 
     public void setClientEligibleServicePlanIds(ClientEligibleServicePlanIdsArray value) {
         this.clientEligibleServicePlanIds = value;
+    }
+            public Long getFrequencyIntervalType() {
+        return frequencyIntervalType;
+    }
+
+    public void setFrequencyIntervalType(Long value) {
+        this.frequencyIntervalType = value;
+    }
+            public EligiblePlanInstancesArray getEligiblePlanInstances() {
+        return eligiblePlanInstances;
+    }
+
+    public void setEligiblePlanInstances(EligiblePlanInstancesArray value) {
+        this.eligiblePlanInstances = value;
+    }
+            public ClientEligiblePlanInstancesArray getClientEligiblePlanInstances() {
+        return clientEligiblePlanInstances;
+    }
+
+    public void setClientEligiblePlanInstances(ClientEligiblePlanInstancesArray value) {
+        this.clientEligiblePlanInstances = value;
     }
             
 }

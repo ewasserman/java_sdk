@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "promoCode",    "includeRsSummary",    "retrieveBundledNso",    "retrieveIncludedNso"})
+    "authKey",    "promoCode",    "includeRsSummary",    "retrieveBundledNso",    "retrieveIncludedNso",    "localeNo",    "localeName",    "includeTranslations"})
 @XmlRootElement(name = "get_supp_plans_by_promo_code_all_m")
 public class GetSuppPlansByPromoCodeAllM {
 
@@ -26,6 +26,12 @@ public class GetSuppPlansByPromoCodeAllM {
     protected String retrieveBundledNso;
         @XmlElement(name = "retrieve_included_nso")
     protected String retrieveIncludedNso;
+        @XmlElement(name = "locale_no")
+    protected Long localeNo;
+        @XmlElement(name = "locale_name")
+    protected String localeName;
+        @XmlElement(name = "include_translations")
+    protected String includeTranslations;
     
     public long getClientNo() {
         return clientNo;
@@ -70,6 +76,27 @@ public class GetSuppPlansByPromoCodeAllM {
 
     public void setRetrieveIncludedNso(String value) {
         this.retrieveIncludedNso = value;
+    }
+            public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+            public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
+    }
+            public String getIncludeTranslations() {
+        return includeTranslations;
+    }
+
+    public void setIncludeTranslations(String value) {
+        this.includeTranslations = value;
     }
             
 }

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceLineDetails", "taxDetails", "isPendingInd", "customStatusLabel", "customStatusDesc", "clientNotes", "invoiceTypeCd", "fromDate", "toDate", "billingGroupNo", "clientBillingGroupNo"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "invoiceLineDetails", "taxDetails", "isPendingInd", "customStatusLabel", "customStatusDesc", "clientNotes", "invoiceTypeCd", "fromDate", "toDate", "billingGroupNo", "clientBillingGroupNo", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "get_invoice_details_mResponseElement")
 public class GetInvoiceDetailsMResponseElement {
 
@@ -40,6 +40,10 @@ public class GetInvoiceDetailsMResponseElement {
     protected Long billingGroupNo;
     @XmlElement(name = "client_billing_group_no")
     protected String clientBillingGroupNo;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -137,6 +141,22 @@ public class GetInvoiceDetailsMResponseElement {
 
     public void setClientBillingGroupNo(String value) {
         this.clientBillingGroupNo = value;
+    }
+
+    public Long getAcctLocaleNo() {
+        return acctLocaleNo;
+    }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
     }
 
     

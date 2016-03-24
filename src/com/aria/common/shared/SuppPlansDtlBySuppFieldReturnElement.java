@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "supp_plans_dtl_by_supp_field_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched"})
+@XmlType(name = "supp_plans_dtl_by_supp_field_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "rolloverPlanDuration", "rolloverPlanUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "initialPlanStatusCd", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "rolloverPlanStatusCd", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planTranslationInfo"})
 public class SuppPlansDtlBySuppFieldReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -43,6 +43,22 @@ public class SuppPlansDtlBySuppFieldReturnElement {
     protected String clientPlanId2AssignOnSusp;
     @XmlElement(name = "proration_invoice_timing_cd")
     protected String prorationInvoiceTimingCd;
+    @XmlElement(name = "rollover_plan_duration")
+    protected String rolloverPlanDuration;
+    @XmlElement(name = "rollover_plan_uom_cd")
+    protected Long rolloverPlanUomCd;
+    @XmlElement(name = "init_free_period_duration")
+    protected Long initFreePeriodDuration;
+    @XmlElement(name = "init_free_period_uom_cd")
+    protected String initFreePeriodUomCd;
+    @XmlElement(name = "initial_plan_status_cd")
+    protected Long initialPlanStatusCd;
+    @XmlElement(name = "rollover_plan_status_duration")
+    protected Long rolloverPlanStatusDuration;
+    @XmlElement(name = "rollover_plan_status_uom_cd")
+    protected Long rolloverPlanStatusUomCd;
+    @XmlElement(name = "rollover_plan_status_cd")
+    protected Long rolloverPlanStatusCd;
     @XmlElement(name = "plan_rate_schedules_details")
     protected List<PlanRateSchedulesDetailsReturnElement> planRateSchedulesDetails;
     @XmlElement(name = "contract_rollover_plan_no")
@@ -51,6 +67,8 @@ public class SuppPlansDtlBySuppFieldReturnElement {
     protected String contractRolloverClientPlanId;
     @XmlElement(name = "contract_rollover_rate_sched")
     protected List<ContractRolloverRateSchedReturnElement> contractRolloverRateSched;
+    @XmlElement(name = "plan_translation_info")
+    protected List<PlanTranslationInfoReturnElement> planTranslationInfo;
     
     public Long getPlanNo() {
         return planNo;
@@ -172,6 +190,70 @@ public class SuppPlansDtlBySuppFieldReturnElement {
         this.prorationInvoiceTimingCd = value;
     }
 
+    public String getRolloverPlanDuration() {
+        return rolloverPlanDuration;
+    }
+
+    public void setRolloverPlanDuration(String value) {
+        this.rolloverPlanDuration = value;
+    }
+
+    public Long getRolloverPlanUomCd() {
+        return rolloverPlanUomCd;
+    }
+
+    public void setRolloverPlanUomCd(Long value) {
+        this.rolloverPlanUomCd = value;
+    }
+
+    public Long getInitFreePeriodDuration() {
+        return initFreePeriodDuration;
+    }
+
+    public void setInitFreePeriodDuration(Long value) {
+        this.initFreePeriodDuration = value;
+    }
+
+    public String getInitFreePeriodUomCd() {
+        return initFreePeriodUomCd;
+    }
+
+    public void setInitFreePeriodUomCd(String value) {
+        this.initFreePeriodUomCd = value;
+    }
+
+    public Long getInitialPlanStatusCd() {
+        return initialPlanStatusCd;
+    }
+
+    public void setInitialPlanStatusCd(Long value) {
+        this.initialPlanStatusCd = value;
+    }
+
+    public Long getRolloverPlanStatusDuration() {
+        return rolloverPlanStatusDuration;
+    }
+
+    public void setRolloverPlanStatusDuration(Long value) {
+        this.rolloverPlanStatusDuration = value;
+    }
+
+    public Long getRolloverPlanStatusUomCd() {
+        return rolloverPlanStatusUomCd;
+    }
+
+    public void setRolloverPlanStatusUomCd(Long value) {
+        this.rolloverPlanStatusUomCd = value;
+    }
+
+    public Long getRolloverPlanStatusCd() {
+        return rolloverPlanStatusCd;
+    }
+
+    public void setRolloverPlanStatusCd(Long value) {
+        this.rolloverPlanStatusCd = value;
+    }
+
     public List<PlanRateSchedulesDetailsReturnElement> getPlanRateSchedulesDetails() {
         if (this.planRateSchedulesDetails == null) {
             this.planRateSchedulesDetails = new ArrayList<PlanRateSchedulesDetailsReturnElement>();
@@ -198,5 +280,10 @@ public class SuppPlansDtlBySuppFieldReturnElement {
             this.contractRolloverRateSched = new ArrayList<ContractRolloverRateSchedReturnElement>();
         }
         return this.contractRolloverRateSched;
+    }public List<PlanTranslationInfoReturnElement> getPlanTranslationInfo() {
+        if (this.planTranslationInfo == null) {
+            this.planTranslationInfo = new ArrayList<PlanTranslationInfoReturnElement>();
+        }
+        return this.planTranslationInfo;
     }
 }

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "hierarchyFilter",    "includeCurrentAcct",    "includeSuppPlans",    "includeBillingGroups",    "includePaymentMethods"})
+    "authKey",    "acctNo",    "hierarchyFilter",    "includeCurrentAcct",    "includeSuppPlans",    "includeBillingGroups",    "includePaymentMethods",    "localeNo",    "localeName"})
 @XmlRootElement(name = "get_acct_hierarchy_details_m")
 public class GetAcctHierarchyDetailsM {
 
@@ -30,6 +30,10 @@ public class GetAcctHierarchyDetailsM {
     protected Long includeBillingGroups;
         @XmlElement(name = "include_payment_methods")
     protected Long includePaymentMethods;
+        @XmlElement(name = "locale_no")
+    protected Long localeNo;
+        @XmlElement(name = "locale_name")
+    protected String localeName;
     
     public long getClientNo() {
         return clientNo;
@@ -88,6 +92,20 @@ public class GetAcctHierarchyDetailsM {
 
     public void setIncludePaymentMethods(Long value) {
         this.includePaymentMethods = value;
+    }
+            public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+            public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
     }
             
 }

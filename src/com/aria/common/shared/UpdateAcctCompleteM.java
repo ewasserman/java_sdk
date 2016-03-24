@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "clientReceiptId",    "acctNo",    "clientAcctId",    "userid",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "firstName",    "mi",    "lastName",    "companyName",    "address1",    "address2",    "address3",    "city",    "locality",    "stateProv",    "countryCd",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "fax",    "email",    "birthdate",    "statusCd",    "notifyMethod",    "seniorAcctNo",    "seniorAcctUserid",    "seniorClientAcctId",    "testAcctInd",    "taxpayerId",    "altClientAcctGroupId",    "acctCoupons",    "acctStartDate",    "altMsgTemplateNo",    "cnAltMsgTemplateNo",    "seqFuncGroupNo",    "clientSeqFuncGroupId",    "taxExemptionLevel",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "resetDatesAfterStatus",    "newClientAcctId",    "invoicingOption",    "altStartDate",    "altBillDay",    "retroactiveStartDate",    "functionalAcctGroupsUpdate",    "collectionAcctGroupsUpdate",    "acctSuppFieldsUpdate",    "accountSurcharges",    "clientMasterPlanInstanceId",    "masterPlanInstanceNo",    "newClientMasterPlanInstanceId",    "clientMasterPlanId",    "masterPlanNo",    "masterPlanInstanceDesc",    "dunningGroupNo",    "clientDunningGroupId",    "mpBillingGroupNo",    "clientMpBillingGroupId",    "masterPlanInstanceStatus",    "masterPlanUnits",    "respLevelCd",    "parentMasterPlanInstNo",    "altRateScheduleNo",    "clientAltRateScheduleId",    "promoCd",    "mpCoupons",    "masterPlanAssignDirective",    "offsetMonths",    "offsetInterval",    "invoiceUnbilledUsage",    "invoiceApprovalRequired",    "statusDegradeDate",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "masterPlanPlanInstFields",    "mpSurcharges",    "updateAcctCustomRates",    "billingGroupsArray",    "paymentMethodsArray",    "revrecProfileNo",    "clientRevrecId",    "mpProrationInvoiceTiming",    "poNum",    "mpPoNum",    "listStartMasterFile"})
+    "authKey",    "clientReceiptId",    "acctNo",    "clientAcctId",    "userid",    "password",    "secretQuestion",    "secretQuestionAnswer",    "pin",    "firstName",    "mi",    "lastName",    "companyName",    "address1",    "address2",    "address3",    "city",    "locality",    "stateProv",    "countryCd",    "postalCd",    "phone",    "phoneExt",    "cellPhone",    "workPhone",    "workPhoneExt",    "fax",    "email",    "birthdate",    "statusCd",    "notifyMethod",    "seniorAcctNo",    "seniorAcctUserid",    "seniorClientAcctId",    "testAcctInd",    "taxpayerId",    "altClientAcctGroupId",    "acctCoupons",    "acctStartDate",    "altMsgTemplateNo",    "cnAltMsgTemplateNo",    "seqFuncGroupNo",    "clientSeqFuncGroupId",    "taxExemptionLevel",    "clientAltMsgTemplateId",    "clientCnAltMsgTemplateId",    "resetDatesAfterStatus",    "newClientAcctId",    "invoicingOption",    "altStartDate",    "altBillDay",    "retroactiveStartDate",    "functionalAcctGroupsUpdate",    "collectionAcctGroupsUpdate",    "acctSuppFieldsUpdate",    "accountSurcharges",    "clientMasterPlanInstanceId",    "masterPlanInstanceNo",    "newClientMasterPlanInstanceId",    "clientMasterPlanId",    "masterPlanNo",    "masterPlanInstanceDesc",    "dunningGroupNo",    "clientDunningGroupId",    "mpBillingGroupNo",    "clientMpBillingGroupId",    "masterPlanInstanceStatus",    "masterPlanUnits",    "respLevelCd",    "parentMasterPlanInstNo",    "altRateScheduleNo",    "clientAltRateScheduleId",    "promoCd",    "mpCoupons",    "masterPlanAssignDirective",    "offsetMonths",    "offsetInterval",    "invoiceUnbilledUsage",    "invoiceApprovalRequired",    "statusDegradeDate",    "usageAccumulationResetMonths",    "usagePooling",    "usageThresholdApplicability",    "masterPlanPlanInstFields",    "mpSurcharges",    "updateAcctCustomRates",    "billingGroupsArray",    "paymentMethodsArray",    "revrecProfileNo",    "clientRevrecId",    "mpProrationInvoiceTiming",    "poNum",    "mpPoNum",    "listStartMasterFile",    "localeNo",    "localeName"})
 @XmlRootElement(name = "update_acct_complete_m")
 public class UpdateAcctCompleteM {
 
@@ -204,6 +204,10 @@ public class UpdateAcctCompleteM {
     protected String mpPoNum;
         @XmlElement(name = "list_start_master_file")
     protected Long listStartMasterFile;
+        @XmlElement(name = "locale_no")
+    protected Long localeNo;
+        @XmlElement(name = "locale_name")
+    protected String localeName;
     
     public long getClientNo() {
         return clientNo;
@@ -871,6 +875,20 @@ public class UpdateAcctCompleteM {
 
     public void setListStartMasterFile(Long value) {
         this.listStartMasterFile = value;
+    }
+            public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+            public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
     }
             
 }

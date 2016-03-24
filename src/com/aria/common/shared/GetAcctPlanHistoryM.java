@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "filterPlanInstanceNo",    "filterClientPlanInstanceId"})
+    "authKey",    "acctNo",    "filterPlanInstanceNo",    "filterClientPlanInstanceId",    "localeNo",    "localeName"})
 @XmlRootElement(name = "get_acct_plan_history_m")
 public class GetAcctPlanHistoryM {
 
@@ -24,6 +24,10 @@ public class GetAcctPlanHistoryM {
     protected Long filterPlanInstanceNo;
         @XmlElement(name = "filter_client_plan_instance_id")
     protected String filterClientPlanInstanceId;
+        @XmlElement(name = "locale_no")
+    protected Long localeNo;
+        @XmlElement(name = "locale_name")
+    protected String localeName;
     
     public long getClientNo() {
         return clientNo;
@@ -61,6 +65,20 @@ public class GetAcctPlanHistoryM {
 
     public void setFilterClientPlanInstanceId(String value) {
         this.filterClientPlanInstanceId = value;
+    }
+            public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+            public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
     }
             
 }

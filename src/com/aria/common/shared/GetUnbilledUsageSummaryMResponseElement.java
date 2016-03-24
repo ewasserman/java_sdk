@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "currencyCd", "currencyName", "acctNo", "clientAcctId", "masterPlanInstanceId", "clientMasterPlanInstanceId", "mpiMtdThresholdAmount", "mpiPtdThresholdAmount", "clientMtdThresholdAmount", "clientPtdThresholdAmount", "mtdBalanceAmount", "ptdBalanceAmount", "mpiMtdDeltaSign", "mpiMtdDeltaAmount", "mpiPtdDeltaSign", "mpiPtdDeltaAmount", "clientMtdDeltaSign", "clientMtdDeltaAmount", "clientPtdDeltaSign", "clientPtdDeltaAmount", "unappSvcCreditBalAmount", "unappSvcCreditDeltaSign", "unappSvcCreditDeltaAmount", "unbilledUsageRec", "unitThresholdDetails"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "currencyCd", "currencyName", "acctNo", "clientAcctId", "masterPlanInstanceId", "clientMasterPlanInstanceId", "mpiMtdThresholdAmount", "mpiPtdThresholdAmount", "clientMtdThresholdAmount", "clientPtdThresholdAmount", "mtdBalanceAmount", "ptdBalanceAmount", "mpiMtdDeltaSign", "mpiMtdDeltaAmount", "mpiPtdDeltaSign", "mpiPtdDeltaAmount", "clientMtdDeltaSign", "clientMtdDeltaAmount", "clientPtdDeltaSign", "clientPtdDeltaAmount", "unappSvcCreditBalAmount", "unappSvcCreditDeltaSign", "unappSvcCreditDeltaAmount", "unbilledUsageRec", "unitThresholdDetails", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "get_unbilled_usage_summary_mResponseElement")
 public class GetUnbilledUsageSummaryMResponseElement {
 
@@ -68,6 +68,10 @@ public class GetUnbilledUsageSummaryMResponseElement {
     protected List<UnbilledUsageRecReturnElement> unbilledUsageRec;
     @XmlElement(name = "unit_threshold_details")
     protected List<UnitThresholdDetailsReturnElement> unitThresholdDetails;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -279,5 +283,21 @@ public class GetUnbilledUsageSummaryMResponseElement {
             this.unitThresholdDetails = new ArrayList<UnitThresholdDetailsReturnElement>();
         }
         return this.unitThresholdDetails;
+    }public Long getAcctLocaleNo() {
+        return acctLocaleNo;
     }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
+    }
+
+    
 }

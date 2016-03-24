@@ -18,11 +18,11 @@ public class TaxDetailsReturnElement {
     @XmlElement(name = "seq_num")
     protected Long seqNum;
     @XmlElement(name = "taxed_seq_num")
-    protected String taxedSeqNum;
+    protected Long taxedSeqNum;
     @XmlElement(name = "debit")
     protected Double debit;
     @XmlElement(name = "tax_authority_level")
-    protected Double taxAuthorityLevel;
+    protected Long taxAuthorityLevel;
     @XmlElement(name = "tax_rate")
     protected Double taxRate;
     @XmlElement(name = "orig_was_tax_inclusive")
@@ -54,11 +54,11 @@ public class TaxDetailsReturnElement {
         this.seqNum = value;
     }
 
-    public String getTaxedSeqNum() {
+    public Long getTaxedSeqNum() {
         return taxedSeqNum;
     }
 
-    public void setTaxedSeqNum(String value) {
+    public void setTaxedSeqNum(Long value) {
         this.taxedSeqNum = value;
     }
 
@@ -70,11 +70,11 @@ public class TaxDetailsReturnElement {
         this.debit = value;
     }
 
-    public Double getTaxAuthorityLevel() {
+    public Long getTaxAuthorityLevel() {
         return taxAuthorityLevel;
     }
 
-    public void setTaxAuthorityLevel(Double value) {
+    public void setTaxAuthorityLevel(Long value) {
         this.taxAuthorityLevel = value;
     }
 

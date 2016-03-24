@@ -70,7 +70,9 @@ import javax.xml.bind.annotation.XmlType;
     "consumerAcctInd",
     "revrecProfileNo",
     "clientRevrecId",
-    "poNum"
+    "poNum",
+    "localeNo",
+    "localeName"
     })
 public class AcctRow {
 
@@ -200,6 +202,10 @@ public class AcctRow {
     protected String clientRevrecId;
     @XmlElement(name = "po_num")
     protected String poNum;
+    @XmlElement(name = "locale_no")
+    protected Long localeNo;
+    @XmlElement(name = "locale_name")
+    protected String localeName;
     public com.aria.common.shared.AcctArray getAcct() {
         return acct;
     }
@@ -702,6 +708,22 @@ public class AcctRow {
 
     public void setPoNum(String value) {
         this.poNum = value;
+    }
+
+    public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+
+    public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
     }
 
     

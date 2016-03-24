@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "billing_groups_ReturnElement", propOrder = {"billingGroupNo", "billingGroupName", "billingGroupDescription", "clientBillingGroupId", "notifyMethod", "notifyTemplateGroup", "statementTemplate", "creditNoteTemplate", "primaryPaymentMethodNo", "clientPrimaryPaymentMethodId", "backupPaymentMethodNo", "clientBackupPaymentMethodId", "stmtFirstName", "stmtMi", "stmtLastName", "stmtCompanyName", "stmtAddress1", "stmtAddress2", "stmtAddress3", "stmtCity", "stmtLocality", "stmtStateProv", "stmtCountry", "stmtPostalCd", "stmtPhone", "stmtPhoneExt", "stmtCellPhone", "stmtWorkPhone", "stmtWorkPhoneExt", "stmtFax", "stmtEmail", "stmtBirthdate", "listStartMasterFile", "addressVerificationCode", "addressMatchScore", "masterPlansSummary"})
+@XmlType(name = "billing_groups_ReturnElement", propOrder = {"billingGroupNo", "billingGroupName", "billingGroupDescription", "clientBillingGroupId", "status", "notifyMethod", "notifyTemplateGroup", "statementTemplate", "creditNoteTemplate", "primaryPaymentMethodNo", "clientPrimaryPaymentMethodId", "backupPaymentMethodNo", "clientBackupPaymentMethodId", "stmtFirstName", "stmtMi", "stmtLastName", "stmtCompanyName", "stmtAddress1", "stmtAddress2", "stmtAddress3", "stmtCity", "stmtLocality", "stmtStateProv", "stmtCountry", "stmtPostalCd", "stmtPhone", "stmtPhoneExt", "stmtCellPhone", "stmtWorkPhone", "stmtWorkPhoneExt", "stmtFax", "stmtEmail", "stmtBirthdate", "listStartMasterFile", "addressVerificationCode", "addressMatchScore", "masterPlansSummary"})
 public class BillingGroupsReturnElement {
 
     @XmlElement(name = "billing_group_no")
@@ -21,6 +21,8 @@ public class BillingGroupsReturnElement {
     protected String billingGroupDescription;
     @XmlElement(name = "client_billing_group_id")
     protected String clientBillingGroupId;
+    @XmlElement(name = "status")
+    protected Long status;
     @XmlElement(name = "notify_method")
     protected Long notifyMethod;
     @XmlElement(name = "notify_template_group")
@@ -116,6 +118,14 @@ public class BillingGroupsReturnElement {
 
     public void setClientBillingGroupId(String value) {
         this.clientBillingGroupId = value;
+    }
+
+    public Long getStatus() {
+        return status;
+    }
+
+    public void setStatus(Long value) {
+        this.status = value;
     }
 
     public Long getNotifyMethod() {

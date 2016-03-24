@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "specifiedUsageTypeNo",    "dateRangeStart",    "dateRangeEnd",    "specifiedUsageTypeCode",    "usageQualifier1",    "usageQualifier2",    "usageQualifier3",    "usageQualifier4",    "limit",    "offset",    "invoiceNo",    "invoiceLineItem",    "retrieveExcludedUsage"})
+    "authKey",    "acctNo",    "clientAcctId",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "specifiedUsageTypeNo",    "dateRangeStart",    "dateRangeEnd",    "specifiedUsageTypeCode",    "usageQualifier1",    "usageQualifier2",    "usageQualifier3",    "usageQualifier4",    "limit",    "offset",    "invoiceNo",    "invoiceLineItem",    "retrieveExcludedUsage",    "localeNo",    "localeName"})
 @XmlRootElement(name = "get_usage_history_m")
 public class GetUsageHistoryM {
 
@@ -52,6 +52,10 @@ public class GetUsageHistoryM {
     protected Long invoiceLineItem;
         @XmlElement(name = "retrieve_excluded_usage")
     protected String retrieveExcludedUsage;
+        @XmlElement(name = "locale_no")
+    protected Long localeNo;
+        @XmlElement(name = "locale_name")
+    protected String localeName;
     
     public long getClientNo() {
         return clientNo;
@@ -187,6 +191,20 @@ public class GetUsageHistoryM {
 
     public void setRetrieveExcludedUsage(String value) {
         this.retrieveExcludedUsage = value;
+    }
+            public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+            public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
     }
             
 }

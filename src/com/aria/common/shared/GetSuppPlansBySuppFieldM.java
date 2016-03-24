@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "fieldVal",    "fieldNo",    "fieldName",    "includeRsSummary"})
+    "authKey",    "fieldVal",    "fieldNo",    "fieldName",    "includeRsSummary",    "localeNo",    "localeName",    "includeTranslations"})
 @XmlRootElement(name = "get_supp_plans_by_supp_field_m")
 public class GetSuppPlansBySuppFieldM {
 
@@ -26,6 +26,12 @@ public class GetSuppPlansBySuppFieldM {
     protected String fieldName;
         @XmlElement(name = "include_rs_summary")
     protected String includeRsSummary;
+        @XmlElement(name = "locale_no")
+    protected Long localeNo;
+        @XmlElement(name = "locale_name")
+    protected String localeName;
+        @XmlElement(name = "include_translations")
+    protected String includeTranslations;
     
     public long getClientNo() {
         return clientNo;
@@ -70,6 +76,27 @@ public class GetSuppPlansBySuppFieldM {
 
     public void setIncludeRsSummary(String value) {
         this.includeRsSummary = value;
+    }
+            public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+            public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
+    }
+            public String getIncludeTranslations() {
+        return includeTranslations;
+    }
+
+    public void setIncludeTranslations(String value) {
+        this.includeTranslations = value;
     }
             
 }

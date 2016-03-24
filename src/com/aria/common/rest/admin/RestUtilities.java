@@ -2021,6 +2021,10 @@ public class RestUtilities {
             for (ClientItemIdReturnElement element : arrayListClientItemIdReturnElement){
                 entity.getClientItemId().add(element);
             }
+                        ArrayList<RuleApplicationReturnElement> arrayListRuleApplicationReturnElement = buildRuleApplicationReturnElement((JSONArray)jsonObject.get("rule_application"));
+            for (RuleApplicationReturnElement element : arrayListRuleApplicationReturnElement){
+                entity.getRuleApplication().add(element);
+            }
             } else {
             try {
                 if (jsonArray.get(i) instanceof JSONArray){
@@ -2220,6 +2224,7 @@ public class RestUtilities {
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setClientPlanIds(getStringValue(jsonObject,"client_plan_ids"));
+            entity.setPlanIds(getStringValue(jsonObject,"plan_ids"));
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2227,6 +2232,13 @@ public class RestUtilities {
                     }
                 } else {
                     entity.setClientPlanIds(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setPlanIds(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -2268,6 +2280,7 @@ public class RestUtilities {
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setClientServiceIds(getStringValue(jsonObject,"client_service_ids"));
+            entity.setServiceIds(getStringValue(jsonObject,"service_ids"));
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2275,6 +2288,13 @@ public class RestUtilities {
                     }
                 } else {
                     entity.setClientServiceIds(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setServiceIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setServiceIds(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -2316,6 +2336,7 @@ public class RestUtilities {
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
             entity.setClientItemIds(getStringValue(jsonObject,"client_item_ids"));
+            entity.setItemIds(getStringValue(jsonObject,"item_ids"));
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -2323,6 +2344,97 @@ public class RestUtilities {
                     }
                 } else {
                     entity.setClientItemIds(jsonArray.get(i).toString());
+                }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setItemIds(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setItemIds(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<RuleApplicationReturnElement> buildRuleApplicationReturnElement(JSONArray jsonArray) {
+        ArrayList<RuleApplicationReturnElement> returnElement = new ArrayList<RuleApplicationReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            RuleApplicationReturnElement entity = new RuleApplicationReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+                        ArrayList<PlanNoReturnElement> arrayListPlanNoReturnElement = buildPlanNoReturnElement((JSONArray)jsonObject.get("plan_no"));
+            for (PlanNoReturnElement element : arrayListPlanNoReturnElement){
+                entity.getPlanNo().add(element);
+            }
+                        ArrayList<ClientPlanIdReturnElement> arrayListClientPlanIdReturnElement = buildClientPlanIdReturnElement((JSONArray)jsonObject.get("client_plan_id"));
+            for (ClientPlanIdReturnElement element : arrayListClientPlanIdReturnElement){
+                entity.getClientPlanId().add(element);
+            }
+                        ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
+            for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
+                entity.getServiceNo().add(element);
+            }
+                        ArrayList<ClientServiceIdReturnElement> arrayListClientServiceIdReturnElement = buildClientServiceIdReturnElement((JSONArray)jsonObject.get("client_service_id"));
+            for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
+                entity.getClientServiceId().add(element);
+            }
+                        ArrayList<ItemNoReturnElement> arrayListItemNoReturnElement = buildItemNoReturnElement((JSONArray)jsonObject.get("item_no"));
+            for (ItemNoReturnElement element : arrayListItemNoReturnElement){
+                entity.getItemNo().add(element);
+            }
+                        ArrayList<ClientItemIdReturnElement> arrayListClientItemIdReturnElement = buildClientItemIdReturnElement((JSONArray)jsonObject.get("client_item_id"));
+            for (ClientItemIdReturnElement element : arrayListClientItemIdReturnElement){
+                entity.getClientItemId().add(element);
+            }
+                        ArrayList<PlanServiceReturnElement> arrayListPlanServiceReturnElement = buildPlanServiceReturnElement((JSONArray)jsonObject.get("plan_service"));
+            for (PlanServiceReturnElement element : arrayListPlanServiceReturnElement){
+                entity.getPlanService().add(element);
+            }
+            } else {
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PlanServiceReturnElement> buildPlanServiceReturnElement(JSONArray jsonArray) {
+        ArrayList<PlanServiceReturnElement> returnElement = new ArrayList<PlanServiceReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PlanServiceReturnElement entity = new PlanServiceReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
+            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
+                        ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
+            for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
+                entity.getServiceNo().add(element);
+            }
+                        ArrayList<ClientServiceIdReturnElement> arrayListClientServiceIdReturnElement = buildClientServiceIdReturnElement((JSONArray)jsonObject.get("client_service_id"));
+            for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
+                entity.getClientServiceId().add(element);
+            }
+            } else {
+            try {
+                if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
+                    }
+                } else {
+                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
+                }
+            } catch (NumberFormatException e) {
+                entity.setPlanNo(null);
+            }
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setClientPlanId(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -4173,6 +4285,10 @@ public class RestUtilities {
             entity.setFieldNo(getLongValue(jsonObject,"field_no"));
             entity.setFieldName(getStringValue(jsonObject,"field_name"));
             entity.setDescription(getStringValue(jsonObject,"description"));
+                        ArrayList<AllowedValuesTReturnElement> arrayListAllowedValuesTReturnElement = buildAllowedValuesTReturnElement((JSONArray)jsonObject.get("allowed_values_t"));
+            for (AllowedValuesTReturnElement element : arrayListAllowedValuesTReturnElement){
+                entity.getAllowedValuesT().add(element);
+            }
             } else {
             if (jsonArray.get(i) instanceof JSONArray){
                     if(((JSONArray)jsonArray.get(i)).size() > 0){
@@ -4205,6 +4321,28 @@ public class RestUtilities {
                     }
                 } else {
                     entity.setDescription(jsonArray.get(i).toString());
+                }
+            }
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<AllowedValuesTReturnElement> buildAllowedValuesTReturnElement(JSONArray jsonArray) {
+        ArrayList<AllowedValuesTReturnElement> returnElement = new ArrayList<AllowedValuesTReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            AllowedValuesTReturnElement entity = new AllowedValuesTReturnElement();
+            JSONObject jsonObject = null;
+            if (jsonArray.get(i) instanceof JSONObject){
+            jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setValue(getStringValue(jsonObject,"value"));
+            } else {
+            if (jsonArray.get(i) instanceof JSONArray){
+                    if(((JSONArray)jsonArray.get(i)).size() > 0){
+                        entity.setValue(((JSONArray)jsonArray.get(i)).get(0).toString());
+                    }
+                } else {
+                    entity.setValue(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);
@@ -4637,48 +4775,6 @@ public class RestUtilities {
                     }
                 } else {
                     entity.setDescription(jsonArray.get(i).toString());
-                }
-            }
-            returnElement.add(entity);
-        }
-        return returnElement;
-    }
-    public static ArrayList<PlanServiceReturnElement> buildPlanServiceReturnElement(JSONArray jsonArray) {
-        ArrayList<PlanServiceReturnElement> returnElement = new ArrayList<PlanServiceReturnElement>();
-        if (jsonArray == null) return returnElement;
-        for (int i = 0;i < jsonArray.size();i++) {
-            PlanServiceReturnElement entity = new PlanServiceReturnElement();
-            JSONObject jsonObject = null;
-            if (jsonArray.get(i) instanceof JSONObject){
-            jsonObject = (JSONObject)jsonArray.get(i);
-            entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
-            entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
-                        ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
-            for (ServiceNoReturnElement element : arrayListServiceNoReturnElement){
-                entity.getServiceNo().add(element);
-            }
-                        ArrayList<ClientServiceIdReturnElement> arrayListClientServiceIdReturnElement = buildClientServiceIdReturnElement((JSONArray)jsonObject.get("client_service_id"));
-            for (ClientServiceIdReturnElement element : arrayListClientServiceIdReturnElement){
-                entity.getClientServiceId().add(element);
-            }
-            } else {
-            try {
-                if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setPlanNo(Long.parseLong(((JSONArray)jsonArray.get(i)).get(0).toString()));
-                    }
-                } else {
-                    entity.setPlanNo(Long.parseLong(jsonArray.get(i).toString()));
-                }
-            } catch (NumberFormatException e) {
-                entity.setPlanNo(null);
-            }
-            if (jsonArray.get(i) instanceof JSONArray){
-                    if(((JSONArray)jsonArray.get(i)).size() > 0){
-                        entity.setClientPlanId(((JSONArray)jsonArray.get(i)).get(0).toString());
-                    }
-                } else {
-                    entity.setClientPlanId(jsonArray.get(i).toString());
                 }
             }
             returnElement.add(entity);

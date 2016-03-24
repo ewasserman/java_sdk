@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_plans_m_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planInstanceNo", "clientPlanInstanceId", "planDate", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "recurringBillingInterval", "usageBillingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "suppPlanInd", "planInstanceStatusCd", "planInstanceStatusLabel", "planInstanceStatusDate", "dunningState", "dunningStep", "dunningDegradeDate", "planAssignmentDate", "planDeprovisionedDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd", "masterPlanInstanceNo", "clientMasterPlanInstanceId", "parentPlanInstanceNo", "clientParentPlanInstanceId", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSchedNo", "contractRolloverClientRateSchedId", "poNum"})
+@XmlType(name = "acct_plans_m_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planInstanceNo", "clientPlanInstanceId", "planDate", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "recurringBillingInterval", "usageBillingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "rolloverPlanDuration", "rolloverPlanUomCd", "initialPlanStatusCd", "rolloverPlanStatusCd", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "suppPlanInd", "planInstanceStatusCd", "planInstanceStatusLabel", "planInstanceStatusDate", "dunningState", "dunningStep", "dunningDegradeDate", "planAssignmentDate", "planDeprovisionedDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd", "masterPlanInstanceNo", "clientMasterPlanInstanceId", "parentPlanInstanceNo", "clientParentPlanInstanceId", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSchedNo", "contractRolloverClientRateSchedId", "poNum"})
 public class AcctPlansMReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -64,7 +64,15 @@ public class AcctPlansMReturnElement {
     @XmlElement(name = "init_free_period_duration")
     protected Long initFreePeriodDuration;
     @XmlElement(name = "init_free_period_uom_cd")
-    protected Long initFreePeriodUomCd;
+    protected String initFreePeriodUomCd;
+    @XmlElement(name = "rollover_plan_duration")
+    protected String rolloverPlanDuration;
+    @XmlElement(name = "rollover_plan_uom_cd")
+    protected Long rolloverPlanUomCd;
+    @XmlElement(name = "initial_plan_status_cd")
+    protected Long initialPlanStatusCd;
+    @XmlElement(name = "rollover_plan_status_cd")
+    protected Long rolloverPlanStatusCd;
     @XmlElement(name = "plan_2_assign_on_susp")
     protected Long plan2AssignOnSusp;
     @XmlElement(name = "default_notify_method")
@@ -328,12 +336,44 @@ public class AcctPlansMReturnElement {
         this.initFreePeriodDuration = value;
     }
 
-    public Long getInitFreePeriodUomCd() {
+    public String getInitFreePeriodUomCd() {
         return initFreePeriodUomCd;
     }
 
-    public void setInitFreePeriodUomCd(Long value) {
+    public void setInitFreePeriodUomCd(String value) {
         this.initFreePeriodUomCd = value;
+    }
+
+    public String getRolloverPlanDuration() {
+        return rolloverPlanDuration;
+    }
+
+    public void setRolloverPlanDuration(String value) {
+        this.rolloverPlanDuration = value;
+    }
+
+    public Long getRolloverPlanUomCd() {
+        return rolloverPlanUomCd;
+    }
+
+    public void setRolloverPlanUomCd(Long value) {
+        this.rolloverPlanUomCd = value;
+    }
+
+    public Long getInitialPlanStatusCd() {
+        return initialPlanStatusCd;
+    }
+
+    public void setInitialPlanStatusCd(Long value) {
+        this.initialPlanStatusCd = value;
+    }
+
+    public Long getRolloverPlanStatusCd() {
+        return rolloverPlanStatusCd;
+    }
+
+    public void setRolloverPlanStatusCd(Long value) {
+        this.rolloverPlanStatusCd = value;
     }
 
     public Long getPlan2AssignOnSusp() {

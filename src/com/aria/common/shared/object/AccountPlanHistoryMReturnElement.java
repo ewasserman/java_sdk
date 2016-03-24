@@ -38,7 +38,7 @@ public class AccountPlanHistoryMReturnElement {
     @XmlElement(name = "old_rate_schedule_no")
     protected Long oldRateScheduleNo;
     @XmlElement(name = "old_client_rate_schedule_id")
-    protected Long oldClientRateScheduleId;
+    protected String oldClientRateScheduleId;
     @XmlElement(name = "new_plan_name")
     protected String newPlanName;
     @XmlElement(name = "new_plan_no")
@@ -56,7 +56,7 @@ public class AccountPlanHistoryMReturnElement {
     @XmlElement(name = "new_rate_schedule_no")
     protected Long newRateScheduleNo;
     @XmlElement(name = "new_client_rate_schedule_id")
-    protected Long newClientRateScheduleId;
+    protected String newClientRateScheduleId;
     @XmlElement(name = "old_dunning_state")
     protected Long oldDunningState;
     @XmlElement(name = "new_dunning_state")
@@ -158,11 +158,11 @@ public class AccountPlanHistoryMReturnElement {
         this.oldRateScheduleNo = value;
     }
 
-    public Long getOldClientRateScheduleId() {
+    public String getOldClientRateScheduleId() {
         return oldClientRateScheduleId;
     }
 
-    public void setOldClientRateScheduleId(Long value) {
+    public void setOldClientRateScheduleId(String value) {
         this.oldClientRateScheduleId = value;
     }
 
@@ -230,11 +230,11 @@ public class AccountPlanHistoryMReturnElement {
         this.newRateScheduleNo = value;
     }
 
-    public Long getNewClientRateScheduleId() {
+    public String getNewClientRateScheduleId() {
         return newClientRateScheduleId;
     }
 
-    public void setNewClientRateScheduleId(Long value) {
+    public void setNewClientRateScheduleId(String value) {
         this.newClientRateScheduleId = value;
     }
 

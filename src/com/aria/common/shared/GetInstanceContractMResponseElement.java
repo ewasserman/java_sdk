@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "typeNo", "lengthMonths", "createComments", "updateComments", "createDate", "updateDate", "startDate", "endDate", "statusCode", "contractPlanInstanceDetails"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "typeNo", "lengthMonths", "createComments", "updateComments", "createDate", "updateDate", "startDate", "endDate", "statusCode", "contractPlanInstanceDetails", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "get_instance_contract_mResponseElement")
 public class GetInstanceContractMResponseElement {
 
@@ -38,6 +38,10 @@ public class GetInstanceContractMResponseElement {
     protected String statusCode;
     @XmlElement(name = "contract_plan_instance_details")
     protected List<ContractPlanInstanceDetailsReturnElement> contractPlanInstanceDetails;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -132,5 +136,21 @@ public class GetInstanceContractMResponseElement {
             this.contractPlanInstanceDetails = new ArrayList<ContractPlanInstanceDetailsReturnElement>();
         }
         return this.contractPlanInstanceDetails;
+    }public Long getAcctLocaleNo() {
+        return acctLocaleNo;
     }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
+    }
+
+    
 }

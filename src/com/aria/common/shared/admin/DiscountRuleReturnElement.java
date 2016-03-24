@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "discount_rule_ReturnElement", propOrder = {"ruleNo", "ruleName", "ruleId", "description", "extDescription", "discountType", "flatPercentInd", "amount", "currency", "applicableTransScope", "durationTypeInd", "maxApplicableMonths", "maxApplicationsPerAcct", "inlineOffsetInd", "serviceCodeToUse", "altServiceNo2Apply", "altServiceId2Apply", "scopeNo", "planNo", "clientPlanId", "serviceNo", "clientServiceId", "itemNo", "clientItemId"})
+@XmlType(name = "discount_rule_ReturnElement", propOrder = {"ruleNo", "ruleName", "ruleId", "description", "extDescription", "discountType", "flatPercentInd", "amount", "currency", "applicableTransScope", "durationTypeInd", "maxApplicableMonths", "maxApplicationsPerAcct", "inlineOffsetInd", "serviceCodeToUse", "altServiceNo2Apply", "altServiceId2Apply", "scopeNo", "planNo", "clientPlanId", "serviceNo", "clientServiceId", "itemNo", "clientItemId", "ruleApplication"})
 public class DiscountRuleReturnElement {
 
     @XmlElement(name = "rule_no")
@@ -61,6 +61,8 @@ public class DiscountRuleReturnElement {
     protected List<ItemNoReturnElement> itemNo;
     @XmlElement(name = "client_item_id")
     protected List<ClientItemIdReturnElement> clientItemId;
+    @XmlElement(name = "rule_application")
+    protected List<RuleApplicationReturnElement> ruleApplication;
     
     public Long getRuleNo() {
         return ruleNo;
@@ -236,5 +238,10 @@ public class DiscountRuleReturnElement {
             this.clientItemId = new ArrayList<ClientItemIdReturnElement>();
         }
         return this.clientItemId;
+    }public List<RuleApplicationReturnElement> getRuleApplication() {
+        if (this.ruleApplication == null) {
+            this.ruleApplication = new ArrayList<RuleApplicationReturnElement>();
+        }
+        return this.ruleApplication;
     }
 }

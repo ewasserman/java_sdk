@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "usageUnits",    "acctNo",    "userid",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "planInstanceNo",    "usageType",    "usageDate",    "billableUnits",    "amt",    "rate",    "telcoFrom",    "telcoTo",    "comments",    "excludeFromBilling",    "exclusionComments",    "qualifier1",    "qualifier2",    "qualifier3",    "qualifier4",    "parentUsageRecNo",    "usageTypeCode",    "clientRecordId",    "callerId",    "clientReceiptId"})
+    "authKey",    "usageUnits",    "acctNo",    "userid",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "planInstanceNo",    "clientPlanInstanceId",    "usageType",    "usageDate",    "billableUnits",    "amt",    "rate",    "telcoFrom",    "telcoTo",    "comments",    "excludeFromBilling",    "exclusionComments",    "qualifier1",    "qualifier2",    "qualifier3",    "qualifier4",    "parentUsageRecNo",    "usageTypeCode",    "clientRecordId",    "callerId",    "clientReceiptId"})
 @XmlRootElement(name = "record_usage_m")
 public class RecordUsageM {
 
@@ -30,6 +30,8 @@ public class RecordUsageM {
     protected String clientMasterPlanInstanceId;
         @XmlElement(name = "plan_instance_no")
     protected Long planInstanceNo;
+        @XmlElement(name = "client_plan_instance_id")
+    protected String clientPlanInstanceId;
         @XmlElement(name = "usage_type")
     protected Long usageType;
         @XmlElement(name = "usage_date")
@@ -126,6 +128,13 @@ public class RecordUsageM {
 
     public void setPlanInstanceNo(Long value) {
         this.planInstanceNo = value;
+    }
+            public String getClientPlanInstanceId() {
+        return clientPlanInstanceId;
+    }
+
+    public void setClientPlanInstanceId(String value) {
+        this.clientPlanInstanceId = value;
     }
             public Long getUsageType() {
         return usageType;

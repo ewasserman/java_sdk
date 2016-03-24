@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "listStartMasterFile", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "revrecProfileNo", "clientRevrecId", "invoiceApprovalRequired", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurchargesInfo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "acctCoupons", "poNum", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "consumerAcctInd", "errorCode", "errorMsg"})
+@XmlType(name = "", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "listStartMasterFile", "clientAltMsgTemplateId", "clientCnAltMsgTemplateId", "revrecProfileNo", "clientRevrecId", "invoiceApprovalRequired", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurchargesInfo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "acctCoupons", "poNum", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "consumerAcctInd", "acctLocaleNo", "acctLocaleName", "errorCode", "errorMsg"})
 @XmlRootElement(name = "get_acct_details_all_mResponseElement")
 public class GetAcctDetailsAllMResponseElement {
 
@@ -126,6 +126,10 @@ public class GetAcctDetailsAllMResponseElement {
     protected List<MasterPlansInfoReturnElement> masterPlansInfo;
     @XmlElement(name = "consumer_acct_ind")
     protected Long consumerAcctInd;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     @XmlElement(name = "error_code")
     protected Long errorCode;
     @XmlElement(name = "error_msg")
@@ -553,6 +557,22 @@ public class GetAcctDetailsAllMResponseElement {
 
     public void setConsumerAcctInd(Long value) {
         this.consumerAcctInd = value;
+    }
+
+    public Long getAcctLocaleNo() {
+        return acctLocaleNo;
+    }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
     }
 
     public Long getErrorCode() {

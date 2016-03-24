@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "acctNo", "serviceOutageLineItems", "totalOutageCredit", "adjustedOutageCredit"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "acctNo", "serviceOutageLineItems", "totalOutageCredit", "adjustedOutageCredit", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "get_acct_service_outage_credit_mResponseElement")
 public class GetAcctServiceOutageCreditMResponseElement {
 
@@ -26,6 +26,10 @@ public class GetAcctServiceOutageCreditMResponseElement {
     protected Double totalOutageCredit;
     @XmlElement(name = "adjusted_outage_credit")
     protected Double adjustedOutageCredit;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -70,6 +74,22 @@ public class GetAcctServiceOutageCreditMResponseElement {
 
     public void setAdjustedOutageCredit(Double value) {
         this.adjustedOutageCredit = value;
+    }
+
+    public Long getAcctLocaleNo() {
+        return acctLocaleNo;
+    }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
     }
 
     
