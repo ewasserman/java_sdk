@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "allClientAvailPlans"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "allClientAvailPlans", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "get_avail_plans_for_acct_mResponseElement")
 public class GetAvailPlansForAcctMResponseElement {
 
@@ -20,6 +20,10 @@ public class GetAvailPlansForAcctMResponseElement {
     protected String errorMsg;
     @XmlElement(name = "all_client_avail_plans")
     protected List<AllClientAvailPlansReturnElement> allClientAvailPlans;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -42,5 +46,21 @@ public class GetAvailPlansForAcctMResponseElement {
             this.allClientAvailPlans = new ArrayList<AllClientAvailPlansReturnElement>();
         }
         return this.allClientAvailPlans;
+    }public Long getAcctLocaleNo() {
+        return acctLocaleNo;
     }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
+    }
+
+    
 }

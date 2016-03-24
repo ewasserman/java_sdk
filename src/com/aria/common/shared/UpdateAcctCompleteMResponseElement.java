@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "collectionErrorCode", "collectionErrorMsg", "parentChildSyncErrorCode", "parentChildSyncErrorMsg", "masterPlanErrorCode", "masterPlanErrorMsg", "masterPlanCollErrorCode", "masterPlanCollErrorMsg", "masterPlanStmtErrorCode", "masterPlanStmtErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "thirdPartyErrors", "masterPlanInstanceId", "outClientMpInstanceId", "outMasterPlanNo", "outClientMasterPlanId", "outMasterPlanInstanceDescription", "masterPlanProrationResultTotalAmount", "masterPlanProrationAmount", "masterPlanProrationTaxAmount", "masterPlanProrationSurchargeAmount", "masterPlanProrationCreditAmount", "suppPlanInstanceId", "outClientSuppPlanInstanceId", "suppPlanProrationAmount", "suppPlanProrationTaxAmount", "suppPlanProrationSurchargeAmount", "suppPlanProrationCreditAmount", "outInvoiceNo", "outBillingGroupNo", "outClientBillingGroupId"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "collectionErrorCode", "collectionErrorMsg", "parentChildSyncErrorCode", "parentChildSyncErrorMsg", "masterPlanErrorCode", "masterPlanErrorMsg", "masterPlanCollErrorCode", "masterPlanCollErrorMsg", "masterPlanStmtErrorCode", "masterPlanStmtErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "thirdPartyErrors", "masterPlanInstanceId", "outClientMpInstanceId", "outMasterPlanNo", "outClientMasterPlanId", "outMasterPlanInstanceDescription", "masterPlanProrationResultTotalAmount", "masterPlanProrationAmount", "masterPlanProrationTaxAmount", "masterPlanProrationSurchargeAmount", "masterPlanProrationCreditAmount", "suppPlanInstanceId", "outClientSuppPlanInstanceId", "suppPlanProrationAmount", "suppPlanProrationTaxAmount", "suppPlanProrationSurchargeAmount", "suppPlanProrationCreditAmount", "outInvoiceNo", "outBillingGroupNo", "outClientBillingGroupId", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "update_acct_complete_mResponseElement")
 public class UpdateAcctCompleteMResponseElement {
 
@@ -94,6 +94,10 @@ public class UpdateAcctCompleteMResponseElement {
     protected Long outBillingGroupNo;
     @XmlElement(name = "out_client_billing_group_id")
     protected String outClientBillingGroupId;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -410,6 +414,22 @@ public class UpdateAcctCompleteMResponseElement {
 
     public void setOutClientBillingGroupId(String value) {
         this.outClientBillingGroupId = value;
+    }
+
+    public Long getAcctLocaleNo() {
+        return acctLocaleNo;
+    }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
     }
 
     

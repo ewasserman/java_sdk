@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "acct_hierarchy_dtls_ReturnElement", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "listStartMasterFile", "clientCnAltMsgTemplateId", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurchargesInfo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "poNum", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "childAcctNo"})
+@XmlType(name = "acct_hierarchy_dtls_ReturnElement", propOrder = {"acctNo", "clientAcctId", "userid", "firstName", "middleInitial", "lastName", "companyName", "address1", "address2", "address3", "city", "locality", "stateProv", "countryCd", "postalCd", "phone", "phoneExt", "cellPhone", "workPhone", "workPhoneExt", "fax", "email", "birthdate", "statusCd", "notifyMethod", "seniorAcctNo", "seniorAcctUserId", "seniorClientAcctId", "testAcctInd", "taxpayerId", "acctStartDate", "altMsgTemplateNo", "seqFuncGroupNo", "taxExemptionLevel", "clientAltMsgTemplateId", "listStartMasterFile", "clientCnAltMsgTemplateId", "functionalAcctGroup", "collectionAcctGroup", "suppField", "acctSurchargesInfo", "acctCurrency", "acctBalance", "addressVerificationCode", "addressMatchScore", "acctCreateClientReceiptId", "statusClientReceiptId", "poNum", "billingGroupsInfo", "paymentMethodsInfo", "masterPlansInfo", "childAcctNo", "acctLocaleNo", "acctLocaleName"})
 public class AcctHierarchyDtlsReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -117,6 +117,10 @@ public class AcctHierarchyDtlsReturnElement {
     protected List<MasterPlansInfoReturnElement> masterPlansInfo;
     @XmlElement(name = "child_acct_no")
     protected List<ChildAcctNoReturnElement> childAcctNo;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getAcctNo() {
         return acctNo;
@@ -510,5 +514,21 @@ public class AcctHierarchyDtlsReturnElement {
             this.childAcctNo = new ArrayList<ChildAcctNoReturnElement>();
         }
         return this.childAcctNo;
+    }public Long getAcctLocaleNo() {
+        return acctLocaleNo;
     }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
+    }
+
+    
 }

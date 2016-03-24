@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "queuedPlans", "currentRateScheduleNo", "clientCurrentRateScheduleId"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "queuedPlanInstanceDetails", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "get_queued_acct_plans_mResponseElement")
 public class GetQueuedAcctPlansMResponseElement {
 
@@ -18,12 +18,12 @@ public class GetQueuedAcctPlansMResponseElement {
     protected Long errorCode;
     @XmlElement(name = "error_msg")
     protected String errorMsg;
-    @XmlElement(name = "queued_plans")
-    protected List<QueuedPlansReturnElement> queuedPlans;
-    @XmlElement(name = "current_rate_schedule_no")
-    protected Long currentRateScheduleNo;
-    @XmlElement(name = "client_current_rate_schedule_id")
-    protected String clientCurrentRateScheduleId;
+    @XmlElement(name = "queued_plan_instance_details")
+    protected List<QueuedPlanInstanceDetailsReturnElement> queuedPlanInstanceDetails;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -41,25 +41,25 @@ public class GetQueuedAcctPlansMResponseElement {
         this.errorMsg = value;
     }
 
-    public List<QueuedPlansReturnElement> getQueuedPlans() {
-        if (this.queuedPlans == null) {
-            this.queuedPlans = new ArrayList<QueuedPlansReturnElement>();
+    public List<QueuedPlanInstanceDetailsReturnElement> getQueuedPlanInstanceDetails() {
+        if (this.queuedPlanInstanceDetails == null) {
+            this.queuedPlanInstanceDetails = new ArrayList<QueuedPlanInstanceDetailsReturnElement>();
         }
-        return this.queuedPlans;
-    }public Long getCurrentRateScheduleNo() {
-        return currentRateScheduleNo;
+        return this.queuedPlanInstanceDetails;
+    }public Long getAcctLocaleNo() {
+        return acctLocaleNo;
     }
 
-    public void setCurrentRateScheduleNo(Long value) {
-        this.currentRateScheduleNo = value;
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
     }
 
-    public String getClientCurrentRateScheduleId() {
-        return clientCurrentRateScheduleId;
+    public String getAcctLocaleName() {
+        return acctLocaleName;
     }
 
-    public void setClientCurrentRateScheduleId(String value) {
-        this.clientCurrentRateScheduleId = value;
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
     }
 
     

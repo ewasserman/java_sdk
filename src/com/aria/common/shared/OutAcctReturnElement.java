@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "out_acct_ReturnElement", propOrder = {"acctNo", "userid", "clientAcctId", "contractDetails", "sessionId", "billingErrors", "masterPlansAssigned", "invoiceInfo", "outAcct"})
+@XmlType(name = "out_acct_ReturnElement", propOrder = {"acctNo", "userid", "clientAcctId", "acctLocaleNo", "acctLocaleName", "contractDetails", "sessionId", "billingErrors", "masterPlansAssigned", "invoiceInfo", "outAcct"})
 public class OutAcctReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -19,6 +19,10 @@ public class OutAcctReturnElement {
     protected String userid;
     @XmlElement(name = "client_acct_id")
     protected String clientAcctId;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     @XmlElement(name = "contract_details")
     protected List<ContractDetailsReturnElement> contractDetails;
     @XmlElement(name = "session_id")
@@ -54,6 +58,22 @@ public class OutAcctReturnElement {
 
     public void setClientAcctId(String value) {
         this.clientAcctId = value;
+    }
+
+    public Long getAcctLocaleNo() {
+        return acctLocaleNo;
+    }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
     }
 
     public List<ContractDetailsReturnElement> getContractDetails() {

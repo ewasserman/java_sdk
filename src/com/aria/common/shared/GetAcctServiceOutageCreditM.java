@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "outageStartDate",    "outageEndDate",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "outageStartTime",    "outageEndTime",    "plansToGetOutage",    "adjustPercent",    "clientPlanIdsToGetOutage"})
+    "authKey",    "acctNo",    "clientAcctId",    "outageStartDate",    "outageEndDate",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "outageStartTime",    "outageEndTime",    "plansToGetOutage",    "adjustPercent",    "clientPlanIdsToGetOutage",    "localeNo",    "localeName"})
 @XmlRootElement(name = "get_acct_service_outage_credit_m")
 public class GetAcctServiceOutageCreditM {
 
@@ -40,6 +40,10 @@ public class GetAcctServiceOutageCreditM {
     protected Double adjustPercent;
         @XmlElement(name = "client_plan_ids_to_get_outage")
     protected ClientPlanIdsToGetOutageArray clientPlanIdsToGetOutage;
+        @XmlElement(name = "locale_no")
+    protected Long localeNo;
+        @XmlElement(name = "locale_name")
+    protected String localeName;
     
     public long getClientNo() {
         return clientNo;
@@ -133,6 +137,20 @@ public class GetAcctServiceOutageCreditM {
 
     public void setClientPlanIdsToGetOutage(ClientPlanIdsToGetOutageArray value) {
         this.clientPlanIdsToGetOutage = value;
+    }
+            public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+            public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
     }
             
 }

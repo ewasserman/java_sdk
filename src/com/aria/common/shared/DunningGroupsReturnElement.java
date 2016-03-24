@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "dunning_groups_ReturnElement", propOrder = {"dunningGroupNo", "dunningGroupName", "dunningGroupDescription", "clientDunningGroupId", "dunningProcessNo", "clientDunningProcessId", "masterPlansSummary"})
+@XmlType(name = "dunning_groups_ReturnElement", propOrder = {"dunningGroupNo", "dunningGroupName", "dunningGroupDescription", "clientDunningGroupId", "dunningProcessNo", "clientDunningProcessId", "status", "masterPlansSummary"})
 public class DunningGroupsReturnElement {
 
     @XmlElement(name = "dunning_group_no")
@@ -25,6 +25,8 @@ public class DunningGroupsReturnElement {
     protected Long dunningProcessNo;
     @XmlElement(name = "client_dunning_process_id")
     protected String clientDunningProcessId;
+    @XmlElement(name = "status")
+    protected Long status;
     @XmlElement(name = "master_plans_summary")
     protected List<MasterPlansSummaryReturnElement> masterPlansSummary;
     
@@ -74,6 +76,14 @@ public class DunningGroupsReturnElement {
 
     public void setClientDunningProcessId(String value) {
         this.clientDunningProcessId = value;
+    }
+
+    public Long getStatus() {
+        return status;
+    }
+
+    public void setStatus(Long value) {
+        this.status = value;
     }
 
     public List<MasterPlansSummaryReturnElement> getMasterPlansSummary() {

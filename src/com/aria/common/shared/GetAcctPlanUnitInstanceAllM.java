@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "clientAcctId",    "planInstanceNo",    "clientPlanInstanceId",    "queuedInd",    "planUnitInstNo",    "clientPlanUnitInstId",    "statusCd",    "planUnitInstStatusCd",    "fulfillmentOnly"})
+    "authKey",    "acctNo",    "clientAcctId",    "planInstanceNo",    "clientPlanInstanceId",    "planUnitInstNo",    "clientPlanUnitInstId",    "statusCd",    "planUnitInstStatusCd",    "fulfillmentOnly"})
 @XmlRootElement(name = "get_acct_plan_unit_instance_all_m")
 public class GetAcctPlanUnitInstanceAllM {
 
@@ -26,8 +26,6 @@ public class GetAcctPlanUnitInstanceAllM {
     protected Long planInstanceNo;
         @XmlElement(name = "client_plan_instance_id")
     protected String clientPlanInstanceId;
-        @XmlElement(name = "queued_ind")
-    protected Long queuedInd;
         @XmlElement(name = "plan_unit_inst_no")
     protected Long planUnitInstNo;
         @XmlElement(name = "client_plan_unit_inst_id")
@@ -82,13 +80,6 @@ public class GetAcctPlanUnitInstanceAllM {
 
     public void setClientPlanInstanceId(String value) {
         this.clientPlanInstanceId = value;
-    }
-            public Long getQueuedInd() {
-        return queuedInd;
-    }
-
-    public void setQueuedInd(Long value) {
-        this.queuedInd = value;
     }
             public Long getPlanUnitInstNo() {
         return planUnitInstNo;

@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "startDate", "startTime", "endDate", "endTime", "usageSummaryRecs"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "startDate", "startTime", "endDate", "endTime", "usageSummaryRecs", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "get_usage_summary_by_type_mResponseElement")
 public class GetUsageSummaryByTypeMResponseElement {
 
@@ -28,6 +28,10 @@ public class GetUsageSummaryByTypeMResponseElement {
     protected String endTime;
     @XmlElement(name = "usage_summary_recs")
     protected List<UsageSummaryRecsReturnElement> usageSummaryRecs;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -82,5 +86,21 @@ public class GetUsageSummaryByTypeMResponseElement {
             this.usageSummaryRecs = new ArrayList<UsageSummaryRecsReturnElement>();
         }
         return this.usageSummaryRecs;
+    }public Long getAcctLocaleNo() {
+        return acctLocaleNo;
     }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
+    }
+
+    
 }

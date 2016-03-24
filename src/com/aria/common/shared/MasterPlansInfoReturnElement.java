@@ -88,7 +88,7 @@ public class MasterPlansInfoReturnElement {
     @XmlElement(name = "init_free_period_duration")
     protected Long initFreePeriodDuration;
     @XmlElement(name = "init_free_period_uom_cd")
-    protected Long initFreePeriodUomCd;
+    protected String initFreePeriodUomCd;
     @XmlElement(name = "dunning_state")
     protected Long dunningState;
     @XmlElement(name = "dunning_step")
@@ -404,11 +404,11 @@ public class MasterPlansInfoReturnElement {
         this.initFreePeriodDuration = value;
     }
 
-    public Long getInitFreePeriodUomCd() {
+    public String getInitFreePeriodUomCd() {
         return initFreePeriodUomCd;
     }
 
-    public void setInitFreePeriodUomCd(Long value) {
+    public void setInitFreePeriodUomCd(String value) {
         this.initFreePeriodUomCd = value;
     }
 

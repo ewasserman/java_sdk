@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "nsoInclListScope", "planServices", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planNsoInclList", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlans", "planNsoItems", "planNsoGroup", "nsoGroupMinQty", "nsoGroupMaxQty", "nsoGroupItemScope"})
+@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "rolloverPlanDuration", "rolloverPlanUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "initialPlanStatusCd", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "rolloverPlanStatusCd", "nsoInclListScope", "planServices", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planNsoInclList", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlans", "planNsoItems", "planNsoGroup", "nsoGroupMinQty", "nsoGroupMaxQty", "nsoGroupItemScope", "planTranslationDetails"})
 public class AllClientPlanDtlsReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -57,6 +57,22 @@ public class AllClientPlanDtlsReturnElement {
     protected String clientRolloverPlanId;
     @XmlElement(name = "proration_invoice_timing_cd")
     protected String prorationInvoiceTimingCd;
+    @XmlElement(name = "rollover_plan_duration")
+    protected String rolloverPlanDuration;
+    @XmlElement(name = "rollover_plan_uom_cd")
+    protected Long rolloverPlanUomCd;
+    @XmlElement(name = "init_free_period_duration")
+    protected Long initFreePeriodDuration;
+    @XmlElement(name = "init_free_period_uom_cd")
+    protected String initFreePeriodUomCd;
+    @XmlElement(name = "initial_plan_status_cd")
+    protected Long initialPlanStatusCd;
+    @XmlElement(name = "rollover_plan_status_duration")
+    protected Long rolloverPlanStatusDuration;
+    @XmlElement(name = "rollover_plan_status_uom_cd")
+    protected Long rolloverPlanStatusUomCd;
+    @XmlElement(name = "rollover_plan_status_cd")
+    protected Long rolloverPlanStatusCd;
     @XmlElement(name = "nso_incl_list_scope")
     protected Long nsoInclListScope;
     @XmlElement(name = "plan_services")
@@ -93,6 +109,8 @@ public class AllClientPlanDtlsReturnElement {
     protected String nsoGroupMaxQty;
     @XmlElement(name = "nso_group_item_scope")
     protected String nsoGroupItemScope;
+    @XmlElement(name = "plan_translation_details")
+    protected List<PlanTranslationDetailsReturnElement> planTranslationDetails;
     
     public Long getPlanNo() {
         return planNo;
@@ -270,6 +288,70 @@ public class AllClientPlanDtlsReturnElement {
         this.prorationInvoiceTimingCd = value;
     }
 
+    public String getRolloverPlanDuration() {
+        return rolloverPlanDuration;
+    }
+
+    public void setRolloverPlanDuration(String value) {
+        this.rolloverPlanDuration = value;
+    }
+
+    public Long getRolloverPlanUomCd() {
+        return rolloverPlanUomCd;
+    }
+
+    public void setRolloverPlanUomCd(Long value) {
+        this.rolloverPlanUomCd = value;
+    }
+
+    public Long getInitFreePeriodDuration() {
+        return initFreePeriodDuration;
+    }
+
+    public void setInitFreePeriodDuration(Long value) {
+        this.initFreePeriodDuration = value;
+    }
+
+    public String getInitFreePeriodUomCd() {
+        return initFreePeriodUomCd;
+    }
+
+    public void setInitFreePeriodUomCd(String value) {
+        this.initFreePeriodUomCd = value;
+    }
+
+    public Long getInitialPlanStatusCd() {
+        return initialPlanStatusCd;
+    }
+
+    public void setInitialPlanStatusCd(Long value) {
+        this.initialPlanStatusCd = value;
+    }
+
+    public Long getRolloverPlanStatusDuration() {
+        return rolloverPlanStatusDuration;
+    }
+
+    public void setRolloverPlanStatusDuration(Long value) {
+        this.rolloverPlanStatusDuration = value;
+    }
+
+    public Long getRolloverPlanStatusUomCd() {
+        return rolloverPlanStatusUomCd;
+    }
+
+    public void setRolloverPlanStatusUomCd(Long value) {
+        this.rolloverPlanStatusUomCd = value;
+    }
+
+    public Long getRolloverPlanStatusCd() {
+        return rolloverPlanStatusCd;
+    }
+
+    public void setRolloverPlanStatusCd(Long value) {
+        this.rolloverPlanStatusCd = value;
+    }
+
     public Long getNsoInclListScope() {
         return nsoInclListScope;
     }
@@ -381,5 +463,10 @@ public class AllClientPlanDtlsReturnElement {
         this.nsoGroupItemScope = value;
     }
 
-    
+    public List<PlanTranslationDetailsReturnElement> getPlanTranslationDetails() {
+        if (this.planTranslationDetails == null) {
+            this.planTranslationDetails = new ArrayList<PlanTranslationDetailsReturnElement>();
+        }
+        return this.planTranslationDetails;
+    }
 }

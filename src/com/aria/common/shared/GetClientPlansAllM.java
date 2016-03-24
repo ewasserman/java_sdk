@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "planNo",    "acctNo",    "promoCode",    "parentPlanNo",    "suppFieldNames",    "suppFieldValues",    "includeAllRateSchedules",    "includePlanHierarchy",    "clientPlanId",    "clientParentPlanId",    "retrieveBundledNso",    "retrieveIncludedNso"})
+    "authKey",    "planNo",    "acctNo",    "promoCode",    "parentPlanNo",    "suppFieldNames",    "suppFieldValues",    "includeAllRateSchedules",    "includePlanHierarchy",    "clientPlanId",    "clientParentPlanId",    "retrieveBundledNso",    "retrieveIncludedNso",    "localeNo",    "localeName",    "includeTranslations"})
 @XmlRootElement(name = "get_client_plans_all_m")
 public class GetClientPlansAllM {
 
@@ -42,6 +42,12 @@ public class GetClientPlansAllM {
     protected String retrieveBundledNso;
         @XmlElement(name = "retrieve_included_nso")
     protected String retrieveIncludedNso;
+        @XmlElement(name = "locale_no")
+    protected Long localeNo;
+        @XmlElement(name = "locale_name")
+    protected String localeName;
+        @XmlElement(name = "include_translations")
+    protected String includeTranslations;
     
     public long getClientNo() {
         return clientNo;
@@ -142,6 +148,27 @@ public class GetClientPlansAllM {
 
     public void setRetrieveIncludedNso(String value) {
         this.retrieveIncludedNso = value;
+    }
+            public Long getLocaleNo() {
+        return localeNo;
+    }
+
+    public void setLocaleNo(Long value) {
+        this.localeNo = value;
+    }
+            public String getLocaleName() {
+        return localeName;
+    }
+
+    public void setLocaleName(String value) {
+        this.localeName = value;
+    }
+            public String getIncludeTranslations() {
+        return includeTranslations;
+    }
+
+    public void setIncludeTranslations(String value) {
+        this.includeTranslations = value;
     }
             
 }

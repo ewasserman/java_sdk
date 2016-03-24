@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "createdBy", "createdDate", "amount", "creditType", "appliedAmount", "unappliedAmount", "reasonCode", "reasonText", "comments", "transactionId", "voidTransactionId", "creditExpiryTypeInd", "creditExpiryMonths", "creditExpiryDate", "eligibleServicePlanDetails", "outAcctNo", "outMasterPlanInstanceNo", "outClientMpInstanceId"})
+@XmlType(name = "", propOrder = {"errorCode", "errorMsg", "createdBy", "createdDate", "amount", "creditType", "appliedAmount", "unappliedAmount", "reasonCode", "reasonText", "comments", "transactionId", "voidTransactionId", "creditExpiryTypeInd", "creditExpiryMonths", "creditExpiryDate", "eligibleServicePlanDetails", "outAcctNo", "outMasterPlanInstanceNo", "outClientMpInstanceId", "acctLocaleNo", "acctLocaleName"})
 @XmlRootElement(name = "get_credit_details_mResponseElement")
 public class GetCreditDetailsMResponseElement {
 
@@ -54,6 +54,10 @@ public class GetCreditDetailsMResponseElement {
     protected Long outMasterPlanInstanceNo;
     @XmlElement(name = "out_client_mp_instance_id")
     protected String outClientMpInstanceId;
+    @XmlElement(name = "acct_locale_no")
+    protected Long acctLocaleNo;
+    @XmlElement(name = "acct_locale_name")
+    protected String acctLocaleName;
     
     public Long getErrorCode() {
         return errorCode;
@@ -210,6 +214,22 @@ public class GetCreditDetailsMResponseElement {
 
     public void setOutClientMpInstanceId(String value) {
         this.outClientMpInstanceId = value;
+    }
+
+    public Long getAcctLocaleNo() {
+        return acctLocaleNo;
+    }
+
+    public void setAcctLocaleNo(Long value) {
+        this.acctLocaleNo = value;
+    }
+
+    public String getAcctLocaleName() {
+        return acctLocaleName;
+    }
+
+    public void setAcctLocaleName(String value) {
+        this.acctLocaleName = value;
     }
 
     

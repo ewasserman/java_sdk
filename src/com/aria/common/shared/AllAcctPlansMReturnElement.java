@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_acct_plans_m_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planInstanceNo", "clientPlanInstanceId", "planDate", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "recurringBillingInterval", "usageBillingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "billingGroupNo", "clientBillingGroupId", "dunningGroupNo", "clientDunningGroupId", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "availableFromDate", "availableToDate", "followupRsNo", "clientFollowupRsId", "suppPlanInd", "planInstanceStatusCd", "planInstanceStatusLabel", "planInstanceStatusDate", "dunningState", "dunningStep", "dunningDegradeDate", "planAssignmentDate", "planDeprovisionedDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd", "productFields", "planInstanceFieldsDetail", "masterPlanInstanceNo", "clientMasterPlanInstanceId", "parentPlanInstanceNo", "clientParentPlanInstanceId", "planServices", "surchargesAll", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSchedNo", "contractRolloverClientRateSchedId", "poNum"})
+@XmlType(name = "all_acct_plans_m_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "planInstanceNo", "clientPlanInstanceId", "planDate", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "billDay", "recurringBillingInterval", "usageBillingInterval", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "initialPlanStatus", "rolloverPlanStatus", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "rolloverPlanDuration", "rolloverPlanUomCd", "initialPlanStatusCd", "rolloverPlanStatusCd", "billingGroupNo", "clientBillingGroupId", "dunningGroupNo", "clientDunningGroupId", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "rateScheduleNo", "rateScheduleName", "rateSchedIsDefaultInd", "availableFromDate", "availableToDate", "followupRsNo", "clientFollowupRsId", "suppPlanInd", "planInstanceStatusCd", "planInstanceStatusLabel", "planInstanceStatusDate", "dunningState", "dunningStep", "dunningDegradeDate", "planAssignmentDate", "planDeprovisionedDate", "clientReceiptId", "clientPlanId", "clientRolloverPlanId", "clientPlan2AssignOnSusp", "clientRateScheduleId", "prorationInvoiceTimingCd", "productFields", "planInstanceFieldsDetail", "masterPlanInstanceNo", "clientMasterPlanInstanceId", "parentPlanInstanceNo", "clientParentPlanInstanceId", "planServices", "surchargesAll", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSchedNo", "contractRolloverClientRateSchedId", "poNum"})
 public class AllAcctPlansMReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -64,7 +64,15 @@ public class AllAcctPlansMReturnElement {
     @XmlElement(name = "init_free_period_duration")
     protected Long initFreePeriodDuration;
     @XmlElement(name = "init_free_period_uom_cd")
-    protected Long initFreePeriodUomCd;
+    protected String initFreePeriodUomCd;
+    @XmlElement(name = "rollover_plan_duration")
+    protected String rolloverPlanDuration;
+    @XmlElement(name = "rollover_plan_uom_cd")
+    protected Long rolloverPlanUomCd;
+    @XmlElement(name = "initial_plan_status_cd")
+    protected Long initialPlanStatusCd;
+    @XmlElement(name = "rollover_plan_status_cd")
+    protected Long rolloverPlanStatusCd;
     @XmlElement(name = "billing_group_no")
     protected Long billingGroupNo;
     @XmlElement(name = "client_billing_group_id")
@@ -352,12 +360,44 @@ public class AllAcctPlansMReturnElement {
         this.initFreePeriodDuration = value;
     }
 
-    public Long getInitFreePeriodUomCd() {
+    public String getInitFreePeriodUomCd() {
         return initFreePeriodUomCd;
     }
 
-    public void setInitFreePeriodUomCd(Long value) {
+    public void setInitFreePeriodUomCd(String value) {
         this.initFreePeriodUomCd = value;
+    }
+
+    public String getRolloverPlanDuration() {
+        return rolloverPlanDuration;
+    }
+
+    public void setRolloverPlanDuration(String value) {
+        this.rolloverPlanDuration = value;
+    }
+
+    public Long getRolloverPlanUomCd() {
+        return rolloverPlanUomCd;
+    }
+
+    public void setRolloverPlanUomCd(Long value) {
+        this.rolloverPlanUomCd = value;
+    }
+
+    public Long getInitialPlanStatusCd() {
+        return initialPlanStatusCd;
+    }
+
+    public void setInitialPlanStatusCd(Long value) {
+        this.initialPlanStatusCd = value;
+    }
+
+    public Long getRolloverPlanStatusCd() {
+        return rolloverPlanStatusCd;
+    }
+
+    public void setRolloverPlanStatusCd(Long value) {
+        this.rolloverPlanStatusCd = value;
     }
 
     public Long getBillingGroupNo() {

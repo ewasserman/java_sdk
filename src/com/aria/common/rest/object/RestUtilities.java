@@ -1220,7 +1220,7 @@ public class RestUtilities {
             entity.setCustomStatusLabel(getStringValue(jsonObject,"custom_status_label"));
             entity.setClientNotes(getStringValue(jsonObject,"client_notes"));
             entity.setBillingGroupNo(getLongValue(jsonObject,"billing_group_no"));
-            entity.setClientBillingGroupId(getLongValue(jsonObject,"client_billing_group_id"));
+            entity.setClientBillingGroupId(getStringValue(jsonObject,"client_billing_group_id"));
                         ArrayList<AllInvoiceLineMReturnElement> arrayListAllInvoiceLineMReturnElement = buildAllInvoiceLineMReturnElement((JSONArray)jsonObject.get("all_invoice_line_m"));
             for (AllInvoiceLineMReturnElement element : arrayListAllInvoiceLineMReturnElement){
                 entity.getAllInvoiceLineM().add(element);
@@ -1310,7 +1310,7 @@ public class RestUtilities {
             entity.setOldStatusCd(getStringValue(jsonObject,"old_status_cd"));
             entity.setOldPlanUnits(getLongValue(jsonObject,"old_plan_units"));
             entity.setOldRateScheduleNo(getLongValue(jsonObject,"old_rate_schedule_no"));
-            entity.setOldClientRateScheduleId(getLongValue(jsonObject,"old_client_rate_schedule_id"));
+            entity.setOldClientRateScheduleId(getStringValue(jsonObject,"old_client_rate_schedule_id"));
             entity.setNewPlanName(getStringValue(jsonObject,"new_plan_name"));
             entity.setNewPlanNo(getLongValue(jsonObject,"new_plan_no"));
             entity.setNewClientPlanId(getStringValue(jsonObject,"new_client_plan_id"));
@@ -1319,7 +1319,7 @@ public class RestUtilities {
             entity.setNewStatusCd(getStringValue(jsonObject,"new_status_cd"));
             entity.setNewPlanUnits(getLongValue(jsonObject,"new_plan_units"));
             entity.setNewRateScheduleNo(getLongValue(jsonObject,"new_rate_schedule_no"));
-            entity.setNewClientRateScheduleId(getLongValue(jsonObject,"new_client_rate_schedule_id"));
+            entity.setNewClientRateScheduleId(getStringValue(jsonObject,"new_client_rate_schedule_id"));
             entity.setOldDunningState(getLongValue(jsonObject,"old_dunning_state"));
             entity.setNewDunningState(getLongValue(jsonObject,"new_dunning_state"));
             returnElement.add(entity);

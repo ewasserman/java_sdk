@@ -102,7 +102,7 @@ public class AllInvoiceDetailsMReturnElement {
     @XmlElement(name = "billing_group_no")
     protected Long billingGroupNo;
     @XmlElement(name = "client_billing_group_id")
-    protected Long clientBillingGroupId;
+    protected String clientBillingGroupId;
     @XmlElement(name = "all_invoice_line_m")
     protected List<AllInvoiceLineMReturnElement> allInvoiceLineM;
     
@@ -458,11 +458,11 @@ public class AllInvoiceDetailsMReturnElement {
         this.billingGroupNo = value;
     }
 
-    public Long getClientBillingGroupId() {
+    public String getClientBillingGroupId() {
         return clientBillingGroupId;
     }
 
-    public void setClientBillingGroupId(Long value) {
+    public void setClientBillingGroupId(String value) {
         this.clientBillingGroupId = value;
     }
 
