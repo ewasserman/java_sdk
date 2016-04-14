@@ -3,6 +3,7 @@ package com.aria.sdk.classes;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
+import java.util.HashMap;
 import com.aria.common.shared.object.AriaIntegrationServicesApi;
 import com.aria.common.shared.object.IntegrationServicesPort;
 
@@ -55,13 +56,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getAccountDetails(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_account_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("account_details",((javax.xml.ws.Holder)h_account_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("account_details",((javax.xml.ws.Holder)h_account_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAccountDetails(Map<String,Object> map){
@@ -89,13 +91,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getAccountStatusHistory(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_account_status_history);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("account_status_history",((javax.xml.ws.Holder)h_account_status_history).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("account_status_history",((javax.xml.ws.Holder)h_account_status_history).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAccountStatusHistory(Map<String,Object> map){
@@ -123,13 +126,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getAccountPlanHistory(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_account_plan_history);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("account_plan_history",((javax.xml.ws.Holder)h_account_plan_history).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("account_plan_history",((javax.xml.ws.Holder)h_account_plan_history).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAccountPlanHistory(Map<String,Object> map){
@@ -157,13 +161,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getPaymentDetails(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_payment_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("payment_details",((javax.xml.ws.Holder)h_payment_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("payment_details",((javax.xml.ws.Holder)h_payment_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPaymentDetails(Map<String,Object> map){
@@ -191,13 +196,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getOrderDetails(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_order_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("order_details",((javax.xml.ws.Holder)h_order_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("order_details",((javax.xml.ws.Holder)h_order_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getOrderDetails(Map<String,Object> map){
@@ -225,13 +231,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getInvoiceInformation(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_invoice_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("invoice_details",((javax.xml.ws.Holder)h_invoice_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("invoice_details",((javax.xml.ws.Holder)h_invoice_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvoiceInformation(Map<String,Object> map){
@@ -259,13 +266,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getTransactionInformation(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_transaction_information);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("transaction_information",((javax.xml.ws.Holder)h_transaction_information).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("transaction_information",((javax.xml.ws.Holder)h_transaction_information).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getTransactionInformation(Map<String,Object> map){
@@ -293,13 +301,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getRefundInformation(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_refund_information);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("refund_information",((javax.xml.ws.Holder)h_refund_information).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("refund_information",((javax.xml.ws.Holder)h_refund_information).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRefundInformation(Map<String,Object> map){
@@ -327,13 +336,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getCouponHistory(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_coupon_history);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("coupon_history",((javax.xml.ws.Holder)h_coupon_history).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("coupon_history",((javax.xml.ws.Holder)h_coupon_history).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCouponHistory(Map<String,Object> map){
@@ -361,13 +371,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().listTransactionTypes(client_no, auth_key, limit, offset, query_string, h_error_code, h_error_msg, h_starting_record, h_total_records, h_map_record);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("map_record",((javax.xml.ws.Holder)h_map_record).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("map_record",((javax.xml.ws.Holder)h_map_record).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> listTransactionTypes(Map<String,Object> map){
@@ -395,13 +406,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().listPaymentMethods(client_no, auth_key, limit, offset, query_string, h_error_code, h_error_msg, h_starting_record, h_total_records, h_map_record);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("map_record",((javax.xml.ws.Holder)h_map_record).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("map_record",((javax.xml.ws.Holder)h_map_record).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> listPaymentMethods(Map<String,Object> map){
@@ -429,13 +441,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().listPaymentProcessors(client_no, auth_key, limit, offset, query_string, h_error_code, h_error_msg, h_starting_record, h_total_records, h_map_record);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("map_record",((javax.xml.ws.Holder)h_map_record).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("map_record",((javax.xml.ws.Holder)h_map_record).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> listPaymentProcessors(Map<String,Object> map){
@@ -463,13 +476,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getAllInvoiceInformation(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_all_invoice_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("all_invoice_details",((javax.xml.ws.Holder)h_all_invoice_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("all_invoice_details",((javax.xml.ws.Holder)h_all_invoice_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAllInvoiceInformation(Map<String,Object> map){
@@ -493,11 +507,12 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getPlanInstanceInformationM(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_plan_instance_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plan_instance_details",((javax.xml.ws.Holder)h_plan_instance_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plan_instance_details",((javax.xml.ws.Holder)h_plan_instance_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPlanInstanceInformationM(Map<String,Object> map){
@@ -525,13 +540,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getAccountDetailsM(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_account_details_m);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("account_details_m",((javax.xml.ws.Holder)h_account_details_m).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("account_details_m",((javax.xml.ws.Holder)h_account_details_m).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAccountDetailsM(Map<String,Object> map){
@@ -559,13 +575,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getCouponHistoryM(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_coupon_history_m);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("coupon_history_m",((javax.xml.ws.Holder)h_coupon_history_m).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("coupon_history_m",((javax.xml.ws.Holder)h_coupon_history_m).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCouponHistoryM(Map<String,Object> map){
@@ -593,13 +610,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getInvoiceInformationM(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_invoice_details_m);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("invoice_details_m",((javax.xml.ws.Holder)h_invoice_details_m).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("invoice_details_m",((javax.xml.ws.Holder)h_invoice_details_m).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvoiceInformationM(Map<String,Object> map){
@@ -627,13 +645,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getAllInvoiceInformationM(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_all_invoice_details_m);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("all_invoice_details_m",((javax.xml.ws.Holder)h_all_invoice_details_m).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("all_invoice_details_m",((javax.xml.ws.Holder)h_all_invoice_details_m).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAllInvoiceInformationM(Map<String,Object> map){
@@ -661,13 +680,14 @@ public class AriaBillingIntegrationSoap extends BaseAriaBilling implements AriaB
         
         getIntegrationServicesPort().getAccountPlanHistoryM(client_no, auth_key, query_string, limit, offset, h_error_code, h_error_msg, h_starting_record, h_total_records, h_account_plan_history_m);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
-        getHashMapReturnValues().put("total_records",((javax.xml.ws.Holder)h_total_records).value);
-        getHashMapReturnValues().put("account_plan_history_m",((javax.xml.ws.Holder)h_account_plan_history_m).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("starting_record",((javax.xml.ws.Holder)h_starting_record).value);
+        returnMap.put("total_records",((javax.xml.ws.Holder)h_total_records).value);
+        returnMap.put("account_plan_history_m",((javax.xml.ws.Holder)h_account_plan_history_m).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAccountPlanHistoryM(Map<String,Object> map){

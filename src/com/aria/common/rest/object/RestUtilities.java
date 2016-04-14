@@ -727,6 +727,14 @@ public class RestUtilities {
             entity.setBillingGroupNo(getLongValue(jsonObject,"billing_group_no"));
             entity.setClientBillingGroupId(getStringValue(jsonObject,"client_billing_group_id"));
             entity.setDunningGroupNo(getLongValue(jsonObject,"dunning_group_no"));
+                        ArrayList<PrimaryPaymentMethodReturnElement> arrayListPrimaryPaymentMethodReturnElement = buildPrimaryPaymentMethodReturnElement((JSONArray)jsonObject.get("primary_payment_method"));
+            for (PrimaryPaymentMethodReturnElement element : arrayListPrimaryPaymentMethodReturnElement){
+                entity.getPrimaryPaymentMethod().add(element);
+            }
+                        ArrayList<BackupPaymentMethodReturnElement> arrayListBackupPaymentMethodReturnElement = buildBackupPaymentMethodReturnElement((JSONArray)jsonObject.get("backup_payment_method"));
+            for (BackupPaymentMethodReturnElement element : arrayListBackupPaymentMethodReturnElement){
+                entity.getBackupPaymentMethod().add(element);
+            }
                         ArrayList<PrimaryPaymentMethodInfoReturnElement> arrayListPrimaryPaymentMethodInfoReturnElement = buildPrimaryPaymentMethodInfoReturnElement((JSONArray)jsonObject.get("primary_payment_method_info"));
             for (PrimaryPaymentMethodInfoReturnElement element : arrayListPrimaryPaymentMethodInfoReturnElement){
                 entity.getPrimaryPaymentMethodInfo().add(element);
@@ -749,6 +757,66 @@ public class RestUtilities {
             entity.setProductFieldDesc(getStringValue(jsonObject,"product_field_desc"));
             entity.setProductFieldName(getStringValue(jsonObject,"product_field_name"));
             entity.setProductFieldValue(getStringValue(jsonObject,"product_field_value"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<PrimaryPaymentMethodReturnElement> buildPrimaryPaymentMethodReturnElement(JSONArray jsonArray) {
+        ArrayList<PrimaryPaymentMethodReturnElement> returnElement = new ArrayList<PrimaryPaymentMethodReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            PrimaryPaymentMethodReturnElement entity = new PrimaryPaymentMethodReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setBillingFirstName(getStringValue(jsonObject,"billing_first_name"));
+            entity.setBillingMiddleInitial(getStringValue(jsonObject,"billing_middle_initial"));
+            entity.setBillingLastName(getStringValue(jsonObject,"billing_last_name"));
+            entity.setBillingAddress1(getStringValue(jsonObject,"billing_address1"));
+            entity.setBillingAddress2(getStringValue(jsonObject,"billing_address2"));
+            entity.setBillingCity(getStringValue(jsonObject,"billing_city"));
+            entity.setBillingState(getStringValue(jsonObject,"billing_state"));
+            entity.setBillingLocality(getStringValue(jsonObject,"billing_locality"));
+            entity.setBillingZip(getStringValue(jsonObject,"billing_zip"));
+            entity.setBillingCountry(getStringValue(jsonObject,"billing_country"));
+            entity.setBillingIntlPhone(getStringValue(jsonObject,"billing_intl_phone"));
+            entity.setBillingEmail(getStringValue(jsonObject,"billing_email"));
+            entity.setPayMethodType(getLongValue(jsonObject,"pay_method_type"));
+            entity.setCcExpireMm(getStringValue(jsonObject,"cc_expire_mm"));
+            entity.setCcExpireYyyy(getStringValue(jsonObject,"cc_expire_yyyy"));
+            entity.setBankRoutingNum(getStringValue(jsonObject,"bank_routing_num"));
+            entity.setPaymentInstrumentSuffix(getStringValue(jsonObject,"payment_instrument_suffix"));
+            entity.setPrimaryPaymentMethodName(getStringValue(jsonObject,"primary_payment_method_name"));
+            entity.setPrimaryPaymentMethodDescription(getStringValue(jsonObject,"primary_payment_method_description"));
+            entity.setPrimaryPaymentMethodClientDefinedId(getStringValue(jsonObject,"primary_payment_method_client_defined_id"));
+            returnElement.add(entity);
+        }
+        return returnElement;
+    }
+    public static ArrayList<BackupPaymentMethodReturnElement> buildBackupPaymentMethodReturnElement(JSONArray jsonArray) {
+        ArrayList<BackupPaymentMethodReturnElement> returnElement = new ArrayList<BackupPaymentMethodReturnElement>();
+        if (jsonArray == null) return returnElement;
+        for (int i = 0;i < jsonArray.size();i++) {
+            BackupPaymentMethodReturnElement entity = new BackupPaymentMethodReturnElement();
+            JSONObject jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setBkupBillingFirstName(getStringValue(jsonObject,"bkup_billing_first_name"));
+            entity.setBkupBillingMiddleInitial(getStringValue(jsonObject,"bkup_billing_middle_initial"));
+            entity.setBkupBillingLastName(getStringValue(jsonObject,"bkup_billing_last_name"));
+            entity.setBkupBillingAddress1(getStringValue(jsonObject,"bkup_billing_address1"));
+            entity.setBkupBillingAddress2(getStringValue(jsonObject,"bkup_billing_address2"));
+            entity.setBkupBillingCity(getStringValue(jsonObject,"bkup_billing_city"));
+            entity.setBkupBillingState(getStringValue(jsonObject,"bkup_billing_state"));
+            entity.setBkupBillingLocality(getStringValue(jsonObject,"bkup_billing_locality"));
+            entity.setBkupBillingZip(getStringValue(jsonObject,"bkup_billing_zip"));
+            entity.setBkupBillingCountry(getStringValue(jsonObject,"bkup_billing_country"));
+            entity.setBkupBillingIntlPhone(getStringValue(jsonObject,"bkup_billing_intl_phone"));
+            entity.setBkupBillingEmail(getStringValue(jsonObject,"bkup_billing_email"));
+            entity.setBkupPayMethodType(getLongValue(jsonObject,"bkup_pay_method_type"));
+            entity.setBkupCcExpireMm(getStringValue(jsonObject,"bkup_cc_expire_mm"));
+            entity.setBkupCcExpireYyyy(getStringValue(jsonObject,"bkup_cc_expire_yyyy"));
+            entity.setBkupBankRoutingNum(getStringValue(jsonObject,"bkup_bank_routing_num"));
+            entity.setBkupPaymentInstrumentSuffix(getStringValue(jsonObject,"bkup_payment_instrument_suffix"));
+            entity.setBackupPaymentMethodName(getStringValue(jsonObject,"backup_payment_method_name"));
+            entity.setBackupPaymentMethodDescription(getStringValue(jsonObject,"backup_payment_method_description"));
+            entity.setBackupPaymentMethodClientDefinedId(getStringValue(jsonObject,"backup_payment_method_client_defined_id"));
             returnElement.add(entity);
         }
         return returnElement;

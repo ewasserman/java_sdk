@@ -2407,6 +2407,7 @@ public class RestUtilities {
             JSONObject jsonObject = null;
             if (jsonArray.get(i) instanceof JSONObject){
             jsonObject = (JSONObject)jsonArray.get(i);
+            entity.setPlanServices(getValue(jsonObject,"plan_services"));
             entity.setPlanNo(getLongValue(jsonObject,"plan_no"));
             entity.setClientPlanId(getStringValue(jsonObject,"client_plan_id"));
                         ArrayList<ServiceNoReturnElement> arrayListServiceNoReturnElement = buildServiceNoReturnElement((JSONArray)jsonObject.get("service_no"));
@@ -6701,6 +6702,7 @@ public class RestUtilities {
             if (row.getNoticeBalanceType() != null){
                 parameters.add("notice_balance_type["+i+"]", getValue("String", row.getNoticeBalanceType()));
             }
+                        addParameterValuesFromArray(parameters, row.getNotifications(), "notifications["+i+"]");
             i++;
         }
     }
@@ -6713,6 +6715,34 @@ public class RestUtilities {
             }
                                     if (row.getNoticeBalanceType() != null){
                 parameters.add(paramPrefix + "["+i+"]" + "[notice_balance_type]", getValue("String", row.getNoticeBalanceType()));
+            }
+                        addParameterValuesFromArray(parameters, row.getNotifications(), paramPrefix + "["+i+"]" + "[notifications]");
+            i++;
+        }
+    }
+
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NotificationsArray arrayList) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.NotificationsRow row : arrayList.getNotificationsRow()){
+            if (row.getUnits() != null){
+                parameters.add("units["+i+"]", getValue("Long", row.getUnits()));
+            }
+            if (row.getValues() != null){
+                parameters.add("values["+i+"]", getValue("", row.getValues()));
+            }
+            i++;
+        }
+    }
+    public static void addParameterValuesFromArray(MultivaluedMap<String, String> parameters, com.aria.common.shared.admin.NotificationsArray arrayList, String paramPrefix) {
+        if (arrayList == null) return;
+        int i = 0;
+        for (com.aria.common.shared.admin.NotificationsRow row : arrayList.getNotificationsRow()){
+                        if (row.getUnits() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[units]", getValue("Long", row.getUnits()));
+            }
+                                    if (row.getValues() != null){
+                parameters.add(paramPrefix + "["+i+"]" + "[values]", getValue("", row.getValues()));
             }
                         i++;
         }

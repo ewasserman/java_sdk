@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_instance_details_ReturnElement", propOrder = {"acctNo", "userId", "clientAcctId", "planInstanceNo", "clientPlanInstanceId", "productFields", "planNo", "clientPlanId", "planName", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "statusCd", "statusDate", "scheduleNo", "masterPlanInstanceBalance", "billingGroupNo", "clientBillingGroupId", "dunningGroupNo", "primaryPaymentMethodInfo", "backupPaymentMethodInfo"})
+@XmlType(name = "plan_instance_details_ReturnElement", propOrder = {"acctNo", "userId", "clientAcctId", "planInstanceNo", "clientPlanInstanceId", "productFields", "planNo", "clientPlanId", "planName", "planUnits", "lastBillDate", "nextBillDate", "billThruDate", "statusCd", "statusDate", "scheduleNo", "masterPlanInstanceBalance", "billingGroupNo", "clientBillingGroupId", "dunningGroupNo", "primaryPaymentMethod", "backupPaymentMethod", "primaryPaymentMethodInfo", "backupPaymentMethodInfo"})
 public class PlanInstanceDetailsReturnElement {
 
     @XmlElement(name = "acct_no")
@@ -53,6 +53,10 @@ public class PlanInstanceDetailsReturnElement {
     protected String clientBillingGroupId;
     @XmlElement(name = "dunning_group_no")
     protected Long dunningGroupNo;
+    @XmlElement(name = "primary_payment_method")
+    protected List<PrimaryPaymentMethodReturnElement> primaryPaymentMethod;
+    @XmlElement(name = "backup_payment_method")
+    protected List<BackupPaymentMethodReturnElement> backupPaymentMethod;
     @XmlElement(name = "primary_payment_method_info")
     protected List<PrimaryPaymentMethodInfoReturnElement> primaryPaymentMethodInfo;
     @XmlElement(name = "backup_payment_method_info")
@@ -215,7 +219,17 @@ public class PlanInstanceDetailsReturnElement {
         this.dunningGroupNo = value;
     }
 
-    public List<PrimaryPaymentMethodInfoReturnElement> getPrimaryPaymentMethodInfo() {
+    public List<PrimaryPaymentMethodReturnElement> getPrimaryPaymentMethod() {
+        if (this.primaryPaymentMethod == null) {
+            this.primaryPaymentMethod = new ArrayList<PrimaryPaymentMethodReturnElement>();
+        }
+        return this.primaryPaymentMethod;
+    }public List<BackupPaymentMethodReturnElement> getBackupPaymentMethod() {
+        if (this.backupPaymentMethod == null) {
+            this.backupPaymentMethod = new ArrayList<BackupPaymentMethodReturnElement>();
+        }
+        return this.backupPaymentMethod;
+    }public List<PrimaryPaymentMethodInfoReturnElement> getPrimaryPaymentMethodInfo() {
         if (this.primaryPaymentMethodInfo == null) {
             this.primaryPaymentMethodInfo = new ArrayList<PrimaryPaymentMethodInfoReturnElement>();
         }

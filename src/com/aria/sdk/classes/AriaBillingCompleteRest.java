@@ -17,8 +17,11 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
  */
 public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBillingComplete {
     /************** CONSTRUCTOR ************************/
+    final private Client client;
+    
     public AriaBillingCompleteRest(BaseAriaBillingDTO baseAriaBillingDTO) throws Exception {
         super(baseAriaBillingDTO);
+        client = Client.create(new DefaultClientConfig());
     }
     /*************** END - CONSTRUCTOR ****************/
 
@@ -39,7 +42,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         addParameters(parameters,"client_parent_plan_id", getValue("String", client_parent_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_plans_all"));
+        WebResource webResource = client.resource(buildUrl("get_client_plans_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -47,8 +50,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_client_plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientPlansAll(Map<String,Object> map){
@@ -74,15 +76,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"on_off_indicator", getValue("String", on_off_indicator));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_prov_engine"));
+        WebResource webResource = client.resource(buildUrl("set_prov_engine"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setProvEngine(Map<String,Object> map){
@@ -99,7 +100,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"file_name", getValue("String", file_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_auf_status"));
+        WebResource webResource = client.resource(buildUrl("get_auf_status"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[7];
 
@@ -111,8 +112,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[5] = "error_code";
         returnValues[6] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAufStatus(Map<String,Object> map){
@@ -129,7 +129,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"ip_address", getValue("String", ip_address));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_country_from_ip"));
+        WebResource webResource = client.resource(buildUrl("get_country_from_ip"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -138,8 +138,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "error_code";
         returnValues[3] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCountryFromIp(Map<String,Object> map){
@@ -159,7 +158,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_item_no", getValue("Long", filter_item_no));
         addParameters(parameters,"client_filter_item_id", getValue("String", client_filter_item_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_items"));
+        WebResource webResource = client.resource(buildUrl("get_client_items"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -167,8 +166,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItems(Map<String,Object> map){
@@ -192,7 +190,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"include_inactive_items", getValue("String", include_inactive_items));
         addParameters(parameters,"filter_client_item_id", getValue("String", filter_client_item_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_items_all"));
+        WebResource webResource = client.resource(buildUrl("get_client_items_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -200,8 +198,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemsAll(Map<String,Object> map){
@@ -225,7 +222,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_item_no", getValue("Long", filter_item_no));
         addParameters(parameters,"filter_client_item_id", getValue("String", filter_client_item_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_item_prices"));
+        WebResource webResource = client.resource(buildUrl("get_client_item_prices"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -233,8 +230,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemPrices(Map<String,Object> map){
@@ -255,7 +251,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_item_no", getValue("Long", filter_item_no));
         addParameters(parameters,"filter_client_item_id", getValue("String", filter_client_item_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_item_supp_fields"));
+        WebResource webResource = client.resource(buildUrl("get_client_item_supp_fields"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -263,8 +259,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemSuppFields(Map<String,Object> map){
@@ -283,7 +278,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_item_no", getValue("Long", filter_item_no));
         addParameters(parameters,"filter_client_item_id", getValue("String", filter_client_item_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_item_classes"));
+        WebResource webResource = client.resource(buildUrl("get_client_item_classes"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -291,8 +286,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemClasses(Map<String,Object> map){
@@ -310,7 +304,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         RestUtilities.addParameterValuesFromArray(parameters, web_vals_in);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_web_replacement_vals"));
+        WebResource webResource = client.resource(buildUrl("get_web_replacement_vals"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -318,8 +312,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getWebReplacementVals(Map<String,Object> map){
@@ -337,7 +330,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_no", getValue("Long", plan_no));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_plans_basic"));
+        WebResource webResource = client.resource(buildUrl("get_client_plans_basic"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -345,8 +338,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientPlansBasic(Map<String,Object> map){
@@ -365,7 +357,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_no", getValue("Long", plan_no));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_plan_services"));
+        WebResource webResource = client.resource(buildUrl("get_client_plan_services"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -373,8 +365,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientPlanServices(Map<String,Object> map){
@@ -397,7 +388,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_service_id", getValue("String", client_service_id));
         addParameters(parameters,"client_alt_rate_schedule_id", getValue("String", client_alt_rate_schedule_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_plan_service_rates"));
+        WebResource webResource = client.resource(buildUrl("get_client_plan_service_rates"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -405,8 +396,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientPlanServiceRates(Map<String,Object> map){
@@ -427,7 +417,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_countries"));
+        WebResource webResource = client.resource(buildUrl("get_client_countries"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -435,8 +425,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientCountries(Map<String,Object> map){
@@ -453,7 +442,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"class_no", getValue("Long", class_no));
         addParameters(parameters,"do_write", getValue("String", do_write));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("subscribe_event_class"));
+        WebResource webResource = client.resource(buildUrl("subscribe_event_class"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -461,8 +450,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "events";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> subscribeEventClass(Map<String,Object> map){
@@ -481,7 +469,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"class_no", getValue("Long", class_no));
         addParameters(parameters,"do_write", getValue("String", do_write));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("unsubscribe_event_class"));
+        WebResource webResource = client.resource(buildUrl("unsubscribe_event_class"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -489,8 +477,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "events";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> unsubscribeEventClass(Map<String,Object> map){
@@ -508,15 +495,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"event_id", getValue("Long", event_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("subscribe_event"));
+        WebResource webResource = client.resource(buildUrl("subscribe_event"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> subscribeEvent(Map<String,Object> map){
@@ -533,15 +519,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"event_id", getValue("Long", event_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("unsubscribe_event"));
+        WebResource webResource = client.resource(buildUrl("unsubscribe_event"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> unsubscribeEvent(Map<String,Object> map){
@@ -558,15 +543,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         RestUtilities.addParameterValuesFromArray(parameters, event_list);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("subscribe_events"));
+        WebResource webResource = client.resource(buildUrl("subscribe_events"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> subscribeEvents(Map<String,Object> map){
@@ -583,15 +567,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         RestUtilities.addParameterValuesFromArray(parameters, event_list);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("unsubscribe_events"));
+        WebResource webResource = client.resource(buildUrl("unsubscribe_events"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> unsubscribeEvents(Map<String,Object> map){
@@ -608,7 +591,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"class_no", getValue("Long", class_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("client_has_event_class"));
+        WebResource webResource = client.resource(buildUrl("client_has_event_class"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -616,8 +599,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "response";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> clientHasEventClass(Map<String,Object> map){
@@ -636,7 +618,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"rand_length", getValue("Long", rand_length));
         addParameters(parameters,"rand_case", getValue("String", rand_case));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("gen_random_string"));
+        WebResource webResource = client.resource(buildUrl("gen_random_string"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -644,8 +626,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "random_string";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> genRandomString(Map<String,Object> map){
@@ -666,7 +647,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"currency_cd", getValue("String", currency_cd));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_rate_schedules_for_plan"));
+        WebResource webResource = client.resource(buildUrl("get_rate_schedules_for_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -674,8 +655,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "rate_sched";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRateSchedulesForPlan(Map<String,Object> map){
@@ -693,7 +673,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_current_system_version"));
+        WebResource webResource = client.resource(buildUrl("get_current_system_version"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -701,8 +681,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "version";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCurrentSystemVersion(Map<String,Object> map){
@@ -719,7 +698,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"start_date_range", getValue("String", start_date_range));
         addParameters(parameters,"end_date_range", getValue("String", end_date_range));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_all_client_receipt_ids"));
+        WebResource webResource = client.resource(buildUrl("get_all_client_receipt_ids"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -727,8 +706,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "client_receipt";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAllClientReceiptIds(Map<String,Object> map){
@@ -750,7 +728,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"include_inactive_items", getValue("String", include_inactive_items));
         addParameters(parameters,"filter_client_item_id", getValue("String", filter_client_item_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_items_basic"));
+        WebResource webResource = client.resource(buildUrl("get_client_items_basic"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -758,8 +736,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemsBasic(Map<String,Object> map){
@@ -780,7 +757,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"session_id", getValue("String", session_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_reg_uss_params"));
+        WebResource webResource = client.resource(buildUrl("get_reg_uss_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -788,8 +765,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRegUssParams(Map<String,Object> map){
@@ -808,15 +784,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, in_reg_uss_params);
         addParameters(parameters,"override_timeout_minutes", getValue("Long", override_timeout_minutes));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_reg_uss_params"));
+        WebResource webResource = client.resource(buildUrl("set_reg_uss_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setRegUssParams(Map<String,Object> map){
@@ -836,15 +811,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"session_id", getValue("String", session_id));
         RestUtilities.addParameterValuesFromArray(parameters, param_names);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("delete_reg_uss_params"));
+        WebResource webResource = client.resource(buildUrl("delete_reg_uss_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> deleteRegUssParams(Map<String,Object> map){
@@ -863,15 +837,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"session_id", getValue("String", session_id));
         RestUtilities.addParameterValuesFromArray(parameters, in_reg_uss_params);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("replace_reg_uss_params"));
+        WebResource webResource = client.resource(buildUrl("replace_reg_uss_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> replaceRegUssParams(Map<String,Object> map){
@@ -889,15 +862,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"session_id", getValue("String", session_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("clear_reg_uss_params"));
+        WebResource webResource = client.resource(buildUrl("clear_reg_uss_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> clearRegUssParams(Map<String,Object> map){
@@ -914,7 +886,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"set_name", getValue("String", set_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_reg_uss_config_params"));
+        WebResource webResource = client.resource(buildUrl("get_reg_uss_config_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -922,8 +894,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRegUssConfigParams(Map<String,Object> map){
@@ -943,15 +914,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"set_description", getValue("String", set_description));
         addParameters(parameters,"set_type_no", getValue("Long", set_type_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_reg_uss_config_params"));
+        WebResource webResource = client.resource(buildUrl("set_reg_uss_config_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setRegUssConfigParams(Map<String,Object> map){
@@ -972,15 +942,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"set_name", getValue("String", set_name));
         RestUtilities.addParameterValuesFromArray(parameters, param_names);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("delete_reg_uss_config_params"));
+        WebResource webResource = client.resource(buildUrl("delete_reg_uss_config_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> deleteRegUssConfigParams(Map<String,Object> map){
@@ -999,15 +968,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"set_name", getValue("String", set_name));
         RestUtilities.addParameterValuesFromArray(parameters, in_reg_uss_config_params);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("replace_reg_uss_config_params"));
+        WebResource webResource = client.resource(buildUrl("replace_reg_uss_config_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> replaceRegUssConfigParams(Map<String,Object> map){
@@ -1025,15 +993,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"set_name", getValue("String", set_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("clear_reg_uss_config_params"));
+        WebResource webResource = client.resource(buildUrl("clear_reg_uss_config_params"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> clearRegUssConfigParams(Map<String,Object> map){
@@ -1049,7 +1016,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_currencies"));
+        WebResource webResource = client.resource(buildUrl("get_client_currencies"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1057,8 +1024,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientCurrencies(Map<String,Object> map){
@@ -1075,7 +1041,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"item_no", getValue("Long", item_no));
         addParameters(parameters,"client_item_id", getValue("String", client_item_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_item_images"));
+        WebResource webResource = client.resource(buildUrl("get_client_item_images"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1083,8 +1049,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemImages(Map<String,Object> map){
@@ -1101,7 +1066,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_top_level_item_class"));
+        WebResource webResource = client.resource(buildUrl("get_top_level_item_class"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1109,8 +1074,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getTopLevelItemClass(Map<String,Object> map){
@@ -1126,7 +1090,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"filter_class_no", getValue("Long", filter_class_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_parent_for_item_class"));
+        WebResource webResource = client.resource(buildUrl("get_parent_for_item_class"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1134,8 +1098,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getParentForItemClass(Map<String,Object> map){
@@ -1152,7 +1115,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"filter_class_no", getValue("Long", filter_class_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_child_for_item_class"));
+        WebResource webResource = client.resource(buildUrl("get_child_for_item_class"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1160,8 +1123,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getChildForItemClass(Map<String,Object> map){
@@ -1178,7 +1140,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"filter_class_no", getValue("Long", filter_class_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_items_by_class"));
+        WebResource webResource = client.resource(buildUrl("get_items_by_class"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1186,8 +1148,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getItemsByClass(Map<String,Object> map){
@@ -1206,7 +1167,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"field_val", getValue("String", field_val));
         addParameters(parameters,"field_name", getValue("String", field_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_master_plans_by_supp_field"));
+        WebResource webResource = client.resource(buildUrl("get_master_plans_by_supp_field"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1214,8 +1175,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getMasterPlansBySuppField(Map<String,Object> map){
@@ -1236,7 +1196,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"field_val", getValue("String", field_val));
         addParameters(parameters,"field_name", getValue("String", field_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_supp_plans_by_supp_field"));
+        WebResource webResource = client.resource(buildUrl("get_supp_plans_by_supp_field"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1244,8 +1204,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getSuppPlansBySuppField(Map<String,Object> map){
@@ -1266,7 +1225,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"field_val", getValue("String", field_val));
         addParameters(parameters,"field_name", getValue("String", field_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_items_by_supp_field"));
+        WebResource webResource = client.resource(buildUrl("get_items_by_supp_field"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1274,8 +1233,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getItemsBySuppField(Map<String,Object> map){
@@ -1294,7 +1252,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"filter_template_class", getValue("String", filter_template_class));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_email_templates"));
+        WebResource webResource = client.resource(buildUrl("get_email_templates"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1302,8 +1260,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getEmailTemplates(Map<String,Object> map){
@@ -1319,7 +1276,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_virtual_datetime"));
+        WebResource webResource = client.resource(buildUrl("get_virtual_datetime"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[8];
 
@@ -1332,8 +1289,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[6] = "current_offset_hours";
         returnValues[7] = "is_batch_running";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getVirtualDatetime(Map<String,Object> map){
@@ -1349,7 +1305,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"offset_hours", getValue("Long", offset_hours));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("advance_virtual_datetime"));
+        WebResource webResource = client.resource(buildUrl("advance_virtual_datetime"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[7];
 
@@ -1361,8 +1317,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[5] = "system_time";
         returnValues[6] = "current_offset_hours";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> advanceVirtualDatetime(Map<String,Object> map){
@@ -1379,7 +1334,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"batch_date", getValue("String", batch_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_daily_batch_status"));
+        WebResource webResource = client.resource(buildUrl("get_daily_batch_status"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1387,8 +1342,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "status";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getDailyBatchStatus(Map<String,Object> map){
@@ -1409,15 +1363,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"external_id", getValue("String", external_id));
         addParameters(parameters,"action_directive", getValue("Long", action_directive));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_external_object_id"));
+        WebResource webResource = client.resource(buildUrl("set_external_object_id"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setExternalObjectId(Map<String,Object> map){
@@ -1439,7 +1392,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"include_detail_ind", getValue("String", include_detail_ind));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_surcharges"));
+        WebResource webResource = client.resource(buildUrl("get_acct_surcharges"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1447,8 +1400,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctSurcharges(Map<String,Object> map){
@@ -1480,7 +1432,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_plans_all_m"));
+        WebResource webResource = client.resource(buildUrl("get_client_plans_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1488,8 +1440,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_client_plan_dtls";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientPlansAllM(Map<String,Object> map){
@@ -1525,7 +1476,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_plans_basic_m"));
+        WebResource webResource = client.resource(buildUrl("get_client_plans_basic_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1533,8 +1484,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plan_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientPlansBasicM(Map<String,Object> map){
@@ -1562,7 +1512,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_master_plans_by_supp_field_m"));
+        WebResource webResource = client.resource(buildUrl("get_master_plans_by_supp_field_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1570,8 +1520,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "master_plans_dtl_by_supp_field";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getMasterPlansBySuppFieldM(Map<String,Object> map){
@@ -1600,7 +1549,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_supp_plans_by_supp_field_m"));
+        WebResource webResource = client.resource(buildUrl("get_supp_plans_by_supp_field_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1608,8 +1557,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "supp_plans_dtl_by_supp_field";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getSuppPlansBySuppFieldM(Map<String,Object> map){
@@ -1637,7 +1585,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_client_item_id", getValue("String", filter_client_item_id));
         addParameters(parameters,"purchase_scope", getValue("Long", purchase_scope));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_items_all_m"));
+        WebResource webResource = client.resource(buildUrl("get_client_items_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1645,8 +1593,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemsAllM(Map<String,Object> map){
@@ -1673,7 +1620,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_client_item_id", getValue("String", filter_client_item_id));
         addParameters(parameters,"purchase_scope", getValue("Long", purchase_scope));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_items_basic_m"));
+        WebResource webResource = client.resource(buildUrl("get_client_items_basic_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1681,8 +1628,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemsBasicM(Map<String,Object> map){
@@ -1708,7 +1654,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_filter_item_id", getValue("String", client_filter_item_id));
         addParameters(parameters,"purchase_scope", getValue("Long", purchase_scope));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_client_items_m"));
+        WebResource webResource = client.resource(buildUrl("get_client_items_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1716,8 +1662,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getClientItemsM(Map<String,Object> map){
@@ -1741,7 +1686,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_nso_inclusion_list_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_nso_inclusion_list_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1749,8 +1694,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_nso_incl_list";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctNsoInclusionListM(Map<String,Object> map){
@@ -1776,7 +1720,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_surcharges_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_surcharges_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -1786,8 +1730,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctSurchargesM(Map<String,Object> map){
@@ -1811,7 +1754,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"coupon_cd", getValue("String", coupon_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_coupon_details"));
+        WebResource webResource = client.resource(buildUrl("get_coupon_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -1819,8 +1762,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "coupons";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCouponDetails(Map<String,Object> map){
@@ -1839,15 +1781,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"coupon_cd", getValue("String", coupon_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("delete_acct_coupon"));
+        WebResource webResource = client.resource(buildUrl("delete_acct_coupon"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> deleteAcctCoupon(Map<String,Object> map){
@@ -1880,15 +1821,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"birthdate", getValue("String", birthdate));
         addParameters(parameters,"address3", getValue("String", address3));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_contact"));
+        WebResource webResource = client.resource(buildUrl("update_acct_contact"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctContact(Map<String,Object> map){
@@ -1924,15 +1864,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"secret_question", getValue("String", secret_question));
         addParameters(parameters,"pin", getValue("String", pin));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_credentials"));
+        WebResource webResource = client.resource(buildUrl("update_acct_credentials"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctCredentials(Map<String,Object> map){
@@ -1961,15 +1900,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"alt_do_dunning", getValue("String", alt_do_dunning));
         addParameters(parameters,"status_degrade_date", getValue("String", status_degrade_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_status"));
+        WebResource webResource = client.resource(buildUrl("update_acct_status"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctStatus(Map<String,Object> map){
@@ -1996,15 +1934,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"field_name", getValue("String", field_name));
         addParameters(parameters,"value_text", getValue("String", value_text));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_supp_fields"));
+        WebResource webResource = client.resource(buildUrl("update_acct_supp_fields"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctSuppFields(Map<String,Object> map){
@@ -2041,7 +1978,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"address3", getValue("String", address3));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_billing_contact"));
+        WebResource webResource = client.resource(buildUrl("update_acct_billing_contact"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[12];
 
@@ -2058,8 +1995,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[10] = "proc_auth_code";
         returnValues[11] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctBillingContact(Map<String,Object> map){
@@ -2096,15 +2032,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"notify_method", getValue("Long", notify_method));
         addParameters(parameters,"list_start_master_file", getValue("Long", list_start_master_file));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_notify_method"));
+        WebResource webResource = client.resource(buildUrl("update_acct_notify_method"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctNotifyMethod(Map<String,Object> map){
@@ -2123,7 +2058,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"account_no", getValue("Long", account_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_notify_method"));
+        WebResource webResource = client.resource(buildUrl("get_acct_notify_method"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -2132,8 +2067,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "notify_method";
         returnValues[3] = "notify_method_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctNotifyMethod(Map<String,Object> map){
@@ -2157,7 +2091,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bank_acct_type", getValue("String", bank_acct_type));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_pay_method_bank_draft"));
+        WebResource webResource = client.resource(buildUrl("set_pay_method_bank_draft"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[12];
 
@@ -2174,8 +2108,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[10] = "proc_auth_code";
         returnValues[11] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setPayMethodBankDraft(Map<String,Object> map){
@@ -2206,7 +2139,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"reset_dates_after_status", getValue("String", reset_dates_after_status));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_pay_method_cc"));
+        WebResource webResource = client.resource(buildUrl("set_pay_method_cc"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[12];
 
@@ -2223,8 +2156,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[10] = "proc_auth_code";
         returnValues[11] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setPayMethodCc(Map<String,Object> map){
@@ -2249,15 +2181,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"account_no", getValue("Long", account_no));
         addParameters(parameters,"pay_method", getValue("Long", pay_method));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_pay_method_net_terms"));
+        WebResource webResource = client.resource(buildUrl("set_pay_method_net_terms"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setPayMethodNetTerms(Map<String,Object> map){
@@ -2279,15 +2210,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"senior_acct_user_id", getValue("String", senior_acct_user_id));
         addParameters(parameters,"client_senior_acct_id", getValue("String", client_senior_acct_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_payment_responsibility"));
+        WebResource webResource = client.resource(buildUrl("set_payment_responsibility"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setPaymentResponsibility(Map<String,Object> map){
@@ -2311,15 +2241,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_service_plan_immediately"));
+        WebResource webResource = client.resource(buildUrl("set_service_plan_immediately"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setServicePlanImmediately(Map<String,Object> map){
@@ -2340,15 +2269,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"account_no", getValue("Long", account_no));
         addParameters(parameters,"test_acct_ind", getValue("Long", test_acct_ind));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("toggle_test_account"));
+        WebResource webResource = client.resource(buildUrl("toggle_test_account"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> toggleTestAccount(Map<String,Object> map){
@@ -2398,7 +2326,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"track_data2", getValue("String", track_data2));
         addParameters(parameters,"client_acct_group_id", getValue("String", client_acct_group_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("validate_payment_information"));
+        WebResource webResource = client.resource(buildUrl("validate_payment_information"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[10];
 
@@ -2413,8 +2341,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[8] = "proc_auth_code";
         returnValues[9] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> validatePaymentInformation(Map<String,Object> map){
@@ -2468,15 +2395,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"reason_cd", getValue("Long", reason_cd));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("ban_acct"));
+        WebResource webResource = client.resource(buildUrl("ban_acct"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> banAcct(Map<String,Object> map){
@@ -2504,7 +2430,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_statement_no", getValue("Long", filter_statement_no));
         addParameters(parameters,"include_void_transactions", getValue("String", include_void_transactions));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_trans_history"));
+        WebResource webResource = client.resource(buildUrl("get_acct_trans_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -2512,8 +2438,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctTransHistory(Map<String,Object> map){
@@ -2573,7 +2498,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"primary_or_bkup_pay_method_ind", getValue("Long", primary_or_bkup_pay_method_ind));
         addParameters(parameters,"ref_bkup_seq_no", getValue("Long", ref_bkup_seq_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_payment_method"));
+        WebResource webResource = client.resource(buildUrl("update_payment_method"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[13];
 
@@ -2591,8 +2516,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[11] = "proc_auth_code";
         returnValues[12] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updatePaymentMethod(Map<String,Object> map){
@@ -2688,7 +2612,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bank_id_cd", getValue("String", bank_id_cd));
         addParameters(parameters,"bank_branch_cd", getValue("String", bank_branch_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("authorize_electronic_payment"));
+        WebResource webResource = client.resource(buildUrl("authorize_electronic_payment"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[10];
 
@@ -2703,8 +2627,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[8] = "proc_auth_code";
         returnValues[9] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> authorizeElectronicPayment(Map<String,Object> map){
@@ -2809,7 +2732,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bank_id_cd", getValue("String", bank_id_cd));
         addParameters(parameters,"bank_branch_cd", getValue("String", bank_branch_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("authorize_electronic_payment_m"));
+        WebResource webResource = client.resource(buildUrl("authorize_electronic_payment_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[10];
 
@@ -2824,8 +2747,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[8] = "proc_auth_code";
         returnValues[9] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> authorizeElectronicPaymentM(Map<String,Object> map){
@@ -2888,7 +2810,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"account_number", getValue("Long", account_number));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_queued_service_plans"));
+        WebResource webResource = client.resource(buildUrl("get_queued_service_plans"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -2898,8 +2820,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "current_rate_schedule_no";
         returnValues[4] = "client_current_rate_schedule_id";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getQueuedServicePlans(Map<String,Object> map){
@@ -2919,15 +2840,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"remove_all_queued_plan_no", getValue("String", remove_all_queued_plan_no));
         addParameters(parameters,"remove_terminate_pending", getValue("String", remove_terminate_pending));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_queued_service_plan"));
+        WebResource webResource = client.resource(buildUrl("cancel_queued_service_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelQueuedServicePlan(Map<String,Object> map){
@@ -2947,7 +2867,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"account_number", getValue("Long", account_number));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_status_history"));
+        WebResource webResource = client.resource(buildUrl("get_acct_status_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -2955,8 +2875,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "stat_hist";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctStatusHistory(Map<String,Object> map){
@@ -2973,7 +2892,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"account_number", getValue("Long", account_number));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plan_history"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plan_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -2981,8 +2900,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plan_hist";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlanHistory(Map<String,Object> map){
@@ -3001,7 +2919,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_no", getValue("Long", plan_no));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_supp_plan_history"));
+        WebResource webResource = client.resource(buildUrl("get_acct_supp_plan_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3009,8 +2927,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "supp_plan_hist";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctSuppPlanHistory(Map<String,Object> map){
@@ -3029,7 +2946,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_available_plans"));
+        WebResource webResource = client.resource(buildUrl("get_available_plans"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3037,8 +2954,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAvailablePlans(Map<String,Object> map){
@@ -3055,7 +2971,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_available_plans_all"));
+        WebResource webResource = client.resource(buildUrl("get_available_plans_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3063,8 +2979,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAvailablePlansAll(Map<String,Object> map){
@@ -3081,7 +2996,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"promo_code", getValue("String", promo_code));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plans_by_promo_code"));
+        WebResource webResource = client.resource(buildUrl("get_plans_by_promo_code"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3089,8 +3004,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPlansByPromoCode(Map<String,Object> map){
@@ -3107,7 +3021,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"promo_code", getValue("String", promo_code));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plans_by_promo_code_all"));
+        WebResource webResource = client.resource(buildUrl("get_plans_by_promo_code_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3115,8 +3029,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPlansByPromoCodeAll(Map<String,Object> map){
@@ -3133,7 +3046,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_details_all"));
+        WebResource webResource = client.resource(buildUrl("get_acct_details_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[147];
 
@@ -3285,8 +3198,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[145] = "error_code";
         returnValues[146] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctDetailsAll(Map<String,Object> map){
@@ -3304,7 +3216,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"parent_acct_no", getValue("Long", parent_acct_no));
         addParameters(parameters,"do_multi_level", getValue("String", do_multi_level));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_child_accts"));
+        WebResource webResource = client.resource(buildUrl("get_child_accts"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3312,8 +3224,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "child_accts";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getChildAccts(Map<String,Object> map){
@@ -3337,7 +3248,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"record_limit", getValue("Long", record_limit));
         addParameters(parameters,"include_void_transactions", getValue("String", include_void_transactions));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_family_trans_history"));
+        WebResource webResource = client.resource(buildUrl("get_family_trans_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3345,8 +3256,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "fam_trans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getFamilyTransHistory(Map<String,Object> map){
@@ -3398,7 +3308,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"address3", getValue("String", address3));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_existing_billing_info"));
+        WebResource webResource = client.resource(buildUrl("update_existing_billing_info"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[12];
 
@@ -3415,8 +3325,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[10] = "proc_auth_code";
         returnValues[11] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateExistingBillingInfo(Map<String,Object> map){
@@ -3466,15 +3375,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"client_template_id", getValue("String", client_template_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("send_acct_email"));
+        WebResource webResource = client.resource(buildUrl("send_acct_email"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> sendAcctEmail(Map<String,Object> map){
@@ -3495,15 +3403,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"user_id", getValue("String", user_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("userid_exists"));
+        WebResource webResource = client.resource(buildUrl("userid_exists"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> useridExists(Map<String,Object> map){
@@ -3520,15 +3427,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"user_id", getValue("String", user_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("userid_is_available"));
+        WebResource webResource = client.resource(buildUrl("userid_is_available"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> useridIsAvailable(Map<String,Object> map){
@@ -3545,7 +3451,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_standing_usage"));
+        WebResource webResource = client.resource(buildUrl("get_standing_usage"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3553,8 +3459,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "su";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getStandingUsage(Map<String,Object> map){
@@ -3580,15 +3485,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"recurring_ind", getValue("String", recurring_ind));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_standing_usage"));
+        WebResource webResource = client.resource(buildUrl("record_standing_usage"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordStandingUsage(Map<String,Object> map){
@@ -3616,15 +3520,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"standing_usage_rec_no", getValue("Long", standing_usage_rec_no));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("disable_standing_usage"));
+        WebResource webResource = client.resource(buildUrl("disable_standing_usage"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> disableStandingUsage(Map<String,Object> map){
@@ -3646,15 +3549,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"comments", getValue("String", comments));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("disable_standing_usage_by_plan"));
+        WebResource webResource = client.resource(buildUrl("disable_standing_usage_by_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> disableStandingUsageByPlan(Map<String,Object> map){
@@ -3675,15 +3577,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("disable_all_standing_usage"));
+        WebResource webResource = client.resource(buildUrl("disable_all_standing_usage"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> disableAllStandingUsage(Map<String,Object> map){
@@ -3701,7 +3602,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plans"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plans"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3709,8 +3610,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlans(Map<String,Object> map){
@@ -3727,7 +3627,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plans_all"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plans_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3735,8 +3635,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_acct_plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlansAll(Map<String,Object> map){
@@ -3753,7 +3652,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_supp_fields"));
+        WebResource webResource = client.resource(buildUrl("get_acct_supp_fields"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3761,8 +3660,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "supp_fields";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctSuppFields(Map<String,Object> map){
@@ -3780,7 +3678,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"field_name", getValue("String", field_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_supp_field_values"));
+        WebResource webResource = client.resource(buildUrl("get_supp_field_values"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3788,8 +3686,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_supp_field_values";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getSuppFieldValues(Map<String,Object> map){
@@ -3807,7 +3704,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"promo_code", getValue("String", promo_code));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_supp_plans_by_promo_code"));
+        WebResource webResource = client.resource(buildUrl("get_supp_plans_by_promo_code"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3815,8 +3712,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getSuppPlansByPromoCode(Map<String,Object> map){
@@ -3833,7 +3729,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"promo_code", getValue("String", promo_code));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_supp_plans_by_promo_code_all"));
+        WebResource webResource = client.resource(buildUrl("get_supp_plans_by_promo_code_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -3841,8 +3737,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getSuppPlansByPromoCodeAll(Map<String,Object> map){
@@ -3885,7 +3780,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_alt_rate_schedule_id", getValue("String", client_alt_rate_schedule_id));
         RestUtilities.addParameterValuesFromArray(parameters, surcharge_no);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("assign_supp_plan"));
+        WebResource webResource = client.resource(buildUrl("assign_supp_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[16];
 
@@ -3906,8 +3801,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[14] = "expectd_annu_recurring_cost";
         returnValues[15] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> assignSuppPlan(Map<String,Object> map){
@@ -3960,7 +3854,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"invoice_unbilled_usage", getValue("String", invoice_unbilled_usage));
         addParameters(parameters,"client_supp_plan_id", getValue("String", client_supp_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_supp_plan"));
+        WebResource webResource = client.resource(buildUrl("cancel_supp_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[18];
 
@@ -3983,8 +3877,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[16] = "client_plan_id";
         returnValues[17] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelSuppPlan(Map<String,Object> map){
@@ -4025,7 +3918,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_alt_rate_schedule_id", getValue("String", client_alt_rate_schedule_id));
         RestUtilities.addParameterValuesFromArray(parameters, surcharge_no);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("modify_supp_plan"));
+        WebResource webResource = client.resource(buildUrl("modify_supp_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[19];
 
@@ -4049,8 +3942,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[17] = "expectd_annu_recurring_cost";
         returnValues[18] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> modifySuppPlan(Map<String,Object> map){
@@ -4102,7 +3994,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_alt_rate_schedule_id", getValue("String", client_alt_rate_schedule_id));
         RestUtilities.addParameterValuesFromArray(parameters, surcharge_no);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("replace_supp_plan"));
+        WebResource webResource = client.resource(buildUrl("replace_supp_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[19];
 
@@ -4126,8 +4018,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[17] = "expectd_annu_recurring_cost";
         returnValues[18] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> replaceSuppPlan(Map<String,Object> map){
@@ -4166,7 +4057,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"in_plan_no", getValue("Long", in_plan_no));
         addParameters(parameters,"in_client_plan_id", getValue("String", in_client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_avail_child_plans_for_plan"));
+        WebResource webResource = client.resource(buildUrl("get_avail_child_plans_for_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4174,8 +4065,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAvailChildPlansForPlan(Map<String,Object> map){
@@ -4194,7 +4084,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"in_plan_no", getValue("Long", in_plan_no));
         addParameters(parameters,"in_client_plan_id", getValue("String", in_client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_avail_child_plans_for_plan_all"));
+        WebResource webResource = client.resource(buildUrl("get_avail_child_plans_for_plan_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4202,8 +4092,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAvailChildPlansForPlanAll(Map<String,Object> map){
@@ -4221,7 +4110,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_avail_child_plans_for_acct"));
+        WebResource webResource = client.resource(buildUrl("get_avail_child_plans_for_acct"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4229,8 +4118,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAvailChildPlansForAcct(Map<String,Object> map){
@@ -4247,7 +4135,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_avail_child_plans_for_acct_all"));
+        WebResource webResource = client.resource(buildUrl("get_avail_child_plans_for_acct_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4255,8 +4143,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_plans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAvailChildPlansForAcctAll(Map<String,Object> map){
@@ -4272,7 +4159,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_groups_by_client"));
+        WebResource webResource = client.resource(buildUrl("get_acct_groups_by_client"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4280,8 +4167,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_groups";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctGroupsByClient(Map<String,Object> map){
@@ -4298,7 +4184,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"user_id", getValue("String", user_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_groups_by_acct"));
+        WebResource webResource = client.resource(buildUrl("get_acct_groups_by_acct"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4306,8 +4192,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_groups";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctGroupsByAcct(Map<String,Object> map){
@@ -4327,15 +4212,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"group_no", getValue("Long", group_no));
         addParameters(parameters,"client_acct_group_id", getValue("String", client_acct_group_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("assign_functional_acct_group"));
+        WebResource webResource = client.resource(buildUrl("assign_functional_acct_group"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> assignFunctionalAcctGroup(Map<String,Object> map){
@@ -4356,15 +4240,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"group_no", getValue("Long", group_no));
         addParameters(parameters,"client_acct_group_id", getValue("String", client_acct_group_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("assign_collections_acct_group"));
+        WebResource webResource = client.resource(buildUrl("assign_collections_acct_group"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> assignCollectionsAcctGroup(Map<String,Object> map){
@@ -4385,15 +4268,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"group_no", getValue("Long", group_no));
         addParameters(parameters,"client_acct_group_id", getValue("String", client_acct_group_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("remove_acct_from_group"));
+        WebResource webResource = client.resource(buildUrl("remove_acct_from_group"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> removeAcctFromGroup(Map<String,Object> map){
@@ -4560,7 +4442,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"cc_id", getValue("Long", cc_id));
         addParameters(parameters,"bkup_cc_id", getValue("Long", bkup_cc_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_acct_complete"));
+        WebResource webResource = client.resource(buildUrl("create_acct_complete"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[24];
 
@@ -4589,8 +4471,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[22] = "third_party_errors";
         returnValues[23] = "session_id";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAcctComplete(Map<String,Object> map){
@@ -4756,7 +4637,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"coupon_code", getValue("String", coupon_code));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("apply_coupon_to_acct"));
+        WebResource webResource = client.resource(buildUrl("apply_coupon_to_acct"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4764,8 +4645,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> applyCouponToAcct(Map<String,Object> map){
@@ -4806,15 +4686,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, eligible_service_plans);
         RestUtilities.addParameterValuesFromArray(parameters, client_eligible_service_plan_ids);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_advanced_service_credit"));
+        WebResource webResource = client.resource(buildUrl("create_advanced_service_credit"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAdvancedServiceCredit(Map<String,Object> map){
@@ -4854,7 +4733,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"user_id", getValue("String", user_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_no_from_user_id"));
+        WebResource webResource = client.resource(buildUrl("get_acct_no_from_user_id"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4862,8 +4741,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctNoFromUserId(Map<String,Object> map){
@@ -4880,7 +4758,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_user_id_from_acct_no"));
+        WebResource webResource = client.resource(buildUrl("get_user_id_from_acct_no"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4888,8 +4766,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "user_id";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUserIdFromAcctNo(Map<String,Object> map){
@@ -4908,7 +4785,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_no", getValue("Long", plan_no));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plan_contract"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plan_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4916,8 +4793,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_plan_contract";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlanContract(Map<String,Object> map){
@@ -4946,7 +4822,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"start_date", getValue("String", start_date));
         addParameters(parameters,"do_auto_discard", getValue("String", do_auto_discard));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_acct_plan_contract"));
+        WebResource webResource = client.resource(buildUrl("create_acct_plan_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -4954,8 +4830,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "contract_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAcctPlanContract(Map<String,Object> map){
@@ -4990,15 +4865,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"update_comments", getValue("String", update_comments));
         addParameters(parameters,"end_date", getValue("String", end_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("modify_acct_plan_contract"));
+        WebResource webResource = client.resource(buildUrl("modify_acct_plan_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> modifyAcctPlanContract(Map<String,Object> map){
@@ -5026,15 +4900,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"update_comments", getValue("String", update_comments));
         addParameters(parameters,"close_status", getValue("Long", close_status));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_acct_plan_contract"));
+        WebResource webResource = client.resource(buildUrl("cancel_acct_plan_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelAcctPlanContract(Map<String,Object> map){
@@ -5068,7 +4941,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"invoice_line_item", getValue("Long", invoice_line_item));
         addParameters(parameters,"retrieve_excluded_usage", getValue("String", retrieve_excluded_usage));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_usage_history"));
+        WebResource webResource = client.resource(buildUrl("get_usage_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -5076,8 +4949,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "usage_history_records";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUsageHistory(Map<String,Object> map){
@@ -5110,7 +4982,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"message_id", getValue("Long", message_id));
         addParameters(parameters,"do_encoding", getValue("String", do_encoding));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_message"));
+        WebResource webResource = client.resource(buildUrl("get_acct_message"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -5119,8 +4991,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "message_body";
         returnValues[3] = "mime_type";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctMessage(Map<String,Object> map){
@@ -5141,7 +5012,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"message_id", getValue("Long", message_id));
         addParameters(parameters,"do_encoding", getValue("String", do_encoding));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_message_size"));
+        WebResource webResource = client.resource(buildUrl("get_acct_message_size"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -5149,8 +5020,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "num_chars";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctMessageSize(Map<String,Object> map){
@@ -5188,7 +5058,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_alt_rate_schedule_id", getValue("String", client_alt_rate_schedule_id));
         RestUtilities.addParameterValuesFromArray(parameters, surcharge_no);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_master_plan"));
+        WebResource webResource = client.resource(buildUrl("update_master_plan"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[29];
 
@@ -5222,8 +5092,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[27] = "total";
         returnValues[28] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateMasterPlan(Map<String,Object> map){
@@ -5402,7 +5271,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"cc_id", getValue("Long", cc_id));
         addParameters(parameters,"bkup_cc_id", getValue("Long", bkup_cc_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_complete"));
+        WebResource webResource = client.resource(buildUrl("update_acct_complete"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[24];
 
@@ -5431,8 +5300,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[22] = "cancelled_supp_plans";
         returnValues[23] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctComplete(Map<String,Object> map){
@@ -5594,7 +5462,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"start_date_range", getValue("String", start_date_range));
         addParameters(parameters,"end_date_range", getValue("String", end_date_range));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_all_acct_receipt_ids"));
+        WebResource webResource = client.resource(buildUrl("get_all_acct_receipt_ids"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -5602,8 +5470,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_receipt";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAllAcctReceiptIds(Map<String,Object> map){
@@ -5626,15 +5493,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"resource_name", getValue("String", resource_name));
         addParameters(parameters,"resource_units_label", getValue("String", resource_units_label));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("send_arc_threshold_email"));
+        WebResource webResource = client.resource(buildUrl("send_arc_threshold_email"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> sendArcThresholdEmail(Map<String,Object> map){
@@ -5656,15 +5522,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"exemption_level", getValue("Long", exemption_level));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_acct_tax_exempt_status"));
+        WebResource webResource = client.resource(buildUrl("set_acct_tax_exempt_status"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setAcctTaxExemptStatus(Map<String,Object> map){
@@ -5682,7 +5547,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_tax_exempt_status"));
+        WebResource webResource = client.resource(buildUrl("get_acct_tax_exempt_status"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -5691,8 +5556,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "exemption_level";
         returnValues[3] = "exemption_level_desc";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctTaxExemptStatus(Map<String,Object> map){
@@ -5711,15 +5575,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"install_complete_ind", getValue("String", install_complete_ind));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("close_acct_installation"));
+        WebResource webResource = client.resource(buildUrl("close_acct_installation"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> closeAcctInstallation(Map<String,Object> map){
@@ -5738,7 +5601,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_unapplied_service_credits"));
+        WebResource webResource = client.resource(buildUrl("get_unapplied_service_credits"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -5746,8 +5609,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "unapplied_service_credits";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUnappliedServiceCredits(Map<String,Object> map){
@@ -5765,7 +5627,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"filter_credit_no", getValue("Long", filter_credit_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_recurring_credit_info"));
+        WebResource webResource = client.resource(buildUrl("get_recurring_credit_info"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -5773,8 +5635,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "recurring_credit_info";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRecurringCreditInfo(Map<String,Object> map){
@@ -5792,7 +5653,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_pending_invoice_no"));
+        WebResource webResource = client.resource(buildUrl("get_pending_invoice_no"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -5800,8 +5661,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "invoice_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPendingInvoiceNo(Map<String,Object> map){
@@ -5819,15 +5679,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"primary_or_bkup_pay_mthd_ind", getValue("Long", primary_or_bkup_pay_mthd_ind));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("remove_pay_method"));
+        WebResource webResource = client.resource(buildUrl("remove_pay_method"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> removePayMethod(Map<String,Object> map){
@@ -5850,15 +5709,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         addParameters(parameters,"client_service_id", getValue("String", client_service_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("assign_custom_acct_rates"));
+        WebResource webResource = client.resource(buildUrl("assign_custom_acct_rates"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> assignCustomAcctRates(Map<String,Object> map){
@@ -5882,7 +5740,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"form_payment_acct_id", getValue("String", form_payment_acct_id));
         addParameters(parameters,"bank_routing_num", getValue("String", bank_routing_num));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_accts_with_existing_pay_method"));
+        WebResource webResource = client.resource(buildUrl("get_accts_with_existing_pay_method"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -5890,8 +5748,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "accts_with_pay_method";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctsWithExistingPayMethod(Map<String,Object> map){
@@ -5914,15 +5771,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"adjustment_date", getValue("String", adjustment_date));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("adjust_billing_dates"));
+        WebResource webResource = client.resource(buildUrl("adjust_billing_dates"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> adjustBillingDates(Map<String,Object> map){
@@ -5944,15 +5800,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"comment", getValue("String", comment));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("write_acct_comment"));
+        WebResource webResource = client.resource(buildUrl("write_acct_comment"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> writeAcctComment(Map<String,Object> map){
@@ -5974,7 +5829,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"do_url_encoding", getValue("String", do_url_encoding));
         addParameters(parameters,"filter_application_id", getValue("String", filter_application_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_comments"));
+        WebResource webResource = client.resource(buildUrl("get_acct_comments"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -5982,8 +5837,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctComments(Map<String,Object> map){
@@ -6005,15 +5859,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         RestUtilities.addParameterValuesFromArray(parameters, acct_supp_fields);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("modify_acct_supp_fields"));
+        WebResource webResource = client.resource(buildUrl("modify_acct_supp_fields"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> modifyAcctSuppFields(Map<String,Object> map){
@@ -6033,15 +5886,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_no", getValue("Long", plan_no));
         addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("remove_custom_acct_rates"));
+        WebResource webResource = client.resource(buildUrl("remove_custom_acct_rates"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> removeCustomAcctRates(Map<String,Object> map){
@@ -6064,7 +5916,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"end_date", getValue("String", end_date));
         addParameters(parameters,"include_invoice_activity_eligibility", getValue("String", include_invoice_activity_eligibility));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_statement_history"));
+        WebResource webResource = client.resource(buildUrl("get_acct_statement_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -6072,8 +5924,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "statement_history";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctStatementHistory(Map<String,Object> map){
@@ -6101,7 +5952,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"end_date", getValue("String", end_date));
         addParameters(parameters,"include_invoice_activity_eligibility", getValue("String", include_invoice_activity_eligibility));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_statement_history_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_statement_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -6109,8 +5960,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "statements_history";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctStatementHistoryM(Map<String,Object> map){
@@ -6140,7 +5990,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"posting_status_cd", getValue("Long", posting_status_cd));
         addParameters(parameters,"posting_user", getValue("String", posting_user));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_invoice_history"));
+        WebResource webResource = client.resource(buildUrl("get_acct_invoice_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -6148,8 +5998,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "invoice_history";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctInvoiceHistory(Map<String,Object> map){
@@ -6174,7 +6023,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"statement_no", getValue("Long", statement_no));
         addParameters(parameters,"do_encoding", getValue("String", do_encoding));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_statement_content"));
+        WebResource webResource = client.resource(buildUrl("get_statement_content"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -6183,8 +6032,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "statement_content";
         returnValues[3] = "mime_type";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getStatementContent(Map<String,Object> map){
@@ -6205,7 +6053,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"statement_no", getValue("Long", statement_no));
         addParameters(parameters,"do_encoding", getValue("String", do_encoding));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_statement_content_size"));
+        WebResource webResource = client.resource(buildUrl("get_statement_content_size"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -6213,8 +6061,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "num_chars";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getStatementContentSize(Map<String,Object> map){
@@ -6234,7 +6081,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"sku", getValue("String", sku));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_has_ordered_sku"));
+        WebResource webResource = client.resource(buildUrl("get_acct_has_ordered_sku"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -6244,8 +6091,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "billed_ind";
         returnValues[4] = "paid_ind";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctHasOrderedSku(Map<String,Object> map){
@@ -6264,7 +6110,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"user_id", getValue("String", user_id));
         addParameters(parameters,"sku", getValue("String", sku));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_userid_has_ordered_sku"));
+        WebResource webResource = client.resource(buildUrl("get_userid_has_ordered_sku"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
@@ -6275,8 +6121,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[4] = "billed_ind";
         returnValues[5] = "paid_ind";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUseridHasOrderedSku(Map<String,Object> map){
@@ -6305,7 +6150,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, supp_plan_surcharges);
         RestUtilities.addParameterValuesFromArray(parameters, new_acct_custom_rates);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("assign_supp_plan_multi"));
+        WebResource webResource = client.resource(buildUrl("assign_supp_plan_multi"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[28];
 
@@ -6338,8 +6183,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[26] = "expectd_annu_recurring_cost";
         returnValues[27] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> assignSuppPlanMulti(Map<String,Object> map){
@@ -6368,7 +6212,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"filter_seq_no", getValue("Long", filter_seq_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_payment_methods"));
+        WebResource webResource = client.resource(buildUrl("get_acct_payment_methods"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -6376,8 +6220,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPaymentMethods(Map<String,Object> map){
@@ -6396,7 +6239,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"send_email", getValue("String", send_email));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("gen_statement"));
+        WebResource webResource = client.resource(buildUrl("gen_statement"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -6405,8 +6248,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "error_code";
         returnValues[3] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> genStatement(Map<String,Object> map){
@@ -6428,7 +6270,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         addParameters(parameters,"send_email", getValue("String", send_email));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("gen_statement_m"));
+        WebResource webResource = client.resource(buildUrl("gen_statement_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -6437,8 +6279,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "error_code";
         returnValues[3] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> genStatementM(Map<String,Object> map){
@@ -6460,15 +6301,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"coupon_cd", getValue("String", coupon_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_unconsumed_credit"));
+        WebResource webResource = client.resource(buildUrl("cancel_unconsumed_credit"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelUnconsumedCredit(Map<String,Object> map){
@@ -6487,15 +6327,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         RestUtilities.addParameterValuesFromArray(parameters, credit_ids);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_unapplied_svce_credits"));
+        WebResource webResource = client.resource(buildUrl("cancel_unapplied_svce_credits"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelUnappliedSvceCredits(Map<String,Object> map){
@@ -6513,7 +6352,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_balance"));
+        WebResource webResource = client.resource(buildUrl("get_acct_balance"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -6522,8 +6361,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "currency_cd";
         returnValues[3] = "balance";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctBalance(Map<String,Object> map){
@@ -6546,7 +6384,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"usage_type_code", getValue("String", usage_type_code));
         addParameters(parameters,"retrieve_excluded_usage", getValue("String", retrieve_excluded_usage));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_unbilled_usage_summary"));
+        WebResource webResource = client.resource(buildUrl("get_unbilled_usage_summary"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[23];
 
@@ -6574,8 +6412,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[21] = "unbilled_usage_recs";
         returnValues[22] = "unit_threshold_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUnbilledUsageSummary(Map<String,Object> map){
@@ -6600,15 +6437,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"amount", getValue("Double", amount));
         RestUtilities.addParameterValuesFromArray(parameters, usage_unit_thresholds);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_acct_usg_mtd_threshold"));
+        WebResource webResource = client.resource(buildUrl("set_acct_usg_mtd_threshold"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setAcctUsgMtdThreshold(Map<String,Object> map){
@@ -6629,15 +6465,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"amount", getValue("Double", amount));
         RestUtilities.addParameterValuesFromArray(parameters, usage_unit_thresholds);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_acct_usg_ptd_threshold"));
+        WebResource webResource = client.resource(buildUrl("set_acct_usg_ptd_threshold"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setAcctUsgPtdThreshold(Map<String,Object> map){
@@ -6658,15 +6493,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"amount", getValue("Double", amount));
         RestUtilities.addParameterValuesFromArray(parameters, usage_unit_thresholds);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_client_usg_mtd_threshold"));
+        WebResource webResource = client.resource(buildUrl("set_client_usg_mtd_threshold"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setClientUsgMtdThreshold(Map<String,Object> map){
@@ -6687,15 +6521,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"amount", getValue("Double", amount));
         RestUtilities.addParameterValuesFromArray(parameters, usage_unit_thresholds);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_client_usg_ptd_threshold"));
+        WebResource webResource = client.resource(buildUrl("set_client_usg_ptd_threshold"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setClientUsgPtdThreshold(Map<String,Object> map){
@@ -6714,15 +6547,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("reset_usg_mtd_bal"));
+        WebResource webResource = client.resource(buildUrl("reset_usg_mtd_bal"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> resetUsgMtdBal(Map<String,Object> map){
@@ -6739,15 +6571,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("reset_usg_ptd_bal"));
+        WebResource webResource = client.resource(buildUrl("reset_usg_ptd_bal"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> resetUsgPtdBal(Map<String,Object> map){
@@ -6766,7 +6597,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"contract_no", getValue("Long", contract_no));
         addParameters(parameters,"exclude_terminated_plans", getValue("String", exclude_terminated_plans));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_multiplan_contract"));
+        WebResource webResource = client.resource(buildUrl("get_acct_multiplan_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[14];
 
@@ -6785,8 +6616,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[12] = "plan_name";
         returnValues[13] = "client_plan_id";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctMultiplanContract(Map<String,Object> map){
@@ -6813,7 +6643,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"do_auto_discard", getValue("String", do_auto_discard));
         RestUtilities.addParameterValuesFromArray(parameters, client_plan_id);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_acct_multiplan_contract"));
+        WebResource webResource = client.resource(buildUrl("create_acct_multiplan_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -6821,8 +6651,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "contract_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAcctMultiplanContract(Map<String,Object> map){
@@ -6856,15 +6685,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"end_date", getValue("String", end_date));
         RestUtilities.addParameterValuesFromArray(parameters, client_plan_id);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("modify_acct_multiplan_contract"));
+        WebResource webResource = client.resource(buildUrl("modify_acct_multiplan_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> modifyAcctMultiplanContract(Map<String,Object> map){
@@ -6893,15 +6721,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"update_comments", getValue("String", update_comments));
         addParameters(parameters,"close_status", getValue("Long", close_status));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_acct_multiplan_contract"));
+        WebResource webResource = client.resource(buildUrl("cancel_acct_multiplan_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelAcctMultiplanContract(Map<String,Object> map){
@@ -6921,7 +6748,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_universal_contract"));
+        WebResource webResource = client.resource(buildUrl("get_acct_universal_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[12];
 
@@ -6938,8 +6765,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[10] = "status_code";
         returnValues[11] = "contract_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctUniversalContract(Map<String,Object> map){
@@ -6961,7 +6787,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"create_comments", getValue("String", create_comments));
         addParameters(parameters,"start_date", getValue("String", start_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_acct_universal_contract"));
+        WebResource webResource = client.resource(buildUrl("create_acct_universal_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -6969,8 +6795,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "contract_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAcctUniversalContract(Map<String,Object> map){
@@ -6998,15 +6823,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"update_comments", getValue("String", update_comments));
         addParameters(parameters,"end_date", getValue("String", end_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("modify_acct_universal_contract"));
+        WebResource webResource = client.resource(buildUrl("modify_acct_universal_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> modifyAcctUniversalContract(Map<String,Object> map){
@@ -7031,15 +6855,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"update_comments", getValue("String", update_comments));
         addParameters(parameters,"close_status", getValue("Long", close_status));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_acct_universal_contract"));
+        WebResource webResource = client.resource(buildUrl("cancel_acct_universal_contract"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelAcctUniversalContract(Map<String,Object> map){
@@ -7060,7 +6883,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"hierarchy_filter", getValue("Long", hierarchy_filter));
         addParameters(parameters,"include_current_acct", getValue("Long", include_current_acct));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_hierarchy_details"));
+        WebResource webResource = client.resource(buildUrl("get_acct_hierarchy_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -7068,8 +6891,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_hierarchy_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctHierarchyDetails(Map<String,Object> map){
@@ -7090,7 +6912,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_status_code", getValue("Long", filter_status_code));
         addParameters(parameters,"exclude_terminated_plans", getValue("String", exclude_terminated_plans));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_all_acct_contracts"));
+        WebResource webResource = client.resource(buildUrl("get_all_acct_contracts"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -7098,8 +6920,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_acct_contracts";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAllAcctContracts(Map<String,Object> map){
@@ -7124,15 +6945,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"behavioral_option", getValue("Long", behavioral_option));
         addParameters(parameters,"override_template_option", getValue("Long", override_template_option));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_acct_notify_override"));
+        WebResource webResource = client.resource(buildUrl("set_acct_notify_override"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setAcctNotifyOverride(Map<String,Object> map){
@@ -7158,15 +6978,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_acct_id", getValue("String", client_acct_id));
         addParameters(parameters,"notification_template_group_id", getValue("String", notification_template_group_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_acct_notify_tmplt_grp"));
+        WebResource webResource = client.resource(buildUrl("set_acct_notify_tmplt_grp"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setAcctNotifyTmpltGrp(Map<String,Object> map){
@@ -7188,7 +7007,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_user_id", getValue("String", acct_user_id));
         addParameters(parameters,"client_acct_id", getValue("String", client_acct_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_notification_details"));
+        WebResource webResource = client.resource(buildUrl("get_acct_notification_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -7196,8 +7015,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_notification_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctNotificationDetails(Map<String,Object> map){
@@ -7217,7 +7035,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"limit_records", getValue("Long", limit_records));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_credits"));
+        WebResource webResource = client.resource(buildUrl("get_acct_credits"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -7225,8 +7043,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_credits";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctCredits(Map<String,Object> map){
@@ -7245,7 +7062,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"credit_no", getValue("Long", credit_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_credit_details"));
+        WebResource webResource = client.resource(buildUrl("get_acct_credit_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[17];
 
@@ -7267,8 +7084,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[15] = "credit_expiry_date";
         returnValues[16] = "eligible_service_plan_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctCreditDetails(Map<String,Object> map){
@@ -7285,7 +7101,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_credit_reason_codes"));
+        WebResource webResource = client.resource(buildUrl("get_credit_reason_codes"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -7293,8 +7109,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "credit_reason_codes";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCreditReasonCodes(Map<String,Object> map){
@@ -7311,15 +7126,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"token", getValue("String", token));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("save_paypal_bill_agreement"));
+        WebResource webResource = client.resource(buildUrl("save_paypal_bill_agreement"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> savePaypalBillAgreement(Map<String,Object> map){
@@ -7342,15 +7156,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         addParameters(parameters,"token", getValue("String", token));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("save_paypal_bill_agreement_m"));
+        WebResource webResource = client.resource(buildUrl("save_paypal_bill_agreement_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> savePaypalBillAgreementM(Map<String,Object> map){
@@ -7372,7 +7185,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("init_paypal_bill_agreement"));
+        WebResource webResource = client.resource(buildUrl("init_paypal_bill_agreement"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -7381,8 +7194,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "return_url";
         returnValues[3] = "token";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> initPaypalBillAgreement(Map<String,Object> map){
@@ -7406,7 +7218,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"adjust_percent", getValue("Double", adjust_percent));
         RestUtilities.addParameterValuesFromArray(parameters, client_plan_ids_to_get_outage);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_service_outage_credit"));
+        WebResource webResource = client.resource(buildUrl("get_acct_service_outage_credit"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
@@ -7417,8 +7229,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[4] = "total_outage_credit";
         returnValues[5] = "adjusted_outage_credit";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctServiceOutageCredit(Map<String,Object> map){
@@ -7456,7 +7267,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"usage_type_cd_filter", getValue("String", usage_type_cd_filter));
         addParameters(parameters,"retrieve_excluded_usage", getValue("String", retrieve_excluded_usage));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_usage_summary_by_type"));
+        WebResource webResource = client.resource(buildUrl("get_usage_summary_by_type"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[7];
 
@@ -7468,8 +7279,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[5] = "end_time";
         returnValues[6] = "usage_summary_records";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUsageSummaryByType(Map<String,Object> map){
@@ -7500,7 +7310,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_open_charges"));
+        WebResource webResource = client.resource(buildUrl("get_acct_open_charges"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -7509,8 +7319,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "total_amount";
         returnValues[3] = "open_charge_items";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctOpenCharges(Map<String,Object> map){
@@ -7529,7 +7338,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         RestUtilities.addParameterValuesFromArray(parameters, acct, "acct[acct_row]");
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_acct_complete_m"));
+        WebResource webResource = client.resource(buildUrl("create_acct_complete_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -7537,8 +7346,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "out_acct";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAcctCompleteM(Map<String,Object> map){
@@ -7561,15 +7369,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"install_complete_ind", getValue("String", install_complete_ind));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("acct_plan_install_complete_m"));
+        WebResource webResource = client.resource(buildUrl("acct_plan_install_complete_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> acctPlanInstallCompleteM(Map<String,Object> map){
@@ -7592,7 +7399,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"payment_method_no", getValue("Long", payment_method_no));
         addParameters(parameters,"filter_status", getValue("Long", filter_status));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_payment_methods_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_payment_methods_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -7600,8 +7407,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPaymentMethodsM(Map<String,Object> map){
@@ -7665,7 +7471,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"cc_id", getValue("Long", cc_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_payment_method_m"));
+        WebResource webResource = client.resource(buildUrl("update_payment_method_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -7674,8 +7480,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "seq_no";
         returnValues[3] = "collection_info";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updatePaymentMethodM(Map<String,Object> map){
@@ -7744,7 +7549,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_hierarchy_details_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_hierarchy_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -7752,8 +7557,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_hierarchy_dtls";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctHierarchyDetailsM(Map<String,Object> map){
@@ -7782,7 +7586,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_details_all_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_details_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[60];
 
@@ -7847,8 +7651,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[58] = "error_code";
         returnValues[59] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctDetailsAllM(Map<String,Object> map){
@@ -7964,7 +7767,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_complete_m"));
+        WebResource webResource = client.resource(buildUrl("update_acct_complete_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[42];
 
@@ -8011,8 +7814,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[40] = "acct_locale_no";
         returnValues[41] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctCompleteM(Map<String,Object> map){
@@ -8123,7 +7925,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_balance_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_balance_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -8133,8 +7935,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_balance";
         returnValues[4] = "master_plan_instances";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctBalanceM(Map<String,Object> map){
@@ -8174,15 +7975,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"email", getValue("String", email));
         addParameters(parameters,"birthdate", getValue("String", birthdate));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_contact_m"));
+        WebResource webResource = client.resource(buildUrl("update_contact_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateContactM(Map<String,Object> map){
@@ -8224,7 +8024,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"billing_group_no", getValue("Long", billing_group_no));
         addParameters(parameters,"client_billing_group_id", getValue("String", client_billing_group_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_contacts_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_contacts_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
@@ -8235,8 +8035,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[4] = "error_code";
         returnValues[5] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctContactsM(Map<String,Object> map){
@@ -8332,7 +8131,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"payment_terms_no", getValue("Long", payment_terms_no));
         addParameters(parameters,"payment_terms_name", getValue("String", payment_terms_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_acct_billing_group_m"));
+        WebResource webResource = client.resource(buildUrl("create_acct_billing_group_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[10];
 
@@ -8347,8 +8146,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[8] = "proc_auth_code";
         returnValues[9] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAcctBillingGroupM(Map<String,Object> map){
@@ -8448,7 +8246,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_billing_group_id", getValue("String", client_billing_group_id));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_billing_group_details_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_billing_group_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -8457,8 +8255,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "billing_groups";
         returnValues[3] = "payment_methods_summary";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctBillingGroupDetailsM(Map<String,Object> map){
@@ -8604,7 +8401,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"nso_po_num", getValue("String", nso_po_num));
         addParameters(parameters,"cc_id", getValue("Long", cc_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("assign_acct_plan_m"));
+        WebResource webResource = client.resource(buildUrl("assign_acct_plan_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[33];
 
@@ -8642,8 +8439,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[31] = "nso_order_no";
         returnValues[32] = "nso_order_status_label";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> assignAcctPlanM(Map<String,Object> map){
@@ -8794,7 +8590,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"do_write", getValue("String", do_write));
         addParameters(parameters,"proration_invoice_timing", getValue("Long", proration_invoice_timing));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_acct_plan_m"));
+        WebResource webResource = client.resource(buildUrl("cancel_acct_plan_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[16];
 
@@ -8815,8 +8611,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[14] = "proration_tax_amount";
         returnValues[15] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelAcctPlanM(Map<String,Object> map){
@@ -8851,15 +8646,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, master_plans_summary);
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_acct_dunning_group_m"));
+        WebResource webResource = client.resource(buildUrl("create_acct_dunning_group_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAcctDunningGroupM(Map<String,Object> map){
@@ -8912,7 +8706,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"proration_invoice_timing", getValue("Long", proration_invoice_timing));
         addParameters(parameters,"po_num", getValue("String", po_num));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_plan_m"));
+        WebResource webResource = client.resource(buildUrl("update_acct_plan_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[30];
 
@@ -8947,8 +8741,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[28] = "proration_credit_result_amount";
         returnValues[29] = "proration_credit_amount";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctPlanM(Map<String,Object> map){
@@ -9074,7 +8867,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"payment_terms_no", getValue("Long", payment_terms_no));
         addParameters(parameters,"payment_terms_name", getValue("String", payment_terms_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_billing_group_m"));
+        WebResource webResource = client.resource(buildUrl("update_acct_billing_group_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[10];
 
@@ -9089,8 +8882,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[8] = "proc_auth_code";
         returnValues[9] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctBillingGroupM(Map<String,Object> map){
@@ -9220,7 +9012,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"proration_invoice_timing", getValue("Long", proration_invoice_timing));
         addParameters(parameters,"po_num", getValue("String", po_num));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("replace_acct_plan_m"));
+        WebResource webResource = client.resource(buildUrl("replace_acct_plan_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[31];
 
@@ -9256,8 +9048,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[29] = "proration_tax_amount";
         returnValues[30] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> replaceAcctPlanM(Map<String,Object> map){
@@ -9309,7 +9100,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_instance_no", getValue("Long", plan_instance_no));
         addParameters(parameters,"client_plan_instance_id", getValue("String", client_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plan_balance_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plan_balance_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -9319,8 +9110,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "current_balance_due";
         returnValues[4] = "total_balance_due";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlanBalanceM(Map<String,Object> map){
@@ -9343,7 +9133,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"billing_group_no", getValue("Long", billing_group_no));
         addParameters(parameters,"client_def_billing_group_id", getValue("String", client_def_billing_group_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plan_notify_method_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plan_notify_method_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -9353,8 +9143,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "list_start_master_file";
         returnValues[4] = "notify_method_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlanNotifyMethodM(Map<String,Object> map){
@@ -9383,15 +9172,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"senior_plan_instance_no", getValue("Long", senior_plan_instance_no));
         addParameters(parameters,"client_senior_plan_instance_id", getValue("String", client_senior_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_payment_responsibility_m"));
+        WebResource webResource = client.resource(buildUrl("set_payment_responsibility_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setPaymentResponsibilityM(Map<String,Object> map){
@@ -9418,15 +9206,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_instance_no", getValue("Long", plan_instance_no));
         addParameters(parameters,"client_plan_instance_id", getValue("String", client_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("remove_acct_plan_custom_rates_m"));
+        WebResource webResource = client.resource(buildUrl("remove_acct_plan_custom_rates_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> removeAcctPlanCustomRatesM(Map<String,Object> map){
@@ -9450,7 +9237,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"dunning_group_no", getValue("Long", dunning_group_no));
         addParameters(parameters,"client_dunning_group_id", getValue("String", client_dunning_group_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_dunning_group_details_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_dunning_group_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -9458,8 +9245,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "dunning_groups";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctDunningGroupDetailsM(Map<String,Object> map){
@@ -9491,15 +9277,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"dunning_group_directive", getValue("Long", dunning_group_directive));
         RestUtilities.addParameterValuesFromArray(parameters, master_plans_summary);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_dunning_group_m"));
+        WebResource webResource = client.resource(buildUrl("update_acct_dunning_group_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctDunningGroupM(Map<String,Object> map){
@@ -9536,15 +9321,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"comments", getValue("String", comments));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_plan_status_m"));
+        WebResource webResource = client.resource(buildUrl("update_acct_plan_status_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctPlanStatusM(Map<String,Object> map){
@@ -9575,15 +9359,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"remove_all_queued_plans", getValue("String", remove_all_queued_plans));
         addParameters(parameters,"remove_terminate_pending", getValue("String", remove_terminate_pending));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_queued_acct_plan_change_m"));
+        WebResource webResource = client.resource(buildUrl("cancel_queued_acct_plan_change_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelQueuedAcctPlanChangeM(Map<String,Object> map){
@@ -9606,15 +9389,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, billing_dates);
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("adjust_acct_plan_billing_dates_m"));
+        WebResource webResource = client.resource(buildUrl("adjust_acct_plan_billing_dates_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> adjustAcctPlanBillingDatesM(Map<String,Object> map){
@@ -9640,7 +9422,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_avail_plans_for_acct_m"));
+        WebResource webResource = client.resource(buildUrl("get_avail_plans_for_acct_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -9650,8 +9432,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAvailPlansForAcctM(Map<String,Object> map){
@@ -9682,7 +9463,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_avail_plans_for_acct_all_m"));
+        WebResource webResource = client.resource(buildUrl("get_avail_plans_for_acct_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -9692,8 +9473,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAvailPlansForAcctAllM(Map<String,Object> map){
@@ -9719,7 +9499,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plans_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plans_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -9729,8 +9509,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlansM(Map<String,Object> map){
@@ -9751,7 +9530,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plans_all_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plans_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -9761,8 +9540,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlansAllM(Map<String,Object> map){
@@ -9784,7 +9562,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, new_client_plan_unit_inst);
         addParameters(parameters,"do_write", getValue("String", do_write));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("modify_acct_plan_unit_instances"));
+        WebResource webResource = client.resource(buildUrl("modify_acct_plan_unit_instances"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[19];
 
@@ -9808,8 +9586,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[17] = "expectd_annu_recurring_cost";
         returnValues[18] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> modifyAcctPlanUnitInstances(Map<String,Object> map){
@@ -9837,7 +9614,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_unit_inst_status_cd", getValue("Long", plan_unit_inst_status_cd));
         addParameters(parameters,"fulfillment_only", getValue("Long", fulfillment_only));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plan_unit_instance_all"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plan_unit_instance_all"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -9847,8 +9624,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "client_acct_id";
         returnValues[4] = "all_plan_unit_instances";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlanUnitInstanceAll(Map<String,Object> map){
@@ -9880,7 +9656,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, plan_unit_inst_fields);
         addParameters(parameters,"do_write", getValue("String", do_write));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_plan_unit_instance"));
+        WebResource webResource = client.resource(buildUrl("update_acct_plan_unit_instance"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[31];
 
@@ -9916,8 +9692,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[29] = "expectd_annual_rec_cost";
         returnValues[30] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctPlanUnitInstance(Map<String,Object> map){
@@ -9946,15 +9721,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"service_no", getValue("Long", service_no));
         addParameters(parameters,"client_service_id", getValue("String", client_service_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("assign_custom_acct_plan_rates_m"));
+        WebResource webResource = client.resource(buildUrl("assign_custom_acct_plan_rates_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> assignCustomAcctPlanRatesM(Map<String,Object> map){
@@ -9978,7 +9752,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_queued_acct_plans_m"));
+        WebResource webResource = client.resource(buildUrl("get_queued_acct_plans_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -9988,8 +9762,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getQueuedAcctPlansM(Map<String,Object> map){
@@ -10015,7 +9788,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"end_bill_date", getValue("String", end_bill_date));
         addParameters(parameters,"include_voided", getValue("String", include_voided));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_invoice_history_m"));
+        WebResource webResource = client.resource(buildUrl("get_invoice_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10023,8 +9796,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "invoice_hist";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getInvoiceHistoryM(Map<String,Object> map){
@@ -10051,7 +9823,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_pending_invoice_no_m"));
+        WebResource webResource = client.resource(buildUrl("get_pending_invoice_no_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10059,8 +9831,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "pending_invoice";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPendingInvoiceNoM(Map<String,Object> map){
@@ -10083,7 +9854,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_unapplied_service_credits_m"));
+        WebResource webResource = client.resource(buildUrl("get_unapplied_service_credits_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10091,8 +9862,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "unapplied_service_credits_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUnappliedServiceCreditsM(Map<String,Object> map){
@@ -10116,7 +9886,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         addParameters(parameters,"limit_records", getValue("Long", limit_records));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_credits_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_credits_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10124,8 +9894,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_credits";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctCreditsM(Map<String,Object> map){
@@ -10152,7 +9921,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_recurring_credit_info_m"));
+        WebResource webResource = client.resource(buildUrl("get_recurring_credit_info_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -10162,8 +9931,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRecurringCreditInfoM(Map<String,Object> map){
@@ -10215,15 +9983,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, eligible_plan_instances);
         RestUtilities.addParameterValuesFromArray(parameters, client_eligible_plan_instances);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_advanced_service_credit_m"));
+        WebResource webResource = client.resource(buildUrl("create_advanced_service_credit_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createAdvancedServiceCreditM(Map<String,Object> map){
@@ -10281,7 +10048,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_service_outage_credit_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_service_outage_credit_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[8];
 
@@ -10294,8 +10061,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[6] = "acct_locale_no";
         returnValues[7] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctServiceOutageCreditM(Map<String,Object> map){
@@ -10330,7 +10096,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_credit_details_m"));
+        WebResource webResource = client.resource(buildUrl("get_credit_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[22];
 
@@ -10357,8 +10123,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[20] = "acct_locale_no";
         returnValues[21] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCreditDetailsM(Map<String,Object> map){
@@ -10385,15 +10150,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_unapplied_service_credits_m"));
+        WebResource webResource = client.resource(buildUrl("cancel_unapplied_service_credits_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelUnappliedServiceCreditsM(Map<String,Object> map){
@@ -10423,7 +10187,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"filter_statement_no", getValue("Long", filter_statement_no));
         addParameters(parameters,"include_void_transactions", getValue("String", include_void_transactions));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_trans_history_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_trans_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10431,8 +10195,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctTransHistoryM(Map<String,Object> map){
@@ -10462,7 +10225,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plans_by_promo_code_m"));
+        WebResource webResource = client.resource(buildUrl("get_plans_by_promo_code_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10470,8 +10233,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plan_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPlansByPromoCodeM(Map<String,Object> map){
@@ -10498,7 +10260,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plans_by_promo_code_all_m"));
+        WebResource webResource = client.resource(buildUrl("get_plans_by_promo_code_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10506,8 +10268,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_plan_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPlansByPromoCodeAllM(Map<String,Object> map){
@@ -10535,7 +10296,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_rate_schedules_for_plan_m"));
+        WebResource webResource = client.resource(buildUrl("get_rate_schedules_for_plan_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10543,8 +10304,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "rate_scheds";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRateSchedulesForPlanM(Map<String,Object> map){
@@ -10575,7 +10335,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"record_limit", getValue("Long", record_limit));
         addParameters(parameters,"include_void_transactions", getValue("String", include_void_transactions));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_family_trans_history_m"));
+        WebResource webResource = client.resource(buildUrl("get_family_trans_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10583,8 +10343,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "fam_transactions";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getFamilyTransHistoryM(Map<String,Object> map){
@@ -10614,7 +10373,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_supp_plans_by_promo_code_m"));
+        WebResource webResource = client.resource(buildUrl("get_supp_plans_by_promo_code_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10622,8 +10381,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "plans_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getSuppPlansByPromoCodeM(Map<String,Object> map){
@@ -10650,7 +10408,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         addParameters(parameters,"include_translations", getValue("String", include_translations));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_supp_plans_by_promo_code_all_m"));
+        WebResource webResource = client.resource(buildUrl("get_supp_plans_by_promo_code_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -10658,8 +10416,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "all_plan_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getSuppPlansByPromoCodeAllM(Map<String,Object> map){
@@ -10686,7 +10443,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plan_history_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plan_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -10696,8 +10453,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlanHistoryM(Map<String,Object> map){
@@ -10737,7 +10493,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_usage_summary_by_type_m"));
+        WebResource webResource = client.resource(buildUrl("get_usage_summary_by_type_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[9];
 
@@ -10751,8 +10507,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[7] = "acct_locale_no";
         returnValues[8] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUsageSummaryByTypeM(Map<String,Object> map){
@@ -10806,7 +10561,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_usage_history_m"));
+        WebResource webResource = client.resource(buildUrl("get_usage_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -10816,8 +10571,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUsageHistoryM(Map<String,Object> map){
@@ -10859,7 +10613,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         RestUtilities.addParameterValuesFromArray(parameters, usage_unit_thresholds);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_monetary_usg_threshold_m"));
+        WebResource webResource = client.resource(buildUrl("set_monetary_usg_threshold_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
@@ -10870,8 +10624,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[4] = "error_code";
         returnValues[5] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setMonetaryUsgThresholdM(Map<String,Object> map){
@@ -10899,7 +10652,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_id", getValue("Long", master_plan_instance_id));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_usg_mtd_ptd_bal_m"));
+        WebResource webResource = client.resource(buildUrl("set_usg_mtd_ptd_bal_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
@@ -10910,8 +10663,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[4] = "error_code";
         returnValues[5] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setUsgMtdPtdBalM(Map<String,Object> map){
@@ -10943,7 +10695,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_unbilled_usage_summary_m"));
+        WebResource webResource = client.resource(buildUrl("get_unbilled_usage_summary_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[29];
 
@@ -10977,8 +10729,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[27] = "acct_locale_no";
         returnValues[28] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUnbilledUsageSummaryM(Map<String,Object> map){
@@ -11010,7 +10761,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("apply_coupon_to_acct_m"));
+        WebResource webResource = client.resource(buildUrl("apply_coupon_to_acct_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11018,8 +10769,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> applyCouponToAcctM(Map<String,Object> map){
@@ -11046,7 +10796,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_coupon_details_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_coupon_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -11056,8 +10806,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctCouponDetailsM(Map<String,Object> map){
@@ -11084,15 +10833,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("delete_acct_coupon_m"));
+        WebResource webResource = client.resource(buildUrl("delete_acct_coupon_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> deleteAcctCouponM(Map<String,Object> map){
@@ -11122,7 +10870,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"proration_invoice_timing", getValue("Long", proration_invoice_timing));
         addParameters(parameters,"do_write", getValue("String", do_write));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("modify_acct_plan_unit_instances_m"));
+        WebResource webResource = client.resource(buildUrl("modify_acct_plan_unit_instances_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[31];
 
@@ -11158,8 +10906,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[29] = "proration_credit_amount";
         returnValues[30] = "proration_tax_amount";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> modifyAcctPlanUnitInstancesM(Map<String,Object> map){
@@ -11193,7 +10940,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"plan_unit_inst_status_cd", getValue("Long", plan_unit_inst_status_cd));
         addParameters(parameters,"fulfillment_only", getValue("Long", fulfillment_only));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_plan_unit_instance_all_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_plan_unit_instance_all_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -11203,8 +10950,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "client_acct_id";
         returnValues[4] = "all_plan_instances";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPlanUnitInstanceAllM(Map<String,Object> map){
@@ -11241,7 +10987,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"cascade_action", getValue("String", cascade_action));
         RestUtilities.addParameterValuesFromArray(parameters, contract_rollover_custom_rates);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_instance_contract_m"));
+        WebResource webResource = client.resource(buildUrl("create_instance_contract_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11249,8 +10995,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "contract_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createInstanceContractM(Map<String,Object> map){
@@ -11292,15 +11037,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, contract_plan_instances_update);
         RestUtilities.addParameterValuesFromArray(parameters, contract_rollover_custom_rates);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("modify_instance_contract_m"));
+        WebResource webResource = client.resource(buildUrl("modify_instance_contract_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> modifyInstanceContractM(Map<String,Object> map){
@@ -11335,15 +11079,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"update_comments", getValue("String", update_comments));
         addParameters(parameters,"close_status", getValue("Long", close_status));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_instance_contract_m"));
+        WebResource webResource = client.resource(buildUrl("cancel_instance_contract_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelInstanceContractM(Map<String,Object> map){
@@ -11370,7 +11113,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_instance_contract_m"));
+        WebResource webResource = client.resource(buildUrl("get_instance_contract_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[14];
 
@@ -11389,8 +11132,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[12] = "acct_locale_no";
         returnValues[13] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getInstanceContractM(Map<String,Object> map){
@@ -11417,7 +11159,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_all_acct_contracts_m"));
+        WebResource webResource = client.resource(buildUrl("get_all_acct_contracts_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -11427,8 +11169,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "acct_locale_no";
         returnValues[4] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAllAcctContractsM(Map<String,Object> map){
@@ -11452,15 +11193,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"payment_method_no", getValue("Long", payment_method_no));
         addParameters(parameters,"client_payment_method_id", getValue("String", client_payment_method_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("remove_acct_payment_method_m"));
+        WebResource webResource = client.resource(buildUrl("remove_acct_payment_method_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> removeAcctPaymentMethodM(Map<String,Object> map){
@@ -11481,15 +11221,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"statement_no", getValue("Long", statement_no));
         addParameters(parameters,"sequential_statement_no", getValue("String", sequential_statement_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("send_acct_statement_email"));
+        WebResource webResource = client.resource(buildUrl("send_acct_statement_email"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> sendAcctStatementEmail(Map<String,Object> map){
@@ -11510,15 +11249,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"amount", getValue("Double", amount));
         RestUtilities.addParameterValuesFromArray(parameters, usage_unit_thresholds);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_acct_usg_daily_threshold"));
+        WebResource webResource = client.resource(buildUrl("set_acct_usg_daily_threshold"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setAcctUsgDailyThreshold(Map<String,Object> map){
@@ -11539,15 +11277,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"amount", getValue("Double", amount));
         RestUtilities.addParameterValuesFromArray(parameters, usage_unit_thresholds);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_client_usg_daily_threshold"));
+        WebResource webResource = client.resource(buildUrl("set_client_usg_daily_threshold"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setClientUsgDailyThreshold(Map<String,Object> map){
@@ -11583,7 +11320,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"list_start_master_file", getValue("Long", list_start_master_file));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_plan_multi_m"));
+        WebResource webResource = client.resource(buildUrl("update_acct_plan_multi_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[10];
 
@@ -11598,8 +11335,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[8] = "multi_plan_invoice_details";
         returnValues[9] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctPlanMultiM(Map<String,Object> map){
@@ -11641,7 +11377,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"do_write", getValue("String", do_write));
         addParameters(parameters,"proration_invoice_timing", getValue("Long", proration_invoice_timing));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_plan_unit_instance_m"));
+        WebResource webResource = client.resource(buildUrl("update_acct_plan_unit_instance_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[31];
 
@@ -11677,8 +11413,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[29] = "expectd_annual_rec_cost";
         returnValues[30] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctPlanUnitInstanceM(Map<String,Object> map){
@@ -11704,7 +11439,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"transaction_id", getValue("Long", transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_cash_credits_details_m"));
+        WebResource webResource = client.resource(buildUrl("get_cash_credits_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11712,8 +11447,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "cash_credits";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCashCreditsDetailsM(Map<String,Object> map){
@@ -11734,7 +11468,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"payment_method_no", getValue("Long", payment_method_no));
         addParameters(parameters,"client_payment_method_id", getValue("String", client_payment_method_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_pmt_uuid_m"));
+        WebResource webResource = client.resource(buildUrl("get_pmt_uuid_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11742,8 +11476,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "uuid";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPmtUuidM(Map<String,Object> map){
@@ -11764,7 +11497,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"client_acct_id", getValue("String", client_acct_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_uuids_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_uuids_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11772,8 +11505,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctUuidsM(Map<String,Object> map){
@@ -11791,7 +11523,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"cc_number", getValue("String", cc_number));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_cc_uuid_m"));
+        WebResource webResource = client.resource(buildUrl("get_cc_uuid_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11799,8 +11531,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "uuid";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCcUuidM(Map<String,Object> map){
@@ -11819,7 +11550,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_acct_id", getValue("String", client_acct_id));
         addParameters(parameters,"seq_no", getValue("Long", seq_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_pmt_uuid"));
+        WebResource webResource = client.resource(buildUrl("get_pmt_uuid"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11827,8 +11558,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "uuid";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPmtUuid(Map<String,Object> map){
@@ -11848,7 +11578,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"client_acct_id", getValue("String", client_acct_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_uuids"));
+        WebResource webResource = client.resource(buildUrl("get_acct_uuids"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11856,8 +11586,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctUuids(Map<String,Object> map){
@@ -11875,7 +11604,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"cc_number", getValue("String", cc_number));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_cc_uuid"));
+        WebResource webResource = client.resource(buildUrl("get_cc_uuid"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11883,8 +11612,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "uuid";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCcUuid(Map<String,Object> map){
@@ -11901,7 +11629,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"transaction_id", getValue("Long", transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_inv_no_from_bal_xfer"));
+        WebResource webResource = client.resource(buildUrl("get_inv_no_from_bal_xfer"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -11910,8 +11638,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "invoice_no";
         returnValues[3] = "acct_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getInvNoFromBalXfer(Map<String,Object> map){
@@ -11933,7 +11660,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"discard_invoice_usage", getValue("String", discard_invoice_usage));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("void_transaction"));
+        WebResource webResource = client.resource(buildUrl("void_transaction"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11941,8 +11668,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> voidTransaction(Map<String,Object> map){
@@ -11966,7 +11692,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"transaction_id", getValue("Long", transaction_id));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("reinstate_transaction"));
+        WebResource webResource = client.resource(buildUrl("reinstate_transaction"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -11974,8 +11700,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> reinstateTransaction(Map<String,Object> map){
@@ -11996,7 +11721,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"target_account_no", getValue("Long", target_account_no));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("transfer_account_balance"));
+        WebResource webResource = client.resource(buildUrl("transfer_account_balance"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -12005,8 +11730,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "error_code";
         returnValues[3] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> transferAccountBalance(Map<String,Object> map){
@@ -12073,7 +11797,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"fulfilled_date", getValue("String", fulfilled_date));
         addParameters(parameters,"order_comments", getValue("String", order_comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_order"));
+        WebResource webResource = client.resource(buildUrl("create_order"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[23];
 
@@ -12101,8 +11825,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[21] = "invoice_line_items_list";
         returnValues[22] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createOrder(Map<String,Object> map){
@@ -12205,7 +11928,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bank_id_cd", getValue("String", bank_id_cd));
         addParameters(parameters,"bank_branch_cd", getValue("String", bank_branch_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("settle_account_balance"));
+        WebResource webResource = client.resource(buildUrl("settle_account_balance"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[11];
 
@@ -12221,8 +11944,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[9] = "error_code";
         returnValues[10] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> settleAccountBalance(Map<String,Object> map){
@@ -12318,7 +12040,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bank_id_cd", getValue("String", bank_id_cd));
         addParameters(parameters,"bank_branch_cd", getValue("String", bank_branch_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("collect_from_account"));
+        WebResource webResource = client.resource(buildUrl("collect_from_account"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[11];
 
@@ -12334,8 +12056,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[9] = "error_code";
         returnValues[10] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> collectFromAccount(Map<String,Object> map){
@@ -12401,7 +12122,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"external_id", getValue("String", external_id));
         RestUtilities.addParameterValuesFromArray(parameters, invoice_no);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_external_payment"));
+        WebResource webResource = client.resource(buildUrl("record_external_payment"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12409,8 +12130,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordExternalPayment(Map<String,Object> map){
@@ -12438,7 +12158,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"reference_code", getValue("String", reference_code));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_out_going_payment"));
+        WebResource webResource = client.resource(buildUrl("record_out_going_payment"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12446,8 +12166,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordOutGoingPayment(Map<String,Object> map){
@@ -12470,7 +12189,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"credit_reason_code", getValue("Long", credit_reason_code));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("apply_service_credit"));
+        WebResource webResource = client.resource(buildUrl("apply_service_credit"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12478,8 +12197,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> applyServiceCredit(Map<String,Object> map){
@@ -12504,7 +12222,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, specific_charge_transaction_id);
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("apply_cash_credit"));
+        WebResource webResource = client.resource(buildUrl("apply_cash_credit"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12512,8 +12230,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> applyCashCredit(Map<String,Object> map){
@@ -12544,7 +12261,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"statement_message", getValue("String", statement_message));
         addParameters(parameters,"order_comments", getValue("String", order_comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_standing_order"));
+        WebResource webResource = client.resource(buildUrl("record_standing_order"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12552,8 +12269,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordStandingOrder(Map<String,Object> map){
@@ -12579,15 +12295,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"standing_order_no", getValue("Long", standing_order_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_standing_order"));
+        WebResource webResource = client.resource(buildUrl("cancel_standing_order"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelStandingOrder(Map<String,Object> map){
@@ -12606,15 +12321,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"payment_id", getValue("Long", payment_id));
         RestUtilities.addParameterValuesFromArray(parameters, specific_charge_transaction_id);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("move_payment"));
+        WebResource webResource = client.resource(buildUrl("move_payment"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> movePayment(Map<String,Object> map){
@@ -12634,7 +12348,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, usage_records);
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("bulk_record_usage"));
+        WebResource webResource = client.resource(buildUrl("bulk_record_usage"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12642,8 +12356,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "error_records";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> bulkRecordUsage(Map<String,Object> map){
@@ -12682,7 +12395,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"caller_id", getValue("String", caller_id));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_usage"));
+        WebResource webResource = client.resource(buildUrl("record_usage"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12690,8 +12403,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "usage_rec_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordUsage(Map<String,Object> map){
@@ -12733,7 +12445,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"limit_records", getValue("Long", limit_records));
         addParameters(parameters,"details_flag", getValue("Long", details_flag));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_order"));
+        WebResource webResource = client.resource(buildUrl("get_order"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12741,8 +12453,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "order";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getOrder(Map<String,Object> map){
@@ -12765,7 +12476,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"my_standing_order", getValue("Long", my_standing_order));
         addParameters(parameters,"my_client_order_id", getValue("String", my_client_order_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_standing_order"));
+        WebResource webResource = client.resource(buildUrl("get_standing_order"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12773,8 +12484,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "so";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getStandingOrder(Map<String,Object> map){
@@ -12793,7 +12503,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"standing_order_no", getValue("Long", standing_order_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_standing_order_items"));
+        WebResource webResource = client.resource(buildUrl("get_standing_order_items"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12801,8 +12511,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "so_items";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getStandingOrderItems(Map<String,Object> map){
@@ -12819,7 +12528,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"standing_order_no", getValue("Long", standing_order_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_standing_order_hist"));
+        WebResource webResource = client.resource(buildUrl("get_standing_order_hist"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12827,8 +12536,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "order";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getStandingOrderHist(Map<String,Object> map){
@@ -12859,7 +12567,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"tax_exempt_cd", getValue("Long", tax_exempt_cd));
         addParameters(parameters,"address3", getValue("String", address3));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("pre_calc_invoice"));
+        WebResource webResource = client.resource(buildUrl("pre_calc_invoice"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -12868,8 +12576,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "inv_calc_out";
         returnValues[3] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> preCalcInvoice(Map<String,Object> map){
@@ -12900,7 +12607,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"order_no", getValue("Long", order_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_order_items"));
+        WebResource webResource = client.resource(buildUrl("get_order_items"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -12908,8 +12615,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "order_items_list";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getOrderItems(Map<String,Object> map){
@@ -12930,7 +12636,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"alt_bill_day", getValue("Long", alt_bill_day));
         addParameters(parameters,"invoice_mode", getValue("Long", invoice_mode));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("gen_invoice"));
+        WebResource webResource = client.resource(buildUrl("gen_invoice"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -12939,8 +12645,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "invoice_no";
         returnValues[3] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> genInvoice(Map<String,Object> map){
@@ -12963,7 +12668,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"alt_stmt_template_no", getValue("Double", alt_stmt_template_no));
         addParameters(parameters,"auto_skip_to_next_bill_date", getValue("Long", auto_skip_to_next_bill_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_preview_statement"));
+        WebResource webResource = client.resource(buildUrl("get_acct_preview_statement"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -12972,8 +12677,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "out_statement";
         returnValues[3] = "mime_type";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPreviewStatement(Map<String,Object> map){
@@ -12997,7 +12701,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"alt_stmt_template_no", getValue("Double", alt_stmt_template_no));
         addParameters(parameters,"auto_skip_to_next_bill_date", getValue("Long", auto_skip_to_next_bill_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_preview_statement_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_preview_statement_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -13006,8 +12710,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "out_statement";
         returnValues[3] = "mime_type";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPreviewStatementM(Map<String,Object> map){
@@ -13032,7 +12735,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"invoice_no", getValue("Long", invoice_no));
         addParameters(parameters,"do_encoding", getValue("String", do_encoding));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_statement_for_invoice"));
+        WebResource webResource = client.resource(buildUrl("get_statement_for_invoice"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -13041,8 +12744,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "out_statement";
         returnValues[3] = "mime_type";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getStatementForInvoice(Map<String,Object> map){
@@ -13065,7 +12767,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"invoice_no", getValue("Long", invoice_no));
         addParameters(parameters,"do_encoding", getValue("String", do_encoding));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_statement_for_inv_size"));
+        WebResource webResource = client.resource(buildUrl("get_statement_for_inv_size"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13073,8 +12775,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "num_chars";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getStatementForInvSize(Map<String,Object> map){
@@ -13095,7 +12796,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"src_transaction_id", getValue("Long", src_transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_invoice_details"));
+        WebResource webResource = client.resource(buildUrl("get_invoice_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[13];
 
@@ -13113,8 +12814,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[11] = "posting_user";
         returnValues[12] = "posting_date";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getInvoiceDetails(Map<String,Object> map){
@@ -13133,7 +12833,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"src_transaction_id", getValue("Long", src_transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_payments_on_invoice"));
+        WebResource webResource = client.resource(buildUrl("get_payments_on_invoice"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13141,8 +12841,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "invoice_payments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPaymentsOnInvoice(Map<String,Object> map){
@@ -13161,7 +12860,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"src_transaction_id", getValue("Long", src_transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_payment_applications"));
+        WebResource webResource = client.resource(buildUrl("get_payment_applications"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13169,8 +12868,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "payment_applications";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPaymentApplications(Map<String,Object> map){
@@ -13189,7 +12887,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_all_actions_by_receipt_id"));
+        WebResource webResource = client.resource(buildUrl("get_all_actions_by_receipt_id"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13197,8 +12895,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "receipt_action";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAllActionsByReceiptId(Map<String,Object> map){
@@ -13260,7 +12957,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"custom_status_label", getValue("String", custom_status_label));
         addParameters(parameters,"client_notes", getValue("String", client_notes));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("manage_pending_invoice"));
+        WebResource webResource = client.resource(buildUrl("manage_pending_invoice"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[15];
 
@@ -13280,8 +12977,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[13] = "error_code";
         returnValues[14] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> managePendingInvoice(Map<String,Object> map){
@@ -13343,15 +13039,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"order_no", getValue("Long", order_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_order"));
+        WebResource webResource = client.resource(buildUrl("cancel_order"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelOrder(Map<String,Object> map){
@@ -13371,7 +13066,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"include_voided", getValue("String", include_voided));
         addParameters(parameters,"aria_event_no", getValue("Long", aria_event_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_refund_details"));
+        WebResource webResource = client.resource(buildUrl("get_refund_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13379,8 +13074,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "refund_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRefundDetails(Map<String,Object> map){
@@ -13448,7 +13142,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"statement_message", getValue("String", statement_message));
         addParameters(parameters,"order_comments", getValue("String", order_comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_order_with_plans"));
+        WebResource webResource = client.resource(buildUrl("create_order_with_plans"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[21];
 
@@ -13474,8 +13168,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[19] = "proc_merch_comments";
         returnValues[20] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createOrderWithPlans(Map<String,Object> map){
@@ -13541,7 +13234,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_refundable_payments"));
+        WebResource webResource = client.resource(buildUrl("get_refundable_payments"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13549,8 +13242,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "refundable_payments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRefundablePayments(Map<String,Object> map){
@@ -13568,7 +13260,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"payment_transaction_id", getValue("Long", payment_transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_reversible_invs_by_payment"));
+        WebResource webResource = client.resource(buildUrl("get_reversible_invs_by_payment"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13576,8 +13268,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "reversible_invoices";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getReversibleInvsByPayment(Map<String,Object> map){
@@ -13605,7 +13296,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"is_unlinked_refund", getValue("String", is_unlinked_refund));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("issue_refund_to_acct"));
+        WebResource webResource = client.resource(buildUrl("issue_refund_to_acct"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
@@ -13616,8 +13307,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[4] = "transaction_id";
         returnValues[5] = "reversed_invoice_lines";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> issueRefundToAcct(Map<String,Object> map){
@@ -13648,15 +13338,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"transaction_id", getValue("Long", transaction_id));
         addParameters(parameters,"refund_check_number", getValue("Long", refund_check_number));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_refund_check_no"));
+        WebResource webResource = client.resource(buildUrl("update_refund_check_no"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateRefundCheckNo(Map<String,Object> map){
@@ -13678,7 +13367,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"aria_event_no", getValue("Long", aria_event_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_writeoff_details"));
+        WebResource webResource = client.resource(buildUrl("get_writeoff_details"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13686,8 +13375,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "writeoff_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getWriteoffDetails(Map<String,Object> map){
@@ -13706,7 +13394,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"xml_statement_no", getValue("Long", xml_statement_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_aria_xml_statement"));
+        WebResource webResource = client.resource(buildUrl("get_aria_xml_statement"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13714,8 +13402,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "xml_statement_content";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAriaXmlStatement(Map<String,Object> map){
@@ -13737,7 +13424,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"limit_records", getValue("Long", limit_records));
         addParameters(parameters,"details_flag", getValue("Long", details_flag));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_payment_history"));
+        WebResource webResource = client.resource(buildUrl("get_acct_payment_history"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13745,8 +13432,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "payment_history";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPaymentHistory(Map<String,Object> map){
@@ -13772,15 +13458,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"notes", getValue("String", notes));
         RestUtilities.addParameterValuesFromArray(parameters, credit_card_payment_method);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_cc_blacklist"));
+        WebResource webResource = client.resource(buildUrl("update_cc_blacklist"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateCcBlacklist(Map<String,Object> map){
@@ -13803,7 +13488,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"cc_num", getValue("String", cc_num));
         addParameters(parameters,"include_details", getValue("Long", include_details));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("compare_against_cc_blacklist"));
+        WebResource webResource = client.resource(buildUrl("compare_against_cc_blacklist"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
@@ -13814,8 +13499,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[4] = "date_added";
         returnValues[5] = "date_removed";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> compareAgainstCcBlacklist(Map<String,Object> map){
@@ -13835,7 +13519,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"start_date", getValue("String", start_date));
         addParameters(parameters,"end_date", getValue("String", end_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_cc_velocity_info"));
+        WebResource webResource = client.resource(buildUrl("get_cc_velocity_info"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13843,8 +13527,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "velocity_data";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getCcVelocityInfo(Map<String,Object> map){
@@ -13864,7 +13547,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"transaction_id", getValue("Long", transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_payment_application_dtls"));
+        WebResource webResource = client.resource(buildUrl("get_payment_application_dtls"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13872,8 +13555,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "payment_application_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPaymentApplicationDtls(Map<String,Object> map){
@@ -13892,7 +13574,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"transaction_id", getValue("Long", transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_extended_transaction_info"));
+        WebResource webResource = client.resource(buildUrl("get_extended_transaction_info"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[5];
 
@@ -13902,8 +13584,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[3] = "trans_create_date";
         returnValues[4] = "extended_transaction_qualifiers";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getExtendedTransactionInfo(Map<String,Object> map){
@@ -13924,7 +13605,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"exclusion_reason_cd", getValue("Long", exclusion_reason_cd));
         addParameters(parameters,"exclusion_comment", getValue("String", exclusion_comment));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("discard_usage"));
+        WebResource webResource = client.resource(buildUrl("discard_usage"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -13932,8 +13613,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "failed_records";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> discardUsage(Map<String,Object> map){
@@ -13959,7 +13639,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"do_dispute", getValue("Long", do_dispute));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_writeoff_or_dispute"));
+        WebResource webResource = client.resource(buildUrl("create_writeoff_or_dispute"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[15];
 
@@ -13979,8 +13659,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[13] = "dispute_ind";
         returnValues[14] = "can_unsettle";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createWriteoffOrDispute(Map<String,Object> map){
@@ -14005,7 +13684,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"dispute_or_writeoff_flag", getValue("Long", dispute_or_writeoff_flag));
         addParameters(parameters,"details_flag", getValue("Long", details_flag));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_writeoff_or_disputes"));
+        WebResource webResource = client.resource(buildUrl("get_acct_writeoff_or_disputes"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14013,8 +13692,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "write_off_info";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctWriteoffOrDisputes(Map<String,Object> map){
@@ -14033,7 +13711,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_invoices_to_writeoff_or_dispute"));
+        WebResource webResource = client.resource(buildUrl("get_invoices_to_writeoff_or_dispute"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14041,8 +13719,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "invoice_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getInvoicesToWriteoffOrDispute(Map<String,Object> map){
@@ -14063,7 +13740,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"comments", getValue("String", comments));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("settle_dispute_hold"));
+        WebResource webResource = client.resource(buildUrl("settle_dispute_hold"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[15];
 
@@ -14083,8 +13760,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[13] = "dispute_ind";
         returnValues[14] = "can_unsettle";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> settleDisputeHold(Map<String,Object> map){
@@ -14109,7 +13785,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, recurring_credit_no);
         addParameters(parameters,"cancel_comments", getValue("String", cancel_comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_recurring_credits"));
+        WebResource webResource = client.resource(buildUrl("cancel_recurring_credits"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14117,8 +13793,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "error_codes";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelRecurringCredits(Map<String,Object> map){
@@ -14177,7 +13852,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bank_branch_cd", getValue("String", bank_branch_cd));
         addParameters(parameters,"fulfilled_date", getValue("String", fulfilled_date));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_order"));
+        WebResource webResource = client.resource(buildUrl("update_order"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[22];
 
@@ -14204,8 +13879,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[20] = "cart_invoice_line_items";
         returnValues[21] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateOrder(Map<String,Object> map){
@@ -14265,15 +13939,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"posting_status_cd", getValue("Long", posting_status_cd));
         addParameters(parameters,"posting_user", getValue("String", posting_user));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_acct_invoice"));
+        WebResource webResource = client.resource(buildUrl("update_acct_invoice"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateAcctInvoice(Map<String,Object> map){
@@ -14347,7 +14020,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"order_comments", getValue("String", order_comments));
         addParameters(parameters,"nso_po_num", getValue("String", nso_po_num));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_order_m"));
+        WebResource webResource = client.resource(buildUrl("create_order_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[24];
 
@@ -14376,8 +14049,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[22] = "tax_details";
         returnValues[23] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createOrderM(Map<String,Object> map){
@@ -14452,7 +14124,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"locale_no", getValue("Long", locale_no));
         addParameters(parameters,"locale_name", getValue("String", locale_name));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_invoice_details_m"));
+        WebResource webResource = client.resource(buildUrl("get_invoice_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[15];
 
@@ -14472,8 +14144,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[13] = "acct_locale_no";
         returnValues[14] = "acct_locale_name";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getInvoiceDetailsM(Map<String,Object> map){
@@ -14500,7 +14171,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_inv_no_from_bal_xfer_m"));
+        WebResource webResource = client.resource(buildUrl("get_inv_no_from_bal_xfer_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[7];
 
@@ -14512,8 +14183,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[5] = "billing_group_no";
         returnValues[6] = "client_billing_group_id";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getInvNoFromBalXferM(Map<String,Object> map){
@@ -14537,7 +14207,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_refundable_payments_m"));
+        WebResource webResource = client.resource(buildUrl("get_refundable_payments_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14545,8 +14215,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "refundable_payments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getRefundablePaymentsM(Map<String,Object> map){
@@ -14572,7 +14241,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("apply_service_credit_m"));
+        WebResource webResource = client.resource(buildUrl("apply_service_credit_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14580,8 +14249,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> applyServiceCreditM(Map<String,Object> map){
@@ -14610,7 +14278,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         addParameters(parameters,"cancel_comments", getValue("String", cancel_comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("cancel_recurring_credits_m"));
+        WebResource webResource = client.resource(buildUrl("cancel_recurring_credits_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14618,8 +14286,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "error_codes";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> cancelRecurringCreditsM(Map<String,Object> map){
@@ -14645,7 +14312,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"master_plan_instance_no", getValue("Long", master_plan_instance_no));
         addParameters(parameters,"client_master_plan_instance_id", getValue("String", client_master_plan_instance_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_invoices_to_writeoff_or_dispute_m"));
+        WebResource webResource = client.resource(buildUrl("get_invoices_to_writeoff_or_dispute_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14653,8 +14320,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "invoice_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getInvoicesToWriteoffOrDisputeM(Map<String,Object> map){
@@ -14679,7 +14345,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"limit_records", getValue("Long", limit_records));
         addParameters(parameters,"details_flag", getValue("Long", details_flag));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_order_m"));
+        WebResource webResource = client.resource(buildUrl("get_order_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14687,8 +14353,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "orders";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getOrderM(Map<String,Object> map){
@@ -14712,7 +14377,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"client_acct_id", getValue("String", client_acct_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_writeoff_details_m"));
+        WebResource webResource = client.resource(buildUrl("get_writeoff_details_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14720,8 +14385,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "writeoff_detail";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getWriteoffDetailsM(Map<String,Object> map){
@@ -14745,7 +14409,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"dispute_or_writeoff_flag", getValue("Long", dispute_or_writeoff_flag));
         addParameters(parameters,"details_flag", getValue("Long", details_flag));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_writeoff_or_disputes_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_writeoff_or_disputes_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14753,8 +14417,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "writeoff_dispute_info";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctWriteoffOrDisputesM(Map<String,Object> map){
@@ -14777,7 +14440,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"payment_transaction_id", getValue("Long", payment_transaction_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_reversible_invs_by_payment_m"));
+        WebResource webResource = client.resource(buildUrl("get_reversible_invs_by_payment_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14785,8 +14448,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "reversible_inv_trans";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getReversibleInvsByPaymentM(Map<String,Object> map){
@@ -14815,7 +14477,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"is_unlinked_refund", getValue("String", is_unlinked_refund));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("issue_refund_to_acct_m"));
+        WebResource webResource = client.resource(buildUrl("issue_refund_to_acct_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[6];
 
@@ -14826,8 +14488,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[4] = "out_transaction_id";
         returnValues[5] = "reversed_invoice_transactions";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> issueRefundToAcctM(Map<String,Object> map){
@@ -14860,7 +14521,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"comments", getValue("String", comments));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("void_invoice_m"));
+        WebResource webResource = client.resource(buildUrl("void_invoice_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14868,8 +14529,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "void_transactions";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> voidInvoiceM(Map<String,Object> map){
@@ -14898,7 +14558,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"do_dispute", getValue("Long", do_dispute));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_writeoff_or_dispute_m"));
+        WebResource webResource = client.resource(buildUrl("create_writeoff_or_dispute_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -14906,8 +14566,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "writeoff_transactions";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createWriteoffOrDisputeM(Map<String,Object> map){
@@ -14974,7 +14633,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bank_id_cd", getValue("String", bank_id_cd));
         addParameters(parameters,"bank_branch_cd", getValue("String", bank_branch_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("settle_account_balance_m"));
+        WebResource webResource = client.resource(buildUrl("settle_account_balance_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[11];
 
@@ -14990,8 +14649,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[9] = "error_code";
         returnValues[10] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> settleAccountBalanceM(Map<String,Object> map){
@@ -15093,7 +14751,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"bank_id_cd", getValue("String", bank_id_cd));
         addParameters(parameters,"bank_branch_cd", getValue("String", bank_branch_cd));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("collect_from_account_m"));
+        WebResource webResource = client.resource(buildUrl("collect_from_account_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[11];
 
@@ -15109,8 +14767,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[9] = "error_code";
         returnValues[10] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> collectFromAccountM(Map<String,Object> map){
@@ -15176,7 +14833,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"limit_records", getValue("Long", limit_records));
         addParameters(parameters,"details_flag", getValue("Long", details_flag));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_acct_payment_history_m"));
+        WebResource webResource = client.resource(buildUrl("get_acct_payment_history_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15184,8 +14841,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "acct_payment_history";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getAcctPaymentHistoryM(Map<String,Object> map){
@@ -15211,7 +14867,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_acct_id", getValue("String", client_acct_id));
         addParameters(parameters,"invoice_no", getValue("Long", invoice_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_payments_on_invoice_m"));
+        WebResource webResource = client.resource(buildUrl("get_payments_on_invoice_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15219,8 +14875,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "invoice_payment_details";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getPaymentsOnInvoiceM(Map<String,Object> map){
@@ -15240,7 +14895,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"client_acct_id", getValue("String", client_acct_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_unapplied_credits_payments_m"));
+        WebResource webResource = client.resource(buildUrl("get_unapplied_credits_payments_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15248,8 +14903,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "unapplied_payments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getUnappliedCreditsPaymentsM(Map<String,Object> map){
@@ -15292,7 +14946,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"caller_id", getValue("String", caller_id));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_usage_m"));
+        WebResource webResource = client.resource(buildUrl("record_usage_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15300,8 +14954,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "usage_rec_no";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordUsageM(Map<String,Object> map){
@@ -15344,7 +14997,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, usage_recs);
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("bulk_record_usage_m"));
+        WebResource webResource = client.resource(buildUrl("bulk_record_usage_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15352,8 +15005,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "error_records";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> bulkRecordUsageM(Map<String,Object> map){
@@ -15380,7 +15032,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"alt_bill_day", getValue("Long", alt_bill_day));
         addParameters(parameters,"invoice_mode", getValue("Long", invoice_mode));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("gen_invoice_m"));
+        WebResource webResource = client.resource(buildUrl("gen_invoice_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[9];
 
@@ -15394,8 +15046,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[7] = "third_party_errors";
         returnValues[8] = "out_invoices";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> genInvoiceM(Map<String,Object> map){
@@ -15468,7 +15119,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"custom_status_label", getValue("String", custom_status_label));
         addParameters(parameters,"client_notes", getValue("String", client_notes));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("manage_pending_invoice_m"));
+        WebResource webResource = client.resource(buildUrl("manage_pending_invoice_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[19];
 
@@ -15492,8 +15143,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[17] = "error_code";
         returnValues[18] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> managePendingInvoiceM(Map<String,Object> map){
@@ -15616,7 +15266,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"nso_po_num", getValue("String", nso_po_num));
         addParameters(parameters,"po_num", getValue("String", po_num));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_order_with_plan_m"));
+        WebResource webResource = client.resource(buildUrl("create_order_with_plan_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[23];
 
@@ -15644,8 +15294,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[21] = "cart_inv_line_items";
         returnValues[22] = "third_party_errors";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> createOrderWithPlanM(Map<String,Object> map){
@@ -15724,7 +15373,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"target_acct_no", getValue("Long", target_acct_no));
         addParameters(parameters,"client_target_acct_id", getValue("String", client_target_acct_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("copy_acct_payment_method"));
+        WebResource webResource = client.resource(buildUrl("copy_acct_payment_method"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15732,8 +15381,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "seq_nos";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> copyAcctPaymentMethod(Map<String,Object> map){
@@ -15757,7 +15405,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_target_acct_id", getValue("String", client_target_acct_id));
         RestUtilities.addParameterValuesFromArray(parameters, payment_methods);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("copy_acct_payment_method_m"));
+        WebResource webResource = client.resource(buildUrl("copy_acct_payment_method_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15765,8 +15413,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "payment_method_map";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> copyAcctPaymentMethodM(Map<String,Object> map){
@@ -15792,15 +15439,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, credit_card_payment_methods);
         addParameters(parameters,"notes", getValue("String", notes));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("update_cc_blacklist_m"));
+        WebResource webResource = client.resource(buildUrl("update_cc_blacklist_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> updateCcBlacklistM(Map<String,Object> map){
@@ -15831,7 +15477,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, specific_charge_transaction_id);
         RestUtilities.addParameterValuesFromArray(parameters, invoice_no);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_external_payment_m"));
+        WebResource webResource = client.resource(buildUrl("record_external_payment_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15839,8 +15485,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordExternalPaymentM(Map<String,Object> map){
@@ -15866,7 +15511,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_reversible_authorizations"));
+        WebResource webResource = client.resource(buildUrl("get_reversible_authorizations"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15874,8 +15519,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_msg";
         returnValues[2] = "reversible_authorizations";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> getReversibleAuthorizations(Map<String,Object> map){
@@ -15896,7 +15540,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"comments", getValue("String", comments));
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("reverse_authorized_electronic_payment"));
+        WebResource webResource = client.resource(buildUrl("reverse_authorized_electronic_payment"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[8];
 
@@ -15909,8 +15553,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[6] = "proc_auth_code";
         returnValues[7] = "proc_merch_comments";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> reverseAuthorizedElectronicPayment(Map<String,Object> map){
@@ -15936,7 +15579,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         RestUtilities.addParameterValuesFromArray(parameters, specific_invoices);
         RestUtilities.addParameterValuesFromArray(parameters, specific_transactions);
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("apply_cash_credit_m"));
+        WebResource webResource = client.resource(buildUrl("apply_cash_credit_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[9];
 
@@ -15950,8 +15593,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[7] = "reason_text";
         returnValues[8] = "applied_cash_credits";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> applyCashCreditM(Map<String,Object> map){
@@ -15982,7 +15624,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"allow_recurring", getValue("String", allow_recurring));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_alternative_payment"));
+        WebResource webResource = client.resource(buildUrl("record_alternative_payment"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -15990,8 +15632,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordAlternativePayment(Map<String,Object> map){
@@ -16026,7 +15667,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_receipt_id", getValue("String", client_receipt_id));
         addParameters(parameters,"allow_recurring", getValue("String", allow_recurring));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("record_alternative_payment_m"));
+        WebResource webResource = client.resource(buildUrl("record_alternative_payment_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -16034,8 +15675,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> recordAlternativePaymentM(Map<String,Object> map){
@@ -16062,7 +15702,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"user_id", getValue("String", user_id));
         addParameters(parameters,"password", getValue("String", password));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_session_auth"));
+        WebResource webResource = client.resource(buildUrl("set_session_auth"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -16070,8 +15710,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setSessionAuth(Map<String,Object> map){
@@ -16090,7 +15729,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"user_id", getValue("String", user_id));
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_session"));
+        WebResource webResource = client.resource(buildUrl("set_session"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -16098,8 +15737,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setSession(Map<String,Object> map){
@@ -16117,7 +15755,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"session_id", getValue("String", session_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("validate_session"));
+        WebResource webResource = client.resource(buildUrl("validate_session"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[4];
 
@@ -16126,8 +15764,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[2] = "error_code";
         returnValues[3] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> validateSession(Map<String,Object> map){
@@ -16144,15 +15781,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"session_id", getValue("String", session_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("keep_alive"));
+        WebResource webResource = client.resource(buildUrl("keep_alive"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> keepAlive(Map<String,Object> map){
@@ -16169,15 +15805,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"session_id", getValue("String", session_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("kill_session"));
+        WebResource webResource = client.resource(buildUrl("kill_session"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> killSession(Map<String,Object> map){
@@ -16196,7 +15831,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"password", getValue("String", password));
         addParameters(parameters,"alt_caller_id", getValue("String", alt_caller_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_session_auth_m"));
+        WebResource webResource = client.resource(buildUrl("set_session_auth_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -16204,8 +15839,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setSessionAuthM(Map<String,Object> map){
@@ -16226,7 +15860,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"acct_no", getValue("Long", acct_no));
         addParameters(parameters,"alt_caller_id", getValue("String", alt_caller_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("set_session_m"));
+        WebResource webResource = client.resource(buildUrl("set_session_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[3];
 
@@ -16234,8 +15868,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[1] = "error_code";
         returnValues[2] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> setSessionM(Map<String,Object> map){
@@ -16254,7 +15887,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         addParameters(parameters,"session_id", getValue("String", session_id));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("validate_session_m"));
+        WebResource webResource = client.resource(buildUrl("validate_session_m"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[7];
 
@@ -16266,8 +15899,7 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         returnValues[5] = "error_code";
         returnValues[6] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> validateSessionM(Map<String,Object> map){
@@ -16283,15 +15915,14 @@ public class AriaBillingCompleteRest extends BaseAriaBilling implements AriaBill
         addParameters(parameters,"client_no",getValue("Long",client_no));
         addParameters(parameters,"auth_key",getValue("String",auth_key));
         
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("authenticate_caller"));
+        WebResource webResource = client.resource(buildUrl("authenticate_caller"));
         String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
         String[] returnValues = new String[2];
 
         returnValues[0] = "error_code";
         returnValues[1] = "error_msg";
         
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
+        return buildHashMapReturnValues(ret,returnValues);
     }
 
     public Map<String,Object> authenticateCaller(Map<String,Object> map){

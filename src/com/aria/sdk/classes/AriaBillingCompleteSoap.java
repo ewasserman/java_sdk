@@ -3,6 +3,7 @@ package com.aria.sdk.classes;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
+import java.util.HashMap;
 import com.aria.common.shared.AriaCompleteApi;
 import com.aria.common.shared.CompletePort;
 
@@ -51,11 +52,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientPlansAll(client_no, auth_key, plan_no, acct_no, promo_code, parent_plan_no, supp_field_names, supp_field_values, include_all_rate_schedules, include_plan_hierarchy, client_plan_id, client_parent_plan_id, h_error_code, h_error_msg, h_all_client_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_client_plans",((javax.xml.ws.Holder)h_all_client_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_client_plans",((javax.xml.ws.Holder)h_all_client_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientPlansAll(Map<String,Object> map){
@@ -84,10 +86,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setProvEngine(client_no, auth_key, on_off_indicator, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setProvEngine(Map<String,Object> map){
@@ -117,15 +120,16 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAufStatus(client_no, auth_key, file_name, h_status_cd, h_load_date_time, h_recs_received, h_recs_loaded, h_recs_failed, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("status_cd",((javax.xml.ws.Holder)h_status_cd).value);
-        getHashMapReturnValues().put("load_date_time",((javax.xml.ws.Holder)h_load_date_time).value);
-        getHashMapReturnValues().put("recs_received",((javax.xml.ws.Holder)h_recs_received).value);
-        getHashMapReturnValues().put("recs_loaded",((javax.xml.ws.Holder)h_recs_loaded).value);
-        getHashMapReturnValues().put("recs_failed",((javax.xml.ws.Holder)h_recs_failed).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("status_cd",((javax.xml.ws.Holder)h_status_cd).value);
+        returnMap.put("load_date_time",((javax.xml.ws.Holder)h_load_date_time).value);
+        returnMap.put("recs_received",((javax.xml.ws.Holder)h_recs_received).value);
+        returnMap.put("recs_loaded",((javax.xml.ws.Holder)h_recs_loaded).value);
+        returnMap.put("recs_failed",((javax.xml.ws.Holder)h_recs_failed).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAufStatus(Map<String,Object> map){
@@ -149,12 +153,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCountryFromIp(client_no, auth_key, ip_address, h_country_code, h_country_name, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("country_code",((javax.xml.ws.Holder)h_country_code).value);
-        getHashMapReturnValues().put("country_name",((javax.xml.ws.Holder)h_country_name).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("country_code",((javax.xml.ws.Holder)h_country_code).value);
+        returnMap.put("country_name",((javax.xml.ws.Holder)h_country_name).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCountryFromIp(Map<String,Object> map){
@@ -176,11 +181,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItems(client_no, auth_key, filter_currency_cd, return_no_cost_items, filter_item_no, client_filter_item_id, h_client_items, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("client_items",((javax.xml.ws.Holder)h_client_items).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("client_items",((javax.xml.ws.Holder)h_client_items).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItems(Map<String,Object> map){
@@ -205,11 +211,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemsAll(client_no, auth_key, filter_currency_cd, return_no_cost_items, filter_item_no, include_inactive_items, filter_client_item_id, h_all_client_items, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("all_client_items",((javax.xml.ws.Holder)h_all_client_items).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("all_client_items",((javax.xml.ws.Holder)h_all_client_items).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemsAll(Map<String,Object> map){
@@ -235,11 +242,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemPrices(client_no, auth_key, filter_currency_cd, return_no_cost_items, filter_item_no, filter_client_item_id, h_item_rates, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("item_rates",((javax.xml.ws.Holder)h_item_rates).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("item_rates",((javax.xml.ws.Holder)h_item_rates).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemPrices(Map<String,Object> map){
@@ -264,11 +272,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemSuppFields(client_no, auth_key, filter_item_no, filter_client_item_id, h_all_item_supp_fields, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("all_item_supp_fields",((javax.xml.ws.Holder)h_all_item_supp_fields).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("all_item_supp_fields",((javax.xml.ws.Holder)h_all_item_supp_fields).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemSuppFields(Map<String,Object> map){
@@ -291,11 +300,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemClasses(client_no, auth_key, filter_item_no, filter_client_item_id, h_all_item_classes, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("all_item_classes",((javax.xml.ws.Holder)h_all_item_classes).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("all_item_classes",((javax.xml.ws.Holder)h_all_item_classes).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemClasses(Map<String,Object> map){
@@ -318,11 +328,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getWebReplacementVals(client_no, auth_key, web_vals_in, h_web_vals_out, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("web_vals_out",((javax.xml.ws.Holder)h_web_vals_out).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("web_vals_out",((javax.xml.ws.Holder)h_web_vals_out).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getWebReplacementVals(Map<String,Object> map){
@@ -344,11 +355,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientPlansBasic(client_no, auth_key, plan_no, client_plan_id, h_plans_basic, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("plans_basic",((javax.xml.ws.Holder)h_plans_basic).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("plans_basic",((javax.xml.ws.Holder)h_plans_basic).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientPlansBasic(Map<String,Object> map){
@@ -371,11 +383,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientPlanServices(client_no, auth_key, plan_no, client_plan_id, h_plan_services, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("plan_services",((javax.xml.ws.Holder)h_plan_services).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("plan_services",((javax.xml.ws.Holder)h_plan_services).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientPlanServices(Map<String,Object> map){
@@ -398,11 +411,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientPlanServiceRates(client_no, auth_key, plan_no, service_no, alt_rate_schedule_no, client_plan_id, client_service_id, client_alt_rate_schedule_id, h_plan_service_rates, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("plan_service_rates",((javax.xml.ws.Holder)h_plan_service_rates).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("plan_service_rates",((javax.xml.ws.Holder)h_plan_service_rates).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientPlanServiceRates(Map<String,Object> map){
@@ -429,11 +443,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientCountries(client_no, auth_key, h_client_country, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("client_country",((javax.xml.ws.Holder)h_client_country).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("client_country",((javax.xml.ws.Holder)h_client_country).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientCountries(Map<String,Object> map){
@@ -454,11 +469,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().subscribeEventClass(client_no, auth_key, class_no, do_write, h_error_code, h_error_msg, h_events);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("events",((javax.xml.ws.Holder)h_events).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("events",((javax.xml.ws.Holder)h_events).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> subscribeEventClass(Map<String,Object> map){
@@ -481,11 +497,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().unsubscribeEventClass(client_no, auth_key, class_no, do_write, h_error_code, h_error_msg, h_events);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("events",((javax.xml.ws.Holder)h_events).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("events",((javax.xml.ws.Holder)h_events).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> unsubscribeEventClass(Map<String,Object> map){
@@ -506,10 +523,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().subscribeEvent(client_no, auth_key, event_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> subscribeEvent(Map<String,Object> map){
@@ -529,10 +547,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().unsubscribeEvent(client_no, auth_key, event_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> unsubscribeEvent(Map<String,Object> map){
@@ -552,10 +571,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().subscribeEvents(client_no, auth_key, event_list, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> subscribeEvents(Map<String,Object> map){
@@ -575,10 +595,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().unsubscribeEvents(client_no, auth_key, event_list, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> unsubscribeEvents(Map<String,Object> map){
@@ -600,11 +621,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().clientHasEventClass(client_no, auth_key, class_no, h_error_code, h_error_msg, h_response);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("response",((javax.xml.ws.Holder)h_response).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("response",((javax.xml.ws.Holder)h_response).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> clientHasEventClass(Map<String,Object> map){
@@ -626,11 +648,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().genRandomString(client_no, auth_key, rand_type, rand_length, rand_case, h_error_code, h_error_msg, h_random_string);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("random_string",((javax.xml.ws.Holder)h_random_string).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("random_string",((javax.xml.ws.Holder)h_random_string).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> genRandomString(Map<String,Object> map){
@@ -654,11 +677,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRateSchedulesForPlan(client_no, auth_key, plan_no, currency_cd, client_plan_id, h_error_code, h_error_msg, h_rate_sched);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("rate_sched",((javax.xml.ws.Holder)h_rate_sched).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("rate_sched",((javax.xml.ws.Holder)h_rate_sched).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRateSchedulesForPlan(Map<String,Object> map){
@@ -682,11 +706,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCurrentSystemVersion(client_no, auth_key, h_error_code, h_error_msg, h_version);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("version",((javax.xml.ws.Holder)h_version).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("version",((javax.xml.ws.Holder)h_version).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCurrentSystemVersion(Map<String,Object> map){
@@ -707,11 +732,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAllClientReceiptIds(client_no, auth_key, start_date_range, end_date_range, h_error_code, h_error_msg, h_client_receipt);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("client_receipt",((javax.xml.ws.Holder)h_client_receipt).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("client_receipt",((javax.xml.ws.Holder)h_client_receipt).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAllClientReceiptIds(Map<String,Object> map){
@@ -734,11 +760,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemsBasic(client_no, auth_key, filter_currency_cd, return_no_cost_items, filter_item_no, include_inactive_items, filter_client_item_id, h_items_basic, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("items_basic",((javax.xml.ws.Holder)h_items_basic).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("items_basic",((javax.xml.ws.Holder)h_items_basic).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemsBasic(Map<String,Object> map){
@@ -764,11 +791,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRegUssParams(client_no, auth_key, session_id, h_out_reg_uss_params, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("out_reg_uss_params",((javax.xml.ws.Holder)h_out_reg_uss_params).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("out_reg_uss_params",((javax.xml.ws.Holder)h_out_reg_uss_params).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRegUssParams(Map<String,Object> map){
@@ -788,10 +816,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setRegUssParams(client_no, auth_key, session_id, in_reg_uss_params, override_timeout_minutes, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setRegUssParams(Map<String,Object> map){
@@ -813,10 +842,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().deleteRegUssParams(client_no, auth_key, session_id, param_names, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> deleteRegUssParams(Map<String,Object> map){
@@ -837,10 +867,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().replaceRegUssParams(client_no, auth_key, session_id, in_reg_uss_params, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> replaceRegUssParams(Map<String,Object> map){
@@ -861,10 +892,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().clearRegUssParams(client_no, auth_key, session_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> clearRegUssParams(Map<String,Object> map){
@@ -886,11 +918,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRegUssConfigParams(client_no, auth_key, set_name, h_out_reg_uss_config_params, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("out_reg_uss_config_params",((javax.xml.ws.Holder)h_out_reg_uss_config_params).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("out_reg_uss_config_params",((javax.xml.ws.Holder)h_out_reg_uss_config_params).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRegUssConfigParams(Map<String,Object> map){
@@ -910,10 +943,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setRegUssConfigParams(client_no, auth_key, set_name, in_reg_uss_config_params, set_description, set_type_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setRegUssConfigParams(Map<String,Object> map){
@@ -936,10 +970,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().deleteRegUssConfigParams(client_no, auth_key, set_name, param_names, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> deleteRegUssConfigParams(Map<String,Object> map){
@@ -960,10 +995,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().replaceRegUssConfigParams(client_no, auth_key, set_name, in_reg_uss_config_params, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> replaceRegUssConfigParams(Map<String,Object> map){
@@ -984,10 +1020,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().clearRegUssConfigParams(client_no, auth_key, set_name, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> clearRegUssConfigParams(Map<String,Object> map){
@@ -1009,11 +1046,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientCurrencies(client_no, auth_key, h_client_currency, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("client_currency",((javax.xml.ws.Holder)h_client_currency).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("client_currency",((javax.xml.ws.Holder)h_client_currency).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientCurrencies(Map<String,Object> map){
@@ -1034,11 +1072,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemImages(client_no, auth_key, item_no, client_item_id, h_item_images, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("item_images",((javax.xml.ws.Holder)h_item_images).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("item_images",((javax.xml.ws.Holder)h_item_images).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemImages(Map<String,Object> map){
@@ -1061,11 +1100,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getTopLevelItemClass(client_no, auth_key, h_top_item_class, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("top_item_class",((javax.xml.ws.Holder)h_top_item_class).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("top_item_class",((javax.xml.ws.Holder)h_top_item_class).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getTopLevelItemClass(Map<String,Object> map){
@@ -1086,11 +1126,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getParentForItemClass(client_no, auth_key, filter_class_no, h_parent_item_class, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("parent_item_class",((javax.xml.ws.Holder)h_parent_item_class).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("parent_item_class",((javax.xml.ws.Holder)h_parent_item_class).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getParentForItemClass(Map<String,Object> map){
@@ -1112,11 +1153,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getChildForItemClass(client_no, auth_key, filter_class_no, h_child_item_class, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("child_item_class",((javax.xml.ws.Holder)h_child_item_class).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("child_item_class",((javax.xml.ws.Holder)h_child_item_class).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getChildForItemClass(Map<String,Object> map){
@@ -1138,11 +1180,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getItemsByClass(client_no, auth_key, filter_class_no, h_class_items, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("class_items",((javax.xml.ws.Holder)h_class_items).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("class_items",((javax.xml.ws.Holder)h_class_items).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getItemsByClass(Map<String,Object> map){
@@ -1164,11 +1207,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getMasterPlansBySuppField(client_no, auth_key, field_no, field_val, field_name, h_master_plans_by_supp_field, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("master_plans_by_supp_field",((javax.xml.ws.Holder)h_master_plans_by_supp_field).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("master_plans_by_supp_field",((javax.xml.ws.Holder)h_master_plans_by_supp_field).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getMasterPlansBySuppField(Map<String,Object> map){
@@ -1192,11 +1236,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getSuppPlansBySuppField(client_no, auth_key, field_no, field_val, field_name, h_supp_plans_by_supp_field, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("supp_plans_by_supp_field",((javax.xml.ws.Holder)h_supp_plans_by_supp_field).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("supp_plans_by_supp_field",((javax.xml.ws.Holder)h_supp_plans_by_supp_field).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getSuppPlansBySuppField(Map<String,Object> map){
@@ -1220,11 +1265,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getItemsBySuppField(client_no, auth_key, field_no, field_val, field_name, h_items_by_supp_field, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("items_by_supp_field",((javax.xml.ws.Holder)h_items_by_supp_field).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("items_by_supp_field",((javax.xml.ws.Holder)h_items_by_supp_field).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getItemsBySuppField(Map<String,Object> map){
@@ -1248,11 +1294,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getEmailTemplates(client_no, auth_key, filter_template_class, h_templates_by_client, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("templates_by_client",((javax.xml.ws.Holder)h_templates_by_client).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("templates_by_client",((javax.xml.ws.Holder)h_templates_by_client).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getEmailTemplates(Map<String,Object> map){
@@ -1284,16 +1331,17 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getVirtualDatetime(client_no, auth_key, h_error_code, h_error_msg, h_virtual_date, h_virtual_time, h_system_date, h_system_time, h_current_offset_hours, h_is_batch_running);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("virtual_date",((javax.xml.ws.Holder)h_virtual_date).value);
-        getHashMapReturnValues().put("virtual_time",((javax.xml.ws.Holder)h_virtual_time).value);
-        getHashMapReturnValues().put("system_date",((javax.xml.ws.Holder)h_system_date).value);
-        getHashMapReturnValues().put("system_time",((javax.xml.ws.Holder)h_system_time).value);
-        getHashMapReturnValues().put("current_offset_hours",((javax.xml.ws.Holder)h_current_offset_hours).value);
-        getHashMapReturnValues().put("is_batch_running",((javax.xml.ws.Holder)h_is_batch_running).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("virtual_date",((javax.xml.ws.Holder)h_virtual_date).value);
+        returnMap.put("virtual_time",((javax.xml.ws.Holder)h_virtual_time).value);
+        returnMap.put("system_date",((javax.xml.ws.Holder)h_system_date).value);
+        returnMap.put("system_time",((javax.xml.ws.Holder)h_system_time).value);
+        returnMap.put("current_offset_hours",((javax.xml.ws.Holder)h_current_offset_hours).value);
+        returnMap.put("is_batch_running",((javax.xml.ws.Holder)h_is_batch_running).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getVirtualDatetime(Map<String,Object> map){
@@ -1322,15 +1370,16 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().advanceVirtualDatetime(client_no, auth_key, offset_hours, h_error_code, h_error_msg, h_virtual_date, h_virtual_time, h_system_date, h_system_time, h_current_offset_hours);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("virtual_date",((javax.xml.ws.Holder)h_virtual_date).value);
-        getHashMapReturnValues().put("virtual_time",((javax.xml.ws.Holder)h_virtual_time).value);
-        getHashMapReturnValues().put("system_date",((javax.xml.ws.Holder)h_system_date).value);
-        getHashMapReturnValues().put("system_time",((javax.xml.ws.Holder)h_system_time).value);
-        getHashMapReturnValues().put("current_offset_hours",((javax.xml.ws.Holder)h_current_offset_hours).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("virtual_date",((javax.xml.ws.Holder)h_virtual_date).value);
+        returnMap.put("virtual_time",((javax.xml.ws.Holder)h_virtual_time).value);
+        returnMap.put("system_date",((javax.xml.ws.Holder)h_system_date).value);
+        returnMap.put("system_time",((javax.xml.ws.Holder)h_system_time).value);
+        returnMap.put("current_offset_hours",((javax.xml.ws.Holder)h_current_offset_hours).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> advanceVirtualDatetime(Map<String,Object> map){
@@ -1352,11 +1401,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getDailyBatchStatus(client_no, auth_key, batch_date, h_error_code, h_error_msg, h_status);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("status",((javax.xml.ws.Holder)h_status).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("status",((javax.xml.ws.Holder)h_status).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getDailyBatchStatus(Map<String,Object> map){
@@ -1376,10 +1426,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setExternalObjectId(client_no, auth_key, destination_id, source_type_id, object_id, external_id, action_directive, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setExternalObjectId(Map<String,Object> map){
@@ -1405,11 +1456,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctSurcharges(client_no, auth_key, acct_no, include_detail_ind, h_all_acct_surcharges, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("all_acct_surcharges",((javax.xml.ws.Holder)h_all_acct_surcharges).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("all_acct_surcharges",((javax.xml.ws.Holder)h_all_acct_surcharges).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctSurcharges(Map<String,Object> map){
@@ -1432,11 +1484,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientPlansAllM(client_no, auth_key, plan_no, acct_no, promo_code, parent_plan_no, supp_field_names, supp_field_values, include_all_rate_schedules, include_plan_hierarchy, client_plan_id, client_parent_plan_id, retrieve_bundled_nso, retrieve_included_nso, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_all_client_plan_dtls);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_client_plan_dtls",((javax.xml.ws.Holder)h_all_client_plan_dtls).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_client_plan_dtls",((javax.xml.ws.Holder)h_all_client_plan_dtls).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientPlansAllM(Map<String,Object> map){
@@ -1472,11 +1525,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientPlansBasicM(client_no, auth_key, plan_no, client_plan_id, include_rs_summary, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_plan_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plan_details",((javax.xml.ws.Holder)h_plan_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plan_details",((javax.xml.ws.Holder)h_plan_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientPlansBasicM(Map<String,Object> map){
@@ -1503,11 +1557,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getMasterPlansBySuppFieldM(client_no, auth_key, field_val, field_no, field_name, include_rs_summary, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_master_plans_dtl_by_supp_field);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("master_plans_dtl_by_supp_field",((javax.xml.ws.Holder)h_master_plans_dtl_by_supp_field).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("master_plans_dtl_by_supp_field",((javax.xml.ws.Holder)h_master_plans_dtl_by_supp_field).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getMasterPlansBySuppFieldM(Map<String,Object> map){
@@ -1535,11 +1590,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getSuppPlansBySuppFieldM(client_no, auth_key, field_val, field_no, field_name, include_rs_summary, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_supp_plans_dtl_by_supp_field);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("supp_plans_dtl_by_supp_field",((javax.xml.ws.Holder)h_supp_plans_dtl_by_supp_field).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("supp_plans_dtl_by_supp_field",((javax.xml.ws.Holder)h_supp_plans_dtl_by_supp_field).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getSuppPlansBySuppFieldM(Map<String,Object> map){
@@ -1567,11 +1623,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemsAllM(client_no, auth_key, filter_currency_cd, return_no_cost_items, filter_item_no, include_inactive_items, filter_client_item_id, purchase_scope, h_all_client_item_details, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("all_client_item_details",((javax.xml.ws.Holder)h_all_client_item_details).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("all_client_item_details",((javax.xml.ws.Holder)h_all_client_item_details).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemsAllM(Map<String,Object> map){
@@ -1598,11 +1655,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemsBasicM(client_no, auth_key, filter_currency_cd, return_no_cost_items, filter_item_no, include_inactive_items, filter_client_item_id, purchase_scope, h_items_basic_details, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("items_basic_details",((javax.xml.ws.Holder)h_items_basic_details).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("items_basic_details",((javax.xml.ws.Holder)h_items_basic_details).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemsBasicM(Map<String,Object> map){
@@ -1629,11 +1687,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getClientItemsM(client_no, auth_key, filter_currency_cd, return_no_cost_items, filter_item_no, client_filter_item_id, purchase_scope, h_client_item_details, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("client_item_details",((javax.xml.ws.Holder)h_client_item_details).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("client_item_details",((javax.xml.ws.Holder)h_client_item_details).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getClientItemsM(Map<String,Object> map){
@@ -1659,11 +1718,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctNsoInclusionListM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, h_error_code, h_error_msg, h_acct_nso_incl_list);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_nso_incl_list",((javax.xml.ws.Holder)h_acct_nso_incl_list).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_nso_incl_list",((javax.xml.ws.Holder)h_acct_nso_incl_list).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctNsoInclusionListM(Map<String,Object> map){
@@ -1692,13 +1752,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctSurchargesM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, include_detail_ind, locale_no, locale_name, h_all_surcharges, h_error_code, h_error_msg, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("all_surcharges",((javax.xml.ws.Holder)h_all_surcharges).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("all_surcharges",((javax.xml.ws.Holder)h_all_surcharges).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctSurchargesM(Map<String,Object> map){
@@ -1726,11 +1787,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCouponDetails(client_no, auth_key, acct_no, coupon_cd, h_error_code, h_error_msg, h_coupons);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("coupons",((javax.xml.ws.Holder)h_coupons).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("coupons",((javax.xml.ws.Holder)h_coupons).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCouponDetails(Map<String,Object> map){
@@ -1751,10 +1813,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().deleteAcctCoupon(client_no, auth_key, acct_no, coupon_cd, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> deleteAcctCoupon(Map<String,Object> map){
@@ -1775,10 +1838,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctContact(client_no, auth_key, account_no, first_name, last_name, mi, company_name, address1, address2, city, locality, state_prov, country, postal_code, intl_phone, alt_email, birthdate, address3, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctContact(Map<String,Object> map){
@@ -1813,10 +1877,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctCredentials(client_no, auth_key, account_no, password, secret_question_answer, secret_question, pin, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctCredentials(Map<String,Object> map){
@@ -1840,10 +1905,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctStatus(client_no, auth_key, account_no, status_cd, queue_days, queue_date, force_bill_date_reset, comments, client_receipt_id, alt_do_dunning, status_degrade_date, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctStatus(Map<String,Object> map){
@@ -1871,10 +1937,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctSuppFields(client_no, auth_key, account_no, field_name, value_text, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctSuppFields(Map<String,Object> map){
@@ -1916,20 +1983,21 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctBillingContact(client_no, auth_key, account_no, first_name, last_name, middle_initial, company_name, address1, address2, city, locality, state, country, zip, intl_phone, email, do_collect, change_status_after_coll, reset_dates_after_status, address3, client_receipt_id, h_error_code, h_error_msg, h_collection_error_code, h_collection_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctBillingContact(Map<String,Object> map){
@@ -1967,10 +2035,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctNotifyMethod(client_no, auth_key, account_no, notify_method, list_start_master_file, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctNotifyMethod(Map<String,Object> map){
@@ -1996,12 +2065,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctNotifyMethod(client_no, auth_key, account_no, h_error_code, h_error_msg, h_notify_method, h_notify_method_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("notify_method",((javax.xml.ws.Holder)h_notify_method).value);
-        getHashMapReturnValues().put("notify_method_name",((javax.xml.ws.Holder)h_notify_method_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("notify_method",((javax.xml.ws.Holder)h_notify_method).value);
+        returnMap.put("notify_method_name",((javax.xml.ws.Holder)h_notify_method_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctNotifyMethod(Map<String,Object> map){
@@ -2041,20 +2111,21 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setPayMethodBankDraft(client_no, auth_key, account_no, bank_routing_num, bank_acct_num, do_collect, change_status_after_coll, reset_dates_after_status, bank_acct_type, client_receipt_id, h_error_code, h_error_msg, h_collection_error_code, h_collection_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setPayMethodBankDraft(Map<String,Object> map){
@@ -2101,20 +2172,21 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setPayMethodCc(client_no, auth_key, account_no, cc_number, cc_expire_mm, cc_expire_yyyy, do_collect, change_status_after_coll, reset_dates_after_status, client_receipt_id, h_error_code, h_error_msg, h_collection_error_code, h_collection_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setPayMethodCc(Map<String,Object> map){
@@ -2141,10 +2213,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setPayMethodNetTerms(client_no, auth_key, account_no, pay_method, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setPayMethodNetTerms(Map<String,Object> map){
@@ -2165,10 +2238,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setPaymentResponsibility(client_no, auth_key, account_no, resp_level_cd, senior_account_no, senior_acct_user_id, client_senior_acct_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setPaymentResponsibility(Map<String,Object> map){
@@ -2192,10 +2266,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setServicePlanImmediately(client_no, auth_key, account_no, plan_no, client_receipt_id, client_plan_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setServicePlanImmediately(Map<String,Object> map){
@@ -2218,10 +2293,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().toggleTestAccount(client_no, auth_key, account_no, test_acct_ind, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> toggleTestAccount(Map<String,Object> map){
@@ -2258,18 +2334,19 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().validatePaymentInformation(client_no, auth_key, account_no, CVV, seq_no, inTrackingNumber, inAuthValue, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, currency_cd, acct_group_no, bill_address3, alt_client_acct_group_id, track_data1, track_data2, client_acct_group_id, h_error_code, h_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> validatePaymentInformation(Map<String,Object> map){
@@ -2321,10 +2398,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().banAcct(client_no, auth_key, account_no, userid, days_to_restore, date_to_restore, reason_cd, comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> banAcct(Map<String,Object> map){
@@ -2351,11 +2429,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctTransHistory(client_no, auth_key, account_no, transaction_type, start_date, end_date, record_limit, filter_statement_no, include_void_transactions, h_history, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("history",((javax.xml.ws.Holder)h_history).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("history",((javax.xml.ws.Holder)h_history).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctTransHistory(Map<String,Object> map){
@@ -2403,21 +2482,22 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updatePaymentMethod(client_no, auth_key, account_number, first_name, last_name, middle_initial, company_name, address1, address2, city, locality, state, country, zip, intl_phone, phone_npa, phone_nxx, phone_suffix, phone_extension, email, pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, do_collect, change_status_after_coll, reset_dates_after_status, client_receipt_id, bank_acct_type, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, primary_or_bkup_pay_method_ind, ref_bkup_seq_no, h_seq_no, h_error_code, h_error_msg, h_collection_error_code, h_collection_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("seq_no",((javax.xml.ws.Holder)h_seq_no).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("seq_no",((javax.xml.ws.Holder)h_seq_no).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updatePaymentMethod(Map<String,Object> map){
@@ -2490,18 +2570,19 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().authorizeElectronicPayment(client_no, auth_key, account_number, amount, payment_source, CVV, bill_seq, inTrackingNumber, inAuthValue, alt_client_acct_group_id, track_data1, track_data2, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bank_acct_type, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, record_cc_on_auth_failure, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, h_error_code, h_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> authorizeElectronicPayment(Map<String,Object> map){
@@ -2579,18 +2660,19 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().authorizeElectronicPaymentM(client_no, auth_key, acct_no, amount, plan_instance_no, client_plan_instance_id, billing_group_no, client_billing_group_id, payment_source, CVV, bill_seq, inTrackingNumber, inAuthValue, alt_client_acct_group_id, track_data1, track_data2, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bank_acct_type, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, record_cc_on_auth_failure, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, h_error_code, h_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> authorizeElectronicPaymentM(Map<String,Object> map){
@@ -2662,13 +2744,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getQueuedServicePlans(client_no, auth_key, account_number, h_error_code, h_error_msg, h_queued_plans, h_current_rate_schedule_no, h_client_current_rate_schedule_id);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("queued_plans",((javax.xml.ws.Holder)h_queued_plans).value);
-        getHashMapReturnValues().put("current_rate_schedule_no",((javax.xml.ws.Holder)h_current_rate_schedule_no).value);
-        getHashMapReturnValues().put("client_current_rate_schedule_id",((javax.xml.ws.Holder)h_client_current_rate_schedule_id).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("queued_plans",((javax.xml.ws.Holder)h_queued_plans).value);
+        returnMap.put("current_rate_schedule_no",((javax.xml.ws.Holder)h_current_rate_schedule_no).value);
+        returnMap.put("client_current_rate_schedule_id",((javax.xml.ws.Holder)h_client_current_rate_schedule_id).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getQueuedServicePlans(Map<String,Object> map){
@@ -2688,10 +2771,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelQueuedServicePlan(client_no, auth_key, account_number, plan_no_to_remove, remove_all_queued_plan_no, remove_terminate_pending, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelQueuedServicePlan(Map<String,Object> map){
@@ -2716,11 +2800,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctStatusHistory(client_no, auth_key, account_number, h_error_code, h_error_msg, h_stat_hist);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("stat_hist",((javax.xml.ws.Holder)h_stat_hist).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("stat_hist",((javax.xml.ws.Holder)h_stat_hist).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctStatusHistory(Map<String,Object> map){
@@ -2742,11 +2827,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlanHistory(client_no, auth_key, account_number, h_error_code, h_error_msg, h_plan_hist);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plan_hist",((javax.xml.ws.Holder)h_plan_hist).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plan_hist",((javax.xml.ws.Holder)h_plan_hist).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlanHistory(Map<String,Object> map){
@@ -2768,11 +2854,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctSuppPlanHistory(client_no, auth_key, acct_no, plan_no, client_plan_id, h_error_code, h_error_msg, h_supp_plan_hist);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("supp_plan_hist",((javax.xml.ws.Holder)h_supp_plan_hist).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("supp_plan_hist",((javax.xml.ws.Holder)h_supp_plan_hist).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctSuppPlanHistory(Map<String,Object> map){
@@ -2796,11 +2883,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAvailablePlans(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plans",((javax.xml.ws.Holder)h_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plans",((javax.xml.ws.Holder)h_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAvailablePlans(Map<String,Object> map){
@@ -2822,11 +2910,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAvailablePlansAll(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_all_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAvailablePlansAll(Map<String,Object> map){
@@ -2848,11 +2937,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPlansByPromoCode(client_no, auth_key, promo_code, h_error_code, h_error_msg, h_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plans",((javax.xml.ws.Holder)h_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plans",((javax.xml.ws.Holder)h_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPlansByPromoCode(Map<String,Object> map){
@@ -2874,11 +2964,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPlansByPromoCodeAll(client_no, auth_key, promo_code, h_error_code, h_error_msg, h_all_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPlansByPromoCodeAll(Map<String,Object> map){
@@ -3188,155 +3279,156 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctDetailsAll(client_no, auth_key, acct_no, h_first_name, h_mi, h_last_name, h_userid, h_birthdate, h_job_title, h_salutation, h_senior_acct_no, h_client_acct_id, h_resp_level_cd, h_is_test_acct, h_alt_email, h_address1, h_address2, h_city, h_state_prov, h_locality, h_postal_code, h_country, h_company_name, h_cell_phone_npa, h_cell_phone_nxx, h_cell_phone_suffix, h_fax_phone, h_intl_cell_phone, h_intl_phone, h_phone_extension, h_phone_npa, h_phone_nxx, h_phone_suffix, h_work_phone, h_work_phone_extension, h_work_phone_npa, h_work_phone_nxx, h_work_phone_suffix, h_bill_day, h_created, h_date_to_expire, h_date_to_suspend, h_last_arrears_bill_thru_date, h_last_bill_date, h_last_bill_thru_date, h_next_bill_date, h_plan_date, h_status_date, h_status_degrade_date, h_status_cd, h_status_label, h_plan_no, h_plan_name, h_plan_units, h_notify_method, h_notify_method_name, h_PASSWORD, h_pin, h_secret_question, h_secret_question_answer, h_pay_method, h_pay_method_name, h_currency_cd, h_tax_id, h_billing_email, h_billing_first_name, h_billing_middle_initial, h_billing_last_name, h_billing_address1, h_billing_address2, h_billing_city, h_billing_state, h_billing_locality, h_billing_zip, h_billing_country, h_cc_suffix, h_cc_expire_mm, h_cc_expire_yyyy, h_cc_id, h_bank_acct_suffix, h_bank_routing_no, h_billing_cell_phone, h_billing_cell_phone_npa, h_billing_cell_phone_nxx, h_billing_cell_phone_suffix, h_billing_company_name, h_billing_intl_phone, h_billing_phone_extension, h_billing_phone_npa, h_billing_phone_nxx, h_billing_phone_suffix, h_billing_work_phone, h_billing_work_phone_extension, h_billing_work_phone_npa, h_billing_work_phone_nxx, h_billing_work_phone_suffix, h_balance, h_acct_create_client_receipt_id, h_plan_client_receipt_id, h_status_client_receipt_id, h_taxpayer_id, h_alt_msg_template_no, h_seq_func_group_no, h_promo_cd, h_address3, h_billing_address3, h_address_verification_code, h_address_match_score, h_billing_address_verification_code, h_billing_address_match_score, h_client_plan_id, h_client_alt_msg_template_id, h_bkup_pay_method, h_bkup_billing_email, h_bkup_billing_first_name, h_bkup_billing_middle_initial, h_bkup_billing_last_name, h_bkup_billing_address1, h_bkup_billing_address2, h_bkup_billing_city, h_bkup_billing_state, h_bkup_billing_locality, h_bkup_billing_zip, h_bkup_billing_country, h_bkup_cc_suffix, h_bkup_cc_expire_mm, h_bkup_cc_expire_yyyy, h_bkup_cc_id, h_bkup_bank_acct_suffix, h_bkup_bank_routing_no, h_bkup_billing_cell_phone, h_bkup_billing_cell_phone_npa, h_bkup_billing_cell_phone_nxx, h_bkup_billing_cell_phone_suffix, h_bkup_billing_company_name, h_bkup_billing_intl_phone, h_bkup_billing_phone_extension, h_bkup_billing_work_phone, h_bkup_billing_work_phone_extension, h_bkup_billing_work_phone_npa, h_bkup_billing_work_phone_nxx, h_bkup_billing_work_phone_suffix, h_stmnt_email_list, h_invoice_approval_required, h_stmnt_email_list_cc, h_stmnt_email_list_bcc, h_invoice_posting_method_cd, h_acct_start_date, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("first_name",((javax.xml.ws.Holder)h_first_name).value);
-        getHashMapReturnValues().put("mi",((javax.xml.ws.Holder)h_mi).value);
-        getHashMapReturnValues().put("last_name",((javax.xml.ws.Holder)h_last_name).value);
-        getHashMapReturnValues().put("userid",((javax.xml.ws.Holder)h_userid).value);
-        getHashMapReturnValues().put("birthdate",((javax.xml.ws.Holder)h_birthdate).value);
-        getHashMapReturnValues().put("job_title",((javax.xml.ws.Holder)h_job_title).value);
-        getHashMapReturnValues().put("salutation",((javax.xml.ws.Holder)h_salutation).value);
-        getHashMapReturnValues().put("senior_acct_no",((javax.xml.ws.Holder)h_senior_acct_no).value);
-        getHashMapReturnValues().put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
-        getHashMapReturnValues().put("resp_level_cd",((javax.xml.ws.Holder)h_resp_level_cd).value);
-        getHashMapReturnValues().put("is_test_acct",((javax.xml.ws.Holder)h_is_test_acct).value);
-        getHashMapReturnValues().put("alt_email",((javax.xml.ws.Holder)h_alt_email).value);
-        getHashMapReturnValues().put("address1",((javax.xml.ws.Holder)h_address1).value);
-        getHashMapReturnValues().put("address2",((javax.xml.ws.Holder)h_address2).value);
-        getHashMapReturnValues().put("city",((javax.xml.ws.Holder)h_city).value);
-        getHashMapReturnValues().put("state_prov",((javax.xml.ws.Holder)h_state_prov).value);
-        getHashMapReturnValues().put("locality",((javax.xml.ws.Holder)h_locality).value);
-        getHashMapReturnValues().put("postal_code",((javax.xml.ws.Holder)h_postal_code).value);
-        getHashMapReturnValues().put("country",((javax.xml.ws.Holder)h_country).value);
-        getHashMapReturnValues().put("company_name",((javax.xml.ws.Holder)h_company_name).value);
-        getHashMapReturnValues().put("cell_phone_npa",((javax.xml.ws.Holder)h_cell_phone_npa).value);
-        getHashMapReturnValues().put("cell_phone_nxx",((javax.xml.ws.Holder)h_cell_phone_nxx).value);
-        getHashMapReturnValues().put("cell_phone_suffix",((javax.xml.ws.Holder)h_cell_phone_suffix).value);
-        getHashMapReturnValues().put("fax_phone",((javax.xml.ws.Holder)h_fax_phone).value);
-        getHashMapReturnValues().put("intl_cell_phone",((javax.xml.ws.Holder)h_intl_cell_phone).value);
-        getHashMapReturnValues().put("intl_phone",((javax.xml.ws.Holder)h_intl_phone).value);
-        getHashMapReturnValues().put("phone_extension",((javax.xml.ws.Holder)h_phone_extension).value);
-        getHashMapReturnValues().put("phone_npa",((javax.xml.ws.Holder)h_phone_npa).value);
-        getHashMapReturnValues().put("phone_nxx",((javax.xml.ws.Holder)h_phone_nxx).value);
-        getHashMapReturnValues().put("phone_suffix",((javax.xml.ws.Holder)h_phone_suffix).value);
-        getHashMapReturnValues().put("work_phone",((javax.xml.ws.Holder)h_work_phone).value);
-        getHashMapReturnValues().put("work_phone_extension",((javax.xml.ws.Holder)h_work_phone_extension).value);
-        getHashMapReturnValues().put("work_phone_npa",((javax.xml.ws.Holder)h_work_phone_npa).value);
-        getHashMapReturnValues().put("work_phone_nxx",((javax.xml.ws.Holder)h_work_phone_nxx).value);
-        getHashMapReturnValues().put("work_phone_suffix",((javax.xml.ws.Holder)h_work_phone_suffix).value);
-        getHashMapReturnValues().put("bill_day",((javax.xml.ws.Holder)h_bill_day).value);
-        getHashMapReturnValues().put("created",((javax.xml.ws.Holder)h_created).value);
-        getHashMapReturnValues().put("date_to_expire",((javax.xml.ws.Holder)h_date_to_expire).value);
-        getHashMapReturnValues().put("date_to_suspend",((javax.xml.ws.Holder)h_date_to_suspend).value);
-        getHashMapReturnValues().put("last_arrears_bill_thru_date",((javax.xml.ws.Holder)h_last_arrears_bill_thru_date).value);
-        getHashMapReturnValues().put("last_bill_date",((javax.xml.ws.Holder)h_last_bill_date).value);
-        getHashMapReturnValues().put("last_bill_thru_date",((javax.xml.ws.Holder)h_last_bill_thru_date).value);
-        getHashMapReturnValues().put("next_bill_date",((javax.xml.ws.Holder)h_next_bill_date).value);
-        getHashMapReturnValues().put("plan_date",((javax.xml.ws.Holder)h_plan_date).value);
-        getHashMapReturnValues().put("status_date",((javax.xml.ws.Holder)h_status_date).value);
-        getHashMapReturnValues().put("status_degrade_date",((javax.xml.ws.Holder)h_status_degrade_date).value);
-        getHashMapReturnValues().put("status_cd",((javax.xml.ws.Holder)h_status_cd).value);
-        getHashMapReturnValues().put("status_label",((javax.xml.ws.Holder)h_status_label).value);
-        getHashMapReturnValues().put("plan_no",((javax.xml.ws.Holder)h_plan_no).value);
-        getHashMapReturnValues().put("plan_name",((javax.xml.ws.Holder)h_plan_name).value);
-        getHashMapReturnValues().put("plan_units",((javax.xml.ws.Holder)h_plan_units).value);
-        getHashMapReturnValues().put("notify_method",((javax.xml.ws.Holder)h_notify_method).value);
-        getHashMapReturnValues().put("notify_method_name",((javax.xml.ws.Holder)h_notify_method_name).value);
-        getHashMapReturnValues().put("PASSWORD",((javax.xml.ws.Holder)h_PASSWORD).value);
-        getHashMapReturnValues().put("pin",((javax.xml.ws.Holder)h_pin).value);
-        getHashMapReturnValues().put("secret_question",((javax.xml.ws.Holder)h_secret_question).value);
-        getHashMapReturnValues().put("secret_question_answer",((javax.xml.ws.Holder)h_secret_question_answer).value);
-        getHashMapReturnValues().put("pay_method",((javax.xml.ws.Holder)h_pay_method).value);
-        getHashMapReturnValues().put("pay_method_name",((javax.xml.ws.Holder)h_pay_method_name).value);
-        getHashMapReturnValues().put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
-        getHashMapReturnValues().put("tax_id",((javax.xml.ws.Holder)h_tax_id).value);
-        getHashMapReturnValues().put("billing_email",((javax.xml.ws.Holder)h_billing_email).value);
-        getHashMapReturnValues().put("billing_first_name",((javax.xml.ws.Holder)h_billing_first_name).value);
-        getHashMapReturnValues().put("billing_middle_initial",((javax.xml.ws.Holder)h_billing_middle_initial).value);
-        getHashMapReturnValues().put("billing_last_name",((javax.xml.ws.Holder)h_billing_last_name).value);
-        getHashMapReturnValues().put("billing_address1",((javax.xml.ws.Holder)h_billing_address1).value);
-        getHashMapReturnValues().put("billing_address2",((javax.xml.ws.Holder)h_billing_address2).value);
-        getHashMapReturnValues().put("billing_city",((javax.xml.ws.Holder)h_billing_city).value);
-        getHashMapReturnValues().put("billing_state",((javax.xml.ws.Holder)h_billing_state).value);
-        getHashMapReturnValues().put("billing_locality",((javax.xml.ws.Holder)h_billing_locality).value);
-        getHashMapReturnValues().put("billing_zip",((javax.xml.ws.Holder)h_billing_zip).value);
-        getHashMapReturnValues().put("billing_country",((javax.xml.ws.Holder)h_billing_country).value);
-        getHashMapReturnValues().put("cc_suffix",((javax.xml.ws.Holder)h_cc_suffix).value);
-        getHashMapReturnValues().put("cc_expire_mm",((javax.xml.ws.Holder)h_cc_expire_mm).value);
-        getHashMapReturnValues().put("cc_expire_yyyy",((javax.xml.ws.Holder)h_cc_expire_yyyy).value);
-        getHashMapReturnValues().put("cc_id",((javax.xml.ws.Holder)h_cc_id).value);
-        getHashMapReturnValues().put("bank_acct_suffix",((javax.xml.ws.Holder)h_bank_acct_suffix).value);
-        getHashMapReturnValues().put("bank_routing_no",((javax.xml.ws.Holder)h_bank_routing_no).value);
-        getHashMapReturnValues().put("billing_cell_phone",((javax.xml.ws.Holder)h_billing_cell_phone).value);
-        getHashMapReturnValues().put("billing_cell_phone_npa",((javax.xml.ws.Holder)h_billing_cell_phone_npa).value);
-        getHashMapReturnValues().put("billing_cell_phone_nxx",((javax.xml.ws.Holder)h_billing_cell_phone_nxx).value);
-        getHashMapReturnValues().put("billing_cell_phone_suffix",((javax.xml.ws.Holder)h_billing_cell_phone_suffix).value);
-        getHashMapReturnValues().put("billing_company_name",((javax.xml.ws.Holder)h_billing_company_name).value);
-        getHashMapReturnValues().put("billing_intl_phone",((javax.xml.ws.Holder)h_billing_intl_phone).value);
-        getHashMapReturnValues().put("billing_phone_extension",((javax.xml.ws.Holder)h_billing_phone_extension).value);
-        getHashMapReturnValues().put("billing_phone_npa",((javax.xml.ws.Holder)h_billing_phone_npa).value);
-        getHashMapReturnValues().put("billing_phone_nxx",((javax.xml.ws.Holder)h_billing_phone_nxx).value);
-        getHashMapReturnValues().put("billing_phone_suffix",((javax.xml.ws.Holder)h_billing_phone_suffix).value);
-        getHashMapReturnValues().put("billing_work_phone",((javax.xml.ws.Holder)h_billing_work_phone).value);
-        getHashMapReturnValues().put("billing_work_phone_extension",((javax.xml.ws.Holder)h_billing_work_phone_extension).value);
-        getHashMapReturnValues().put("billing_work_phone_npa",((javax.xml.ws.Holder)h_billing_work_phone_npa).value);
-        getHashMapReturnValues().put("billing_work_phone_nxx",((javax.xml.ws.Holder)h_billing_work_phone_nxx).value);
-        getHashMapReturnValues().put("billing_work_phone_suffix",((javax.xml.ws.Holder)h_billing_work_phone_suffix).value);
-        getHashMapReturnValues().put("balance",((javax.xml.ws.Holder)h_balance).value);
-        getHashMapReturnValues().put("acct_create_client_receipt_id",((javax.xml.ws.Holder)h_acct_create_client_receipt_id).value);
-        getHashMapReturnValues().put("plan_client_receipt_id",((javax.xml.ws.Holder)h_plan_client_receipt_id).value);
-        getHashMapReturnValues().put("status_client_receipt_id",((javax.xml.ws.Holder)h_status_client_receipt_id).value);
-        getHashMapReturnValues().put("taxpayer_id",((javax.xml.ws.Holder)h_taxpayer_id).value);
-        getHashMapReturnValues().put("alt_msg_template_no",((javax.xml.ws.Holder)h_alt_msg_template_no).value);
-        getHashMapReturnValues().put("seq_func_group_no",((javax.xml.ws.Holder)h_seq_func_group_no).value);
-        getHashMapReturnValues().put("promo_cd",((javax.xml.ws.Holder)h_promo_cd).value);
-        getHashMapReturnValues().put("address3",((javax.xml.ws.Holder)h_address3).value);
-        getHashMapReturnValues().put("billing_address3",((javax.xml.ws.Holder)h_billing_address3).value);
-        getHashMapReturnValues().put("address_verification_code",((javax.xml.ws.Holder)h_address_verification_code).value);
-        getHashMapReturnValues().put("address_match_score",((javax.xml.ws.Holder)h_address_match_score).value);
-        getHashMapReturnValues().put("billing_address_verification_code",((javax.xml.ws.Holder)h_billing_address_verification_code).value);
-        getHashMapReturnValues().put("billing_address_match_score",((javax.xml.ws.Holder)h_billing_address_match_score).value);
-        getHashMapReturnValues().put("client_plan_id",((javax.xml.ws.Holder)h_client_plan_id).value);
-        getHashMapReturnValues().put("client_alt_msg_template_id",((javax.xml.ws.Holder)h_client_alt_msg_template_id).value);
-        getHashMapReturnValues().put("bkup_pay_method",((javax.xml.ws.Holder)h_bkup_pay_method).value);
-        getHashMapReturnValues().put("bkup_billing_email",((javax.xml.ws.Holder)h_bkup_billing_email).value);
-        getHashMapReturnValues().put("bkup_billing_first_name",((javax.xml.ws.Holder)h_bkup_billing_first_name).value);
-        getHashMapReturnValues().put("bkup_billing_middle_initial",((javax.xml.ws.Holder)h_bkup_billing_middle_initial).value);
-        getHashMapReturnValues().put("bkup_billing_last_name",((javax.xml.ws.Holder)h_bkup_billing_last_name).value);
-        getHashMapReturnValues().put("bkup_billing_address1",((javax.xml.ws.Holder)h_bkup_billing_address1).value);
-        getHashMapReturnValues().put("bkup_billing_address2",((javax.xml.ws.Holder)h_bkup_billing_address2).value);
-        getHashMapReturnValues().put("bkup_billing_city",((javax.xml.ws.Holder)h_bkup_billing_city).value);
-        getHashMapReturnValues().put("bkup_billing_state",((javax.xml.ws.Holder)h_bkup_billing_state).value);
-        getHashMapReturnValues().put("bkup_billing_locality",((javax.xml.ws.Holder)h_bkup_billing_locality).value);
-        getHashMapReturnValues().put("bkup_billing_zip",((javax.xml.ws.Holder)h_bkup_billing_zip).value);
-        getHashMapReturnValues().put("bkup_billing_country",((javax.xml.ws.Holder)h_bkup_billing_country).value);
-        getHashMapReturnValues().put("bkup_cc_suffix",((javax.xml.ws.Holder)h_bkup_cc_suffix).value);
-        getHashMapReturnValues().put("bkup_cc_expire_mm",((javax.xml.ws.Holder)h_bkup_cc_expire_mm).value);
-        getHashMapReturnValues().put("bkup_cc_expire_yyyy",((javax.xml.ws.Holder)h_bkup_cc_expire_yyyy).value);
-        getHashMapReturnValues().put("bkup_cc_id",((javax.xml.ws.Holder)h_bkup_cc_id).value);
-        getHashMapReturnValues().put("bkup_bank_acct_suffix",((javax.xml.ws.Holder)h_bkup_bank_acct_suffix).value);
-        getHashMapReturnValues().put("bkup_bank_routing_no",((javax.xml.ws.Holder)h_bkup_bank_routing_no).value);
-        getHashMapReturnValues().put("bkup_billing_cell_phone",((javax.xml.ws.Holder)h_bkup_billing_cell_phone).value);
-        getHashMapReturnValues().put("bkup_billing_cell_phone_npa",((javax.xml.ws.Holder)h_bkup_billing_cell_phone_npa).value);
-        getHashMapReturnValues().put("bkup_billing_cell_phone_nxx",((javax.xml.ws.Holder)h_bkup_billing_cell_phone_nxx).value);
-        getHashMapReturnValues().put("bkup_billing_cell_phone_suffix",((javax.xml.ws.Holder)h_bkup_billing_cell_phone_suffix).value);
-        getHashMapReturnValues().put("bkup_billing_company_name",((javax.xml.ws.Holder)h_bkup_billing_company_name).value);
-        getHashMapReturnValues().put("bkup_billing_intl_phone",((javax.xml.ws.Holder)h_bkup_billing_intl_phone).value);
-        getHashMapReturnValues().put("bkup_billing_phone_extension",((javax.xml.ws.Holder)h_bkup_billing_phone_extension).value);
-        getHashMapReturnValues().put("bkup_billing_work_phone",((javax.xml.ws.Holder)h_bkup_billing_work_phone).value);
-        getHashMapReturnValues().put("bkup_billing_work_phone_extension",((javax.xml.ws.Holder)h_bkup_billing_work_phone_extension).value);
-        getHashMapReturnValues().put("bkup_billing_work_phone_npa",((javax.xml.ws.Holder)h_bkup_billing_work_phone_npa).value);
-        getHashMapReturnValues().put("bkup_billing_work_phone_nxx",((javax.xml.ws.Holder)h_bkup_billing_work_phone_nxx).value);
-        getHashMapReturnValues().put("bkup_billing_work_phone_suffix",((javax.xml.ws.Holder)h_bkup_billing_work_phone_suffix).value);
-        getHashMapReturnValues().put("stmnt_email_list",((javax.xml.ws.Holder)h_stmnt_email_list).value);
-        getHashMapReturnValues().put("invoice_approval_required",((javax.xml.ws.Holder)h_invoice_approval_required).value);
-        getHashMapReturnValues().put("stmnt_email_list_cc",((javax.xml.ws.Holder)h_stmnt_email_list_cc).value);
-        getHashMapReturnValues().put("stmnt_email_list_bcc",((javax.xml.ws.Holder)h_stmnt_email_list_bcc).value);
-        getHashMapReturnValues().put("invoice_posting_method_cd",((javax.xml.ws.Holder)h_invoice_posting_method_cd).value);
-        getHashMapReturnValues().put("acct_start_date",((javax.xml.ws.Holder)h_acct_start_date).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("first_name",((javax.xml.ws.Holder)h_first_name).value);
+        returnMap.put("mi",((javax.xml.ws.Holder)h_mi).value);
+        returnMap.put("last_name",((javax.xml.ws.Holder)h_last_name).value);
+        returnMap.put("userid",((javax.xml.ws.Holder)h_userid).value);
+        returnMap.put("birthdate",((javax.xml.ws.Holder)h_birthdate).value);
+        returnMap.put("job_title",((javax.xml.ws.Holder)h_job_title).value);
+        returnMap.put("salutation",((javax.xml.ws.Holder)h_salutation).value);
+        returnMap.put("senior_acct_no",((javax.xml.ws.Holder)h_senior_acct_no).value);
+        returnMap.put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
+        returnMap.put("resp_level_cd",((javax.xml.ws.Holder)h_resp_level_cd).value);
+        returnMap.put("is_test_acct",((javax.xml.ws.Holder)h_is_test_acct).value);
+        returnMap.put("alt_email",((javax.xml.ws.Holder)h_alt_email).value);
+        returnMap.put("address1",((javax.xml.ws.Holder)h_address1).value);
+        returnMap.put("address2",((javax.xml.ws.Holder)h_address2).value);
+        returnMap.put("city",((javax.xml.ws.Holder)h_city).value);
+        returnMap.put("state_prov",((javax.xml.ws.Holder)h_state_prov).value);
+        returnMap.put("locality",((javax.xml.ws.Holder)h_locality).value);
+        returnMap.put("postal_code",((javax.xml.ws.Holder)h_postal_code).value);
+        returnMap.put("country",((javax.xml.ws.Holder)h_country).value);
+        returnMap.put("company_name",((javax.xml.ws.Holder)h_company_name).value);
+        returnMap.put("cell_phone_npa",((javax.xml.ws.Holder)h_cell_phone_npa).value);
+        returnMap.put("cell_phone_nxx",((javax.xml.ws.Holder)h_cell_phone_nxx).value);
+        returnMap.put("cell_phone_suffix",((javax.xml.ws.Holder)h_cell_phone_suffix).value);
+        returnMap.put("fax_phone",((javax.xml.ws.Holder)h_fax_phone).value);
+        returnMap.put("intl_cell_phone",((javax.xml.ws.Holder)h_intl_cell_phone).value);
+        returnMap.put("intl_phone",((javax.xml.ws.Holder)h_intl_phone).value);
+        returnMap.put("phone_extension",((javax.xml.ws.Holder)h_phone_extension).value);
+        returnMap.put("phone_npa",((javax.xml.ws.Holder)h_phone_npa).value);
+        returnMap.put("phone_nxx",((javax.xml.ws.Holder)h_phone_nxx).value);
+        returnMap.put("phone_suffix",((javax.xml.ws.Holder)h_phone_suffix).value);
+        returnMap.put("work_phone",((javax.xml.ws.Holder)h_work_phone).value);
+        returnMap.put("work_phone_extension",((javax.xml.ws.Holder)h_work_phone_extension).value);
+        returnMap.put("work_phone_npa",((javax.xml.ws.Holder)h_work_phone_npa).value);
+        returnMap.put("work_phone_nxx",((javax.xml.ws.Holder)h_work_phone_nxx).value);
+        returnMap.put("work_phone_suffix",((javax.xml.ws.Holder)h_work_phone_suffix).value);
+        returnMap.put("bill_day",((javax.xml.ws.Holder)h_bill_day).value);
+        returnMap.put("created",((javax.xml.ws.Holder)h_created).value);
+        returnMap.put("date_to_expire",((javax.xml.ws.Holder)h_date_to_expire).value);
+        returnMap.put("date_to_suspend",((javax.xml.ws.Holder)h_date_to_suspend).value);
+        returnMap.put("last_arrears_bill_thru_date",((javax.xml.ws.Holder)h_last_arrears_bill_thru_date).value);
+        returnMap.put("last_bill_date",((javax.xml.ws.Holder)h_last_bill_date).value);
+        returnMap.put("last_bill_thru_date",((javax.xml.ws.Holder)h_last_bill_thru_date).value);
+        returnMap.put("next_bill_date",((javax.xml.ws.Holder)h_next_bill_date).value);
+        returnMap.put("plan_date",((javax.xml.ws.Holder)h_plan_date).value);
+        returnMap.put("status_date",((javax.xml.ws.Holder)h_status_date).value);
+        returnMap.put("status_degrade_date",((javax.xml.ws.Holder)h_status_degrade_date).value);
+        returnMap.put("status_cd",((javax.xml.ws.Holder)h_status_cd).value);
+        returnMap.put("status_label",((javax.xml.ws.Holder)h_status_label).value);
+        returnMap.put("plan_no",((javax.xml.ws.Holder)h_plan_no).value);
+        returnMap.put("plan_name",((javax.xml.ws.Holder)h_plan_name).value);
+        returnMap.put("plan_units",((javax.xml.ws.Holder)h_plan_units).value);
+        returnMap.put("notify_method",((javax.xml.ws.Holder)h_notify_method).value);
+        returnMap.put("notify_method_name",((javax.xml.ws.Holder)h_notify_method_name).value);
+        returnMap.put("PASSWORD",((javax.xml.ws.Holder)h_PASSWORD).value);
+        returnMap.put("pin",((javax.xml.ws.Holder)h_pin).value);
+        returnMap.put("secret_question",((javax.xml.ws.Holder)h_secret_question).value);
+        returnMap.put("secret_question_answer",((javax.xml.ws.Holder)h_secret_question_answer).value);
+        returnMap.put("pay_method",((javax.xml.ws.Holder)h_pay_method).value);
+        returnMap.put("pay_method_name",((javax.xml.ws.Holder)h_pay_method_name).value);
+        returnMap.put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
+        returnMap.put("tax_id",((javax.xml.ws.Holder)h_tax_id).value);
+        returnMap.put("billing_email",((javax.xml.ws.Holder)h_billing_email).value);
+        returnMap.put("billing_first_name",((javax.xml.ws.Holder)h_billing_first_name).value);
+        returnMap.put("billing_middle_initial",((javax.xml.ws.Holder)h_billing_middle_initial).value);
+        returnMap.put("billing_last_name",((javax.xml.ws.Holder)h_billing_last_name).value);
+        returnMap.put("billing_address1",((javax.xml.ws.Holder)h_billing_address1).value);
+        returnMap.put("billing_address2",((javax.xml.ws.Holder)h_billing_address2).value);
+        returnMap.put("billing_city",((javax.xml.ws.Holder)h_billing_city).value);
+        returnMap.put("billing_state",((javax.xml.ws.Holder)h_billing_state).value);
+        returnMap.put("billing_locality",((javax.xml.ws.Holder)h_billing_locality).value);
+        returnMap.put("billing_zip",((javax.xml.ws.Holder)h_billing_zip).value);
+        returnMap.put("billing_country",((javax.xml.ws.Holder)h_billing_country).value);
+        returnMap.put("cc_suffix",((javax.xml.ws.Holder)h_cc_suffix).value);
+        returnMap.put("cc_expire_mm",((javax.xml.ws.Holder)h_cc_expire_mm).value);
+        returnMap.put("cc_expire_yyyy",((javax.xml.ws.Holder)h_cc_expire_yyyy).value);
+        returnMap.put("cc_id",((javax.xml.ws.Holder)h_cc_id).value);
+        returnMap.put("bank_acct_suffix",((javax.xml.ws.Holder)h_bank_acct_suffix).value);
+        returnMap.put("bank_routing_no",((javax.xml.ws.Holder)h_bank_routing_no).value);
+        returnMap.put("billing_cell_phone",((javax.xml.ws.Holder)h_billing_cell_phone).value);
+        returnMap.put("billing_cell_phone_npa",((javax.xml.ws.Holder)h_billing_cell_phone_npa).value);
+        returnMap.put("billing_cell_phone_nxx",((javax.xml.ws.Holder)h_billing_cell_phone_nxx).value);
+        returnMap.put("billing_cell_phone_suffix",((javax.xml.ws.Holder)h_billing_cell_phone_suffix).value);
+        returnMap.put("billing_company_name",((javax.xml.ws.Holder)h_billing_company_name).value);
+        returnMap.put("billing_intl_phone",((javax.xml.ws.Holder)h_billing_intl_phone).value);
+        returnMap.put("billing_phone_extension",((javax.xml.ws.Holder)h_billing_phone_extension).value);
+        returnMap.put("billing_phone_npa",((javax.xml.ws.Holder)h_billing_phone_npa).value);
+        returnMap.put("billing_phone_nxx",((javax.xml.ws.Holder)h_billing_phone_nxx).value);
+        returnMap.put("billing_phone_suffix",((javax.xml.ws.Holder)h_billing_phone_suffix).value);
+        returnMap.put("billing_work_phone",((javax.xml.ws.Holder)h_billing_work_phone).value);
+        returnMap.put("billing_work_phone_extension",((javax.xml.ws.Holder)h_billing_work_phone_extension).value);
+        returnMap.put("billing_work_phone_npa",((javax.xml.ws.Holder)h_billing_work_phone_npa).value);
+        returnMap.put("billing_work_phone_nxx",((javax.xml.ws.Holder)h_billing_work_phone_nxx).value);
+        returnMap.put("billing_work_phone_suffix",((javax.xml.ws.Holder)h_billing_work_phone_suffix).value);
+        returnMap.put("balance",((javax.xml.ws.Holder)h_balance).value);
+        returnMap.put("acct_create_client_receipt_id",((javax.xml.ws.Holder)h_acct_create_client_receipt_id).value);
+        returnMap.put("plan_client_receipt_id",((javax.xml.ws.Holder)h_plan_client_receipt_id).value);
+        returnMap.put("status_client_receipt_id",((javax.xml.ws.Holder)h_status_client_receipt_id).value);
+        returnMap.put("taxpayer_id",((javax.xml.ws.Holder)h_taxpayer_id).value);
+        returnMap.put("alt_msg_template_no",((javax.xml.ws.Holder)h_alt_msg_template_no).value);
+        returnMap.put("seq_func_group_no",((javax.xml.ws.Holder)h_seq_func_group_no).value);
+        returnMap.put("promo_cd",((javax.xml.ws.Holder)h_promo_cd).value);
+        returnMap.put("address3",((javax.xml.ws.Holder)h_address3).value);
+        returnMap.put("billing_address3",((javax.xml.ws.Holder)h_billing_address3).value);
+        returnMap.put("address_verification_code",((javax.xml.ws.Holder)h_address_verification_code).value);
+        returnMap.put("address_match_score",((javax.xml.ws.Holder)h_address_match_score).value);
+        returnMap.put("billing_address_verification_code",((javax.xml.ws.Holder)h_billing_address_verification_code).value);
+        returnMap.put("billing_address_match_score",((javax.xml.ws.Holder)h_billing_address_match_score).value);
+        returnMap.put("client_plan_id",((javax.xml.ws.Holder)h_client_plan_id).value);
+        returnMap.put("client_alt_msg_template_id",((javax.xml.ws.Holder)h_client_alt_msg_template_id).value);
+        returnMap.put("bkup_pay_method",((javax.xml.ws.Holder)h_bkup_pay_method).value);
+        returnMap.put("bkup_billing_email",((javax.xml.ws.Holder)h_bkup_billing_email).value);
+        returnMap.put("bkup_billing_first_name",((javax.xml.ws.Holder)h_bkup_billing_first_name).value);
+        returnMap.put("bkup_billing_middle_initial",((javax.xml.ws.Holder)h_bkup_billing_middle_initial).value);
+        returnMap.put("bkup_billing_last_name",((javax.xml.ws.Holder)h_bkup_billing_last_name).value);
+        returnMap.put("bkup_billing_address1",((javax.xml.ws.Holder)h_bkup_billing_address1).value);
+        returnMap.put("bkup_billing_address2",((javax.xml.ws.Holder)h_bkup_billing_address2).value);
+        returnMap.put("bkup_billing_city",((javax.xml.ws.Holder)h_bkup_billing_city).value);
+        returnMap.put("bkup_billing_state",((javax.xml.ws.Holder)h_bkup_billing_state).value);
+        returnMap.put("bkup_billing_locality",((javax.xml.ws.Holder)h_bkup_billing_locality).value);
+        returnMap.put("bkup_billing_zip",((javax.xml.ws.Holder)h_bkup_billing_zip).value);
+        returnMap.put("bkup_billing_country",((javax.xml.ws.Holder)h_bkup_billing_country).value);
+        returnMap.put("bkup_cc_suffix",((javax.xml.ws.Holder)h_bkup_cc_suffix).value);
+        returnMap.put("bkup_cc_expire_mm",((javax.xml.ws.Holder)h_bkup_cc_expire_mm).value);
+        returnMap.put("bkup_cc_expire_yyyy",((javax.xml.ws.Holder)h_bkup_cc_expire_yyyy).value);
+        returnMap.put("bkup_cc_id",((javax.xml.ws.Holder)h_bkup_cc_id).value);
+        returnMap.put("bkup_bank_acct_suffix",((javax.xml.ws.Holder)h_bkup_bank_acct_suffix).value);
+        returnMap.put("bkup_bank_routing_no",((javax.xml.ws.Holder)h_bkup_bank_routing_no).value);
+        returnMap.put("bkup_billing_cell_phone",((javax.xml.ws.Holder)h_bkup_billing_cell_phone).value);
+        returnMap.put("bkup_billing_cell_phone_npa",((javax.xml.ws.Holder)h_bkup_billing_cell_phone_npa).value);
+        returnMap.put("bkup_billing_cell_phone_nxx",((javax.xml.ws.Holder)h_bkup_billing_cell_phone_nxx).value);
+        returnMap.put("bkup_billing_cell_phone_suffix",((javax.xml.ws.Holder)h_bkup_billing_cell_phone_suffix).value);
+        returnMap.put("bkup_billing_company_name",((javax.xml.ws.Holder)h_bkup_billing_company_name).value);
+        returnMap.put("bkup_billing_intl_phone",((javax.xml.ws.Holder)h_bkup_billing_intl_phone).value);
+        returnMap.put("bkup_billing_phone_extension",((javax.xml.ws.Holder)h_bkup_billing_phone_extension).value);
+        returnMap.put("bkup_billing_work_phone",((javax.xml.ws.Holder)h_bkup_billing_work_phone).value);
+        returnMap.put("bkup_billing_work_phone_extension",((javax.xml.ws.Holder)h_bkup_billing_work_phone_extension).value);
+        returnMap.put("bkup_billing_work_phone_npa",((javax.xml.ws.Holder)h_bkup_billing_work_phone_npa).value);
+        returnMap.put("bkup_billing_work_phone_nxx",((javax.xml.ws.Holder)h_bkup_billing_work_phone_nxx).value);
+        returnMap.put("bkup_billing_work_phone_suffix",((javax.xml.ws.Holder)h_bkup_billing_work_phone_suffix).value);
+        returnMap.put("stmnt_email_list",((javax.xml.ws.Holder)h_stmnt_email_list).value);
+        returnMap.put("invoice_approval_required",((javax.xml.ws.Holder)h_invoice_approval_required).value);
+        returnMap.put("stmnt_email_list_cc",((javax.xml.ws.Holder)h_stmnt_email_list_cc).value);
+        returnMap.put("stmnt_email_list_bcc",((javax.xml.ws.Holder)h_stmnt_email_list_bcc).value);
+        returnMap.put("invoice_posting_method_cd",((javax.xml.ws.Holder)h_invoice_posting_method_cd).value);
+        returnMap.put("acct_start_date",((javax.xml.ws.Holder)h_acct_start_date).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctDetailsAll(Map<String,Object> map){
@@ -3358,11 +3450,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getChildAccts(client_no, auth_key, parent_acct_no, do_multi_level, h_error_code, h_error_msg, h_child_accts);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("child_accts",((javax.xml.ws.Holder)h_child_accts).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("child_accts",((javax.xml.ws.Holder)h_child_accts).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getChildAccts(Map<String,Object> map){
@@ -3385,11 +3478,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getFamilyTransHistory(client_no, auth_key, parent_acct_no, do_multi_level, trans_type, start_date, end_date, record_limit, include_void_transactions, h_error_code, h_error_msg, h_fam_trans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("fam_trans",((javax.xml.ws.Holder)h_fam_trans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("fam_trans",((javax.xml.ws.Holder)h_fam_trans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getFamilyTransHistory(Map<String,Object> map){
@@ -3435,20 +3529,21 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateExistingBillingInfo(client_no, auth_key, acct_no, seq_no, address1, address2, city, state, zip, country, cc_expire_mm, cc_expire_yyyy, phone_npa, phone_nxx, phone_suffix, phone_ext, phone_country_cd, intl_phone, email, locality, cell_phone_npa, cell_phone_nxx, cell_phone_suffix, work_phone_npa, work_phone_nxx, work_phone_suffix, work_phone_ext, do_collect, change_status_after_coll, reset_dates_after_status, address3, client_receipt_id, h_error_code, h_error_msg, h_collection_error_code, h_collection_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateExistingBillingInfo(Map<String,Object> map){
@@ -3497,10 +3592,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().sendAcctEmail(client_no, auth_key, user_id, template_class, template_no, client_receipt_id, client_template_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> sendAcctEmail(Map<String,Object> map){
@@ -3524,10 +3620,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().useridExists(client_no, auth_key, user_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> useridExists(Map<String,Object> map){
@@ -3547,10 +3644,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().useridIsAvailable(client_no, auth_key, user_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> useridIsAvailable(Map<String,Object> map){
@@ -3572,11 +3670,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getStandingUsage(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_su);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("su",((javax.xml.ws.Holder)h_su).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("su",((javax.xml.ws.Holder)h_su).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getStandingUsage(Map<String,Object> map){
@@ -3596,10 +3695,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordStandingUsage(client_no, auth_key, acct_no, usage_type, usage_type_code, usage_units, next_usage_date, alt_desc, plan_no, first_usage_date, recurring_ind, client_plan_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordStandingUsage(Map<String,Object> map){
@@ -3628,10 +3728,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().disableStandingUsage(client_no, auth_key, acct_no, standing_usage_rec_no, comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> disableStandingUsage(Map<String,Object> map){
@@ -3653,10 +3754,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().disableStandingUsageByPlan(client_no, auth_key, acct_no, plan_no, comments, client_plan_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> disableStandingUsageByPlan(Map<String,Object> map){
@@ -3679,10 +3781,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().disableAllStandingUsage(client_no, auth_key, acct_no, comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> disableAllStandingUsage(Map<String,Object> map){
@@ -3705,11 +3808,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlans(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_acct_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_plans",((javax.xml.ws.Holder)h_acct_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_plans",((javax.xml.ws.Holder)h_acct_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlans(Map<String,Object> map){
@@ -3731,11 +3835,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlansAll(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_all_acct_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_acct_plans",((javax.xml.ws.Holder)h_all_acct_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_acct_plans",((javax.xml.ws.Holder)h_all_acct_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlansAll(Map<String,Object> map){
@@ -3757,11 +3862,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctSuppFields(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_supp_fields);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("supp_fields",((javax.xml.ws.Holder)h_supp_fields).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("supp_fields",((javax.xml.ws.Holder)h_supp_fields).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctSuppFields(Map<String,Object> map){
@@ -3783,11 +3889,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getSuppFieldValues(client_no, auth_key, acct_no, field_name, h_error_code, h_error_msg, h_acct_supp_field_values);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_supp_field_values",((javax.xml.ws.Holder)h_acct_supp_field_values).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_supp_field_values",((javax.xml.ws.Holder)h_acct_supp_field_values).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getSuppFieldValues(Map<String,Object> map){
@@ -3810,11 +3917,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getSuppPlansByPromoCode(client_no, auth_key, promo_code, h_error_code, h_error_msg, h_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plans",((javax.xml.ws.Holder)h_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plans",((javax.xml.ws.Holder)h_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getSuppPlansByPromoCode(Map<String,Object> map){
@@ -3836,11 +3944,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getSuppPlansByPromoCodeAll(client_no, auth_key, promo_code, h_error_code, h_error_msg, h_all_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getSuppPlansByPromoCodeAll(Map<String,Object> map){
@@ -3888,24 +3997,25 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().assignSuppPlan(client_no, auth_key, acct_no, supp_plan_no, client_supp_plan_id, alt_rate_schedule_no, num_plan_units, coupon_code, assignment_directive, comments, do_write, client_receipt_id, contract_type_no, contract_alt_recur_fee, contract_length_months, contract_cancel_fee, contract_comments, contract_start_date, offset_months, auto_offset_months_option, alt_proration_start_date, alt_client_acct_group_id, new_acct_custom_rates, effective_date, offset_interval, contract_end_date, sync_mstr_bill_dates_override, client_alt_rate_schedule_id, surcharge_no, h_error_code, h_error_msg, h_proration_result_amount, h_invoice_no, h_supp_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> assignSuppPlan(Map<String,Object> map){
@@ -3983,26 +4093,27 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelSuppPlan(client_no, auth_key, acct_no, supp_plan_no, assignment_directive, comments, do_write, client_receipt_id, alt_proration_start_date, effective_date, offset_interval, invoice_unbilled_usage, client_supp_plan_id, h_error_code, h_error_msg, h_proration_result_amount, h_invoice_no, h_supp_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_credit_result_amount, h_proration_credit_amount, h_proration_tax_amount, h_client_service_id, h_client_plan_id, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
-        getHashMapReturnValues().put("client_service_id",((javax.xml.ws.Holder)h_client_service_id).value);
-        getHashMapReturnValues().put("client_plan_id",((javax.xml.ws.Holder)h_client_plan_id).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        returnMap.put("client_service_id",((javax.xml.ws.Holder)h_client_service_id).value);
+        returnMap.put("client_plan_id",((javax.xml.ws.Holder)h_client_plan_id).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelSuppPlan(Map<String,Object> map){
@@ -4066,27 +4177,28 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().modifySuppPlan(client_no, auth_key, acct_no, supp_plan_no, alt_rate_schedule_no, num_plan_units, coupon_code, assignment_directive, comments, do_write, client_receipt_id, new_acct_custom_rates, effective_date, offset_interval, client_plan_id, client_alt_rate_schedule_id, surcharge_no, h_error_code, h_error_msg, h_proration_result_amount, h_invoice_no, h_supp_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_credit_result_amount, h_proration_credit_amount, h_proration_tax_amount, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> modifySuppPlan(Map<String,Object> map){
@@ -4154,27 +4266,28 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().replaceSuppPlan(client_no, auth_key, acct_no, existing_supp_plan_no, new_supp_plan_no, alt_rate_schedule_no, num_plan_units, coupon_code, assignment_directive, comments, do_write, client_receipt_id, offset_months, auto_offset_months_option, alt_client_acct_group_id, new_acct_custom_rates, effective_date, offset_interval, invoice_unbilled_usage, sync_mstr_bill_dates_override, client_existing_supp_plan_id, client_new_supp_plan_id, client_alt_rate_schedule_id, surcharge_no, h_error_code, h_error_msg, h_proration_result_amount, h_invoice_no, h_supp_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_credit_result_amount, h_proration_credit_amount, h_proration_tax_amount, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> replaceSuppPlan(Map<String,Object> map){
@@ -4217,11 +4330,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAvailChildPlansForPlan(client_no, auth_key, in_plan_no, in_client_plan_id, h_error_code, h_error_msg, h_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plans",((javax.xml.ws.Holder)h_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plans",((javax.xml.ws.Holder)h_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAvailChildPlansForPlan(Map<String,Object> map){
@@ -4244,11 +4358,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAvailChildPlansForPlanAll(client_no, auth_key, in_plan_no, in_client_plan_id, h_error_code, h_error_msg, h_all_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAvailChildPlansForPlanAll(Map<String,Object> map){
@@ -4271,11 +4386,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAvailChildPlansForAcct(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plans",((javax.xml.ws.Holder)h_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plans",((javax.xml.ws.Holder)h_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAvailChildPlansForAcct(Map<String,Object> map){
@@ -4297,11 +4413,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAvailChildPlansForAcctAll(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_all_plans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_plans",((javax.xml.ws.Holder)h_all_plans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAvailChildPlansForAcctAll(Map<String,Object> map){
@@ -4323,11 +4440,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctGroupsByClient(client_no, auth_key, h_error_code, h_error_msg, h_acct_groups);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_groups",((javax.xml.ws.Holder)h_acct_groups).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_groups",((javax.xml.ws.Holder)h_acct_groups).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctGroupsByClient(Map<String,Object> map){
@@ -4348,11 +4466,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctGroupsByAcct(client_no, auth_key, acct_no, user_id, h_error_code, h_error_msg, h_acct_groups);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_groups",((javax.xml.ws.Holder)h_acct_groups).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_groups",((javax.xml.ws.Holder)h_acct_groups).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctGroupsByAcct(Map<String,Object> map){
@@ -4373,10 +4492,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().assignFunctionalAcctGroup(client_no, auth_key, acct_no, group_no, client_acct_group_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> assignFunctionalAcctGroup(Map<String,Object> map){
@@ -4398,10 +4518,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().assignCollectionsAcctGroup(client_no, auth_key, acct_no, group_no, client_acct_group_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> assignCollectionsAcctGroup(Map<String,Object> map){
@@ -4423,10 +4544,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().removeAcctFromGroup(client_no, auth_key, acct_no, group_no, client_acct_group_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> removeAcctFromGroup(Map<String,Object> map){
@@ -4492,32 +4614,33 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAcctComplete(client_no, auth_key, master_plan_no, client_master_plan_id, alt_start_date, client_acct_id, userid, status_cd, master_plan_units, supp_plans, supp_plan_units, notify_method, promo_cd, password, secret_question, secret_question_answer, first_name, mi, last_name, company_name, address1, address2, city, locality, state_prov, country, postal_cd, phone, phone_ext, cell_phone, work_phone, work_phone_ext, email, birthdate, bill_first_name, bill_mi, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_email, pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_acct_no, bank_routing_no, resp_level_cd, senior_acct_no, senior_acct_user_id, client_senior_acct_id, functional_acct_groups, collections_acct_groups, supp_field_names, supp_field_values, test_acct_ind, status_until_alt_start, balance_forward, alt_bill_day, do_full_invoicing, do_prorated_invoicing, master_plan_alt_rate_sched_no, supp_plan_alt_rate_sched_no, client_receipt_id, currency_cd, cvv, taxpayer_id, bill_agreement_id, retroactive_start_date, coupon_codes, new_acct_custom_rates, alt_msg_template_no, seq_func_group_no, new_acct_plan_contracts, bank_acct_type, address3, bill_address3, usage_accumulation_config, enable_usage_pooling_plan_no, client_func_acct_group_ids, client_coll_acct_group_ids, track_data1, track_data2, do_write, tax_exemption_level, cn_alt_msg_template_no, invoice_approval_required, create_session, client_supp_plan_ids, client_mp_alt_rate_sched_id, client_sp_alt_rate_sched_ids, client_alt_msg_template_id, client_cn_alt_msg_template_no, surcharge_no, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, bkup_bill_first_name, bkup_bill_mi, bkup_bill_last_name, bkup_bill_company_name, bkup_bill_address1, bkup_bill_address2, bkup_bill_address3, bkup_bill_city, bkup_bill_locality, bkup_bill_state_prov, bkup_bill_country, bkup_bill_postal_cd, bkup_bill_phone, bkup_bill_phone_ext, bkup_bill_cell_phone, bkup_bill_work_phone, bkup_bill_work_phone_ext, bkup_bill_email, bkup_pay_method, bkup_cc_number, bkup_cc_expire_mm, bkup_cc_expire_yyyy, bkup_bank_acct_no, bkup_bank_routing_no, bkup_bank_acct_type, bkup_bill_agreement_id, bkup_cvv, seq_func_group_id, revrec_profile_id, revrec_client_defined_id, stmnt_email_list, stmnt_email_list_cc, stmnt_email_list_bcc, invoice_posting_method_cd, acct_start_date, min_statement_threshold, max_statements_to_defer, defer_full_statements_only, cc_id, bkup_cc_id, h_error_code, h_error_msg, h_acct_no, h_out_userid, h_invoicing_error_code, h_invoicing_error_msg, h_invoice_no, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_out_new_acct_plan_contracts, h_invoice_charges_before_tax, h_invoice_tax_charges, h_invoice_charges_after_tax, h_invoice_credit_amount, h_invoice_total_amount, h_new_acct_invoice_line_items, h_third_party_errors, h_session_id);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("out_userid",((javax.xml.ws.Holder)h_out_userid).value);
-        getHashMapReturnValues().put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
-        getHashMapReturnValues().put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("out_new_acct_plan_contracts",((javax.xml.ws.Holder)h_out_new_acct_plan_contracts).value);
-        getHashMapReturnValues().put("invoice_charges_before_tax",((javax.xml.ws.Holder)h_invoice_charges_before_tax).value);
-        getHashMapReturnValues().put("invoice_tax_charges",((javax.xml.ws.Holder)h_invoice_tax_charges).value);
-        getHashMapReturnValues().put("invoice_charges_after_tax",((javax.xml.ws.Holder)h_invoice_charges_after_tax).value);
-        getHashMapReturnValues().put("invoice_credit_amount",((javax.xml.ws.Holder)h_invoice_credit_amount).value);
-        getHashMapReturnValues().put("invoice_total_amount",((javax.xml.ws.Holder)h_invoice_total_amount).value);
-        getHashMapReturnValues().put("new_acct_invoice_line_items",((javax.xml.ws.Holder)h_new_acct_invoice_line_items).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
-        getHashMapReturnValues().put("session_id",((javax.xml.ws.Holder)h_session_id).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("out_userid",((javax.xml.ws.Holder)h_out_userid).value);
+        returnMap.put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
+        returnMap.put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("out_new_acct_plan_contracts",((javax.xml.ws.Holder)h_out_new_acct_plan_contracts).value);
+        returnMap.put("invoice_charges_before_tax",((javax.xml.ws.Holder)h_invoice_charges_before_tax).value);
+        returnMap.put("invoice_tax_charges",((javax.xml.ws.Holder)h_invoice_tax_charges).value);
+        returnMap.put("invoice_charges_after_tax",((javax.xml.ws.Holder)h_invoice_charges_after_tax).value);
+        returnMap.put("invoice_credit_amount",((javax.xml.ws.Holder)h_invoice_credit_amount).value);
+        returnMap.put("invoice_total_amount",((javax.xml.ws.Holder)h_invoice_total_amount).value);
+        returnMap.put("new_acct_invoice_line_items",((javax.xml.ws.Holder)h_new_acct_invoice_line_items).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        returnMap.put("session_id",((javax.xml.ws.Holder)h_session_id).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAcctComplete(Map<String,Object> map){
@@ -4687,11 +4810,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().applyCouponToAcct(client_no, auth_key, acct_no, coupon_code, h_user_success_msg, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("user_success_msg",((javax.xml.ws.Holder)h_user_success_msg).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("user_success_msg",((javax.xml.ws.Holder)h_user_success_msg).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> applyCouponToAcct(Map<String,Object> map){
@@ -4712,10 +4836,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAdvancedServiceCredit(client_no, auth_key, acct_no, amount, reason_code, comments, eligible_plan_no, eligible_service_no, alt_service_no_to_apply, frequency_no, frequency_interval_months, initial_credit_date, percent_amount, percent_eval_plan_no, percent_eval_service_no, eligible_service_types, client_eligible_plan_id, client_eligible_service_id, client_alt_service_id_to_apply, client_percent_eval_plan_id, client_percent_eval_service_id, credit_expiry_type_ind, credit_expiry_months, credit_expiry_date, eligible_service_plans, client_eligible_service_plan_ids, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAdvancedServiceCredit(Map<String,Object> map){
@@ -4760,11 +4885,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctNoFromUserId(client_no, auth_key, user_id, h_error_code, h_error_msg, h_acct_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctNoFromUserId(Map<String,Object> map){
@@ -4786,11 +4912,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUserIdFromAcctNo(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_user_id);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("user_id",((javax.xml.ws.Holder)h_user_id).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("user_id",((javax.xml.ws.Holder)h_user_id).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUserIdFromAcctNo(Map<String,Object> map){
@@ -4812,11 +4939,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlanContract(client_no, auth_key, acct_no, plan_no, client_plan_id, h_error_code, h_error_msg, h_acct_plan_contract);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_plan_contract",((javax.xml.ws.Holder)h_acct_plan_contract).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_plan_contract",((javax.xml.ws.Holder)h_acct_plan_contract).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlanContract(Map<String,Object> map){
@@ -4840,11 +4968,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAcctPlanContract(client_no, auth_key, acct_no, plan_no, length_months, end_date, client_plan_id, type_no, alt_recur_fee, cancel_fee, create_comments, start_date, do_auto_discard, h_error_code, h_error_msg, h_contract_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAcctPlanContract(Map<String,Object> map){
@@ -4874,10 +5003,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().modifyAcctPlanContract(client_no, auth_key, acct_no, contract_no, type_no, alt_recur_fee, length_months, cancel_fee, start_date, update_comments, end_date, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> modifyAcctPlanContract(Map<String,Object> map){
@@ -4905,10 +5035,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelAcctPlanContract(client_no, auth_key, acct_no, contract_no, update_comments, close_status, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelAcctPlanContract(Map<String,Object> map){
@@ -4933,11 +5064,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUsageHistory(client_no, auth_key, acct_no, specified_usage_type_no, date_range_start, date_range_end, specified_usage_type_code, usage_qualifier_1, usage_qualifier_2, usage_qualifier_3, usage_qualifier_4, limit, offset, transaction_id, invoice_no, invoice_line_item, retrieve_excluded_usage, h_error_code, h_error_msg, h_usage_history_records);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("usage_history_records",((javax.xml.ws.Holder)h_usage_history_records).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("usage_history_records",((javax.xml.ws.Holder)h_usage_history_records).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUsageHistory(Map<String,Object> map){
@@ -4975,12 +5107,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctMessage(client_no, auth_key, acct_no, message_id, do_encoding, h_error_code, h_error_msg, h_message_body, h_mime_type);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("message_body",((javax.xml.ws.Holder)h_message_body).value);
-        getHashMapReturnValues().put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("message_body",((javax.xml.ws.Holder)h_message_body).value);
+        returnMap.put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctMessage(Map<String,Object> map){
@@ -5004,11 +5137,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctMessageSize(client_no, auth_key, acct_no, message_id, do_encoding, h_error_code, h_error_msg, h_num_chars);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("num_chars",((javax.xml.ws.Holder)h_num_chars).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("num_chars",((javax.xml.ws.Holder)h_num_chars).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctMessageSize(Map<String,Object> map){
@@ -5084,37 +5218,38 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateMasterPlan(client_no, auth_key, acct_no, master_plan_no, alt_rate_schedule_no, num_plan_units, assignment_directive, do_write, client_receipt_id, force_currency_change, auto_cancel_supp_plans, offset_months, alt_proration_start_date, alt_client_acct_group_id, new_acct_custom_rates, effective_date, offset_interval, invoice_unbilled_usage, coupon_code, client_master_plan_id, client_alt_rate_schedule_id, surcharge_no, h_error_code, h_error_msg, h_proration_result_amount, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_invoice_no, h_cancelled_supp_plans, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_upd_acct_invoice_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("cancelled_supp_plans",((javax.xml.ws.Holder)h_cancelled_supp_plans).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("upd_acct_invoice_line_items",((javax.xml.ws.Holder)h_upd_acct_invoice_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("cancelled_supp_plans",((javax.xml.ws.Holder)h_cancelled_supp_plans).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("upd_acct_invoice_line_items",((javax.xml.ws.Holder)h_upd_acct_invoice_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateMasterPlan(Map<String,Object> map){
@@ -5197,32 +5332,33 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctComplete(client_no, auth_key, acct_no, first_name, last_name, middle_initial, company_name, address1, address2, city, locality, state_prov, country, postal_cd, phone, phone_ext, cell_phone, work_phone, work_phone_ext, email, birthdate, bill_first_name, bill_last_name, bill_middle_initial, bill_company_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_email, pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, master_plan_no, master_plan_alt_rate_sched_no, master_plan_units, master_plan_assign_directive, update_acct_supp_field, update_acct_func_group, update_acct_coll_group, status_cd, notify_method, password, secret_question, secret_question_answer, pin, test_acct_ind, resp_level_cd, senior_acct_no, senior_acct_user_id, client_senior_acct_id, client_acct_id, do_collect, change_status_after_coll, reset_dates_after_status, client_receipt_id, alt_do_dunning, force_currency_change, cvv, taxpayer_id, bill_agreement_id, auto_cancel_supp_plans, offset_months, alt_proration_start_date, alt_msg_template_no, seq_func_group_no, bank_acct_type, address3, bill_address3, usage_accumulation_config, enable_usage_pooling_plan_no, disable_usage_pooling_plan_no, alt_client_acct_group_id, track_data1, track_data2, offset_interval, tax_exemption_level, cn_alt_msg_template_no, promo_cd, invoice_unbilled_usage, coupon_code, userid, invoice_approval_required, client_master_plan_id, client_mp_alt_rate_sched_id, client_alt_msg_template_id, client_cn_alt_msg_template_id, update_surcharge, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, bkup_bill_first_name, bkup_bill_mi, bkup_bill_last_name, bkup_bill_company_name, bkup_bill_address1, bkup_bill_address2, bkup_bill_address3, bkup_bill_city, bkup_bill_locality, bkup_bill_state_prov, bkup_bill_country, bkup_bill_postal_cd, bkup_bill_phone, bkup_bill_phone_ext, bkup_bill_cell_phone, bkup_bill_work_phone, bkup_bill_work_phone_ext, bkup_bill_email, bkup_pay_method, bkup_cc_number, bkup_cc_expire_mm, bkup_cc_expire_yyyy, bkup_bank_acct_no, bkup_bank_routing_no, bkup_bank_acct_type, bkup_bill_agreement_id, bkup_cvv, seq_func_group_id, revrec_profile_id, revrec_client_defined_id, stmnt_email_list, stmnt_email_list_cc, stmnt_email_list_bcc, invoice_posting_method_cd, acct_start_date, min_statement_threshold, max_statements_to_defer, defer_full_statements_only, cc_id, bkup_cc_id, h_error_code, h_error_msg, h_proration_result_amount, h_collection_error_code, h_collection_error_msg, h_parent_child_sync_error_code, h_parent_child_sync_error_msg, h_master_plan_error_code, h_master_plan_error_msg, h_master_plan_coll_error_code, h_master_plan_coll_error_msg, h_master_plan_stmt_error_code, h_master_plan_stmt_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_invoice_no, h_cancelled_supp_plans, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("parent_child_sync_error_code",((javax.xml.ws.Holder)h_parent_child_sync_error_code).value);
-        getHashMapReturnValues().put("parent_child_sync_error_msg",((javax.xml.ws.Holder)h_parent_child_sync_error_msg).value);
-        getHashMapReturnValues().put("master_plan_error_code",((javax.xml.ws.Holder)h_master_plan_error_code).value);
-        getHashMapReturnValues().put("master_plan_error_msg",((javax.xml.ws.Holder)h_master_plan_error_msg).value);
-        getHashMapReturnValues().put("master_plan_coll_error_code",((javax.xml.ws.Holder)h_master_plan_coll_error_code).value);
-        getHashMapReturnValues().put("master_plan_coll_error_msg",((javax.xml.ws.Holder)h_master_plan_coll_error_msg).value);
-        getHashMapReturnValues().put("master_plan_stmt_error_code",((javax.xml.ws.Holder)h_master_plan_stmt_error_code).value);
-        getHashMapReturnValues().put("master_plan_stmt_error_msg",((javax.xml.ws.Holder)h_master_plan_stmt_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("cancelled_supp_plans",((javax.xml.ws.Holder)h_cancelled_supp_plans).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("parent_child_sync_error_code",((javax.xml.ws.Holder)h_parent_child_sync_error_code).value);
+        returnMap.put("parent_child_sync_error_msg",((javax.xml.ws.Holder)h_parent_child_sync_error_msg).value);
+        returnMap.put("master_plan_error_code",((javax.xml.ws.Holder)h_master_plan_error_code).value);
+        returnMap.put("master_plan_error_msg",((javax.xml.ws.Holder)h_master_plan_error_msg).value);
+        returnMap.put("master_plan_coll_error_code",((javax.xml.ws.Holder)h_master_plan_coll_error_code).value);
+        returnMap.put("master_plan_coll_error_msg",((javax.xml.ws.Holder)h_master_plan_coll_error_msg).value);
+        returnMap.put("master_plan_stmt_error_code",((javax.xml.ws.Holder)h_master_plan_stmt_error_code).value);
+        returnMap.put("master_plan_stmt_error_msg",((javax.xml.ws.Holder)h_master_plan_stmt_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("cancelled_supp_plans",((javax.xml.ws.Holder)h_cancelled_supp_plans).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctComplete(Map<String,Object> map){
@@ -5387,11 +5523,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAllAcctReceiptIds(client_no, auth_key, acct_no, start_date_range, end_date_range, h_error_code, h_error_msg, h_acct_receipt);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_receipt",((javax.xml.ws.Holder)h_acct_receipt).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_receipt",((javax.xml.ws.Holder)h_acct_receipt).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAllAcctReceiptIds(Map<String,Object> map){
@@ -5413,10 +5550,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().sendArcThresholdEmail(client_no, auth_key, acct_no, resource_threshold_level, resource_balance, resource_name, resource_units_label, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> sendArcThresholdEmail(Map<String,Object> map){
@@ -5440,10 +5578,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setAcctTaxExemptStatus(client_no, auth_key, acct_no, exemption_level, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setAcctTaxExemptStatus(Map<String,Object> map){
@@ -5468,12 +5607,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctTaxExemptStatus(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_exemption_level, h_exemption_level_desc);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("exemption_level",((javax.xml.ws.Holder)h_exemption_level).value);
-        getHashMapReturnValues().put("exemption_level_desc",((javax.xml.ws.Holder)h_exemption_level_desc).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("exemption_level",((javax.xml.ws.Holder)h_exemption_level).value);
+        returnMap.put("exemption_level_desc",((javax.xml.ws.Holder)h_exemption_level_desc).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctTaxExemptStatus(Map<String,Object> map){
@@ -5493,10 +5633,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().closeAcctInstallation(client_no, auth_key, acct_no, install_complete_ind, comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> closeAcctInstallation(Map<String,Object> map){
@@ -5520,11 +5661,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUnappliedServiceCredits(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_unapplied_service_credits);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("unapplied_service_credits",((javax.xml.ws.Holder)h_unapplied_service_credits).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("unapplied_service_credits",((javax.xml.ws.Holder)h_unapplied_service_credits).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUnappliedServiceCredits(Map<String,Object> map){
@@ -5546,11 +5688,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRecurringCreditInfo(client_no, auth_key, acct_no, filter_credit_no, h_error_code, h_error_msg, h_recurring_credit_info);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("recurring_credit_info",((javax.xml.ws.Holder)h_recurring_credit_info).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("recurring_credit_info",((javax.xml.ws.Holder)h_recurring_credit_info).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRecurringCreditInfo(Map<String,Object> map){
@@ -5573,11 +5716,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPendingInvoiceNo(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_invoice_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPendingInvoiceNo(Map<String,Object> map){
@@ -5597,10 +5741,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().removePayMethod(client_no, auth_key, acct_no, primary_or_bkup_pay_mthd_ind, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> removePayMethod(Map<String,Object> map){
@@ -5621,10 +5766,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().assignCustomAcctRates(client_no, auth_key, acct_no, custom_acct_rates, plan_no, service_no, client_plan_id, client_service_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> assignCustomAcctRates(Map<String,Object> map){
@@ -5651,11 +5797,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctsWithExistingPayMethod(client_no, auth_key, pay_method, form_payment_acct_id, bank_routing_num, h_error_code, h_error_msg, h_accts_with_pay_method);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("accts_with_pay_method",((javax.xml.ws.Holder)h_accts_with_pay_method).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("accts_with_pay_method",((javax.xml.ws.Holder)h_accts_with_pay_method).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctsWithExistingPayMethod(Map<String,Object> map){
@@ -5677,10 +5824,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().adjustBillingDates(client_no, auth_key, acct_no, action_directive, adjustment_days, adjustment_date, comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> adjustBillingDates(Map<String,Object> map){
@@ -5704,10 +5852,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().writeAcctComment(client_no, auth_key, acct_no, comment, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> writeAcctComment(Map<String,Object> map){
@@ -5730,11 +5879,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctComments(client_no, auth_key, acct_no, date_range_start, date_range_end, do_url_encoding, filter_application_id, h_error_code, h_error_msg, h_acct_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_comments",((javax.xml.ws.Holder)h_acct_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_comments",((javax.xml.ws.Holder)h_acct_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctComments(Map<String,Object> map){
@@ -5758,10 +5908,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().modifyAcctSuppFields(client_no, auth_key, acct_no, acct_supp_fields, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> modifyAcctSuppFields(Map<String,Object> map){
@@ -5782,10 +5933,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().removeCustomAcctRates(client_no, auth_key, acct_no, plan_no, client_plan_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> removeCustomAcctRates(Map<String,Object> map){
@@ -5809,11 +5961,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctStatementHistory(client_no, auth_key, acct_no, user_id, start_date, end_date, include_invoice_activity_eligibility, h_error_code, h_error_msg, h_statement_history);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("statement_history",((javax.xml.ws.Holder)h_statement_history).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("statement_history",((javax.xml.ws.Holder)h_statement_history).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctStatementHistory(Map<String,Object> map){
@@ -5839,11 +5992,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctStatementHistoryM(client_no, auth_key, acct_no, user_id, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, start_date, end_date, include_invoice_activity_eligibility, h_error_code, h_error_msg, h_statements_history);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("statements_history",((javax.xml.ws.Holder)h_statements_history).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("statements_history",((javax.xml.ws.Holder)h_statements_history).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctStatementHistoryM(Map<String,Object> map){
@@ -5872,11 +6026,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctInvoiceHistory(client_no, auth_key, acct_no, user_id, start_bill_date, end_bill_date, include_voided, posting_status_cd, posting_user, h_error_code, h_error_msg, h_invoice_history);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_history",((javax.xml.ws.Holder)h_invoice_history).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_history",((javax.xml.ws.Holder)h_invoice_history).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctInvoiceHistory(Map<String,Object> map){
@@ -5906,12 +6061,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getStatementContent(client_no, auth_key, acct_no, statement_no, do_encoding, h_error_code, h_error_msg, h_statement_content, h_mime_type);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("statement_content",((javax.xml.ws.Holder)h_statement_content).value);
-        getHashMapReturnValues().put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("statement_content",((javax.xml.ws.Holder)h_statement_content).value);
+        returnMap.put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getStatementContent(Map<String,Object> map){
@@ -5935,11 +6091,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getStatementContentSize(client_no, auth_key, acct_no, statement_no, do_encoding, h_error_code, h_error_msg, h_num_chars);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("num_chars",((javax.xml.ws.Holder)h_num_chars).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("num_chars",((javax.xml.ws.Holder)h_num_chars).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getStatementContentSize(Map<String,Object> map){
@@ -5967,13 +6124,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctHasOrderedSku(client_no, auth_key, acct_no, sku, h_error_code, h_error_msg, h_ordered_ind, h_billed_ind, h_paid_ind);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("ordered_ind",((javax.xml.ws.Holder)h_ordered_ind).value);
-        getHashMapReturnValues().put("billed_ind",((javax.xml.ws.Holder)h_billed_ind).value);
-        getHashMapReturnValues().put("paid_ind",((javax.xml.ws.Holder)h_paid_ind).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("ordered_ind",((javax.xml.ws.Holder)h_ordered_ind).value);
+        returnMap.put("billed_ind",((javax.xml.ws.Holder)h_billed_ind).value);
+        returnMap.put("paid_ind",((javax.xml.ws.Holder)h_paid_ind).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctHasOrderedSku(Map<String,Object> map){
@@ -6002,14 +6160,15 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUseridHasOrderedSku(client_no, auth_key, user_id, sku, h_error_code, h_error_msg, h_acct_no, h_ordered_ind, h_billed_ind, h_paid_ind);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("ordered_ind",((javax.xml.ws.Holder)h_ordered_ind).value);
-        getHashMapReturnValues().put("billed_ind",((javax.xml.ws.Holder)h_billed_ind).value);
-        getHashMapReturnValues().put("paid_ind",((javax.xml.ws.Holder)h_paid_ind).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("ordered_ind",((javax.xml.ws.Holder)h_ordered_ind).value);
+        returnMap.put("billed_ind",((javax.xml.ws.Holder)h_billed_ind).value);
+        returnMap.put("paid_ind",((javax.xml.ws.Holder)h_paid_ind).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUseridHasOrderedSku(Map<String,Object> map){
@@ -6082,36 +6241,37 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().assignSuppPlanMulti(client_no, auth_key, acct_no, supp_plans_to_assign, assignment_directive, do_write, comments, client_receipt_id, alt_proration_start_date, coupon_codes, effective_date, sync_mstr_bill_dates_override, supp_plan_surcharges, new_acct_custom_rates, h_error_code, h_error_msg, h_proration_result_amount, h_invoice_no, h_multi_sp_invoice_line_items, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("multi_sp_invoice_line_items",((javax.xml.ws.Holder)h_multi_sp_invoice_line_items).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("multi_sp_invoice_line_items",((javax.xml.ws.Holder)h_multi_sp_invoice_line_items).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> assignSuppPlanMulti(Map<String,Object> map){
@@ -6144,11 +6304,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPaymentMethods(client_no, auth_key, acct_no, filter_seq_no, h_acct_pay_methods, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("acct_pay_methods",((javax.xml.ws.Holder)h_acct_pay_methods).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("acct_pay_methods",((javax.xml.ws.Holder)h_acct_pay_methods).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPaymentMethods(Map<String,Object> map){
@@ -6173,12 +6334,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().genStatement(client_no, auth_key, acct_no, send_email, h_statement_no, h_seq_statement_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("statement_no",((javax.xml.ws.Holder)h_statement_no).value);
-        getHashMapReturnValues().put("seq_statement_id",((javax.xml.ws.Holder)h_seq_statement_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("statement_no",((javax.xml.ws.Holder)h_statement_no).value);
+        returnMap.put("seq_statement_id",((javax.xml.ws.Holder)h_seq_statement_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> genStatement(Map<String,Object> map){
@@ -6203,12 +6365,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().genStatementM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, send_email, h_statement_no, h_seq_statement_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("statement_no",((javax.xml.ws.Holder)h_statement_no).value);
-        getHashMapReturnValues().put("seq_statement_id",((javax.xml.ws.Holder)h_seq_statement_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("statement_no",((javax.xml.ws.Holder)h_statement_no).value);
+        returnMap.put("seq_statement_id",((javax.xml.ws.Holder)h_seq_statement_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> genStatementM(Map<String,Object> map){
@@ -6232,10 +6395,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelUnconsumedCredit(client_no, auth_key, acct_no, coupon_cd, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelUnconsumedCredit(Map<String,Object> map){
@@ -6256,10 +6420,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelUnappliedSvceCredits(client_no, auth_key, acct_no, credit_ids, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelUnappliedSvceCredits(Map<String,Object> map){
@@ -6284,12 +6449,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctBalance(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_currency_cd, h_balance);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
-        getHashMapReturnValues().put("balance",((javax.xml.ws.Holder)h_balance).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
+        returnMap.put("balance",((javax.xml.ws.Holder)h_balance).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctBalance(Map<String,Object> map){
@@ -6351,31 +6517,32 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUnbilledUsageSummary(client_no, auth_key, acct_no, usage_details_flag, include_all_usage_unit_thresholds, plan_no, usage_type_no, usage_type_code, retrieve_excluded_usage, h_error_code, h_error_msg, h_currency_cd, h_currency_name, h_acct_mtd_threshold_amount, h_acct_ptd_threshold_amount, h_client_mtd_threshold_amount, h_client_ptd_threshold_amount, h_mtd_balance_amount, h_ptd_balance_amount, h_acct_mtd_delta_sign, h_acct_mtd_delta_amount, h_acct_ptd_delta_sign, h_acct_ptd_delta_amount, h_client_mtd_delta_sign, h_client_mtd_delta_amount, h_client_ptd_delta_sign, h_client_ptd_delta_amount, h_unapp_svc_credit_bal_amount, h_unapp_svc_credit_delta_sign, h_unapp_svc_credit_delta_amount, h_unbilled_usage_recs, h_unit_threshold_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
-        getHashMapReturnValues().put("currency_name",((javax.xml.ws.Holder)h_currency_name).value);
-        getHashMapReturnValues().put("acct_mtd_threshold_amount",((javax.xml.ws.Holder)h_acct_mtd_threshold_amount).value);
-        getHashMapReturnValues().put("acct_ptd_threshold_amount",((javax.xml.ws.Holder)h_acct_ptd_threshold_amount).value);
-        getHashMapReturnValues().put("client_mtd_threshold_amount",((javax.xml.ws.Holder)h_client_mtd_threshold_amount).value);
-        getHashMapReturnValues().put("client_ptd_threshold_amount",((javax.xml.ws.Holder)h_client_ptd_threshold_amount).value);
-        getHashMapReturnValues().put("mtd_balance_amount",((javax.xml.ws.Holder)h_mtd_balance_amount).value);
-        getHashMapReturnValues().put("ptd_balance_amount",((javax.xml.ws.Holder)h_ptd_balance_amount).value);
-        getHashMapReturnValues().put("acct_mtd_delta_sign",((javax.xml.ws.Holder)h_acct_mtd_delta_sign).value);
-        getHashMapReturnValues().put("acct_mtd_delta_amount",((javax.xml.ws.Holder)h_acct_mtd_delta_amount).value);
-        getHashMapReturnValues().put("acct_ptd_delta_sign",((javax.xml.ws.Holder)h_acct_ptd_delta_sign).value);
-        getHashMapReturnValues().put("acct_ptd_delta_amount",((javax.xml.ws.Holder)h_acct_ptd_delta_amount).value);
-        getHashMapReturnValues().put("client_mtd_delta_sign",((javax.xml.ws.Holder)h_client_mtd_delta_sign).value);
-        getHashMapReturnValues().put("client_mtd_delta_amount",((javax.xml.ws.Holder)h_client_mtd_delta_amount).value);
-        getHashMapReturnValues().put("client_ptd_delta_sign",((javax.xml.ws.Holder)h_client_ptd_delta_sign).value);
-        getHashMapReturnValues().put("client_ptd_delta_amount",((javax.xml.ws.Holder)h_client_ptd_delta_amount).value);
-        getHashMapReturnValues().put("unapp_svc_credit_bal_amount",((javax.xml.ws.Holder)h_unapp_svc_credit_bal_amount).value);
-        getHashMapReturnValues().put("unapp_svc_credit_delta_sign",((javax.xml.ws.Holder)h_unapp_svc_credit_delta_sign).value);
-        getHashMapReturnValues().put("unapp_svc_credit_delta_amount",((javax.xml.ws.Holder)h_unapp_svc_credit_delta_amount).value);
-        getHashMapReturnValues().put("unbilled_usage_recs",((javax.xml.ws.Holder)h_unbilled_usage_recs).value);
-        getHashMapReturnValues().put("unit_threshold_details",((javax.xml.ws.Holder)h_unit_threshold_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
+        returnMap.put("currency_name",((javax.xml.ws.Holder)h_currency_name).value);
+        returnMap.put("acct_mtd_threshold_amount",((javax.xml.ws.Holder)h_acct_mtd_threshold_amount).value);
+        returnMap.put("acct_ptd_threshold_amount",((javax.xml.ws.Holder)h_acct_ptd_threshold_amount).value);
+        returnMap.put("client_mtd_threshold_amount",((javax.xml.ws.Holder)h_client_mtd_threshold_amount).value);
+        returnMap.put("client_ptd_threshold_amount",((javax.xml.ws.Holder)h_client_ptd_threshold_amount).value);
+        returnMap.put("mtd_balance_amount",((javax.xml.ws.Holder)h_mtd_balance_amount).value);
+        returnMap.put("ptd_balance_amount",((javax.xml.ws.Holder)h_ptd_balance_amount).value);
+        returnMap.put("acct_mtd_delta_sign",((javax.xml.ws.Holder)h_acct_mtd_delta_sign).value);
+        returnMap.put("acct_mtd_delta_amount",((javax.xml.ws.Holder)h_acct_mtd_delta_amount).value);
+        returnMap.put("acct_ptd_delta_sign",((javax.xml.ws.Holder)h_acct_ptd_delta_sign).value);
+        returnMap.put("acct_ptd_delta_amount",((javax.xml.ws.Holder)h_acct_ptd_delta_amount).value);
+        returnMap.put("client_mtd_delta_sign",((javax.xml.ws.Holder)h_client_mtd_delta_sign).value);
+        returnMap.put("client_mtd_delta_amount",((javax.xml.ws.Holder)h_client_mtd_delta_amount).value);
+        returnMap.put("client_ptd_delta_sign",((javax.xml.ws.Holder)h_client_ptd_delta_sign).value);
+        returnMap.put("client_ptd_delta_amount",((javax.xml.ws.Holder)h_client_ptd_delta_amount).value);
+        returnMap.put("unapp_svc_credit_bal_amount",((javax.xml.ws.Holder)h_unapp_svc_credit_bal_amount).value);
+        returnMap.put("unapp_svc_credit_delta_sign",((javax.xml.ws.Holder)h_unapp_svc_credit_delta_sign).value);
+        returnMap.put("unapp_svc_credit_delta_amount",((javax.xml.ws.Holder)h_unapp_svc_credit_delta_amount).value);
+        returnMap.put("unbilled_usage_recs",((javax.xml.ws.Holder)h_unbilled_usage_recs).value);
+        returnMap.put("unit_threshold_details",((javax.xml.ws.Holder)h_unit_threshold_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUnbilledUsageSummary(Map<String,Object> map){
@@ -6401,10 +6568,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setAcctUsgMtdThreshold(client_no, auth_key, acct_no, amount, usage_unit_thresholds, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setAcctUsgMtdThreshold(Map<String,Object> map){
@@ -6426,10 +6594,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setAcctUsgPtdThreshold(client_no, auth_key, acct_no, amount, usage_unit_thresholds, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setAcctUsgPtdThreshold(Map<String,Object> map){
@@ -6451,10 +6620,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setClientUsgMtdThreshold(client_no, auth_key, acct_no, amount, usage_unit_thresholds, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setClientUsgMtdThreshold(Map<String,Object> map){
@@ -6476,10 +6646,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setClientUsgPtdThreshold(client_no, auth_key, acct_no, amount, usage_unit_thresholds, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setClientUsgPtdThreshold(Map<String,Object> map){
@@ -6501,10 +6672,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().resetUsgMtdBal(client_no, auth_key, acct_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> resetUsgMtdBal(Map<String,Object> map){
@@ -6524,10 +6696,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().resetUsgPtdBal(client_no, auth_key, acct_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> resetUsgPtdBal(Map<String,Object> map){
@@ -6571,22 +6744,23 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctMultiplanContract(client_no, auth_key, acct_no, contract_no, exclude_terminated_plans, h_error_code, h_error_msg, h_type_no, h_length_months, h_create_comments, h_update_comments, h_create_date, h_update_date, h_start_date, h_end_date, h_status_code, h_plan_no, h_plan_name, h_client_plan_id);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("type_no",((javax.xml.ws.Holder)h_type_no).value);
-        getHashMapReturnValues().put("length_months",((javax.xml.ws.Holder)h_length_months).value);
-        getHashMapReturnValues().put("create_comments",((javax.xml.ws.Holder)h_create_comments).value);
-        getHashMapReturnValues().put("update_comments",((javax.xml.ws.Holder)h_update_comments).value);
-        getHashMapReturnValues().put("create_date",((javax.xml.ws.Holder)h_create_date).value);
-        getHashMapReturnValues().put("update_date",((javax.xml.ws.Holder)h_update_date).value);
-        getHashMapReturnValues().put("start_date",((javax.xml.ws.Holder)h_start_date).value);
-        getHashMapReturnValues().put("end_date",((javax.xml.ws.Holder)h_end_date).value);
-        getHashMapReturnValues().put("status_code",((javax.xml.ws.Holder)h_status_code).value);
-        getHashMapReturnValues().put("plan_no",((javax.xml.ws.Holder)h_plan_no).value);
-        getHashMapReturnValues().put("plan_name",((javax.xml.ws.Holder)h_plan_name).value);
-        getHashMapReturnValues().put("client_plan_id",((javax.xml.ws.Holder)h_client_plan_id).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("type_no",((javax.xml.ws.Holder)h_type_no).value);
+        returnMap.put("length_months",((javax.xml.ws.Holder)h_length_months).value);
+        returnMap.put("create_comments",((javax.xml.ws.Holder)h_create_comments).value);
+        returnMap.put("update_comments",((javax.xml.ws.Holder)h_update_comments).value);
+        returnMap.put("create_date",((javax.xml.ws.Holder)h_create_date).value);
+        returnMap.put("update_date",((javax.xml.ws.Holder)h_update_date).value);
+        returnMap.put("start_date",((javax.xml.ws.Holder)h_start_date).value);
+        returnMap.put("end_date",((javax.xml.ws.Holder)h_end_date).value);
+        returnMap.put("status_code",((javax.xml.ws.Holder)h_status_code).value);
+        returnMap.put("plan_no",((javax.xml.ws.Holder)h_plan_no).value);
+        returnMap.put("plan_name",((javax.xml.ws.Holder)h_plan_name).value);
+        returnMap.put("client_plan_id",((javax.xml.ws.Holder)h_client_plan_id).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctMultiplanContract(Map<String,Object> map){
@@ -6610,11 +6784,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAcctMultiplanContract(client_no, auth_key, acct_no, length_months, end_date, plan_no, type_no, create_comments, start_date, do_auto_discard, client_plan_id, h_error_code, h_error_msg, h_contract_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAcctMultiplanContract(Map<String,Object> map){
@@ -6642,10 +6817,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().modifyAcctMultiplanContract(client_no, auth_key, acct_no, contract_no, type_no, length_months, start_date, update_comments, modify_directive, plans_input, end_date, client_plan_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> modifyAcctMultiplanContract(Map<String,Object> map){
@@ -6674,10 +6850,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelAcctMultiplanContract(client_no, auth_key, acct_no, contract_no, update_comments, close_status, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelAcctMultiplanContract(Map<String,Object> map){
@@ -6720,20 +6897,21 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctUniversalContract(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_type_no, h_length_months, h_create_comments, h_update_comments, h_create_date, h_update_date, h_start_date, h_end_date, h_status_code, h_contract_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("type_no",((javax.xml.ws.Holder)h_type_no).value);
-        getHashMapReturnValues().put("length_months",((javax.xml.ws.Holder)h_length_months).value);
-        getHashMapReturnValues().put("create_comments",((javax.xml.ws.Holder)h_create_comments).value);
-        getHashMapReturnValues().put("update_comments",((javax.xml.ws.Holder)h_update_comments).value);
-        getHashMapReturnValues().put("create_date",((javax.xml.ws.Holder)h_create_date).value);
-        getHashMapReturnValues().put("update_date",((javax.xml.ws.Holder)h_update_date).value);
-        getHashMapReturnValues().put("start_date",((javax.xml.ws.Holder)h_start_date).value);
-        getHashMapReturnValues().put("end_date",((javax.xml.ws.Holder)h_end_date).value);
-        getHashMapReturnValues().put("status_code",((javax.xml.ws.Holder)h_status_code).value);
-        getHashMapReturnValues().put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("type_no",((javax.xml.ws.Holder)h_type_no).value);
+        returnMap.put("length_months",((javax.xml.ws.Holder)h_length_months).value);
+        returnMap.put("create_comments",((javax.xml.ws.Holder)h_create_comments).value);
+        returnMap.put("update_comments",((javax.xml.ws.Holder)h_update_comments).value);
+        returnMap.put("create_date",((javax.xml.ws.Holder)h_create_date).value);
+        returnMap.put("update_date",((javax.xml.ws.Holder)h_update_date).value);
+        returnMap.put("start_date",((javax.xml.ws.Holder)h_start_date).value);
+        returnMap.put("end_date",((javax.xml.ws.Holder)h_end_date).value);
+        returnMap.put("status_code",((javax.xml.ws.Holder)h_status_code).value);
+        returnMap.put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctUniversalContract(Map<String,Object> map){
@@ -6755,11 +6933,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAcctUniversalContract(client_no, auth_key, acct_no, length_months, end_date, type_no, create_comments, start_date, h_error_code, h_error_msg, h_contract_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAcctUniversalContract(Map<String,Object> map){
@@ -6784,10 +6963,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().modifyAcctUniversalContract(client_no, auth_key, acct_no, contract_no, type_no, length_months, start_date, update_comments, end_date, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> modifyAcctUniversalContract(Map<String,Object> map){
@@ -6813,10 +6993,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelAcctUniversalContract(client_no, auth_key, acct_no, update_comments, close_status, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelAcctUniversalContract(Map<String,Object> map){
@@ -6840,11 +7021,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctHierarchyDetails(client_no, auth_key, acct_no, hierarchy_filter, include_current_acct, h_error_code, h_error_msg, h_acct_hierarchy_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_hierarchy_details",((javax.xml.ws.Holder)h_acct_hierarchy_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_hierarchy_details",((javax.xml.ws.Holder)h_acct_hierarchy_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctHierarchyDetails(Map<String,Object> map){
@@ -6868,11 +7050,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAllAcctContracts(client_no, auth_key, acct_no, filter_status_code, exclude_terminated_plans, h_error_code, h_error_msg, h_all_acct_contracts);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_acct_contracts",((javax.xml.ws.Holder)h_all_acct_contracts).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_acct_contracts",((javax.xml.ws.Holder)h_all_acct_contracts).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAllAcctContracts(Map<String,Object> map){
@@ -6894,10 +7077,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setAcctNotifyOverride(client_no, auth_key, acct_no, acct_user_id, client_acct_id, template_class, override_template_no, behavioral_option, override_template_option, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setAcctNotifyOverride(Map<String,Object> map){
@@ -6923,10 +7107,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setAcctNotifyTmpltGrp(client_no, auth_key, acct_no, acct_user_id, client_acct_id, notification_template_group_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setAcctNotifyTmpltGrp(Map<String,Object> map){
@@ -6951,11 +7136,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctNotificationDetails(client_no, auth_key, acct_no, acct_user_id, client_acct_id, h_error_code, h_error_msg, h_acct_notification_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_notification_details",((javax.xml.ws.Holder)h_acct_notification_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_notification_details",((javax.xml.ws.Holder)h_acct_notification_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctNotificationDetails(Map<String,Object> map){
@@ -6979,11 +7165,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctCredits(client_no, auth_key, acct_no, limit_records, h_error_code, h_error_msg, h_acct_credits);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_credits",((javax.xml.ws.Holder)h_acct_credits).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_credits",((javax.xml.ws.Holder)h_acct_credits).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctCredits(Map<String,Object> map){
@@ -7034,25 +7221,26 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctCreditDetails(client_no, auth_key, acct_no, credit_no, h_error_code, h_error_msg, h_created_by, h_created_date, h_amount, h_credit_type, h_applied_amount, h_unapplied_amount, h_reason_code, h_reason_text, h_comments, h_transaction_id, h_void_transaction_id, h_credit_expiry_type_ind, h_credit_expiry_months, h_credit_expiry_date, h_eligible_service_plan_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("created_by",((javax.xml.ws.Holder)h_created_by).value);
-        getHashMapReturnValues().put("created_date",((javax.xml.ws.Holder)h_created_date).value);
-        getHashMapReturnValues().put("amount",((javax.xml.ws.Holder)h_amount).value);
-        getHashMapReturnValues().put("credit_type",((javax.xml.ws.Holder)h_credit_type).value);
-        getHashMapReturnValues().put("applied_amount",((javax.xml.ws.Holder)h_applied_amount).value);
-        getHashMapReturnValues().put("unapplied_amount",((javax.xml.ws.Holder)h_unapplied_amount).value);
-        getHashMapReturnValues().put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
-        getHashMapReturnValues().put("reason_text",((javax.xml.ws.Holder)h_reason_text).value);
-        getHashMapReturnValues().put("comments",((javax.xml.ws.Holder)h_comments).value);
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("void_transaction_id",((javax.xml.ws.Holder)h_void_transaction_id).value);
-        getHashMapReturnValues().put("credit_expiry_type_ind",((javax.xml.ws.Holder)h_credit_expiry_type_ind).value);
-        getHashMapReturnValues().put("credit_expiry_months",((javax.xml.ws.Holder)h_credit_expiry_months).value);
-        getHashMapReturnValues().put("credit_expiry_date",((javax.xml.ws.Holder)h_credit_expiry_date).value);
-        getHashMapReturnValues().put("eligible_service_plan_details",((javax.xml.ws.Holder)h_eligible_service_plan_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("created_by",((javax.xml.ws.Holder)h_created_by).value);
+        returnMap.put("created_date",((javax.xml.ws.Holder)h_created_date).value);
+        returnMap.put("amount",((javax.xml.ws.Holder)h_amount).value);
+        returnMap.put("credit_type",((javax.xml.ws.Holder)h_credit_type).value);
+        returnMap.put("applied_amount",((javax.xml.ws.Holder)h_applied_amount).value);
+        returnMap.put("unapplied_amount",((javax.xml.ws.Holder)h_unapplied_amount).value);
+        returnMap.put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
+        returnMap.put("reason_text",((javax.xml.ws.Holder)h_reason_text).value);
+        returnMap.put("comments",((javax.xml.ws.Holder)h_comments).value);
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("void_transaction_id",((javax.xml.ws.Holder)h_void_transaction_id).value);
+        returnMap.put("credit_expiry_type_ind",((javax.xml.ws.Holder)h_credit_expiry_type_ind).value);
+        returnMap.put("credit_expiry_months",((javax.xml.ws.Holder)h_credit_expiry_months).value);
+        returnMap.put("credit_expiry_date",((javax.xml.ws.Holder)h_credit_expiry_date).value);
+        returnMap.put("eligible_service_plan_details",((javax.xml.ws.Holder)h_eligible_service_plan_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctCreditDetails(Map<String,Object> map){
@@ -7075,11 +7263,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCreditReasonCodes(client_no, auth_key, h_error_code, h_error_msg, h_credit_reason_codes);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("credit_reason_codes",((javax.xml.ws.Holder)h_credit_reason_codes).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("credit_reason_codes",((javax.xml.ws.Holder)h_credit_reason_codes).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCreditReasonCodes(Map<String,Object> map){
@@ -7098,10 +7287,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().savePaypalBillAgreement(client_no, auth_key, acct_no, token, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> savePaypalBillAgreement(Map<String,Object> map){
@@ -7122,10 +7312,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().savePaypalBillAgreementM(client_no, auth_key, acct_no, billing_group_no, client_billing_group_id, master_plan_instance_no, client_master_plan_instance_id, token, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> savePaypalBillAgreementM(Map<String,Object> map){
@@ -7154,12 +7345,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().initPaypalBillAgreement(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_return_url, h_token);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("return_url",((javax.xml.ws.Holder)h_return_url).value);
-        getHashMapReturnValues().put("token",((javax.xml.ws.Holder)h_token).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("return_url",((javax.xml.ws.Holder)h_return_url).value);
+        returnMap.put("token",((javax.xml.ws.Holder)h_token).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> initPaypalBillAgreement(Map<String,Object> map){
@@ -7186,14 +7378,15 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctServiceOutageCredit(client_no, auth_key, h_acct_no, outage_start_date, outage_end_date, outage_start_time, outage_end_time, plans_to_get_outage, adjust_percent, client_plan_ids_to_get_outage, h_error_code, h_error_msg, h_service_outage_line_items, h_total_outage_credit, h_adjusted_outage_credit);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("service_outage_line_items",((javax.xml.ws.Holder)h_service_outage_line_items).value);
-        getHashMapReturnValues().put("total_outage_credit",((javax.xml.ws.Holder)h_total_outage_credit).value);
-        getHashMapReturnValues().put("adjusted_outage_credit",((javax.xml.ws.Holder)h_adjusted_outage_credit).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("service_outage_line_items",((javax.xml.ws.Holder)h_service_outage_line_items).value);
+        returnMap.put("total_outage_credit",((javax.xml.ws.Holder)h_total_outage_credit).value);
+        returnMap.put("adjusted_outage_credit",((javax.xml.ws.Holder)h_adjusted_outage_credit).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctServiceOutageCredit(Map<String,Object> map){
@@ -7230,15 +7423,16 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUsageSummaryByType(client_no, auth_key, acct_no, user_id, usage_type_filter, date_filter_start_date, date_filter_start_time, date_filter_end_date, date_filter_end_time, billed_filter, billing_period_flag, usage_qualifier_1, usage_qualifier_2, usage_qualifier_3, usage_qualifier_4, usage_type_cd_filter, retrieve_excluded_usage, h_error_code, h_error_msg, h_start_date, h_start_time, h_end_date, h_end_time, h_usage_summary_records);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("start_date",((javax.xml.ws.Holder)h_start_date).value);
-        getHashMapReturnValues().put("start_time",((javax.xml.ws.Holder)h_start_time).value);
-        getHashMapReturnValues().put("end_date",((javax.xml.ws.Holder)h_end_date).value);
-        getHashMapReturnValues().put("end_time",((javax.xml.ws.Holder)h_end_time).value);
-        getHashMapReturnValues().put("usage_summary_records",((javax.xml.ws.Holder)h_usage_summary_records).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("start_date",((javax.xml.ws.Holder)h_start_date).value);
+        returnMap.put("start_time",((javax.xml.ws.Holder)h_start_time).value);
+        returnMap.put("end_date",((javax.xml.ws.Holder)h_end_date).value);
+        returnMap.put("end_time",((javax.xml.ws.Holder)h_end_time).value);
+        returnMap.put("usage_summary_records",((javax.xml.ws.Holder)h_usage_summary_records).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUsageSummaryByType(Map<String,Object> map){
@@ -7276,12 +7470,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctOpenCharges(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_total_amount, h_open_charge_items);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("total_amount",((javax.xml.ws.Holder)h_total_amount).value);
-        getHashMapReturnValues().put("open_charge_items",((javax.xml.ws.Holder)h_open_charge_items).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("total_amount",((javax.xml.ws.Holder)h_total_amount).value);
+        returnMap.put("open_charge_items",((javax.xml.ws.Holder)h_open_charge_items).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctOpenCharges(Map<String,Object> map){
@@ -7303,11 +7498,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAcctCompleteM(client_no, auth_key, do_write, client_receipt_id, acct, h_error_code, h_error_msg, h_out_acct);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("out_acct",((javax.xml.ws.Holder)h_out_acct).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("out_acct",((javax.xml.ws.Holder)h_out_acct).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAcctCompleteM(Map<String,Object> map){
@@ -7329,10 +7525,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().acctPlanInstallCompleteM(client_no, auth_key, acct_no, master_plan_instance_no, client_master_plan_instance_id, install_complete_ind, comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> acctPlanInstallCompleteM(Map<String,Object> map){
@@ -7358,11 +7555,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPaymentMethodsM(client_no, auth_key, acct_no, payment_method_no, filter_status, h_account_payment_methods, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("account_payment_methods",((javax.xml.ws.Holder)h_account_payment_methods).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("account_payment_methods",((javax.xml.ws.Holder)h_account_payment_methods).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPaymentMethodsM(Map<String,Object> map){
@@ -7388,12 +7586,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updatePaymentMethodM(client_no, auth_key, acct_no, payment_method_no, client_payment_method_id, disabled_ind, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, pay_method_name, pay_method_description, pay_method_type, cc_num, cc_expire_mm, cc_expire_yyyy, cvv, bank_acct_num, bank_routing_num, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, do_collect, change_status_after_coll, reset_dates_after_status, client_receipt_id, cc_id, h_error_code, h_error_msg, h_seq_no, h_collection_info);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("seq_no",((javax.xml.ws.Holder)h_seq_no).value);
-        getHashMapReturnValues().put("collection_info",((javax.xml.ws.Holder)h_collection_info).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("seq_no",((javax.xml.ws.Holder)h_seq_no).value);
+        returnMap.put("collection_info",((javax.xml.ws.Holder)h_collection_info).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updatePaymentMethodM(Map<String,Object> map){
@@ -7460,11 +7659,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctHierarchyDetailsM(client_no, auth_key, acct_no, hierarchy_filter, include_current_acct, include_supp_plans, include_billing_groups, include_payment_methods, locale_no, locale_name, h_error_code, h_error_msg, h_acct_hierarchy_dtls);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_hierarchy_dtls",((javax.xml.ws.Holder)h_acct_hierarchy_dtls).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_hierarchy_dtls",((javax.xml.ws.Holder)h_acct_hierarchy_dtls).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctHierarchyDetailsM(Map<String,Object> map){
@@ -7606,68 +7806,69 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctDetailsAllM(client_no, auth_key, h_acct_no, include_supp_plans, include_billing_groups, include_payment_methods, locale_no, locale_name, h_client_acct_id, h_userid, h_first_name, h_middle_initial, h_last_name, h_company_name, h_address1, h_address2, h_address3, h_city, h_locality, h_state_prov, h_country_cd, h_postal_cd, h_phone, h_phone_ext, h_cell_phone, h_work_phone, h_work_phone_ext, h_fax, h_email, h_birthdate, h_status_cd, h_notify_method, h_senior_acct_no, h_senior_acct_user_id, h_senior_client_acct_id, h_test_acct_ind, h_taxpayer_id, h_acct_start_date, h_alt_msg_template_no, h_seq_func_group_no, h_tax_exemption_level, h_list_start_master_file, h_client_alt_msg_template_id, h_client_cn_alt_msg_template_id, h_revrec_profile_no, h_client_revrec_id, h_invoice_approval_required, h_functional_acct_group, h_collection_acct_group, h_supp_field, h_acct_surcharges_info, h_acct_currency, h_acct_balance, h_address_verification_code, h_address_match_score, h_acct_create_client_receipt_id, h_status_client_receipt_id, h_acct_coupons, h_po_num, h_billing_groups_info, h_payment_methods_info, h_master_plans_info, h_consumer_acct_ind, h_acct_locale_no, h_acct_locale_name, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
-        getHashMapReturnValues().put("userid",((javax.xml.ws.Holder)h_userid).value);
-        getHashMapReturnValues().put("first_name",((javax.xml.ws.Holder)h_first_name).value);
-        getHashMapReturnValues().put("middle_initial",((javax.xml.ws.Holder)h_middle_initial).value);
-        getHashMapReturnValues().put("last_name",((javax.xml.ws.Holder)h_last_name).value);
-        getHashMapReturnValues().put("company_name",((javax.xml.ws.Holder)h_company_name).value);
-        getHashMapReturnValues().put("address1",((javax.xml.ws.Holder)h_address1).value);
-        getHashMapReturnValues().put("address2",((javax.xml.ws.Holder)h_address2).value);
-        getHashMapReturnValues().put("address3",((javax.xml.ws.Holder)h_address3).value);
-        getHashMapReturnValues().put("city",((javax.xml.ws.Holder)h_city).value);
-        getHashMapReturnValues().put("locality",((javax.xml.ws.Holder)h_locality).value);
-        getHashMapReturnValues().put("state_prov",((javax.xml.ws.Holder)h_state_prov).value);
-        getHashMapReturnValues().put("country_cd",((javax.xml.ws.Holder)h_country_cd).value);
-        getHashMapReturnValues().put("postal_cd",((javax.xml.ws.Holder)h_postal_cd).value);
-        getHashMapReturnValues().put("phone",((javax.xml.ws.Holder)h_phone).value);
-        getHashMapReturnValues().put("phone_ext",((javax.xml.ws.Holder)h_phone_ext).value);
-        getHashMapReturnValues().put("cell_phone",((javax.xml.ws.Holder)h_cell_phone).value);
-        getHashMapReturnValues().put("work_phone",((javax.xml.ws.Holder)h_work_phone).value);
-        getHashMapReturnValues().put("work_phone_ext",((javax.xml.ws.Holder)h_work_phone_ext).value);
-        getHashMapReturnValues().put("fax",((javax.xml.ws.Holder)h_fax).value);
-        getHashMapReturnValues().put("email",((javax.xml.ws.Holder)h_email).value);
-        getHashMapReturnValues().put("birthdate",((javax.xml.ws.Holder)h_birthdate).value);
-        getHashMapReturnValues().put("status_cd",((javax.xml.ws.Holder)h_status_cd).value);
-        getHashMapReturnValues().put("notify_method",((javax.xml.ws.Holder)h_notify_method).value);
-        getHashMapReturnValues().put("senior_acct_no",((javax.xml.ws.Holder)h_senior_acct_no).value);
-        getHashMapReturnValues().put("senior_acct_user_id",((javax.xml.ws.Holder)h_senior_acct_user_id).value);
-        getHashMapReturnValues().put("senior_client_acct_id",((javax.xml.ws.Holder)h_senior_client_acct_id).value);
-        getHashMapReturnValues().put("test_acct_ind",((javax.xml.ws.Holder)h_test_acct_ind).value);
-        getHashMapReturnValues().put("taxpayer_id",((javax.xml.ws.Holder)h_taxpayer_id).value);
-        getHashMapReturnValues().put("acct_start_date",((javax.xml.ws.Holder)h_acct_start_date).value);
-        getHashMapReturnValues().put("alt_msg_template_no",((javax.xml.ws.Holder)h_alt_msg_template_no).value);
-        getHashMapReturnValues().put("seq_func_group_no",((javax.xml.ws.Holder)h_seq_func_group_no).value);
-        getHashMapReturnValues().put("tax_exemption_level",((javax.xml.ws.Holder)h_tax_exemption_level).value);
-        getHashMapReturnValues().put("list_start_master_file",((javax.xml.ws.Holder)h_list_start_master_file).value);
-        getHashMapReturnValues().put("client_alt_msg_template_id",((javax.xml.ws.Holder)h_client_alt_msg_template_id).value);
-        getHashMapReturnValues().put("client_cn_alt_msg_template_id",((javax.xml.ws.Holder)h_client_cn_alt_msg_template_id).value);
-        getHashMapReturnValues().put("revrec_profile_no",((javax.xml.ws.Holder)h_revrec_profile_no).value);
-        getHashMapReturnValues().put("client_revrec_id",((javax.xml.ws.Holder)h_client_revrec_id).value);
-        getHashMapReturnValues().put("invoice_approval_required",((javax.xml.ws.Holder)h_invoice_approval_required).value);
-        getHashMapReturnValues().put("functional_acct_group",((javax.xml.ws.Holder)h_functional_acct_group).value);
-        getHashMapReturnValues().put("collection_acct_group",((javax.xml.ws.Holder)h_collection_acct_group).value);
-        getHashMapReturnValues().put("supp_field",((javax.xml.ws.Holder)h_supp_field).value);
-        getHashMapReturnValues().put("acct_surcharges_info",((javax.xml.ws.Holder)h_acct_surcharges_info).value);
-        getHashMapReturnValues().put("acct_currency",((javax.xml.ws.Holder)h_acct_currency).value);
-        getHashMapReturnValues().put("acct_balance",((javax.xml.ws.Holder)h_acct_balance).value);
-        getHashMapReturnValues().put("address_verification_code",((javax.xml.ws.Holder)h_address_verification_code).value);
-        getHashMapReturnValues().put("address_match_score",((javax.xml.ws.Holder)h_address_match_score).value);
-        getHashMapReturnValues().put("acct_create_client_receipt_id",((javax.xml.ws.Holder)h_acct_create_client_receipt_id).value);
-        getHashMapReturnValues().put("status_client_receipt_id",((javax.xml.ws.Holder)h_status_client_receipt_id).value);
-        getHashMapReturnValues().put("acct_coupons",((javax.xml.ws.Holder)h_acct_coupons).value);
-        getHashMapReturnValues().put("po_num",((javax.xml.ws.Holder)h_po_num).value);
-        getHashMapReturnValues().put("billing_groups_info",((javax.xml.ws.Holder)h_billing_groups_info).value);
-        getHashMapReturnValues().put("payment_methods_info",((javax.xml.ws.Holder)h_payment_methods_info).value);
-        getHashMapReturnValues().put("master_plans_info",((javax.xml.ws.Holder)h_master_plans_info).value);
-        getHashMapReturnValues().put("consumer_acct_ind",((javax.xml.ws.Holder)h_consumer_acct_ind).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
+        returnMap.put("userid",((javax.xml.ws.Holder)h_userid).value);
+        returnMap.put("first_name",((javax.xml.ws.Holder)h_first_name).value);
+        returnMap.put("middle_initial",((javax.xml.ws.Holder)h_middle_initial).value);
+        returnMap.put("last_name",((javax.xml.ws.Holder)h_last_name).value);
+        returnMap.put("company_name",((javax.xml.ws.Holder)h_company_name).value);
+        returnMap.put("address1",((javax.xml.ws.Holder)h_address1).value);
+        returnMap.put("address2",((javax.xml.ws.Holder)h_address2).value);
+        returnMap.put("address3",((javax.xml.ws.Holder)h_address3).value);
+        returnMap.put("city",((javax.xml.ws.Holder)h_city).value);
+        returnMap.put("locality",((javax.xml.ws.Holder)h_locality).value);
+        returnMap.put("state_prov",((javax.xml.ws.Holder)h_state_prov).value);
+        returnMap.put("country_cd",((javax.xml.ws.Holder)h_country_cd).value);
+        returnMap.put("postal_cd",((javax.xml.ws.Holder)h_postal_cd).value);
+        returnMap.put("phone",((javax.xml.ws.Holder)h_phone).value);
+        returnMap.put("phone_ext",((javax.xml.ws.Holder)h_phone_ext).value);
+        returnMap.put("cell_phone",((javax.xml.ws.Holder)h_cell_phone).value);
+        returnMap.put("work_phone",((javax.xml.ws.Holder)h_work_phone).value);
+        returnMap.put("work_phone_ext",((javax.xml.ws.Holder)h_work_phone_ext).value);
+        returnMap.put("fax",((javax.xml.ws.Holder)h_fax).value);
+        returnMap.put("email",((javax.xml.ws.Holder)h_email).value);
+        returnMap.put("birthdate",((javax.xml.ws.Holder)h_birthdate).value);
+        returnMap.put("status_cd",((javax.xml.ws.Holder)h_status_cd).value);
+        returnMap.put("notify_method",((javax.xml.ws.Holder)h_notify_method).value);
+        returnMap.put("senior_acct_no",((javax.xml.ws.Holder)h_senior_acct_no).value);
+        returnMap.put("senior_acct_user_id",((javax.xml.ws.Holder)h_senior_acct_user_id).value);
+        returnMap.put("senior_client_acct_id",((javax.xml.ws.Holder)h_senior_client_acct_id).value);
+        returnMap.put("test_acct_ind",((javax.xml.ws.Holder)h_test_acct_ind).value);
+        returnMap.put("taxpayer_id",((javax.xml.ws.Holder)h_taxpayer_id).value);
+        returnMap.put("acct_start_date",((javax.xml.ws.Holder)h_acct_start_date).value);
+        returnMap.put("alt_msg_template_no",((javax.xml.ws.Holder)h_alt_msg_template_no).value);
+        returnMap.put("seq_func_group_no",((javax.xml.ws.Holder)h_seq_func_group_no).value);
+        returnMap.put("tax_exemption_level",((javax.xml.ws.Holder)h_tax_exemption_level).value);
+        returnMap.put("list_start_master_file",((javax.xml.ws.Holder)h_list_start_master_file).value);
+        returnMap.put("client_alt_msg_template_id",((javax.xml.ws.Holder)h_client_alt_msg_template_id).value);
+        returnMap.put("client_cn_alt_msg_template_id",((javax.xml.ws.Holder)h_client_cn_alt_msg_template_id).value);
+        returnMap.put("revrec_profile_no",((javax.xml.ws.Holder)h_revrec_profile_no).value);
+        returnMap.put("client_revrec_id",((javax.xml.ws.Holder)h_client_revrec_id).value);
+        returnMap.put("invoice_approval_required",((javax.xml.ws.Holder)h_invoice_approval_required).value);
+        returnMap.put("functional_acct_group",((javax.xml.ws.Holder)h_functional_acct_group).value);
+        returnMap.put("collection_acct_group",((javax.xml.ws.Holder)h_collection_acct_group).value);
+        returnMap.put("supp_field",((javax.xml.ws.Holder)h_supp_field).value);
+        returnMap.put("acct_surcharges_info",((javax.xml.ws.Holder)h_acct_surcharges_info).value);
+        returnMap.put("acct_currency",((javax.xml.ws.Holder)h_acct_currency).value);
+        returnMap.put("acct_balance",((javax.xml.ws.Holder)h_acct_balance).value);
+        returnMap.put("address_verification_code",((javax.xml.ws.Holder)h_address_verification_code).value);
+        returnMap.put("address_match_score",((javax.xml.ws.Holder)h_address_match_score).value);
+        returnMap.put("acct_create_client_receipt_id",((javax.xml.ws.Holder)h_acct_create_client_receipt_id).value);
+        returnMap.put("status_client_receipt_id",((javax.xml.ws.Holder)h_status_client_receipt_id).value);
+        returnMap.put("acct_coupons",((javax.xml.ws.Holder)h_acct_coupons).value);
+        returnMap.put("po_num",((javax.xml.ws.Holder)h_po_num).value);
+        returnMap.put("billing_groups_info",((javax.xml.ws.Holder)h_billing_groups_info).value);
+        returnMap.put("payment_methods_info",((javax.xml.ws.Holder)h_payment_methods_info).value);
+        returnMap.put("master_plans_info",((javax.xml.ws.Holder)h_master_plans_info).value);
+        returnMap.put("consumer_acct_ind",((javax.xml.ws.Holder)h_consumer_acct_ind).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctDetailsAllM(Map<String,Object> map){
@@ -7772,50 +7973,51 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctCompleteM(client_no, auth_key, client_receipt_id, acct_no, client_acct_id, userid, password, secret_question, secret_question_answer, pin, first_name, mi, last_name, company_name, address1, address2, address3, city, locality, state_prov, country_cd, postal_cd, phone, phone_ext, cell_phone, work_phone, work_phone_ext, fax, email, birthdate, status_cd, notify_method, senior_acct_no, senior_acct_userid, senior_client_acct_id, test_acct_ind, taxpayer_id, alt_client_acct_group_id, acct_coupons, acct_start_date, alt_msg_template_no, cn_alt_msg_template_no, seq_func_group_no, client_seq_func_group_id, tax_exemption_level, client_alt_msg_template_id, client_cn_alt_msg_template_id, reset_dates_after_status, new_client_acct_id, invoicing_option, alt_start_date, alt_bill_day, retroactive_start_date, functional_acct_groups_update, collection_acct_groups_update, acct_supp_fields_update, account_surcharges, client_master_plan_instance_id, master_plan_instance_no, new_client_master_plan_instance_id, client_master_plan_id, master_plan_no, master_plan_instance_desc, dunning_group_no, client_dunning_group_id, mp_billing_group_no, client_mp_billing_group_id, master_plan_instance_status, master_plan_units, resp_level_cd, parent_master_plan_inst_no, alt_rate_schedule_no, client_alt_rate_schedule_id, promo_cd, mp_coupons, master_plan_assign_directive, offset_months, offset_interval, invoice_unbilled_usage, invoice_approval_required, status_degrade_date, usage_accumulation_reset_months, usage_pooling, usage_threshold_applicability, master_plan_plan_inst_fields, mp_surcharges, update_acct_custom_rates, billing_groups_array, payment_methods_array, revrec_profile_no, client_revrec_id, mp_proration_invoice_timing, po_num, mp_po_num, list_start_master_file, locale_no, locale_name, h_error_code, h_error_msg, h_collection_error_code, h_collection_error_msg, h_parent_child_sync_error_code, h_parent_child_sync_error_msg, h_master_plan_error_code, h_master_plan_error_msg, h_master_plan_coll_error_code, h_master_plan_coll_error_msg, h_master_plan_stmt_error_code, h_master_plan_stmt_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_third_party_errors, h_master_plan_instance_id, h_out_client_mp_instance_id, h_out_master_plan_no, h_out_client_master_plan_id, h_out_master_plan_instance_description, h_master_plan_proration_result_total_amount, h_master_plan_proration_amount, h_master_plan_proration_tax_amount, h_master_plan_proration_surcharge_amount, h_master_plan_proration_credit_amount, h_supp_plan_instance_id, h_out_client_supp_plan_instance_id, h_supp_plan_proration_amount, h_supp_plan_proration_tax_amount, h_supp_plan_proration_surcharge_amount, h_supp_plan_proration_credit_amount, h_out_invoice_no, h_out_billing_group_no, h_out_client_billing_group_id, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("parent_child_sync_error_code",((javax.xml.ws.Holder)h_parent_child_sync_error_code).value);
-        getHashMapReturnValues().put("parent_child_sync_error_msg",((javax.xml.ws.Holder)h_parent_child_sync_error_msg).value);
-        getHashMapReturnValues().put("master_plan_error_code",((javax.xml.ws.Holder)h_master_plan_error_code).value);
-        getHashMapReturnValues().put("master_plan_error_msg",((javax.xml.ws.Holder)h_master_plan_error_msg).value);
-        getHashMapReturnValues().put("master_plan_coll_error_code",((javax.xml.ws.Holder)h_master_plan_coll_error_code).value);
-        getHashMapReturnValues().put("master_plan_coll_error_msg",((javax.xml.ws.Holder)h_master_plan_coll_error_msg).value);
-        getHashMapReturnValues().put("master_plan_stmt_error_code",((javax.xml.ws.Holder)h_master_plan_stmt_error_code).value);
-        getHashMapReturnValues().put("master_plan_stmt_error_msg",((javax.xml.ws.Holder)h_master_plan_stmt_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
-        getHashMapReturnValues().put("master_plan_instance_id",((javax.xml.ws.Holder)h_master_plan_instance_id).value);
-        getHashMapReturnValues().put("out_client_mp_instance_id",((javax.xml.ws.Holder)h_out_client_mp_instance_id).value);
-        getHashMapReturnValues().put("out_master_plan_no",((javax.xml.ws.Holder)h_out_master_plan_no).value);
-        getHashMapReturnValues().put("out_client_master_plan_id",((javax.xml.ws.Holder)h_out_client_master_plan_id).value);
-        getHashMapReturnValues().put("out_master_plan_instance_description",((javax.xml.ws.Holder)h_out_master_plan_instance_description).value);
-        getHashMapReturnValues().put("master_plan_proration_result_total_amount",((javax.xml.ws.Holder)h_master_plan_proration_result_total_amount).value);
-        getHashMapReturnValues().put("master_plan_proration_amount",((javax.xml.ws.Holder)h_master_plan_proration_amount).value);
-        getHashMapReturnValues().put("master_plan_proration_tax_amount",((javax.xml.ws.Holder)h_master_plan_proration_tax_amount).value);
-        getHashMapReturnValues().put("master_plan_proration_surcharge_amount",((javax.xml.ws.Holder)h_master_plan_proration_surcharge_amount).value);
-        getHashMapReturnValues().put("master_plan_proration_credit_amount",((javax.xml.ws.Holder)h_master_plan_proration_credit_amount).value);
-        getHashMapReturnValues().put("supp_plan_instance_id",((javax.xml.ws.Holder)h_supp_plan_instance_id).value);
-        getHashMapReturnValues().put("out_client_supp_plan_instance_id",((javax.xml.ws.Holder)h_out_client_supp_plan_instance_id).value);
-        getHashMapReturnValues().put("supp_plan_proration_amount",((javax.xml.ws.Holder)h_supp_plan_proration_amount).value);
-        getHashMapReturnValues().put("supp_plan_proration_tax_amount",((javax.xml.ws.Holder)h_supp_plan_proration_tax_amount).value);
-        getHashMapReturnValues().put("supp_plan_proration_surcharge_amount",((javax.xml.ws.Holder)h_supp_plan_proration_surcharge_amount).value);
-        getHashMapReturnValues().put("supp_plan_proration_credit_amount",((javax.xml.ws.Holder)h_supp_plan_proration_credit_amount).value);
-        getHashMapReturnValues().put("out_invoice_no",((javax.xml.ws.Holder)h_out_invoice_no).value);
-        getHashMapReturnValues().put("out_billing_group_no",((javax.xml.ws.Holder)h_out_billing_group_no).value);
-        getHashMapReturnValues().put("out_client_billing_group_id",((javax.xml.ws.Holder)h_out_client_billing_group_id).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("parent_child_sync_error_code",((javax.xml.ws.Holder)h_parent_child_sync_error_code).value);
+        returnMap.put("parent_child_sync_error_msg",((javax.xml.ws.Holder)h_parent_child_sync_error_msg).value);
+        returnMap.put("master_plan_error_code",((javax.xml.ws.Holder)h_master_plan_error_code).value);
+        returnMap.put("master_plan_error_msg",((javax.xml.ws.Holder)h_master_plan_error_msg).value);
+        returnMap.put("master_plan_coll_error_code",((javax.xml.ws.Holder)h_master_plan_coll_error_code).value);
+        returnMap.put("master_plan_coll_error_msg",((javax.xml.ws.Holder)h_master_plan_coll_error_msg).value);
+        returnMap.put("master_plan_stmt_error_code",((javax.xml.ws.Holder)h_master_plan_stmt_error_code).value);
+        returnMap.put("master_plan_stmt_error_msg",((javax.xml.ws.Holder)h_master_plan_stmt_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        returnMap.put("master_plan_instance_id",((javax.xml.ws.Holder)h_master_plan_instance_id).value);
+        returnMap.put("out_client_mp_instance_id",((javax.xml.ws.Holder)h_out_client_mp_instance_id).value);
+        returnMap.put("out_master_plan_no",((javax.xml.ws.Holder)h_out_master_plan_no).value);
+        returnMap.put("out_client_master_plan_id",((javax.xml.ws.Holder)h_out_client_master_plan_id).value);
+        returnMap.put("out_master_plan_instance_description",((javax.xml.ws.Holder)h_out_master_plan_instance_description).value);
+        returnMap.put("master_plan_proration_result_total_amount",((javax.xml.ws.Holder)h_master_plan_proration_result_total_amount).value);
+        returnMap.put("master_plan_proration_amount",((javax.xml.ws.Holder)h_master_plan_proration_amount).value);
+        returnMap.put("master_plan_proration_tax_amount",((javax.xml.ws.Holder)h_master_plan_proration_tax_amount).value);
+        returnMap.put("master_plan_proration_surcharge_amount",((javax.xml.ws.Holder)h_master_plan_proration_surcharge_amount).value);
+        returnMap.put("master_plan_proration_credit_amount",((javax.xml.ws.Holder)h_master_plan_proration_credit_amount).value);
+        returnMap.put("supp_plan_instance_id",((javax.xml.ws.Holder)h_supp_plan_instance_id).value);
+        returnMap.put("out_client_supp_plan_instance_id",((javax.xml.ws.Holder)h_out_client_supp_plan_instance_id).value);
+        returnMap.put("supp_plan_proration_amount",((javax.xml.ws.Holder)h_supp_plan_proration_amount).value);
+        returnMap.put("supp_plan_proration_tax_amount",((javax.xml.ws.Holder)h_supp_plan_proration_tax_amount).value);
+        returnMap.put("supp_plan_proration_surcharge_amount",((javax.xml.ws.Holder)h_supp_plan_proration_surcharge_amount).value);
+        returnMap.put("supp_plan_proration_credit_amount",((javax.xml.ws.Holder)h_supp_plan_proration_credit_amount).value);
+        returnMap.put("out_invoice_no",((javax.xml.ws.Holder)h_out_invoice_no).value);
+        returnMap.put("out_billing_group_no",((javax.xml.ws.Holder)h_out_billing_group_no).value);
+        returnMap.put("out_client_billing_group_id",((javax.xml.ws.Holder)h_out_client_billing_group_id).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctCompleteM(Map<String,Object> map){
@@ -7935,13 +8137,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctBalanceM(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_currency_cd, h_acct_balance, h_master_plan_instances);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
-        getHashMapReturnValues().put("acct_balance",((javax.xml.ws.Holder)h_acct_balance).value);
-        getHashMapReturnValues().put("master_plan_instances",((javax.xml.ws.Holder)h_master_plan_instances).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
+        returnMap.put("acct_balance",((javax.xml.ws.Holder)h_acct_balance).value);
+        returnMap.put("master_plan_instances",((javax.xml.ws.Holder)h_master_plan_instances).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctBalanceM(Map<String,Object> map){
@@ -7961,10 +8164,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateContactM(client_no, auth_key, acct_no, contact_ind, billing_group_no, client_billing_group_id, first_name, middle_initial, last_name, company_name, address1, address2, address3, city, locality, state_prov, country_cd, postal_cd, phone, phone_ext, cell_phone, work_phone, work_phone_ext, fax, email, birthdate, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateContactM(Map<String,Object> map){
@@ -8015,14 +8219,15 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctContactsM(client_no, auth_key, acct_no, billing_group_no, client_billing_group_id, h_account_contact, h_billing_contacts, h_backup_contacts, h_statement_contacts, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("account_contact",((javax.xml.ws.Holder)h_account_contact).value);
-        getHashMapReturnValues().put("billing_contacts",((javax.xml.ws.Holder)h_billing_contacts).value);
-        getHashMapReturnValues().put("backup_contacts",((javax.xml.ws.Holder)h_backup_contacts).value);
-        getHashMapReturnValues().put("statement_contacts",((javax.xml.ws.Holder)h_statement_contacts).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("account_contact",((javax.xml.ws.Holder)h_account_contact).value);
+        returnMap.put("billing_contacts",((javax.xml.ws.Holder)h_billing_contacts).value);
+        returnMap.put("backup_contacts",((javax.xml.ws.Holder)h_backup_contacts).value);
+        returnMap.put("statement_contacts",((javax.xml.ws.Holder)h_statement_contacts).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctContactsM(Map<String,Object> map){
@@ -8060,18 +8265,19 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAcctBillingGroupM(client_no, auth_key, acct_no, billing_group_name, billing_group_description, client_billing_group_id, notify_method, notify_template_group, statement_template, credit_note_template, primary_payment_method_no, client_primary_payment_method_id, backup_payment_method_no, client_backup_payment_method_id, stmt_first_name, stmt_mi, stmt_last_name, stmt_company_name, stmt_address1, stmt_address2, stmt_address3, stmt_city, stmt_locality, stmt_state_prov, stmt_country, stmt_postal_cd, stmt_phone, stmt_phone_ext, stmt_cell_phone, stmt_work_phone, stmt_work_phone_ext, stmt_fax, stmt_email, stmt_birthdate, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, pay_method_name, client_payment_method_id, pay_method_description, pay_method_type, cc_num, cc_expire_mm, cc_expire_yyyy, bank_acct_num, bank_routing_num, cvv, track_data1, track_data2, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, master_plans_summary, client_receipt_id, list_start_master_file, cc_id, payment_terms_no, payment_terms_name, h_error_code, h_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAcctBillingGroupM(Map<String,Object> map){
@@ -8172,12 +8378,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctBillingGroupDetailsM(client_no, auth_key, acct_no, client_acct_id, plan_instance_no, client_plan_instance_id, billing_group_no, client_billing_group_id, client_receipt_id, h_error_code, h_error_msg, h_billing_groups, h_payment_methods_summary);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("billing_groups",((javax.xml.ws.Holder)h_billing_groups).value);
-        getHashMapReturnValues().put("payment_methods_summary",((javax.xml.ws.Holder)h_payment_methods_summary).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("billing_groups",((javax.xml.ws.Holder)h_billing_groups).value);
+        returnMap.put("payment_methods_summary",((javax.xml.ws.Holder)h_payment_methods_summary).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctBillingGroupDetailsM(Map<String,Object> map){
@@ -8265,41 +8472,42 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().assignAcctPlanM(client_no, auth_key, acct_no, new_plan_no, new_client_plan_id, client_plan_instance_id, existing_billing_group_no, existing_client_billing_group_id, billing_group_name, billing_group_description, client_def_billing_group_id, notify_method, notify_template_group, statement_template, credit_note_template, existing_primary_payment_method_no, existing_client_primary_payment_method_id, existing_backup_payment_method_no, existing_client_backup_payment_method_id, stmt_first_name, stmt_mi, stmt_last_name, stmt_company_name, stmt_address1, stmt_address2, stmt_address3, stmt_city, stmt_locality, stmt_state_prov, stmt_country, stmt_postal_cd, stmt_phone, stmt_phone_ext, stmt_cell_phone, stmt_work_phone, stmt_work_phone_ext, stmt_fax, stmt_email, stmt_birthdate, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, primary_pay_method_name, primary_pay_method_cdid, primary_pay_method_description, primary_pay_method_type, cc_number, cc_expire_mm, cc_expire_yyyy, bank_acct_no, bank_routing_no, cvv, track_data1, track_data2, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, existing_dunning_group_no, existing_client_def_dunning_group_id, dunning_group_name, dunning_group_description, client_dunning_group_id, dunning_process_no, client_dunning_process_id, alt_start_date, status_until_alt_start, alt_bill_day, invoicing_option, retroactive_start_date, balance_forward, resp_level_cd, parent_acct_master_plan_inst_id, parent_plan_instance_no, client_parent_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, mpi_surcharges, plan_status, plan_instance_description, plan_instance_fields, assignment_directive, comments, do_write, client_receipt_id, offset_months, alt_proration_start_date, auto_offset_months_option, alt_client_acct_group_id, usage_accumulation_reset_months, usage_pooling, usage_threshold_applicability, custom_rates, effective_date, offset_interval, force_supp_bill_date_reset, client_alt_rate_schedule_id, nso_bill_immediately, nso_item_list, proration_invoice_timing, po_num, nso_po_num, cc_id, h_error_code, h_error_msg, h_proration_result_amount, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_invoice_no, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_acct_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_tax_amount, h_proration_credit_result_amount, h_proration_credit_amount, h_plan_instance_no, h_nso_order_no, h_nso_order_status_label);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("acct_plan_line_items",((javax.xml.ws.Holder)h_acct_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
-        getHashMapReturnValues().put("plan_instance_no",((javax.xml.ws.Holder)h_plan_instance_no).value);
-        getHashMapReturnValues().put("nso_order_no",((javax.xml.ws.Holder)h_nso_order_no).value);
-        getHashMapReturnValues().put("nso_order_status_label",((javax.xml.ws.Holder)h_nso_order_status_label).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("acct_plan_line_items",((javax.xml.ws.Holder)h_acct_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        returnMap.put("plan_instance_no",((javax.xml.ws.Holder)h_plan_instance_no).value);
+        returnMap.put("nso_order_no",((javax.xml.ws.Holder)h_nso_order_no).value);
+        returnMap.put("nso_order_status_label",((javax.xml.ws.Holder)h_nso_order_status_label).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> assignAcctPlanM(Map<String,Object> map){
@@ -8470,24 +8678,25 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelAcctPlanM(client_no, auth_key, acct_no, client_receipt_id, plan_instance_no, client_plan_instance_id, assignment_directive, comments, alt_proration_start_date, effective_date, offset_interval, invoice_unbilled_usage, do_write, proration_invoice_timing, h_error_code, h_error_msg, h_proration_result_amount, h_invoice_no, h_acct_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_credit_result_amount, h_proration_credit_amount, h_proration_tax_amount, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("acct_plan_line_items",((javax.xml.ws.Holder)h_acct_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("acct_plan_line_items",((javax.xml.ws.Holder)h_acct_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelAcctPlanM(Map<String,Object> map){
@@ -8518,10 +8727,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAcctDunningGroupM(client_no, auth_key, acct_no, dunning_group_name, dunning_group_description, client_dunning_group_id, dunning_process_no, client_dunning_process_id, master_plans_summary, client_receipt_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAcctDunningGroupM(Map<String,Object> map){
@@ -8604,38 +8814,39 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctPlanM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, plan_status, plan_instance_description, plan_instance_field_update, assignment_directive, comments, do_write, client_receipt_id, custom_rates, effective_date, offset_interval, force_master_bill_date_reset, client_alt_rate_schedule_id, new_client_plan_inst_id, dunning_state, degrade_date, resp_level_cd, parent_acct_master_plan_inst_id, usage_accumulation_reset_months, usage_pooling, usage_threshold_applicability, mp_surcharges, proration_invoice_timing, po_num, h_error_code, h_error_msg, h_proration_result_amount, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_invoice_no, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_acct_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_tax_amount, h_proration_credit_result_amount, h_proration_credit_amount);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("acct_plan_line_items",((javax.xml.ws.Holder)h_acct_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("acct_plan_line_items",((javax.xml.ws.Holder)h_acct_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctPlanM(Map<String,Object> map){
@@ -8700,18 +8911,19 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctBillingGroupM(client_no, auth_key, acct_no, billing_group_no, billing_group_name, billing_group_description, client_billing_group_id, new_client_billing_group_id, notify_method, notify_template_group, statement_template, credit_note_template, primary_payment_method_no, client_primary_payment_method_id, backup_payment_method_no, client_backup_payment_method_id, stmt_first_name, stmt_mi, stmt_last_name, stmt_company_name, stmt_address1, stmt_address2, stmt_address3, stmt_city, stmt_locality, stmt_state_prov, stmt_country, stmt_postal_cd, stmt_phone, stmt_phone_ext, stmt_cell_phone, stmt_work_phone, stmt_work_phone_ext, stmt_fax, stmt_email, stmt_birthdate, bill_first_name, bill_middle_initial, bill_last_name, bill_company_name, bill_address1, bill_address2, bill_address3, bill_city, bill_locality, bill_state_prov, bill_country, bill_postal_cd, bill_phone, bill_phone_ext, bill_cell_phone, bill_work_phone, bill_work_phone_ext, bill_fax, bill_email, bill_birthdate, pay_method_name, client_payment_method_id, pay_method_description, pay_method_type, cc_num, cc_expire_mm, cc_expire_yyyy, bank_acct_num, bank_routing_num, cvv, track_data1, track_data2, bill_agreement_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, billing_group_directive, master_plans_summary, client_receipt_id, list_start_master_file, cc_id, payment_terms_no, payment_terms_name, h_error_code, h_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctBillingGroupM(Map<String,Object> map){
@@ -8869,39 +9081,40 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().replaceAcctPlanM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, new_plan_no, new_client_plan_id, new_client_plan_instance_id, alt_rate_schedule_no, plan_units, coupon_codes, promo_cd, mp_surcharges, plan_status, plan_instance_description, plan_instance_field_update, assignment_directive, comments, do_write, client_receipt_id, offset_months, alt_proration_start_date, auto_offset_months_option, alt_client_acct_group_id, custom_rates, effective_date, offset_interval, invoice_unbilled_usage, force_supp_bill_date_reset, force_master_bill_date_reset, client_alt_rate_schedule_id, usage_accumulation_reset_months, usage_pooling, usage_threshold_applicability, proration_invoice_timing, po_num, h_error_code, h_error_msg, h_proration_result_amount, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_invoice_no, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_acct_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_credit_result_amount, h_proration_credit_amount, h_proration_tax_amount, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("acct_plan_line_items",((javax.xml.ws.Holder)h_acct_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("acct_plan_line_items",((javax.xml.ws.Holder)h_acct_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> replaceAcctPlanM(Map<String,Object> map){
@@ -8960,13 +9173,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlanBalanceM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, h_error_code, h_error_msg, h_currency_cd, h_current_balance_due, h_total_balance_due);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
-        getHashMapReturnValues().put("current_balance_due",((javax.xml.ws.Holder)h_current_balance_due).value);
-        getHashMapReturnValues().put("total_balance_due",((javax.xml.ws.Holder)h_total_balance_due).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
+        returnMap.put("current_balance_due",((javax.xml.ws.Holder)h_current_balance_due).value);
+        returnMap.put("total_balance_due",((javax.xml.ws.Holder)h_total_balance_due).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlanBalanceM(Map<String,Object> map){
@@ -8994,13 +9208,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlanNotifyMethodM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, billing_group_no, client_def_billing_group_id, h_error_code, h_error_msg, h_notify_method, h_list_start_master_file, h_notify_method_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("notify_method",((javax.xml.ws.Holder)h_notify_method).value);
-        getHashMapReturnValues().put("list_start_master_file",((javax.xml.ws.Holder)h_list_start_master_file).value);
-        getHashMapReturnValues().put("notify_method_name",((javax.xml.ws.Holder)h_notify_method_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("notify_method",((javax.xml.ws.Holder)h_notify_method).value);
+        returnMap.put("list_start_master_file",((javax.xml.ws.Holder)h_list_start_master_file).value);
+        returnMap.put("notify_method_name",((javax.xml.ws.Holder)h_notify_method_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlanNotifyMethodM(Map<String,Object> map){
@@ -9024,10 +9239,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setPaymentResponsibilityM(client_no, auth_key, account_no, plan_instance_no, client_plan_instance_id, resp_level_cd, senior_acct_no, senior_acct_user_id, client_senior_acct_id, senior_plan_instance_no, client_senior_plan_instance_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setPaymentResponsibilityM(Map<String,Object> map){
@@ -9055,10 +9271,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().removeAcctPlanCustomRatesM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> removeAcctPlanCustomRatesM(Map<String,Object> map){
@@ -9082,11 +9299,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctDunningGroupDetailsM(client_no, auth_key, acct_no, client_acct_id, plan_instance_no, client_plan_instance_id, dunning_group_no, client_dunning_group_id, h_error_code, h_error_msg, h_dunning_groups);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("dunning_groups",((javax.xml.ws.Holder)h_dunning_groups).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("dunning_groups",((javax.xml.ws.Holder)h_dunning_groups).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctDunningGroupDetailsM(Map<String,Object> map){
@@ -9111,10 +9329,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctDunningGroupM(client_no, auth_key, acct_no, client_acct_id, dunning_group_no, client_dunning_group_id, new_client_dunning_group_id, dunning_group_name, dunning_group_description, dunning_process_no, client_dunning_process_id, dunning_group_directive, master_plans_summary, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctDunningGroupM(Map<String,Object> map){
@@ -9144,10 +9363,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctPlanStatusM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, status_cd, dunning_state, degrade_date, queue_days, queue_date, force_bill_date_reset, comments, client_receipt_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctPlanStatusM(Map<String,Object> map){
@@ -9177,10 +9397,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelQueuedAcctPlanChangeM(client_no, auth_key, acct_no, plan_instance_to_remove, queue_id_to_remove, remove_all_queued_plans, remove_terminate_pending, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelQueuedAcctPlanChangeM(Map<String,Object> map){
@@ -9204,10 +9425,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().adjustAcctPlanBillingDatesM(client_no, auth_key, acct_no, billing_dates, comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> adjustAcctPlanBillingDatesM(Map<String,Object> map){
@@ -9235,13 +9457,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAvailPlansForAcctM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, promo_cd, include_full_plan_hierarchy_plans, include_rs_summary, locale_no, locale_name, h_error_code, h_error_msg, h_all_client_avail_plans, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_client_avail_plans",((javax.xml.ws.Holder)h_all_client_avail_plans).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_client_avail_plans",((javax.xml.ws.Holder)h_all_client_avail_plans).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAvailPlansForAcctM(Map<String,Object> map){
@@ -9274,13 +9497,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAvailPlansForAcctAllM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, promo_cd, include_full_plan_hierarchy_plans, include_rs_summary, locale_no, locale_name, h_error_code, h_error_msg, h_all_client_plans_services, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_client_plans_services",((javax.xml.ws.Holder)h_all_client_plans_services).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_client_plans_services",((javax.xml.ws.Holder)h_all_client_plans_services).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAvailPlansForAcctAllM(Map<String,Object> map){
@@ -9313,13 +9537,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlansM(client_no, auth_key, acct_no, locale_no, locale_name, h_error_code, h_error_msg, h_acct_plans_m, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_plans_m",((javax.xml.ws.Holder)h_acct_plans_m).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_plans_m",((javax.xml.ws.Holder)h_acct_plans_m).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlansM(Map<String,Object> map){
@@ -9347,13 +9572,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlansAllM(client_no, auth_key, acct_no, locale_no, locale_name, h_error_code, h_error_msg, h_all_acct_plans_m, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_acct_plans_m",((javax.xml.ws.Holder)h_all_acct_plans_m).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_acct_plans_m",((javax.xml.ws.Holder)h_all_acct_plans_m).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlansAllM(Map<String,Object> map){
@@ -9409,27 +9635,28 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().modifyAcctPlanUnitInstances(client_no, auth_key, acct_no, plan_units, new_client_plan_unit_inst, do_write, h_error_code, h_error_msg, h_proration_result_amount, h_invoice_no, h_supp_plan_line_items, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_credit_result_amount, h_proration_credit_amount, h_proration_tax_amount, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("supp_plan_line_items",((javax.xml.ws.Holder)h_supp_plan_line_items).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> modifyAcctPlanUnitInstances(Map<String,Object> map){
@@ -9456,13 +9683,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlanUnitInstanceAll(client_no, auth_key, h_acct_no, h_client_acct_id, plan_no, client_plan_id, plan_unit_inst_no, client_plan_unit_inst_id, status_cd, plan_unit_inst_status_cd, fulfillment_only, h_error_code, h_error_msg, h_all_plan_unit_instances);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
-        getHashMapReturnValues().put("all_plan_unit_instances",((javax.xml.ws.Holder)h_all_plan_unit_instances).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
+        returnMap.put("all_plan_unit_instances",((javax.xml.ws.Holder)h_all_plan_unit_instances).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlanUnitInstanceAll(Map<String,Object> map){
@@ -9548,39 +9776,40 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctPlanUnitInstance(client_no, auth_key, acct_no, client_acct_id, plan_unit_inst_no, client_plan_unit_inst_id, new_client_plan_unit_inst_id, plan_unit_inst_services, plan_unit_inst_fields, do_write, h_error_code, h_error_msg, h_out_acct_no, h_out_client_acct_id, h_out_plan_unit_inst_no, h_out_client_plan_unit_inst_id, h_proration_result_amount, h_invoice_no, h_invoice_line_items, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_expectd_monthly_rec_cost, h_expectd_annual_rec_cost, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
-        getHashMapReturnValues().put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
-        getHashMapReturnValues().put("out_plan_unit_inst_no",((javax.xml.ws.Holder)h_out_plan_unit_inst_no).value);
-        getHashMapReturnValues().put("out_client_plan_unit_inst_id",((javax.xml.ws.Holder)h_out_client_plan_unit_inst_id).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("invoice_line_items",((javax.xml.ws.Holder)h_invoice_line_items).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("expectd_monthly_rec_cost",((javax.xml.ws.Holder)h_expectd_monthly_rec_cost).value);
-        getHashMapReturnValues().put("expectd_annual_rec_cost",((javax.xml.ws.Holder)h_expectd_annual_rec_cost).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
+        returnMap.put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
+        returnMap.put("out_plan_unit_inst_no",((javax.xml.ws.Holder)h_out_plan_unit_inst_no).value);
+        returnMap.put("out_client_plan_unit_inst_id",((javax.xml.ws.Holder)h_out_client_plan_unit_inst_id).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("invoice_line_items",((javax.xml.ws.Holder)h_invoice_line_items).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("expectd_monthly_rec_cost",((javax.xml.ws.Holder)h_expectd_monthly_rec_cost).value);
+        returnMap.put("expectd_annual_rec_cost",((javax.xml.ws.Holder)h_expectd_annual_rec_cost).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctPlanUnitInstance(Map<String,Object> map){
@@ -9607,10 +9836,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().assignCustomAcctPlanRatesM(client_no, auth_key, acct_no, plan_instance_no, client_plan_instance_id, custom_acct_rates, service_no, client_service_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> assignCustomAcctPlanRatesM(Map<String,Object> map){
@@ -9641,13 +9871,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getQueuedAcctPlansM(client_no, auth_key, account_number, locale_no, locale_name, h_error_code, h_error_msg, h_queued_plan_instance_details, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("queued_plan_instance_details",((javax.xml.ws.Holder)h_queued_plan_instance_details).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("queued_plan_instance_details",((javax.xml.ws.Holder)h_queued_plan_instance_details).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getQueuedAcctPlansM(Map<String,Object> map){
@@ -9671,11 +9902,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getInvoiceHistoryM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_id, client_master_plan_instance_id, user_id, start_bill_date, end_bill_date, include_voided, h_error_code, h_error_msg, h_invoice_hist);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_hist",((javax.xml.ws.Holder)h_invoice_hist).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_hist",((javax.xml.ws.Holder)h_invoice_hist).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvoiceHistoryM(Map<String,Object> map){
@@ -9704,11 +9936,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPendingInvoiceNoM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, h_error_code, h_error_msg, h_pending_invoice);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("pending_invoice",((javax.xml.ws.Holder)h_pending_invoice).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("pending_invoice",((javax.xml.ws.Holder)h_pending_invoice).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPendingInvoiceNoM(Map<String,Object> map){
@@ -9733,11 +9966,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUnappliedServiceCreditsM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, h_error_code, h_error_msg, h_unapplied_service_credits_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("unapplied_service_credits_details",((javax.xml.ws.Holder)h_unapplied_service_credits_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("unapplied_service_credits_details",((javax.xml.ws.Holder)h_unapplied_service_credits_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUnappliedServiceCreditsM(Map<String,Object> map){
@@ -9762,11 +9996,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctCreditsM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, limit_records, h_error_code, h_error_msg, h_all_credits);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_credits",((javax.xml.ws.Holder)h_all_credits).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_credits",((javax.xml.ws.Holder)h_all_credits).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctCreditsM(Map<String,Object> map){
@@ -9796,13 +10031,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRecurringCreditInfoM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, filter_credit_no, locale_no, locale_name, h_error_code, h_error_msg, h_recurring_credits_details, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("recurring_credits_details",((javax.xml.ws.Holder)h_recurring_credits_details).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("recurring_credits_details",((javax.xml.ws.Holder)h_recurring_credits_details).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRecurringCreditInfoM(Map<String,Object> map){
@@ -9828,10 +10064,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createAdvancedServiceCreditM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, amount, reason_code, comments, eligible_plan_no, eligible_service_no, alt_service_no_to_apply, frequency_no, frequency_interval_months, initial_credit_date, percent_amount, percent_eval_plan_no, percent_eval_service_no, eligible_service_types, client_eligible_plan_id, client_eligible_service_id, client_alt_service_id_to_apply, client_percent_eval_plan_id, client_percent_eval_service_id, credit_expiry_type_ind, credit_expiry_months, credit_expiry_date, eligible_service_plans, client_eligible_service_plan_ids, frequency_interval_type, eligible_plan_instances, client_eligible_plan_instances, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createAdvancedServiceCreditM(Map<String,Object> map){
@@ -9891,16 +10128,17 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctServiceOutageCreditM(client_no, auth_key, h_acct_no, client_acct_id, outage_start_date, outage_end_date, master_plan_instance_no, client_master_plan_instance_id, outage_start_time, outage_end_time, plans_to_get_outage, adjust_percent, client_plan_ids_to_get_outage, locale_no, locale_name, h_error_code, h_error_msg, h_service_outage_line_items, h_total_outage_credit, h_adjusted_outage_credit, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("service_outage_line_items",((javax.xml.ws.Holder)h_service_outage_line_items).value);
-        getHashMapReturnValues().put("total_outage_credit",((javax.xml.ws.Holder)h_total_outage_credit).value);
-        getHashMapReturnValues().put("adjusted_outage_credit",((javax.xml.ws.Holder)h_adjusted_outage_credit).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("service_outage_line_items",((javax.xml.ws.Holder)h_service_outage_line_items).value);
+        returnMap.put("total_outage_credit",((javax.xml.ws.Holder)h_total_outage_credit).value);
+        returnMap.put("adjusted_outage_credit",((javax.xml.ws.Holder)h_adjusted_outage_credit).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctServiceOutageCreditM(Map<String,Object> map){
@@ -9972,30 +10210,31 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCreditDetailsM(client_no, auth_key, acct_no, client_acct_id, credit_no, master_plan_instance_no, client_master_plan_instance_id, locale_no, locale_name, h_error_code, h_error_msg, h_created_by, h_created_date, h_amount, h_credit_type, h_applied_amount, h_unapplied_amount, h_reason_code, h_reason_text, h_comments, h_transaction_id, h_void_transaction_id, h_credit_expiry_type_ind, h_credit_expiry_months, h_credit_expiry_date, h_eligible_service_plan_details, h_out_acct_no, h_out_master_plan_instance_no, h_out_client_mp_instance_id, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("created_by",((javax.xml.ws.Holder)h_created_by).value);
-        getHashMapReturnValues().put("created_date",((javax.xml.ws.Holder)h_created_date).value);
-        getHashMapReturnValues().put("amount",((javax.xml.ws.Holder)h_amount).value);
-        getHashMapReturnValues().put("credit_type",((javax.xml.ws.Holder)h_credit_type).value);
-        getHashMapReturnValues().put("applied_amount",((javax.xml.ws.Holder)h_applied_amount).value);
-        getHashMapReturnValues().put("unapplied_amount",((javax.xml.ws.Holder)h_unapplied_amount).value);
-        getHashMapReturnValues().put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
-        getHashMapReturnValues().put("reason_text",((javax.xml.ws.Holder)h_reason_text).value);
-        getHashMapReturnValues().put("comments",((javax.xml.ws.Holder)h_comments).value);
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("void_transaction_id",((javax.xml.ws.Holder)h_void_transaction_id).value);
-        getHashMapReturnValues().put("credit_expiry_type_ind",((javax.xml.ws.Holder)h_credit_expiry_type_ind).value);
-        getHashMapReturnValues().put("credit_expiry_months",((javax.xml.ws.Holder)h_credit_expiry_months).value);
-        getHashMapReturnValues().put("credit_expiry_date",((javax.xml.ws.Holder)h_credit_expiry_date).value);
-        getHashMapReturnValues().put("eligible_service_plan_details",((javax.xml.ws.Holder)h_eligible_service_plan_details).value);
-        getHashMapReturnValues().put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
-        getHashMapReturnValues().put("out_master_plan_instance_no",((javax.xml.ws.Holder)h_out_master_plan_instance_no).value);
-        getHashMapReturnValues().put("out_client_mp_instance_id",((javax.xml.ws.Holder)h_out_client_mp_instance_id).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("created_by",((javax.xml.ws.Holder)h_created_by).value);
+        returnMap.put("created_date",((javax.xml.ws.Holder)h_created_date).value);
+        returnMap.put("amount",((javax.xml.ws.Holder)h_amount).value);
+        returnMap.put("credit_type",((javax.xml.ws.Holder)h_credit_type).value);
+        returnMap.put("applied_amount",((javax.xml.ws.Holder)h_applied_amount).value);
+        returnMap.put("unapplied_amount",((javax.xml.ws.Holder)h_unapplied_amount).value);
+        returnMap.put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
+        returnMap.put("reason_text",((javax.xml.ws.Holder)h_reason_text).value);
+        returnMap.put("comments",((javax.xml.ws.Holder)h_comments).value);
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("void_transaction_id",((javax.xml.ws.Holder)h_void_transaction_id).value);
+        returnMap.put("credit_expiry_type_ind",((javax.xml.ws.Holder)h_credit_expiry_type_ind).value);
+        returnMap.put("credit_expiry_months",((javax.xml.ws.Holder)h_credit_expiry_months).value);
+        returnMap.put("credit_expiry_date",((javax.xml.ws.Holder)h_credit_expiry_date).value);
+        returnMap.put("eligible_service_plan_details",((javax.xml.ws.Holder)h_eligible_service_plan_details).value);
+        returnMap.put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
+        returnMap.put("out_master_plan_instance_no",((javax.xml.ws.Holder)h_out_master_plan_instance_no).value);
+        returnMap.put("out_client_mp_instance_id",((javax.xml.ws.Holder)h_out_client_mp_instance_id).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCreditDetailsM(Map<String,Object> map){
@@ -10021,10 +10260,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelUnappliedServiceCreditsM(client_no, auth_key, credit_ids, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelUnappliedServiceCreditsM(Map<String,Object> map){
@@ -10050,11 +10290,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctTransHistoryM(client_no, auth_key, account_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, transaction_type, start_date, end_date, record_limit, filter_statement_no, include_void_transactions, h_history, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("history",((javax.xml.ws.Holder)h_history).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("history",((javax.xml.ws.Holder)h_history).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctTransHistoryM(Map<String,Object> map){
@@ -10085,11 +10326,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPlansByPromoCodeM(client_no, auth_key, promo_code, include_rs_summary, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_plan_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plan_details",((javax.xml.ws.Holder)h_plan_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plan_details",((javax.xml.ws.Holder)h_plan_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPlansByPromoCodeM(Map<String,Object> map){
@@ -10115,11 +10357,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPlansByPromoCodeAllM(client_no, auth_key, promo_code, include_rs_summary, retrieve_bundled_nso, retrieve_included_nso, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_all_plan_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_plan_details",((javax.xml.ws.Holder)h_all_plan_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_plan_details",((javax.xml.ws.Holder)h_all_plan_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPlansByPromoCodeAllM(Map<String,Object> map){
@@ -10147,11 +10390,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRateSchedulesForPlanM(client_no, auth_key, plan_no, currency_cd, client_plan_id, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_rate_scheds);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("rate_scheds",((javax.xml.ws.Holder)h_rate_scheds).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("rate_scheds",((javax.xml.ws.Holder)h_rate_scheds).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRateSchedulesForPlanM(Map<String,Object> map){
@@ -10178,11 +10422,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getFamilyTransHistoryM(client_no, auth_key, parent_acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, do_multi_level, trans_type, start_date, end_date, record_limit, include_void_transactions, h_error_code, h_error_msg, h_fam_transactions);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("fam_transactions",((javax.xml.ws.Holder)h_fam_transactions).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("fam_transactions",((javax.xml.ws.Holder)h_fam_transactions).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getFamilyTransHistoryM(Map<String,Object> map){
@@ -10213,11 +10458,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getSuppPlansByPromoCodeM(client_no, auth_key, promo_code, include_rs_summary, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_plans_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plans_details",((javax.xml.ws.Holder)h_plans_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plans_details",((javax.xml.ws.Holder)h_plans_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getSuppPlansByPromoCodeM(Map<String,Object> map){
@@ -10243,11 +10489,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getSuppPlansByPromoCodeAllM(client_no, auth_key, promo_code, include_rs_summary, retrieve_bundled_nso, retrieve_included_nso, locale_no, locale_name, include_translations, h_error_code, h_error_msg, h_all_plan_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_plan_details",((javax.xml.ws.Holder)h_all_plan_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_plan_details",((javax.xml.ws.Holder)h_all_plan_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getSuppPlansByPromoCodeAllM(Map<String,Object> map){
@@ -10279,13 +10526,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlanHistoryM(client_no, auth_key, acct_no, filter_plan_instance_no, filter_client_plan_instance_id, locale_no, locale_name, h_error_code, h_error_msg, h_plan_history, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("plan_history",((javax.xml.ws.Holder)h_plan_history).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("plan_history",((javax.xml.ws.Holder)h_plan_history).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlanHistoryM(Map<String,Object> map){
@@ -10323,17 +10571,18 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUsageSummaryByTypeM(client_no, auth_key, acct_no, user_id, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, usage_type_filter, date_filter_start_date, date_filter_start_time, date_filter_end_date, date_filter_end_time, billed_filter, billing_period_flag, usage_qualifier_1, usage_qualifier_2, usage_qualifier_3, usage_qualifier_4, usage_type_cd_filter, retrieve_excluded_usage, locale_no, locale_name, h_error_code, h_error_msg, h_start_date, h_start_time, h_end_date, h_end_time, h_usage_summary_recs, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("start_date",((javax.xml.ws.Holder)h_start_date).value);
-        getHashMapReturnValues().put("start_time",((javax.xml.ws.Holder)h_start_time).value);
-        getHashMapReturnValues().put("end_date",((javax.xml.ws.Holder)h_end_date).value);
-        getHashMapReturnValues().put("end_time",((javax.xml.ws.Holder)h_end_time).value);
-        getHashMapReturnValues().put("usage_summary_recs",((javax.xml.ws.Holder)h_usage_summary_recs).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("start_date",((javax.xml.ws.Holder)h_start_date).value);
+        returnMap.put("start_time",((javax.xml.ws.Holder)h_start_time).value);
+        returnMap.put("end_date",((javax.xml.ws.Holder)h_end_date).value);
+        returnMap.put("end_time",((javax.xml.ws.Holder)h_end_time).value);
+        returnMap.put("usage_summary_recs",((javax.xml.ws.Holder)h_usage_summary_recs).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUsageSummaryByTypeM(Map<String,Object> map){
@@ -10378,13 +10627,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUsageHistoryM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, specified_usage_type_no, date_range_start, date_range_end, specified_usage_type_code, usage_qualifier_1, usage_qualifier_2, usage_qualifier_3, usage_qualifier_4, limit, offset, invoice_no, invoice_line_item, retrieve_excluded_usage, locale_no, locale_name, h_error_code, h_error_msg, h_usage_history_recs, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("usage_history_recs",((javax.xml.ws.Holder)h_usage_history_recs).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("usage_history_recs",((javax.xml.ws.Holder)h_usage_history_recs).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUsageHistoryM(Map<String,Object> map){
@@ -10426,14 +10676,15 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setMonetaryUsgThresholdM(client_no, auth_key, threshold_scope, threshold_category, amount, h_acct_no, h_client_acct_id, h_master_plan_instance_id, h_client_master_plan_instance_id, usage_unit_thresholds, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
-        getHashMapReturnValues().put("master_plan_instance_id",((javax.xml.ws.Holder)h_master_plan_instance_id).value);
-        getHashMapReturnValues().put("client_master_plan_instance_id",((javax.xml.ws.Holder)h_client_master_plan_instance_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
+        returnMap.put("master_plan_instance_id",((javax.xml.ws.Holder)h_master_plan_instance_id).value);
+        returnMap.put("client_master_plan_instance_id",((javax.xml.ws.Holder)h_client_master_plan_instance_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setMonetaryUsgThresholdM(Map<String,Object> map){
@@ -10464,14 +10715,15 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setUsgMtdPtdBalM(client_no, auth_key, threshold_category, h_acct_no, h_client_acct_id, h_master_plan_instance_id, h_client_master_plan_instance_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
-        getHashMapReturnValues().put("master_plan_instance_id",((javax.xml.ws.Holder)h_master_plan_instance_id).value);
-        getHashMapReturnValues().put("client_master_plan_instance_id",((javax.xml.ws.Holder)h_client_master_plan_instance_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
+        returnMap.put("master_plan_instance_id",((javax.xml.ws.Holder)h_master_plan_instance_id).value);
+        returnMap.put("client_master_plan_instance_id",((javax.xml.ws.Holder)h_client_master_plan_instance_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setUsgMtdPtdBalM(Map<String,Object> map){
@@ -10545,37 +10797,38 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUnbilledUsageSummaryM(client_no, auth_key, h_acct_no, h_client_acct_id, h_master_plan_instance_id, h_client_master_plan_instance_id, usage_details_flag, include_all_usage_unit_thresholds, plan_no, usage_type_no, usage_type_cd, retrieve_excluded_usage, locale_no, locale_name, h_error_code, h_error_msg, h_currency_cd, h_currency_name, h_mpi_mtd_threshold_amount, h_mpi_ptd_threshold_amount, h_client_mtd_threshold_amount, h_client_ptd_threshold_amount, h_mtd_balance_amount, h_ptd_balance_amount, h_mpi_mtd_delta_sign, h_mpi_mtd_delta_amount, h_mpi_ptd_delta_sign, h_mpi_ptd_delta_amount, h_client_mtd_delta_sign, h_client_mtd_delta_amount, h_client_ptd_delta_sign, h_client_ptd_delta_amount, h_unapp_svc_credit_bal_amount, h_unapp_svc_credit_delta_sign, h_unapp_svc_credit_delta_amount, h_unbilled_usage_rec, h_unit_threshold_details, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
-        getHashMapReturnValues().put("currency_name",((javax.xml.ws.Holder)h_currency_name).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
-        getHashMapReturnValues().put("master_plan_instance_id",((javax.xml.ws.Holder)h_master_plan_instance_id).value);
-        getHashMapReturnValues().put("client_master_plan_instance_id",((javax.xml.ws.Holder)h_client_master_plan_instance_id).value);
-        getHashMapReturnValues().put("mpi_mtd_threshold_amount",((javax.xml.ws.Holder)h_mpi_mtd_threshold_amount).value);
-        getHashMapReturnValues().put("mpi_ptd_threshold_amount",((javax.xml.ws.Holder)h_mpi_ptd_threshold_amount).value);
-        getHashMapReturnValues().put("client_mtd_threshold_amount",((javax.xml.ws.Holder)h_client_mtd_threshold_amount).value);
-        getHashMapReturnValues().put("client_ptd_threshold_amount",((javax.xml.ws.Holder)h_client_ptd_threshold_amount).value);
-        getHashMapReturnValues().put("mtd_balance_amount",((javax.xml.ws.Holder)h_mtd_balance_amount).value);
-        getHashMapReturnValues().put("ptd_balance_amount",((javax.xml.ws.Holder)h_ptd_balance_amount).value);
-        getHashMapReturnValues().put("mpi_mtd_delta_sign",((javax.xml.ws.Holder)h_mpi_mtd_delta_sign).value);
-        getHashMapReturnValues().put("mpi_mtd_delta_amount",((javax.xml.ws.Holder)h_mpi_mtd_delta_amount).value);
-        getHashMapReturnValues().put("mpi_ptd_delta_sign",((javax.xml.ws.Holder)h_mpi_ptd_delta_sign).value);
-        getHashMapReturnValues().put("mpi_ptd_delta_amount",((javax.xml.ws.Holder)h_mpi_ptd_delta_amount).value);
-        getHashMapReturnValues().put("client_mtd_delta_sign",((javax.xml.ws.Holder)h_client_mtd_delta_sign).value);
-        getHashMapReturnValues().put("client_mtd_delta_amount",((javax.xml.ws.Holder)h_client_mtd_delta_amount).value);
-        getHashMapReturnValues().put("client_ptd_delta_sign",((javax.xml.ws.Holder)h_client_ptd_delta_sign).value);
-        getHashMapReturnValues().put("client_ptd_delta_amount",((javax.xml.ws.Holder)h_client_ptd_delta_amount).value);
-        getHashMapReturnValues().put("unapp_svc_credit_bal_amount",((javax.xml.ws.Holder)h_unapp_svc_credit_bal_amount).value);
-        getHashMapReturnValues().put("unapp_svc_credit_delta_sign",((javax.xml.ws.Holder)h_unapp_svc_credit_delta_sign).value);
-        getHashMapReturnValues().put("unapp_svc_credit_delta_amount",((javax.xml.ws.Holder)h_unapp_svc_credit_delta_amount).value);
-        getHashMapReturnValues().put("unbilled_usage_rec",((javax.xml.ws.Holder)h_unbilled_usage_rec).value);
-        getHashMapReturnValues().put("unit_threshold_details",((javax.xml.ws.Holder)h_unit_threshold_details).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("currency_cd",((javax.xml.ws.Holder)h_currency_cd).value);
+        returnMap.put("currency_name",((javax.xml.ws.Holder)h_currency_name).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
+        returnMap.put("master_plan_instance_id",((javax.xml.ws.Holder)h_master_plan_instance_id).value);
+        returnMap.put("client_master_plan_instance_id",((javax.xml.ws.Holder)h_client_master_plan_instance_id).value);
+        returnMap.put("mpi_mtd_threshold_amount",((javax.xml.ws.Holder)h_mpi_mtd_threshold_amount).value);
+        returnMap.put("mpi_ptd_threshold_amount",((javax.xml.ws.Holder)h_mpi_ptd_threshold_amount).value);
+        returnMap.put("client_mtd_threshold_amount",((javax.xml.ws.Holder)h_client_mtd_threshold_amount).value);
+        returnMap.put("client_ptd_threshold_amount",((javax.xml.ws.Holder)h_client_ptd_threshold_amount).value);
+        returnMap.put("mtd_balance_amount",((javax.xml.ws.Holder)h_mtd_balance_amount).value);
+        returnMap.put("ptd_balance_amount",((javax.xml.ws.Holder)h_ptd_balance_amount).value);
+        returnMap.put("mpi_mtd_delta_sign",((javax.xml.ws.Holder)h_mpi_mtd_delta_sign).value);
+        returnMap.put("mpi_mtd_delta_amount",((javax.xml.ws.Holder)h_mpi_mtd_delta_amount).value);
+        returnMap.put("mpi_ptd_delta_sign",((javax.xml.ws.Holder)h_mpi_ptd_delta_sign).value);
+        returnMap.put("mpi_ptd_delta_amount",((javax.xml.ws.Holder)h_mpi_ptd_delta_amount).value);
+        returnMap.put("client_mtd_delta_sign",((javax.xml.ws.Holder)h_client_mtd_delta_sign).value);
+        returnMap.put("client_mtd_delta_amount",((javax.xml.ws.Holder)h_client_mtd_delta_amount).value);
+        returnMap.put("client_ptd_delta_sign",((javax.xml.ws.Holder)h_client_ptd_delta_sign).value);
+        returnMap.put("client_ptd_delta_amount",((javax.xml.ws.Holder)h_client_ptd_delta_amount).value);
+        returnMap.put("unapp_svc_credit_bal_amount",((javax.xml.ws.Holder)h_unapp_svc_credit_bal_amount).value);
+        returnMap.put("unapp_svc_credit_delta_sign",((javax.xml.ws.Holder)h_unapp_svc_credit_delta_sign).value);
+        returnMap.put("unapp_svc_credit_delta_amount",((javax.xml.ws.Holder)h_unapp_svc_credit_delta_amount).value);
+        returnMap.put("unbilled_usage_rec",((javax.xml.ws.Holder)h_unbilled_usage_rec).value);
+        returnMap.put("unit_threshold_details",((javax.xml.ws.Holder)h_unit_threshold_details).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUnbilledUsageSummaryM(Map<String,Object> map){
@@ -10608,11 +10861,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().applyCouponToAcctM(client_no, auth_key, coupon_code, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, h_user_success_msg, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("user_success_msg",((javax.xml.ws.Holder)h_user_success_msg).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("user_success_msg",((javax.xml.ws.Holder)h_user_success_msg).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> applyCouponToAcctM(Map<String,Object> map){
@@ -10642,13 +10896,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctCouponDetailsM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, coupon_cd, locale_no, locale_name, h_error_code, h_error_msg, h_coupons_detail, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("coupons_detail",((javax.xml.ws.Holder)h_coupons_detail).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("coupons_detail",((javax.xml.ws.Holder)h_coupons_detail).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctCouponDetailsM(Map<String,Object> map){
@@ -10674,10 +10929,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().deleteAcctCouponM(client_no, auth_key, acct_no, client_acct_id, coupon_cd, master_plan_instance_no, client_master_plan_instance_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> deleteAcctCouponM(Map<String,Object> map){
@@ -10759,39 +11015,40 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().modifyAcctPlanUnitInstancesM(client_no, auth_key, acct_no, client_acct_id, plan_inst_no, client_plan_inst_id, remove_plan_units, assignment_directive, new_plan_units, new_client_plan_unit_inst, proration_invoice_timing, do_write, h_error_code, h_error_msg, h_proration_result_amount, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_cancelled_supp_plans, h_invoice_no, h_expectd_activation_fee, h_expectd_mthly_recurring_cost, h_expectd_annu_recurring_cost, h_invoice_line_item, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_proration_credit_result_amount, h_proration_credit_amount, h_proration_tax_amount);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("cancelled_supp_plans",((javax.xml.ws.Holder)h_cancelled_supp_plans).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
-        getHashMapReturnValues().put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
-        getHashMapReturnValues().put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
-        getHashMapReturnValues().put("invoice_line_item",((javax.xml.ws.Holder)h_invoice_line_item).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
-        getHashMapReturnValues().put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
-        getHashMapReturnValues().put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("cancelled_supp_plans",((javax.xml.ws.Holder)h_cancelled_supp_plans).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("expectd_activation_fee",((javax.xml.ws.Holder)h_expectd_activation_fee).value);
+        returnMap.put("expectd_mthly_recurring_cost",((javax.xml.ws.Holder)h_expectd_mthly_recurring_cost).value);
+        returnMap.put("expectd_annu_recurring_cost",((javax.xml.ws.Holder)h_expectd_annu_recurring_cost).value);
+        returnMap.put("invoice_line_item",((javax.xml.ws.Holder)h_invoice_line_item).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("proration_credit_result_amount",((javax.xml.ws.Holder)h_proration_credit_result_amount).value);
+        returnMap.put("proration_credit_amount",((javax.xml.ws.Holder)h_proration_credit_amount).value);
+        returnMap.put("proration_tax_amount",((javax.xml.ws.Holder)h_proration_tax_amount).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> modifyAcctPlanUnitInstancesM(Map<String,Object> map){
@@ -10824,13 +11081,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPlanUnitInstanceAllM(client_no, auth_key, h_acct_no, h_client_acct_id, plan_instance_no, client_plan_instance_id, plan_unit_inst_no, client_plan_unit_inst_id, status_cd, plan_unit_inst_status_cd, fulfillment_only, h_error_code, h_error_msg, h_all_plan_instances);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
-        getHashMapReturnValues().put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
-        getHashMapReturnValues().put("all_plan_instances",((javax.xml.ws.Holder)h_all_plan_instances).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        returnMap.put("client_acct_id",((javax.xml.ws.Holder)h_client_acct_id).value);
+        returnMap.put("all_plan_instances",((javax.xml.ws.Holder)h_all_plan_instances).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPlanUnitInstanceAllM(Map<String,Object> map){
@@ -10860,11 +11118,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createInstanceContractM(client_no, auth_key, acct_no, client_acct_id, type_no, length_months, end_date, contract_plan_instances, client_contract_id, cancel_fee, create_comments, start_date, do_auto_discard, cascade_action, contract_rollover_custom_rates, h_error_code, h_error_msg, h_contract_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("contract_no",((javax.xml.ws.Holder)h_contract_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createInstanceContractM(Map<String,Object> map){
@@ -10896,10 +11155,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().modifyInstanceContractM(client_no, auth_key, acct_no, client_acct_id, contract_no, client_contract_id, type_no, length_months, update_comments, cancel_fee, modify_directive, start_date, end_date, cascade_action, contract_plan_instances_update, contract_rollover_custom_rates, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> modifyInstanceContractM(Map<String,Object> map){
@@ -10932,10 +11192,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelInstanceContractM(client_no, auth_key, acct_no, client_acct_id, contract_no, client_contract_id, update_comments, close_status, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelInstanceContractM(Map<String,Object> map){
@@ -10984,22 +11245,23 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getInstanceContractM(client_no, auth_key, acct_no, client_acct_id, contract_no, client_contract_id, locale_no, locale_name, h_error_code, h_error_msg, h_type_no, h_length_months, h_create_comments, h_update_comments, h_create_date, h_update_date, h_start_date, h_end_date, h_status_code, h_contract_plan_instance_details, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("type_no",((javax.xml.ws.Holder)h_type_no).value);
-        getHashMapReturnValues().put("length_months",((javax.xml.ws.Holder)h_length_months).value);
-        getHashMapReturnValues().put("create_comments",((javax.xml.ws.Holder)h_create_comments).value);
-        getHashMapReturnValues().put("update_comments",((javax.xml.ws.Holder)h_update_comments).value);
-        getHashMapReturnValues().put("create_date",((javax.xml.ws.Holder)h_create_date).value);
-        getHashMapReturnValues().put("update_date",((javax.xml.ws.Holder)h_update_date).value);
-        getHashMapReturnValues().put("start_date",((javax.xml.ws.Holder)h_start_date).value);
-        getHashMapReturnValues().put("end_date",((javax.xml.ws.Holder)h_end_date).value);
-        getHashMapReturnValues().put("status_code",((javax.xml.ws.Holder)h_status_code).value);
-        getHashMapReturnValues().put("contract_plan_instance_details",((javax.xml.ws.Holder)h_contract_plan_instance_details).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("type_no",((javax.xml.ws.Holder)h_type_no).value);
+        returnMap.put("length_months",((javax.xml.ws.Holder)h_length_months).value);
+        returnMap.put("create_comments",((javax.xml.ws.Holder)h_create_comments).value);
+        returnMap.put("update_comments",((javax.xml.ws.Holder)h_update_comments).value);
+        returnMap.put("create_date",((javax.xml.ws.Holder)h_create_date).value);
+        returnMap.put("update_date",((javax.xml.ws.Holder)h_update_date).value);
+        returnMap.put("start_date",((javax.xml.ws.Holder)h_start_date).value);
+        returnMap.put("end_date",((javax.xml.ws.Holder)h_end_date).value);
+        returnMap.put("status_code",((javax.xml.ws.Holder)h_status_code).value);
+        returnMap.put("contract_plan_instance_details",((javax.xml.ws.Holder)h_contract_plan_instance_details).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInstanceContractM(Map<String,Object> map){
@@ -11030,13 +11292,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAllAcctContractsM(client_no, auth_key, acct_no, client_acct_id, filter_status_code, exclude_terminated_plan_inst, locale_no, locale_name, h_error_code, h_error_msg, h_all_acct_contracts_m, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("all_acct_contracts_m",((javax.xml.ws.Holder)h_all_acct_contracts_m).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("all_acct_contracts_m",((javax.xml.ws.Holder)h_all_acct_contracts_m).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAllAcctContractsM(Map<String,Object> map){
@@ -11061,10 +11324,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().removeAcctPaymentMethodM(client_no, auth_key, acct_no, payment_method_no, client_payment_method_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> removeAcctPaymentMethodM(Map<String,Object> map){
@@ -11086,10 +11350,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().sendAcctStatementEmail(client_no, auth_key, acct_no, statement_no, sequential_statement_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> sendAcctStatementEmail(Map<String,Object> map){
@@ -11111,10 +11376,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setAcctUsgDailyThreshold(client_no, auth_key, acct_no, amount, usage_unit_thresholds, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setAcctUsgDailyThreshold(Map<String,Object> map){
@@ -11136,10 +11402,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setClientUsgDailyThreshold(client_no, auth_key, acct_no, amount, usage_unit_thresholds, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setClientUsgDailyThreshold(Map<String,Object> map){
@@ -11177,18 +11444,19 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctPlanMultiM(client_no, auth_key, acct_no, client_acct_id, plan_updates, acct_billing_groups, do_write, assignment_directive, alt_start_date, retroactive_start_date, alt_bill_day, invoicing_option, acct_payment_methods, acct_dunning_groups, auto_collect_on_plan_chng, rollback_plan_chng_collect_fail, auto_send_stmt_on_plan_chng, comments, list_start_master_file, client_receipt_id, h_error_code, h_error_msg, h_out_acct_no, h_out_client_acct_id, h_billing_errors, h_plans_updated, h_billing_groups_updated, h_dunning_groups_updated, h_multi_plan_invoice_details, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
-        getHashMapReturnValues().put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
-        getHashMapReturnValues().put("billing_errors",((javax.xml.ws.Holder)h_billing_errors).value);
-        getHashMapReturnValues().put("plans_updated",((javax.xml.ws.Holder)h_plans_updated).value);
-        getHashMapReturnValues().put("billing_groups_updated",((javax.xml.ws.Holder)h_billing_groups_updated).value);
-        getHashMapReturnValues().put("dunning_groups_updated",((javax.xml.ws.Holder)h_dunning_groups_updated).value);
-        getHashMapReturnValues().put("multi_plan_invoice_details",((javax.xml.ws.Holder)h_multi_plan_invoice_details).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
+        returnMap.put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
+        returnMap.put("billing_errors",((javax.xml.ws.Holder)h_billing_errors).value);
+        returnMap.put("plans_updated",((javax.xml.ws.Holder)h_plans_updated).value);
+        returnMap.put("billing_groups_updated",((javax.xml.ws.Holder)h_billing_groups_updated).value);
+        returnMap.put("dunning_groups_updated",((javax.xml.ws.Holder)h_dunning_groups_updated).value);
+        returnMap.put("multi_plan_invoice_details",((javax.xml.ws.Holder)h_multi_plan_invoice_details).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctPlanMultiM(Map<String,Object> map){
@@ -11283,39 +11551,40 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctPlanUnitInstanceM(client_no, auth_key, acct_no, client_acct_id, plan_unit_inst_no, client_plan_unit_inst_id, new_client_plan_unit_inst_id, plan_unit_instance_services, plan_unit_inst_fields, do_write, proration_invoice_timing, h_error_code, h_error_msg, h_out_acct_no, h_out_client_acct_id, h_out_plan_unit_inst_no, h_out_client_plan_unit_inst_id, h_proration_result_amount, h_invoice_no, h_invoice_line_items, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_total_tax_credit, h_total_credit_before_tax, h_total, h_expectd_monthly_rec_cost, h_expectd_annual_rec_cost, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
-        getHashMapReturnValues().put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
-        getHashMapReturnValues().put("out_plan_unit_inst_no",((javax.xml.ws.Holder)h_out_plan_unit_inst_no).value);
-        getHashMapReturnValues().put("out_client_plan_unit_inst_id",((javax.xml.ws.Holder)h_out_client_plan_unit_inst_id).value);
-        getHashMapReturnValues().put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("invoice_line_items",((javax.xml.ws.Holder)h_invoice_line_items).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
-        getHashMapReturnValues().put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
-        getHashMapReturnValues().put("total",((javax.xml.ws.Holder)h_total).value);
-        getHashMapReturnValues().put("expectd_monthly_rec_cost",((javax.xml.ws.Holder)h_expectd_monthly_rec_cost).value);
-        getHashMapReturnValues().put("expectd_annual_rec_cost",((javax.xml.ws.Holder)h_expectd_annual_rec_cost).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
+        returnMap.put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
+        returnMap.put("out_plan_unit_inst_no",((javax.xml.ws.Holder)h_out_plan_unit_inst_no).value);
+        returnMap.put("out_client_plan_unit_inst_id",((javax.xml.ws.Holder)h_out_client_plan_unit_inst_id).value);
+        returnMap.put("proration_result_amount",((javax.xml.ws.Holder)h_proration_result_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("invoice_line_items",((javax.xml.ws.Holder)h_invoice_line_items).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("total_tax_credit",((javax.xml.ws.Holder)h_total_tax_credit).value);
+        returnMap.put("total_credit_before_tax",((javax.xml.ws.Holder)h_total_credit_before_tax).value);
+        returnMap.put("total",((javax.xml.ws.Holder)h_total).value);
+        returnMap.put("expectd_monthly_rec_cost",((javax.xml.ws.Holder)h_expectd_monthly_rec_cost).value);
+        returnMap.put("expectd_annual_rec_cost",((javax.xml.ws.Holder)h_expectd_annual_rec_cost).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctPlanUnitInstanceM(Map<String,Object> map){
@@ -11345,11 +11614,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCashCreditsDetailsM(client_no, auth_key, acct_no, transaction_id, h_error_code, h_error_msg, h_cash_credits);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("cash_credits",((javax.xml.ws.Holder)h_cash_credits).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("cash_credits",((javax.xml.ws.Holder)h_cash_credits).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCashCreditsDetailsM(Map<String,Object> map){
@@ -11372,11 +11642,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPmtUuidM(client_no, auth_key, acct_no, client_acct_id, payment_method_no, client_payment_method_id, h_error_code, h_error_msg, h_uuid);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("uuid",((javax.xml.ws.Holder)h_uuid).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("uuid",((javax.xml.ws.Holder)h_uuid).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPmtUuidM(Map<String,Object> map){
@@ -11401,11 +11672,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctUuidsM(client_no, auth_key, acct_no, client_acct_id, h_uuid_info, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("uuid_info",((javax.xml.ws.Holder)h_uuid_info).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("uuid_info",((javax.xml.ws.Holder)h_uuid_info).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctUuidsM(Map<String,Object> map){
@@ -11428,11 +11700,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCcUuidM(client_no, auth_key, cc_number, h_error_code, h_error_msg, h_uuid);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("uuid",((javax.xml.ws.Holder)h_uuid).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("uuid",((javax.xml.ws.Holder)h_uuid).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCcUuidM(Map<String,Object> map){
@@ -11454,11 +11727,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPmtUuid(client_no, auth_key, acct_no, client_acct_id, seq_no, h_error_code, h_error_msg, h_uuid);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("uuid",((javax.xml.ws.Holder)h_uuid).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("uuid",((javax.xml.ws.Holder)h_uuid).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPmtUuid(Map<String,Object> map){
@@ -11482,11 +11756,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctUuids(client_no, auth_key, acct_no, client_acct_id, h_uuid_data, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("uuid_data",((javax.xml.ws.Holder)h_uuid_data).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("uuid_data",((javax.xml.ws.Holder)h_uuid_data).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctUuids(Map<String,Object> map){
@@ -11509,11 +11784,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCcUuid(client_no, auth_key, cc_number, h_error_code, h_error_msg, h_uuid);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("uuid",((javax.xml.ws.Holder)h_uuid).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("uuid",((javax.xml.ws.Holder)h_uuid).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCcUuid(Map<String,Object> map){
@@ -11537,12 +11813,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getInvNoFromBalXfer(client_no, auth_key, transaction_id, h_error_code, h_error_msg, h_invoice_no, h_acct_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("acct_no",((javax.xml.ws.Holder)h_acct_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvNoFromBalXfer(Map<String,Object> map){
@@ -11564,11 +11841,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().voidTransaction(client_no, auth_key, account_no, transaction_id, reason_code, comments, client_receipt_id, discard_invoice_usage, h_new_transaction_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("new_transaction_id",((javax.xml.ws.Holder)h_new_transaction_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("new_transaction_id",((javax.xml.ws.Holder)h_new_transaction_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> voidTransaction(Map<String,Object> map){
@@ -11595,11 +11873,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().reinstateTransaction(client_no, auth_key, account_no, transaction_id, comments, h_new_transaction_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("new_transaction_id",((javax.xml.ws.Holder)h_new_transaction_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("new_transaction_id",((javax.xml.ws.Holder)h_new_transaction_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> reinstateTransaction(Map<String,Object> map){
@@ -11625,12 +11904,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().transferAccountBalance(client_no, auth_key, source_account_no, target_account_no, client_receipt_id, h_transaction_id, h_balance_transferred, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("balance_transferred",((javax.xml.ws.Holder)h_balance_transferred).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("balance_transferred",((javax.xml.ws.Holder)h_balance_transferred).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> transferAccountBalance(Map<String,Object> map){
@@ -11694,31 +11974,32 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createOrder(client_no, auth_key, account_no, order_line_items_list, bill_immediately, bill_seq, client_order_id, client_receipt_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, do_write, coupon_cd, alt_client_acct_group_id, track_data1, track_data2, alt_inv_template_no, client_alt_inv_template_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, statement_message, fulfilled_date, order_comments, h_order_no, h_transaction_id, h_invoicing_error_code, h_invoicing_error_msg, h_statement_error_cd, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_invoice_no, h_error_code, h_error_msg, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_invoice_line_items_list, h_third_party_errors);
 
-        getHashMapReturnValues().put("order_no",((javax.xml.ws.Holder)h_order_no).value);
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
-        getHashMapReturnValues().put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
-        getHashMapReturnValues().put("statement_error_cd",((javax.xml.ws.Holder)h_statement_error_cd).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("invoice_line_items_list",((javax.xml.ws.Holder)h_invoice_line_items_list).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("order_no",((javax.xml.ws.Holder)h_order_no).value);
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
+        returnMap.put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
+        returnMap.put("statement_error_cd",((javax.xml.ws.Holder)h_statement_error_cd).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("invoice_line_items_list",((javax.xml.ws.Holder)h_invoice_line_items_list).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createOrder(Map<String,Object> map){
@@ -11804,19 +12085,20 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().settleAccountBalance(client_no, auth_key, account_no, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, alt_client_acct_group_id, track_data1, track_data2, force_balance_scope, client_receipt_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, h_transaction_id, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> settleAccountBalance(Map<String,Object> map){
@@ -11892,19 +12174,20 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().collectFromAccount(client_no, auth_key, account_no, amount_to_collect, bill_seq, client_receipt_id, specific_charge_transaction_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, alt_client_acct_group_id, track_data1, track_data2, payment_application_method, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, h_transaction_id, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> collectFromAccount(Map<String,Object> map){
@@ -11967,11 +12250,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordExternalPayment(client_no, auth_key, account_no, reference_code, payment_amount, comments, client_receipt_id, specific_charge_transaction_id, external_destination_id, external_id, invoice_no, h_transaction_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordExternalPayment(Map<String,Object> map){
@@ -12001,11 +12285,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordOutGoingPayment(client_no, auth_key, account_no, payment_amount, reference_code, comments, h_transaction_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordOutGoingPayment(Map<String,Object> map){
@@ -12030,11 +12315,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().applyServiceCredit(client_no, auth_key, account_no, credit_amount, credit_reason_code, comments, h_credit_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("credit_id",((javax.xml.ws.Holder)h_credit_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("credit_id",((javax.xml.ws.Holder)h_credit_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> applyServiceCredit(Map<String,Object> map){
@@ -12059,11 +12345,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().applyCashCredit(client_no, auth_key, account_no, credit_amount, credit_reason_code, comments, specific_charge_transaction_id, client_receipt_id, h_transaction_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> applyCashCredit(Map<String,Object> map){
@@ -12090,11 +12377,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordStandingOrder(client_no, auth_key, account_no, billing_interval_units, times_to_bill, billing_interval_type, first_bill_date, standing_order, client_order_id, client_receipt_id, statement_message, order_comments, h_standing_order_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("standing_order_no",((javax.xml.ws.Holder)h_standing_order_no).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("standing_order_no",((javax.xml.ws.Holder)h_standing_order_no).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordStandingOrder(Map<String,Object> map){
@@ -12123,10 +12411,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelStandingOrder(client_no, auth_key, standing_order_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelStandingOrder(Map<String,Object> map){
@@ -12146,10 +12435,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().movePayment(client_no, auth_key, account_no, payment_id, specific_charge_transaction_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> movePayment(Map<String,Object> map){
@@ -12173,11 +12463,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().bulkRecordUsage(client_no, auth_key, usage_records, client_receipt_id, h_error_code, h_error_msg, h_error_records);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("error_records",((javax.xml.ws.Holder)h_error_records).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("error_records",((javax.xml.ws.Holder)h_error_records).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> bulkRecordUsage(Map<String,Object> map){
@@ -12200,11 +12491,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordUsage(client_no, auth_key, acct_no, userid, usage_type, usage_units, usage_type_code, usage_date, billable_units, amt, rate, telco_from, telco_to, comments, exclude_from_billing, exclusion_comments, qualifier_1, qualifier_2, qualifier_3, qualifier_4, parent_usage_rec_no, client_record_id, caller_id, client_receipt_id, h_error_code, h_error_msg, h_usage_rec_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("usage_rec_no",((javax.xml.ws.Holder)h_usage_rec_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("usage_rec_no",((javax.xml.ws.Holder)h_usage_rec_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordUsage(Map<String,Object> map){
@@ -12247,11 +12539,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getOrder(client_no, auth_key, acct_no, my_order_no, my_client_order_id, limit_records, details_flag, h_error_code, h_error_msg, h_order);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("order",((javax.xml.ws.Holder)h_order).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("order",((javax.xml.ws.Holder)h_order).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getOrder(Map<String,Object> map){
@@ -12277,11 +12570,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getStandingOrder(client_no, auth_key, acct_no, my_standing_order, my_client_order_id, h_error_code, h_error_msg, h_so);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("so",((javax.xml.ws.Holder)h_so).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("so",((javax.xml.ws.Holder)h_so).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getStandingOrder(Map<String,Object> map){
@@ -12305,11 +12599,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getStandingOrderItems(client_no, auth_key, standing_order_no, h_error_code, h_error_msg, h_so_items);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("so_items",((javax.xml.ws.Holder)h_so_items).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("so_items",((javax.xml.ws.Holder)h_so_items).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getStandingOrderItems(Map<String,Object> map){
@@ -12331,11 +12626,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getStandingOrderHist(client_no, auth_key, standing_order_no, h_error_code, h_error_msg, h_order);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("order",((javax.xml.ws.Holder)h_order).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("order",((javax.xml.ws.Holder)h_order).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getStandingOrderHist(Map<String,Object> map){
@@ -12359,12 +12655,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().preCalcInvoice(client_no, auth_key, log_id, first_name, mi, last_name, address1, address2, city, state_prov_code, zip_code, country_code, currency_code, pre_calc_plan, pre_calc_sku, tax_exempt_cd, address3, h_error_code, h_error_msg, h_inv_calc_out, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("inv_calc_out",((javax.xml.ws.Holder)h_inv_calc_out).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("inv_calc_out",((javax.xml.ws.Holder)h_inv_calc_out).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> preCalcInvoice(Map<String,Object> map){
@@ -12400,11 +12697,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getOrderItems(client_no, auth_key, order_no, h_error_code, h_error_msg, h_order_items_list);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("order_items_list",((javax.xml.ws.Holder)h_order_items_list).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("order_items_list",((javax.xml.ws.Holder)h_order_items_list).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getOrderItems(Map<String,Object> map){
@@ -12428,12 +12726,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().genInvoice(client_no, auth_key, acct_no, force_pending, client_receipt_id, alt_bill_day, invoice_mode, h_error_code, h_error_msg, h_invoice_no, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> genInvoice(Map<String,Object> map){
@@ -12461,12 +12760,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPreviewStatement(client_no, auth_key, acct_no, alt_stmt_template_no, auto_skip_to_next_bill_date, h_error_code, h_error_msg, h_out_statement, h_mime_type);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("out_statement",((javax.xml.ws.Holder)h_out_statement).value);
-        getHashMapReturnValues().put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("out_statement",((javax.xml.ws.Holder)h_out_statement).value);
+        returnMap.put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPreviewStatement(Map<String,Object> map){
@@ -12492,12 +12792,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPreviewStatementM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, alt_stmt_template_no, auto_skip_to_next_bill_date, h_error_code, h_error_msg, h_out_statement, h_mime_type);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("out_statement",((javax.xml.ws.Holder)h_out_statement).value);
-        getHashMapReturnValues().put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("out_statement",((javax.xml.ws.Holder)h_out_statement).value);
+        returnMap.put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPreviewStatementM(Map<String,Object> map){
@@ -12526,12 +12827,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getStatementForInvoice(client_no, auth_key, acct_no, client_acct_id, invoice_no, do_encoding, h_error_code, h_error_msg, h_out_statement, h_mime_type);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("out_statement",((javax.xml.ws.Holder)h_out_statement).value);
-        getHashMapReturnValues().put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("out_statement",((javax.xml.ws.Holder)h_out_statement).value);
+        returnMap.put("mime_type",((javax.xml.ws.Holder)h_mime_type).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getStatementForInvoice(Map<String,Object> map){
@@ -12556,11 +12858,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getStatementForInvSize(client_no, auth_key, acct_no, client_acct_id, invoice_no, do_encoding, h_error_code, h_error_msg, h_num_chars);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("num_chars",((javax.xml.ws.Holder)h_num_chars).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("num_chars",((javax.xml.ws.Holder)h_num_chars).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getStatementForInvSize(Map<String,Object> map){
@@ -12605,21 +12908,22 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getInvoiceDetails(client_no, auth_key, acct_no, src_transaction_id, h_error_code, h_error_msg, h_invoice_line_items, h_is_pending_ind, h_custom_status_label, h_custom_status_desc, h_client_notes, h_invoice_type_cd, h_from_date, h_to_date, h_posting_status_cd, h_posting_user, h_posting_date);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_line_items",((javax.xml.ws.Holder)h_invoice_line_items).value);
-        getHashMapReturnValues().put("is_pending_ind",((javax.xml.ws.Holder)h_is_pending_ind).value);
-        getHashMapReturnValues().put("custom_status_label",((javax.xml.ws.Holder)h_custom_status_label).value);
-        getHashMapReturnValues().put("custom_status_desc",((javax.xml.ws.Holder)h_custom_status_desc).value);
-        getHashMapReturnValues().put("client_notes",((javax.xml.ws.Holder)h_client_notes).value);
-        getHashMapReturnValues().put("invoice_type_cd",((javax.xml.ws.Holder)h_invoice_type_cd).value);
-        getHashMapReturnValues().put("from_date",((javax.xml.ws.Holder)h_from_date).value);
-        getHashMapReturnValues().put("to_date",((javax.xml.ws.Holder)h_to_date).value);
-        getHashMapReturnValues().put("posting_status_cd",((javax.xml.ws.Holder)h_posting_status_cd).value);
-        getHashMapReturnValues().put("posting_user",((javax.xml.ws.Holder)h_posting_user).value);
-        getHashMapReturnValues().put("posting_date",((javax.xml.ws.Holder)h_posting_date).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_line_items",((javax.xml.ws.Holder)h_invoice_line_items).value);
+        returnMap.put("is_pending_ind",((javax.xml.ws.Holder)h_is_pending_ind).value);
+        returnMap.put("custom_status_label",((javax.xml.ws.Holder)h_custom_status_label).value);
+        returnMap.put("custom_status_desc",((javax.xml.ws.Holder)h_custom_status_desc).value);
+        returnMap.put("client_notes",((javax.xml.ws.Holder)h_client_notes).value);
+        returnMap.put("invoice_type_cd",((javax.xml.ws.Holder)h_invoice_type_cd).value);
+        returnMap.put("from_date",((javax.xml.ws.Holder)h_from_date).value);
+        returnMap.put("to_date",((javax.xml.ws.Holder)h_to_date).value);
+        returnMap.put("posting_status_cd",((javax.xml.ws.Holder)h_posting_status_cd).value);
+        returnMap.put("posting_user",((javax.xml.ws.Holder)h_posting_user).value);
+        returnMap.put("posting_date",((javax.xml.ws.Holder)h_posting_date).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvoiceDetails(Map<String,Object> map){
@@ -12642,11 +12946,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPaymentsOnInvoice(client_no, auth_key, acct_no, src_transaction_id, h_error_code, h_error_msg, h_invoice_payments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_payments",((javax.xml.ws.Holder)h_invoice_payments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_payments",((javax.xml.ws.Holder)h_invoice_payments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPaymentsOnInvoice(Map<String,Object> map){
@@ -12669,11 +12974,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPaymentApplications(client_no, auth_key, acct_no, src_transaction_id, h_error_code, h_error_msg, h_payment_applications);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("payment_applications",((javax.xml.ws.Holder)h_payment_applications).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("payment_applications",((javax.xml.ws.Holder)h_payment_applications).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPaymentApplications(Map<String,Object> map){
@@ -12696,11 +13002,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAllActionsByReceiptId(client_no, auth_key, acct_no, client_receipt_id, h_error_code, h_error_msg, h_receipt_action);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("receipt_action",((javax.xml.ws.Holder)h_receipt_action).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("receipt_action",((javax.xml.ws.Holder)h_receipt_action).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAllActionsByReceiptId(Map<String,Object> map){
@@ -12747,23 +13054,24 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().managePendingInvoice(client_no, auth_key, invoice_no, acct_no, action_directive, bill_seq, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, alt_collect_on_approve, alt_send_statement_on_approve, cancel_orders_on_discard, bank_acct_type, bill_address3, track_data1, track_data2, client_receipt_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, custom_status_label, client_notes, h_new_invoice_no, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("new_invoice_no",((javax.xml.ws.Holder)h_new_invoice_no).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("new_invoice_no",((javax.xml.ws.Holder)h_new_invoice_no).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> managePendingInvoice(Map<String,Object> map){
@@ -12827,10 +13135,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelOrder(client_no, auth_key, acct_no, order_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelOrder(Map<String,Object> map){
@@ -12853,11 +13162,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRefundDetails(client_no, auth_key, acct_no, include_voided, aria_event_no, h_error_code, h_error_msg, h_refund_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("refund_details",((javax.xml.ws.Holder)h_refund_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("refund_details",((javax.xml.ws.Holder)h_refund_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRefundDetails(Map<String,Object> map){
@@ -12917,29 +13227,30 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createOrderWithPlans(client_no, auth_key, acct_no, order_line_items_list, cart_supp_plans, client_order_id, coupon_code, comments, do_write, client_receipt_id, bill_seq, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, track_data1, track_data2, alt_inv_template_no, sync_mstr_bill_dates_override, multiple_coupons, client_alt_inv_template_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, statement_message, order_comments, h_error_code, h_error_msg, h_order_no, h_invoice_no, h_invoice_line_items_list, h_invoicing_error_code, h_invoicing_error_msg, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_transaction_id, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("order_no",((javax.xml.ws.Holder)h_order_no).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("invoice_line_items_list",((javax.xml.ws.Holder)h_invoice_line_items_list).value);
-        getHashMapReturnValues().put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
-        getHashMapReturnValues().put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("order_no",((javax.xml.ws.Holder)h_order_no).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("invoice_line_items_list",((javax.xml.ws.Holder)h_invoice_line_items_list).value);
+        returnMap.put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
+        returnMap.put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createOrderWithPlans(Map<String,Object> map){
@@ -13010,11 +13321,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRefundablePayments(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_refundable_payments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("refundable_payments",((javax.xml.ws.Holder)h_refundable_payments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("refundable_payments",((javax.xml.ws.Holder)h_refundable_payments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRefundablePayments(Map<String,Object> map){
@@ -13036,11 +13348,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getReversibleInvsByPayment(client_no, auth_key, acct_no, payment_transaction_id, h_error_code, h_error_msg, h_reversible_invoices);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("reversible_invoices",((javax.xml.ws.Holder)h_reversible_invoices).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("reversible_invoices",((javax.xml.ws.Holder)h_reversible_invoices).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getReversibleInvsByPayment(Map<String,Object> map){
@@ -13069,14 +13382,15 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().issueRefundToAcct(client_no, auth_key, acct_no, payment_transaction_id, reason_code, total_refund_amount, refund_check_number, comments, do_write, auto_calc_refund, invoices_to_reverse, client_receipt_id, is_unlinked_refund, h_error_code, h_error_msg, h_applied_total_refund_amount, h_applied_total_reversal_amount, h_transaction_id, h_reversed_invoice_lines);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("applied_total_refund_amount",((javax.xml.ws.Holder)h_applied_total_refund_amount).value);
-        getHashMapReturnValues().put("applied_total_reversal_amount",((javax.xml.ws.Holder)h_applied_total_reversal_amount).value);
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("reversed_invoice_lines",((javax.xml.ws.Holder)h_reversed_invoice_lines).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("applied_total_refund_amount",((javax.xml.ws.Holder)h_applied_total_refund_amount).value);
+        returnMap.put("applied_total_reversal_amount",((javax.xml.ws.Holder)h_applied_total_reversal_amount).value);
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("reversed_invoice_lines",((javax.xml.ws.Holder)h_reversed_invoice_lines).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> issueRefundToAcct(Map<String,Object> map){
@@ -13106,10 +13420,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateRefundCheckNo(client_no, auth_key, acct_no, acct_user_id, client_acct_id, transaction_id, refund_check_number, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateRefundCheckNo(Map<String,Object> map){
@@ -13135,11 +13450,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getWriteoffDetails(client_no, auth_key, acct_no, aria_event_no, h_error_code, h_error_msg, h_writeoff_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("writeoff_details",((javax.xml.ws.Holder)h_writeoff_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("writeoff_details",((javax.xml.ws.Holder)h_writeoff_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getWriteoffDetails(Map<String,Object> map){
@@ -13162,11 +13478,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAriaXmlStatement(client_no, auth_key, acct_no, xml_statement_no, h_error_code, h_error_msg, h_xml_statement_content);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("xml_statement_content",((javax.xml.ws.Holder)h_xml_statement_content).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("xml_statement_content",((javax.xml.ws.Holder)h_xml_statement_content).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAriaXmlStatement(Map<String,Object> map){
@@ -13189,11 +13506,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPaymentHistory(client_no, auth_key, acct_no, start_date, end_date, limit_records, details_flag, h_error_code, h_error_msg, h_payment_history);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("payment_history",((javax.xml.ws.Holder)h_payment_history).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("payment_history",((javax.xml.ws.Holder)h_payment_history).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPaymentHistory(Map<String,Object> map){
@@ -13217,10 +13535,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateCcBlacklist(client_no, auth_key, cc_num, assignment_directive, acct_no, client_acct_id, notes, credit_card_payment_method, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateCcBlacklist(Map<String,Object> map){
@@ -13253,14 +13572,15 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().compareAgainstCcBlacklist(client_no, auth_key, cc_num, include_details, h_error_code, h_error_msg, h_cc_num_blacklisted, h_notes, h_date_added, h_date_removed);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("cc_num_blacklisted",((javax.xml.ws.Holder)h_cc_num_blacklisted).value);
-        getHashMapReturnValues().put("notes",((javax.xml.ws.Holder)h_notes).value);
-        getHashMapReturnValues().put("date_added",((javax.xml.ws.Holder)h_date_added).value);
-        getHashMapReturnValues().put("date_removed",((javax.xml.ws.Holder)h_date_removed).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("cc_num_blacklisted",((javax.xml.ws.Holder)h_cc_num_blacklisted).value);
+        returnMap.put("notes",((javax.xml.ws.Holder)h_notes).value);
+        returnMap.put("date_added",((javax.xml.ws.Holder)h_date_added).value);
+        returnMap.put("date_removed",((javax.xml.ws.Holder)h_date_removed).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> compareAgainstCcBlacklist(Map<String,Object> map){
@@ -13283,11 +13603,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getCcVelocityInfo(client_no, auth_key, cc_num, start_date, end_date, h_error_code, h_error_msg, h_velocity_data);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("velocity_data",((javax.xml.ws.Holder)h_velocity_data).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("velocity_data",((javax.xml.ws.Holder)h_velocity_data).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getCcVelocityInfo(Map<String,Object> map){
@@ -13311,11 +13632,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPaymentApplicationDtls(client_no, auth_key, acct_no, transaction_id, h_error_code, h_error_msg, h_payment_application_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("payment_application_details",((javax.xml.ws.Holder)h_payment_application_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("payment_application_details",((javax.xml.ws.Holder)h_payment_application_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPaymentApplicationDtls(Map<String,Object> map){
@@ -13342,13 +13664,14 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getExtendedTransactionInfo(client_no, auth_key, acct_no, transaction_id, h_error_code, h_error_msg, h_trans_create_user, h_trans_create_date, h_extended_transaction_qualifiers);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("trans_create_user",((javax.xml.ws.Holder)h_trans_create_user).value);
-        getHashMapReturnValues().put("trans_create_date",((javax.xml.ws.Holder)h_trans_create_date).value);
-        getHashMapReturnValues().put("extended_transaction_qualifiers",((javax.xml.ws.Holder)h_extended_transaction_qualifiers).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("trans_create_user",((javax.xml.ws.Holder)h_trans_create_user).value);
+        returnMap.put("trans_create_date",((javax.xml.ws.Holder)h_trans_create_date).value);
+        returnMap.put("extended_transaction_qualifiers",((javax.xml.ws.Holder)h_extended_transaction_qualifiers).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getExtendedTransactionInfo(Map<String,Object> map){
@@ -13371,11 +13694,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().discardUsage(client_no, auth_key, usage_record_nos, client_record_ids, exclusion_reason_cd, exclusion_comment, h_error_code, h_error_msg, h_failed_records);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("failed_records",((javax.xml.ws.Holder)h_failed_records).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("failed_records",((javax.xml.ws.Holder)h_failed_records).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> discardUsage(Map<String,Object> map){
@@ -13420,23 +13744,24 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createWriteoffOrDispute(client_no, auth_key, acct_no, h_invoice_no, h_amount, h_reason_code, h_comments, do_dispute, client_receipt_id, h_error_code, h_error_msg, h_rec_no, h_created_by, h_invoice_date, h_invoice_amt, h_dispute_creation_date, h_dispute_exp_date, h_secondary_reason_code, h_dispute_ind, h_can_unsettle);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("rec_no",((javax.xml.ws.Holder)h_rec_no).value);
-        getHashMapReturnValues().put("created_by",((javax.xml.ws.Holder)h_created_by).value);
-        getHashMapReturnValues().put("amount",((javax.xml.ws.Holder)h_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("invoice_date",((javax.xml.ws.Holder)h_invoice_date).value);
-        getHashMapReturnValues().put("invoice_amt",((javax.xml.ws.Holder)h_invoice_amt).value);
-        getHashMapReturnValues().put("dispute_creation_date",((javax.xml.ws.Holder)h_dispute_creation_date).value);
-        getHashMapReturnValues().put("dispute_exp_date",((javax.xml.ws.Holder)h_dispute_exp_date).value);
-        getHashMapReturnValues().put("comments",((javax.xml.ws.Holder)h_comments).value);
-        getHashMapReturnValues().put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
-        getHashMapReturnValues().put("secondary_reason_code",((javax.xml.ws.Holder)h_secondary_reason_code).value);
-        getHashMapReturnValues().put("dispute_ind",((javax.xml.ws.Holder)h_dispute_ind).value);
-        getHashMapReturnValues().put("can_unsettle",((javax.xml.ws.Holder)h_can_unsettle).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("rec_no",((javax.xml.ws.Holder)h_rec_no).value);
+        returnMap.put("created_by",((javax.xml.ws.Holder)h_created_by).value);
+        returnMap.put("amount",((javax.xml.ws.Holder)h_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("invoice_date",((javax.xml.ws.Holder)h_invoice_date).value);
+        returnMap.put("invoice_amt",((javax.xml.ws.Holder)h_invoice_amt).value);
+        returnMap.put("dispute_creation_date",((javax.xml.ws.Holder)h_dispute_creation_date).value);
+        returnMap.put("dispute_exp_date",((javax.xml.ws.Holder)h_dispute_exp_date).value);
+        returnMap.put("comments",((javax.xml.ws.Holder)h_comments).value);
+        returnMap.put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
+        returnMap.put("secondary_reason_code",((javax.xml.ws.Holder)h_secondary_reason_code).value);
+        returnMap.put("dispute_ind",((javax.xml.ws.Holder)h_dispute_ind).value);
+        returnMap.put("can_unsettle",((javax.xml.ws.Holder)h_can_unsettle).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createWriteoffOrDispute(Map<String,Object> map){
@@ -13464,11 +13789,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctWriteoffOrDisputes(client_no, auth_key, acct_no, dispute_or_writeoff_flag, details_flag, h_error_code, h_error_msg, h_write_off_info);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("write_off_info",((javax.xml.ws.Holder)h_write_off_info).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("write_off_info",((javax.xml.ws.Holder)h_write_off_info).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctWriteoffOrDisputes(Map<String,Object> map){
@@ -13492,11 +13818,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getInvoicesToWriteoffOrDispute(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_invoice_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_details",((javax.xml.ws.Holder)h_invoice_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_details",((javax.xml.ws.Holder)h_invoice_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvoicesToWriteoffOrDispute(Map<String,Object> map){
@@ -13541,23 +13868,24 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().settleDisputeHold(client_no, auth_key, acct_no, dispute_no, settlement_action, h_comments, client_receipt_id, h_error_code, h_error_msg, h_rec_no, h_created_by, h_amount, h_invoice_no, h_invoice_date, h_invoice_amt, h_dispute_creation_date, h_dispute_exp_date, h_reason_code, h_secondary_reason_code, h_dispute_ind, h_can_unsettle);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("rec_no",((javax.xml.ws.Holder)h_rec_no).value);
-        getHashMapReturnValues().put("created_by",((javax.xml.ws.Holder)h_created_by).value);
-        getHashMapReturnValues().put("amount",((javax.xml.ws.Holder)h_amount).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("invoice_date",((javax.xml.ws.Holder)h_invoice_date).value);
-        getHashMapReturnValues().put("invoice_amt",((javax.xml.ws.Holder)h_invoice_amt).value);
-        getHashMapReturnValues().put("dispute_creation_date",((javax.xml.ws.Holder)h_dispute_creation_date).value);
-        getHashMapReturnValues().put("dispute_exp_date",((javax.xml.ws.Holder)h_dispute_exp_date).value);
-        getHashMapReturnValues().put("comments",((javax.xml.ws.Holder)h_comments).value);
-        getHashMapReturnValues().put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
-        getHashMapReturnValues().put("secondary_reason_code",((javax.xml.ws.Holder)h_secondary_reason_code).value);
-        getHashMapReturnValues().put("dispute_ind",((javax.xml.ws.Holder)h_dispute_ind).value);
-        getHashMapReturnValues().put("can_unsettle",((javax.xml.ws.Holder)h_can_unsettle).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("rec_no",((javax.xml.ws.Holder)h_rec_no).value);
+        returnMap.put("created_by",((javax.xml.ws.Holder)h_created_by).value);
+        returnMap.put("amount",((javax.xml.ws.Holder)h_amount).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("invoice_date",((javax.xml.ws.Holder)h_invoice_date).value);
+        returnMap.put("invoice_amt",((javax.xml.ws.Holder)h_invoice_amt).value);
+        returnMap.put("dispute_creation_date",((javax.xml.ws.Holder)h_dispute_creation_date).value);
+        returnMap.put("dispute_exp_date",((javax.xml.ws.Holder)h_dispute_exp_date).value);
+        returnMap.put("comments",((javax.xml.ws.Holder)h_comments).value);
+        returnMap.put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
+        returnMap.put("secondary_reason_code",((javax.xml.ws.Holder)h_secondary_reason_code).value);
+        returnMap.put("dispute_ind",((javax.xml.ws.Holder)h_dispute_ind).value);
+        returnMap.put("can_unsettle",((javax.xml.ws.Holder)h_can_unsettle).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> settleDisputeHold(Map<String,Object> map){
@@ -13583,11 +13911,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelRecurringCredits(client_no, auth_key, acct_no, userid, client_acct_id, recurring_credit_no, cancel_comments, h_error_code, h_error_msg, h_error_codes);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("error_codes",((javax.xml.ws.Holder)h_error_codes).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("error_codes",((javax.xml.ws.Holder)h_error_codes).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelRecurringCredits(Map<String,Object> map){
@@ -13651,30 +13980,31 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateOrder(client_no, auth_key, account_no, order_no, bill_immediately, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_work_phone, bill_work_phone_extension, cvv, bill_address3, do_write, alt_client_acct_group_id, track_data1, track_data2, alt_inv_template_no, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, fulfilled_date, h_transaction_id, h_invoicing_error_code, h_invoicing_error_msg, h_statement_error_cd, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_invoice_no, h_error_code, h_error_msg, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_cart_invoice_line_items, h_third_party_errors);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
-        getHashMapReturnValues().put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
-        getHashMapReturnValues().put("statement_error_cd",((javax.xml.ws.Holder)h_statement_error_cd).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("cart_invoice_line_items",((javax.xml.ws.Holder)h_cart_invoice_line_items).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
+        returnMap.put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
+        returnMap.put("statement_error_cd",((javax.xml.ws.Holder)h_statement_error_cd).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("cart_invoice_line_items",((javax.xml.ws.Holder)h_cart_invoice_line_items).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateOrder(Map<String,Object> map){
@@ -13732,10 +14062,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateAcctInvoice(client_no, auth_key, account_no, src_transaction_id, custom_status_label, client_notes, posting_status_cd, posting_user, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateAcctInvoice(Map<String,Object> map){
@@ -13804,32 +14135,33 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createOrderM(client_no, auth_key, acct_no, client_acct_id, client_plan_instance_id, plan_instance_no, order_line_items, bill_immediately, bill_seq, client_order_id, client_receipt_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, do_write, coupon_cd, alt_client_acct_group_id, track_data1, track_data2, alt_inv_template_no, client_alt_inv_template_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, statement_message, fulfilled_date, order_comments, nso_po_num, h_order_no, h_transaction_id, h_invoicing_error_code, h_invoicing_error_msg, h_statement_error_cd, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_invoice_no, h_error_code, h_error_msg, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_cart_invoice_line_items, h_tax_details, h_third_party_errors);
 
-        getHashMapReturnValues().put("order_no",((javax.xml.ws.Holder)h_order_no).value);
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
-        getHashMapReturnValues().put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
-        getHashMapReturnValues().put("statement_error_cd",((javax.xml.ws.Holder)h_statement_error_cd).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("cart_invoice_line_items",((javax.xml.ws.Holder)h_cart_invoice_line_items).value);
-        getHashMapReturnValues().put("tax_details",((javax.xml.ws.Holder)h_tax_details).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("order_no",((javax.xml.ws.Holder)h_order_no).value);
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
+        returnMap.put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
+        returnMap.put("statement_error_cd",((javax.xml.ws.Holder)h_statement_error_cd).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("cart_invoice_line_items",((javax.xml.ws.Holder)h_cart_invoice_line_items).value);
+        returnMap.put("tax_details",((javax.xml.ws.Holder)h_tax_details).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createOrderM(Map<String,Object> map){
@@ -13927,23 +14259,24 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getInvoiceDetailsM(client_no, auth_key, invoice_no, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, locale_no, locale_name, h_error_code, h_error_msg, h_invoice_line_details, h_tax_details, h_is_pending_ind, h_custom_status_label, h_custom_status_desc, h_client_notes, h_invoice_type_cd, h_from_date, h_to_date, h_billing_group_no, h_client_billing_group_no, h_acct_locale_no, h_acct_locale_name);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_line_details",((javax.xml.ws.Holder)h_invoice_line_details).value);
-        getHashMapReturnValues().put("tax_details",((javax.xml.ws.Holder)h_tax_details).value);
-        getHashMapReturnValues().put("is_pending_ind",((javax.xml.ws.Holder)h_is_pending_ind).value);
-        getHashMapReturnValues().put("custom_status_label",((javax.xml.ws.Holder)h_custom_status_label).value);
-        getHashMapReturnValues().put("custom_status_desc",((javax.xml.ws.Holder)h_custom_status_desc).value);
-        getHashMapReturnValues().put("client_notes",((javax.xml.ws.Holder)h_client_notes).value);
-        getHashMapReturnValues().put("invoice_type_cd",((javax.xml.ws.Holder)h_invoice_type_cd).value);
-        getHashMapReturnValues().put("from_date",((javax.xml.ws.Holder)h_from_date).value);
-        getHashMapReturnValues().put("to_date",((javax.xml.ws.Holder)h_to_date).value);
-        getHashMapReturnValues().put("billing_group_no",((javax.xml.ws.Holder)h_billing_group_no).value);
-        getHashMapReturnValues().put("client_billing_group_no",((javax.xml.ws.Holder)h_client_billing_group_no).value);
-        getHashMapReturnValues().put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
-        getHashMapReturnValues().put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_line_details",((javax.xml.ws.Holder)h_invoice_line_details).value);
+        returnMap.put("tax_details",((javax.xml.ws.Holder)h_tax_details).value);
+        returnMap.put("is_pending_ind",((javax.xml.ws.Holder)h_is_pending_ind).value);
+        returnMap.put("custom_status_label",((javax.xml.ws.Holder)h_custom_status_label).value);
+        returnMap.put("custom_status_desc",((javax.xml.ws.Holder)h_custom_status_desc).value);
+        returnMap.put("client_notes",((javax.xml.ws.Holder)h_client_notes).value);
+        returnMap.put("invoice_type_cd",((javax.xml.ws.Holder)h_invoice_type_cd).value);
+        returnMap.put("from_date",((javax.xml.ws.Holder)h_from_date).value);
+        returnMap.put("to_date",((javax.xml.ws.Holder)h_to_date).value);
+        returnMap.put("billing_group_no",((javax.xml.ws.Holder)h_billing_group_no).value);
+        returnMap.put("client_billing_group_no",((javax.xml.ws.Holder)h_client_billing_group_no).value);
+        returnMap.put("acct_locale_no",((javax.xml.ws.Holder)h_acct_locale_no).value);
+        returnMap.put("acct_locale_name",((javax.xml.ws.Holder)h_acct_locale_name).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvoiceDetailsM(Map<String,Object> map){
@@ -13979,15 +14312,16 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getInvNoFromBalXferM(client_no, auth_key, transaction_id, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, h_error_code, h_error_msg, h_invoice_no, h_outacct_no, h_outclient_acct_id, h_billing_group_no, h_client_billing_group_id);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("outacct_no",((javax.xml.ws.Holder)h_outacct_no).value);
-        getHashMapReturnValues().put("outclient_acct_id",((javax.xml.ws.Holder)h_outclient_acct_id).value);
-        getHashMapReturnValues().put("billing_group_no",((javax.xml.ws.Holder)h_billing_group_no).value);
-        getHashMapReturnValues().put("client_billing_group_id",((javax.xml.ws.Holder)h_client_billing_group_id).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("outacct_no",((javax.xml.ws.Holder)h_outacct_no).value);
+        returnMap.put("outclient_acct_id",((javax.xml.ws.Holder)h_outclient_acct_id).value);
+        returnMap.put("billing_group_no",((javax.xml.ws.Holder)h_billing_group_no).value);
+        returnMap.put("client_billing_group_id",((javax.xml.ws.Holder)h_client_billing_group_id).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvNoFromBalXferM(Map<String,Object> map){
@@ -14013,11 +14347,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getRefundablePaymentsM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, h_error_code, h_error_msg, h_refundable_payments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("refundable_payments",((javax.xml.ws.Holder)h_refundable_payments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("refundable_payments",((javax.xml.ws.Holder)h_refundable_payments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getRefundablePaymentsM(Map<String,Object> map){
@@ -14042,11 +14377,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().applyServiceCreditM(client_no, auth_key, acct_no, client_acct_id, credit_amount, credit_reason_code, master_plan_instance_no, client_master_plan_instance_id, comments, h_credit_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("credit_id",((javax.xml.ws.Holder)h_credit_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("credit_id",((javax.xml.ws.Holder)h_credit_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> applyServiceCreditM(Map<String,Object> map){
@@ -14074,11 +14410,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().cancelRecurringCreditsM(client_no, auth_key, acct_no, userid, client_acct_id, recurring_credit_no, master_plan_instance_no, client_master_plan_instance_id, cancel_comments, h_error_code, h_error_msg, h_error_codes);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("error_codes",((javax.xml.ws.Holder)h_error_codes).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("error_codes",((javax.xml.ws.Holder)h_error_codes).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> cancelRecurringCreditsM(Map<String,Object> map){
@@ -14106,11 +14443,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getInvoicesToWriteoffOrDisputeM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, h_error_code, h_error_msg, h_invoice_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_details",((javax.xml.ws.Holder)h_invoice_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_details",((javax.xml.ws.Holder)h_invoice_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getInvoicesToWriteoffOrDisputeM(Map<String,Object> map){
@@ -14135,11 +14473,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getOrderM(client_no, auth_key, acct_no, client_acct_id, order_no, client_order_id, limit_records, details_flag, h_error_code, h_error_msg, h_orders);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("orders",((javax.xml.ws.Holder)h_orders).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("orders",((javax.xml.ws.Holder)h_orders).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getOrderM(Map<String,Object> map){
@@ -14166,11 +14505,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getWriteoffDetailsM(client_no, auth_key, writeoff_transaction_id, acct_no, client_acct_id, h_error_code, h_error_msg, h_writeoff_detail);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("writeoff_detail",((javax.xml.ws.Holder)h_writeoff_detail).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("writeoff_detail",((javax.xml.ws.Holder)h_writeoff_detail).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getWriteoffDetailsM(Map<String,Object> map){
@@ -14194,11 +14534,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctWriteoffOrDisputesM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, dispute_or_writeoff_flag, details_flag, h_error_code, h_error_msg, h_writeoff_dispute_info);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("writeoff_dispute_info",((javax.xml.ws.Holder)h_writeoff_dispute_info).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("writeoff_dispute_info",((javax.xml.ws.Holder)h_writeoff_dispute_info).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctWriteoffOrDisputesM(Map<String,Object> map){
@@ -14225,11 +14566,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getReversibleInvsByPaymentM(client_no, auth_key, acct_no, payment_transaction_id, h_error_code, h_error_msg, h_reversible_inv_trans);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("reversible_inv_trans",((javax.xml.ws.Holder)h_reversible_inv_trans).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("reversible_inv_trans",((javax.xml.ws.Holder)h_reversible_inv_trans).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getReversibleInvsByPaymentM(Map<String,Object> map){
@@ -14258,14 +14600,15 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().issueRefundToAcctM(client_no, auth_key, acct_no, client_acct_id, payment_transaction_id, reason_code, total_refund_amount, refund_check_number, comments, do_write, auto_calc_refund, invoice_trans_to_reverse, client_receipt_id, is_unlinked_refund, h_error_code, h_error_msg, h_applied_total_refund_amount, h_applied_total_reversal_amount, h_out_transaction_id, h_reversed_invoice_transactions);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("applied_total_refund_amount",((javax.xml.ws.Holder)h_applied_total_refund_amount).value);
-        getHashMapReturnValues().put("applied_total_reversal_amount",((javax.xml.ws.Holder)h_applied_total_reversal_amount).value);
-        getHashMapReturnValues().put("out_transaction_id",((javax.xml.ws.Holder)h_out_transaction_id).value);
-        getHashMapReturnValues().put("reversed_invoice_transactions",((javax.xml.ws.Holder)h_reversed_invoice_transactions).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("applied_total_refund_amount",((javax.xml.ws.Holder)h_applied_total_refund_amount).value);
+        returnMap.put("applied_total_reversal_amount",((javax.xml.ws.Holder)h_applied_total_reversal_amount).value);
+        returnMap.put("out_transaction_id",((javax.xml.ws.Holder)h_out_transaction_id).value);
+        returnMap.put("reversed_invoice_transactions",((javax.xml.ws.Holder)h_reversed_invoice_transactions).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> issueRefundToAcctM(Map<String,Object> map){
@@ -14298,11 +14641,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().voidInvoiceM(client_no, auth_key, acct_no, client_acct_id, invoice_no, reason_code, client_receipt_id, comments, h_error_code, h_error_msg, h_void_transactions);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("void_transactions",((javax.xml.ws.Holder)h_void_transactions).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("void_transactions",((javax.xml.ws.Holder)h_void_transactions).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> voidInvoiceM(Map<String,Object> map){
@@ -14329,11 +14673,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createWriteoffOrDisputeM(client_no, auth_key, acct_no, client_acct_id, invoice_no, reason_code, comments, writeoff_date, do_dispute, client_receipt_id, h_error_code, h_error_msg, h_writeoff_transactions);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("writeoff_transactions",((javax.xml.ws.Holder)h_writeoff_transactions).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("writeoff_transactions",((javax.xml.ws.Holder)h_writeoff_transactions).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createWriteoffOrDisputeM(Map<String,Object> map){
@@ -14378,19 +14723,20 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().settleAccountBalanceM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, payment_method_no, client_payment_method_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, alt_client_acct_group_id, track_data1, track_data2, force_balance_scope, client_receipt_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, h_transaction_id, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> settleAccountBalanceM(Map<String,Object> map){
@@ -14471,19 +14817,20 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().collectFromAccountM(client_no, auth_key, acct_no, amount_to_collect, payment_method_no, client_payment_method_id, client_receipt_id, specific_charge_transaction_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, alt_client_acct_group_id, track_data1, track_data2, payment_application_method, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, h_transaction_id, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> collectFromAccountM(Map<String,Object> map){
@@ -14547,11 +14894,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getAcctPaymentHistoryM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, start_date, end_date, limit_records, details_flag, h_error_code, h_error_msg, h_acct_payment_history);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("acct_payment_history",((javax.xml.ws.Holder)h_acct_payment_history).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("acct_payment_history",((javax.xml.ws.Holder)h_acct_payment_history).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getAcctPaymentHistoryM(Map<String,Object> map){
@@ -14580,11 +14928,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getPaymentsOnInvoiceM(client_no, auth_key, acct_no, client_acct_id, invoice_no, h_error_code, h_error_msg, h_invoice_payment_details);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_payment_details",((javax.xml.ws.Holder)h_invoice_payment_details).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_payment_details",((javax.xml.ws.Holder)h_invoice_payment_details).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getPaymentsOnInvoiceM(Map<String,Object> map){
@@ -14608,11 +14957,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getUnappliedCreditsPaymentsM(client_no, auth_key, acct_no, client_acct_id, h_error_code, h_error_msg, h_unapplied_payments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("unapplied_payments",((javax.xml.ws.Holder)h_unapplied_payments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("unapplied_payments",((javax.xml.ws.Holder)h_unapplied_payments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getUnappliedCreditsPaymentsM(Map<String,Object> map){
@@ -14635,11 +14985,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordUsageM(client_no, auth_key, usage_units, acct_no, userid, master_plan_instance_no, client_master_plan_instance_id, plan_instance_no, client_plan_instance_id, usage_type, usage_date, billable_units, amt, rate, telco_from, telco_to, comments, exclude_from_billing, exclusion_comments, qualifier_1, qualifier_2, qualifier_3, qualifier_4, parent_usage_rec_no, usage_type_code, client_record_id, caller_id, client_receipt_id, h_error_code, h_error_msg, h_usage_rec_no);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("usage_rec_no",((javax.xml.ws.Holder)h_usage_rec_no).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("usage_rec_no",((javax.xml.ws.Holder)h_usage_rec_no).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordUsageM(Map<String,Object> map){
@@ -14686,11 +15037,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().bulkRecordUsageM(client_no, auth_key, usage_recs, client_receipt_id, h_error_code, h_error_msg, h_error_records);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("error_records",((javax.xml.ws.Holder)h_error_records).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("error_records",((javax.xml.ws.Holder)h_error_records).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> bulkRecordUsageM(Map<String,Object> map){
@@ -14725,17 +15077,18 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().genInvoiceM(client_no, auth_key, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, billing_group_no, client_billing_group_id, force_pending, client_receipt_id, alt_bill_day, invoice_mode, h_error_code, h_error_msg, h_invoice_no, h_out_acct_no, h_out_client_acct_id, h_out_billing_group_no, h_out_client_billing_group_id, h_third_party_errors, h_out_invoices);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
-        getHashMapReturnValues().put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
-        getHashMapReturnValues().put("out_billing_group_no",((javax.xml.ws.Holder)h_out_billing_group_no).value);
-        getHashMapReturnValues().put("out_client_billing_group_id",((javax.xml.ws.Holder)h_out_client_billing_group_id).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
-        getHashMapReturnValues().put("out_invoices",((javax.xml.ws.Holder)h_out_invoices).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
+        returnMap.put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
+        returnMap.put("out_billing_group_no",((javax.xml.ws.Holder)h_out_billing_group_no).value);
+        returnMap.put("out_client_billing_group_id",((javax.xml.ws.Holder)h_out_client_billing_group_id).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        returnMap.put("out_invoices",((javax.xml.ws.Holder)h_out_invoices).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> genInvoiceM(Map<String,Object> map){
@@ -14798,27 +15151,28 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().managePendingInvoiceM(client_no, auth_key, invoice_no, acct_no, client_acct_id, master_plan_instance_no, client_master_plan_instance_id, action_directive, bill_seq, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, alt_collect_on_approve, alt_send_statement_on_approve, cancel_orders_on_discard, bank_acct_type, bill_address3, track_data1, track_data2, client_receipt_id, iban, bank_check_digit, bank_swift_cd, bank_country_cd, mandate_id, bank_id_cd, bank_branch_cd, custom_status_label, client_notes, h_new_invoice_no, h_out_acct_no, h_out_client_acct_id, h_out_billing_group_no, h_out_client_billing_group_id, h_collection_error_code, h_collection_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("new_invoice_no",((javax.xml.ws.Holder)h_new_invoice_no).value);
-        getHashMapReturnValues().put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
-        getHashMapReturnValues().put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
-        getHashMapReturnValues().put("out_billing_group_no",((javax.xml.ws.Holder)h_out_billing_group_no).value);
-        getHashMapReturnValues().put("out_client_billing_group_id",((javax.xml.ws.Holder)h_out_client_billing_group_id).value);
-        getHashMapReturnValues().put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
-        getHashMapReturnValues().put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("new_invoice_no",((javax.xml.ws.Holder)h_new_invoice_no).value);
+        returnMap.put("out_acct_no",((javax.xml.ws.Holder)h_out_acct_no).value);
+        returnMap.put("out_client_acct_id",((javax.xml.ws.Holder)h_out_client_acct_id).value);
+        returnMap.put("out_billing_group_no",((javax.xml.ws.Holder)h_out_billing_group_no).value);
+        returnMap.put("out_client_billing_group_id",((javax.xml.ws.Holder)h_out_client_billing_group_id).value);
+        returnMap.put("collection_error_code",((javax.xml.ws.Holder)h_collection_error_code).value);
+        returnMap.put("collection_error_msg",((javax.xml.ws.Holder)h_collection_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> managePendingInvoiceM(Map<String,Object> map){
@@ -14927,31 +15281,32 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().createOrderWithPlanM(client_no, auth_key, acct_no, client_acct_id, order_line_items, parent_plan_instance_no, client_parent_plan_instance_id, supp_plan_instance_no, client_plan_instance_id, supp_plan_no, client_supp_plan_id, supp_plan_units, assignment_directive, bill_immediately, bill_seq, client_order_id, client_receipt_id, alt_pay_method, cc_number, cc_expire_mm, cc_expire_yyyy, bank_routing_num, bank_acct_num, bank_check_digit, bank_swift_cd, bank_country_cd, bank_id_cd, bank_branch_cd, mandate_id, iban, bill_company_name, bill_first_name, bill_middle_initial, bill_last_name, bill_address1, bill_address2, bill_city, bill_locality, bill_state_prov, bill_zip, bill_country, bill_email, bill_phone, bill_phone_extension, bill_cell_phone, bill_work_phone, bill_work_phone_extension, cvv, bank_acct_type, bill_address3, multiple_coupons, alt_client_acct_group_id, client_alt_inv_template_id, alt_inv_template_no, force_supp_bill_date_reset, statement_message, track_data1, track_data2, do_write, order_comments, nso_po_num, po_num, h_error_code, h_error_msg, h_order_no, h_invoice_no, h_transaction_id, h_invoicing_error_code, h_invoicing_error_msg, h_statement_error_code, h_statement_error_msg, h_proc_cvv_response, h_proc_avs_response, h_proc_cavv_response, h_proc_status_code, h_proc_status_text, h_proc_payment_id, h_proc_auth_code, h_proc_merch_comments, h_total_charges_before_tax, h_total_tax_charges, h_total_charges_after_tax, h_total_credit, h_cart_inv_line_items, h_third_party_errors);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("order_no",((javax.xml.ws.Holder)h_order_no).value);
-        getHashMapReturnValues().put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
-        getHashMapReturnValues().put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
-        getHashMapReturnValues().put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
-        getHashMapReturnValues().put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
-        getHashMapReturnValues().put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
-        getHashMapReturnValues().put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
-        getHashMapReturnValues().put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
-        getHashMapReturnValues().put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
-        getHashMapReturnValues().put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
-        getHashMapReturnValues().put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
-        getHashMapReturnValues().put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
-        getHashMapReturnValues().put("cart_inv_line_items",((javax.xml.ws.Holder)h_cart_inv_line_items).value);
-        getHashMapReturnValues().put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("order_no",((javax.xml.ws.Holder)h_order_no).value);
+        returnMap.put("invoice_no",((javax.xml.ws.Holder)h_invoice_no).value);
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("invoicing_error_code",((javax.xml.ws.Holder)h_invoicing_error_code).value);
+        returnMap.put("invoicing_error_msg",((javax.xml.ws.Holder)h_invoicing_error_msg).value);
+        returnMap.put("statement_error_code",((javax.xml.ws.Holder)h_statement_error_code).value);
+        returnMap.put("statement_error_msg",((javax.xml.ws.Holder)h_statement_error_msg).value);
+        returnMap.put("proc_cvv_response",((javax.xml.ws.Holder)h_proc_cvv_response).value);
+        returnMap.put("proc_avs_response",((javax.xml.ws.Holder)h_proc_avs_response).value);
+        returnMap.put("proc_cavv_response",((javax.xml.ws.Holder)h_proc_cavv_response).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_payment_id",((javax.xml.ws.Holder)h_proc_payment_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        returnMap.put("total_charges_before_tax",((javax.xml.ws.Holder)h_total_charges_before_tax).value);
+        returnMap.put("total_tax_charges",((javax.xml.ws.Holder)h_total_tax_charges).value);
+        returnMap.put("total_charges_after_tax",((javax.xml.ws.Holder)h_total_charges_after_tax).value);
+        returnMap.put("total_credit",((javax.xml.ws.Holder)h_total_credit).value);
+        returnMap.put("cart_inv_line_items",((javax.xml.ws.Holder)h_cart_inv_line_items).value);
+        returnMap.put("third_party_errors",((javax.xml.ws.Holder)h_third_party_errors).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> createOrderWithPlanM(Map<String,Object> map){
@@ -15032,11 +15387,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().copyAcctPaymentMethod(client_no, auth_key, source_acct_no, client_source_acct_id, target_acct_no, client_target_acct_id, h_error_code, h_error_msg, h_seq_nos);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("seq_nos",((javax.xml.ws.Holder)h_seq_nos).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("seq_nos",((javax.xml.ws.Holder)h_seq_nos).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> copyAcctPaymentMethod(Map<String,Object> map){
@@ -15061,11 +15417,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().copyAcctPaymentMethodM(client_no, auth_key, source_acct_no, client_source_acct_id, target_acct_no, client_target_acct_id, payment_methods, h_error_code, h_error_msg, h_payment_method_map);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("payment_method_map",((javax.xml.ws.Holder)h_payment_method_map).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("payment_method_map",((javax.xml.ws.Holder)h_payment_method_map).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> copyAcctPaymentMethodM(Map<String,Object> map){
@@ -15089,10 +15446,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().updateCcBlacklistM(client_no, auth_key, cc_num, acct_no, client_acct_id, assignment_directive, credit_card_payment_methods, notes, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> updateCcBlacklistM(Map<String,Object> map){
@@ -15119,11 +15477,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordExternalPaymentM(client_no, auth_key, acct_no, reference_code, payment_amount, comments, client_receipt_id, external_destination_id, external_id, payment_received_date, specific_charge_transaction_id, invoice_no, h_transaction_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("transaction_id",((javax.xml.ws.Holder)h_transaction_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordExternalPaymentM(Map<String,Object> map){
@@ -15154,11 +15513,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().getReversibleAuthorizations(client_no, auth_key, acct_no, h_error_code, h_error_msg, h_reversible_authorizations);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("reversible_authorizations",((javax.xml.ws.Holder)h_reversible_authorizations).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("reversible_authorizations",((javax.xml.ws.Holder)h_reversible_authorizations).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> getReversibleAuthorizations(Map<String,Object> map){
@@ -15190,16 +15550,17 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().reverseAuthorizedElectronicPayment(client_no, auth_key, acct_no, auth_no, reason_code, comments, client_receipt_id, h_error_code, h_error_msg, h_applied_total_reversal_amount, h_proc_status_code, h_proc_status_text, h_proc_auth_id, h_proc_auth_code, h_proc_merch_comments);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("applied_total_reversal_amount",((javax.xml.ws.Holder)h_applied_total_reversal_amount).value);
-        getHashMapReturnValues().put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
-        getHashMapReturnValues().put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
-        getHashMapReturnValues().put("proc_auth_id",((javax.xml.ws.Holder)h_proc_auth_id).value);
-        getHashMapReturnValues().put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
-        getHashMapReturnValues().put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("applied_total_reversal_amount",((javax.xml.ws.Holder)h_applied_total_reversal_amount).value);
+        returnMap.put("proc_status_code",((javax.xml.ws.Holder)h_proc_status_code).value);
+        returnMap.put("proc_status_text",((javax.xml.ws.Holder)h_proc_status_text).value);
+        returnMap.put("proc_auth_id",((javax.xml.ws.Holder)h_proc_auth_id).value);
+        returnMap.put("proc_auth_code",((javax.xml.ws.Holder)h_proc_auth_code).value);
+        returnMap.put("proc_merch_comments",((javax.xml.ws.Holder)h_proc_merch_comments).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> reverseAuthorizedElectronicPayment(Map<String,Object> map){
@@ -15237,17 +15598,18 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().applyCashCreditM(client_no, auth_key, acct_no, credit_reason_cd, comments, credit_amount, specific_invoices, specific_transactions, h_error_code, h_error_msg, h_credit_no, h_created_by, h_created_date, h_amount, h_reason_code, h_reason_text, h_applied_cash_credits);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
-        getHashMapReturnValues().put("credit_no",((javax.xml.ws.Holder)h_credit_no).value);
-        getHashMapReturnValues().put("created_by",((javax.xml.ws.Holder)h_created_by).value);
-        getHashMapReturnValues().put("created_date",((javax.xml.ws.Holder)h_created_date).value);
-        getHashMapReturnValues().put("amount",((javax.xml.ws.Holder)h_amount).value);
-        getHashMapReturnValues().put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
-        getHashMapReturnValues().put("reason_text",((javax.xml.ws.Holder)h_reason_text).value);
-        getHashMapReturnValues().put("applied_cash_credits",((javax.xml.ws.Holder)h_applied_cash_credits).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        returnMap.put("credit_no",((javax.xml.ws.Holder)h_credit_no).value);
+        returnMap.put("created_by",((javax.xml.ws.Holder)h_created_by).value);
+        returnMap.put("created_date",((javax.xml.ws.Holder)h_created_date).value);
+        returnMap.put("amount",((javax.xml.ws.Holder)h_amount).value);
+        returnMap.put("reason_code",((javax.xml.ws.Holder)h_reason_code).value);
+        returnMap.put("reason_text",((javax.xml.ws.Holder)h_reason_text).value);
+        returnMap.put("applied_cash_credits",((javax.xml.ws.Holder)h_applied_cash_credits).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> applyCashCreditM(Map<String,Object> map){
@@ -15274,11 +15636,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordAlternativePayment(client_no, auth_key, acct_no, client_acct_id, reference_code, payment_amount, processor_id, pay_method, statement_no, comments, client_receipt_id, allow_recurring, h_auth_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("auth_no",((javax.xml.ws.Holder)h_auth_no).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("auth_no",((javax.xml.ws.Holder)h_auth_no).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordAlternativePayment(Map<String,Object> map){
@@ -15309,11 +15672,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().recordAlternativePaymentM(client_no, auth_key, acct_no, client_acct_id, reference_code, payment_amount, processor_id, pay_method_type, statement_no, comments, client_receipt_id, allow_recurring, h_auth_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("auth_no",((javax.xml.ws.Holder)h_auth_no).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("auth_no",((javax.xml.ws.Holder)h_auth_no).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> recordAlternativePaymentM(Map<String,Object> map){
@@ -15344,11 +15708,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setSessionAuth(client_no, auth_key, user_id, password, h_session_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("session_id",((javax.xml.ws.Holder)h_session_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("session_id",((javax.xml.ws.Holder)h_session_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setSessionAuth(Map<String,Object> map){
@@ -15371,11 +15736,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setSession(client_no, auth_key, user_id, acct_no, h_session_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("session_id",((javax.xml.ws.Holder)h_session_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("session_id",((javax.xml.ws.Holder)h_session_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setSession(Map<String,Object> map){
@@ -15400,12 +15766,13 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().validateSession(client_no, auth_key, session_id, h_user_id, h_account_no, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("user_id",((javax.xml.ws.Holder)h_user_id).value);
-        getHashMapReturnValues().put("account_no",((javax.xml.ws.Holder)h_account_no).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("user_id",((javax.xml.ws.Holder)h_user_id).value);
+        returnMap.put("account_no",((javax.xml.ws.Holder)h_account_no).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> validateSession(Map<String,Object> map){
@@ -15425,10 +15792,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().keepAlive(client_no, auth_key, session_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> keepAlive(Map<String,Object> map){
@@ -15448,10 +15816,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().killSession(client_no, auth_key, session_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> killSession(Map<String,Object> map){
@@ -15473,11 +15842,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setSessionAuthM(client_no, auth_key, user_id, password, alt_caller_id, h_session_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("session_id",((javax.xml.ws.Holder)h_session_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("session_id",((javax.xml.ws.Holder)h_session_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setSessionAuthM(Map<String,Object> map){
@@ -15501,11 +15871,12 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().setSessionM(client_no, auth_key, user_id, acct_no, alt_caller_id, h_session_id, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("session_id",((javax.xml.ws.Holder)h_session_id).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("session_id",((javax.xml.ws.Holder)h_session_id).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> setSessionM(Map<String,Object> map){
@@ -15537,15 +15908,16 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().validateSessionM(client_no, auth_key, session_id, h_user_id, h_account_no, h_alt_caller_id, h_application_id, h_application_date, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("user_id",((javax.xml.ws.Holder)h_user_id).value);
-        getHashMapReturnValues().put("account_no",((javax.xml.ws.Holder)h_account_no).value);
-        getHashMapReturnValues().put("alt_caller_id",((javax.xml.ws.Holder)h_alt_caller_id).value);
-        getHashMapReturnValues().put("application_id",((javax.xml.ws.Holder)h_application_id).value);
-        getHashMapReturnValues().put("application_date",((javax.xml.ws.Holder)h_application_date).value);
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("user_id",((javax.xml.ws.Holder)h_user_id).value);
+        returnMap.put("account_no",((javax.xml.ws.Holder)h_account_no).value);
+        returnMap.put("alt_caller_id",((javax.xml.ws.Holder)h_alt_caller_id).value);
+        returnMap.put("application_id",((javax.xml.ws.Holder)h_application_id).value);
+        returnMap.put("application_date",((javax.xml.ws.Holder)h_application_date).value);
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> validateSessionM(Map<String,Object> map){
@@ -15565,10 +15937,11 @@ public class AriaBillingCompleteSoap extends BaseAriaBilling implements AriaBill
         
         getCompletePort().authenticateCaller(client_no, auth_key, h_error_code, h_error_msg);
 
-        getHashMapReturnValues().put("error_code",((javax.xml.ws.Holder)h_error_code).value);
-        getHashMapReturnValues().put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
+        HashMap<String, Object> returnMap = new HashMap<String, Object>();
+        returnMap.put("error_code",((javax.xml.ws.Holder)h_error_code).value);
+        returnMap.put("error_msg",((javax.xml.ws.Holder)h_error_msg).value);
         
-        return getHashMapReturnValues();
+        return returnMap;
     }
 
     public Map<String,Object> authenticateCaller(Map<String,Object> map){
