@@ -1790,36 +1790,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         return getPlans(client_no, auth_key);
     }
 
-    public Map<String,Object> getPlansM(Long client_no, String auth_key, String include_rs_summary, String locale_name, String include_translations){
-        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
-        addParameters(parameters,"client_no",getValue("Long",client_no));
-        addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"include_rs_summary", getValue("String", include_rs_summary));
-        addParameters(parameters,"locale_name", getValue("String", locale_name));
-        addParameters(parameters,"include_translations", getValue("String", include_translations));
-        
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plans_m"));
-        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[3];
-
-        returnValues[0] = "error_code";
-        returnValues[1] = "error_msg";
-        returnValues[2] = "plans";
-        
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
-    }
-
-    public Map<String,Object> getPlansM(Map<String,Object> map){
-        Long client_no = (Long) map.get("client_no");
-        String auth_key = (String) map.get("auth_key");
-        String include_rs_summary = (String) map.get("include_rs_summary");
-        String locale_name = (String) map.get("locale_name");
-        String include_translations = (String) map.get("include_translations");
-        
-        return getPlansM(client_no, auth_key, include_rs_summary, locale_name, include_translations);
-    }
-
     public Map<String,Object> getPlanDetails(Long client_no, String auth_key, Long plan_no, String client_plan_id){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
@@ -1882,94 +1852,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         String client_plan_id = (String) map.get("client_plan_id");
         
         return getPlanDetails(client_no, auth_key, plan_no, client_plan_id);
-    }
-
-    public Map<String,Object> getPlanDetailsM(Long client_no, String auth_key, Long plan_no, String client_plan_id, String include_rs_summary, String retrieve_bundled_nso, String retrieve_included_nso, String locale_name, String include_translations){
-        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
-        addParameters(parameters,"client_no",getValue("Long",client_no));
-        addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"plan_no", getValue("Long", plan_no));
-        addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
-        addParameters(parameters,"include_rs_summary", getValue("String", include_rs_summary));
-        addParameters(parameters,"retrieve_bundled_nso", getValue("String", retrieve_bundled_nso));
-        addParameters(parameters,"retrieve_included_nso", getValue("String", retrieve_included_nso));
-        addParameters(parameters,"locale_name", getValue("String", locale_name));
-        addParameters(parameters,"include_translations", getValue("String", include_translations));
-        
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plan_details_m"));
-        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[53];
-
-        returnValues[0] = "error_code";
-        returnValues[1] = "error_msg";
-        returnValues[2] = "plan_no";
-        returnValues[3] = "client_plan_id";
-        returnValues[4] = "plan_level";
-        returnValues[5] = "plan_type";
-        returnValues[6] = "plan_name";
-        returnValues[7] = "plan_desc";
-        returnValues[8] = "plan_groups";
-        returnValues[9] = "plan_group_ids";
-        returnValues[10] = "currency_cd";
-        returnValues[11] = "active_ind";
-        returnValues[12] = "rollover_plan_duration";
-        returnValues[13] = "rollover_plan_uom_cd";
-        returnValues[14] = "rollover_plan_no";
-        returnValues[15] = "rollover_client_plan_id";
-        returnValues[16] = "init_free_period_duration";
-        returnValues[17] = "init_free_period_uom_cd";
-        returnValues[18] = "initial_plan_status_cd";
-        returnValues[19] = "rollover_plan_status_duration";
-        returnValues[20] = "rollover_plan_status_uom_cd";
-        returnValues[21] = "rollover_plan_status_cd";
-        returnValues[22] = "allow_child_accounts";
-        returnValues[23] = "dunning_plan_no";
-        returnValues[24] = "dunning_client_plan_id";
-        returnValues[25] = "acct_status_cd";
-        returnValues[26] = "rollover_acct_status_days";
-        returnValues[27] = "rollover_acct_status_cd";
-        returnValues[28] = "template_no";
-        returnValues[29] = "template_id";
-        returnValues[30] = "plan_cancel_min_months";
-        returnValues[31] = "how_to_apply_min_fee";
-        returnValues[32] = "is_deletable";
-        returnValues[33] = "services";
-        returnValues[34] = "parent_plans";
-        returnValues[35] = "parent_plan_ids";
-        returnValues[36] = "exclusion_plans";
-        returnValues[37] = "resources";
-        returnValues[38] = "supplemental_obj_fields";
-        returnValues[39] = "surcharges";
-        returnValues[40] = "proration_invoice_timing_cd";
-        returnValues[41] = "rate_sched";
-        returnValues[42] = "contract_rollover_plan_no";
-        returnValues[43] = "contract_rollover_client_plan_id";
-        returnValues[44] = "contract_rollover_rate_sched";
-        returnValues[45] = "plan_nso_items";
-        returnValues[46] = "plan_nso_group";
-        returnValues[47] = "nso_group_min_qty";
-        returnValues[48] = "nso_group_max_qty";
-        returnValues[49] = "nso_group_item_scope";
-        returnValues[50] = "nso_incl_list_scope";
-        returnValues[51] = "plan_nso_incl_list";
-        returnValues[52] = "plan_translation_info";
-        
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
-    }
-
-    public Map<String,Object> getPlanDetailsM(Map<String,Object> map){
-        Long client_no = (Long) map.get("client_no");
-        String auth_key = (String) map.get("auth_key");
-        Long plan_no = (Long) map.get("plan_no");
-        String client_plan_id = (String) map.get("client_plan_id");
-        String include_rs_summary = (String) map.get("include_rs_summary");
-        String retrieve_bundled_nso = (String) map.get("retrieve_bundled_nso");
-        String retrieve_included_nso = (String) map.get("retrieve_included_nso");
-        String locale_name = (String) map.get("locale_name");
-        String include_translations = (String) map.get("include_translations");
-        
-        return getPlanDetailsM(client_no, auth_key, plan_no, client_plan_id, include_rs_summary, retrieve_bundled_nso, retrieve_included_nso, locale_name, include_translations);
     }
 
     public Map<String,Object> createNewPlan(Long client_no, String auth_key, String plan_name, String plan_type, String currency, String billing_interval, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, String usage_billing_interval, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long initial_free_months, String free_trial_type, String free_trial_duration, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd){
@@ -2080,138 +1962,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         return createNewPlan(client_no, auth_key, plan_name, plan_type, currency, billing_interval, active, schedule, service, plan_description, client_plan_id, plan_group, plan_group_id, usage_billing_interval, rollover_months, rollover_plan_no, rollover_client_plan_id, initial_free_months, free_trial_type, free_trial_duration, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, dunning_plan_no, dunning_client_plan_id, template_no, client_email_template_id, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, template_ind, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd);
     }
 
-    public Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long rollover_plan_duration, Long rollover_plan_uom_cd, Long rollover_plan_no, String rollover_client_plan_id, Long init_free_period_duration, Long init_free_period_uom_cd, Long initial_plan_status_cd, Long rollover_plan_status_duration, Long rollover_plan_status_uom_cd, Long rollover_plan_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array){
-        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
-        addParameters(parameters,"client_no",getValue("Long",client_no));
-        addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"plan_name", getValue("String", plan_name));
-        addParameters(parameters,"plan_type", getValue("String", plan_type));
-        addParameters(parameters,"currency", getValue("String", currency));
-        addParameters(parameters,"active", getValue("Long", active));
-        RestUtilities.addParameterValuesFromArray(parameters, schedule, "schedule");
-        RestUtilities.addParameterValuesFromArray(parameters, service, "service");
-        addParameters(parameters,"plan_description", getValue("String", plan_description));
-        addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
-        RestUtilities.addParameterValuesFromArray(parameters, plan_group, "plan_group");
-        RestUtilities.addParameterValuesFromArray(parameters, plan_group_id, "plan_group_id");
-        addParameters(parameters,"rollover_plan_duration", getValue("Long", rollover_plan_duration));
-        addParameters(parameters,"rollover_plan_uom_cd", getValue("Long", rollover_plan_uom_cd));
-        addParameters(parameters,"rollover_plan_no", getValue("Long", rollover_plan_no));
-        addParameters(parameters,"rollover_client_plan_id", getValue("String", rollover_client_plan_id));
-        addParameters(parameters,"init_free_period_duration", getValue("Long", init_free_period_duration));
-        addParameters(parameters,"init_free_period_uom_cd", getValue("Long", init_free_period_uom_cd));
-        addParameters(parameters,"initial_plan_status_cd", getValue("Long", initial_plan_status_cd));
-        addParameters(parameters,"rollover_plan_status_duration", getValue("Long", rollover_plan_status_duration));
-        addParameters(parameters,"rollover_plan_status_uom_cd", getValue("Long", rollover_plan_status_uom_cd));
-        addParameters(parameters,"rollover_plan_status_cd", getValue("Long", rollover_plan_status_cd));
-        addParameters(parameters,"dunning_plan_no", getValue("Long", dunning_plan_no));
-        addParameters(parameters,"dunning_client_plan_id", getValue("String", dunning_client_plan_id));
-        addParameters(parameters,"template_no", getValue("Long", template_no));
-        addParameters(parameters,"client_email_template_id", getValue("String", client_email_template_id));
-        addParameters(parameters,"apply_cancellation", getValue("String", apply_cancellation));
-        addParameters(parameters,"plan_cancel_min_month", getValue("Long", plan_cancel_min_month));
-        addParameters(parameters,"apply_minimum_fee", getValue("String", apply_minimum_fee));
-        addParameters(parameters,"how_to_apply_min_fee", getValue("String", how_to_apply_min_fee));
-        RestUtilities.addParameterValuesFromArray(parameters, resource, "resource");
-        addParameters(parameters,"arc_service_no", getValue("Long", arc_service_no));
-        RestUtilities.addParameterValuesFromArray(parameters, parent_plans, "parent_plans");
-        RestUtilities.addParameterValuesFromArray(parameters, parent_client_plan_ids, "parent_client_plan_ids");
-        RestUtilities.addParameterValuesFromArray(parameters, exclusion_plans, "exclusion_plans");
-        RestUtilities.addParameterValuesFromArray(parameters, supplemental_obj_field, "supplemental_obj_field");
-        addParameters(parameters,"template_ind", getValue("Long", template_ind));
-        RestUtilities.addParameterValuesFromArray(parameters, child_plans, "child_plans");
-        RestUtilities.addParameterValuesFromArray(parameters, eligible_child_plans, "eligible_child_plans");
-        addParameters(parameters,"notification_template_group_no", getValue("String", notification_template_group_no));
-        addParameters(parameters,"credit_note_template_no", getValue("String", credit_note_template_no));
-        RestUtilities.addParameterValuesFromArray(parameters, surcharge_no, "surcharge_no");
-        RestUtilities.addParameterValuesFromArray(parameters, client_surcharge_id, "client_surcharge_id");
-        addParameters(parameters,"proration_invoice_timing_cd", getValue("String", proration_invoice_timing_cd));
-        addParameters(parameters,"plan_instance_status_cd", getValue("Long", plan_instance_status_cd));
-        RestUtilities.addParameterValuesFromArray(parameters, assign_field_categories, "assign_field_categories");
-        addParameters(parameters,"contract_rollover_plan_no", getValue("Long", contract_rollover_plan_no));
-        addParameters(parameters,"contract_rollover_client_plan_id", getValue("String", contract_rollover_client_plan_id));
-        RestUtilities.addParameterValuesFromArray(parameters, contract_rollover_rate_sched, "contract_rollover_rate_sched");
-        addParameters(parameters,"nso_incl_list_scope", getValue("Long", nso_incl_list_scope));
-        RestUtilities.addParameterValuesFromArray(parameters, nso_incl_list_array, "nso_incl_list_array");
-        RestUtilities.addParameterValuesFromArray(parameters, nso_group_array, "nso_group_array");
-        addParameters(parameters,"nso_group_min_qty", getValue("String", nso_group_min_qty));
-        addParameters(parameters,"nso_group_max_qty", getValue("String", nso_group_max_qty));
-        addParameters(parameters,"nso_group_item_scope", getValue("String", nso_group_item_scope));
-        RestUtilities.addParameterValuesFromArray(parameters, nso_items_array, "nso_items_array");
-        
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_new_plan_m"));
-        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[3];
-
-        returnValues[0] = "error_code";
-        returnValues[1] = "error_msg";
-        returnValues[2] = "plan_no";
-        
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
-    }
-
-    public Map<String,Object> createNewPlanM(Map<String,Object> map){
-        Long client_no = (Long) map.get("client_no");
-        String auth_key = (String) map.get("auth_key");
-        String plan_name = (String) map.get("plan_name");
-        String plan_type = (String) map.get("plan_type");
-        String currency = (String) map.get("currency");
-        Long active = (Long) map.get("active");
-        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
-        String plan_description = (String) map.get("plan_description");
-        String client_plan_id = (String) map.get("client_plan_id");
-        com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
-        com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
-        Long rollover_plan_duration = (Long) map.get("rollover_plan_duration");
-        Long rollover_plan_uom_cd = (Long) map.get("rollover_plan_uom_cd");
-        Long rollover_plan_no = (Long) map.get("rollover_plan_no");
-        String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
-        Long init_free_period_duration = (Long) map.get("init_free_period_duration");
-        Long init_free_period_uom_cd = (Long) map.get("init_free_period_uom_cd");
-        Long initial_plan_status_cd = (Long) map.get("initial_plan_status_cd");
-        Long rollover_plan_status_duration = (Long) map.get("rollover_plan_status_duration");
-        Long rollover_plan_status_uom_cd = (Long) map.get("rollover_plan_status_uom_cd");
-        Long rollover_plan_status_cd = (Long) map.get("rollover_plan_status_cd");
-        Long dunning_plan_no = (Long) map.get("dunning_plan_no");
-        String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
-        Long template_no = (Long) map.get("template_no");
-        String client_email_template_id = (String) map.get("client_email_template_id");
-        String apply_cancellation = (String) map.get("apply_cancellation");
-        Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
-        String apply_minimum_fee = (String) map.get("apply_minimum_fee");
-        String how_to_apply_min_fee = (String) map.get("how_to_apply_min_fee");
-        com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
-        Long arc_service_no = (Long) map.get("arc_service_no");
-        com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
-        com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
-        com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
-        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-        Long template_ind = (Long) map.get("template_ind");
-        com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
-        com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans = (com.aria.common.shared.admin.EligibleChildPlansArray) map.get("eligible_child_plans");
-        String notification_template_group_no = (String) map.get("notification_template_group_no");
-        String credit_note_template_no = (String) map.get("credit_note_template_no");
-        com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
-        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
-        String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
-        Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
-        com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
-        Long contract_rollover_plan_no = (Long) map.get("contract_rollover_plan_no");
-        String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
-        com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
-        Long nso_incl_list_scope = (Long) map.get("nso_incl_list_scope");
-        com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array = (com.aria.common.shared.admin.NsoInclListArrayArray) map.get("nso_incl_list_array");
-        com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array = (com.aria.common.shared.admin.NsoGroupArrayArray) map.get("nso_group_array");
-        String nso_group_min_qty = (String) map.get("nso_group_min_qty");
-        String nso_group_max_qty = (String) map.get("nso_group_max_qty");
-        String nso_group_item_scope = (String) map.get("nso_group_item_scope");
-        com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array = (com.aria.common.shared.admin.NsoItemsArrayArray) map.get("nso_items_array");
-        
-        return createNewPlanM(client_no, auth_key, plan_name, plan_type, currency, active, schedule, service, plan_description, client_plan_id, plan_group, plan_group_id, rollover_plan_duration, rollover_plan_uom_cd, rollover_plan_no, rollover_client_plan_id, init_free_period_duration, init_free_period_uom_cd, initial_plan_status_cd, rollover_plan_status_duration, rollover_plan_status_uom_cd, rollover_plan_status_cd, dunning_plan_no, dunning_client_plan_id, template_no, client_email_template_id, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, template_ind, child_plans, eligible_child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, plan_instance_status_cd, assign_field_categories, contract_rollover_plan_no, contract_rollover_client_plan_id, contract_rollover_rate_sched, nso_incl_list_scope, nso_incl_list_array, nso_group_array, nso_group_min_qty, nso_group_max_qty, nso_group_item_scope, nso_items_array);
-    }
-
     public Map<String,Object> editPlan(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String billing_interval, String usage_billing_interval, String currency, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long edit_directives){
         MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
         addParameters(parameters,"client_no",getValue("Long",client_no));
@@ -2318,144 +2068,6 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         Long edit_directives = (Long) map.get("edit_directives");
         
         return editPlan(client_no, auth_key, plan_no, client_plan_id, plan_name, plan_description, plan_group, plan_group_id, plan_type, active, billing_interval, usage_billing_interval, currency, template_no, client_email_template_id, rollover_months, rollover_plan_no, rollover_client_plan_id, dunning_plan_no, dunning_client_plan_id, initial_free_months, acct_status_cd, rollover_acct_status_days, rollover_acct_status_cd, allow_child_accts, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, schedule, service, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, edit_directives);
-    }
-
-    public Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, Long rollover_plan_duration, Long rollover_plan_uom_cd, Long rollover_plan_no, String rollover_client_plan_id, Long init_free_period_duration, Long init_free_period_uom_cd, Long initial_plan_status_cd, Long rollover_plan_status_duration, Long rollover_plan_status_uom_cd, Long rollover_plan_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array, String locale_name){
-        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
-        addParameters(parameters,"client_no",getValue("Long",client_no));
-        addParameters(parameters,"auth_key",getValue("String",auth_key));
-        addParameters(parameters,"plan_no", getValue("String", plan_no));
-        addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
-        addParameters(parameters,"plan_name", getValue("String", plan_name));
-        addParameters(parameters,"plan_description", getValue("String", plan_description));
-        RestUtilities.addParameterValuesFromArray(parameters, plan_group, "plan_group");
-        RestUtilities.addParameterValuesFromArray(parameters, plan_group_id, "plan_group_id");
-        addParameters(parameters,"plan_type", getValue("Long", plan_type));
-        addParameters(parameters,"active", getValue("Long", active));
-        addParameters(parameters,"currency", getValue("String", currency));
-        addParameters(parameters,"template_no", getValue("Long", template_no));
-        addParameters(parameters,"client_email_template_id", getValue("String", client_email_template_id));
-        addParameters(parameters,"rollover_plan_duration", getValue("Long", rollover_plan_duration));
-        addParameters(parameters,"rollover_plan_uom_cd", getValue("Long", rollover_plan_uom_cd));
-        addParameters(parameters,"rollover_plan_no", getValue("Long", rollover_plan_no));
-        addParameters(parameters,"rollover_client_plan_id", getValue("String", rollover_client_plan_id));
-        addParameters(parameters,"init_free_period_duration", getValue("Long", init_free_period_duration));
-        addParameters(parameters,"init_free_period_uom_cd", getValue("Long", init_free_period_uom_cd));
-        addParameters(parameters,"initial_plan_status_cd", getValue("Long", initial_plan_status_cd));
-        addParameters(parameters,"rollover_plan_status_duration", getValue("Long", rollover_plan_status_duration));
-        addParameters(parameters,"rollover_plan_status_uom_cd", getValue("Long", rollover_plan_status_uom_cd));
-        addParameters(parameters,"rollover_plan_status_cd", getValue("Long", rollover_plan_status_cd));
-        addParameters(parameters,"dunning_plan_no", getValue("Long", dunning_plan_no));
-        addParameters(parameters,"dunning_client_plan_id", getValue("String", dunning_client_plan_id));
-        addParameters(parameters,"allow_child_accts", getValue("Long", allow_child_accts));
-        addParameters(parameters,"apply_cancellation", getValue("String", apply_cancellation));
-        addParameters(parameters,"plan_cancel_min_month", getValue("Long", plan_cancel_min_month));
-        addParameters(parameters,"apply_minimum_fee", getValue("String", apply_minimum_fee));
-        addParameters(parameters,"how_to_apply_min_fee", getValue("Long", how_to_apply_min_fee));
-        RestUtilities.addParameterValuesFromArray(parameters, schedule, "schedule");
-        RestUtilities.addParameterValuesFromArray(parameters, service, "service");
-        RestUtilities.addParameterValuesFromArray(parameters, resource, "resource");
-        addParameters(parameters,"arc_service_no", getValue("Long", arc_service_no));
-        RestUtilities.addParameterValuesFromArray(parameters, parent_plans, "parent_plans");
-        RestUtilities.addParameterValuesFromArray(parameters, parent_client_plan_ids, "parent_client_plan_ids");
-        RestUtilities.addParameterValuesFromArray(parameters, exclusion_plans, "exclusion_plans");
-        RestUtilities.addParameterValuesFromArray(parameters, supplemental_obj_field, "supplemental_obj_field");
-        RestUtilities.addParameterValuesFromArray(parameters, child_plans, "child_plans");
-        RestUtilities.addParameterValuesFromArray(parameters, eligible_child_plans, "eligible_child_plans");
-        addParameters(parameters,"notification_template_group_no", getValue("String", notification_template_group_no));
-        addParameters(parameters,"credit_note_template_no", getValue("String", credit_note_template_no));
-        RestUtilities.addParameterValuesFromArray(parameters, surcharge_no, "surcharge_no");
-        RestUtilities.addParameterValuesFromArray(parameters, client_surcharge_id, "client_surcharge_id");
-        addParameters(parameters,"proration_invoice_timing_cd", getValue("String", proration_invoice_timing_cd));
-        addParameters(parameters,"plan_instance_status_cd", getValue("Long", plan_instance_status_cd));
-        RestUtilities.addParameterValuesFromArray(parameters, assign_field_categories, "assign_field_categories");
-        addParameters(parameters,"edit_directives", getValue("Long", edit_directives));
-        addParameters(parameters,"contract_rollover_plan_no", getValue("Long", contract_rollover_plan_no));
-        addParameters(parameters,"contract_rollover_client_plan_id", getValue("String", contract_rollover_client_plan_id));
-        RestUtilities.addParameterValuesFromArray(parameters, contract_rollover_rate_sched, "contract_rollover_rate_sched");
-        addParameters(parameters,"nso_incl_list_scope", getValue("Long", nso_incl_list_scope));
-        RestUtilities.addParameterValuesFromArray(parameters, nso_incl_list_array, "nso_incl_list_array");
-        RestUtilities.addParameterValuesFromArray(parameters, nso_group_array, "nso_group_array");
-        addParameters(parameters,"nso_group_min_qty", getValue("String", nso_group_min_qty));
-        addParameters(parameters,"nso_group_max_qty", getValue("String", nso_group_max_qty));
-        addParameters(parameters,"nso_group_item_scope", getValue("String", nso_group_item_scope));
-        RestUtilities.addParameterValuesFromArray(parameters, nso_items_array, "nso_items_array");
-        addParameters(parameters,"locale_name", getValue("String", locale_name));
-        
-        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("edit_plan_m"));
-        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
-        String[] returnValues = new String[3];
-
-        returnValues[0] = "error_code";
-        returnValues[1] = "error_msg";
-        returnValues[2] = "plan_no";
-        
-        buildHashMapReturnValues(ret,returnValues);
-        return getHashMapReturnValues();
-    }
-
-    public Map<String,Object> editPlanM(Map<String,Object> map){
-        Long client_no = (Long) map.get("client_no");
-        String auth_key = (String) map.get("auth_key");
-        String plan_no = (String) map.get("plan_no");
-        String client_plan_id = (String) map.get("client_plan_id");
-        String plan_name = (String) map.get("plan_name");
-        String plan_description = (String) map.get("plan_description");
-        com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
-        com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
-        Long plan_type = (Long) map.get("plan_type");
-        Long active = (Long) map.get("active");
-        String currency = (String) map.get("currency");
-        Long template_no = (Long) map.get("template_no");
-        String client_email_template_id = (String) map.get("client_email_template_id");
-        Long rollover_plan_duration = (Long) map.get("rollover_plan_duration");
-        Long rollover_plan_uom_cd = (Long) map.get("rollover_plan_uom_cd");
-        Long rollover_plan_no = (Long) map.get("rollover_plan_no");
-        String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
-        Long init_free_period_duration = (Long) map.get("init_free_period_duration");
-        Long init_free_period_uom_cd = (Long) map.get("init_free_period_uom_cd");
-        Long initial_plan_status_cd = (Long) map.get("initial_plan_status_cd");
-        Long rollover_plan_status_duration = (Long) map.get("rollover_plan_status_duration");
-        Long rollover_plan_status_uom_cd = (Long) map.get("rollover_plan_status_uom_cd");
-        Long rollover_plan_status_cd = (Long) map.get("rollover_plan_status_cd");
-        Long dunning_plan_no = (Long) map.get("dunning_plan_no");
-        String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
-        Long allow_child_accts = (Long) map.get("allow_child_accts");
-        String apply_cancellation = (String) map.get("apply_cancellation");
-        Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
-        String apply_minimum_fee = (String) map.get("apply_minimum_fee");
-        Long how_to_apply_min_fee = (Long) map.get("how_to_apply_min_fee");
-        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
-        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
-        com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
-        Long arc_service_no = (Long) map.get("arc_service_no");
-        com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
-        com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
-        com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
-        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
-        com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
-        com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans = (com.aria.common.shared.admin.EligibleChildPlansArray) map.get("eligible_child_plans");
-        String notification_template_group_no = (String) map.get("notification_template_group_no");
-        String credit_note_template_no = (String) map.get("credit_note_template_no");
-        com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
-        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
-        String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
-        Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
-        com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
-        Long edit_directives = (Long) map.get("edit_directives");
-        Long contract_rollover_plan_no = (Long) map.get("contract_rollover_plan_no");
-        String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
-        com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
-        Long nso_incl_list_scope = (Long) map.get("nso_incl_list_scope");
-        com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array = (com.aria.common.shared.admin.NsoInclListArrayArray) map.get("nso_incl_list_array");
-        com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array = (com.aria.common.shared.admin.NsoGroupArrayArray) map.get("nso_group_array");
-        String nso_group_min_qty = (String) map.get("nso_group_min_qty");
-        String nso_group_max_qty = (String) map.get("nso_group_max_qty");
-        String nso_group_item_scope = (String) map.get("nso_group_item_scope");
-        com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array = (com.aria.common.shared.admin.NsoItemsArrayArray) map.get("nso_items_array");
-        String locale_name = (String) map.get("locale_name");
-        
-        return editPlanM(client_no, auth_key, plan_no, client_plan_id, plan_name, plan_description, plan_group, plan_group_id, plan_type, active, currency, template_no, client_email_template_id, rollover_plan_duration, rollover_plan_uom_cd, rollover_plan_no, rollover_client_plan_id, init_free_period_duration, init_free_period_uom_cd, initial_plan_status_cd, rollover_plan_status_duration, rollover_plan_status_uom_cd, rollover_plan_status_cd, dunning_plan_no, dunning_client_plan_id, allow_child_accts, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, schedule, service, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, child_plans, eligible_child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, plan_instance_status_cd, assign_field_categories, edit_directives, contract_rollover_plan_no, contract_rollover_client_plan_id, contract_rollover_rate_sched, nso_incl_list_scope, nso_incl_list_array, nso_group_array, nso_group_min_qty, nso_group_max_qty, nso_group_item_scope, nso_items_array, locale_name);
     }
 
     public Map<String,Object> deletePlans(Long client_no, String auth_key, com.aria.common.shared.admin.PlanNosArray plan_nos){
@@ -4077,6 +3689,394 @@ public class AriaBillingAdministrationRest extends BaseAriaBilling implements Ar
         String auth_key = (String) map.get("auth_key");
         
         return getClientPaymentMethod(client_no, auth_key);
+    }
+
+    public Map<String,Object> getPlansM(Long client_no, String auth_key, String include_rs_summary, String locale_name, String include_translations){
+        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
+        addParameters(parameters,"client_no",getValue("Long",client_no));
+        addParameters(parameters,"auth_key",getValue("String",auth_key));
+        addParameters(parameters,"include_rs_summary", getValue("String", include_rs_summary));
+        addParameters(parameters,"locale_name", getValue("String", locale_name));
+        addParameters(parameters,"include_translations", getValue("String", include_translations));
+        
+        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plans_m"));
+        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
+        String[] returnValues = new String[3];
+
+        returnValues[0] = "error_code";
+        returnValues[1] = "error_msg";
+        returnValues[2] = "plans";
+        
+        buildHashMapReturnValues(ret,returnValues);
+        return getHashMapReturnValues();
+    }
+
+    public Map<String,Object> getPlansM(Map<String,Object> map){
+        Long client_no = (Long) map.get("client_no");
+        String auth_key = (String) map.get("auth_key");
+        String include_rs_summary = (String) map.get("include_rs_summary");
+        String locale_name = (String) map.get("locale_name");
+        String include_translations = (String) map.get("include_translations");
+        
+        return getPlansM(client_no, auth_key, include_rs_summary, locale_name, include_translations);
+    }
+
+    public Map<String,Object> getPlanDetailsM(Long client_no, String auth_key, Long plan_no, String client_plan_id, String include_rs_summary, String retrieve_bundled_nso, String retrieve_included_nso, String locale_name, String include_translations){
+        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
+        addParameters(parameters,"client_no",getValue("Long",client_no));
+        addParameters(parameters,"auth_key",getValue("String",auth_key));
+        addParameters(parameters,"plan_no", getValue("Long", plan_no));
+        addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
+        addParameters(parameters,"include_rs_summary", getValue("String", include_rs_summary));
+        addParameters(parameters,"retrieve_bundled_nso", getValue("String", retrieve_bundled_nso));
+        addParameters(parameters,"retrieve_included_nso", getValue("String", retrieve_included_nso));
+        addParameters(parameters,"locale_name", getValue("String", locale_name));
+        addParameters(parameters,"include_translations", getValue("String", include_translations));
+        
+        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("get_plan_details_m"));
+        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
+        String[] returnValues = new String[53];
+
+        returnValues[0] = "error_code";
+        returnValues[1] = "error_msg";
+        returnValues[2] = "plan_no";
+        returnValues[3] = "client_plan_id";
+        returnValues[4] = "plan_level";
+        returnValues[5] = "plan_type";
+        returnValues[6] = "plan_name";
+        returnValues[7] = "plan_desc";
+        returnValues[8] = "plan_groups";
+        returnValues[9] = "plan_group_ids";
+        returnValues[10] = "currency_cd";
+        returnValues[11] = "active_ind";
+        returnValues[12] = "rollover_plan_duration";
+        returnValues[13] = "rollover_plan_uom_cd";
+        returnValues[14] = "rollover_plan_no";
+        returnValues[15] = "rollover_client_plan_id";
+        returnValues[16] = "init_free_period_duration";
+        returnValues[17] = "init_free_period_uom_cd";
+        returnValues[18] = "initial_plan_status_cd";
+        returnValues[19] = "rollover_plan_status_duration";
+        returnValues[20] = "rollover_plan_status_uom_cd";
+        returnValues[21] = "rollover_plan_status_cd";
+        returnValues[22] = "allow_child_accounts";
+        returnValues[23] = "dunning_plan_no";
+        returnValues[24] = "dunning_client_plan_id";
+        returnValues[25] = "acct_status_cd";
+        returnValues[26] = "rollover_acct_status_days";
+        returnValues[27] = "rollover_acct_status_cd";
+        returnValues[28] = "template_no";
+        returnValues[29] = "template_id";
+        returnValues[30] = "plan_cancel_min_months";
+        returnValues[31] = "how_to_apply_min_fee";
+        returnValues[32] = "is_deletable";
+        returnValues[33] = "services";
+        returnValues[34] = "parent_plans";
+        returnValues[35] = "parent_plan_ids";
+        returnValues[36] = "exclusion_plans";
+        returnValues[37] = "resources";
+        returnValues[38] = "supplemental_obj_fields";
+        returnValues[39] = "surcharges";
+        returnValues[40] = "proration_invoice_timing_cd";
+        returnValues[41] = "rate_sched";
+        returnValues[42] = "contract_rollover_plan_no";
+        returnValues[43] = "contract_rollover_client_plan_id";
+        returnValues[44] = "contract_rollover_rate_sched";
+        returnValues[45] = "plan_nso_items";
+        returnValues[46] = "plan_nso_group";
+        returnValues[47] = "nso_group_min_qty";
+        returnValues[48] = "nso_group_max_qty";
+        returnValues[49] = "nso_group_item_scope";
+        returnValues[50] = "nso_incl_list_scope";
+        returnValues[51] = "plan_nso_incl_list";
+        returnValues[52] = "plan_translation_info";
+        
+        buildHashMapReturnValues(ret,returnValues);
+        return getHashMapReturnValues();
+    }
+
+    public Map<String,Object> getPlanDetailsM(Map<String,Object> map){
+        Long client_no = (Long) map.get("client_no");
+        String auth_key = (String) map.get("auth_key");
+        Long plan_no = (Long) map.get("plan_no");
+        String client_plan_id = (String) map.get("client_plan_id");
+        String include_rs_summary = (String) map.get("include_rs_summary");
+        String retrieve_bundled_nso = (String) map.get("retrieve_bundled_nso");
+        String retrieve_included_nso = (String) map.get("retrieve_included_nso");
+        String locale_name = (String) map.get("locale_name");
+        String include_translations = (String) map.get("include_translations");
+        
+        return getPlanDetailsM(client_no, auth_key, plan_no, client_plan_id, include_rs_summary, retrieve_bundled_nso, retrieve_included_nso, locale_name, include_translations);
+    }
+
+    public Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long rollover_plan_duration, Long rollover_plan_uom_cd, Long rollover_plan_no, String rollover_client_plan_id, Long init_free_period_duration, Long init_free_period_uom_cd, Long initial_plan_status_cd, Long rollover_plan_status_duration, Long rollover_plan_status_uom_cd, Long rollover_plan_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array){
+        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
+        addParameters(parameters,"client_no",getValue("Long",client_no));
+        addParameters(parameters,"auth_key",getValue("String",auth_key));
+        addParameters(parameters,"plan_name", getValue("String", plan_name));
+        addParameters(parameters,"plan_type", getValue("String", plan_type));
+        addParameters(parameters,"currency", getValue("String", currency));
+        addParameters(parameters,"active", getValue("Long", active));
+        RestUtilities.addParameterValuesFromArray(parameters, schedule, "schedule");
+        RestUtilities.addParameterValuesFromArray(parameters, service, "service");
+        addParameters(parameters,"plan_description", getValue("String", plan_description));
+        addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
+        RestUtilities.addParameterValuesFromArray(parameters, plan_group, "plan_group");
+        RestUtilities.addParameterValuesFromArray(parameters, plan_group_id, "plan_group_id");
+        addParameters(parameters,"rollover_plan_duration", getValue("Long", rollover_plan_duration));
+        addParameters(parameters,"rollover_plan_uom_cd", getValue("Long", rollover_plan_uom_cd));
+        addParameters(parameters,"rollover_plan_no", getValue("Long", rollover_plan_no));
+        addParameters(parameters,"rollover_client_plan_id", getValue("String", rollover_client_plan_id));
+        addParameters(parameters,"init_free_period_duration", getValue("Long", init_free_period_duration));
+        addParameters(parameters,"init_free_period_uom_cd", getValue("Long", init_free_period_uom_cd));
+        addParameters(parameters,"initial_plan_status_cd", getValue("Long", initial_plan_status_cd));
+        addParameters(parameters,"rollover_plan_status_duration", getValue("Long", rollover_plan_status_duration));
+        addParameters(parameters,"rollover_plan_status_uom_cd", getValue("Long", rollover_plan_status_uom_cd));
+        addParameters(parameters,"rollover_plan_status_cd", getValue("Long", rollover_plan_status_cd));
+        addParameters(parameters,"dunning_plan_no", getValue("Long", dunning_plan_no));
+        addParameters(parameters,"dunning_client_plan_id", getValue("String", dunning_client_plan_id));
+        addParameters(parameters,"template_no", getValue("Long", template_no));
+        addParameters(parameters,"client_email_template_id", getValue("String", client_email_template_id));
+        addParameters(parameters,"apply_cancellation", getValue("String", apply_cancellation));
+        addParameters(parameters,"plan_cancel_min_month", getValue("Long", plan_cancel_min_month));
+        addParameters(parameters,"apply_minimum_fee", getValue("String", apply_minimum_fee));
+        addParameters(parameters,"how_to_apply_min_fee", getValue("String", how_to_apply_min_fee));
+        RestUtilities.addParameterValuesFromArray(parameters, resource, "resource");
+        addParameters(parameters,"arc_service_no", getValue("Long", arc_service_no));
+        RestUtilities.addParameterValuesFromArray(parameters, parent_plans, "parent_plans");
+        RestUtilities.addParameterValuesFromArray(parameters, parent_client_plan_ids, "parent_client_plan_ids");
+        RestUtilities.addParameterValuesFromArray(parameters, exclusion_plans, "exclusion_plans");
+        RestUtilities.addParameterValuesFromArray(parameters, supplemental_obj_field, "supplemental_obj_field");
+        addParameters(parameters,"template_ind", getValue("Long", template_ind));
+        RestUtilities.addParameterValuesFromArray(parameters, child_plans, "child_plans");
+        RestUtilities.addParameterValuesFromArray(parameters, eligible_child_plans, "eligible_child_plans");
+        addParameters(parameters,"notification_template_group_no", getValue("String", notification_template_group_no));
+        addParameters(parameters,"credit_note_template_no", getValue("String", credit_note_template_no));
+        RestUtilities.addParameterValuesFromArray(parameters, surcharge_no, "surcharge_no");
+        RestUtilities.addParameterValuesFromArray(parameters, client_surcharge_id, "client_surcharge_id");
+        addParameters(parameters,"proration_invoice_timing_cd", getValue("String", proration_invoice_timing_cd));
+        addParameters(parameters,"plan_instance_status_cd", getValue("Long", plan_instance_status_cd));
+        RestUtilities.addParameterValuesFromArray(parameters, assign_field_categories, "assign_field_categories");
+        addParameters(parameters,"contract_rollover_plan_no", getValue("Long", contract_rollover_plan_no));
+        addParameters(parameters,"contract_rollover_client_plan_id", getValue("String", contract_rollover_client_plan_id));
+        RestUtilities.addParameterValuesFromArray(parameters, contract_rollover_rate_sched, "contract_rollover_rate_sched");
+        addParameters(parameters,"nso_incl_list_scope", getValue("Long", nso_incl_list_scope));
+        RestUtilities.addParameterValuesFromArray(parameters, nso_incl_list_array, "nso_incl_list_array");
+        RestUtilities.addParameterValuesFromArray(parameters, nso_group_array, "nso_group_array");
+        addParameters(parameters,"nso_group_min_qty", getValue("String", nso_group_min_qty));
+        addParameters(parameters,"nso_group_max_qty", getValue("String", nso_group_max_qty));
+        addParameters(parameters,"nso_group_item_scope", getValue("String", nso_group_item_scope));
+        RestUtilities.addParameterValuesFromArray(parameters, nso_items_array, "nso_items_array");
+        
+        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("create_new_plan_m"));
+        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
+        String[] returnValues = new String[3];
+
+        returnValues[0] = "error_code";
+        returnValues[1] = "error_msg";
+        returnValues[2] = "plan_no";
+        
+        buildHashMapReturnValues(ret,returnValues);
+        return getHashMapReturnValues();
+    }
+
+    public Map<String,Object> createNewPlanM(Map<String,Object> map){
+        Long client_no = (Long) map.get("client_no");
+        String auth_key = (String) map.get("auth_key");
+        String plan_name = (String) map.get("plan_name");
+        String plan_type = (String) map.get("plan_type");
+        String currency = (String) map.get("currency");
+        Long active = (Long) map.get("active");
+        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
+        String plan_description = (String) map.get("plan_description");
+        String client_plan_id = (String) map.get("client_plan_id");
+        com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
+        com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
+        Long rollover_plan_duration = (Long) map.get("rollover_plan_duration");
+        Long rollover_plan_uom_cd = (Long) map.get("rollover_plan_uom_cd");
+        Long rollover_plan_no = (Long) map.get("rollover_plan_no");
+        String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
+        Long init_free_period_duration = (Long) map.get("init_free_period_duration");
+        Long init_free_period_uom_cd = (Long) map.get("init_free_period_uom_cd");
+        Long initial_plan_status_cd = (Long) map.get("initial_plan_status_cd");
+        Long rollover_plan_status_duration = (Long) map.get("rollover_plan_status_duration");
+        Long rollover_plan_status_uom_cd = (Long) map.get("rollover_plan_status_uom_cd");
+        Long rollover_plan_status_cd = (Long) map.get("rollover_plan_status_cd");
+        Long dunning_plan_no = (Long) map.get("dunning_plan_no");
+        String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
+        Long template_no = (Long) map.get("template_no");
+        String client_email_template_id = (String) map.get("client_email_template_id");
+        String apply_cancellation = (String) map.get("apply_cancellation");
+        Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
+        String apply_minimum_fee = (String) map.get("apply_minimum_fee");
+        String how_to_apply_min_fee = (String) map.get("how_to_apply_min_fee");
+        com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
+        Long arc_service_no = (Long) map.get("arc_service_no");
+        com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
+        com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
+        com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        Long template_ind = (Long) map.get("template_ind");
+        com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
+        com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans = (com.aria.common.shared.admin.EligibleChildPlansArray) map.get("eligible_child_plans");
+        String notification_template_group_no = (String) map.get("notification_template_group_no");
+        String credit_note_template_no = (String) map.get("credit_note_template_no");
+        com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
+        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
+        String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
+        Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
+        com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
+        Long contract_rollover_plan_no = (Long) map.get("contract_rollover_plan_no");
+        String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
+        com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
+        Long nso_incl_list_scope = (Long) map.get("nso_incl_list_scope");
+        com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array = (com.aria.common.shared.admin.NsoInclListArrayArray) map.get("nso_incl_list_array");
+        com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array = (com.aria.common.shared.admin.NsoGroupArrayArray) map.get("nso_group_array");
+        String nso_group_min_qty = (String) map.get("nso_group_min_qty");
+        String nso_group_max_qty = (String) map.get("nso_group_max_qty");
+        String nso_group_item_scope = (String) map.get("nso_group_item_scope");
+        com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array = (com.aria.common.shared.admin.NsoItemsArrayArray) map.get("nso_items_array");
+        
+        return createNewPlanM(client_no, auth_key, plan_name, plan_type, currency, active, schedule, service, plan_description, client_plan_id, plan_group, plan_group_id, rollover_plan_duration, rollover_plan_uom_cd, rollover_plan_no, rollover_client_plan_id, init_free_period_duration, init_free_period_uom_cd, initial_plan_status_cd, rollover_plan_status_duration, rollover_plan_status_uom_cd, rollover_plan_status_cd, dunning_plan_no, dunning_client_plan_id, template_no, client_email_template_id, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, template_ind, child_plans, eligible_child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, plan_instance_status_cd, assign_field_categories, contract_rollover_plan_no, contract_rollover_client_plan_id, contract_rollover_rate_sched, nso_incl_list_scope, nso_incl_list_array, nso_group_array, nso_group_min_qty, nso_group_max_qty, nso_group_item_scope, nso_items_array);
+    }
+
+    public Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, Long rollover_plan_duration, Long rollover_plan_uom_cd, Long rollover_plan_no, String rollover_client_plan_id, Long init_free_period_duration, Long init_free_period_uom_cd, Long initial_plan_status_cd, Long rollover_plan_status_duration, Long rollover_plan_status_uom_cd, Long rollover_plan_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array, String locale_name){
+        MultivaluedMap<String, String> parameters = new MultivaluedMapImpl();
+        addParameters(parameters,"client_no",getValue("Long",client_no));
+        addParameters(parameters,"auth_key",getValue("String",auth_key));
+        addParameters(parameters,"plan_no", getValue("String", plan_no));
+        addParameters(parameters,"client_plan_id", getValue("String", client_plan_id));
+        addParameters(parameters,"plan_name", getValue("String", plan_name));
+        addParameters(parameters,"plan_description", getValue("String", plan_description));
+        RestUtilities.addParameterValuesFromArray(parameters, plan_group, "plan_group");
+        RestUtilities.addParameterValuesFromArray(parameters, plan_group_id, "plan_group_id");
+        addParameters(parameters,"plan_type", getValue("Long", plan_type));
+        addParameters(parameters,"active", getValue("Long", active));
+        addParameters(parameters,"currency", getValue("String", currency));
+        addParameters(parameters,"template_no", getValue("Long", template_no));
+        addParameters(parameters,"client_email_template_id", getValue("String", client_email_template_id));
+        addParameters(parameters,"rollover_plan_duration", getValue("Long", rollover_plan_duration));
+        addParameters(parameters,"rollover_plan_uom_cd", getValue("Long", rollover_plan_uom_cd));
+        addParameters(parameters,"rollover_plan_no", getValue("Long", rollover_plan_no));
+        addParameters(parameters,"rollover_client_plan_id", getValue("String", rollover_client_plan_id));
+        addParameters(parameters,"init_free_period_duration", getValue("Long", init_free_period_duration));
+        addParameters(parameters,"init_free_period_uom_cd", getValue("Long", init_free_period_uom_cd));
+        addParameters(parameters,"initial_plan_status_cd", getValue("Long", initial_plan_status_cd));
+        addParameters(parameters,"rollover_plan_status_duration", getValue("Long", rollover_plan_status_duration));
+        addParameters(parameters,"rollover_plan_status_uom_cd", getValue("Long", rollover_plan_status_uom_cd));
+        addParameters(parameters,"rollover_plan_status_cd", getValue("Long", rollover_plan_status_cd));
+        addParameters(parameters,"dunning_plan_no", getValue("Long", dunning_plan_no));
+        addParameters(parameters,"dunning_client_plan_id", getValue("String", dunning_client_plan_id));
+        addParameters(parameters,"allow_child_accts", getValue("Long", allow_child_accts));
+        addParameters(parameters,"apply_cancellation", getValue("String", apply_cancellation));
+        addParameters(parameters,"plan_cancel_min_month", getValue("Long", plan_cancel_min_month));
+        addParameters(parameters,"apply_minimum_fee", getValue("String", apply_minimum_fee));
+        addParameters(parameters,"how_to_apply_min_fee", getValue("Long", how_to_apply_min_fee));
+        RestUtilities.addParameterValuesFromArray(parameters, schedule, "schedule");
+        RestUtilities.addParameterValuesFromArray(parameters, service, "service");
+        RestUtilities.addParameterValuesFromArray(parameters, resource, "resource");
+        addParameters(parameters,"arc_service_no", getValue("Long", arc_service_no));
+        RestUtilities.addParameterValuesFromArray(parameters, parent_plans, "parent_plans");
+        RestUtilities.addParameterValuesFromArray(parameters, parent_client_plan_ids, "parent_client_plan_ids");
+        RestUtilities.addParameterValuesFromArray(parameters, exclusion_plans, "exclusion_plans");
+        RestUtilities.addParameterValuesFromArray(parameters, supplemental_obj_field, "supplemental_obj_field");
+        RestUtilities.addParameterValuesFromArray(parameters, child_plans, "child_plans");
+        RestUtilities.addParameterValuesFromArray(parameters, eligible_child_plans, "eligible_child_plans");
+        addParameters(parameters,"notification_template_group_no", getValue("String", notification_template_group_no));
+        addParameters(parameters,"credit_note_template_no", getValue("String", credit_note_template_no));
+        RestUtilities.addParameterValuesFromArray(parameters, surcharge_no, "surcharge_no");
+        RestUtilities.addParameterValuesFromArray(parameters, client_surcharge_id, "client_surcharge_id");
+        addParameters(parameters,"proration_invoice_timing_cd", getValue("String", proration_invoice_timing_cd));
+        addParameters(parameters,"plan_instance_status_cd", getValue("Long", plan_instance_status_cd));
+        RestUtilities.addParameterValuesFromArray(parameters, assign_field_categories, "assign_field_categories");
+        addParameters(parameters,"edit_directives", getValue("Long", edit_directives));
+        addParameters(parameters,"contract_rollover_plan_no", getValue("Long", contract_rollover_plan_no));
+        addParameters(parameters,"contract_rollover_client_plan_id", getValue("String", contract_rollover_client_plan_id));
+        RestUtilities.addParameterValuesFromArray(parameters, contract_rollover_rate_sched, "contract_rollover_rate_sched");
+        addParameters(parameters,"nso_incl_list_scope", getValue("Long", nso_incl_list_scope));
+        RestUtilities.addParameterValuesFromArray(parameters, nso_incl_list_array, "nso_incl_list_array");
+        RestUtilities.addParameterValuesFromArray(parameters, nso_group_array, "nso_group_array");
+        addParameters(parameters,"nso_group_min_qty", getValue("String", nso_group_min_qty));
+        addParameters(parameters,"nso_group_max_qty", getValue("String", nso_group_max_qty));
+        addParameters(parameters,"nso_group_item_scope", getValue("String", nso_group_item_scope));
+        RestUtilities.addParameterValuesFromArray(parameters, nso_items_array, "nso_items_array");
+        addParameters(parameters,"locale_name", getValue("String", locale_name));
+        
+        WebResource webResource = Client.create(new DefaultClientConfig()).resource(buildUrl("edit_plan_m"));
+        String ret = webResource.type("application/x-www-form-urlencoded").accept("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8").header("accept-encoding", "deflate").header("accept-encoding", "gzip").post(String.class, parameters);
+        String[] returnValues = new String[3];
+
+        returnValues[0] = "error_code";
+        returnValues[1] = "error_msg";
+        returnValues[2] = "plan_no";
+        
+        buildHashMapReturnValues(ret,returnValues);
+        return getHashMapReturnValues();
+    }
+
+    public Map<String,Object> editPlanM(Map<String,Object> map){
+        Long client_no = (Long) map.get("client_no");
+        String auth_key = (String) map.get("auth_key");
+        String plan_no = (String) map.get("plan_no");
+        String client_plan_id = (String) map.get("client_plan_id");
+        String plan_name = (String) map.get("plan_name");
+        String plan_description = (String) map.get("plan_description");
+        com.aria.common.shared.admin.PlanGroupArray plan_group = (com.aria.common.shared.admin.PlanGroupArray) map.get("plan_group");
+        com.aria.common.shared.admin.PlanGroupIdArray plan_group_id = (com.aria.common.shared.admin.PlanGroupIdArray) map.get("plan_group_id");
+        Long plan_type = (Long) map.get("plan_type");
+        Long active = (Long) map.get("active");
+        String currency = (String) map.get("currency");
+        Long template_no = (Long) map.get("template_no");
+        String client_email_template_id = (String) map.get("client_email_template_id");
+        Long rollover_plan_duration = (Long) map.get("rollover_plan_duration");
+        Long rollover_plan_uom_cd = (Long) map.get("rollover_plan_uom_cd");
+        Long rollover_plan_no = (Long) map.get("rollover_plan_no");
+        String rollover_client_plan_id = (String) map.get("rollover_client_plan_id");
+        Long init_free_period_duration = (Long) map.get("init_free_period_duration");
+        Long init_free_period_uom_cd = (Long) map.get("init_free_period_uom_cd");
+        Long initial_plan_status_cd = (Long) map.get("initial_plan_status_cd");
+        Long rollover_plan_status_duration = (Long) map.get("rollover_plan_status_duration");
+        Long rollover_plan_status_uom_cd = (Long) map.get("rollover_plan_status_uom_cd");
+        Long rollover_plan_status_cd = (Long) map.get("rollover_plan_status_cd");
+        Long dunning_plan_no = (Long) map.get("dunning_plan_no");
+        String dunning_client_plan_id = (String) map.get("dunning_client_plan_id");
+        Long allow_child_accts = (Long) map.get("allow_child_accts");
+        String apply_cancellation = (String) map.get("apply_cancellation");
+        Long plan_cancel_min_month = (Long) map.get("plan_cancel_min_month");
+        String apply_minimum_fee = (String) map.get("apply_minimum_fee");
+        Long how_to_apply_min_fee = (Long) map.get("how_to_apply_min_fee");
+        com.aria.common.shared.admin.ScheduleArray schedule = (com.aria.common.shared.admin.ScheduleArray) map.get("schedule");
+        com.aria.common.shared.admin.ServiceArray service = (com.aria.common.shared.admin.ServiceArray) map.get("service");
+        com.aria.common.shared.admin.ResourceArray resource = (com.aria.common.shared.admin.ResourceArray) map.get("resource");
+        Long arc_service_no = (Long) map.get("arc_service_no");
+        com.aria.common.shared.admin.ParentPlansArray parent_plans = (com.aria.common.shared.admin.ParentPlansArray) map.get("parent_plans");
+        com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids = (com.aria.common.shared.admin.ParentClientPlanIdsArray) map.get("parent_client_plan_ids");
+        com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans = (com.aria.common.shared.admin.ExclusionPlansArray) map.get("exclusion_plans");
+        com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field = (com.aria.common.shared.admin.SupplementalObjFieldArray) map.get("supplemental_obj_field");
+        com.aria.common.shared.admin.ChildPlansArray child_plans = (com.aria.common.shared.admin.ChildPlansArray) map.get("child_plans");
+        com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans = (com.aria.common.shared.admin.EligibleChildPlansArray) map.get("eligible_child_plans");
+        String notification_template_group_no = (String) map.get("notification_template_group_no");
+        String credit_note_template_no = (String) map.get("credit_note_template_no");
+        com.aria.common.shared.admin.SurchargeNoArray surcharge_no = (com.aria.common.shared.admin.SurchargeNoArray) map.get("surcharge_no");
+        com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id = (com.aria.common.shared.admin.ClientSurchargeIdArray) map.get("client_surcharge_id");
+        String proration_invoice_timing_cd = (String) map.get("proration_invoice_timing_cd");
+        Long plan_instance_status_cd = (Long) map.get("plan_instance_status_cd");
+        com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories = (com.aria.common.shared.admin.AssignFieldCategoriesArray) map.get("assign_field_categories");
+        Long edit_directives = (Long) map.get("edit_directives");
+        Long contract_rollover_plan_no = (Long) map.get("contract_rollover_plan_no");
+        String contract_rollover_client_plan_id = (String) map.get("contract_rollover_client_plan_id");
+        com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched = (com.aria.common.shared.admin.ContractRolloverRateSchedArray) map.get("contract_rollover_rate_sched");
+        Long nso_incl_list_scope = (Long) map.get("nso_incl_list_scope");
+        com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array = (com.aria.common.shared.admin.NsoInclListArrayArray) map.get("nso_incl_list_array");
+        com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array = (com.aria.common.shared.admin.NsoGroupArrayArray) map.get("nso_group_array");
+        String nso_group_min_qty = (String) map.get("nso_group_min_qty");
+        String nso_group_max_qty = (String) map.get("nso_group_max_qty");
+        String nso_group_item_scope = (String) map.get("nso_group_item_scope");
+        com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array = (com.aria.common.shared.admin.NsoItemsArrayArray) map.get("nso_items_array");
+        String locale_name = (String) map.get("locale_name");
+        
+        return editPlanM(client_no, auth_key, plan_no, client_plan_id, plan_name, plan_description, plan_group, plan_group_id, plan_type, active, currency, template_no, client_email_template_id, rollover_plan_duration, rollover_plan_uom_cd, rollover_plan_no, rollover_client_plan_id, init_free_period_duration, init_free_period_uom_cd, initial_plan_status_cd, rollover_plan_status_duration, rollover_plan_status_uom_cd, rollover_plan_status_cd, dunning_plan_no, dunning_client_plan_id, allow_child_accts, apply_cancellation, plan_cancel_min_month, apply_minimum_fee, how_to_apply_min_fee, schedule, service, resource, arc_service_no, parent_plans, parent_client_plan_ids, exclusion_plans, supplemental_obj_field, child_plans, eligible_child_plans, notification_template_group_no, credit_note_template_no, surcharge_no, client_surcharge_id, proration_invoice_timing_cd, plan_instance_status_cd, assign_field_categories, edit_directives, contract_rollover_plan_no, contract_rollover_client_plan_id, contract_rollover_rate_sched, nso_incl_list_scope, nso_incl_list_array, nso_group_array, nso_group_min_qty, nso_group_max_qty, nso_group_item_scope, nso_items_array, locale_name);
     }
 
     public Map<String,Object> getDunningProcessesM(Long client_no, String auth_key, com.aria.common.shared.admin.DunningProcessesArray dunning_processes, com.aria.common.shared.admin.PayMethodTypesArray pay_method_types, com.aria.common.shared.admin.MasterPlansArray master_plans){

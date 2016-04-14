@@ -998,22 +998,6 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> getPlans(Map<String,Object> map);
 
     /**
-    * getPlansM
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param include_rs_summary - Type: String
-    * @param locale_name - Type: String
-    * @param include_translations - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   plans - Type: ArrayList&#60;PlansReturnElement&#62;<br>
-    */
-    abstract Map<String,Object> getPlansM(Long client_no, String auth_key, String include_rs_summary, String locale_name, String include_translations);
-
-    abstract Map<String,Object> getPlansM(Map<String,Object> map);
-
-    /**
     * getPlanDetails
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -1063,76 +1047,6 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> getPlanDetails(Long client_no, String auth_key, Long plan_no, String client_plan_id);
 
     abstract Map<String,Object> getPlanDetails(Map<String,Object> map);
-
-    /**
-    * getPlanDetailsM
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param plan_no - Type: Long
-    * @param client_plan_id - Type: String
-    * @param include_rs_summary - Type: String
-    * @param retrieve_bundled_nso - Type: String
-    * @param retrieve_included_nso - Type: String
-    * @param locale_name - Type: String
-    * @param include_translations - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   plan_no - Type: javax.xml.ws.Holder<br>
-    *   client_plan_id - Type: javax.xml.ws.Holder<br>
-    *   plan_level - Type: javax.xml.ws.Holder<br>
-    *   plan_type - Type: javax.xml.ws.Holder<br>
-    *   plan_name - Type: javax.xml.ws.Holder<br>
-    *   plan_desc - Type: javax.xml.ws.Holder<br>
-    *   plan_groups - Type: ArrayList&#60;PlanGroupsReturnElement&#62;<br>
-    *   plan_group_ids - Type: ArrayList&#60;PlanGroupIdsReturnElement&#62;<br>
-    *   currency_cd - Type: javax.xml.ws.Holder<br>
-    *   active_ind - Type: javax.xml.ws.Holder<br>
-    *   rollover_plan_duration - Type: javax.xml.ws.Holder<br>
-    *   rollover_plan_uom_cd - Type: javax.xml.ws.Holder<br>
-    *   rollover_plan_no - Type: javax.xml.ws.Holder<br>
-    *   rollover_client_plan_id - Type: javax.xml.ws.Holder<br>
-    *   init_free_period_duration - Type: javax.xml.ws.Holder<br>
-    *   init_free_period_uom_cd - Type: javax.xml.ws.Holder<br>
-    *   initial_plan_status_cd - Type: javax.xml.ws.Holder<br>
-    *   rollover_plan_status_duration - Type: javax.xml.ws.Holder<br>
-    *   rollover_plan_status_uom_cd - Type: javax.xml.ws.Holder<br>
-    *   rollover_plan_status_cd - Type: javax.xml.ws.Holder<br>
-    *   allow_child_accounts - Type: javax.xml.ws.Holder<br>
-    *   dunning_plan_no - Type: javax.xml.ws.Holder<br>
-    *   dunning_client_plan_id - Type: javax.xml.ws.Holder<br>
-    *   acct_status_cd - Type: javax.xml.ws.Holder<br>
-    *   rollover_acct_status_days - Type: javax.xml.ws.Holder<br>
-    *   rollover_acct_status_cd - Type: javax.xml.ws.Holder<br>
-    *   template_no - Type: javax.xml.ws.Holder<br>
-    *   template_id - Type: javax.xml.ws.Holder<br>
-    *   plan_cancel_min_months - Type: javax.xml.ws.Holder<br>
-    *   how_to_apply_min_fee - Type: javax.xml.ws.Holder<br>
-    *   is_deletable - Type: javax.xml.ws.Holder<br>
-    *   services - Type: ArrayList&#60;ServicesReturnElement&#62;<br>
-    *   parent_plans - Type: ArrayList&#60;ParentPlansReturnElement&#62;<br>
-    *   parent_plan_ids - Type: ArrayList&#60;ParentPlanIdsReturnElement&#62;<br>
-    *   exclusion_plans - Type: ArrayList&#60;ExclusionPlansReturnElement&#62;<br>
-    *   resources - Type: ArrayList&#60;ResourcesReturnElement&#62;<br>
-    *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
-    *   surcharges - Type: ArrayList&#60;SurchargesReturnElement&#62;<br>
-    *   proration_invoice_timing_cd - Type: javax.xml.ws.Holder<br>
-    *   rate_sched - Type: ArrayList&#60;RateSchedReturnElement&#62;<br>
-    *   contract_rollover_plan_no - Type: javax.xml.ws.Holder<br>
-    *   contract_rollover_client_plan_id - Type: javax.xml.ws.Holder<br>
-    *   contract_rollover_rate_sched - Type: ArrayList&#60;ContractRolloverRateSchedReturnElement&#62;<br>
-    *   plan_nso_items - Type: ArrayList&#60;PlanNsoItemsReturnElement&#62;<br>
-    *   plan_nso_group - Type: ArrayList&#60;PlanNsoGroupReturnElement&#62;<br>
-    *   nso_group_min_qty - Type: javax.xml.ws.Holder<br>
-    *   nso_group_max_qty - Type: javax.xml.ws.Holder<br>
-    *   nso_group_item_scope - Type: javax.xml.ws.Holder<br>
-    *   nso_incl_list_scope - Type: javax.xml.ws.Holder<br>
-    *   plan_nso_incl_list - Type: ArrayList&#60;PlanNsoInclListReturnElement&#62;<br>
-    *   plan_translation_info - Type: ArrayList&#60;PlanTranslationInfoReturnElement&#62;<br>
-    */
-    abstract Map<String,Object> getPlanDetailsM(Long client_no, String auth_key, Long plan_no, String client_plan_id, String include_rs_summary, String retrieve_bundled_nso, String retrieve_included_nso, String locale_name, String include_translations);
-
-    abstract Map<String,Object> getPlanDetailsM(Map<String,Object> map);
 
     /**
     * createNewPlan
@@ -1190,73 +1104,6 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> createNewPlan(Map<String,Object> map);
 
     /**
-    * createNewPlanM
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param plan_name - Type: String
-    * @param plan_type - Type: String
-    * @param currency - Type: String
-    * @param active - Type: Long
-    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
-    * @param service - Type: com.aria.common.shared.admin.ServiceArray
-    * @param plan_description - Type: String
-    * @param client_plan_id - Type: String
-    * @param plan_group - Type: com.aria.common.shared.admin.PlanGroupArray
-    * @param plan_group_id - Type: com.aria.common.shared.admin.PlanGroupIdArray
-    * @param rollover_plan_duration - Type: Long
-    * @param rollover_plan_uom_cd - Type: Long
-    * @param rollover_plan_no - Type: Long
-    * @param rollover_client_plan_id - Type: String
-    * @param init_free_period_duration - Type: Long
-    * @param init_free_period_uom_cd - Type: Long
-    * @param initial_plan_status_cd - Type: Long
-    * @param rollover_plan_status_duration - Type: Long
-    * @param rollover_plan_status_uom_cd - Type: Long
-    * @param rollover_plan_status_cd - Type: Long
-    * @param dunning_plan_no - Type: Long
-    * @param dunning_client_plan_id - Type: String
-    * @param template_no - Type: Long
-    * @param client_email_template_id - Type: String
-    * @param apply_cancellation - Type: String
-    * @param plan_cancel_min_month - Type: Long
-    * @param apply_minimum_fee - Type: String
-    * @param how_to_apply_min_fee - Type: String
-    * @param resource - Type: com.aria.common.shared.admin.ResourceArray
-    * @param arc_service_no - Type: Long
-    * @param parent_plans - Type: com.aria.common.shared.admin.ParentPlansArray
-    * @param parent_client_plan_ids - Type: com.aria.common.shared.admin.ParentClientPlanIdsArray
-    * @param exclusion_plans - Type: com.aria.common.shared.admin.ExclusionPlansArray
-    * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
-    * @param template_ind - Type: Long
-    * @param child_plans - Type: com.aria.common.shared.admin.ChildPlansArray
-    * @param eligible_child_plans - Type: com.aria.common.shared.admin.EligibleChildPlansArray
-    * @param notification_template_group_no - Type: String
-    * @param credit_note_template_no - Type: String
-    * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
-    * @param client_surcharge_id - Type: com.aria.common.shared.admin.ClientSurchargeIdArray
-    * @param proration_invoice_timing_cd - Type: String
-    * @param plan_instance_status_cd - Type: Long
-    * @param assign_field_categories - Type: com.aria.common.shared.admin.AssignFieldCategoriesArray
-    * @param contract_rollover_plan_no - Type: Long
-    * @param contract_rollover_client_plan_id - Type: String
-    * @param contract_rollover_rate_sched - Type: com.aria.common.shared.admin.ContractRolloverRateSchedArray
-    * @param nso_incl_list_scope - Type: Long
-    * @param nso_incl_list_array - Type: com.aria.common.shared.admin.NsoInclListArrayArray
-    * @param nso_group_array - Type: com.aria.common.shared.admin.NsoGroupArrayArray
-    * @param nso_group_min_qty - Type: String
-    * @param nso_group_max_qty - Type: String
-    * @param nso_group_item_scope - Type: String
-    * @param nso_items_array - Type: com.aria.common.shared.admin.NsoItemsArrayArray
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   plan_no - Type: javax.xml.ws.Holder<br>
-    */
-    abstract Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long rollover_plan_duration, Long rollover_plan_uom_cd, Long rollover_plan_no, String rollover_client_plan_id, Long init_free_period_duration, Long init_free_period_uom_cd, Long initial_plan_status_cd, Long rollover_plan_status_duration, Long rollover_plan_status_uom_cd, Long rollover_plan_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array);
-
-    abstract Map<String,Object> createNewPlanM(Map<String,Object> map);
-
-    /**
     * editPlan
     * @param client_no - Type: Long
     * @param auth_key - Type: String
@@ -1310,76 +1157,6 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> editPlan(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String billing_interval, String usage_billing_interval, String currency, Long template_no, String client_email_template_id, String rollover_months, Long rollover_plan_no, String rollover_client_plan_id, Long dunning_plan_no, String dunning_client_plan_id, Long initial_free_months, Long acct_status_cd, Long rollover_acct_status_days, Long rollover_acct_status_cd, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long edit_directives);
 
     abstract Map<String,Object> editPlan(Map<String,Object> map);
-
-    /**
-    * editPlanM
-    * @param client_no - Type: Long
-    * @param auth_key - Type: String
-    * @param plan_no - Type: String
-    * @param client_plan_id - Type: String
-    * @param plan_name - Type: String
-    * @param plan_description - Type: String
-    * @param plan_group - Type: com.aria.common.shared.admin.PlanGroupArray
-    * @param plan_group_id - Type: com.aria.common.shared.admin.PlanGroupIdArray
-    * @param plan_type - Type: Long
-    * @param active - Type: Long
-    * @param currency - Type: String
-    * @param template_no - Type: Long
-    * @param client_email_template_id - Type: String
-    * @param rollover_plan_duration - Type: Long
-    * @param rollover_plan_uom_cd - Type: Long
-    * @param rollover_plan_no - Type: Long
-    * @param rollover_client_plan_id - Type: String
-    * @param init_free_period_duration - Type: Long
-    * @param init_free_period_uom_cd - Type: Long
-    * @param initial_plan_status_cd - Type: Long
-    * @param rollover_plan_status_duration - Type: Long
-    * @param rollover_plan_status_uom_cd - Type: Long
-    * @param rollover_plan_status_cd - Type: Long
-    * @param dunning_plan_no - Type: Long
-    * @param dunning_client_plan_id - Type: String
-    * @param allow_child_accts - Type: Long
-    * @param apply_cancellation - Type: String
-    * @param plan_cancel_min_month - Type: Long
-    * @param apply_minimum_fee - Type: String
-    * @param how_to_apply_min_fee - Type: Long
-    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
-    * @param service - Type: com.aria.common.shared.admin.ServiceArray
-    * @param resource - Type: com.aria.common.shared.admin.ResourceArray
-    * @param arc_service_no - Type: Long
-    * @param parent_plans - Type: com.aria.common.shared.admin.ParentPlansArray
-    * @param parent_client_plan_ids - Type: com.aria.common.shared.admin.ParentClientPlanIdsArray
-    * @param exclusion_plans - Type: com.aria.common.shared.admin.ExclusionPlansArray
-    * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
-    * @param child_plans - Type: com.aria.common.shared.admin.ChildPlansArray
-    * @param eligible_child_plans - Type: com.aria.common.shared.admin.EligibleChildPlansArray
-    * @param notification_template_group_no - Type: String
-    * @param credit_note_template_no - Type: String
-    * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
-    * @param client_surcharge_id - Type: com.aria.common.shared.admin.ClientSurchargeIdArray
-    * @param proration_invoice_timing_cd - Type: String
-    * @param plan_instance_status_cd - Type: Long
-    * @param assign_field_categories - Type: com.aria.common.shared.admin.AssignFieldCategoriesArray
-    * @param edit_directives - Type: Long
-    * @param contract_rollover_plan_no - Type: Long
-    * @param contract_rollover_client_plan_id - Type: String
-    * @param contract_rollover_rate_sched - Type: com.aria.common.shared.admin.ContractRolloverRateSchedArray
-    * @param nso_incl_list_scope - Type: Long
-    * @param nso_incl_list_array - Type: com.aria.common.shared.admin.NsoInclListArrayArray
-    * @param nso_group_array - Type: com.aria.common.shared.admin.NsoGroupArrayArray
-    * @param nso_group_min_qty - Type: String
-    * @param nso_group_max_qty - Type: String
-    * @param nso_group_item_scope - Type: String
-    * @param nso_items_array - Type: com.aria.common.shared.admin.NsoItemsArrayArray
-    * @param locale_name - Type: String
-    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
-    *   error_code - Type: javax.xml.ws.Holder<br>
-    *   error_msg - Type: javax.xml.ws.Holder<br>
-    *   plan_no - Type: javax.xml.ws.Holder<br>
-    */
-    abstract Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, Long rollover_plan_duration, Long rollover_plan_uom_cd, Long rollover_plan_no, String rollover_client_plan_id, Long init_free_period_duration, Long init_free_period_uom_cd, Long initial_plan_status_cd, Long rollover_plan_status_duration, Long rollover_plan_status_uom_cd, Long rollover_plan_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array, String locale_name);
-
-    abstract Map<String,Object> editPlanM(Map<String,Object> map);
 
     /**
     * deletePlans
@@ -2269,6 +2046,229 @@ public interface AriaBillingAdministration {
     abstract Map<String,Object> getClientPaymentMethod(Long client_no, String auth_key);
 
     abstract Map<String,Object> getClientPaymentMethod(Map<String,Object> map);
+
+    /**
+    * getPlansM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param include_rs_summary - Type: String
+    * @param locale_name - Type: String
+    * @param include_translations - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plans - Type: ArrayList&#60;PlansReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getPlansM(Long client_no, String auth_key, String include_rs_summary, String locale_name, String include_translations);
+
+    abstract Map<String,Object> getPlansM(Map<String,Object> map);
+
+    /**
+    * getPlanDetailsM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param plan_no - Type: Long
+    * @param client_plan_id - Type: String
+    * @param include_rs_summary - Type: String
+    * @param retrieve_bundled_nso - Type: String
+    * @param retrieve_included_nso - Type: String
+    * @param locale_name - Type: String
+    * @param include_translations - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plan_no - Type: javax.xml.ws.Holder<br>
+    *   client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   plan_level - Type: javax.xml.ws.Holder<br>
+    *   plan_type - Type: javax.xml.ws.Holder<br>
+    *   plan_name - Type: javax.xml.ws.Holder<br>
+    *   plan_desc - Type: javax.xml.ws.Holder<br>
+    *   plan_groups - Type: ArrayList&#60;PlanGroupsReturnElement&#62;<br>
+    *   plan_group_ids - Type: ArrayList&#60;PlanGroupIdsReturnElement&#62;<br>
+    *   currency_cd - Type: javax.xml.ws.Holder<br>
+    *   active_ind - Type: javax.xml.ws.Holder<br>
+    *   rollover_plan_duration - Type: javax.xml.ws.Holder<br>
+    *   rollover_plan_uom_cd - Type: javax.xml.ws.Holder<br>
+    *   rollover_plan_no - Type: javax.xml.ws.Holder<br>
+    *   rollover_client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   init_free_period_duration - Type: javax.xml.ws.Holder<br>
+    *   init_free_period_uom_cd - Type: javax.xml.ws.Holder<br>
+    *   initial_plan_status_cd - Type: javax.xml.ws.Holder<br>
+    *   rollover_plan_status_duration - Type: javax.xml.ws.Holder<br>
+    *   rollover_plan_status_uom_cd - Type: javax.xml.ws.Holder<br>
+    *   rollover_plan_status_cd - Type: javax.xml.ws.Holder<br>
+    *   allow_child_accounts - Type: javax.xml.ws.Holder<br>
+    *   dunning_plan_no - Type: javax.xml.ws.Holder<br>
+    *   dunning_client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   acct_status_cd - Type: javax.xml.ws.Holder<br>
+    *   rollover_acct_status_days - Type: javax.xml.ws.Holder<br>
+    *   rollover_acct_status_cd - Type: javax.xml.ws.Holder<br>
+    *   template_no - Type: javax.xml.ws.Holder<br>
+    *   template_id - Type: javax.xml.ws.Holder<br>
+    *   plan_cancel_min_months - Type: javax.xml.ws.Holder<br>
+    *   how_to_apply_min_fee - Type: javax.xml.ws.Holder<br>
+    *   is_deletable - Type: javax.xml.ws.Holder<br>
+    *   services - Type: ArrayList&#60;ServicesReturnElement&#62;<br>
+    *   parent_plans - Type: ArrayList&#60;ParentPlansReturnElement&#62;<br>
+    *   parent_plan_ids - Type: ArrayList&#60;ParentPlanIdsReturnElement&#62;<br>
+    *   exclusion_plans - Type: ArrayList&#60;ExclusionPlansReturnElement&#62;<br>
+    *   resources - Type: ArrayList&#60;ResourcesReturnElement&#62;<br>
+    *   supplemental_obj_fields - Type: ArrayList&#60;SupplementalObjFieldsReturnElement&#62;<br>
+    *   surcharges - Type: ArrayList&#60;SurchargesReturnElement&#62;<br>
+    *   proration_invoice_timing_cd - Type: javax.xml.ws.Holder<br>
+    *   rate_sched - Type: ArrayList&#60;RateSchedReturnElement&#62;<br>
+    *   contract_rollover_plan_no - Type: javax.xml.ws.Holder<br>
+    *   contract_rollover_client_plan_id - Type: javax.xml.ws.Holder<br>
+    *   contract_rollover_rate_sched - Type: ArrayList&#60;ContractRolloverRateSchedReturnElement&#62;<br>
+    *   plan_nso_items - Type: ArrayList&#60;PlanNsoItemsReturnElement&#62;<br>
+    *   plan_nso_group - Type: ArrayList&#60;PlanNsoGroupReturnElement&#62;<br>
+    *   nso_group_min_qty - Type: javax.xml.ws.Holder<br>
+    *   nso_group_max_qty - Type: javax.xml.ws.Holder<br>
+    *   nso_group_item_scope - Type: javax.xml.ws.Holder<br>
+    *   nso_incl_list_scope - Type: javax.xml.ws.Holder<br>
+    *   plan_nso_incl_list - Type: ArrayList&#60;PlanNsoInclListReturnElement&#62;<br>
+    *   plan_translation_info - Type: ArrayList&#60;PlanTranslationInfoReturnElement&#62;<br>
+    */
+    abstract Map<String,Object> getPlanDetailsM(Long client_no, String auth_key, Long plan_no, String client_plan_id, String include_rs_summary, String retrieve_bundled_nso, String retrieve_included_nso, String locale_name, String include_translations);
+
+    abstract Map<String,Object> getPlanDetailsM(Map<String,Object> map);
+
+    /**
+    * createNewPlanM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param plan_name - Type: String
+    * @param plan_type - Type: String
+    * @param currency - Type: String
+    * @param active - Type: Long
+    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
+    * @param service - Type: com.aria.common.shared.admin.ServiceArray
+    * @param plan_description - Type: String
+    * @param client_plan_id - Type: String
+    * @param plan_group - Type: com.aria.common.shared.admin.PlanGroupArray
+    * @param plan_group_id - Type: com.aria.common.shared.admin.PlanGroupIdArray
+    * @param rollover_plan_duration - Type: Long
+    * @param rollover_plan_uom_cd - Type: Long
+    * @param rollover_plan_no - Type: Long
+    * @param rollover_client_plan_id - Type: String
+    * @param init_free_period_duration - Type: Long
+    * @param init_free_period_uom_cd - Type: Long
+    * @param initial_plan_status_cd - Type: Long
+    * @param rollover_plan_status_duration - Type: Long
+    * @param rollover_plan_status_uom_cd - Type: Long
+    * @param rollover_plan_status_cd - Type: Long
+    * @param dunning_plan_no - Type: Long
+    * @param dunning_client_plan_id - Type: String
+    * @param template_no - Type: Long
+    * @param client_email_template_id - Type: String
+    * @param apply_cancellation - Type: String
+    * @param plan_cancel_min_month - Type: Long
+    * @param apply_minimum_fee - Type: String
+    * @param how_to_apply_min_fee - Type: String
+    * @param resource - Type: com.aria.common.shared.admin.ResourceArray
+    * @param arc_service_no - Type: Long
+    * @param parent_plans - Type: com.aria.common.shared.admin.ParentPlansArray
+    * @param parent_client_plan_ids - Type: com.aria.common.shared.admin.ParentClientPlanIdsArray
+    * @param exclusion_plans - Type: com.aria.common.shared.admin.ExclusionPlansArray
+    * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
+    * @param template_ind - Type: Long
+    * @param child_plans - Type: com.aria.common.shared.admin.ChildPlansArray
+    * @param eligible_child_plans - Type: com.aria.common.shared.admin.EligibleChildPlansArray
+    * @param notification_template_group_no - Type: String
+    * @param credit_note_template_no - Type: String
+    * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
+    * @param client_surcharge_id - Type: com.aria.common.shared.admin.ClientSurchargeIdArray
+    * @param proration_invoice_timing_cd - Type: String
+    * @param plan_instance_status_cd - Type: Long
+    * @param assign_field_categories - Type: com.aria.common.shared.admin.AssignFieldCategoriesArray
+    * @param contract_rollover_plan_no - Type: Long
+    * @param contract_rollover_client_plan_id - Type: String
+    * @param contract_rollover_rate_sched - Type: com.aria.common.shared.admin.ContractRolloverRateSchedArray
+    * @param nso_incl_list_scope - Type: Long
+    * @param nso_incl_list_array - Type: com.aria.common.shared.admin.NsoInclListArrayArray
+    * @param nso_group_array - Type: com.aria.common.shared.admin.NsoGroupArrayArray
+    * @param nso_group_min_qty - Type: String
+    * @param nso_group_max_qty - Type: String
+    * @param nso_group_item_scope - Type: String
+    * @param nso_items_array - Type: com.aria.common.shared.admin.NsoItemsArrayArray
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plan_no - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> createNewPlanM(Long client_no, String auth_key, String plan_name, String plan_type, String currency, Long active, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, String plan_description, String client_plan_id, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long rollover_plan_duration, Long rollover_plan_uom_cd, Long rollover_plan_no, String rollover_client_plan_id, Long init_free_period_duration, Long init_free_period_uom_cd, Long initial_plan_status_cd, Long rollover_plan_status_duration, Long rollover_plan_status_uom_cd, Long rollover_plan_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long template_no, String client_email_template_id, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, String how_to_apply_min_fee, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, Long template_ind, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array);
+
+    abstract Map<String,Object> createNewPlanM(Map<String,Object> map);
+
+    /**
+    * editPlanM
+    * @param client_no - Type: Long
+    * @param auth_key - Type: String
+    * @param plan_no - Type: String
+    * @param client_plan_id - Type: String
+    * @param plan_name - Type: String
+    * @param plan_description - Type: String
+    * @param plan_group - Type: com.aria.common.shared.admin.PlanGroupArray
+    * @param plan_group_id - Type: com.aria.common.shared.admin.PlanGroupIdArray
+    * @param plan_type - Type: Long
+    * @param active - Type: Long
+    * @param currency - Type: String
+    * @param template_no - Type: Long
+    * @param client_email_template_id - Type: String
+    * @param rollover_plan_duration - Type: Long
+    * @param rollover_plan_uom_cd - Type: Long
+    * @param rollover_plan_no - Type: Long
+    * @param rollover_client_plan_id - Type: String
+    * @param init_free_period_duration - Type: Long
+    * @param init_free_period_uom_cd - Type: Long
+    * @param initial_plan_status_cd - Type: Long
+    * @param rollover_plan_status_duration - Type: Long
+    * @param rollover_plan_status_uom_cd - Type: Long
+    * @param rollover_plan_status_cd - Type: Long
+    * @param dunning_plan_no - Type: Long
+    * @param dunning_client_plan_id - Type: String
+    * @param allow_child_accts - Type: Long
+    * @param apply_cancellation - Type: String
+    * @param plan_cancel_min_month - Type: Long
+    * @param apply_minimum_fee - Type: String
+    * @param how_to_apply_min_fee - Type: Long
+    * @param schedule - Type: com.aria.common.shared.admin.ScheduleArray
+    * @param service - Type: com.aria.common.shared.admin.ServiceArray
+    * @param resource - Type: com.aria.common.shared.admin.ResourceArray
+    * @param arc_service_no - Type: Long
+    * @param parent_plans - Type: com.aria.common.shared.admin.ParentPlansArray
+    * @param parent_client_plan_ids - Type: com.aria.common.shared.admin.ParentClientPlanIdsArray
+    * @param exclusion_plans - Type: com.aria.common.shared.admin.ExclusionPlansArray
+    * @param supplemental_obj_field - Type: com.aria.common.shared.admin.SupplementalObjFieldArray
+    * @param child_plans - Type: com.aria.common.shared.admin.ChildPlansArray
+    * @param eligible_child_plans - Type: com.aria.common.shared.admin.EligibleChildPlansArray
+    * @param notification_template_group_no - Type: String
+    * @param credit_note_template_no - Type: String
+    * @param surcharge_no - Type: com.aria.common.shared.admin.SurchargeNoArray
+    * @param client_surcharge_id - Type: com.aria.common.shared.admin.ClientSurchargeIdArray
+    * @param proration_invoice_timing_cd - Type: String
+    * @param plan_instance_status_cd - Type: Long
+    * @param assign_field_categories - Type: com.aria.common.shared.admin.AssignFieldCategoriesArray
+    * @param edit_directives - Type: Long
+    * @param contract_rollover_plan_no - Type: Long
+    * @param contract_rollover_client_plan_id - Type: String
+    * @param contract_rollover_rate_sched - Type: com.aria.common.shared.admin.ContractRolloverRateSchedArray
+    * @param nso_incl_list_scope - Type: Long
+    * @param nso_incl_list_array - Type: com.aria.common.shared.admin.NsoInclListArrayArray
+    * @param nso_group_array - Type: com.aria.common.shared.admin.NsoGroupArrayArray
+    * @param nso_group_min_qty - Type: String
+    * @param nso_group_max_qty - Type: String
+    * @param nso_group_item_scope - Type: String
+    * @param nso_items_array - Type: com.aria.common.shared.admin.NsoItemsArrayArray
+    * @param locale_name - Type: String
+    * @return A <code>Map&#60;String,Object&#62;</code>, containing the following Objects:
+    *   error_code - Type: javax.xml.ws.Holder<br>
+    *   error_msg - Type: javax.xml.ws.Holder<br>
+    *   plan_no - Type: javax.xml.ws.Holder<br>
+    */
+    abstract Map<String,Object> editPlanM(Long client_no, String auth_key, String plan_no, String client_plan_id, String plan_name, String plan_description, com.aria.common.shared.admin.PlanGroupArray plan_group, com.aria.common.shared.admin.PlanGroupIdArray plan_group_id, Long plan_type, Long active, String currency, Long template_no, String client_email_template_id, Long rollover_plan_duration, Long rollover_plan_uom_cd, Long rollover_plan_no, String rollover_client_plan_id, Long init_free_period_duration, Long init_free_period_uom_cd, Long initial_plan_status_cd, Long rollover_plan_status_duration, Long rollover_plan_status_uom_cd, Long rollover_plan_status_cd, Long dunning_plan_no, String dunning_client_plan_id, Long allow_child_accts, String apply_cancellation, Long plan_cancel_min_month, String apply_minimum_fee, Long how_to_apply_min_fee, com.aria.common.shared.admin.ScheduleArray schedule, com.aria.common.shared.admin.ServiceArray service, com.aria.common.shared.admin.ResourceArray resource, Long arc_service_no, com.aria.common.shared.admin.ParentPlansArray parent_plans, com.aria.common.shared.admin.ParentClientPlanIdsArray parent_client_plan_ids, com.aria.common.shared.admin.ExclusionPlansArray exclusion_plans, com.aria.common.shared.admin.SupplementalObjFieldArray supplemental_obj_field, com.aria.common.shared.admin.ChildPlansArray child_plans, com.aria.common.shared.admin.EligibleChildPlansArray eligible_child_plans, String notification_template_group_no, String credit_note_template_no, com.aria.common.shared.admin.SurchargeNoArray surcharge_no, com.aria.common.shared.admin.ClientSurchargeIdArray client_surcharge_id, String proration_invoice_timing_cd, Long plan_instance_status_cd, com.aria.common.shared.admin.AssignFieldCategoriesArray assign_field_categories, Long edit_directives, Long contract_rollover_plan_no, String contract_rollover_client_plan_id, com.aria.common.shared.admin.ContractRolloverRateSchedArray contract_rollover_rate_sched, Long nso_incl_list_scope, com.aria.common.shared.admin.NsoInclListArrayArray nso_incl_list_array, com.aria.common.shared.admin.NsoGroupArrayArray nso_group_array, String nso_group_min_qty, String nso_group_max_qty, String nso_group_item_scope, com.aria.common.shared.admin.NsoItemsArrayArray nso_items_array, String locale_name);
+
+    abstract Map<String,Object> editPlanM(Map<String,Object> map);
 
     /**
     * getDunningProcessesM

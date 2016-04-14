@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plan_details_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "rolloverPlanDuration", "rolloverPlanUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "initialPlanStatusCd", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "rolloverPlanStatusCd", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planTranslationInfo"})
+@XmlType(name = "plan_details_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "clientPlanId2AssignOnSusp", "prorationInvoiceTimingCd", "rolloverPlanDuration", "rolloverPlanUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "initialPlanStatusCd", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "rolloverPlanStatusCd", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planTranslationInfo"})
 public class PlanDetailsReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -19,6 +19,8 @@ public class PlanDetailsReturnElement {
     protected String planName;
     @XmlElement(name = "plan_desc")
     protected String planDesc;
+    @XmlElement(name = "supp_plan_ind")
+    protected Long suppPlanInd;
     @XmlElement(name = "billing_ind")
     protected Long billingInd;
     @XmlElement(name = "display_ind")
@@ -106,6 +108,14 @@ public class PlanDetailsReturnElement {
 
     public void setPlanDesc(String value) {
         this.planDesc = value;
+    }
+
+    public Long getSuppPlanInd() {
+        return suppPlanInd;
+    }
+
+    public void setSuppPlanInd(Long value) {
+        this.suppPlanInd = value;
     }
 
     public Long getBillingInd() {

@@ -10,20 +10,20 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {"newInvoiceNo", "outAcctNo", "outClientAcctId", "outBillingGroupNo", "outClientBillingGroupId", "collectionErrorCode", "collectionErrorMsg", "statementErrorCode", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "errorCode", "errorMsg"})
+@XmlType(name = "", propOrder = {"newInvoiceNo", "acctNo", "clientAcctId", "billingGroupNo", "clientBillingGroupId", "collectionErrorCode", "collectionErrorMsg", "statementErrorCode", "statementErrorMsg", "procCvvResponse", "procAvsResponse", "procCavvResponse", "procStatusCode", "procStatusText", "procPaymentId", "procAuthCode", "procMerchComments", "errorCode", "errorMsg"})
 @XmlRootElement(name = "manage_pending_invoice_mResponseElement")
 public class ManagePendingInvoiceMResponseElement {
 
     @XmlElement(name = "new_invoice_no")
     protected Long newInvoiceNo;
-    @XmlElement(name = "out_acct_no")
-    protected Long outAcctNo;
-    @XmlElement(name = "out_client_acct_id")
-    protected String outClientAcctId;
-    @XmlElement(name = "out_billing_group_no")
-    protected Long outBillingGroupNo;
-    @XmlElement(name = "out_client_billing_group_id")
-    protected String outClientBillingGroupId;
+    @XmlElement(name = "acct_no")
+    protected Long acctNo;
+    @XmlElement(name = "client_acct_id")
+    protected String clientAcctId;
+    @XmlElement(name = "billing_group_no")
+    protected Long billingGroupNo;
+    @XmlElement(name = "client_billing_group_id")
+    protected String clientBillingGroupId;
     @XmlElement(name = "collection_error_code")
     protected Long collectionErrorCode;
     @XmlElement(name = "collection_error_msg")
@@ -61,36 +61,36 @@ public class ManagePendingInvoiceMResponseElement {
         this.newInvoiceNo = value;
     }
 
-    public Long getOutAcctNo() {
-        return outAcctNo;
+    public Long getAcctNo() {
+        return acctNo;
     }
 
-    public void setOutAcctNo(Long value) {
-        this.outAcctNo = value;
+    public void setAcctNo(Long value) {
+        this.acctNo = value;
     }
 
-    public String getOutClientAcctId() {
-        return outClientAcctId;
+    public String getClientAcctId() {
+        return clientAcctId;
     }
 
-    public void setOutClientAcctId(String value) {
-        this.outClientAcctId = value;
+    public void setClientAcctId(String value) {
+        this.clientAcctId = value;
     }
 
-    public Long getOutBillingGroupNo() {
-        return outBillingGroupNo;
+    public Long getBillingGroupNo() {
+        return billingGroupNo;
     }
 
-    public void setOutBillingGroupNo(Long value) {
-        this.outBillingGroupNo = value;
+    public void setBillingGroupNo(Long value) {
+        this.billingGroupNo = value;
     }
 
-    public String getOutClientBillingGroupId() {
-        return outClientBillingGroupId;
+    public String getClientBillingGroupId() {
+        return clientBillingGroupId;
     }
 
-    public void setOutClientBillingGroupId(String value) {
-        this.outClientBillingGroupId = value;
+    public void setClientBillingGroupId(String value) {
+        this.clientBillingGroupId = value;
     }
 
     public Long getCollectionErrorCode() {

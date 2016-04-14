@@ -10,11 +10,13 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoice_line_items_ReturnElement", propOrder = {"lineNo", "serviceNo", "serviceName", "units", "ratePerUnit", "amount", "description", "dateRangeStart", "dateRangeEnd", "usageTypeNo", "planNo", "planName", "creditReasonCodeDescription", "csrComments", "clientSku", "orderNo", "itemNo", "clientServiceId", "usageTypeCd", "clientPlanId", "clientItemId", "basePlanUnits", "prorationFactor", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "lineType", "rateScheduleNo", "rateScheduleTierNo", "creditCouponCode"})
+@XmlType(name = "invoice_line_items_ReturnElement", propOrder = {"lineNo", "lineType", "serviceNo", "serviceName", "units", "ratePerUnit", "amount", "basePlanUnits", "prorationFactor", "description", "dateRangeStart", "dateRangeEnd", "creditCouponCode", "planNo", "planName", "clientServiceId", "clientPlanId", "usageTypeNo", "creditReasonCodeDescription", "csrComments", "clientSku", "orderNo", "itemNo", "usageTypeCd", "clientItemId", "prorationText", "advBillingPeriodTotalDays", "prorationRemainingDays", "prorationDescription", "rateScheduleNo", "rateScheduleTierNo"})
 public class InvoiceLineItemsReturnElement {
 
     @XmlElement(name = "line_no")
     protected Long lineNo;
+    @XmlElement(name = "line_type")
+    protected Long lineType;
     @XmlElement(name = "service_no")
     protected Long serviceNo;
     @XmlElement(name = "service_name")
@@ -25,18 +27,28 @@ public class InvoiceLineItemsReturnElement {
     protected Double ratePerUnit;
     @XmlElement(name = "amount")
     protected Double amount;
+    @XmlElement(name = "base_plan_units")
+    protected Double basePlanUnits;
+    @XmlElement(name = "proration_factor")
+    protected Double prorationFactor;
     @XmlElement(name = "description")
     protected String description;
     @XmlElement(name = "date_range_start")
     protected String dateRangeStart;
     @XmlElement(name = "date_range_end")
     protected String dateRangeEnd;
-    @XmlElement(name = "usage_type_no")
-    protected Long usageTypeNo;
+    @XmlElement(name = "credit_coupon_code")
+    protected String creditCouponCode;
     @XmlElement(name = "plan_no")
     protected Long planNo;
     @XmlElement(name = "plan_name")
     protected String planName;
+    @XmlElement(name = "client_service_id")
+    protected String clientServiceId;
+    @XmlElement(name = "client_plan_id")
+    protected String clientPlanId;
+    @XmlElement(name = "usage_type_no")
+    protected Long usageTypeNo;
     @XmlElement(name = "credit_reason_code_description")
     protected String creditReasonCodeDescription;
     @XmlElement(name = "csr_comments")
@@ -47,18 +59,10 @@ public class InvoiceLineItemsReturnElement {
     protected Long orderNo;
     @XmlElement(name = "item_no")
     protected Long itemNo;
-    @XmlElement(name = "client_service_id")
-    protected String clientServiceId;
     @XmlElement(name = "usage_type_cd")
     protected String usageTypeCd;
-    @XmlElement(name = "client_plan_id")
-    protected String clientPlanId;
     @XmlElement(name = "client_item_id")
     protected String clientItemId;
-    @XmlElement(name = "base_plan_units")
-    protected Double basePlanUnits;
-    @XmlElement(name = "proration_factor")
-    protected Double prorationFactor;
     @XmlElement(name = "proration_text")
     protected String prorationText;
     @XmlElement(name = "adv_billing_period_total_days")
@@ -67,14 +71,10 @@ public class InvoiceLineItemsReturnElement {
     protected Long prorationRemainingDays;
     @XmlElement(name = "proration_description")
     protected String prorationDescription;
-    @XmlElement(name = "line_type")
-    protected Long lineType;
     @XmlElement(name = "rate_schedule_no")
     protected Long rateScheduleNo;
     @XmlElement(name = "rate_schedule_tier_no")
     protected Long rateScheduleTierNo;
-    @XmlElement(name = "credit_coupon_code")
-    protected String creditCouponCode;
     
     public Long getLineNo() {
         return lineNo;
@@ -82,6 +82,14 @@ public class InvoiceLineItemsReturnElement {
 
     public void setLineNo(Long value) {
         this.lineNo = value;
+    }
+
+    public Long getLineType() {
+        return lineType;
+    }
+
+    public void setLineType(Long value) {
+        this.lineType = value;
     }
 
     public Long getServiceNo() {
@@ -124,6 +132,22 @@ public class InvoiceLineItemsReturnElement {
         this.amount = value;
     }
 
+    public Double getBasePlanUnits() {
+        return basePlanUnits;
+    }
+
+    public void setBasePlanUnits(Double value) {
+        this.basePlanUnits = value;
+    }
+
+    public Double getProrationFactor() {
+        return prorationFactor;
+    }
+
+    public void setProrationFactor(Double value) {
+        this.prorationFactor = value;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -148,12 +172,12 @@ public class InvoiceLineItemsReturnElement {
         this.dateRangeEnd = value;
     }
 
-    public Long getUsageTypeNo() {
-        return usageTypeNo;
+    public String getCreditCouponCode() {
+        return creditCouponCode;
     }
 
-    public void setUsageTypeNo(Long value) {
-        this.usageTypeNo = value;
+    public void setCreditCouponCode(String value) {
+        this.creditCouponCode = value;
     }
 
     public Long getPlanNo() {
@@ -170,6 +194,30 @@ public class InvoiceLineItemsReturnElement {
 
     public void setPlanName(String value) {
         this.planName = value;
+    }
+
+    public String getClientServiceId() {
+        return clientServiceId;
+    }
+
+    public void setClientServiceId(String value) {
+        this.clientServiceId = value;
+    }
+
+    public String getClientPlanId() {
+        return clientPlanId;
+    }
+
+    public void setClientPlanId(String value) {
+        this.clientPlanId = value;
+    }
+
+    public Long getUsageTypeNo() {
+        return usageTypeNo;
+    }
+
+    public void setUsageTypeNo(Long value) {
+        this.usageTypeNo = value;
     }
 
     public String getCreditReasonCodeDescription() {
@@ -212,14 +260,6 @@ public class InvoiceLineItemsReturnElement {
         this.itemNo = value;
     }
 
-    public String getClientServiceId() {
-        return clientServiceId;
-    }
-
-    public void setClientServiceId(String value) {
-        this.clientServiceId = value;
-    }
-
     public String getUsageTypeCd() {
         return usageTypeCd;
     }
@@ -228,36 +268,12 @@ public class InvoiceLineItemsReturnElement {
         this.usageTypeCd = value;
     }
 
-    public String getClientPlanId() {
-        return clientPlanId;
-    }
-
-    public void setClientPlanId(String value) {
-        this.clientPlanId = value;
-    }
-
     public String getClientItemId() {
         return clientItemId;
     }
 
     public void setClientItemId(String value) {
         this.clientItemId = value;
-    }
-
-    public Double getBasePlanUnits() {
-        return basePlanUnits;
-    }
-
-    public void setBasePlanUnits(Double value) {
-        this.basePlanUnits = value;
-    }
-
-    public Double getProrationFactor() {
-        return prorationFactor;
-    }
-
-    public void setProrationFactor(Double value) {
-        this.prorationFactor = value;
     }
 
     public String getProrationText() {
@@ -292,14 +308,6 @@ public class InvoiceLineItemsReturnElement {
         this.prorationDescription = value;
     }
 
-    public Long getLineType() {
-        return lineType;
-    }
-
-    public void setLineType(Long value) {
-        this.lineType = value;
-    }
-
     public Long getRateScheduleNo() {
         return rateScheduleNo;
     }
@@ -314,14 +322,6 @@ public class InvoiceLineItemsReturnElement {
 
     public void setRateScheduleTierNo(Long value) {
         this.rateScheduleTierNo = value;
-    }
-
-    public String getCreditCouponCode() {
-        return creditCouponCode;
-    }
-
-    public void setCreditCouponCode(String value) {
-        this.creditCouponCode = value;
     }
 
     
