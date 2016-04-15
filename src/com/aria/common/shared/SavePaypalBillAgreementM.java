@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "clientNo",
-    "authKey",    "acctNo",    "billingGroupNo",    "clientBillingGroupId",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId",    "token"})
+    "authKey",    "acctNo",    "token",    "billingGroupNo",    "clientBillingGroupId",    "masterPlanInstanceNo",    "clientMasterPlanInstanceId"})
 @XmlRootElement(name = "save_paypal_bill_agreement_m")
 public class SavePaypalBillAgreementM {
 
@@ -20,6 +20,8 @@ public class SavePaypalBillAgreementM {
     protected String authKey;
         @XmlElement(name = "acct_no")
     protected Long acctNo;
+        @XmlElement(name = "token")
+    protected String token;
         @XmlElement(name = "billing_group_no")
     protected Long billingGroupNo;
         @XmlElement(name = "client_billing_group_id")
@@ -28,8 +30,6 @@ public class SavePaypalBillAgreementM {
     protected Long masterPlanInstanceNo;
         @XmlElement(name = "client_master_plan_instance_id")
     protected String clientMasterPlanInstanceId;
-        @XmlElement(name = "token")
-    protected String token;
     
     public long getClientNo() {
         return clientNo;
@@ -53,6 +53,13 @@ public class SavePaypalBillAgreementM {
 
     public void setAcctNo(Long value) {
         this.acctNo = value;
+    }
+            public String getToken() {
+        return token;
+    }
+
+    public void setToken(String value) {
+        this.token = value;
     }
             public Long getBillingGroupNo() {
         return billingGroupNo;
@@ -81,13 +88,6 @@ public class SavePaypalBillAgreementM {
 
     public void setClientMasterPlanInstanceId(String value) {
         this.clientMasterPlanInstanceId = value;
-    }
-            public String getToken() {
-        return token;
-    }
-
-    public void setToken(String value) {
-        this.token = value;
     }
             
 }

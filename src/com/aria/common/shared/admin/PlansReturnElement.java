@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "plans_ReturnElement", propOrder = {"planNo", "clientPlanId", "planName", "planLevel", "billingInterval", "activeInd", "description", "isDeletable", "rateSched", "planTranslationInfo", "planDesc"})
+@XmlType(name = "plans_ReturnElement", propOrder = {"planNo", "clientPlanId", "planName", "planLevel", "billingInterval", "activeInd", "description", "isDeletable", "planDesc", "rateSched", "planTranslationInfo"})
 public class PlansReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -29,12 +29,12 @@ public class PlansReturnElement {
     protected String description;
     @XmlElement(name = "is_deletable")
     protected String isDeletable;
+    @XmlElement(name = "plan_desc")
+    protected String planDesc;
     @XmlElement(name = "rate_sched")
     protected List<RateSchedReturnElement> rateSched;
     @XmlElement(name = "plan_translation_info")
     protected List<PlanTranslationInfoReturnElement> planTranslationInfo;
-    @XmlElement(name = "plan_desc")
-    protected String planDesc;
     
     public Long getPlanNo() {
         return planNo;
@@ -100,6 +100,14 @@ public class PlansReturnElement {
         this.isDeletable = value;
     }
 
+    public String getPlanDesc() {
+        return planDesc;
+    }
+
+    public void setPlanDesc(String value) {
+        this.planDesc = value;
+    }
+
     public List<RateSchedReturnElement> getRateSched() {
         if (this.rateSched == null) {
             this.rateSched = new ArrayList<RateSchedReturnElement>();
@@ -110,13 +118,5 @@ public class PlansReturnElement {
             this.planTranslationInfo = new ArrayList<PlanTranslationInfoReturnElement>();
         }
         return this.planTranslationInfo;
-    }public String getPlanDesc() {
-        return planDesc;
     }
-
-    public void setPlanDesc(String value) {
-        this.planDesc = value;
-    }
-
-    
 }

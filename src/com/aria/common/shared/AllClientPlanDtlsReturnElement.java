@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "rolloverPlanDuration", "rolloverPlanUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "initialPlanStatusCd", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "rolloverPlanStatusCd", "nsoInclListScope", "planServices", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planNsoInclList", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlans", "planNsoItems", "planNsoGroup", "nsoGroupMinQty", "nsoGroupMaxQty", "nsoGroupItemScope", "planTranslationDetails"})
+@XmlType(name = "all_client_plan_dtls_ReturnElement", propOrder = {"planNo", "planName", "planDesc", "suppPlanInd", "billingInd", "displayInd", "rolloverMonths", "rolloverPlanNo", "earlyCancelFee", "earlyCancelMinMonths", "suspensionPeriod", "newAcctStatus", "rolloverAcctStatus", "rolloverAcctStatusDays", "initFreeMonths", "plan2AssignOnSusp", "defaultNotifyMethod", "prepaidInd", "currencyCd", "clientPlanId", "clientRolloverPlanId", "prorationInvoiceTimingCd", "rolloverPlanDuration", "rolloverPlanUomCd", "initFreePeriodDuration", "initFreePeriodUomCd", "initialPlanStatusCd", "rolloverPlanStatusDuration", "rolloverPlanStatusUomCd", "rolloverPlanStatusCd", "nsoInclListScope", "planServices", "planRateSchedulesDetails", "contractRolloverPlanNo", "contractRolloverClientPlanId", "contractRolloverRateSched", "planNsoInclList", "planGroups", "promotionalPlanSets", "parentPlans", "planSuppFields", "firstRetrievalLevelInd", "childPlans", "planNsoItems", "planNsoGroup", "nsoGroupMinQty", "nsoGroupMaxQty", "nsoGroupItemScope", "planTranslationDtls"})
 public class AllClientPlanDtlsReturnElement {
 
     @XmlElement(name = "plan_no")
@@ -109,8 +109,8 @@ public class AllClientPlanDtlsReturnElement {
     protected String nsoGroupMaxQty;
     @XmlElement(name = "nso_group_item_scope")
     protected String nsoGroupItemScope;
-    @XmlElement(name = "plan_translation_details")
-    protected List<PlanTranslationDetailsReturnElement> planTranslationDetails;
+    @XmlElement(name = "plan_translation_dtls")
+    protected List<PlanTranslationDtlsReturnElement> planTranslationDtls;
     
     public Long getPlanNo() {
         return planNo;
@@ -463,10 +463,10 @@ public class AllClientPlanDtlsReturnElement {
         this.nsoGroupItemScope = value;
     }
 
-    public List<PlanTranslationDetailsReturnElement> getPlanTranslationDetails() {
-        if (this.planTranslationDetails == null) {
-            this.planTranslationDetails = new ArrayList<PlanTranslationDetailsReturnElement>();
+    public List<PlanTranslationDtlsReturnElement> getPlanTranslationDtls() {
+        if (this.planTranslationDtls == null) {
+            this.planTranslationDtls = new ArrayList<PlanTranslationDtlsReturnElement>();
         }
-        return this.planTranslationDetails;
+        return this.planTranslationDtls;
     }
 }
